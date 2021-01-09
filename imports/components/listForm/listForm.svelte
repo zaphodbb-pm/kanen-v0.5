@@ -115,7 +115,7 @@
 
 <div class="columns">
 
-    <article class="column {mode === 'grid' ? 'is-12' : 'is-5'}" class:is-hidden={!showList}>
+    <article class="column {mode === 'grid' ? 'is-12' : confList?.css ?? 'is-5'}" class:is-hidden={!showList}>
         <List_Holder
                 config="{confList}"
                 {listText}
@@ -126,7 +126,7 @@
 
     </article>
 
-    <article class="column is-7" class:is-hidden={!showForm}>
+    <article class="column {confForm?.css ?? 'is-7' }" class:is-hidden={!showForm}>
         <Form_Holder
                 config="{confForm}"
                 {formText}

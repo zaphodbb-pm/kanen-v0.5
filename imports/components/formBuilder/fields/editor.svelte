@@ -114,7 +114,6 @@
 
         if(quill){
             quill.root.innerHTML = inValue;
-            let value = quill.root.innerHTML;
         }
     }
 
@@ -124,6 +123,9 @@
         //** load big modules dynamically only when needed
         const { default: Quill } = await import("./editor");
         await import('./editor.css');
+
+        //** wait for html template ready
+        if(!editor){ return; }
 
         quill = new Quill(editor, {
             theme: "snow",
@@ -143,6 +145,7 @@
 
     onDestroy( () => {
         quill = null;
+        table = null;
     });
 
 </script>

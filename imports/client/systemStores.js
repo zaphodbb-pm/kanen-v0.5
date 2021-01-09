@@ -26,7 +26,7 @@ import {writable} from 'svelte/store'
 //import {readable} from 'svelte/store'
 
 //* set system parameters
-export let sysConfig = writable( null );
+export let sysConfig = writable( {} );
 export let showWidget = writable( false );
 export let sysDebug = writable( "" );
 
