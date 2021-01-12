@@ -20,6 +20,7 @@ import _ from 'underscore'
 
 //** isomorphic routines
 import '/imports/both/collections'
+import '/imports/server/indexing'
 import Version from '/imports/both/version'
 
 
@@ -39,7 +40,9 @@ import '/imports/server/publish/realTime'
 
 //** main configuration set up
 import {writeLog} from '/imports/server/functions/writeLog'
-import '/imports/server/indexing'
+
+//** debug routines
+import '/imports/both/AddOn_Packages/showServerConsole'
 
 
 Meteor.startup(() => {
@@ -77,6 +80,23 @@ if (Meteor.isServer) {
         app: Version.APP_NAME,
         update: Version.LAST_UPDATE
     };
+
+
+
+    //***** example of sending server logs to client browser
+    //***** args = label; single variable: object, array, string, number, etc; enable sending
+    Meteor.setTimeout(function(){
+        let msg = {
+            object: startData,
+            array: [1, 2, 3, 4],
+            text: "this is some text",
+            number: 42
+        };
+
+        showServerLogs("LogsSystem", msg, true);
+    }, 5000);
+    //****** end of example
+
 
     writeLog("LogsSystem", startData);
 }

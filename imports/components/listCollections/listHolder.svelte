@@ -165,7 +165,7 @@
         };
 
         //** if editing a doc send doc id else clear edit form
-        if (msg.detail.edit) {
+        if (msg?.detail?.edit) {
             message.id = msg.detail.id;
             message.type = "edit";
         }
@@ -343,13 +343,13 @@
 
     <div class="card-content">
         <div id="comp_listCollections">
-            {#if config.hasOverlay && listText.addNew}
+            {#if config.hasOverlay && listText.labels?.addNew}
                 <div class="w-100 d-flex justify-content-between mb-3">
                     <div></div>
 
                     <button class="button is-primary is-outlined"
                             on:click="{ () => docEdit({}) }">
-                        {listText.addNew}
+                        {listText.labels?.addNew}
                     </button>
                 </div>
             {/if}

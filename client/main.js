@@ -14,6 +14,7 @@
 
 //* load Meteor specific files
 import '/imports/both/collections'
+import '/imports/both/AddOn_Packages/showServerConsole'
 
 
 //* prepare to add PWA through service worker
@@ -37,6 +38,11 @@ Meteor.startup(() => {
         console.log("Service Worker is not supported in this browser");
     }
 });
+
+
+//* for dev / debug work: show server logs in client browser
+import '/imports/both/AddOn_Packages/showServerConsole'
+serverConsole.subscribe();
 
 
 //* load svelte framework
