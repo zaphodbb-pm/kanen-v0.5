@@ -43,6 +43,8 @@
     let showCroppie = false;
     let showCropArea = false;
 
+    let showModal = false;
+
     let showDelete = false;
     let showTxtImg = false;
     let messages = "";
@@ -56,10 +58,6 @@
     $: setValue(field.value);
 
 
-    //* event handlers
-    function emitFile(selId) {
-        dispatch('on-inputentry', {value: inValue, error: false}  );
-    }
 
     //* functions that mutate local variables
     function setValue(val){
@@ -129,10 +127,6 @@
     }
 
     //* show / hide the delete file icon
-    function txtImgEnter() {
-        showDelete = true;
-    }
-
     function deleteLeave() {
         showDelete = false;
     }
@@ -163,6 +157,14 @@
         dispatch('on-inputentry', {value: inValue, error: false} );
     }
 
+    function showFileImage(){
+        showModal = true;
+    }
+
+    function hideModal(){
+        showModal = false;
+    }
+
 </script>
 
 
@@ -176,36 +178,33 @@
         </div>
     </div>
 
-    <div class="control is-expanded" on:mouseleave="{deleteLeave}">
+
+    <div class="control is-expanded">
         <div class="button is-height-browse is-file-name">
 
-            <div  on:mouseenter="{txtImgEnter}">
+            <div class="w-100 d-flex justify-content-between align-items-center">
+                {#if format === 'text' && showTxtImg}
+                    <Icon icon='{getContext("iconFileFile")}' class="is-size-1"/>
+                {/if}
 
-                {#if showDelete}
-                    <div class="icon-delete" on:click="{deleteInfo}">
-                        <Icon icon='{getContext("iconFileDelete")}' class="is-size-1"/>
+                {#if format === 'image'}
+                    <img class="file-icon-img-src"
+                         src="{icon_img}"
+                         title="image file"
+                         style=""
+                         alt=""
+                         on:click="{showFileImage}">
+                {/if}
+
+                <div class="is-message-area">{@html messages}</div>
+
+                {#if messages}
+                    <div class="icon-delete is-align-self-flex-end" on:click="{deleteInfo}">
+                        <Icon icon='{getContext("iconFileDelete")}' class="is-size-6"/>
                     </div>
-
-                {:else}
-
-                    {#if format === 'text' && showTxtImg}
-                        <Icon icon='{getContext("iconFileFile")}' class="is-size-1"/>
-                    {/if}
-
-                    {#if format === 'image'}
-                        <div class="file-icon-img">
-                            <img class="file-icon-img-src"
-                                 src="{icon_img}"
-                                 title="image file"
-                                 style=""
-                                 alt="">
-                        </div>
-                    {/if}
-
                 {/if}
             </div>
 
-            <div class="is-message-area text-0dot9rem">{@html messages}</div>
         </div>
     </div>
 
@@ -225,27 +224,38 @@
             on:croppie-result={result}/>
 {/if}
 
+<div class="modal {showModal ? 'is-active': ''}">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+
+        <header class="modal-card-head">
+            <p class="modal-card-title" style="width:90%;">{messages}</p>
+            <button class="delete" on:click|preventDefault="{hideModal}" aria-label="close"></button>
+        </header>
+
+        <section class="modal-card-body">
+            <img class="show-modal-image" src="{icon_img}" title="" alt="">
+        </section>
+    </div>
+</div>
+
 
 
 
 
 <style>
-
-    .file-icon-img {
-        width: 100% !important;
-        height: 6rem !important;
-        cursor: pointer;
-    }
-
     .file-icon-img-src {
         max-width: none;
         max-height: 4rem;
-        margin-top: 1rem;
+        cursor: pointer;
     }
 
     .icon-delete {
+        font-size: 1rem;
+        height: 1rem;
         color: #D81B60;
         cursor: pointer;
+        margin-bottom: 0.5rem;
     }
 
     .is-height-browse {
@@ -260,7 +270,9 @@
 
     .is-message-area {
         width: 100%;
+        height: 6rem;
         padding-left: 1rem;
+        overflow: auto;
         white-space: normal;
         word-break: break-word;
     }
@@ -268,6 +280,10 @@
     .is-last-item {
         border-top-right-radius: 4px !important;
         border-bottom-right-radius: 4px !important;
+    }
+
+    .show-modal-image {
+        width: 100%;
     }
 
 </style>
