@@ -6,7 +6,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5",
-    "@fortawesome/free-regular-svg-icons": "^5.15.1",
+    "@fortawesome/free-regular-svg-icons": "^5.15.2",
     "bcrypt": "^5.0.0",
     "bulma-scss": "^0.9.1",
     "croppie": "^2.6.5",
