@@ -15,5 +15,4 @@ export function numString(num) {
     } else {
         return "0";
     }
-
 }

@@ -139,7 +139,7 @@ Meteor.methods({
      *  istemplate: 'true',
      *  locus: 'Client',
      *  notes: '1.  Key Session variables:\n         window  = dimensions of current viewport\n         resize  = reactive indicator (pulse) that a window resize has occurred and\n                   affected modules will need to update themselves\n         System  = reactive object holding key system parameters stored in the systemConfig collection',
-     *  filename: 'main.js',
+     *  filename: 'main.test.js',
      *  lineno: 1,
      *  path: '/client',
      *  augments: null,

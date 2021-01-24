@@ -2,7 +2,11 @@
   "name": "svelte-meteor",
   "private": true,
   "scripts": {
-    "start": "meteor run"
+    "start": "meteor run",
+    "test": "mocha"
+  },
+  "mocha": {
+    "extension": ["json", "js", "cjs", "mjs"]
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5",
@@ -24,5 +28,8 @@
     "sveltedoc-parser": "^3.0.5",
     "tiny-cookie": "^2.3.2",
     "underscore": "^1.12.0"
+  },
+  "devDependencies": {
+    "mocha": "^8.2.1"
   }
 }

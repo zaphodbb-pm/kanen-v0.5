@@ -68,7 +68,7 @@ export function adjustHexColor(color, percent) {
     outB = ( (B.toString(16).length === 1) ? "0" + B.toString(16) : B.toString(16) );
 
     return {
-        color:  "#" + outR + outG + outB,
+        color:  "#" + outR.toUpperCase() + outG.toUpperCase() + outB.toUpperCase(),
         text:   yiq,
     }
 }

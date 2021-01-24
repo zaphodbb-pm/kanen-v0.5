@@ -38,7 +38,7 @@ export const pageConfig =  {
         }
     ],
 
-    //** each login services also needs registration on the server:main.js -> function registerExternalLogin()
+    //** each login services also needs registration on the server:main.test.js -> function registerExternalLogin()
     services: [
         {
             icon:   "iconGoogle",

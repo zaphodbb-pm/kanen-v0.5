@@ -20,6 +20,7 @@ import '/imports/both/AddOn_Packages/showServerConsole'
 //* prepare to add PWA through service worker
 import { Meteor } from 'meteor/meteor'
 
+
 Meteor.startup(() => {
 
     if('serviceWorker' in navigator){
@@ -43,7 +44,6 @@ Meteor.startup(() => {
 //* for dev / debug work: show server logs in client browser
 import '/imports/both/AddOn_Packages/showServerConsole'
 serverConsole.subscribe();
-
 
 //* load svelte framework
 import App from '/imports/both/PageStructure/App.svelte'
