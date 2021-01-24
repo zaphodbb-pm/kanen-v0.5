@@ -14,5 +14,5 @@ describe("Check Setup Files", function () {
 });
 
 
-import '../imports/function_tests/adjustHexColor.test.mjs'
-import '../imports/function_tests/numString.test.mjs'
+
+import '../imports/function_tests/all_function.test.mjs'
