@@ -17,7 +17,7 @@
     export let field = {};
 
     //* support functions
-    import {generateId} from '/imports/functions/generateId';
+    import {generateId} from '/imports/functions/utilities/generateId';
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
     import {getContext} from 'svelte'

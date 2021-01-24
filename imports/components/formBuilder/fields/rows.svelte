@@ -34,7 +34,7 @@
     export let field = {};
 
     //* support functions
-    import {deepClone} from '/imports/functions/deepClone'
+    import {deepClone} from '/imports/functions/utilities/deepClone'
     import Icon from '/imports/components/elements/icon.svelte'
     import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte'
     import Sortable from '/imports/components/elements/rowDragDrop.svelte'

@@ -25,7 +25,7 @@
     export let field = {};
 
     //* support functions
-    import {getDocs} from '/imports/functions/getDocs'
+    import {getDocs} from '/imports/functions/supportApplication/getDocs'
     import {getContext, createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
     let formText = getContext("formText");

@@ -17,7 +17,7 @@
 
     //* get the user language preference from store and text from parent page prop
     import {lang} from '/imports/client/systemStores'
-    import {i18n} from '/imports/functions/i18n'
+    import {i18n} from '/imports/functions/utilities/i18n'
 
     let text = header ? i18n(header, "", $lang) : null;
 

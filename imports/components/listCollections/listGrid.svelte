@@ -31,8 +31,8 @@
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 
-    import {dotNotation} from '/imports/functions/dotNotation'
-    import {timeAgo} from '/imports/functions/timeAgo'
+    import {dotNotation} from '/imports/functions/utilities/dotNotation'
+    import {timeAgo} from '/imports/functions/formatters/timeAgo'
 
 
     //* local reactive variables

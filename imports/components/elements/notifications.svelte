@@ -18,8 +18,8 @@
     //* support files
     import {colors} from '/imports/both/systemGlobals'
     import Icon from '/imports/components/elements/icon.svelte'
-    import {getDocs} from '/imports/functions/getDocs'
-    import {timeAgo} from '/imports/functions/timeAgo'
+    import {getDocs} from '/imports/functions/supportApplication/getDocs'
+    import {timeAgo} from '/imports/functions/formatters/timeAgo'
 
     let text = getContext("navbar").notifications;
 

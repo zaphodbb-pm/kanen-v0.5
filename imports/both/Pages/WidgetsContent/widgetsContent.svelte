@@ -3,7 +3,7 @@
      * @summary Layout for WidgetsContent.
      *
      * @memberof Pages:WidgetsContent
-     * @function WidgetsContent
+     * @function widgetsContent
      * @locus Client
      *
      */

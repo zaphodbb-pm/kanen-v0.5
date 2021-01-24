@@ -1,6 +1,6 @@
 import {Meteor} from "meteor/meteor";
-import {sortBy} from "../../functions/sortBy";
-import {groupBy} from "../../functions/groupBy";
+import {sortBy} from "../../functions/utilities/sortBy";
+import {groupBy} from "../../functions/utilities/groupBy";
 
 Meteor.methods({
 

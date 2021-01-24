@@ -33,7 +33,7 @@ import list from './starter_list'
 import {roles} from'./starter_page_nav'
 
 import {fieldAddons} from '/imports/server/fieldAddons'
-import {buildAllFields} from '/imports/functions/buildAllFields'
+import {buildAllFields} from '/imports/functions/supportApplication/buildAllFields'
 
 export default {
     starter: {

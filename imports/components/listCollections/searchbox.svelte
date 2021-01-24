@@ -23,7 +23,7 @@
     const dispatch = createEventDispatcher();
 
     import {buildQuery} from './func-buildQuery'
-    import {i18n} from '/imports/functions/i18n'
+    import {i18n} from '/imports/functions/utilities/i18n'
     import searchBoxText from '/imports/client/setup/textSearch'
 
     //* local reactive variables

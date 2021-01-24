@@ -26,10 +26,10 @@
     //* get the user language preference from store; text from context and support functions
     import { getContext } from 'svelte';
     import {lang} from '/imports/client/systemStores'
-    import {i18n} from '/imports/functions/i18n'
-    import {getDocs} from '/imports/functions/getDocs'
-    import {timeAgo} from '/imports/functions/timeAgo'
-    import {formatPhoneNumber} from '/imports/functions/formatPhoneNumber'
+    import {i18n} from '/imports/functions/utilities/i18n'
+    import {getDocs} from '/imports/functions/supportApplication/getDocs'
+    import {timeAgo} from '/imports/functions/formatters/timeAgo'
+    import {formatPhoneNumber} from '/imports/functions/formatters/formatPhoneNumber'
 
     //* get components
     import Icon from '/imports/components/elements/icon.svelte'

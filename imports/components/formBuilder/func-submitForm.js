@@ -17,7 +17,7 @@
  */
 
 
-import {methodReturn} from '/imports/functions/methodReturn'
+import {methodReturn} from '/imports/functions/utilities/methodReturn'
 
 
 export async function submitForm(doc, coll, clone, test, emit, extras) {

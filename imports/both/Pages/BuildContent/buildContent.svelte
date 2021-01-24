@@ -32,7 +32,7 @@
     import List_Holder from '/imports/components/listCollections/listHolder.svelte'
     import listArray from './buildContent_list'
 
-    import {i18n} from '/imports/functions/i18n'
+    import {i18n} from '/imports/functions/utilities/i18n'
     import {lang} from '/imports/client/systemStores'
 
     let formText = i18n(page, "form", $lang);

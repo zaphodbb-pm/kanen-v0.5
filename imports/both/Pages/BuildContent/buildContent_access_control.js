@@ -16,7 +16,7 @@ import list from './buildContent_list'
 import {roles} from'./buildContent_nav'
 
 import {fieldAddons} from '/imports/server/fieldAddons'
-import {buildAllFields} from '/imports/functions/buildAllFields'
+import {buildAllFields} from '/imports/functions/supportApplication/buildAllFields'
 
 export default {
     buildContent: {

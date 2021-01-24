@@ -29,7 +29,7 @@
 
     //* page body support **************************
     import {lang} from '/imports/client/systemStores'
-    import {i18n} from '/imports/functions/i18n'
+    import {i18n} from '/imports/functions/utilities/i18n'
     let lng = $lang;
     setContext("pageText", page);
     setContext("pageConfig", pageConfig);

@@ -28,7 +28,7 @@
 
 
     //* page-body support **************************
-    import {i18n} from '/imports/functions/i18n'
+    import {i18n} from '/imports/functions/utilities/i18n'
     import {lang} from '/imports/client/systemStores'
 
     import Form_Holder from '/imports/components/formBuilder/formHolder.svelte'

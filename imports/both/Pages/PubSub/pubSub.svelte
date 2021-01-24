@@ -58,7 +58,7 @@
 
 
     //* page-body support **************************
-    import {i18n} from '/imports/functions/i18n'
+    import {i18n} from '/imports/functions/utilities/i18n'
     import {lang} from '/imports/client/systemStores'
 
     let text = i18n(page, "page", $lang);

@@ -56,9 +56,9 @@
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 
-    import {i18n} from '/imports/functions/i18n'
-    import {dotNotation} from '/imports/functions/dotNotation'
-    import {timeAgo} from '/imports/functions/timeAgo'
+    import {i18n} from '/imports/functions/utilities/i18n'
+    import {dotNotation} from '/imports/functions/utilities/dotNotation'
+    import {timeAgo} from '/imports/functions/formatters/timeAgo'
 
 
     //* local reactive variables
@@ -164,7 +164,7 @@
     }
 
     function formatPhoneNumber(str) {
-        let cleaned = ('' + str).replace(/\D/g, '');                // Filter only numbers from the input
+        let cleaned = ('' + str).replace(/\D/g, '');                // Filter only formatters from the input
         let match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/);  // Check if the input is of correct
         let out = "";
 

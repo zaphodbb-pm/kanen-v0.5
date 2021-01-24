@@ -1,5 +1,5 @@
 /**
- * Add commas to big numbers and returns a string
+ * Add commas to big formatters and returns a string
  *
  * @memberof Functions
  * @function numString

@@ -17,8 +17,8 @@
     export let field = {};
 
     //* support functions
-    import {validateEmail} from '/imports/functions/validateEmail'
-    import {validatePhone} from '/imports/functions/validatePhone'
+    import {validateEmail} from '/imports/functions/formatters/validateEmail'
+    import {validatePhone} from '/imports/functions/formatters/validatePhone'
     import Icon from '/imports/components/elements/icon.svelte'
     import {createEventDispatcher, getContext} from 'svelte';
     const dispatch = createEventDispatcher();

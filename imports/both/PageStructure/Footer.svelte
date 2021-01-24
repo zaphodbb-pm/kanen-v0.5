@@ -19,7 +19,7 @@
     let lng = $lang;
 
     //** get component text strings
-    import {i18n} from '/imports/functions/i18n'
+    import {i18n} from '/imports/functions/utilities/i18n'
     import text from './Footer_text'
 
     //let showPosition = false;

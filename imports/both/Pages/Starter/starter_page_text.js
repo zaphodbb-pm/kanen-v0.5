@@ -84,7 +84,7 @@ export const page = {
 
             startPhone: {
                 label: "Telephone Input",
-                helpText: "Supports '+' country code, 7 or 10 digit numbers, brackets and extension as 'x', 'ext'.",
+                helpText: "Supports '+' country code, 7 or 10 digit formatters, brackets and extension as 'x', 'ext'.",
             },
 
             startPassword: {

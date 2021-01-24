@@ -13,8 +13,8 @@
  */
 
 
-import {getLang} from '/imports/functions/getLang'
-import {i18n} from '/imports/functions/i18n'
+import {getLang} from '/imports/functions/supportApplication/getLang'
+import {i18n} from '/imports/functions/utilities/i18n'
 import MainPage from '/imports/both/PageStructure/MainPage.svelte'
 
 import {nav, link, icon, roles} from './myProfile_nav'

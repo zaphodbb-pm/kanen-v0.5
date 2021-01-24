@@ -1,6 +1,6 @@
 import assert from "assert";
 
-import {numString} from '../functions/numString.mjs'
+import {numString} from '../formatters/numString.mjs'
 
 
 describe("function numString", function () {

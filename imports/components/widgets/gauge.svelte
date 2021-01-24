@@ -42,8 +42,8 @@
      */
 
     //* support functions
-    import {toDecimals} from '/imports/functions/toDecimals'
-    import {setBackground} from '/imports/functions/setBackground'
+    import {toDecimals} from '/imports/functions/formatters/toDecimals'
+    import {setBackground} from '/imports/functions/supportDOM/setBackground'
 
     //* props
     export let text = {};

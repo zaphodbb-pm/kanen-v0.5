@@ -39,9 +39,9 @@
     import Icon from '/imports/components/elements/icon.svelte'
 
     //* support functions
-    import {toDecimals} from '/imports/functions/toDecimals'
-    import {adjustHexColor} from '/imports/functions/adjustHexColor'
-    import {setBackground} from '/imports/functions/setBackground'
+    import {toDecimals} from '/imports/functions/formatters/toDecimals'
+    import {adjustHexColor} from '/imports/functions/supportDOM/adjustHexColor'
+    import {setBackground} from '/imports/functions/supportDOM/setBackground'
 
     //* props
     export let text = {};

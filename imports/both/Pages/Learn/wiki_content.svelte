@@ -25,9 +25,9 @@
     import { createEventDispatcher, getContext, setContext } from 'svelte';
     const dispatch = createEventDispatcher();
     import Icon from '/imports/components/elements/icon.svelte'
-    import {getDocs} from '/imports/functions/getDocs'
-    import {timeAgo} from '/imports/functions/timeAgo'
-    import {numString} from '/imports/functions/numString'
+    import {getDocs} from '/imports/functions/supportApplication/getDocs'
+    import {timeAgo} from '/imports/functions/formatters/timeAgo'
+    import {numString} from '/imports/functions/formatters/numString'
 
     //* local reactive variables
     let wordPerMin = 225;

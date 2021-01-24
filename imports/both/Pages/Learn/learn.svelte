@@ -27,13 +27,13 @@
 
 
     //* page-body support **************************
-    import {i18n} from '/imports/functions/i18n'
+    import {i18n} from '/imports/functions/utilities/i18n'
     import {lang} from '/imports/client/systemStores'
     import {messages} from '/imports/client/systemStores'
 
-    import {getDocs} from '/imports/functions/getDocs'
-    import {sortBy} from '/imports/functions/sortBy'
-    import {generateId} from '/imports/functions/generateId'
+    import {getDocs} from '/imports/functions/supportApplication/getDocs'
+    import {sortBy} from '/imports/functions/utilities/sortBy'
+    import {generateId} from '/imports/functions/utilities/generateId'
 
     import Wiki_Toc from './wiki_toc.svelte'
     import Wiki_Content from './wiki_content.svelte'

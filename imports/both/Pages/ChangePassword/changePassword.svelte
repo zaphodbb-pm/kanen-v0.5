@@ -27,7 +27,7 @@
 
 
     //* page-body support **************************
-    import {i18n} from '/imports/functions/i18n'
+    import {i18n} from '/imports/functions/utilities/i18n'
     import {lang, userExtras} from '/imports/client/systemStores'
     import {roles} from './changePassword_nav'
 

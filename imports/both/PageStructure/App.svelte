@@ -45,7 +45,7 @@
 
 
     //* set up user extra items
-    import {buildNavLinks} from '/imports/functions/buildNavLinks'
+    import {buildNavLinks} from '/imports/functions/supportApplication/buildNavLinks'
     import {userPosition, userLoggedIn, userExtras} from '/imports/client/systemStores'
 
     //* load router -> will render main page & components based on nav-link selection

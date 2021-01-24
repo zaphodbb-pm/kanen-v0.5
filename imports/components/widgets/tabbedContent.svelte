@@ -32,10 +32,10 @@
     //* get the user language preference from store and text from context
     import { getContext } from 'svelte';
     import {lang} from '/imports/client/systemStores'
-    import {i18n} from '/imports/functions/i18n'
+    import {i18n} from '/imports/functions/utilities/i18n'
 
     //* get accessory components
-    import {methodReturn} from '/imports/functions/methodReturn'
+    import {methodReturn} from '/imports/functions/utilities/methodReturn'
     import Icon from '/imports/components/elements/icon.svelte'
 
 

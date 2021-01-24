@@ -1,5 +1,5 @@
 /**
- * Build numbers as fractions; num needs conversion and fraction is 8ths, 4trs, halfs.
+ * Build formatters as fractions; num needs conversion and fraction is 8ths, 4trs, halfs.
  *
  * @memberof Functions
  * @function fractionalNumber

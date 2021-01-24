@@ -27,13 +27,13 @@
 
 
     //* page-body support **************************
-    import {i18n} from '/imports/functions/i18n'
+    import {i18n} from '/imports/functions/utilities/i18n'
     import {lang} from '/imports/client/systemStores'
 
-    import {methodReturn} from '/imports/functions/methodReturn'
-    import {parseJSONString} from '/imports/functions/parseJSONString'
-    import {fileName} from '/imports/functions/fileName'
-    import {fileSaver} from '/imports/functions/fileSaver'
+    import {methodReturn} from '/imports/functions/utilities/methodReturn'
+    import {parseJSONString} from '/imports/functions/formatters/parseJSONString'
+    import {fileName} from '/imports/functions/fileHandlers/fileName'
+    import {fileSaver} from '/imports/functions/fileHandlers/fileSaver'
     import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte'
 
     let text = i18n(page, "components", $lang).card;

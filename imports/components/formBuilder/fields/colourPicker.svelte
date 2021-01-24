@@ -17,7 +17,7 @@
     export let field = {};
 
     //* support functions
-    import {textColour} from '/imports/functions/textColour'
+    import {textColour} from '/imports/functions/supportDOM/textColour'
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 

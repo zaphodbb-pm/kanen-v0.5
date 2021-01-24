@@ -75,7 +75,7 @@
 
     //* get application specific support libraries
     import {elements} from '/imports/both/systemGlobals'
-    import {getDocs} from '/imports/functions/getDocs'
+    import {getDocs} from '/imports/functions/supportApplication/getDocs'
     import {submitForm} from './func-submitForm'
     import {orgFields} from "./func-orgFields";
 

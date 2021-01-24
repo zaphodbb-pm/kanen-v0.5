@@ -64,9 +64,9 @@
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 
-    import {methodReturn} from '/imports/functions/methodReturn'
+    import {methodReturn} from '/imports/functions/utilities/methodReturn'
     import {buildFilter} from './func-buildFilter'
-    import {getDocs} from '/imports/functions/getDocs'
+    import {getDocs} from '/imports/functions/supportApplication/getDocs'
 
     //* make form text available to all children components
     setContext("listText", listText);

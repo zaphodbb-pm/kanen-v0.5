@@ -1,6 +1,6 @@
 import {Meteor} from "meteor/meteor";
 import {check} from 'meteor/check'
-import {flattenObject} from '/imports/functions/flattenObject'
+import {flattenObject} from '/imports/functions/utilities/flattenObject'
 import {myDocuments} from '/imports/server/functions/myDocuments'
 import {verifyRole} from "/imports/server/functions/verifyRole"
 

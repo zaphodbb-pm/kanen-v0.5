@@ -43,7 +43,7 @@ export function adjustHexColor(color, percent) {
     pc = pc >  100 ?  100 : pc;
     pc = pc < -100 ? -100 : pc;
 
-    //** extract hex string fragments; convert to decimal numbers
+    //** extract hex string fragments; convert to decimal formatters
     R = parseInt( color.substring(1,              1 + offset)    , 16);
     G = parseInt( color.substring(1 + offset,     1 + 2 * offset), 16);
     B = parseInt( color.substring(1 + 2 * offset, 1 + 3 * offset), 16);
