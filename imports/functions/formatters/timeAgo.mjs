@@ -5,14 +5,15 @@
  * @function timeAgo
  * @locus Anywhere
  *
- * @param {Object} time - Date object
+ * @param {Object} timeIn - Date object
+ *
  * @return {string} - relative time from now to 'time'
  *
  */
 
-export function timeAgo(time) {
+export function timeAgo(timeIn) {
 
-    time = time ? time : new Date(10000000);                    // make sure that time is defined
+    let time = timeIn ? timeIn : new Date(10000000);             // make sure that time is defined
     time = time && time.constructor === Object ? time: new Date(time); // convert number to date object
 
     let now = new Date();
