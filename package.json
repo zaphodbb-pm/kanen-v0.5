@@ -3,11 +3,13 @@
   "private": true,
   "scripts": {
     "start": "meteor run",
-    "test": "mocha"
+    "test": "jest"
   },
-  "mocha": {
-    "extension": ["json", "js", "cjs", "mjs"]
-  },
+  "jest": {
+    "testMatch": ["**/tests/**/*.(js|ts|mjs)?(x)", "**/?(*.)+(spec|test).(js|ts|mjs)?(x)"],
+    "testEnvironment": "jest-environment-node",
+    "transform": {}
+},
   "dependencies": {
     "@babel/runtime": "^7.12.5",
     "@fortawesome/free-regular-svg-icons": "^5.15.2",
@@ -30,6 +32,7 @@
     "underscore": "^1.12.0"
   },
   "devDependencies": {
+    "jest": "^26.6.3",
     "mocha": "^8.2.1"
   }
 }

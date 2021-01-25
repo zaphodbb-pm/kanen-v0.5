@@ -5,8 +5,8 @@ const nodeV = process.version;
 console.log("node version", nodeV);
 
 //* add require function for getting modules
-import { createRequire } from 'module'
-const require = createRequire(import.meta.url);
+//import { createRequire } from 'module'
+//const require = createRequire(import.meta.url);
 
 
 function sum(a, b) {
@@ -14,17 +14,15 @@ function sum(a, b) {
 }
 
 
-/*
 
 test('adds 1 + 2 to equal 3', () => {
     expect(sum(1, 2)).toBe(3);
 });
 
- */
 
 
 
-
+/*
 describe("Check Setup Files", function () {
     it("system version", async function () {
         const version = await import("../imports/both/version.mjs");
@@ -37,7 +35,10 @@ describe("Check Setup Files", function () {
 
 });
 
+*/
 
+
+/*
 
 
 //* get all test files in a directory, import and execute tests
@@ -65,9 +66,9 @@ function getTestFiles(dirTop, extension) {
     return walk(rpath +  dirTop, extension);
 }
 
+*/
 
-
-
+/*
 function walk(dir, extension) {
     let fs = require('fs');
 
@@ -89,3 +90,4 @@ function walk(dir, extension) {
     });
     return results;
 }
+*/
