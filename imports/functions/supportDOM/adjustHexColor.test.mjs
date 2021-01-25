@@ -1,6 +1,7 @@
-import {adjustHexColor} from '../supportDOM/adjustHexColor.mjs'
-
 import assert from "assert";
+
+
+import {adjustHexColor} from './adjustHexColor.mjs'
 
 describe("function adjustHexColor", function () {
     it("check for normal output", function () {

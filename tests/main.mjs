@@ -1,4 +1,4 @@
-//import assert from "assert";
+import assert from "assert";
 
 //* track node version that we are using - should use most recent
 const nodeV = process.version;
@@ -9,32 +9,12 @@ import { createRequire } from 'module'
 const require = createRequire(import.meta.url);
 
 
-function sum(a, b) {
-    return a + b;
-}
-
-
-/*
-
-test('adds 1 + 2 to equal 3', () => {
-    expect(sum(1, 2)).toBe(3);
-});
-
- */
-
-
-
-
 describe("Check Setup Files", function () {
     it("system version", async function () {
         const version = await import("../imports/both/version.mjs");
-
-        console.log("version", version);
-
-        //assert.strictEqual(version.default.APP_NAME, "Kanen");
-        //assert.strictEqual(version.default.VERSION, "0.2.5");
+        assert.strictEqual(version.default.APP_NAME, "Kanen");
+        assert.strictEqual(version.default.VERSION, "0.2.5");
     });
-
 });
 
 
@@ -55,6 +35,7 @@ testsFound.forEach( tf => import(tf));
 
 
 
+//* get test files in a target directory
 function getTestFiles(dirTop, extension) {
     let fs = require('fs');
 
@@ -67,7 +48,7 @@ function getTestFiles(dirTop, extension) {
 
 
 
-
+//* recursively walk a directory for test files
 function walk(dir, extension) {
     let fs = require('fs');
 
