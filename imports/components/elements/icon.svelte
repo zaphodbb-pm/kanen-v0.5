@@ -30,7 +30,7 @@
 </script>
 
 <svg aria-hidden="true"
-     class="{classes}"
+     class="{icon.iconName + ' ' + classes}"
      role="img"
      xmlns="http://www.w3.org/2000/svg"
      viewBox="{viewBox}">
