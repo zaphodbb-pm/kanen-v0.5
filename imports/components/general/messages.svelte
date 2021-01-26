@@ -28,6 +28,7 @@
     export let duration = 5000;
 
     //* support functions
+    import {msgDecoration} from "./functions/msgDecoration.mjs"
     import {messages} from '/imports/client/systemStores'
     import { getContext, createEventDispatcher } from 'svelte';
     const dispatch = createEventDispatcher();
@@ -40,7 +41,7 @@
     //* local reactive variables
     let msg = [];
 
-    $: msg = $messages.map( (m) => Object.assign(m, msgDecoration(m.state) ) );
+    $: msg = $messages.map( (m) => Object.assign(m, msgDecoration(m.state, closable, duration) ) );
 
 
     //* on start-up this is the "use" function
@@ -65,47 +66,6 @@
         $messages = removeMsg.filter( (m) => m.id !== msg.id);
 
         dispatch('message-end', msg.id);
-    }
-
-    function msgDecoration(state){
-        let common = {
-            closable: closable,
-            duration: duration
-        }
-
-        let states = {
-            success: {
-                colour: "is-success is-light",
-                hasIcon: "iconMsgSuccess",
-            },
-
-            warning: {
-                colour: "is-warning is-light",
-                hasIcon: "iconMsgWarning",
-            },
-
-            fail: {
-                colour: "is-danger is-light",
-                hasIcon: "iconMsgFail",
-            },
-
-            add: {
-                colour: "is-info is-light",
-                hasIcon: "iconMsgAdd",
-            },
-
-            remove: {
-                colour: "is-link is-light",
-                hasIcon: "iconMsgRemove",
-            },
-
-            uncertain: {
-                colour: "",
-                hasIcon: "iconMsgUncertain",
-            }
-        };
-
-        return Object.assign({}, states[state], common);
     }
 
 </script>

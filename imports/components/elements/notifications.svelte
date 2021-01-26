@@ -113,7 +113,7 @@
             <div class="navbar-item has-border-bottom has-text-black-bis mb-2">
 
                 <div class="card w-100">
-                    <header class="card-header" style="background-color: {colors[item.type]}">
+                    <header class="card-header" style="background-color: {colors[item.type]};">
                         <div class="card-header-title has-text-white-bis">
                             {item.header}
                         </div>

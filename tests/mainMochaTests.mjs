@@ -40,7 +40,7 @@ const testFileExtension = ".test.mjs";
 const dirComps = "/imports/components"
 const testsComps = getTestFiles(dirComps, testFileExtension);
 
-console.log(`'${dirComps}' test files found = `, testsComps.length);
+console.log(`'${dirComps}' test files found = `, testsComps.length, testsComps);
 
 testsComps.forEach( tc => {import(tc)});
 
