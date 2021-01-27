@@ -1,21 +1,26 @@
 import assert from "assert";
 
+import {adjustHexColor as underTest} from './adjustHexColor.mjs'
 
-import {adjustHexColor} from './adjustHexColor.mjs'
+const label = "function adjustHexColor";
 
-describe("function adjustHexColor", function () {
-    it("check for normal output", function () {
-        const outMid = adjustHexColor("#777777", 0);
-        assert.deepStrictEqual(outMid, {color: "#777777", text: "#FFFFFF"});
-    });
+const testVals = [
+    {test: "check for falsey values",  args: [undefined, undefined], result: {color: null, text: "#000000"}},
+    {test: "check malformed colour value",  args: ["777777", 0], result: {color: null, text: "#000000"}},
+    {test: "check for normal output", args: ["#777777", 0], result: {color: "#777777", text: "#FFFFFF"}},
+    {test: "check for below minimum range", args: ["#777777", -120],  result: {color: "#000000", text: "#FFFFFF"}},
+    {test: "check for above maximum range", args: ["#777777", 120],  result: {color: "#EEEEEE", text: "#000000"}},
+];
 
-    it("check for below minimum range", function () {
-        const outLow = adjustHexColor("#777777", -120);
-        assert.deepStrictEqual(outLow, {color: "#000000", text: "#FFFFFF"});
-    });
-
-    it("check for above maximum range", function () {
-        const outHigh = adjustHexColor("#777777", 120);
-        assert.deepStrictEqual(outHigh, {color: "#EEEEEE", text: "#000000"} );
+describe(label, function () {
+    testVals.forEach( tv => {
+        it(tv.test, function () {
+            const out = underTest(...tv.args);
+            if(typeof tv.result === "object"){
+                assert.deepStrictEqual(out, tv.result);
+            }else{
+                assert.strictEqual(out, tv.result);
+            }
+        });
     });
 });

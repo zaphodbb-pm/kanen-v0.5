@@ -1,21 +1,24 @@
 import assert from "assert";
 
+import {numString as underTest} from './numString.mjs'
 
-import {numString} from './numString.mjs'
+const label = "function numString";
 
-describe("function numString", function () {
-    it("normal formatting", function () {
-        const out = numString(123456789.54);
-        assert.strictEqual(out, "123,456,789.54");
-    });
+const testVals = [
+    {test: "normal formatting", args: [123456789.54], result: "123,456,789.54"},
+    {test: "number is falsey", args: [undefined],  result: "0"},
+    {test: "not a number", args: [{}],  result: "0"},
+];
 
-    it("number is falsey", function () {
-        const out = numString(undefined);
-        assert.strictEqual(out, "0");
-    });
-
-    it("not a number", function () {
-        const out = numString({});
-        assert.strictEqual(out, "0");
+describe(label, function () {
+    testVals.forEach( tv => {
+        it(tv.test, function () {
+            const out = underTest(...tv.args);
+            if(typeof tv.result === "object"){
+                assert.deepStrictEqual(out, tv.result);
+            }else{
+                assert.strictEqual(out, tv.result);
+            }
+        });
     });
 });

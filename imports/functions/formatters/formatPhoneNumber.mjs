@@ -12,7 +12,9 @@
  */
 
 export function formatPhoneNumber(str) {
-    let cleaned = ('' + str).replace(/\D/g, '');                // Filter only formatters from the input
+    if(typeof str !== "string"){return "";}
+
+    let cleaned = ('' + str).replace(/\D/g, '');         // Filter only formatters from the input
     let match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})(\d+)?$/);    // Check if the input is of correct format
     let out = "";
 

@@ -15,33 +15,25 @@
 
 
 export function adjustHexColor(color, percent) {
-
     let R, G, B;
     let outR, outG, outB;
-    let pc = 0;
     let offset = 2;
 
     //** exit if color construct is not proper
-    if( !color.includes("#") || ( color.length !== 7 && color.length !== 4 ) ){ return null; }
+    if(!color || (!color.includes("#") || ( color.length !== 7 && color.length !== 4 ) ) ){
+        return {color: null, text: "#000000"};
+    }
 
     //** accommodates shortened hex colour values
     if( color.length === 4){
         offset = 1;
     }
 
-    //** type check and range check percent change value
-    if( typeof percent === "number" ){
-        pc = Math.round( percent );
-    }else{
-        if( typeof percent === "string" ){
-            pc = parseInt( percent );
-        }else{
-            pc = 0;
-        }
-    }
+    //** type check and range check percent change value; clamp values to max range
+    let pc = typeof percent === "number" ? Math.round( percent )
+                : ( typeof percent === "string" ? parseInt( percent ) : 0 );
 
-    pc = pc >  100 ?  100 : pc;
-    pc = pc < -100 ? -100 : pc;
+    pc = pc > 100 ? 100 : (pc < -100 ? -100 : pc);
 
     //** extract hex string fragments; convert to decimal formatters
     R = parseInt( color.substring(1,              1 + offset)    , 16);
@@ -58,7 +50,7 @@ export function adjustHexColor(color, percent) {
     G = G < 255 ? G : 255;
     B = B < 255 ? B : 255;
 
-    //** get best contrast colour for text
+    //** get best contrast colour for text based on yiq formula
     let yiq = Math.round( ( (R * 299) + (G * 587) + ( B * 114) ) / 1000 );
     yiq = (yiq >= 128) ? "#000000" : "#FFFFFF" ;
 
