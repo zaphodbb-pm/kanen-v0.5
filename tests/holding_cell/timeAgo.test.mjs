@@ -1,6 +1,6 @@
 import assert from "assert";
 
-import {timeAgo as underTest} from './timeAgo.mjs'
+import {timeAgo as underTest} from '../../imports/functions/formatters/timeAgo.mjs'
 
 const now = Date.now();
 const nowFixed =  JSON.parse(JSON.stringify(now));

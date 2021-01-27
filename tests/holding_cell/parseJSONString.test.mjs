@@ -1,6 +1,6 @@
 import assert from "assert";
 
-import {parseJSONString as underTest} from './parseJSONString.mjs'
+import {parseJSONString as underTest} from '../../imports/functions/formatters/parseJSONString.mjs'
 
 const label = "function parseJSONString";
 

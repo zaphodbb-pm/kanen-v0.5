@@ -21,6 +21,7 @@ console.log("node version", nodeV);
 
 //* add require function for getting modules
 import { createRequire } from 'module'
+import {formatNumber as underTest} from "../imports/functions/formatters/formatNumber.mjs";
 const require = createRequire(import.meta.url);
 
 
@@ -34,7 +35,7 @@ describe("Check Setup Files", function () {
 
 
 //* get all test files in a directory, import and execute tests
-const testFileExtension = ".test.mjs";
+const testFileExtension = ".mjs";
 
 //** tests for components
 const dirComps = "/imports/components"
@@ -51,7 +52,7 @@ const testsFound = getTestFiles(dirFunctions, testFileExtension);
 
 console.log(`'${dirFunctions}' test files found = `, testsFound.length);
 
-testsFound.forEach( tf => import(tf));
+testsFound.forEach( tf => doTest(tf));
 
 
 
@@ -90,4 +91,29 @@ function walk(dir, extension) {
         }
     });
     return results;
+}
+
+function doTest(link){
+    import(link).then( module => {
+        const plan = module.testPlan;
+        const getFunction = Object.keys(module).filter( f => f !== "testPlan")
+        const underTest = module[ getFunction[0] ];
+
+        if(plan){
+            describe(plan.label, function () {
+                plan.tests.forEach( tv => {
+                    it(tv.test, function () {
+                        const out = underTest(...tv.args);
+                        if(typeof tv.result === "object"){
+                            assert.deepStrictEqual(out, tv.result);
+                        }else{
+                            assert.strictEqual(out, tv.result);
+                        }
+                    });
+                });
+            });
+        }
+
+    })
+        .catch(err => {console.log("err", err)})
 }

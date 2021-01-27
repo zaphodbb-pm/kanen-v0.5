@@ -1,6 +1,6 @@
 import assert from "assert";
 
-import {formatNumber as underTest} from './formatNumber.mjs'
+import {formatNumber as underTest} from '../../imports/functions/formatters/formatNumber.mjs'
 
 const label = "function formatNumber";
 

@@ -23,3 +23,18 @@ export function parseJSONString(string, obj) {
 
     return info;
 }
+
+
+const test1 = {one: 1, two: 2};
+const test2 = [{one: 1}, {two: 2}];
+
+export const testPlan = {
+    label: "function parseJSONString",
+
+    tests:  [
+        {test: "normal object format", args: [JSON.stringify(test1), {} ], result: test1 },
+        {test: "normal array format", args: [JSON.stringify(test2), {} ], result: test2},
+        {test: "not valid JSON object", args: [undefined, {} ],  result: {}},
+        {test: "not valid JSON array", args: [undefined, [] ],  result: []},
+    ]
+}

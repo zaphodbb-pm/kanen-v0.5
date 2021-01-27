@@ -1,13 +1,13 @@
 import assert from "assert";
 
-import {numString as underTest} from './numString.mjs'
+import {fractionalNumber as underTest} from '../../imports/functions/formatters/fractionalNumber.mjs'
 
-const label = "function numString";
+const label = "function fractionalNumber";
 
 const testVals = [
-    {test: "normal formatting", args: [123456789.54], result: "123,456,789.54"},
-    {test: "number is falsey", args: [undefined],  result: "0"},
-    {test: "not a number", args: [{}],  result: "0"},
+    {test: "normal formatting", args: [1.125, "imperial"], result: "1 1/8"},
+    {test: "not a number", args: [undefined, "imperial"], result: " "},
+    {test: "metric number", args: [123.456789, "metric"], result: "123.5"},
 ];
 
 describe(label, function () {

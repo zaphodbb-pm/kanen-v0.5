@@ -1,6 +1,6 @@
 import assert from "assert";
 
-import {toDecimals as underTest} from './toDecimals.mjs'
+import {toDecimals as underTest} from '../../imports/functions/formatters/toDecimals.mjs'
 
 const label = "function toDecimals";
 

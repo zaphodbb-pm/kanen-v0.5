@@ -1,6 +1,6 @@
 import assert from "assert";
 
-import {adjustHexColor as underTest} from './adjustHexColor.mjs'
+import {adjustHexColor as underTest} from '../../imports/functions/supportDOM/adjustHexColor.mjs'
 
 const label = "function adjustHexColor";
 

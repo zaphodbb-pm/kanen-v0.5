@@ -26,3 +26,18 @@ export function formatPhoneNumber(str) {
 
     return out;
 }
+
+
+
+export const testPlan = {
+    label: "function formatPhoneNumber",
+
+    tests: [
+        {test: "undefined args", args: [undefined], result: ""},
+        {test: "not a string", args: [123],  result: ""},
+        {test: "truncated phone number", args: ["123"],  result: ""},
+        {test: "local number", args: ["6132340987"],  result: "(613) 234-0987"},
+        {test: "partial full phone number", args: ["237890123"],  result: ""},
+        {test: "full phone number", args: ["12378901234"], result: "+1 (237) 890-1234"},
+    ]
+}

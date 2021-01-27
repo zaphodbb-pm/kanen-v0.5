@@ -34,3 +34,15 @@ export function fractionalNumber(number, scale) {
 
     return num.toFixed(1);                  // for metric case, make number nice
 }
+
+
+
+export const testPlan = {
+    label: "function fractionalNumber",
+
+    tests:  [
+        {test: "normal formatting", args: [1.125, "imperial"], result: "1 1/8"},
+        {test: "not a number", args: [undefined, "imperial"], result: " "},
+        {test: "metric number", args: [123.456789, "metric"], result: "123.5"},
+    ]
+}
