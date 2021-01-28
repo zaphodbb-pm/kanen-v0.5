@@ -125,6 +125,14 @@ function doTest(link){
                                 assert.ok(!out);
                                 break;
 
+                            case "checkMutate":
+                                assert.deepStrictEqual(tv.args[0], tv.original);
+                                break;
+
+                            case "checkStringLength":
+                                assert.strictEqual(out.length, tv.result);
+                                break;
+
                             default:
                                 assert.strictEqual(out, tv.result);
                         }

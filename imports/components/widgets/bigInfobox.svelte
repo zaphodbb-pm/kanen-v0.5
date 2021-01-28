@@ -50,9 +50,9 @@
 
     let height = config && config.height ? config.height : 6;
 
-    function progessValue() {
-        if (payload) {
-            let num = payload.values ? payload.values : 0;
+    function progessValue(payld) {
+        if (payld) {
+            let num = payld.values ? payld.values : 0;
             num = num && Array.isArray(num) ? num[0] : num;
             return toDecimals(num, 1);
         } else {

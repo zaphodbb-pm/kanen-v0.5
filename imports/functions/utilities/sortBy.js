@@ -15,7 +15,7 @@
  */
 
 
-import {deepClone} from "./deepClone";
+import {deepClone} from "./deepClone.mjs";
 
 export function sortBy( inList, key, sortDir, clone ) {
     let list = !!clone ? deepClone(inList) : inList;
@@ -24,3 +24,4 @@ export function sortBy( inList, key, sortDir, clone ) {
     list.sort((a, b) => (a[key] > b[key]) ? dir : -1 * dir)
     return list;
 }
+
