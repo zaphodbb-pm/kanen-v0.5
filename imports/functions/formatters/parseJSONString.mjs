@@ -32,9 +32,9 @@ export const testPlan = {
     label: "function parseJSONString",
 
     tests:  [
-        {test: "normal object format", args: [JSON.stringify(test1), {} ], result: test1 },
-        {test: "normal array format", args: [JSON.stringify(test2), {} ], result: test2},
-        {test: "not valid JSON object", args: [undefined, {} ],  result: {}},
-        {test: "not valid JSON array", args: [undefined, [] ],  result: []},
+        {test: "normal object format", args: [JSON.stringify(test1), {} ], type: "deepStrictEqual", result: test1 },
+        {test: "normal array format", args: [JSON.stringify(test2), {} ], type: "deepStrictEqual", result: test2},
+        {test: "not valid JSON object", args: [undefined, {} ], type: "deepStrictEqual",  result: {}},
+        {test: "not valid JSON array", args: [undefined, [] ], type: "deepStrictEqual",  result: []},
     ]
 }

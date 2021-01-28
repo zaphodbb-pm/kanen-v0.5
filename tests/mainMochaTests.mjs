@@ -15,13 +15,15 @@
 
 import assert from "assert";
 
+
+//console.log("assert", assert);
+
 //* track node version that we are using - should use most recent
 const nodeV = process.version;
 console.log("node version", nodeV);
 
 //* add require function for getting modules
 import { createRequire } from 'module'
-import {formatNumber as underTest} from "../imports/functions/formatters/formatNumber.mjs";
 const require = createRequire(import.meta.url);
 
 
@@ -102,12 +104,29 @@ function doTest(link){
         if(plan){
             describe(plan.label, function () {
                 plan.tests.forEach( tv => {
+
                     it(tv.test, function () {
                         const out = underTest(...tv.args);
-                        if(typeof tv.result === "object"){
-                            assert.deepStrictEqual(out, tv.result);
-                        }else{
-                            assert.strictEqual(out, tv.result);
+
+                        switch (tv.type){
+                            case "strictEqual":
+                                assert.strictEqual(out, tv.result);
+                                break;
+
+                            case "deepStrictEqual":
+                                assert.deepStrictEqual(out, tv.result);
+                                break;
+
+                            case "ok":
+                                assert.ok(out);
+                                break;
+
+                            case "notOk":
+                                assert.ok(!out);
+                                break;
+
+                            default:
+                                assert.strictEqual(out, tv.result);
                         }
                     });
                 });
