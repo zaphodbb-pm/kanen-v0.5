@@ -26,7 +26,7 @@ export const testPlan = {
 
     tests:  [
         {test: "normal formatting", args: ["abcdef@example.com"], type: "ok"},
-        {test: "invalid domain", args: ["abcdef@example."],  type: "notOk"},
-        {test: "missing user name", args: ["@example.com"],  type: "notOk"},
+        {test: "invalid domain", args: ["abcdef@example."], type: "notOk"},
+        {test: "missing user name", args: ["@example.com"], type: "notOk"},
     ]
 }

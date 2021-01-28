@@ -40,9 +40,9 @@ export const testPlan = {
     label: "function validatePhone",
 
     tests:  [
-        {test: "normal formatting", args: ["+1 (613) 234-0987 ext 123"], result: test1 , type: "deepStrictEqual"},
-        {test: "not clean format", args: ["phon (613) 234-0987 box 123"], result: test2 , type: "deepStrictEqual"},
-        {test: "truncated number", args: ["613234098"], result: test3,  type: "deepStrictEqual"},
+        {test: "normal formatting", args: ["+1 (613) 234-0987 ext 123"], result: test1, type: "deepStrictEqual"},
+        {test: "not clean format", args: ["phon (613) 234-0987 box 123"], result: test2, type: "deepStrictEqual"},
+        {test: "truncated number", args: ["613234098"], result: test3, type: "deepStrictEqual"},
         {test: "no phone number", args: [undefined], result: test4, type: "deepStrictEqual"},
     ]
 }

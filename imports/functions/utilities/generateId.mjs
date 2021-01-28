@@ -21,11 +21,11 @@ export function generateId( length ) {
     try {
         window.crypto.getRandomValues(arr);
     }catch {
-        arr = arr.map( a => Math.round( Math.random() * 255 ) );
+        arr = arr.map( a => {return Math.round( Math.random() * 255 ) } );
     }
 
     arr.forEach(function (item) {
-        let pos = Math.round(item / 255 * choices.length);
+        let pos = Math.round(item / 255 * (choices.length - 1) );
         out.push(choices.charAt(pos));
     });
 

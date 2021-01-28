@@ -1,9 +1,9 @@
 import assert from "assert";
 
-import {fileLoad} from "../../../tests/fileLoad.mjs";
-import {fileAbsolutePath} from "../../../tests/fileAbsolutePath.mjs";
-import {buildDOM} from "../../../tests/domBuild.mjs"
-import {checkDOM} from "../../../tests/domUtilities.mjs"
+import {fileLoad} from "../../../tests/functions/fileLoad.mjs";
+import {fileAbsolutePath} from "../../../tests/functions/fileAbsolutePath.mjs";
+import {buildDOM} from "../../../tests/functions/domBuild.mjs"
+import {checkDOM} from "../../../tests/functions/domUtilities.mjs"
 
 
 //* need to use absolute file path from project root

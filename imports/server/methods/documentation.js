@@ -1,5 +1,5 @@
 import {Meteor} from "meteor/meteor";
-import {sortBy} from "../../functions/utilities/sortBy";
+import {sortBy} from "../../functions/utilities/sortBy.mjs";
 import {groupBy} from "../../functions/utilities/groupBy";
 
 Meteor.methods({
