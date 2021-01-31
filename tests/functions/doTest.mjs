@@ -13,6 +13,10 @@
 
 import assert from "assert";
 
+import { createRequire } from 'module'
+const require = createRequire(import.meta.url);
+const sinon = require("sinon");
+
 export function doTest(link){
     import(link).then( module => {
         const plan = module.testPlan;
@@ -22,25 +26,22 @@ export function doTest(link){
         if(plan){
             describe(plan.label, function () {
                 plan.tests.forEach( tv => {
-
                     it(tv.test, function () {
-                        const out = underTest(...tv.args);
-
                         switch (tv.type){
                             case "strictEqual":
-                                assert.strictEqual(out, tv.result);
+                                assert.strictEqual(underTest(...tv.args), tv.result);
                                 break;
 
                             case "deepStrictEqual":
-                                assert.deepStrictEqual(out, tv.result);
+                                assert.deepStrictEqual(underTest(...tv.args), tv.result);
                                 break;
 
                             case "ok":
-                                assert.ok(out);
+                                assert.ok(underTest(...tv.args));
                                 break;
 
                             case "notOk":
-                                assert.ok(!out);
+                                assert.ok(!underTest(...tv.args));
                                 break;
 
                             case "checkMutate":
@@ -48,17 +49,16 @@ export function doTest(link){
                                 break;
 
                             case "checkStringLength":
-                                assert.strictEqual(out.length, tv.result);
+                                assert.strictEqual(underTest(...tv.args).length, tv.result);
                                 break;
 
                             default:
-                                assert.strictEqual(out, tv.result);
+                                assert.strictEqual(underTest(...tv.args), tv.result);
                         }
                     });
                 });
             });
         }
-
     })
         .catch(err => {console.log("err", err)})
 }
