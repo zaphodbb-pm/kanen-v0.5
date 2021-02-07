@@ -29,13 +29,13 @@ const rpath = fs.realpathSync("./");
 const nodeV = process.version;
 console.log("Node Version: ", nodeV);
 
-const version = await import("../imports/both/version.mjs");
+const version = await import("../../imports/both/version.mjs");
 console.log(`Project: ${version.default.APP_NAME} at version ${version.default.VERSION}`)
 
 //* add support functions
-import {doTest} from "./functions/doTest.mjs"
+import {doTest} from "../functions/doTest.mjs"
 
-import {testAssertions} from "./functions/testAssertions.mjs";
+import {testAssertions} from "../functions/testAssertions.mjs";
 
 //* get a single test files in a directory, import and execute tests
 const directory = "/imports/functions/utilities"

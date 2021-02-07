@@ -322,5 +322,5 @@
 
         </div>
     </div>
-    <button class="modal-close is-large" aria-label="close" on:click={btnClose}></button>
+    <button class="modal-close is-large dismiss-pwa" aria-label="close" on:click={btnClose}></button>
 </div>
