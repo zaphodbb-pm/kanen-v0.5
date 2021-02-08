@@ -50,7 +50,7 @@
                 <div class="buffer">
                     <div><b>{icon[0]}</b></div>
 
-                    <div class="d-flex align-items-center test-point-icon">
+                    <div class="d-flex align-items-center" data-testid="icon-block">
                         <Icon icon={icon[1]} class="ml-2 is-size-6" />
                         <Icon icon={icon[1]} class="ml-2 text-1dot2rem has-text-info" />
                         <Icon icon={icon[1]} class="ml-2 is-size-4 has-text-link" />
