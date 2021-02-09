@@ -1,5 +1,7 @@
 {
   "baseUrl": "http://localhost:3000",
+  "viewportWidth": 1000,
+  "viewportHeight": 1000,
   "fileServerFolder": "tests",
   "integrationFolder": "tests/cypress/integration",
   "fixturesFolder": "tests/cypress/fixtures",

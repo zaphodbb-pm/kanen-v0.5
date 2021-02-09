@@ -29,7 +29,7 @@
 <div class="page-master-layout has-background-white">
     <div class="columns">
 
-        <div class="column mr-4 is-narrow is-hidden-touch is-hidden-desktop-only">
+        <div class="column mr-4 is-narrow is-hidden-touch is-hidden-desktop-only" data-test="">
             <SideNav {currentRoute} />
         </div>
 

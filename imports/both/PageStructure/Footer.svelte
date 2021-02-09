@@ -15,7 +15,7 @@
     let version = getContext("Version");
 
     //** get the user language preference from store
-    import {sysConfig, showWidget, lang} from '/imports/client/systemStores'
+    import {showWidget, lang} from '/imports/client/systemStores'
     let lng = $lang;
 
     //** get component text strings
@@ -32,7 +32,7 @@
 
 </script>
 
-<footer class="mt-6 pt-2 has-border-top is-hidden-mobile">
+<footer class="mt-6 pt-2 has-border-top is-hidden-mobile" data-test="page-footer">
 
     <div class="level text-0dot9em">
         <div class="level-left">

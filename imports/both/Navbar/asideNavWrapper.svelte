@@ -33,7 +33,8 @@
        class:wrap-right={side === "right"}
        class:wrap-left={side === "left"}
        class:left={side === "left" && open}
-       class:right={side === "right" && open}>
+       class:right={side === "right" && open}
+       data-test="aside-nav-wrapper">
 
 
     <div on:click={ () => open = false} class="close-aside">

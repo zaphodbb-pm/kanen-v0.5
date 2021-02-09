@@ -12,7 +12,6 @@
     export let currentRoute;
 
     //* support files
-    import {messages} from '/imports/client/systemStores'
     import {layout} from '/imports/both/systemGlobals'
     import {createEventDispatcher, setContext} from 'svelte'
     const dispatch = createEventDispatcher();
@@ -54,7 +53,8 @@
 <nav id="navbar-container"
      class="navbar is-fixed-top is-marginless is-paddingless has-opacity has-navbar-widgets"
      style="border-bottom: 2px solid #dbdbdb"
-     role="navigation" aria-label="main navigation">
+     role="navigation" aria-label="main navigation"
+     data-test="page-navbar">
 
     <div id="navbarBrand-insert" class="navbar-brand mr-5">
         <Navbar_Brand> </Navbar_Brand>
@@ -63,6 +63,7 @@
            class="navbar-burger navbar-widgets-burger is-block-touch is-block-desktop-only"
            aria-label="menu"
            on:click={ () => open = !open}
+           data-test="navbar-hamburger"
            aria-expanded="false">
 
             <span aria-hidden="true"></span>
@@ -78,7 +79,7 @@
             {/if}
         </div>
 
-        <div class="navbar-end w-100 justify-content-center is-hidden-mobile">
+        <div class="navbar-end w-100 justify-content-center is-hidden-mobile" data-test="top-navbar-condensed">
             {#if layout.SHORTCUTS}
                 <NavShortcuts {currentRoute}> </NavShortcuts>
             {/if}
@@ -96,13 +97,14 @@
 </nav>
 
 <div class="navbar w-100 justify-content-center is-fixed-bottom is-light is-hidden-tablet"
-     style="display: inline-flex; min-height: 2rem;">
+     style="display: inline-flex; min-height: 2rem;"
+     data-test="bottom-navbar-condensed">
 
     <NavShortcuts {currentRoute} bottom />
 </div>
 
 
-<AsideNav bind:open {theme} {side} >
+<AsideNav bind:open {theme} {side}>
     <SideNav {currentRoute} {theme} on:side-link-selected={() => open = false} />
 </AsideNav>
 

@@ -58,14 +58,16 @@
 {#each groups as group }
 
     {#if group}
+
         <div class="nav-side-menu mb-5">
             {#each group as links}
 
-                <a class="navbar-item navbar-hover "
+                <a class="navbar-item navbar-hover"
                    class:is-nav-active={currentRoute.name === links.name}
                    class:dark={theme === "dark"}
                    on:click={event => navigate(event, links.name)}
-                   href={links.name}>
+                   href={links.name}
+                   data-test="navbar-side-menu">
 
                     <div class="d-flex align-items-center" title={links.label}>
                         <Icon icon={getContext(links.icon)} class="text-1dot5rem"/>

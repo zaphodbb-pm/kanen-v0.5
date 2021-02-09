@@ -43,13 +43,17 @@
        style="height: 100%; align-items: flex-end"
        on:click={event => navigate(event, link.name)}
        href={link.name}
-       title={link.label}>
+       title={link.label}
+       data-test="navbar-condensed">
 
         <div class="has-text-centered">
             <Icon icon={getContext(link.icon)} class="text-1dot5rem"/>
 
             {#if !bottom}
-                <div class="text-0dot8rem nav-page-text has-text-centered" style="line-height: 1.2;">
+                <div class="text-0dot8rem nav-page-text has-text-centered"
+                     style="line-height: 1.2;"
+                     data-testid="navbar-condensed-labels">
+
                     {link.label}
                 </div>
             {/if}

@@ -20,12 +20,15 @@
 
 
 <a href="/home" class="navbar-brand-insert d-flex align-items-center pl-4 has-text-primary">
-    <div class="main-logo">
+    <div class="main-logo" data-test="navbar-brand-logo">
         <Icon icon={logo} />
     </div>
 
     {#if layout.SECONDARY_LOGO}
-        <img class="navbar-external-logo" src="/sweatcrew-logo.png" alt="logo">
+        <img class="navbar-external-logo"
+             src="/sweatcrew-logo.png"
+             data-test="navbar-brand-secondary-logo"
+             alt="logo">
     {/if}
 </a>
 
