@@ -176,7 +176,7 @@
     }
 
     function structureToc(pages) {
-        let adjPages = pages.map( (pg, idx) => {
+        let adjPages = pages.map( (pg) => {
             let hasParent = pages.find( (p) => p._id === pg.parentPage._id);
             pg.parent = hasParent ? pg.parentPage._id : "root";
             let children = pages.filter( (p) => p.parentPage._id === pg._id);

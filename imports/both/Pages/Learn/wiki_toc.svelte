@@ -61,12 +61,12 @@
 
                                     {#if children.children && children.children.length > 0}
                                         <ul class="cleanList ml-2" style="line-height: 1;">
-                                            {#each children.children as children (children._id)}
+                                            {#each children.children as children2 (children2._id)}
                                                 <li class=" text-bold add-cursor">
-                                                    <a id="{children._id}"
-                                                       class:active="{children._id === pageid}"
-                                                       on:click="{() => dispatch('getpage', children._id) }">
-                                                        {children.name}
+                                                    <a id="{children2._id}"
+                                                       class:active="{children2._id === pageid}"
+                                                       on:click="{() => dispatch('getpage', children2._id) }">
+                                                        {children2.name}
                                                     </a>
                                                 </li>
                                             {/each}

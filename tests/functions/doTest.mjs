@@ -20,10 +20,11 @@ const sinon = require("sinon");
 export function doTest(link){
     import(link).then( module => {
         const plan = module.testPlan;
-        const getFunction = Object.keys(module).filter( f => f !== "testPlan")
-        const underTest = module[ getFunction[0] ];
 
         if(plan){
+            let fileToTest = link.split("/").pop().split(".")[0];
+            const underTest = module[ fileToTest ];
+
             describe(plan.label, function () {
                 plan.tests.forEach( tv => {
                     it(tv.test, function () {
