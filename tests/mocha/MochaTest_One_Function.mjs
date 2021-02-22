@@ -38,8 +38,8 @@ import {doTest} from "../functions/doTest.mjs"
 import {testAssertions} from "../functions/testAssertions.mjs";
 
 //* get a single test files in a directory, import and execute tests
-const directory = "/imports/functions/utilities"
-const file = "sortBy.mjs";
+const directory = "/imports/components/elements"
+const file = "icon.test.mjs";
 
 
 

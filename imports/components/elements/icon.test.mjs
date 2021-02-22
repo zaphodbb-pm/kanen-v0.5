@@ -1,9 +1,11 @@
+//* boilerplate imports need to test svelte files
 import assert from "assert";
 
 import {fileLoad} from "../../../tests/functions/fileLoad.mjs";
 import {fileAbsolutePath} from "../../../tests/functions/fileAbsolutePath.mjs";
 import {buildDOM} from "../../../tests/functions/domBuild.mjs"
 import {checkDOM} from "../../../tests/functions/domUtilities.mjs"
+//* end of boilerplate
 
 
 //* need to use absolute file path from project root
@@ -14,6 +16,7 @@ const iconHome = fileLoad("/public/svg_to_js/home-solid.json", true);
 const options = { icon: iconHome };
 const domStart = buildDOM( component, options);
 
+//* start tests for component icon.svelte
 describe("component icon", function () {
     it("load svg file and verify path", function () {
         let out = checkDOM.getAttribute(domStart, "path", "d");

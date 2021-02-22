@@ -12,7 +12,7 @@
  */
 
 
-export function flatten(arr) {
+export function flattenArray(arr) {
     let flat1 = [].concat.apply([], arr);
     return [].concat.apply([], flat1);
 }
@@ -21,7 +21,7 @@ export function flatten(arr) {
 
 
 export const testPlan = {
-    label: "function flatten",
+    label: "function flattenArray",
 
     tests:  [
         {test: "normal formatting", args: [ [1, [2, 3], 4, [5,6] ] ],result: [1,2, 3, 4, 5, 6], type: "deepStrictEqual"},

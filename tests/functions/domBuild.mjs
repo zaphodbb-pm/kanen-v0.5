@@ -30,6 +30,11 @@ const { JSDOM } = jsdom;
 export const buildDOM = function(compLink, options){
     const App = require(compLink).default;
     const obj = App.render(options);
+
+
+    console.log("obj", obj);
+
+
     const body = `<!DOCTYPE html>${obj.html}`
 
     const domStart = new JSDOM(body, { resources: "usable", runScripts: "dangerously" });
