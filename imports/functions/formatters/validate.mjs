@@ -74,16 +74,8 @@ const Validate = () => {
                                                 && (opts?.keys ? opts.keys.every(key => Object.keys(variable).includes(key)) : true);
 
     const shapeObject = (variable, opts = {}) => {
-        return isObject(variable) ? variable : _logs(opts, "object", variable);
+        return isObject(variable) ? (opts?.default ? {...opts.default, ...variable} : variable) : _logs(opts, "object", variable);
     };
-
-
-    /*
-     "object": (variable) => variable
-                                && typeof variable === 'object'
-                                && variable.constructor === Object
-                                && (options?.keys ? options.keys.every(key => Object.keys(variable).includes(key)) : true),
-     */
 
     const isFunction = (variable) => typeof variable === "function";
 
@@ -208,6 +200,8 @@ const now = new Date();
 const sym = Symbol("sym");
 const re = new RegExp('ab+c', 'i');
 const func = (a) => a + 1;
+const obj = {a: 1, b: 2, c: 3};
+const obj2 = {c: 44, d: 22, e: 66}
 
 const opts = {
     default: "not a number",
@@ -239,9 +233,9 @@ export const testPlan = {
     label: "function validate",
 
     tests:  [
-        {test: "normal true boolean", args: [true], function: "isBoolean", result: true, type: "strictEqual"},
-        {test: "normal false boolean", args: [false], function: "isBoolean", result: true, type: "strictEqual"},
-        {test: "undefined boolean", args: [undefined], function: "isBoolean", result: false, type: "strictEqual"},
+        {test: "normal true boolean",   function: "isBoolean", args: [true], result: true, type: "strictEqual"},
+        {test: "normal false boolean",  function: "isBoolean", args: [false], result: true, type: "strictEqual"},
+        {test: "undefined boolean",     function: "isBoolean", args: [undefined], result: false, type: "strictEqual"},
 
         /*
         {test: "normal string", args: ["is a string", opts], function: "isString",  result: "is a string", type: "strictEqual"},
@@ -261,25 +255,31 @@ export const testPlan = {
 
          */
 
-        {test: "normal function", args: [func], function: "isFunction", result: true, type: "deepStrictEqual"},
-        {test: "not a function", args: [4], function: "isFunction", result: false, type: "deepStrictEqual"},
-        {test: "shape function", args: [func], function: "shapeFunction", result: func, type: "deepStrictEqual"},
-        {test: "shape not a function", args: [4, {default: func}], function: "shapeFunction", result: func, type: "deepStrictEqual"},
+        {test: "normal object",         function: "isObject",       args: [obj, {keys: ["a", "b", "c"]}], result: true, type: "deepStrictEqual"},
+        {test: "object missing keys",   function: "isObject",       args: [obj, {keys: ["a", "b", "c", "d"]}], result: false, type: "deepStrictEqual"},
+        {test: "not a object",          function: "isObject",       args: [4], result: false, type: "deepStrictEqual"},
+        {test: "shape object",          function: "shapeObject",    args: [obj2, {default: obj}], result: {...obj, ...obj2}, type: "deepStrictEqual"},
+        {test: "shape not a object",    function: "shapeObject",    args: [4, {default: obj}], result: obj, type: "deepStrictEqual"},
 
-        {test: "normal regexp", args: [re], function: "isRegexp", result: true, type: "deepStrictEqual"},
-        {test: "not a regexp", args: [23], function: "isRegexp", result: false, type: "deepStrictEqual"},
-        {test: "shape regexp", args: [re], function: "shapeRegexp", result: re, type: "deepStrictEqual"},
-        {test: "shape is not a regexp", args: [ 34, {default: re}], function: "shapeRegexp", result: re, type: "deepStrictEqual"},
+        {test: "normal function",       function: "isFunction",     args: [func], result: true, type: "deepStrictEqual"},
+        {test: "not a function",        function: "isFunction",     args: [4], result: false, type: "deepStrictEqual"},
+        {test: "shape function",        function: "shapeFunction",  args: [func], result: func, type: "deepStrictEqual"},
+        {test: "shape not a function",  function: "shapeFunction",  args: [4, {default: func}], result: func, type: "deepStrictEqual"},
 
-        {test: "normal date", args: [now], function: "isDate", result: true, type: "strictEqual"},
-        {test: "not a date", args: [44], function: "isDate", result: false, type: "strictEqual"},
-        {test: "shape date", args: [now], function: "shapeDate", result: now, type: "deepStrictEqual"},
-        {test: "shape not a date", args: [45, {default: now}], function: "shapeDate", result: now, type: "deepStrictEqual"},
+        {test: "normal regexp",         function: "isRegexp",       args: [re],  result: true, type: "deepStrictEqual"},
+        {test: "not a regexp",          function: "isRegexp",       args: [23], result: false, type: "deepStrictEqual"},
+        {test: "shape regexp",          function: "shapeRegexp",    args: [re], result: re, type: "deepStrictEqual"},
+        {test: "shape is not a regexp", function: "shapeRegexp",    args: [ 34, {default: re}], result: re, type: "deepStrictEqual"},
 
-        {test: "normal symbol", args: [sym], function: "isSymbol", result: true, type: "deepStrictEqual"},
-        {test: "not a symbol", args: [4], function: "isSymbol", result: false, type: "deepStrictEqual"},
-        {test: "shape symbol", args: [sym], function: "shapeSymbol", result: sym, type: "deepStrictEqual"},
-        {test: "shape not a symbol", args: [4, {default: sym}], function: "shapeSymbol", result: sym, type: "deepStrictEqual"},
+        {test: "normal date",           function: "isDate",         args: [now], result: true, type: "strictEqual"},
+        {test: "not a date",            function: "isDate",         args: [44], result: false, type: "strictEqual"},
+        {test: "shape date",            function: "shapeDate",      args: [now], result: now, type: "deepStrictEqual"},
+        {test: "shape not a date",      function: "shapeDate",      args: [45, {default: now}], result: now, type: "deepStrictEqual"},
+
+        {test: "normal symbol",         function: "isSymbol",       args: [sym],  result: true, type: "deepStrictEqual"},
+        {test: "not a symbol",          function: "isSymbol",       args: [4], result: false, type: "deepStrictEqual"},
+        {test: "shape symbol",          function: "shapeSymbol",    args: [sym], result: sym, type: "deepStrictEqual"},
+        {test: "shape not a symbol",    function: "shapeSymbol",    args: [4, {default: sym}], result: sym, type: "deepStrictEqual"},
 
 
         /*
