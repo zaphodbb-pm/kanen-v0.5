@@ -32,8 +32,6 @@
  */
 
 
-
-
 export function debugConsole(level, name, vrbl, label, debugOptions) {
     if(!debugOptions || !Array.isArray(vrbl) ){ return false; }
 
@@ -50,31 +48,4 @@ export function debugConsole(level, name, vrbl, label, debugOptions) {
         return outReturn;
     }
     return false;
-}
-
-
-
-
-export const testPlan = {
-    label: "function debugConsole",
-
-    tests: [
-        {   test: "normal message",
-            args: ["s", "Test", [{some: "value"}], ["Label"], "s"],
-            result: 'debug Test: Label= {"some":"value"}',
-            type: "deepStrictEqual",
-        },
-
-        {   test: "no debug options set",
-            args: ["s", "Test", [{some: "value"}], ["Label"], ""],
-            result: false,
-            type: "strictEqual",
-        },
-
-        {   test: "no message level set",
-            args: ["", "Test", [{some: "value"}], ["Label"], "s"],
-            result: false,
-            type: "strictEqual",
-        }
-    ]
 }
