@@ -44,7 +44,7 @@
     <div class="columns">
 
         <div class="column buffer-large">
-            <div class="title is-4">{i18n(page, "swatches", $lang)}</div>
+            <div class="title is-4">{i18n(page.columns, "swatches", $lang)}</div>
 
             {#each swatches as swatch}
                 <div class="tags has-addons">
@@ -59,7 +59,7 @@
         </div>
 
         <div class="column buffer-large">
-            <div class="title is-4">{i18n(page, "boxes", $lang)}</div>
+            <div class="title is-4">{i18n(page.columns, "boxes", $lang)}</div>
 
             {#each boxes as box}
                 <div class="box {box[1]}">
@@ -69,7 +69,7 @@
         </div>
 
         <div class="column buffer-large">
-            <div class="title is-4">{i18n(page, "themes", $lang)}</div>
+            <div class="title is-4">{i18n(page.columns, "themes", $lang)}</div>
 
             {#each themes as theme}
                 <div class="mb-3">

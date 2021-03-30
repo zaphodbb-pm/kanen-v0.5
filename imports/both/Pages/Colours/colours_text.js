@@ -24,7 +24,7 @@ export const header = {
 
 export const page = {
 
-    page: {
+    columns: {
         swatches: {en: "Colour Swatches"},
         boxes: {en: "Box / Component Themes"},
         themes: {en: "Element themes"}
