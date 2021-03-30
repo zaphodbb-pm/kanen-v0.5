@@ -1,6 +1,14 @@
-import assert from "assert";
+/**
+ * Test plan
+ *
+ * @memberof Tests
+ * @augments msgDecoration
+ * @locus Anywhere
+ *
+ */
 
 import {msgDecoration} from './msgDecoration.mjs'
+export const underTest = msgDecoration;
 
 const state =["success", "warning", "fail"];
 const colours = ["is-success is-light", "is-warning is-light", "is-danger is-light"];
@@ -9,25 +17,32 @@ const close = true;
 const dur = 1010;
 
 
-describe("comp-func msgDecoration", function () {
-    it("message success", function () {
-        const idx = 0;
-        const out = msgDecoration(state[idx], close, dur);
-        const checker = {closable: close, duration: dur, colour: colours[idx], hasIcon: icons[idx]}
-        assert.deepStrictEqual(out, checker);
-    });
+export const testPlan = {
+    label: "function msgDecoration",
 
-    it("message warning", function () {
-        const idx = 1;
-        const out = msgDecoration(state[idx], close, dur);
-        const checker = {closable: close, duration: dur, colour: colours[idx], hasIcon: icons[idx]}
-        assert.deepStrictEqual(out, checker);
-    });
+    tests:  [
+        {   test: "message success",
+            args: [state[0], close, dur],
+            type: "deepStrictEqual",
+            result: {closable: close, duration: dur, colour: colours[0], hasIcon: icons[0]}
+        },
 
-    it("message fail", function () {
-        const idx = 2;
-        const out = msgDecoration(state[idx], close, dur);
-        const checker = {closable: close, duration: dur, colour: colours[idx], hasIcon: icons[idx]}
-        assert.deepStrictEqual(out, checker);
-    });
-});
+        {   test: "message success defaults",
+            args: [state[0]],
+            type: "deepStrictEqual",
+            result: {closable: true, duration: 0, colour: colours[0], hasIcon: icons[0]}
+        },
+
+        {   test: "message warning",
+            args: [state[1], close, dur],
+            type: "deepStrictEqual",
+            result: {closable: close, duration: dur, colour: colours[1], hasIcon: icons[1]}
+        },
+
+        {   test: "message fail",
+            args: [state[2], close, dur],
+            type: "deepStrictEqual",
+            result: {closable: close, duration: dur, colour: colours[2], hasIcon: icons[2]}
+        },
+    ]
+}

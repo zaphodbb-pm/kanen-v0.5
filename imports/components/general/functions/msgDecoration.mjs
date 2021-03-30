@@ -13,7 +13,7 @@
  * @return {Object} - {closable, duration, colour, hasIcon}
  */
 
-export function msgDecoration(state, closable, duration) {
+export function msgDecoration(state, closable = true, duration = 0) {
 
     let common = {
         closable: closable,

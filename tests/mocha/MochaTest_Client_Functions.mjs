@@ -43,7 +43,10 @@ import {testAssertions} from "../functions/testAssertions.mjs";
 
 //* get all test files in a directory, import and execute tests
 const testFileExtension = ".test.mjs";
-const dirFunctions = "/imports/functions"
+//const dirFunctions = "/imports/functions"
+
+const dirFunctions = "/imports/components/general/functions"
+
 const testsFound = getTestFiles(dirFunctions, testFileExtension);
 
 console.log(`'${dirFunctions}' test files found = `, testsFound.length);
