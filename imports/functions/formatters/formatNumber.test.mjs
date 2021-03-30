@@ -8,8 +8,8 @@
  */
 
 
-import {formatNumber as underTest} from "./formatNumber.mjs";
-export const formatNumber = underTest;
+import {formatNumber} from "./formatNumber.mjs";
+export const underTest = formatNumber;
 
 
 export const testPlan = {

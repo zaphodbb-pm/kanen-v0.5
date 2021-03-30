@@ -8,8 +8,8 @@
  */
 
 
-import {formatPhoneNumber as underTest} from "./formatPhoneNumber.mjs";
-export const formatPhoneNumber = underTest;
+import {formatPhoneNumber} from "./formatPhoneNumber.mjs";
+export const underTest = formatPhoneNumber;
 
 
 export const testPlan = {

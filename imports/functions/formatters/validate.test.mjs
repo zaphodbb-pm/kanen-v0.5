@@ -8,8 +8,8 @@
  */
 
 
-import {validate as underTest} from "./validate.mjs";
-export const validate = underTest;
+import {validate} from "./validate.mjs";
+export const underTest = validate;
 
 
 //* test data for plans

@@ -8,8 +8,8 @@
  */
 
 
-import {numString as underTest} from "./numString.mjs";
-export const numString = underTest;
+import {numString} from "./numString.mjs";
+export const underTest = numString;
 
 export const testPlan = {
     label: "function numString",

@@ -8,8 +8,8 @@
  */
 
 
-import {fractionalNumber as underTest} from "./fractionalNumber.mjs";
-export const fractionalNumber = underTest;
+import {fractionalNumber } from "./fractionalNumber.mjs";
+export const underTest = fractionalNumber;
 
 
 export const testPlan = {

@@ -19,15 +19,15 @@ const sinon = require("sinon");
 
 export async function testAssertions(module){
     const plan = module.testPlan;
-    const func = plan.label.replace("function", "").trim();
+    const func = module.underTest;
 
     if(plan && func){
         describe(plan.label, function () {
             plan.tests.forEach( tv => {
-                let underTest = module[func];
+                let underTest = func;
 
                 if(tv.function){
-                    underTest = module[func][tv.function];
+                    underTest = func[tv.function];
                 }
 
                 it(tv.test, function () {
