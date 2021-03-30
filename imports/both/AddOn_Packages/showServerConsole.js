@@ -1,5 +1,5 @@
 /**
- * Isomorphic routine that lets a server console message be sent to the browser console for display.
+ * Isomorphic routine that lets a server console message to be sent to the browser console for display.
  * This package is for development work that needs to get server logs.
  * This is also helpful on a staging server to help with any debugging work.
  *

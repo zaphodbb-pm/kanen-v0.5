@@ -50,11 +50,11 @@
     export let config = {};
     export let payload = null;
 
-    let bar = barBuilder();
+    let bar = barBuilder(config, payload);
 
-    function progessValue() {
-        if (payload) {
-            let num = payload.values ? payload.values : 0;
+    function progessValue(load) {
+        if (load) {
+            let num = load?.values ?? 0;
             num = num && Array.isArray(num) ? num[0] : num;
             return toDecimals(num, 1);
         } else {
@@ -62,18 +62,18 @@
         }
     }
 
-    function barBuilder() {
+    function barBuilder(conf, load) {
         //** get decorative items or apply defaults
-        let style = config.style ? config.style : "ring"; // ring or pie
-        let labels = config.title ? [config.title] : [""];
-        let suffix = config.suffix ? config.suffix : "";
-        let height = config.height ? config.height : 8;
+        let style = conf?.style ?? "ring"; // ring or pie
+        let labels = conf?.title ? [conf.title] : [""];
+        let suffix = conf?.suffix ?? "";
+        let height = conf?.height ?? 8;
         let font = height / 5 + "rem";
 
-        if (payload && payload.values) {
-            let values = payload.values[0];
-            let maxVals = payload.maxValues[0];
-            let background = setBackground(config, payload, progessValue() );
+        if (load && load.values) {
+            let values = load.values[0];
+            let maxVals = load.maxValues[0];
+            let background = setBackground(conf, load, progessValue(load) );
 
             let value = values ? values : 0;
             let maxVal = maxVals ? maxVals : value;
