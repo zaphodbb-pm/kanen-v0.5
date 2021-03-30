@@ -5,22 +5,151 @@
  * @function validate
  * @locus Anywhere
  *
- * @param {*} checkVariable - (required) item to validate
- * @param {string} type - (required) typeof variable === string to check against
+ * @type {*} variable - (required) item to validate*
+ * @type {Object} opts - validation options
+ * @type {*} opts.default - (optional) sets a default value if validation fails
+ * @type {boolean} opts.warn - (optional) emits warnings if default is being used
+ * @type {Array} opts.keys - (optional) array of keys (strings) that are required if variable is an object or array
+ * @type {number} opts.min - (optional) sets a minimum number if variable is under rang range
+ * @type {number} opts.max - (optional) sets a maximum number if variable is over
  *
- * @param {Object} options - validation options
- * @param {*} options.default - (optional) sets a default value if validation fails
- * @param {boolean} options.warnDefault - (optional) emits warnings if default is being used
- * @param {Array} options.keys - (optional) array of keys (strings) that are required if variable is an object or array
- * @param {number} options.min - (optional) sets a minimum number if variable is under rang range
- * @param {number} options.max - (optional) sets a maximum number if variable is over
- *
- * @returns {*} - initial variable or transformed variable or default
+ * @returns {function} - checking function for various data types
  *
  */
 
 
-export function validate(checkVariable, type, options){
+const Validate = () => {
+
+    const _logs = (options, type, checked) => {
+        if(options?.default){
+            if(options?.warn){
+                console.warn(`Validate failed: substituted "${options.default}" for ${type} with value of "${checked}"`);
+            }
+            return options.default;
+        }else{
+            console.error(`Validate error: ${type} with value "${checked}"`);
+            return undefined;
+        }
+    }
+
+    const _checkMinLength = (item, opts = {}) => {
+        return item && ( opts?.min ? opts?.min < item.length : true);
+    }
+
+    const _checkMaxLength = (item, opts = {}) => {
+        return item && opts?.max ? ( opts.max < item.length ? item.slice(0, opts.max) : item ) : item;
+    }
+
+
+    const isBoolean = (variable) => typeof variable === "boolean";
+
+
+    const isString = (variable, opts = {}) => {
+        if(typeof variable === "string" && _checkMinLength(variable, opts)){
+            return _checkMaxLength(variable, opts);
+        }else{
+            return _logs(opts, "string", variable);
+        }
+    };
+
+    const isNumber = (variable, opts = {}) => {
+        if(typeof variable === "number" && isFinite(variable)){
+            return Math.max(opts?.min ?? variable, Math.min( opts.max ?? variable, variable) );
+        }else{
+            return _logs(opts, "number", variable);
+        }
+    };
+
+    const isArray = (variable, opts = {}) => {
+        if(Array.isArray(variable) && _checkMinLength(variable, opts)){
+            return _checkMaxLength(variable, opts);
+        }else{
+            return _logs(opts, "array", variable);
+        }
+    };
+
+    const isObject = (variable, opts = {}) =>   variable
+                                                && typeof variable === 'object'
+                                                && variable.constructor === Object
+                                                && (opts?.keys ? opts.keys.every(key => Object.keys(variable).includes(key)) : true);
+
+    const shapeObject = (variable, opts = {}) => {
+        return isObject(variable) ? variable : _logs(opts, "object", variable);
+    };
+
+
+    /*
+     "object": (variable) => variable
+                                && typeof variable === 'object'
+                                && variable.constructor === Object
+                                && (options?.keys ? options.keys.every(key => Object.keys(variable).includes(key)) : true),
+     */
+
+    const isFunction = (variable) => typeof variable === "function";
+
+    const shapeFunction = (variable, opts = {}) => {
+        return isFunction(variable) ? variable : _logs(opts, "symbol", variable);
+    };
+
+
+    const isRegexp = (variable) => variable && typeof variable === 'object' && variable.constructor === RegExp;
+
+    const shapeRegexp = (variable, opts = {}) => {
+        return isRegexp(variable) ? variable : _logs(opts, "regexp", variable);
+    };
+
+
+    const isDate = (variable) => variable instanceof Date;
+
+    const shapeDate = (variable, opts = {}) => {
+        return isDate(variable) ? variable : _logs(opts, "date", variable);
+    };
+
+
+    const isSymbol = (variable) => typeof variable === "symbol";
+
+    const shapeSymbol = (variable, opts = {}) => {
+        return isSymbol(variable) ? variable : _logs(opts, "symbol", variable);
+    };
+
+    return{
+        isBoolean,
+
+        isString,
+        isNumber,
+        isArray,
+
+        isObject,
+        shapeObject,
+
+        isFunction,
+        shapeFunction,
+
+        isRegexp,
+        shapeRegexp,
+
+        isDate,
+        shapeDate,
+
+        isSymbol,
+        shapeSymbol
+    }
+}
+
+
+export const validate = Validate();
+
+
+
+
+
+
+
+
+
+
+/*
+export function validate2(checkVariable, type, options){
 
     const tester = {
         "string": (variable) => typeof variable === "string",
@@ -72,7 +201,7 @@ export function validate(checkVariable, type, options){
     }
 }
 
-
+*/
 
 // test plans
 const now = new Date();
@@ -80,12 +209,80 @@ const sym = Symbol("sym");
 const re = new RegExp('ab+c', 'i');
 const func = (a) => a + 1;
 
+const opts = {
+    default: "not a number",
+    warn: true
+}
+
+const opts2 = {
+    min: 20,
+    max: 9,
+    warn: true
+}
+
+const opts3 = {
+    min: 3,
+    max: 10,
+}
+
+const opts4 = {
+    default: [3,4, 5, 6, 7]
+}
+
+const opts5 = {
+    min: 3,
+    max: 4
+}
+
 
 export const testPlan = {
     label: "function validate",
 
     tests:  [
-        {test: "normal string", args: ["this is a string", "string"], result: "this is a string", type: "strictEqual"},
+        {test: "normal true boolean", args: [true], function: "isBoolean", result: true, type: "strictEqual"},
+        {test: "normal false boolean", args: [false], function: "isBoolean", result: true, type: "strictEqual"},
+        {test: "undefined boolean", args: [undefined], function: "isBoolean", result: false, type: "strictEqual"},
+
+        /*
+        {test: "normal string", args: ["is a string", opts], function: "isString",  result: "is a string", type: "strictEqual"},
+        {test: "normal string 2", args: ["is a very long string", opts2], function: "isString",  result: "is a very", type: "strictEqual"},
+        {test: "default string", args: [undefined, opts2], function: "isString",  result: undefined, type: "strictEqual"},
+        {test: "null string", args: [null, opts], function: "isString", result: opts.default, type: "strictEqual"},
+
+        {test: "normal number", args: [4], function: "isNumber", result: 4, type: "strictEqual"},
+        {test: "null number", args: [null], function: "isNumber", result: undefined, type: "strictEqual"},
+        {test: "below min number", args: [1, opts3], function: "isNumber", result: 3, type: "strictEqual"},
+        {test: "above max number", args: [15, opts3], function: "isNumber", result: 10, type: "strictEqual"},
+
+        {test: "normal array", args: [ [1,2]], function: "isArray", result: [1,2], type: "deepStrictEqual"},
+        {test: "null array", args: [ null, opts4], function: "isArray", result: [3,4, 5, 6, 7], type: "deepStrictEqual"},
+        {test: "short array", args: [ [1, 2], opts5], function: "isArray", result: undefined, type: "deepStrictEqual"},
+        {test: "long array", args: [ [3, 4, 5, 6, 7], opts5], function: "isArray", result: [3, 4, 5, 6], type: "deepStrictEqual"},
+
+         */
+
+        {test: "normal function", args: [func], function: "isFunction", result: true, type: "deepStrictEqual"},
+        {test: "not a function", args: [4], function: "isFunction", result: false, type: "deepStrictEqual"},
+        {test: "shape function", args: [func], function: "shapeFunction", result: func, type: "deepStrictEqual"},
+        {test: "shape not a function", args: [4, {default: func}], function: "shapeFunction", result: func, type: "deepStrictEqual"},
+
+        {test: "normal regexp", args: [re], function: "isRegexp", result: true, type: "deepStrictEqual"},
+        {test: "not a regexp", args: [23], function: "isRegexp", result: false, type: "deepStrictEqual"},
+        {test: "shape regexp", args: [re], function: "shapeRegexp", result: re, type: "deepStrictEqual"},
+        {test: "shape is not a regexp", args: [ 34, {default: re}], function: "shapeRegexp", result: re, type: "deepStrictEqual"},
+
+        {test: "normal date", args: [now], function: "isDate", result: true, type: "strictEqual"},
+        {test: "not a date", args: [44], function: "isDate", result: false, type: "strictEqual"},
+        {test: "shape date", args: [now], function: "shapeDate", result: now, type: "deepStrictEqual"},
+        {test: "shape not a date", args: [45, {default: now}], function: "shapeDate", result: now, type: "deepStrictEqual"},
+
+        {test: "normal symbol", args: [sym], function: "isSymbol", result: true, type: "deepStrictEqual"},
+        {test: "not a symbol", args: [4], function: "isSymbol", result: false, type: "deepStrictEqual"},
+        {test: "shape symbol", args: [sym], function: "shapeSymbol", result: sym, type: "deepStrictEqual"},
+        {test: "shape not a symbol", args: [4, {default: sym}], function: "shapeSymbol", result: sym, type: "deepStrictEqual"},
+
+
+        /*
         {test: "null string", args: [null, "string"], result: undefined, type: "strictEqual"},
         {test: "default string", args: [undefined, "string", {default: "default string"}], result: "default string", type: "strictEqual"},
         {test: "default string with warning",
@@ -113,5 +310,7 @@ export const testPlan = {
         {test: "normal regexp", args: [ re, "regexp"], result: re, type: "deepStrictEqual"},
         {test: "normal date", args: [ now, "date"], result: now, type: "strictEqual"},
         {test: "normal symbol", args: [ sym, "symbol"], result: sym, type: "deepStrictEqual"},
+
+         */
     ]
 }

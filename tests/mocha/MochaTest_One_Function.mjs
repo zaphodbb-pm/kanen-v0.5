@@ -38,10 +38,11 @@ import {doTest} from "../functions/doTest.mjs"
 import {testAssertions} from "../functions/testAssertions.mjs";
 
 //* get a single test files in a directory, import and execute tests
-const directory = "/imports/components/elements"
-const file = "icon.test.mjs";
+//const directory = "/imports/components/elements"
+//const file = "icon.test.mjs";
 
-
+const directory = "/imports/functions/formatters"
+const file = "validate.mjs";
 
 describe("Run one test", function () {
 

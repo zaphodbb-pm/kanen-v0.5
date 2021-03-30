@@ -19,13 +19,17 @@ const sinon = require("sinon");
 
 export async function testAssertions(module){
     const plan = module.testPlan;
+    const func = plan.label.replace("function", "").trim();
 
-    if(plan){
-        let fileToTest = link.split("/").pop().split(".")[0];
-        const underTest = module[ fileToTest ];
-
+    if(plan && func){
         describe(plan.label, function () {
             plan.tests.forEach( tv => {
+                let underTest = module[func];
+
+                if(tv.function){
+                    underTest = module[func][tv.function];
+                }
+
                 it(tv.test, function () {
                     switch (tv.type){
                         case "strictEqual":
@@ -59,6 +63,6 @@ export async function testAssertions(module){
             });
         });
     } else{
-        console.log(getFunction[0], "not found");
+        console.log(module, "test plan not found");
     }
 }
