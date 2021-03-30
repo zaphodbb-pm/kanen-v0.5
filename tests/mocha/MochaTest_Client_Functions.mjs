@@ -37,15 +37,30 @@ describe("Check Setup Files", function () {
 
 
 //* add support functions
-import {doTest} from "../functions/doTest.mjs"
+//import {doTest} from "../functions/doTest.mjs"
 import {getTestFiles} from "../functions/getTestFiles.mjs";
+import {testAssertions} from "../functions/testAssertions.mjs";
 
 
 //* get all test files in a directory, import and execute tests
-const testFileExtension = ".mjs";
+const testFileExtension = ".test.mjs";
 const dirFunctions = "/imports/functions"
 const testsFound = getTestFiles(dirFunctions, testFileExtension);
 
 console.log(`'${dirFunctions}' test files found = `, testsFound.length);
 
-testsFound.forEach( tf => doTest(tf));
+//testsFound.forEach( tf => doTest(tf));
+
+
+describe("Run all tests", function () {
+    it("get modules", async function(){
+        for (const tf of testsFound) {
+            try {
+                const module = await import(tf);
+                testAssertions(module);
+            } catch(err){
+                console.log("err", err);
+            }
+        }
+    });
+});
