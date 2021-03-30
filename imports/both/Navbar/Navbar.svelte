@@ -32,7 +32,7 @@
     import NavShortcuts from './NavCondensedMenu.svelte'
     import SideNav from './NavSideMenu.svelte'
     import AsideNav from './asideNavWrapper.svelte'
-    import Messages from '/imports/components/general/messages.svelte'
+    import Messages from '/imports/components/general/messages/messages.svelte'
     import GDPR from '/imports/components/general/gdprNotice.svelte'
     import PWA from '/imports/both/AddToHomescreen/PWA-requester.svelte'
 

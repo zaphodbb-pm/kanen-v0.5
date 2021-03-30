@@ -28,7 +28,7 @@
     export let duration = 5000;
 
     //* support functions
-    import {msgDecoration} from "./functions/msgDecoration.mjs"
+    import {msgDecoration} from "./msgDecoration.mjs"
     import {messages} from '/imports/client/systemStores'
     import { getContext, createEventDispatcher } from 'svelte';
     const dispatch = createEventDispatcher();
