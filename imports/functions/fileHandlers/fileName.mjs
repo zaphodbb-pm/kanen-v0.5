@@ -12,7 +12,14 @@
  */
 
 export function fileName(name, ext) {
-    let now = new Date();
-    let stamp = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}-${now.getHours()}_${now.getMinutes()}`;
+    const now = new Date();
+    let month = now.getMonth() + 1;
+    month = month < 10 ? "0" + month.toString() : month;
+    let hours = now.getHours();
+    hours = hours < 10 ? "0" + hours.toString() : hours;
+    let minutes = now.getHours();
+    minutes = minutes < 10 ? "0" + minutes.toString() : minutes;
+
+    const stamp = `${now.getFullYear()}-${month}-${now.getDate()}-${hours}_${minutes}`;
     return name + "_" + stamp + "." + ext;
 }

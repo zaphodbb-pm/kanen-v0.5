@@ -40,6 +40,10 @@ export async function testAssertions(module){
                             assert.deepStrictEqual(underTest(...tv.args), tv.result);
                             break;
 
+                        case "match":
+                            assert.match(underTest(...tv.args), tv.result);
+                            break;
+
                         case "ok":
                             assert.ok(underTest(...tv.args));
                             break;
