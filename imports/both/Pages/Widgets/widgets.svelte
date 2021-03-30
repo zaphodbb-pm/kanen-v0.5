@@ -20,7 +20,7 @@
         import {pageConfig} from './widgets_config'
 
         //** app support files
-        import { setContext, getContext, onMount, onDestroy } from 'svelte';
+        import { setContext } from 'svelte';
         import PageWrapper from '/imports/both/PageStructure/PageWrapper.svelte'
 
     //* end of page boilerplate *************************************
@@ -55,7 +55,7 @@
         maxValues: [100, 100, 100],
     }
 
-    import Gauge from '/imports/components/widgets/gauge.svelte'
+    import Gauge from '/imports/components/widgets/guage/gauge.svelte'
     let guage1Text =  i18n(page.components, "gaugeRing", lng);
     let guage2Text =  i18n(page.components, "gaugePie", lng);
 
