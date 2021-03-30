@@ -37,7 +37,6 @@ describe("Check Setup Files", function () {
 
 
 //* add support functions
-//import {doTest} from "../functions/doTest.mjs"
 import {getTestFiles} from "../functions/getTestFiles.mjs";
 import {testAssertions} from "../functions/testAssertions.mjs";
 
@@ -48,8 +47,6 @@ const dirFunctions = "/imports/functions"
 const testsFound = getTestFiles(dirFunctions, testFileExtension);
 
 console.log(`'${dirFunctions}' test files found = `, testsFound.length);
-
-//testsFound.forEach( tf => doTest(tf));
 
 
 describe("Run all tests", function () {

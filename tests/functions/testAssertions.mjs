@@ -49,6 +49,7 @@ export async function testAssertions(module){
                             break;
 
                         case "checkMutate":
+                            underTest(...tv.args);
                             assert.deepStrictEqual(tv.args[0], tv.original);
                             break;
 
