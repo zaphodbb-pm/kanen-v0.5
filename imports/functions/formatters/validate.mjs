@@ -15,6 +15,14 @@
  *
  * @returns {function} - checking function for various data types
  *
+ * @notes
+ *  1. Supported types: boolean, string, number, float, array, object,
+ *                      function, regexp, date, symbol
+ *
+ *  2. format is<Type> checks for correctness and returns a boolean
+ *
+ *  3. format shape<Type> returns the original value if correct or the default value if available else undefined
+ *
  */
 
 
@@ -130,13 +138,6 @@ const Validate = () => {
 
 
 export const validate = Validate();
-
-
-
-
-
-
-
 
 
 
