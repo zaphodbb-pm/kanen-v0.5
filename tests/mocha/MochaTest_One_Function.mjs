@@ -42,7 +42,7 @@ import {testAssertions} from "../functions/testAssertions.mjs";
 //const file = "icon.test.mjs";
 
 const directory = "/imports/functions/formatters"
-const file = "validate.mjs";
+const file = "validate.test.mjs";
 
 describe("Run one test", function () {
 
