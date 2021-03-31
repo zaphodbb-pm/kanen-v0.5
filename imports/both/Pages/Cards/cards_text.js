@@ -31,7 +31,7 @@ export const page = {
     components: {
         cardOne: {
             title: null,
-            image: "/default-merchant.jpg",
+            image: "/default-test-image.jpg",
             footer: null
         },
 

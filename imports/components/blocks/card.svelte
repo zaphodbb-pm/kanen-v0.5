@@ -1,28 +1,22 @@
-<script>/**
- * Component block: card.
- *
- * @memberof Components:Blocks
- * @function card
- * @locus Client
- *
- * @emits 'footEvent' - {item: id, key: key, label: label}
- */
+<script>
 
+    /**
+     * Component block: card.
+     *
+     * @memberof Components:Blocks
+     * @function card
+     * @locus Client
+     *
+     * @emits 'footEvent' - {item: id, key: key, label: label}
+     */
 
     //* setup props to receive component data
     export let text;            // text object; child of pageText.components
     export let id;              // unique component id
 
     //* get the user language preference from store and text from context
-    import { getContext } from 'svelte';
     import {i18n} from "../../functions/utilities/i18n.mjs";
     import {lang} from "../../client/systemStores";
-
-
-//import {i18n} from '/imports/functions/utilities/i18n'
-    //import {lang} from '/imports/client/systemStores'
-
-    let cardText = getContext("pageText").components[text];
 
     //** event handlers
     import {createEventDispatcher} from 'svelte';
@@ -36,16 +30,16 @@
 
 
 <div class="card {id ? id : ''}">
-    {#if cardText.title}
+    {#if text.title}
         <header class="card-header">
-            <p class="card-header-title">{i18n(cardText, "title", $lang)}</p>
+            <p class="card-header-title">{i18n(text, "title", $lang)}</p>
         </header>
     {/if}
 
-    {#if cardText.image}
+    {#if text.image}
         <div class="card-image">
             <figure class="image is-3by1">
-                <img src={cardText.image} alt="Placeholder image">
+                <img src={text.image} alt="Placeholder">
             </figure>
         </div>
     {/if}
@@ -54,12 +48,12 @@
         <slot> </slot>
     </div>
 
-    {#if cardText.footer }
+    {#if text.footer }
         <footer class="card-footer">
-            {#each i18n(cardText, "footer", $lang) as foot, idx}
-                <a href="#"
+            {#each i18n(text, "footer", $lang) as foot, idx}
+                <a href="#!"
                    class="card-footer-item"
-                   on:click={ () => footEvent(id, idx, foot) }>
+                   on:click|preventDefault={ () => footEvent(id, idx, foot) }>
 
                     {foot}
                 </a>
