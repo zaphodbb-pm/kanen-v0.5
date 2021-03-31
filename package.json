@@ -19,6 +19,7 @@
     "bcrypt": "^5.0.1",
     "bulma-scss": "^0.9.1",
     "croppie": "^2.6.5",
+    "dainte": "^0.1.5",
     "date-fns": "^2.19.0",
     "flatpickr": "^4.6.9",
     "jsdoc": "^3.6.6",

@@ -38,7 +38,7 @@ console.log(`Project: ${version.default.APP_NAME} at version ${version.default.V
 
 //* get a single test files in a directory, import and execute tests
 const directory = "/imports/components/blocks"
-const file = "card.test.mjs";
+const file = "card.spec.mjs";
 
 
 describe("Run one test", function () {
