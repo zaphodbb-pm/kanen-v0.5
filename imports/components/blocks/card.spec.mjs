@@ -26,7 +26,7 @@ const component = "card";        //******* define component name here
 //* since this runs on the server, we need to use absolute paths to get the component
 const cut = fileAbsolutePath(`${directory}/${component}.svelte`);
 
-//* set up incoming props to be used by component
+//* set up component's incoming props
 const opts = {
     props: {
         id: "card-test",
@@ -79,11 +79,11 @@ describe(`component ${component}.svelte`, function () {
             const test = {...msg.detail};
             const key = test.key ?? 0;
 
-            assert.deepStrictEqual( {...msg.detail}, {item: id, key: key, label: labels[key]});
+            assert.deepStrictEqual( test, {item: id, key: key, label: labels[key]});
         });
 
         //** get footer and click available buttons
-        const out = document.querySelector(".card-footer");
+        const out = document.querySelector("footer");
 
         out.childNodes.forEach( item => {
             item.click();
