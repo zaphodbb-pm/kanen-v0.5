@@ -1,14 +1,13 @@
-<script>
+<script>/**
+ * Component block: card.
+ *
+ * @memberof Components:Blocks
+ * @function card
+ * @locus Client
+ *
+ * @emits 'footEvent' - {item: id, key: key, label: label}
+ */
 
-    /**
-     * Component block: card.
-     *
-     * @memberof Components:Blocks
-     * @function card
-     * @locus Client
-     *
-     * @emits 'footEvent' - {item: id, key: key, label: label}
-     */
 
     //* setup props to receive component data
     export let text;            // text object; child of pageText.components
@@ -16,8 +15,12 @@
 
     //* get the user language preference from store and text from context
     import { getContext } from 'svelte';
-    import {lang} from '/imports/client/systemStores'
-    import {i18n} from '/imports/functions/utilities/i18n'
+    import {i18n} from "../../functions/utilities/i18n.mjs";
+    import {lang} from "../../client/systemStores";
+
+
+//import {i18n} from '/imports/functions/utilities/i18n'
+    //import {lang} from '/imports/client/systemStores'
 
     let cardText = getContext("pageText").components[text];
 

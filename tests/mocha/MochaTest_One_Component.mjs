@@ -4,7 +4,7 @@
  * instance.
  *
  * @memberof Tests
- * @function mainMochaTest
+ * @function MochaTest_One_Component
  * @locus Server
  *
  * @see {@link https://mochajs.org/#installation|for Mocha setup}
@@ -17,7 +17,6 @@
  */
 
 
-import assert from "assert";
 import { createRequire } from 'module'
 const require = createRequire(import.meta.url);
 
@@ -33,23 +32,22 @@ const version = await import("../../imports/both/version.mjs");
 console.log(`Project: ${version.default.APP_NAME} at version ${version.default.VERSION}`)
 
 //* add support functions
+//import assert from "assert";
 //import {doTest} from "../functions/doTest.mjs"
-
-import {testAssertions} from "../functions/testAssertions.mjs";
+//import {testAssertions} from "../functions/testAssertions.mjs";
 
 //* get a single test files in a directory, import and execute tests
-const directory = "/imports/components/elements"
-const file = "icon.test.mjs";
+const directory = "/imports/components/blocks"
+const file = "card.test.mjs";
 
-//const directory = "/imports/functions/formatters"
-//const file = "validate.test.mjs";
 
 describe("Run one test", function () {
 
-    it("get module", async function(){
+    it("get module and run test", async function(){
         try {
-            const module = await import(`${rpath}${directory}/${file}`);
-            testAssertions(module);
+            await import(`${rpath}${directory}/${file}`);
+
+            //testAssertions(module);
         } catch(err){
             console.log("err", err);
         }

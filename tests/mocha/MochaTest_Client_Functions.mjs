@@ -45,7 +45,7 @@ import {testAssertions} from "../functions/testAssertions.mjs";
 const testFileExtension = ".test.mjs";
 //const dirFunctions = "/imports/functions"
 
-const dirFunctions = "/imports/components/general/functions"
+const dirFunctions = "/imports/components/general"
 
 const testsFound = getTestFiles(dirFunctions, testFileExtension);
 

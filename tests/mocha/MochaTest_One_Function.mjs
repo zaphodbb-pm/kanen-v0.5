@@ -33,16 +33,11 @@ const version = await import("../../imports/both/version.mjs");
 console.log(`Project: ${version.default.APP_NAME} at version ${version.default.VERSION}`)
 
 //* add support functions
-//import {doTest} from "../functions/doTest.mjs"
-
 import {testAssertions} from "../functions/testAssertions.mjs";
 
 //* get a single test files in a directory, import and execute tests
-const directory = "/imports/components/elements"
-const file = "icon.test.mjs";
-
-//const directory = "/imports/functions/formatters"
-//const file = "validate.test.mjs";
+const directory = "/imports/functions/formatters"
+const file = "validate.test.mjs";
 
 describe("Run one test", function () {
 
