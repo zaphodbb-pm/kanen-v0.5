@@ -39,7 +39,7 @@ const opts = {
 };
 
 //* compile component with "dainte" npm package
-const {document} = await mount(cut, opts);
+const {instance, document} = await mount(cut, opts);
 
 
 
@@ -70,19 +70,25 @@ describe(`component ${component}.svelte`, function () {
         assert.deepStrictEqual(btns, opts.props.text.footer.en);
     });
 
+    it("click footer options", async function () {
+        const id = opts.props.id;
+        const labels = opts.props.text.footer.en;
 
-    /*
-it("check viewbox", function () {
-    let out = checkDOM.getAttribute(document, "svg", "viewBox");
-    assert.strictEqual(out, "0 0 32 32");
-});
+        //** prepare event listener and test incoming event
+        instance.$on("footEvent", msg => {
+            const test = {...msg.detail};
+            const key = test.key ?? 0;
 
-it("verify icon loaded", function () {
-    let out = checkDOM.getAttribute(document, "path", "d");
-    assert.strictEqual(out.length, iconHome.icon[4].length);
-});
+            assert.deepStrictEqual( {...msg.detail}, {item: id, key: key, label: labels[key]});
+        });
 
- */
+        //** get footer and click available buttons
+        const out = document.querySelector(".card-footer");
+
+        out.childNodes.forEach( item => {
+            item.click();
+        });
+    });
 
 });
 
