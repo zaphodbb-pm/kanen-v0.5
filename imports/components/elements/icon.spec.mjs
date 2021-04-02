@@ -10,7 +10,8 @@
  */
 
 
-//* boilerplate support functions imports needed to test svelte files **********
+//* Step 1: boilerplate support functions imports needed to test svelte files **********
+
 import {mount} from "dainte";
 import assert from "assert";
 //import {tick} from "svelte";      // optional wait method
@@ -19,17 +20,27 @@ import assert from "assert";
 import {fileAbsolutePath} from "../../../tests/functions/fileAbsolutePath.mjs";
 import {fileLoad} from "../../../tests/functions/fileLoad.mjs";
 import {checkDOM} from "../../../tests/functions/domUtilities.mjs";
-//* end of boilerplate *********************************************************
+
+//* end of boilerplate *****************************************************************
 
 
-//* define component under test (cut)
+
+
+//* Step 2: define component under test (cut) ******************************************
+
 const directory = '/imports/components/elements'
 const component = "icon";        //******* define component name here
 
-//* since this runs on the server, we need to use absolute paths to get the component
+//** since this runs on the server, we need to use absolute paths to get the component
 const cut = fileAbsolutePath(`${directory}/${component}.svelte`);
 
-//* set up incoming props to be used by component
+//* end of component getter ***********************************************************
+
+
+
+
+//* set up component's incoming props and compile component ***************************
+
 const iconHome = fileLoad("/public/svg_to_js/home-solid.json", true);
 
 const opts = {
@@ -38,14 +49,17 @@ const opts = {
     }
 };
 
-//* compile component with "dainte" npm package
-const {document} = await mount(cut, opts);
+//** compile component with "dainte" npm package
+const {instance, document} = await mount(cut, opts);
+
+//* end of component setup ************************************************************
 
 
 
 
-//* start tests for component under test
-describe(`component ${component}.svelte`, function () {
+//* run tests for component under test (cut)
+
+describe(`${component}.svelte`, function () {
 
     it("check class", function () {
         let out = checkDOM.getAttribute(document, "svg", "class");
