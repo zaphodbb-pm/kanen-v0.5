@@ -31,7 +31,7 @@ console.log(`Project: ${version.default.APP_NAME} at version ${version.default.V
 
 //* get Svelte component under test
 const directory = '/imports/components/elements'
-const spec = "icon.spec.mjs";        //******* define component test file here
+const spec = "userCredit.spec.mjs";        //******* define component test file here
 
 const cut = fileAbsolutePath(`${directory}/${spec}`);
 

@@ -22,8 +22,12 @@
 
     //* get page text information and set contexts for children components
     import {navbar, gdpr, pwa} from './Navbar_text'
-    setContext("navbar", i18n(navbar, "", $lang) );
-    setContext("gdprNotice", i18n(gdpr, "", $lang) );
+    let navText = i18n(navbar, "", $lang);
+    let gdprNotice = i18n(gdpr, "", $lang);
+    let pwaText = i18n(pwa, "", $lang);
+
+    //setContext("navbar", i18n(navbar, "", $lang) );
+    //setContext("gdprNotice", i18n(gdpr, "", $lang) );
     setContext("pwaText", i18n(pwa, "", $lang) );
 
     //* components
@@ -87,11 +91,11 @@
     </div>
 
     <div class="navbar-widgets">
-        <UserCredit  />
+        <UserCredit text="{navText.userCredit}" />
 
-        <Notifications />
+        <Notifications text="{navText.notifications}" />
 
-        <UserProfile />
+        <UserProfile text="{navText.userProfile}" />
     </div>
 
 </nav>
@@ -115,7 +119,7 @@
 
 
 <aside>
-    <GDPR />
+    <GDPR text="{gdprNotice}" />
 </aside>
 
 

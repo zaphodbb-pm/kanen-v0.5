@@ -9,6 +9,7 @@
      *
      */
 
+    export let text;
 
     //** support functions
     import Icon from '/imports/components/elements/icon.svelte'
@@ -18,7 +19,7 @@
     const dispatch = createEventDispatcher();
 
     //* component controls
-    let text = getContext("navbar").userProfile;
+    //let text = getContext("navbar").userProfile;
 
     //* local reactive variables
     let showImg = false;
@@ -30,7 +31,7 @@
         showImg = !!user;
 
         if(showImg){
-            userName = user.profile && user.profile.name ? user.profile.name : user.username;
+            userName = user.profile?.name ?? user.username ?? "n/a";
         }
     }
 
@@ -52,7 +53,7 @@
         <a class="navbar-link is-arrowless" style="height: 100%;">
             <div class="" title="{text.title}">
                 <div class="image is-32x32">
-                    {#if user.profile.image && user.profile.image.src}
+                    {#if user.profile && user.profile.image && user.profile.image.src}
                         <img src="{user.profile.image.src}" class="defaultAvatar" alt="avatar"/>
                     {:else}
                         <Icon icon={getContext("iconDefaultUser")} class="is-size-3"/>

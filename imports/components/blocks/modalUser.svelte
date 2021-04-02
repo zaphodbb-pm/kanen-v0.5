@@ -81,7 +81,7 @@
 
 
 
-<div class="modal modal-user" class:is-active="{openModal}" class:is-clipped="{openModal}">
+<article class="modal modal-user" class:is-active="{openModal}" class:is-clipped="{openModal}">
     <div class="modal-background"></div>
     <div class="modal-card">
 
@@ -170,7 +170,7 @@
         {/if}
 
     </div>
-</div>
+</article>
 
 
 

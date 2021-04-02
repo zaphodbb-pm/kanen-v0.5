@@ -9,6 +9,9 @@
      *
      */
 
+    //* props
+    export let text;
+
     //** event handlers
     import { getContext, onMount } from 'svelte';
     import {createEventDispatcher} from 'svelte';
@@ -20,8 +23,6 @@
     import Icon from '/imports/components/elements/icon.svelte'
     import {getDocs} from '/imports/functions/supportApplication/getDocs'
     import {timeAgo} from '/imports/functions/formatters/timeAgo'
-
-    let text = getContext("navbar").notifications;
 
     //* local reactive variables
     let itemsToShow = 10;
@@ -92,7 +93,7 @@
     }
 
     function readNotify(item){
-        console.log("message acknowledged");
+        console.log("message acknowledged", item);
     }
 
 </script>

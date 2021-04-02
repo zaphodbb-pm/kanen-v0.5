@@ -13,9 +13,12 @@
      *
      */
 
+    //* props
+    export let text;
+
 
     //* get support files
-    import { getContext, onMount, createEventDispatcher } from 'svelte';
+    import { onMount, createEventDispatcher } from 'svelte';
     const dispatch = createEventDispatcher();
     import {fade} from 'svelte/transition';
     import * as tinyCookie from 'tiny-cookie'
@@ -24,8 +27,6 @@
     let status = null;
     let supportsLocalStorage = true;
     let isOpen = false;
-
-    let text = getContext("gdprNotice");
 
     function init() {
         let visitedType = getCookieStatus();

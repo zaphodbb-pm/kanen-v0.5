@@ -29,7 +29,7 @@
 </script>
 
 
-<div class="card {id ? id : ''}">
+<article class="card {id ? id : ''}">
     {#if text.title}
         <header class="card-header">
             <p class="card-header-title">{i18n(text, "title", $lang)}</p>
@@ -60,4 +60,4 @@
             {/each}
         </footer>
     {/if}
-</div>
+</article>

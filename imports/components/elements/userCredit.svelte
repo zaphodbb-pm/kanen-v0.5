@@ -9,31 +9,23 @@
      *
      */
 
+    //* props
+    export let text;
 
     //* support files
     import {userExtras} from '/imports/client/systemStores'
     import Icon from '/imports/components/elements/icon.svelte'
     import { getContext } from 'svelte';
 
-    //* component controls
-    let text = getContext("navbar").userCredit;
-
     //* local reactive variables
     let credit = 0;
 
-    $: {
-        if($userExtras){
-            let credits = $userExtras.credits ? $userExtras.credits : 0;
-            credit = credits.toFixed(0);
-        }else{
-            credit = 0;
-        }
-    }
+    $: credit = ($userExtras?.credits ?? 0).toFixed(0);
 
 </script>
 
 
-<div class="user-credit navbar-item">
+<article class="user-credit navbar-item">
 
     <div class="tags has-addons">
         <span class="tag is-light has-text-weight-semibold is-medium">{credit}</span>
@@ -48,4 +40,4 @@
         </span>
     </div>
 
-</div>
+</article>
