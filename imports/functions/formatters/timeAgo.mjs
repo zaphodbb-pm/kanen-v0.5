@@ -5,7 +5,7 @@
  * @function timeAgo
  * @locus Anywhere
  *
- * @param {Object} timeIn - Date object
+ * @param {Date} timeIn - Date object
  *
  * @return {string} - relative time from now to 'time'
  *

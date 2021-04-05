@@ -1,13 +1,11 @@
-<script>
-    /**
-     * Layout for Colours page.
-     *
-     * @memberof Pages:Colours
-     * @function Icons
-     * @locus Client
-     *
-     */
-
+<script>/**
+* Layout for Colours page.
+*
+* @memberof Pages:Colours
+* @function Icons
+* @locus Client
+*
+*/
 
     //* page set-up boilerplate *************************************
 

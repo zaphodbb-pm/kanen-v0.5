@@ -20,6 +20,7 @@
     import {i18n} from '/imports/functions/utilities/i18n'
     import {lang} from '/imports/client/systemStores'
 
+
     //* get page text information and set contexts for children components
     import {navbar, gdpr, pwa} from './Navbar_text'
     let navText = i18n(navbar, "", $lang);
@@ -91,7 +92,7 @@
     </div>
 
     <div class="navbar-widgets">
-        <UserCredit text="{navText.userCredit}" />
+        <UserCredit text="{navText.userCredit}" extras=" "/>
 
         <Notifications text="{navText.notifications}" />
 

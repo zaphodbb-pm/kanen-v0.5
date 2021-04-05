@@ -18,7 +18,6 @@ import assert from "assert";
 
 //** add our local support functions relative to testing directory
 import {fileAbsolutePath} from "../../../tests/functions/fileAbsolutePath.mjs";
-//import {fileLoad} from "../../../tests/functions/fileLoad.mjs";
 import {checkDOM} from "../../../tests/functions/domUtilities.mjs";
 
 //* end of boilerplate *****************************************************************
@@ -40,6 +39,12 @@ const cut = fileAbsolutePath(`${directory}/${component}.svelte`);
 
 
 //* set up component's incoming props and compile component ***************************
+import {fileLoad} from "../../../tests/functions/fileLoad.mjs";
+//import {setContext, getContext} from "svelte";
+import {writable} from 'svelte/store'
+
+const iconCredits = fileLoad("/public/svg_to_js/coins-solid.json", true);
+
 
 const opts = {
     props: {
@@ -52,6 +57,35 @@ const opts = {
 //** compile component with "dainte" npm package
 const {instance, document} = await mount(cut, opts);
 
+console.log("instance", instance);
+
+console.log("document", document);
+
+let context = new Map();
+context.set("iconCredits", "iconCredits");
+
+instance.$$.context = context;
+
+
+//import {userExtras} from "../../client/systemStores.mjs";
+
+
+//setContext("iconCredits", iconCredits);
+
+//instance.$setContext({iconCredits: iconCredits});
+//let userExtras = writable( {} );
+//userExtras.set( {extras: "extras"});
+
+//console.log("instance", instance, userExtras);
+
+
+//console.log("getContext", getContext("iconCredits") );
+
+
+
+//userExtras
+
+
 //* end of component setup ************************************************************
 
 
@@ -62,6 +96,10 @@ const {instance, document} = await mount(cut, opts);
 describe(`${component}.svelte`, function () {
 
     it("check top", function () {
+
+        console.log("it context", instance.$$.context.get("iconCredits"));
+
+
         let out = checkDOM.getAttribute(document, ".user-credit", "class");
         assert.match(out, /user-credit/);
     });

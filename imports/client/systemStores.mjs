@@ -31,7 +31,7 @@ export let showWidget = writable( false );
 export let sysDebug = writable( "" );
 
 //* set language preference
-import {getLang} from '../functions/supportApplication/getLang'
+import {getLang} from '../functions/supportApplication/getLang.mjs'
 export let lang = writable( getLang("en") );
 
 //* set user stores

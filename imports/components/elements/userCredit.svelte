@@ -9,18 +9,28 @@
      *
      */
 
+
     //* props
     export let text;
 
     //* support files
-    import {userExtras} from '/imports/client/systemStores'
-    import Icon from '/imports/components/elements/icon.svelte'
+    import {userExtras} from "../../client/systemStores.mjs";
+    import Icon from "../../../imports/components/elements/icon.svelte"
+
     import { getContext } from 'svelte';
+
+    console.log("userExtras", $userExtras);
+
+
+
+    //$: console.log("userExtras", $userExtras);
 
     //* local reactive variables
     let credit = 0;
 
     $: credit = ($userExtras?.credits ?? 0).toFixed(0);
+
+
 
 </script>
 
