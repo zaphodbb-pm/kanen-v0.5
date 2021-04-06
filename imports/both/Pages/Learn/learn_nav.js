@@ -2,14 +2,14 @@
  * Nav label for Learn page.
  *
  * @memberof Pages:Learn
- * @function learn_nav
+ * @name learn_nav
+ * @lends learn
  * @locus Anywhere
- * @augments learn
  *
- * @returns {Object} - {nav}
- * @returns {String} - link
- * @returns {String} - icon
- * @returns {Object} - roles {read: [], write: []}
+ * @exports {Object} - nav
+ * @exports {String} - link
+ * @exports {String} - icon
+ * @exports {Object} - roles {read: [], write: []}
  *
  */
 

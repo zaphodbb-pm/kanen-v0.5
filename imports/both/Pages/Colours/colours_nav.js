@@ -2,14 +2,15 @@
  * @summary Nav label for Colours page.
  *
  * @memberof Pages:Colours
- * @function colours_nav
+ * @name colours_nav
+ * @lends colours
  * @locus Anywhere
- * @augments colours
  *
- * @returns {Object} - {nav}
- * @returns {String} - link
- * @returns {String} - icon
- * @returns {Object} - roles {read: [], write: []}
+ *
+ * @exports {Object} - nav
+ * @exports {String} - link
+ * @exports {String} - icon
+ * @exports {Object} - roles {read: [], write: []}
  *
  */
 

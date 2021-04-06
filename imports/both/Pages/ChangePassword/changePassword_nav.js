@@ -2,17 +2,19 @@
  * Nav label for ChangePassword page.
  *
  * @memberof Pages:ChangePassword
- * @function changePassword_nav
+ * @name changePassword_nav
+ * @lends changePassword
  * @locus Anywhere
- * @augments changePassword
  *
- * @returns {Object} - {nav}
- * @returns {String} - link
- * @returns {String} - icon
- * @returns {Object} - roles {read: [], write: []}
+ * @exports {Object} - nav
+ * @exports {String} - link
+ * @exports {String} - icon
+ * @exports {Object} - roles {read: [], write: []}
  *
  */
 
+// @ts-ignore
+import {getMeteorSettings} from "../../../functions_bypass/getMeteorSettings.mjs";
 
 export const nav = {en: "Change Password"};
 
@@ -22,7 +24,7 @@ export const icon = "iconChangePwd";
 
 // roles that can see this link in Navbar and be routed to
 // roles are also used by database write / read checking
-let demoMode = Meteor.settings.public.demo_mode;
+let demoMode = getMeteorSettings("demo_mode");
 
 const normal = {
     read: ["basic", "standard", "pro", "siteAdmin"],

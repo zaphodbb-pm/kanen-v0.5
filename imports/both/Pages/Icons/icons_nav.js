@@ -2,14 +2,14 @@
  * @summary Nav label for Icons page.
  *
  * @memberof Pages:Icons
- * @function icons_nav
+ * @name icons_nav
+ * @lends icons
  * @locus Anywhere
- * @augments icons
  *
- * @returns {Object} - {nav}
- * @returns {String} - link
- * @returns {String} - icon
- * @returns {Object} - roles {read: [], write: []}
+ * @exports {Object} - nav
+ * @exports {String} - link
+ * @exports {String} - icon
+ * @exports {Object} - roles {read: [], write: []}
  */
 
 

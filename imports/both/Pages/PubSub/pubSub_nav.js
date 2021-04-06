@@ -2,14 +2,14 @@
  * Nav label for PubSub page.
  *
  * @memberof Pages:PubSub
- * @function pubSub_nav
+ * @name pubSub_nav
+ * @lends pubSub
  * @locus Anywhere
- * @augments pubSub
  *
- * @returns {Object} - {nav}
- * @returns {String} - link
- * @returns {String} - icon
- * @returns {Object} - roles {read: [], write: []}
+ * @exports {Object} - nav
+ * @exports {String} - link
+ * @exports {String} - icon
+ * @exports {Object} - roles {read: [], write: []}
  */
 
 

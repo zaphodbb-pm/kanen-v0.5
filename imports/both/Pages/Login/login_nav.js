@@ -2,14 +2,14 @@
  * Nav label for Login page.
  *
  * @memberof Pages:Login
- * @function login_nav
+ * @name login_nav
+ * @lends login
  * @locus Anywhere
- * @augments login
  *
- * @returns {Object} - {nav}
- * @returns {String} - link
- * @returns {String} - icon
- * @returns {Object} - roles {read: [], write: []}
+ * @exports {Object} - nav
+ * @exports {String} - link
+ * @exports {String} - icon
+ * @exports {Object} - roles {read: [], write: []}
  */
 
 

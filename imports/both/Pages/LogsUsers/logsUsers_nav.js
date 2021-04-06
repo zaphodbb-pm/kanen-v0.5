@@ -2,14 +2,14 @@
  * @summary Nav label for LogsUsers page.
  *
  * @memberof Pages:LogsUsers
- * @function logsUsers_nav
+ * @name logsUsers_nav
+ * @lends logsUsers
  * @locus Anywhere
- * @augments logsUsers
  *
- * @returns {Object} - {nav}
- * @returns {String} - link
- * @returns {String} - icon
- * @returns {Object} - roles {read: [], write: []}
+ * @exports {Object} - nav
+ * @exports {String} - link
+ * @exports {String} - icon
+ * @exports {Object} - roles {read: [], write: []}
  */
 
 

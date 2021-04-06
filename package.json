@@ -2,16 +2,7 @@
   "name": "svelte-meteor",
   "private": true,
   "scripts": {
-    "start": "meteor run",
-    "test": "jest"
-  },
-  "jest": {
-    "testMatch": [
-      "**/tests/**/*.(js|ts|mjs)?(x)",
-      "**/?(*.)+(spec|test).(js|ts|mjs)?(x)"
-    ],
-    "testEnvironment": "jest-environment-node",
-    "transform": {}
+    "start": "meteor run"
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5",

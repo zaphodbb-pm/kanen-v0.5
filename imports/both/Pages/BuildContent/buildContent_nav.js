@@ -2,14 +2,14 @@
  * @summary Nav label for BuildContent page.
  *
  * @memberof Pages:BuildContent
- * @function buildContent_nav
+ * @name buildContent_nav
+ * @lends buildContent
  * @locus Anywhere
- * @augments buildContent
  *
- * @returns {Object} - {nav}
- * @returns {String} - link
- * @returns {String} - icon
- * @returns {Object} - roles {read: [], write: []}
+ * @exports {Object} - nav
+ * @exports {String} - link
+ * @exports {String} - icon
+ * @exports {Object} - roles {read: [], write: []}
  */
 
 

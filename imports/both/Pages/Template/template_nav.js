@@ -2,14 +2,14 @@
  * Nav label, link, icon and access control for Template page.
  *
  * @memberof Pages:Template
- * @function template_nav
+ * @name template_nav
+ * @lends template
  * @locus Anywhere
- * @augments template
  *
- * @returns {Object} - {nav}
- * @returns {String} - link
- * @returns {String} - icon
- * @returns {Object} - roles {read: [], write: []}
+ * @exports {Object} - nav
+ * @exports {String} - link
+ * @exports {String} - icon
+ * @exports {Object} - roles {read: [], write: []}
  *
  * @notes
  *  1. In order to reduce the initial bundle size, the nav label is in a separate text file.

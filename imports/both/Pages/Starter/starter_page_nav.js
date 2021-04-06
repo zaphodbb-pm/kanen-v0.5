@@ -2,14 +2,14 @@
  * @summary Nav label for Starter page.
  *
  * @memberof Pages:Starter
- * @function starter_nav
+ * @name starter_nav
+ * @lends starter
  * @locus Anywhere
- * @augments starter
  *
- * @returns {Object} - {nav}
- * @returns {String} - link
- * @returns {String} - icon
- * @returns {Object} - roles {read: [], write: []}
+ * @exports {Object} - nav
+ * @exports {String} - link
+ * @exports {String} - icon
+ * @exports {Object} - roles {read: [], write: []}
  */
 
 

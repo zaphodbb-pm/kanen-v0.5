@@ -2,14 +2,14 @@
  * @summary Nav label for Users page.
  *
  * @memberof Pages:Users
- * @function users_nav
+ * @name users_nav
+ * @lends users
  * @locus Anywhere
- * @augments users
  *
- * @returns {Object} - {nav}
- * @returns {String} - link
- * @returns {String} - icon
- * @returns {Object} - roles {read: [], write: []}
+ * @exports {Object} - nav
+ * @exports {String} - link
+ * @exports {String} - icon
+ * @exports {Object} - roles {read: [], write: []}
  */
 
 

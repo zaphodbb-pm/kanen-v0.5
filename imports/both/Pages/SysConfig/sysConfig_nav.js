@@ -2,14 +2,14 @@
  * @summary Nav label for SysConfig page.
  *
  * @memberof Pages:SysConfig
- * @function sysConfig_nav
+ * @name sysConfig_nav
+ * @lends sysConfig
  * @locus Anywhere
- * @augments sysConfig
  *
- * @returns {Object} - {nav}
- * @returns {String} - link
- * @returns {String} - icon
- * @returns {Object} - roles {read: [], write: []}
+ * @exports {Object} - nav
+ * @exports {String} - link
+ * @exports {String} - icon
+ * @exports {Object} - roles {read: [], write: []}
  */
 
 

@@ -2,14 +2,14 @@
  * @summary Nav label for LogsSystem page.
  *
  * @memberof Pages:LogsSystem
- * @function logsSystem_nav
+ * @name logsSystem_nav
+ * @lends logsSystem
  * @locus Anywhere
- * @augments logsSystem
  *
- * @returns {Object} - {nav}
- * @returns {String} - link
- * @returns {String} - icon
- * @returns {Object} - roles {read: [], write: []}
+ * @exports {Object} - nav
+ * @exports {String} - link
+ * @exports {String} - icon
+ * @exports {Object} - roles {read: [], write: []}
  */
 
 

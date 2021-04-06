@@ -2,14 +2,14 @@
  * @summary Nav label for Widgets page.
  *
  * @memberof Pages:Widgets
- * @function widgets_nav
+ * @name widgets_nav
+ * @lends widgets
  * @locus Anywhere
- * @augments widgets
  *
- * @returns {Object} - {nav}
- * @returns {String} - link
- * @returns {String} - icon
- * @returns {Object} - roles {read: [], write: []}
+ * @exports {Object} - nav
+ * @exports {String} - link
+ * @exports {String} - icon
+ * @exports {Object} - roles {read: [], write: []}
  */
 
 

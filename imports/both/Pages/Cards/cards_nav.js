@@ -2,14 +2,14 @@
  * @summary Nav label for Cards page.
  *
  * @memberof Pages:Cards
- * @function cards_nav
+ * @name cards_nav
+ * @lends cards
  * @locus Anywhere
- * @augments cards
  *
- * @returns {Object} - {nav}
- * @returns {String} - link
- * @returns {String} - icon
- * @returns {Object} - roles {read: [], write: []}
+ * @exports {Object} - nav
+ * @exports {String} - link
+ * @exports {String} - icon
+ * @exports {Object} - roles {read: [], write: []}
  */
 
 

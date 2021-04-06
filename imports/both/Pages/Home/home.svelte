@@ -1,4 +1,5 @@
 <script>
+
     /**
      * @summary Layout insert for Home page.
      *

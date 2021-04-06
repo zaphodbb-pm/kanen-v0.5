@@ -2,14 +2,14 @@
  * @summary Nav label for Home page.
  *
  * @memberof Pages:Home
- * @function home_nav
+ * @name home_nav
+ * @lends home
  * @locus Anywhere
- * @augments home
  *
- * @returns {Object} - {nav}
- * @returns {String} - link
- * @returns {String} - icon
- * @returns {Object} - roles {read: [], write: []}
+ * @exports {Object} - {nav}
+ * @exports {String} - link
+ * @exports {String} - icon
+ * @exports {Object} - roles {read: [], write: []}
  *
  */
 

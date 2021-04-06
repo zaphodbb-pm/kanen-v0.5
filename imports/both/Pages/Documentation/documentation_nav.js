@@ -2,14 +2,14 @@
  * @summary Nav label for Documentation page.
  *
  * @memberof Pages:Documentation
- * @function documentation_nav
+ * @name documentation_nav
+ * @lends documentation
  * @locus Anywhere
- * @augments documentation
  *
- * @returns {Object} - {nav}
- * @returns {String} - link
- * @returns {String} - icon
- * @returns {Object} - roles {read: [], write: []}
+ * @exports {Object} - nav
+ * @exports {String} - link
+ * @exports {String} - icon
+ * @exports {Object} - roles {read: [], write: []}
  */
 
 

@@ -2,14 +2,14 @@
  * Nav label for ExportImport page.
  *
  * @memberof Pages:ExportImport
- * @function exportImport_nav
+ * @name exportImport_nav
+ * @lends exportImport
  * @locus Anywhere
- * @augments exportImport
  *
- * @returns {Object} - {nav}
- * @returns {String} - link
- * @returns {String} - icon
- * @returns {Object} - roles {read: [], write: []}
+ * @exports {Object} - nav
+ * @exports {String} - link
+ * @exports {String} - icon
+ * @exports {Object} - roles {read: [], write: []}
  *
  */
 
