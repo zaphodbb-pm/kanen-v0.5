@@ -11,7 +11,7 @@
  * @return {String} - formatted number scaled by f
  */
 
-import {numString} from "./numString.mjs";
+import {numString} from "./numString.js";
 
 export function formatNumber(num, f) {
     const factor = f ?? 1;

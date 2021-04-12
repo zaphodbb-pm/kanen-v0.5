@@ -17,9 +17,9 @@ import { createRequire } from 'module'
 const require = createRequire(import.meta.url);
 const sinon = require("sinon");
 
-export async function testAssertions(plan, func){
-    //const plan = module.testPlan;
-    //const func = module.underTest;
+export async function testAssertions(module){
+    const plan = module.testPlan;
+    const func = module.underTest;
 
     if(plan && func){
         describe(plan.label, function () {

@@ -2,7 +2,7 @@
  * Test plan
  *
  * @memberof Tests
- * @augments validate
+ * @lends validate
  * @locus Anywhere
  *
  */

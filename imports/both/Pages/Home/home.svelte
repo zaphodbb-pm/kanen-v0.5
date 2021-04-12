@@ -27,12 +27,13 @@
 
 
     //* page body support **************************
-    import {i18n} from '/imports/functions/utilities/i18n'
-    import {lang} from '/imports/client/systemStores'
+    import {i18n} from "../../../functions/utilities/i18n.mjs";
+    import {lang} from "../../../client/systemStores.mjs";
+
     let pageText = i18n(page, "page", $lang);
 
     setContext("pageText", page);
-    import TabContent from '/imports/components/widgets/tabbedContent.svelte'
+    import TabContent from "../../../components/widgets/tabbedContent.svelte"
 
 </script>
 

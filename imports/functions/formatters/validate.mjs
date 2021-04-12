@@ -9,7 +9,8 @@
  * @function validate
  * @locus Anywhere
  *
- * @type {*} variable - (required) item to validate*
+ * @typedef {function} Validate
+ * @type {*} variable - (required) item to validate
  * @type {Object} opts - validation options
  * @type {*} opts.default - (optional) sets a default value if validation fails
  * @type {boolean} opts.warn - (optional) emits warnings if default is being used
@@ -30,9 +31,11 @@
  *      ie shapeArray(item, options)
  *      options = {min: 1, max: 20, default: ["one"]}
  *          where if array.length < min get default value or undefined if no default given
- *          where if arry.length > max, truncate array to max number of items
+ *          where if array.length > max, truncate array to max number of items
  *
  */
+
+
 
 
 const Validate = () => {
@@ -87,9 +90,9 @@ const Validate = () => {
     };
 
     const isObject = (variable, opts = {}) =>   variable
-                                                && typeof variable === 'object'
-                                                && variable.constructor === Object
-                                                && (opts?.keys ? opts.keys.every(key => Object.keys(variable).includes(key)) : true);
+        && typeof variable === 'object'
+        && variable.constructor === Object
+        && (opts?.keys ? opts.keys.every(key => Object.keys(variable).includes(key)) : true);
 
     const shapeObject = (variable, opts = {}) => {
         return isObject(variable) ? (opts?.default ? {...opts.default, ...variable} : variable) : _logs(opts, "object", variable);

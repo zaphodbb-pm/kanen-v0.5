@@ -16,35 +16,48 @@
  *      meteor npm install --save-dev jsdom
  */
 
-
-import assert from "assert";
+//* get standard support functions
 import { createRequire } from 'module'
 const require = createRequire(import.meta.url);
+
+import {testAssertions} from "../functions/testAssertions.mjs";
+
 
 //* get full path to top of active code directory
 let fs = require('fs');
 const rpath = fs.realpathSync("./");
 
-//* track node version that we are using - should use most recent
+
+//* boiler plate header: track node version that we are using - should use most recent
 const nodeV = process.version;
 console.log("Node Version: ", nodeV);
 
 const version = await import("../../imports/both/version.mjs");
 console.log(`Project: ${version.default.APP_NAME} at version ${version.default.VERSION}`)
 
-//* add support functions
-import {testAssertions} from "../functions/testAssertions.mjs";
 
-//* get a single test files in a directory, import and execute tests
-const directory = "/imports/functions/formatters"
-const file = "validate.test.mjs";
+//* get a single test file in a directory, import and execute tests
+const directory = "/imports/functions/formatters";
+const functionUnderTest = "numString";
 
+const fileTestPlan = `${rpath}${directory}/${functionUnderTest}.test.mjs`;
+const fileUnderTest = `${rpath}${directory}/${functionUnderTest}.js`;
+const fileUnderTestES6 = `${rpath}${directory}/${functionUnderTest}.mjs`;
+
+
+//* run one test
 describe("Run one test", function () {
 
     it("get module", async function(){
         try {
-            const module = await import(`${rpath}${directory}/${file}`);
-            testAssertions(module);
+            const testPlan = await import(fileTestPlan);
+
+            // we need to use mjs extension to support es6 imports during Mocha testing
+            fs.renameSync(fileUnderTest, fileUnderTestES6);
+            const fut = await import(fileUnderTestES6);
+            fs.renameSync(fileUnderTestES6, fileUnderTest);
+
+            testAssertions(testPlan.testPlan, fut[functionUnderTest]);
         } catch(err){
             console.log("err", err);
         }
