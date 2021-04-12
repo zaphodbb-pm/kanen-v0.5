@@ -16,7 +16,7 @@
 
     //* get the user language preference from store and text from context
     import {i18n} from "../../functions/utilities/i18n.mjs";
-    import {lang} from "../../client/systemStores.mjs";
+    import {lang} from "../../client/systemStores.js";
 
     //** event handlers
     import {createEventDispatcher} from 'svelte';
