@@ -1,12 +1,11 @@
 /**
- * Takes a number and returns a string with added commas where required
+ * Add commas to big formatters and returns a string
  *
  * @memberof Functions
  * @function numString
  * @locus Anywhere
  *
- * @param {number} num
- *
+ * @param {Number} num
  * @returns {String} - large number with thousands comma
  */
 

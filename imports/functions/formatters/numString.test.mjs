@@ -8,9 +8,6 @@
  */
 
 
-//import {numString} from "./numString.js";
-//export const underTest = numString;
-
 export const testPlan = {
     label: "function numString",
 

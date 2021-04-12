@@ -11,6 +11,7 @@
  * @return {String} - formatted number scaled by f
  */
 
+import {numString} from "./numString.js";
 
 export function formatNumber(num, f) {
     const factor = f ?? 1;
@@ -27,7 +28,7 @@ export function formatNumber(num, f) {
     }else if (number >= 100 && number < 1000) {
         out = number.toFixed(0);
     }else if (number > 1000) {
-        out = number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        out = numString(Math.round(number));
     }
 
     return out;

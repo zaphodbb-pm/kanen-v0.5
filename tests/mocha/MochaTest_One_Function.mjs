@@ -38,11 +38,17 @@ console.log(`Project: ${version.default.APP_NAME} at version ${version.default.V
 
 //* get a single test file in a directory, import and execute tests
 const directory = "/imports/functions/formatters";
-const functionUnderTest = "numString";
+const functionUnderTest = "formatNumber";
 
 const fileTestPlan = `${rpath}${directory}/${functionUnderTest}.test.mjs`;
 const fileUnderTest = `${rpath}${directory}/${functionUnderTest}.js`;
-const fileUnderTestES6 = `${rpath}${directory}/${functionUnderTest}.mjs`;
+
+
+//const fileUnderTestES6 = `${rpath}${directory}/functionUnderTest}.mjs`;
+
+//const fileUnderTestES6 = `${rpath}${directory}/${functionUnderTest}.mjs`;
+
+const fileUnderTestES6 = `${rpath}/tests/mocha/functionUnderTest.mjs`;
 
 
 //* run one test
@@ -52,10 +58,13 @@ describe("Run one test", function () {
         try {
             const testPlan = await import(fileTestPlan);
 
+
+            fs.copyFileSync(fileUnderTest, fileUnderTestES6);
+
             // we need to use mjs extension to support es6 imports during Mocha testing
-            fs.renameSync(fileUnderTest, fileUnderTestES6);
+            //fs.renameSync(fileUnderTest, fileUnderTestES6);
             const fut = await import(fileUnderTestES6);
-            fs.renameSync(fileUnderTestES6, fileUnderTest);
+            //fs.renameSync(fileUnderTestES6, fileUnderTest);
 
             testAssertions(testPlan.testPlan, fut[functionUnderTest]);
         } catch(err){

@@ -8,10 +8,6 @@
  */
 
 
-//import {formatNumber} from "./formatNumber.js";
-//export const underTest = formatNumber;
-
-
 export const testPlan = {
     label: "function formatNumber",
 
