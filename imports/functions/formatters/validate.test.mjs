@@ -8,10 +8,6 @@
  */
 
 
-import {validate} from "./validate.mjs";
-export const underTest = validate;
-
-
 //* test data for plans
 const now = new Date();
 const sym = Symbol("sym");

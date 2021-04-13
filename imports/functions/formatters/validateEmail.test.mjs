@@ -8,9 +8,6 @@
  */
 
 
-import {validateEmail} from "./validateEmail.mjs";
-export const underTest = validateEmail;
-
 export const testPlan = {
     label: "function validateEmail",
 

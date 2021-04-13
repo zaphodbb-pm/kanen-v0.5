@@ -10,13 +10,13 @@
  * @locus Anywhere
  *
  * @typedef {function} Validate
- * @type {*} variable - (required) item to validate
- * @type {Object} opts - validation options
- * @type {*} opts.default - (optional) sets a default value if validation fails
- * @type {boolean} opts.warn - (optional) emits warnings if default is being used
- * @type {Array} opts.keys - (optional) array of keys (strings) that are required if variable is an object or array
- * @type {number} opts.min - (optional) sets a minimum number if variable is under rang range
- * @type {number} opts.max - (optional) sets a maximum number if variable is over
+ * @property {*} variable - (required) item to validate
+ * @property {Object} opts - validation options
+ * @property {*} opts.default - (optional) sets a default value if validation fails
+ * @property {boolean} opts.warn - (optional) emits warnings if default is being used
+ * @property {Array} opts.keys - (optional) array of keys (strings) that are required if variable is an object or array
+ * @property {number} opts.min - (optional) sets a minimum number if variable is under rang range
+ * @property {number} opts.max - (optional) sets a maximum number if variable is over
  *
  * @returns {function} - checking function for various data types
  *
@@ -92,6 +92,7 @@ const Validate = () => {
     const isObject = (variable, opts = {}) =>   variable
         && typeof variable === 'object'
         && variable.constructor === Object
+        // @ts-ignore
         && (opts?.keys ? opts.keys.every(key => Object.keys(variable).includes(key)) : true);
 
     const shapeObject = (variable, opts = {}) => {
@@ -126,6 +127,7 @@ const Validate = () => {
     };
 
     return{
+        // @ts-ignore
         isBoolean,
 
         isString,

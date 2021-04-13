@@ -8,8 +8,6 @@
  */
 
 
-import {validatePhone} from "./validatePhone.mjs";
-export const underTest = validatePhone;
 
 const test1 = {filter: "+1 (613) 234-0987 ext 123", test: true};
 const test2 = {filter: "(613) 234-0987 x 123", test: false};
