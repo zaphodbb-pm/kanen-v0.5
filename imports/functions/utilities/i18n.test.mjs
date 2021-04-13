@@ -8,11 +8,6 @@
  */
 
 
-import {i18n} from "./i18n.mjs";
-export const underTest = i18n;
-
-
-
 const text = {
     title: {
         en: "English",

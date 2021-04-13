@@ -8,11 +8,6 @@
  */
 
 
-import {flattenObject} from "./flattenObject.mjs";
-export const underTest = flattenObject;
-
-
-
 
 export const testPlan = {
     label: "function flattenObject",

@@ -8,11 +8,6 @@
  */
 
 
-import {generateId} from "./generateId.mjs";
-export const underTest = generateId;
-
-
-
 
 export const testPlan = {
     label: "function generateId",

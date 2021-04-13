@@ -8,10 +8,6 @@
  */
 
 
-import {sortBy} from "./sortBy.mjs";
-export const underTest = sortBy;
-
-
 export const testPlan = {
     label: "function sortBy",
 

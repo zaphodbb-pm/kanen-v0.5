@@ -8,10 +8,6 @@
  */
 
 
-import {groupBy} from "./groupBy.mjs";
-export const underTest = groupBy;
-
-
 
 export const testPlan = {
     label: "function groupBy",

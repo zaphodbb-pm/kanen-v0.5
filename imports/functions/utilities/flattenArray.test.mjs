@@ -8,10 +8,6 @@
  */
 
 
-import {flattenArray} from "./flattenArray.mjs";
-export const underTest = flattenArray;
-
-
 
 export const testPlan = {
     label: "function flattenArray",

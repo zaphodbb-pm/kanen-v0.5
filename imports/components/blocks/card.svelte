@@ -15,7 +15,7 @@
     export let id;              // unique component id
 
     //* get the user language preference from store and text from context
-    import {i18n} from "../../functions/utilities/i18n.mjs";
+    import {i18n} from "../../functions/utilities/i18n.js";
     import {lang} from "../../client/systemStores.js";
 
     //** event handlers

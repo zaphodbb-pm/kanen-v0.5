@@ -21,7 +21,7 @@ export function generateId( length ) {
     try {
         window.crypto.getRandomValues(arr);
     }catch {
-        arr = arr.map( a => {return Math.round( Math.random() * 255 ) } );
+        arr = arr.map( () => {return Math.round( Math.random() * 255 ) } );
     }
 
     arr.forEach(function (item) {

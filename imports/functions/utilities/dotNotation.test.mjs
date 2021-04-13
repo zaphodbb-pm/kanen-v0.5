@@ -8,11 +8,6 @@
  */
 
 
-import {dotNotation} from "./dotNotation.mjs";
-export const underTest = dotNotation;
-
-
-
 export const testPlan = {
     label: "function dotNotation",
 
