@@ -8,10 +8,6 @@
  */
 
 
-import {parseJSONString} from "./parseJSONString.mjs";
-export const underTest = parseJSONString;
-
-
 
 const test1 = {one: 1, two: 2};
 const test2 = [{one: 1}, {two: 2}];

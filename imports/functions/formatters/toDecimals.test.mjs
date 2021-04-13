@@ -8,10 +8,6 @@
  */
 
 
-import {toDecimals} from "./toDecimals.mjs";
-export const underTest = toDecimals;
-
-
 export const testPlan = {
     label: "function toDecimals",
 

@@ -12,7 +12,7 @@
  *
  */
 
-import {toDecimals} from "/imports/functions/formatters/toDecimals.mjs";
+import {toDecimals} from "/imports/functions/formatters/toDecimals.js";
 
 export function progessValue(load) {
     if (load) {

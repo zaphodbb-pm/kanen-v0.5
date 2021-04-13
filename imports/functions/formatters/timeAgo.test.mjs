@@ -8,12 +8,7 @@
  */
 
 
-import {timeAgo} from "./timeAgo.mjs";
-export const underTest = timeAgo;
-
-
 const now = Date.now();
-
 
 export const testPlan = {
     label: "function timeAgo",
