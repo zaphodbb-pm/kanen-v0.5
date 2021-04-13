@@ -14,7 +14,7 @@
     export let text = {};
 
     //* support files
-    import {userExtras} from "../../client/systemStores.js";
+    import {userExtras} from "../../client/systemStores.mjs";
     import Icon from "../../../imports/components/elements/icon.svelte"
 
     import { getContext } from 'svelte';

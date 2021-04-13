@@ -5,7 +5,8 @@
  * @function textCommon
  * @locus Client
  *
- * @returns {Object} text
+ * @exports {Object} fileReader
+ * @exports {Object} default
  *
  */
 

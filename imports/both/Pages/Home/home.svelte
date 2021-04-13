@@ -28,7 +28,7 @@
 
     //* page body support **************************
     import {i18n} from "../../../functions/utilities/i18n.js";
-    import {lang} from "../../../client/systemStores.js";
+    import {lang} from "../../../client/systemStores.mjs";
 
     let pageText = i18n(page, "page", $lang);
 
