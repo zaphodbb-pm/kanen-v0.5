@@ -7,11 +7,6 @@
  *
  */
 
-
-import {formatPhoneNumber} from "./formatPhoneNumber.mjs";
-export const underTest = formatPhoneNumber;
-
-
 export const testPlan = {
     label: "function formatPhoneNumber",
 

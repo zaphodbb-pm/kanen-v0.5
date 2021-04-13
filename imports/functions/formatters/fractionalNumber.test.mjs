@@ -8,10 +8,6 @@
  */
 
 
-import {fractionalNumber } from "./fractionalNumber.mjs";
-export const underTest = fractionalNumber;
-
-
 export const testPlan = {
     label: "function fractionalNumber",
 

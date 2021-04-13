@@ -8,10 +8,6 @@
  */
 
 
-import {fileName} from "./fileName.mjs";
-export const underTest = fileName;
-
-
 export const testPlan = {
     label: "function fileName",
 

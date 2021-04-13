@@ -16,7 +16,7 @@ export function fractionalNumber(number, scale) {
 
     if (scale === "imperial") {
         let fraction = 8;                               // initialize fraction denominator
-        let main = Math.floor(num);                     // figure out how many integer digits are in number
+        const main = Math.floor(num);                     // figure out how many integer digits are in number
         let r = Math.round((num - main) * 8);        // figure how many eighths are in remainder
 
         if (!(r % 2)) {                                 // if not odd, then continue to figure what the fraction size is
@@ -27,9 +27,9 @@ export function fractionalNumber(number, scale) {
                 fraction = 2;
             }
         }
-        main = (main === 0) ? "" : main;                // don't display a zero integer
-        r = (r === 0) ? "" : `${r}/${fraction}`;        // don't display a zero fraction
-        return `${main} ${r}`;
+        const strMin = (main === 0) ? "" : main;                // don't display a zero integer
+        const strR = (r === 0) ? "" : `${r}/${fraction}`;        // don't display a zero fraction
+        return `${strMin} ${strR}`;
     }
 
     return num.toFixed(1);                  // for metric case, make number nice
