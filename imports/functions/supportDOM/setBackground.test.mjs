@@ -8,12 +8,6 @@
  */
 
 
-import {setBackground} from "./setBackground.mjs";
-export const underTest = setBackground;
-
-
-
-
 const config = {
     bgColours: ["#00FF00", "#FFFF00", "#FF0000"],
     bgNormal: [0, .66],             // percent range of values for normal operation

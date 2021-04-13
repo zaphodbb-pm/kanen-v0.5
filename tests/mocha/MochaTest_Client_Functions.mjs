@@ -16,8 +16,19 @@
  *      meteor npm install --save-dev jsdom
  */
 
+//* define directory to search for testplans
+const dirFunctions = "/imports/functions/formatters";
+const testFileExtension = ".test.mjs";
 
+
+//* get support functions
+import { createRequire } from 'module'
+const require = createRequire(import.meta.url);
+const fs = require('fs');
 import assert from "assert";
+import {getTestFiles} from "../functions/getTestFiles.mjs";
+import {testAssertions} from "../functions/testAssertions.mjs";
+
 
 //* track node version that we are using - should use most recent
 const nodeV = process.version;
@@ -34,30 +45,29 @@ describe("Check Setup Files", function () {
 });
 
 
-
-
-//* add support functions
-import {getTestFiles} from "../functions/getTestFiles.mjs";
-import {testAssertions} from "../functions/testAssertions.mjs";
-
-
-//* get all test files in a directory, import and execute tests
-const testFileExtension = ".test.mjs";
-//const dirFunctions = "/imports/functions"
-
-const dirFunctions = "/imports/components/general"
-
+//* get all test files from designated directory
 const testsFound = getTestFiles(dirFunctions, testFileExtension);
-
 console.log(`'${dirFunctions}' test files found = `, testsFound.length);
 
 
+//* cycle through all test plans
 describe("Run all tests", function () {
     it("get modules", async function(){
         for (const tf of testsFound) {
             try {
-                const module = await import(tf);
-                testAssertions(module);
+                const testPlan = await import(tf);
+
+                //* we need to use mjs extension to support es6 imports during Mocha testing
+                //* note that mocha seems to have challenges with trying to use --package <path> directive
+                const fileUnderTest = tf.replace(".test.mjs", ".js");
+                const fileUnderTestES6 = tf.replace(".test.mjs", ".mjs");
+                const functionUnderTest = tf.replace(".test.mjs", "").split("/").pop();
+
+                fs.renameSync(fileUnderTest, fileUnderTestES6);
+                const fut = await import(fileUnderTestES6);
+                fs.renameSync(fileUnderTestES6, fileUnderTest);
+
+                testAssertions(testPlan.testPlan, fut[functionUnderTest]);
             } catch(err){
                 console.log("err", err);
             }

@@ -18,8 +18,8 @@
 
 //* file to test: set directory and file file name to be used for testing;
 //* assumes testPlan file has same name as function file name
-const directory = "/imports/functions/formatters";
-const functionUnderTest = "validatePhone";
+const directory = "/imports/functions/supportDOM";
+const functionUnderTest = "textColour";
 
 
 

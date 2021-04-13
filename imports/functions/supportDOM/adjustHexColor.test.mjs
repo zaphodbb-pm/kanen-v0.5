@@ -8,10 +8,6 @@
  */
 
 
-import {adjustHexColor} from "./adjustHexColor.mjs";
-export const underTest = adjustHexColor;
-
-
 export const testPlan = {
     label: "function adjustHexColor",
 

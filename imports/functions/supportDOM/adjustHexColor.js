@@ -51,8 +51,7 @@ export function adjustHexColor(color, percent) {
     B = B < 255 ? B : 255;
 
     //** get best contrast colour for text based on yiq formula
-    let yiq = Math.round( ( (R * 299) + (G * 587) + ( B * 114) ) / 1000 );
-    yiq = (yiq >= 128) ? "#000000" : "#FFFFFF" ;
+    const yiq = Math.round( ( (R * 299) + (G * 587) + ( B * 114) ) / 1000 );
 
     //** convert back into hex values and return adjusted colour setting
     outR = ( (R.toString(16).length === 1) ? "0" + R.toString(16) : R.toString(16) );
@@ -61,6 +60,6 @@ export function adjustHexColor(color, percent) {
 
     return {
         color:  "#" + outR.toUpperCase() + outG.toUpperCase() + outB.toUpperCase(),
-        text:   yiq,
+        text:   (yiq >= 128) ? "#000000" : "#FFFFFF"
     }
 }

@@ -16,8 +16,8 @@ export function textColour(rgb) {
         return "#000000";       // return default text colour
     }
 
-    let vals = rgb.replace("rgb(", "").replace(")", "");
-    vals = vals.split(",");
+    const strVals = rgb.replace("rgb(", "").replace(")", "");
+    const vals = strVals.split(",");
 
     //** get best contrast colour for text
     let yiq = Math.round((parseInt(vals[0]) * 299 + parseInt(vals[1]) * 587 + parseInt(vals[1]) * 114) / 1000);

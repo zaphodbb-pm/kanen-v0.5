@@ -8,11 +8,6 @@
  */
 
 
-import {textColour} from "./textColour.mjs";
-export const underTest = textColour;
-
-
-
 export const testPlan = {
     label: "function textColour",
 
