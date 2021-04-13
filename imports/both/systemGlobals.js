@@ -3,16 +3,16 @@
  * This file provides a single entry point to provide consistency across all pages, components and elements.
  *
  * @memberof Setup:Client
- * @function systemGlobals
+ * @name systemGlobals
  * @locus Client
  *
- * @returns {Object} layout - controls layout options
- * @returns {Object} documents - mongodb document limits
- * @returns {Object} colors - hex colour values
- * @returns {Object} colorArrays - hex colour array values
- * @returns {Object} components - bulma css values for cards etc.
- * @returns {Object} elements - bulma css values for key buttons.
- * @returns {Object} theme - bulma css values for theming items
+ * @exports {Object} layout - controls layout options
+ * @exports {Object} documents - mongodb document limits
+ * @exports {Object} colors - hex colour values
+ * @exports {Object} colorArrays - hex colour array values
+ * @exports {Object} components - bulma css values for cards etc.
+ * @exports {Object} elements - bulma css values for key buttons.
+ * @exports {Object} theme - bulma css values for theming items
  */
 
 

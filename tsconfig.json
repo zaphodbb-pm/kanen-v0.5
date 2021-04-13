@@ -8,7 +8,10 @@
     "types": ["meteor"]
   },
 
+  "include": ["imports/**/*.js", "imports/**/*.svelte"],
+
   "exclude": [
+    "public/*",
     "node_modules",
     "*.test.js",
     "*.spec.js"

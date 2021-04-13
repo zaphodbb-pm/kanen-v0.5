@@ -1,4 +1,5 @@
-<script>
+<script lang="ts">
+
     /**
      * User Credit element
      *
@@ -9,9 +10,8 @@
      *
      */
 
-
     //* props
-    export let text;
+    export let text = {};
 
     //* support files
     import {userExtras} from "../../client/systemStores.js";
@@ -29,7 +29,6 @@
     let credit = 0;
 
     $: credit = ($userExtras?.credits ?? 0).toFixed(0);
-
 
 
 </script>

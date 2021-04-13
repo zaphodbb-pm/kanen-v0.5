@@ -3,7 +3,7 @@
      * Main Navbar component fixed at top of page.
      *
      * @memberof Navbar
-     * @function Navbar
+     * @name Navbar
      * @locus Client
      *
      */

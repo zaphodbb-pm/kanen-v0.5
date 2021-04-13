@@ -45,7 +45,9 @@ console.log(`Project: ${version.default.APP_NAME} at version ${version.default.V
 //* build required paths to get a single test file in a directory, import and execute tests
 const fileTestPlan = `${rpath}${directory}/${functionUnderTest}.test.mjs`;
 const fileUnderTest = `${rpath}${directory}/${functionUnderTest}.js`;
-const fileUnderTestES6 = `${rpath}/tests/mocha/functionUnderTest.mjs`;
+
+
+//const fileUnderTestES6 = `${rpath}/tests/mocha/functionUnderTest.mjs`;
 
 
 //* run one test
@@ -56,12 +58,12 @@ describe("Run one test", function () {
             const testPlan = await import(fileTestPlan);
 
             //* we need to use mjs extension to support es6 imports during Mocha testing
-            fs.copyFileSync(fileUnderTest, fileUnderTestES6);
-            const fut = await import(fileUnderTestES6);
+            const fut = await import(fileUnderTest);
 
             testAssertions(testPlan.testPlan, fut[functionUnderTest]);
         } catch(err){
             console.log("err", err);
         }
     });
+
 });
