@@ -8,10 +8,6 @@
  */
 
 
-import {debugConsole} from "./debugConsole.mjs";
-export const underTest = debugConsole;
-
-
 
 export const testPlan = {
     label: "function debugConsole",

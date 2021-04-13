@@ -14,7 +14,7 @@
  *
  */
 
-import {debugConsole} from './debugConsole.mjs'
+import {debugConsole} from './debugConsole.js'
 
 
 //** deals with return values from a server method call

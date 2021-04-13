@@ -15,7 +15,7 @@
  */
 
 
-import {deepClone} from "./deepClone.mjs";
+import {deepClone} from "./deepClone.js";
 
 export function sortBy( inList, key, sortDir, clone ) {
     if(!inList){return [];}

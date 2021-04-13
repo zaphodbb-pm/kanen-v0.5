@@ -8,10 +8,6 @@
  */
 
 
-import {deepClone} from "./deepClone.mjs";
-export const underTest = deepClone;
-
-
 const obj = {a: 11, b: "22", c: []};
 
 

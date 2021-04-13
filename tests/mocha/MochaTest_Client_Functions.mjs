@@ -17,7 +17,7 @@
  */
 
 //* define directory to search for testplans
-const dirFunctions = "/imports/functions/formatters";
+const dirFunctions = "/imports/functions/supportDOM";
 const testFileExtension = ".test.mjs";
 
 
