@@ -2,7 +2,8 @@
   "name": "svelte-meteor",
   "private": true,
   "scripts": {
-    "start": "meteor run"
+    "start": "meteor run",
+    "test-run": "mocha --package tests/package.json"
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5",
