@@ -48,9 +48,6 @@ const fileUnderTest = `${rpath}${directory}/${functionUnderTest}.js`;
 const fileUnderTestES6 = `${rpath}/tests/mocha/${functionUnderTest}.mjs`;
 
 
-//const fileUnderTestES6 = `${rpath}/tests/mocha/functionUnderTest.mjs`;
-
-
 //* run one test
 describe("Run one test", function () {
 
@@ -59,6 +56,7 @@ describe("Run one test", function () {
             const testPlan = await import(fileTestPlan);
 
             //* we need to use mjs extension to support es6 imports during Mocha testing
+            //* note that mocha seems to have challenges with trying to use --package <path> directive
             fs.renameSync(fileUnderTest, fileUnderTestES6);
             const fut = await import(fileUnderTestES6);
             fs.renameSync(fileUnderTestES6, fileUnderTest);
