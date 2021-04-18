@@ -13,8 +13,8 @@
 
 
 export function formatNumber(num, f) {
-    const factor = f ?? 1;
-    const number = typeof num === "number" ? Math.abs(num ?? 0) * factor : 0;
+    const factor = typeof f === "number" ? f : 1;
+    const number = typeof num === "number" ? Math.abs(num) * factor : 0;
 
     let out = "";
 

@@ -25,7 +25,13 @@ export async function testAssertions(plan, func){
                 let underTest = func;
 
                 if(tv.function){
-                    underTest = func[tv.function];
+                    if(typeof tv.function === "string"){
+                        underTest = func[tv.function];
+                    }
+
+                    if( Array.isArray(tv.function) ){
+                        underTest = func(...tv.function);
+                    }
                 }
 
                 it(tv.test, function () {

@@ -13,13 +13,14 @@
  *  1. Install required testing files:
  *      meteor npm install --save-dev mocha
  *      meteor npm install --save-dev jsdom
+ *  2. Add "type": "module" to package.json file during testing; this preserves typescript checking for development
  */
 
 
 //* file to test: set directory and file file name to be used for testing;
 //* assumes testPlan file has same name as function file name
-const directory = "/imports/functions/utilities";
-const functionUnderTest = "methodReturn";
+const directory = "/imports/functions/formatters";
+const functionUnderTest = "formatNumber";
 
 
 
@@ -45,7 +46,7 @@ console.log(`Project: ${version.default.APP_NAME} at version ${version.default.V
 //* build required paths to get a single test file in a directory, import and execute tests
 const fileTestPlan = `${rpath}${directory}/${functionUnderTest}.test.mjs`;
 const fileUnderTest = `${rpath}${directory}/${functionUnderTest}.js`;
-const fileUnderTestES6 = `${rpath}/tests/mocha/${functionUnderTest}.mjs`;
+//const fileUnderTestES6 = `${rpath}/tests/mocha/${functionUnderTest}.mjs`;
 
 
 //* run one test
@@ -55,11 +56,16 @@ describe("Run one test", function () {
         try {
             const testPlan = await import(fileTestPlan);
 
+            let fut = await import(fileUnderTest);
+
             //* we need to use mjs extension to support es6 imports during Mocha testing
             //* note that mocha seems to have challenges with trying to use --package <path> directive
+
+            /*
             fs.renameSync(fileUnderTest, fileUnderTestES6);
             const fut = await import(fileUnderTestES6);
             fs.renameSync(fileUnderTestES6, fileUnderTest);
+             */
 
             testAssertions(testPlan.testPlan, fut[functionUnderTest]);
         } catch(err){

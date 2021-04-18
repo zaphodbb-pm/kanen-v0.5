@@ -4,6 +4,7 @@
   "scripts": {
     "start": "meteor run"
   },
+  "type": "module",
   "dependencies": {
     "@babel/runtime": "^7.12.5",
     "@fortawesome/free-regular-svg-icons": "^5.15.2",
@@ -30,6 +31,7 @@
     "@testing-library/dom": "^7.29.4",
     "@testing-library/svelte": "^3.0.3",
     "cypress": "^7.1.0",
+    "esm": "^3.2.25",
     "jsdom": "^16.5.3",
     "jsdom-global": "^3.0.2",
     "mocha": "^8.3.2",
