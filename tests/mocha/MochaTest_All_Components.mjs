@@ -14,7 +14,13 @@
  *  1. Install required testing files:
  *      meteor npm install --save-dev mocha
  *      meteor npm install dainte --save
+ *
+ *
  */
+
+//* get all test files in a directory, import and execute tests
+const dirFunctions = "/imports"
+const testFileExtension = ".spec.mjs";
 
 
 import assert from "assert";
@@ -40,9 +46,7 @@ describe("Check Setup Files", function () {
 import {getTestFiles} from "../functions/getTestFiles.mjs";
 
 
-//* get all test files in a directory, import and execute tests
-const dirFunctions = "/imports"
-const testFileExtension = ".spec.mjs";
+
 
 const testsFound = getTestFiles(dirFunctions, testFileExtension);
 

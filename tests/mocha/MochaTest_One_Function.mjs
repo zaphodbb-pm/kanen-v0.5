@@ -13,14 +13,16 @@
  *  1. Install required testing files:
  *      meteor npm install --save-dev mocha
  *      meteor npm install --save-dev jsdom
+ *
  *  2. Add "type": "module" to package.json file during testing; this preserves typescript checking for development
+ *      Note that Node, Mocha and other packages don't deal well with ES6+ new functionality
  */
 
 
 //* file to test: set directory and file file name to be used for testing;
 //* assumes testPlan file has same name as function file name
-const directory = "/imports/functions/formatters";
-const functionUnderTest = "formatNumber";
+const directory = "/imports/functions/utilities";
+const functionUnderTest = "pipe";
 
 
 

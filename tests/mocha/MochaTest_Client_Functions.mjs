@@ -14,6 +14,9 @@
  *  1. Install required testing files:
  *      meteor npm install --save-dev mocha
  *      meteor npm install --save-dev jsdom
+ *
+ *  2. Add "type": "module" to package.json file during testing; this preserves typescript checking for development
+ *      Note that Node, Mocha and other packages don't deal well with ES6+ new functionality
  */
 
 //* define directory to search for testplans
@@ -60,12 +63,9 @@ describe("Run all tests", function () {
                 //* we need to use mjs extension to support es6 imports during Mocha testing
                 //* note that mocha seems to have challenges with trying to use --package <path> directive
                 const fileUnderTest = tf.replace(".test.mjs", ".js");
-                const fileUnderTestES6 = tf.replace(".test.mjs", ".mjs");
                 const functionUnderTest = tf.replace(".test.mjs", "").split("/").pop();
 
-                fs.renameSync(fileUnderTest, fileUnderTestES6);
-                const fut = await import(fileUnderTestES6);
-                fs.renameSync(fileUnderTestES6, fileUnderTest);
+                const fut = await import(fileUnderTest);
 
                 testAssertions(testPlan.testPlan, fut[functionUnderTest]);
             } catch(err){
