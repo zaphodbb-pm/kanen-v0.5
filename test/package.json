@@ -1,9 +1,10 @@
 {
-  "name": "svelte-meteor",
+  "name": "svelte-meteor-mocha-test",
   "private": true,
   "scripts": {
-    "start": "meteor run"
+    "test": "mocha --require @babel/register"
   },
+  "type": "module",
   "dependencies": {
     "@babel/runtime": "^7.12.5",
     "@fortawesome/free-regular-svg-icons": "^5.15.2",
