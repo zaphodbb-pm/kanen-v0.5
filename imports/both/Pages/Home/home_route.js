@@ -4,18 +4,20 @@
  * @memberof Pages:Home
  * @function home_route
  * @locus Client
- * @augments home
  *
  * @returns {Object}
  */
 
 
-import {getLang} from '/imports/functions/supportApplication/getLang'
-import {i18n} from '/imports/functions/utilities/i18n'
-import MainPage from '/imports/both/PageStructure/MainPage.svelte'
-
+import {getLang} from "../../../functions/supportApplication/getLang";
+import {i18n} from "../../../functions/utilities/i18n";
 import {nav, link, icon, roles} from './home_nav'
-import Page from './home_loader.svelte'
+
+// @ts-ignore
+import MainPage from "../../PageStructure/MainPage.svelte";
+// @ts-ignore
+import Page from "./home_loader.svelte"
+
 //import Page from './home.svelte'
 
 let lang = getLang("en");

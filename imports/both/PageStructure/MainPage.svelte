@@ -7,9 +7,12 @@
      * @function MainPage
      * @locus Client
      *
+     * @returns {Object} Page
+     *
      * @notes
      *      1. Imports an object that holds the page route information
      *      2. When a new url is detected, the page will be rendered into the main page area
+     *
      *
      */
 

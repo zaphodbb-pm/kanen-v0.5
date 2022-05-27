@@ -30,11 +30,13 @@
  */
 
 
-
-
 //* get page configuration information
-import Home from '/imports/both/Pages/Home/home_route'
-import Template from '/imports/both/Pages/Template/template_route'
+import Home from "./Pages/Home/home_route"
+import Template from './Pages/Template/template_route'
+
+
+
+/*
 import Icons from '/imports/both/Pages/Icons/icons_route'
 import Colours from '/imports/both/Pages/Colours/colours_route'
 import MiniWiki from '/imports/both/Pages/Learn/learn_route'
@@ -59,6 +61,8 @@ import Users from '/imports/both/Pages/Users/users_route'
 import SysConfig from '/imports/both/Pages/SysConfig/sysConfig_route'
 import ExportImport from '/imports/both/Pages/ExportImport/exportImport_route'
 
+ */
+
 
 
 //* Load page route configurations into array for processing.
@@ -66,7 +70,10 @@ import ExportImport from '/imports/both/Pages/ExportImport/exportImport_route'
 const allRoutes = [
 
     Home,
+
     Template,
+
+    /*
     Icons,
     Colours,
     MiniWiki,
@@ -89,6 +96,8 @@ const allRoutes = [
     Users,
     SysConfig,
     ExportImport,
+
+     */
 
 
     //* not found or 404 page is redirected to home page

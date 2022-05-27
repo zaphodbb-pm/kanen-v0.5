@@ -27,7 +27,7 @@ import {getTestFiles} from "../functions/getTestFiles.mjs";
 
 describe("Check Setup Files", function () {
     it("system version", async function () {
-        const version = await import("../../imports/both/version.mjs");
+        const version = await import("../../imports/both/version.js");
         assert.strictEqual(version.default.APP_NAME, "Kanen");
         assert.strictEqual(version.default.VERSION, "0.2.5");
     });
