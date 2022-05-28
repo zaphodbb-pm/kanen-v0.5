@@ -99,6 +99,35 @@
 </script>
 
 
+
+
+
+<div class="dropdown [is-hoverable]">
+    <button class="is-default-inverted" aria-haspopup="true" aria-controls="dropdown-menu3">
+        <Icon icon={getContext("iconNotify")} class="text-1dot5rem"   />
+        <span class="badge is-danger">{itemsLen}</span>
+    </button>
+
+    <div class="dropdown-menu" id="dropdown-menu3">
+        <nav>
+            <a href="#">Dropdown item</a>
+            <p>Other dropdown item with a really long text but not a link</p>
+            <a href="#" class="is-active">Active item</a>
+            <a href="#">Other dropdown item</a>
+
+
+
+            <a href="#">With a divider</a>
+            <button class="is-success">Call To Action</button>
+        </nav>
+    </div>
+</div>
+
+
+
+
+
+<!--
 <div class="nav-notifications navbar-item has-dropdown is-hoverable">
 
     <a class="navbar-link is-arrowless">
@@ -144,3 +173,4 @@
     </div>
 
 </div>
+-->

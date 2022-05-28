@@ -20,7 +20,6 @@ import '/imports/both/AddOn_Packages/showServerConsole'
 //* prepare to add PWA through service worker
 import { Meteor } from 'meteor/meteor'
 
-
 Meteor.startup(() => {
 
     if('serviceWorker' in navigator){

@@ -4,7 +4,6 @@
  * @memberof Pages:Home
  * @function home_text
  * @locus Client
- * @augments home
  *
  * @returns {Object} - {header, page}
  */

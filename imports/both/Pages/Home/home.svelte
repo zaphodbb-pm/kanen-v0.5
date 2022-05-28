@@ -38,7 +38,9 @@
 </script>
 
 
+<div>Home Page</div>
 
+<!--
 <PageWrapper {header} >
 
     <section class="buffer-y-large">
@@ -128,3 +130,4 @@
         height: 1rem;
     }
 </style>
+-->

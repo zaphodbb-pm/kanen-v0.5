@@ -32,6 +32,24 @@
 
 </script>
 
+
+
+<footer class="page-footer">
+    <div>Meteor-Svelte Starter © 2021 - 2022</div>
+    <div>page-footer</div>
+    <div>Version: 0.1.0 / March 21, 2022</div>
+
+    {#if $showWidget}
+        <div class="text-0dot8rem mb-5">
+            <span>lat: {loc.lat}</span>
+            <span class="ml-3">lng: {loc.lng}</span>
+        </div>
+    {/if}
+</footer>
+
+
+
+<!--
 <footer class="mt-6 pt-2 has-border-top is-hidden-mobile" data-test="page-footer">
 
     <div class="level text-0dot9em">
@@ -45,9 +63,12 @@
             <div><b>{version.APP_NAME}: </b>{version.VERSION}</div>
         </div>
     </div>
+    -->
 
 
     <!-- for dev and test only -->
+
+<!--
     {#if $showWidget}
         <div class="text-0dot8rem mb-5">
             <span>lat: {loc.lat}</span>
@@ -56,3 +77,5 @@
     {/if}
 
 </footer>
+-->
+

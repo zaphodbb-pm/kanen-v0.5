@@ -21,8 +21,6 @@
 
     console.log("userExtras", $userExtras);
 
-
-
     //$: console.log("userExtras", $userExtras);
 
     //* local reactive variables
@@ -30,23 +28,18 @@
 
     $: credit = ($userExtras?.credits ?? 0).toFixed(0);
 
-
 </script>
 
 
-<article class="user-credit navbar-item">
 
-    <div class="tags has-addons">
-        <span class="tag is-light has-text-weight-semibold is-medium">{credit}</span>
+<div class="tags has-addons">
+    <data class="tag" value={credit}></data>
 
-        <span class="tag is-info is-medium is-hidden-mobile">
-            {#if text.credits}
-                {text.credits}
-            {:else}
-                <Icon icon={getContext("iconCredits")} class=""/>
-            {/if}
-
-        </span>
-    </div>
-
-</article>
+    {#if text.credits}
+        <data class="tag is-secondary" value={text.credits}></data>
+    {:else}
+        <data class="tag is-secondary" value="">
+            <Icon icon={getContext("iconCredits")} class=""/>
+        </data>
+    {/if}
+</div>

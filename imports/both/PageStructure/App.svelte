@@ -50,9 +50,9 @@
 
     //* load router -> will render main page & components based on nav-link selection
     import {Tracker} from 'meteor/tracker'
-    import Navbar from '../Navbar/Navbar.svelte'
+    //import Navbar from '../Navbar/Navbar.svelte'
     import Pages from 'svelte-router-spa/src/components/router.svelte'
-    import { activeRoute } from 'svelte-router-spa/src/store'
+    //import { activeRoute } from 'svelte-router-spa/src/store'
     import {sysConfig, sysDebug, showWidget, showRoutes, lastRoute} from '/imports/client/systemStores'
     import {allRoutes} from '../routes'
 
@@ -131,6 +131,7 @@
     });
 
     //* keep track of path history
+    /*
     $: {
         $lastRoute = [...$lastRoute, $activeRoute];
 
@@ -139,13 +140,15 @@
         }
     }
 
+     */
+
 </script>
 
 
 
 
 
-<Navbar currentRoute="{$activeRoute}" />
+<!--<Navbar currentRoute="{$activeRoute}" />-->
 
 
 {#if routes}

@@ -5,7 +5,6 @@
  * @memberof Structure:Client
  * @function Footer_text
  * @locus Client
- * @augments Footer
  *
  * @returns {Object}
  */
