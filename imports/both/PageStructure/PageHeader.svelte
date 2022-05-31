@@ -8,7 +8,9 @@
      * @locus Client
      *
      * @param {Object} header
-     *
+     * @param {String} header.title
+     * @param {String} header.lead
+     * @param {String} header.body
      */
 
     //* props
@@ -18,23 +20,20 @@
     import {lang} from '/imports/client/systemStores'
     import {i18n} from '/imports/functions/utilities/i18n'
 
-    let text = header ? i18n(header, "", $lang) : null;
-
+    const text = header ? i18n(header, "", $lang) : {};
 </script>
 
 
-{#if text}
-    <header class="page-header">
-        {#if text.title}
-            <h1>{text.title}</h1>
-        {/if}
+<header class="page-header">
+    {#if text.title}
+        <h1>{text.title}</h1>
+    {/if}
 
-        {#if text.lead}
-            <p class="sub-title">{text.lead}</p>
-        {/if}
+    {#if text.lead}
+        <p class="sub-title">{text.lead}</p>
+    {/if}
 
-        {#if text.body}
-            <p class="is-family-secondary">{@html text.body}</p>
-        {/if}
-    </header>
-{/if}
+    {#if text.body}
+        <p>{@html text.body}</p>
+    {/if}
+</header>

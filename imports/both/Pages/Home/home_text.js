@@ -15,8 +15,8 @@
 export const header = {
     en: {
         title:  "Kanen - A Seedling Starter Package",
-        lead:   "lead",
-        body:   "body",
+        lead:   "",
+        body:   "",
     }
 };
 
@@ -25,7 +25,10 @@ export const page = {
 
     page: {
         en: {
-            intro: "<p><b>Kanen</b> is built on the most current technologies as of 2020 using the latest releases of Meteor, MongoDb, Svelte and Bulma.  " +
+            overview: "Overview",
+
+            intro: "<p><b>Kanen</b> is built on the most current technologies as of 2020 using the latest releases of Meteor, MongoDb, Svelte and " +
+                "<a href='https://zaphodbb-pm.github.io/goldilocks-css/pages/home.html' target='_blank'>Goldilocks-CSS</a>.  " +
                 "It is also an opinionated view of the work that needs to get done.  </p>" +
                 "<p>This package is clearly not for everyone nor does it try to accommodate the latest new ideas.  " +
                 "This package is meant for business people / product managers that need to get outcomes quickly with applications " +

@@ -1,13 +1,11 @@
-<script>
-
-    /**
-     * @summary Layout insert for Home page.
-     *
-     * @memberof Pages:Home
-     * @function home
-     * @locus Client
-     *
-     */
+<script>/**
+ * @summary Layout insert for Home page.
+ *
+ * @memberof Pages:Home
+ * @function home
+ * @locus Client
+ *
+ */
 
 
     //* page set-up boilerplate *************************************
@@ -21,7 +19,7 @@
 
         //** app support files
         import { setContext } from 'svelte';
-        import PageWrapper from '/imports/both/PageStructure/PageWrapper.svelte'
+        import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
 
@@ -31,25 +29,71 @@
     import {lang} from "../../../client/systemStores.mjs";
 
     let pageText = i18n(page, "page", $lang);
-    let headerText = i18n(header, "header", $lang);
+    //let headerText = i18n(header, "header", $lang);
 
     setContext("pageText", page);
     import TabContent from "../../../components/widgets/tabbedContent.svelte"
 
+
 </script>
 
 
+<PageHeader header="{header}" />
 
-<header class="page-header">
-    <h1>{headerText.title}</h1>
-    <p class="sub-title">{headerText.lead}</p>
-</header>
+<div class="main-content" id="page-layout">
+
+    <div class="row is-centered-vert has-5x-minwidth">
+        <section class="column">
+            <h2>{pageText.overview}</h2>
+
+            <div class="sub-title">{@html pageText.intro}</div>
+        </section>
+
+        <div class="column">
+            <figure>
+                <img src="/home-page.jpg" class="" alt="Two puppies romping" loading="lazy">
+            </figure>
+        </div>
+    </div>
+
+    <figure class="blockquote">
+        <blockquote>
+            <p>{@html pageText.quote}</p>
+        </blockquote>
+    </figure>
 
 
 
-<section class="main-content" id="page-layout">
-    some content
-</section>
+    <div class="row">
+
+        <div class="column">
+
+            <section class="box-shadow">
+                <h2 class="has-text-secondary has-text-centered">{pageText.philosophy.title}</h2>
+
+                <ul>
+                    {#each pageText.philosophy.body as item}
+                        <li class="">
+                            {item}
+                        </li>
+                    {/each}
+                </ul>
+            </section>
+
+        </div>
+
+        <div class="column">
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+</div>
 
 
 
