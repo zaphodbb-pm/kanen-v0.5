@@ -1,11 +1,10 @@
 <script>
 
     /**
-     * Common wrapper around page body specific code.
-     * Includes page header component and slot for page body.
+     * Provides common page header information.
      *
      * @memberof Structure:Client
-     * @function PageWrapper
+     * @function PageHeader
      * @locus Client
      *
      * @param {Object} header
@@ -24,28 +23,18 @@
 </script>
 
 
-
 {#if text}
-    <header class="content-header ">
+    <header class="page-header">
         {#if text.title}
-            <h2 class="title is-3">{text.title}</h2>
+            <h1>{text.title}</h1>
         {/if}
 
         {#if text.lead}
-            <p class="lead">{text.lead}</p>
+            <p class="sub-title">{text.lead}</p>
         {/if}
 
         {#if text.body}
-            <div class="content is-family-secondary">{@html text.body}</div>
+            <p class="is-family-secondary">{@html text.body}</p>
         {/if}
     </header>
 {/if}
-
-
-
-
-<!--
-<section class="page-body">
-    <slot> </slot>
-</section>
--->

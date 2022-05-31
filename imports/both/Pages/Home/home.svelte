@@ -31,6 +31,7 @@
     import {lang} from "../../../client/systemStores.mjs";
 
     let pageText = i18n(page, "page", $lang);
+    let headerText = i18n(header, "header", $lang);
 
     setContext("pageText", page);
     import TabContent from "../../../components/widgets/tabbedContent.svelte"
@@ -38,7 +39,20 @@
 </script>
 
 
-<div>Home Page</div>
+
+<header class="page-header">
+    <h1>{headerText.title}</h1>
+    <p class="sub-title">{headerText.lead}</p>
+</header>
+
+
+
+<section class="main-content" id="page-layout">
+    some content
+</section>
+
+
+
 
 <!--
 <PageWrapper {header} >

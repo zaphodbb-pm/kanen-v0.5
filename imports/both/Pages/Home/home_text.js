@@ -5,7 +5,8 @@
  * @function home_text
  * @locus Client
  *
- * @returns {Object} - {header, page}
+ * @exports {Object} - {header}
+ * @exports {Object} - {page}
  */
 
 
@@ -14,8 +15,8 @@
 export const header = {
     en: {
         title:  "Kanen - A Seedling Starter Package",
-        lead:   "",
-        body:   "",
+        lead:   "lead",
+        body:   "body",
     }
 };
 
@@ -85,14 +86,14 @@ export const page = {
                 title: "Main Packages",
 
                 body: [
-                    "Meteor 1.12",
-                    "MongoDB 4.2.1",
-                    "Bulma 0.9.1 imported as separate files to allow for customization",
-                    "Svelte 3.27",
+                    "Meteor 2.7.2",
+                    "MongoDB 5.0.6",
+                    "Goldilocks 0.2.0 imported as separate files to allow for customization",
+                    "Svelte 3.48",
                     "Svelte-router-spa",
                     "Svelte-loadable to reduce initial bundle size.",
-                    "Uses selected Lineawesome svg icons to minimize bundle size",
-                    "Supports Fontawesome 5 formatted svg files."
+                    "Uses selected Feathers svg icons to minimize bundle size",
+                    "Supports Lineawesome / Fontawesome 5 formatted svg files."
                 ]
             },
 

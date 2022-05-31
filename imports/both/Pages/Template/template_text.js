@@ -4,10 +4,9 @@
  * @memberof Pages:Template
  * @function template_text
  * @locus Client
- * @augments template
  *
- * @returns {Object} - header: {title, lead, body}
- * @returns {Object} - page: {page, components, list, form}
+ * @exports {Object} - header: {title, lead, body}
+ * @exports {Object} - page: {page, components, list, form}
  */
 
 //** page header; set to null to not display header or a specific item

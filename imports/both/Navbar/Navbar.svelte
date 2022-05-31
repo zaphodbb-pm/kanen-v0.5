@@ -67,6 +67,8 @@
                     <span class="sr-only">Slide nav toggle</span>
                 </label>
 
+
+                <!--
                 <div class="sidebarMenu">
                     <nav class="sidebarMenuInner" aria-label="Sliding Side Bar Navigation">
                         <div class="sidenav-block">
@@ -174,6 +176,7 @@
 
                     </nav>
                 </div>
+                -->
             </div>
 
 
@@ -197,73 +200,6 @@
         </div>
     </nav>
 </div>
-
-
-
-
-
-
-
-<!--
-<nav id="navbar-container"
-     class="navbar is-fixed-top is-marginless is-paddingless has-opacity has-navbar-widgets"
-     style="border-bottom: 2px solid #dbdbdb"
-     role="navigation" aria-label="main navigation"
-     data-test="page-navbar">
-
-    <div id="navbarBrand-insert" class="navbar-brand mr-5">
-        <Navbar_Brand> </Navbar_Brand>
-
-        <a role="button"
-           class="navbar-burger navbar-widgets-burger is-block-touch is-block-desktop-only"
-           aria-label="menu"
-           on:click={ () => open = !open}
-           data-test="navbar-hamburger"
-           aria-expanded="false">
-
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </a>
-    </div>
-
-    <div class="navbar-menu">
-        <div class="navbar-start">
-            {#if layout.TOP_NAV}
-                <Navbar_Links {currentRoute}> </Navbar_Links>
-            {/if}
-        </div>
-
-        <div class="navbar-end w-100 justify-content-center is-hidden-mobile" data-test="top-navbar-condensed">
-            {#if layout.SHORTCUTS}
-                <NavShortcuts {currentRoute}> </NavShortcuts>
-            {/if}
-        </div>
-    </div>
-
-    <div class="navbar-widgets">
-        <UserCredit text="{navText.userCredit}" extras=" "/>
-
-        <Notifications text="{navText.notifications}" />
-
-        <UserProfile text="{navText.userProfile}" />
-    </div>
-
-</nav>
--->
-
-
-
-
-<!--
-<div class="navbar w-100 justify-content-center is-fixed-bottom is-light is-hidden-tablet"
-     style="display: inline-flex; min-height: 2rem;"
-     data-test="bottom-navbar-condensed">
-
-    <NavShortcuts {currentRoute} bottom />
-</div>
--->
-
 
 
 

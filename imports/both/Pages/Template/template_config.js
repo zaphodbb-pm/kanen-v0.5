@@ -4,7 +4,6 @@
  * @memberof Pages:Template
  * @function template_config
  * @locus Client
- * @augments template
  *
  * @returns {Object} - {components, widgets}
  */

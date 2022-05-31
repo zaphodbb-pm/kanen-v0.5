@@ -1,5 +1,5 @@
 /**
- * @summary Nav label for Home page.
+ * @summary Nav label and role based access for Home page.
  *
  * @memberof Pages:Home
  * @name home_nav
@@ -18,7 +18,7 @@ export const nav = {en: "Home"};
 
 export const link = "/home";
 
-export const icon = "iconHome";
+export const icon = "icon-home";
 
 // roles that can see this link in Navbar and be routed to
 // roles are also used by database write / read checking

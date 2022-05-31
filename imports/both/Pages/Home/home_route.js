@@ -18,8 +18,6 @@ import MainPage from "../../PageStructure/MainPage.svelte";
 // @ts-ignore
 import Page from "./home_loader.svelte"
 
-//import Page from './home.svelte'
-
 let lang = getLang("en");
 
 
