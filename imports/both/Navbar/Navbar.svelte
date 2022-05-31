@@ -177,8 +177,8 @@
             </div>
 
 
-            <a href="https://zaphodbb-pm.github.io/goldilocks-css/_pages/home.html">
-                <img src="https://zaphodbb-pm.github.io/goldilocks-css/img/goldi3-logo.png" height="128" width="128" alt="Project Logo">
+            <a href="/home">
+                <img src="logo-svg.svg" height="128" width="128" alt="Project Logo">
             </a>
         </div>
 
@@ -194,21 +194,6 @@
             <Notifications text="{navText.notifications}" />
 
             <UserProfile text="{navText.userProfile}" />
-
-            <!--
-            <a class="button is-secondary has-hover" href="https://github.com/zaphodbb-pm/goldilocks-css/archive/refs/heads/master.zip" rel="nofollow" aria-label="Download">
-                <svg class="icon"><use href="#icon-cloud-download"></use></svg>
-                <span>DownLoad</span>
-            </a>
-
-            <a class="icon-nav" href="https://github.com/zaphodbb-pm/goldilocks-css" target="_blank" rel="nofollow" aria-label="link to github">
-                <svg class="icon"><use href="#icon-github"></use></svg>
-            </a>
-
-            <a class="button is-tertiary has-hover" href="#page-main-nav">
-                <span>Top</span>
-            </a>
-            -->
         </div>
     </nav>
 </div>

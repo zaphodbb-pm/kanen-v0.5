@@ -12,7 +12,6 @@
     export let text;
 
     //** support functions
-    import Icon from '/imports/components/elements/icon.svelte'
     import {userLoggedIn} from '/imports/client/systemStores'
     import { navigateTo } from 'svelte-router-spa/src/spa_router'
     import {createEventDispatcher, getContext } from 'svelte';
@@ -45,60 +44,32 @@
 
 </script>
 
-
-<div class="user-profile navbar-item has-dropdown is-hoverable">
-
     {#if user && user.profile}
-
-        <a class="navbar-link is-arrowless" style="height: 100%;">
-            <div class="" title="{text.title}">
-                <div class="image is-32x32">
-                    {#if user.profile && user.profile.image && user.profile.image.src}
-                        <img src="{user.profile.image.src}" class="defaultAvatar" alt="avatar"/>
-                    {:else}
-                        <Icon icon={getContext("iconDefaultUser")} class="is-size-3"/>
-                    {/if}
-                </div>
-            </div>
-        </a>
-
-        <div class="navbar-dropdown is-right has-text-weight-semibold">
-            <a class="navbar-item" on:click="{() => navigateTo('/my-profile')}">{userName} {text.toProfile}</a>
-
-            <hr class="navbar-divider">
-
-            <a class="navbar-item" on:click="{() => navigateTo('/changePassword')}">{text.changePassword}</a>
-            <a class="navbar-item" on:click="{logout}">{text.logOut}</a>
-        </div>
-
-    {:else}
-
-        <div class="navbar-item">
-            <a class="has-text-centered" on:click="{() => navigateTo('/login')}">
-                <div class="d-flex align-items-center">
-                    <Icon icon={getContext("iconSignIn")} class="text-1dot5rem"/>
-                    <span class="is-hidden-touch">{text.signIn}</span>
-                </div>
+        <div class="user-profile dropdown is-right is-hoverable">
+            <a class="is-primary" aria-haspopup="true" aria-controls="navbar-dropdown-profile" title="{text.title}">
+                {#if user && user.profile && user.profile.image && user.profile.image.src}
+                    <figure class="avatar avatar-nm">
+                        <img src="/logo.svg" alt="Avatar">
+                    </figure>
+                {:else}
+                    <svg class="icon is-large"><use href="#icon-user"></use></svg>
+                {/if}
             </a>
+
+            <div class="dropdown-menu" id="navbar-dropdown-profile">
+                <nav>
+                    <a href="/template">{userName} {text.toProfile}</a>
+
+                    <hr/>
+
+                    <a href="/template">{text.changePassword}</a>
+                    <a on:click="{logout}">{text.logOut}</a>
+                </nav>
+            </div>
         </div>
-
+    {:else}
+        <a href="/template" class="icon-nav" title="Login">
+            <svg class="icon"><use href="#icon-login"></use></svg>
+            <span>{text.signIn}</span>
+        </a>
     {/if}
-
-</div>
-
-
-
-
-<style>
-
-    .avatarDefault {
-        background-color: #FFF;
-        max-height: 3rem;
-        border-radius: 50%;
-    }
-
-    .dropdown-adjust {
-        margin-top: 0.5rem;
-    }
-
-</style>

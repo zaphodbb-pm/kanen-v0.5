@@ -19,8 +19,6 @@
 
 
     //* support files
-    import {colors} from '/imports/both/systemGlobals'
-    import Icon from '/imports/components/elements/icon.svelte'
     import {getDocs} from '/imports/functions/supportApplication/getDocs'
     import {timeAgo} from '/imports/functions/formatters/timeAgo'
 
@@ -29,7 +27,6 @@
     let items = [];
     let itemsLen = 0;
     let showItems = itemsToShow;
-    let openNotes = false;
 
     onMount(() => {
         getMyNotifications();
@@ -44,17 +41,29 @@
 
         //***** for dev only
         me = me ? me : {_id: "abc"};
-        const initVal = {
-            header: "Msg Header",
-            title: "Test Message",
+        const initVal = [{
+            header: "Test Message",
+            title: "At a pub near you",
             date: new Date( ( Date.now() + 1000 * 3600 * 3) ).toDateString(),
-            location: "At a pub near you",
-            msg: "Test Message",
+            location: "1 Main Street, My City",
+            msg: "Let's chat and quaff",
             notifyId:  "abcdefg",
             itemId: "itemid-12345",
             timeAgo: timeAgo(Date.now() - 1000 * 3600 * 2 ),
             type: "INFO",
-        }
+        },
+
+        {
+            header: "Msg Header 2",
+            title: "At a diner near you",
+            date: new Date( ( Date.now() + 2000 * 3600 * 3) ).toDateString(),
+            location: "1 High Street, My City",
+            msg: "Let's meet and break bread.",
+            notifyId:  "abcdefg123",
+            itemId: "itemid-4567",
+            timeAgo: timeAgo(Date.now() - 2000 * 3600 * 2 ),
+            type: "INFO",
+        }];
 
         let unread = {};
         unread[me._id] = true;
@@ -86,7 +95,7 @@
         //*** for dev purposes only
         if(itemsLen === 0){
             itemsLen = 1;
-            items = [initVal];
+            items = [...initVal];
         }
 
         showItems = itemsToShow;
@@ -100,77 +109,37 @@
 
 
 
-
-
-<div class="dropdown [is-hoverable]">
-    <button class="is-default-inverted" aria-haspopup="true" aria-controls="dropdown-menu3">
-        <Icon icon={getContext("iconNotify")} class="text-1dot5rem"   />
-        <span class="badge is-danger">{itemsLen}</span>
-    </button>
-
-    <div class="dropdown-menu" id="dropdown-menu3">
-        <nav>
-            <a href="#">Dropdown item</a>
-            <p>Other dropdown item with a really long text but not a link</p>
-            <a href="#" class="is-active">Active item</a>
-            <a href="#">Other dropdown item</a>
-
-
-
-            <a href="#">With a divider</a>
-            <button class="is-success">Call To Action</button>
-        </nav>
-    </div>
-</div>
-
-
-
-
-
-<!--
-<div class="nav-notifications navbar-item has-dropdown is-hoverable">
-
-    <a class="navbar-link is-arrowless">
-        <span style="height: 1.5rem; position: relative;">
-            <Icon icon={getContext("iconNotify")} class="text-1dot5rem"   />
-            <span class="badge is-danger">{itemsLen}</span>
+<div class="dropdown is-hoverable is-right">
+    <a class="is-primary" aria-haspopup="true" aria-controls="navbar-dropdown-notifications">
+        <span class="badge is-badge-danger" data-badge="{itemsLen}" title="unread messages">
+            <svg class="icon is-large"><use href="#icon-bell"></use></svg>
         </span>
     </a>
 
-    <div class="navbar-dropdown is-right" style="overflow: scroll; max-height: 90vh;">
+    <div class="dropdown-menu" id="navbar-dropdown-notifications">
         {#each items as item, index (index)}
+            <nav class="card space-vert">
+                <header class="card-header">
+                    <h4 class="card-header-title">
+                        {item.header}
+                    </h4>
+                </header>
 
-            <div class="navbar-item has-border-bottom has-text-black-bis mb-2">
+                <div class="card-body">
+                    <div><b>{item.title}</b></div>
+                    <div>{item.date}</div>
+                    <div>{item.location}</div>
 
-                <div class="card w-100">
-                    <header class="card-header" style="background-color: {colors[item.type]};">
-                        <div class="card-header-title has-text-white-bis">
-                            {item.header}
-                        </div>
-                    </header>
-
-                    <div class="card-content" style="padding: 1rem;">
-                        <div><b>{item.title}</b></div>
-                        <div>{item.date}</div>
-                        <div>{item.location}</div>
-
-                        <div class="d-flex justify-content-between align-items-center mt-2">
-                            <div class="has-text-grey d-flex align-items-center">
-                                <Icon icon={getContext("iconClock")} class="text-0dot9rem"/>
-                                <span class="pl-2">{item.timeAgo}</span>
-                            </div>
-
-                            <button class="button is-small is-primary is-outlined ml-3" on:click="{() => readNotify(item)}">
-                                {text.read}
-                            </button>
-                        </div>
+                    <div class="level-end is-size-7 space-vert has-text-grey">
+                        <svg class="icon"><use href="#icon-clock"></use></svg>
+                        <span>{item.timeAgo}</span>
                     </div>
+
+                    <button class="is-primary-outlined is-small has-hover" on:click="{() => readNotify(item)}">
+                        {text.read}
+                    </button>
                 </div>
-
-            </div>
-
+            </nav>
         {/each}
     </div>
-
 </div>
--->
