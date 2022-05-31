@@ -62,12 +62,8 @@
         </blockquote>
     </figure>
 
-
-
     <div class="row">
-
         <div class="column">
-
             <section class="box-shadow">
                 <h2 class="has-text-secondary has-text-centered">{pageText.philosophy.title}</h2>
 
@@ -79,20 +75,12 @@
                     {/each}
                 </ul>
             </section>
-
         </div>
 
         <div class="column">
 
         </div>
-
-
     </div>
-
-
-
-
-
 </div>
 
 
