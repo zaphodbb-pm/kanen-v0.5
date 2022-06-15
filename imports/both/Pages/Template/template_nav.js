@@ -20,7 +20,7 @@ export const nav = {en: "Template"};
 
 export const link = "/template";
 
-export const icon = "icon-code";
+export const icon = "icon-layout";
 
 // roles that can see this link in Navbar and be routed to
 // roles are also used by database write / read checking

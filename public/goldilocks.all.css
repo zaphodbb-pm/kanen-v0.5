@@ -529,7 +529,7 @@ pre > code
     overflow-x: scroll;
 
     max-width: 100%;
-    padding: 0;
+    padding: 0 0 0 1em;
 
     white-space: pre;
 
@@ -2641,73 +2641,61 @@ h4 + .sub-title,
 .has-text-primary
 {
     color: var(--primary);
-    background-color: var(--bg-main);
 }
 
 .has-text-secondary
 {
     color: var(--secondary);
-    background-color: var(--bg-main);
 }
 
 .has-text-tertiary
 {
     color: var(--tertiary);
-    background-color: var(--bg-main);
 }
 
 .has-text-link
 {
     color: var(--link);
-    background-color: var(--bg-main);
 }
 
 .has-text-success
 {
     color: var(--success);
-    background-color: var(--bg-main);
 }
 
 .has-text-warning
 {
     color: var(--warning);
-    background-color: var(--bg-main);
 }
 
 .has-text-danger
 {
     color: var(--danger);
-    background-color: var(--bg-main);
 }
 
 .has-text-white
 {
     color: var(--bg-main);
-    background-color: var(--grey-dark);
 }
 
 .has-text-black
 {
     color: var(--bg-main-invert);
-    background-color: var(--bg-main);
 }
 
 .has-text-grey
 {
     color: var(--grey);
-    background-color: var(--bg-main);
 }
 
 .has-text-dark
 {
     color: var(--grey-dark);
-    background-color: var(--bg-main);
 }
 
 .has-text-light
 {
     color: var(--grey);
-    background-color: var(--bg-main);
 }
 
 /* Accordion styles */
@@ -3059,7 +3047,6 @@ details.accordion.is-expander-danger summary
     margin: 0 .5em 0 0;
 }
 
-
 .card
 {
     position: relative;
@@ -3074,7 +3061,7 @@ details.accordion.is-expander-danger summary
 
 .card-header
 {
-    padding: 1.5rem 1.5rem 0 1.5rem;
+    padding: 1.5rem;
 
     background-color: transparent;
 }
@@ -3115,12 +3102,16 @@ details.accordion.is-expander-danger summary
     border-bottom-left-radius: var(--radius-comp);
 }
 
-
 .card-body
 {
     padding: 1.5rem;
 
     background-color: transparent;
+}
+
+.card-header + .card-body
+{
+    padding-top: 0;
 }
 
 .card-body .media:not(:last-child)
@@ -3188,8 +3179,14 @@ details.accordion.is-expander-danger summary
 
     display: none;
 
+    width: -webkit-max-content;
+    width:    -moz-max-content;
+    width:         max-content;
     min-width: 12rem;
+    max-width: 18rem;
     padding-top: 4px;
+
+    background-color: var(--bg-main);
 }
 
 .dropdown.is-hoverable:hover .dropdown-menu,
@@ -3955,6 +3952,8 @@ details.accordion.is-expander-danger summary
     background-color: inherit;
 }
 
+
+.sidenavs a.is-active,
 .sidenavs a:hover,
 .sidenav-block a:hover
 {
@@ -4792,15 +4791,27 @@ button.badge::after
     transform: translate(50%,-50%);
 }
 
-.badge.avatar::after
+.badge.avatar::after,
+.badge.has-icon::after
 {
     position: absolute;
     z-index: 5;
-    top: 14.64%;
-    right: 14.64%;
+    top: 16%;
+    left: 60%;
 
     transform: translate(50%,-50%);
 }
+
+/*
+.badge.has-icon::after {
+    position: absolute;
+    left: 60%;
+    top: 15%;
+    transform: translate(50%,-50%);
+    z-index: 5;
+}
+
+ */
 
 .badge.is-badge-primary::after
 {
@@ -5135,7 +5146,7 @@ a.tag:hover
 {
     display: block;
 
-    max-width: 50ch;
+    max-width: 60ch;
     margin: var(--margin-medium) auto;
     padding: var(--pad-vert) var(--pad-horz);
 

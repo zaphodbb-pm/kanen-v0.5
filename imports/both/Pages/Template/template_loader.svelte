@@ -6,6 +6,9 @@
      * @function template_loader
      * @locus Client
      *
+     * @param {Object} currenRoute
+     * @param {Object} params
+     *
      * @notes
      *  1. This loader helps reduce the initial bundle size sent to the browser.
      *  2. This loader is optional and can be removed at the <page>_route.js file.

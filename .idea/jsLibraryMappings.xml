@@ -3,6 +3,5 @@
   <component name="JavaScriptLibraryMappings">
     <file url="PROJECT" libraries="{@types/meteor}" />
     <includedPredefinedLibrary name="Meteor project library" />
-    <includedPredefinedLibrary name="Node.js Core" />
   </component>
 </project>

@@ -13,7 +13,7 @@
 export const header = {
     en: {
         title:  "Template Page",
-        lead:   "Stock Starter Page Template",
+        subtitle:   "Stock Starter Page Template",
         body:   "Add, subtract or change items to meet your needs.",
     }
 };

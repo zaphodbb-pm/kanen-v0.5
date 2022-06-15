@@ -15,10 +15,6 @@
     export let currentRoute;
     export let theme = "light";
 
-    //* get system wide icon definition
-    //import Icon from '/imports/components/elements/icon.svelte'
-    //import { getContext } from 'svelte';
-
     //* get route information and config
     import {showRoutes} from '/imports/client/systemStores'
     import { navigateTo } from 'svelte-router-spa/src/spa_router'
@@ -42,9 +38,6 @@
         });
 
         groups = buildGroups;
-
-
-        console.log("groups", groups.length, groups);
     }
 
     //** respond to a link click

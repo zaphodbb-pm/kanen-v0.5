@@ -22,6 +22,10 @@ import { Meteor } from 'meteor/meteor'
 
 Meteor.startup(() => {
 
+    /* add lang attribute to improve accessibility and SEO */
+    let html = document.getElementsByTagName("html")[0];
+    html.setAttribute("lang", "en");
+
     if('serviceWorker' in navigator){
         if(!navigator.serviceWorker.controller){
 
@@ -44,9 +48,10 @@ Meteor.startup(() => {
 import '/imports/both/AddOn_Packages/showServerConsole'
 serverConsole.subscribe();
 
+
 //* load svelte framework
 import App from '/imports/both/PageStructure/App.svelte'
 
-const app = new App({
+new App({
     target: document.getElementById("svelte-app-top"),
 });

@@ -28,7 +28,7 @@
 
         //** app support files
         import { setContext, getContext, onMount, onDestroy } from 'svelte';
-        import PageWrapper from '/imports/both/PageStructure/PageWrapper.svelte'
+        import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
 
@@ -53,40 +53,55 @@
 
 
 
-<PageWrapper {header} >
+<PageHeader header="{header}" />
 
-    <hr />
 
-    <div class="columns">
-        <article class="column">
-            <div class="title is-size-5">{text.route}</div>
-            <pre>{JSON.stringify(currentRoute, null, 4)}</pre>
-        </article>
+<div class="main-content" id="page-layout">
 
-        <article class="column">
-            <div class="title is-size-5">{text.parms}</div>
-            <pre>{JSON.stringify(params, null, 4)}</pre>
-        </article>
+    <h2>Examples</h2>
 
-        <article class="column">
-            <div class="title is-size-5">{text.config}</div>
-            <pre>{JSON.stringify(pageConfig, null, 4)}</pre>
-        </article>
-    </div>
-
-    <hr />
-
-    <div class="columns">
-        <article class="column">
+    <div class="row">
+        <div class="column">
             <div>{message}</div>
             <div>{@html message}</div>
-        </article>
+        </div>
 
-        <article class="column">
+        <div class="column">
             <div class="box">
                 {@html i18n(page.components, "box", $lang).msg}
             </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <article class="column">
+            <h2></h2>
+        </article>
+
+        <article class="column">
+            <h2></h2>
         </article>
     </div>
 
-</PageWrapper>
+
+    <h2>{text.props}</h2>
+
+    <div class="row">
+        <article class="column">
+            <h2>{text.route}</h2>
+            <pre><code>{JSON.stringify(currentRoute, null, 4)}</code></pre>
+        </article>
+
+        <article class="column">
+            <h2>{text.parms}</h2>
+            <pre><code>{JSON.stringify(params, null, 4)}</code></pre>
+        </article>
+
+        <article class="column">
+            <h2>{text.config}</h2>
+            <pre><code>{JSON.stringify(pageConfig, null, 4)}</code></pre>
+        </article>
+    </div>
+</div>

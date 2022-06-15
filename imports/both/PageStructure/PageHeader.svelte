@@ -29,8 +29,8 @@
         <h1>{text.title}</h1>
     {/if}
 
-    {#if text.lead}
-        <p class="sub-title">{text.lead}</p>
+    {#if text.subtitle}
+        <p class="sub-title">{text.subtitle}</p>
     {/if}
 
     {#if text.body}

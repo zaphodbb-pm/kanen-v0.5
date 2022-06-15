@@ -4,7 +4,6 @@
  * @memberof Pages:Template
  * @function template_route
  * @locus Client
- * @augments template
  *
  * @returns {Object} - {name, layout, component, icon, label, roles, group, isNavMobile}
  *
@@ -15,11 +14,14 @@
  */
 
 
-import {getLang} from '/imports/functions/supportApplication/getLang'
-import {i18n} from '/imports/functions/utilities/i18n'
-import MainPage from '/imports/both/PageStructure/MainPage.svelte'
 
-import {nav, link, icon, roles} from './template_nav'
+import {getLang} from "../../../functions/supportApplication/getLang";
+import {i18n} from "../../../functions/utilities/i18n";
+import {nav, link, icon, roles} from './template_nav';
+
+// @ts-ignore
+import MainPage from '../../../both/PageStructure/MainPage.svelte'
+
 import Page from './template_loader.svelte'
 //import Page from './template.svelte'
 

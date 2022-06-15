@@ -15,7 +15,7 @@
 export const header = {
     en: {
         title:  "Kanen - A Seedling Starter Package",
-        lead:   "",
+        subtitle:   "",
         body:   "",
     }
 };

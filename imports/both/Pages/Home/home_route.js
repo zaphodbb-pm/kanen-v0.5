@@ -20,13 +20,10 @@ import Page from "./home_loader.svelte"
 
 let lang = getLang("en");
 
-
 export default {
     name: link,                             // link that router will use
     layout: MainPage,
     component: Page,
-    //redirectTo: 'company',
-    //onlyIf: { guard: userIsAdmin, redirect: '/login' },
 
     icon: icon,                             // Navbar icon to show
     label: i18n(nav, "", lang),         // Navbar text to show

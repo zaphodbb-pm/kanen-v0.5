@@ -8,7 +8,6 @@
      *
      */
 
-
     //* setup props to receive route data
     export let currentRoute;
     export let params;
