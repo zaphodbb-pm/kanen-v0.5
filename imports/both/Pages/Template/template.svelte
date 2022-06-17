@@ -43,6 +43,8 @@
 
     onMount(() => {
         message = "<b>template page</b> mounted";
+
+        console.log("params", params);
     });
 
     onDestroy(() => {
@@ -56,9 +58,9 @@
 <PageHeader header="{header}" />
 
 
-<div class="main-content" id="page-layout">
+<div class="main-content">
 
-    <h2>Examples</h2>
+    <h2>{text.examples}</h2>
 
     <div class="row">
         <div class="column">
@@ -67,40 +69,92 @@
         </div>
 
         <div class="column">
-            <div class="box">
+            <div class="box-shadow">
                 {@html i18n(page.components, "box", $lang).msg}
             </div>
         </div>
     </div>
 
-    <hr>
+    <hr class="space-vert-large" />
 
-    <div class="row">
-        <article class="column">
-            <h2></h2>
-        </article>
+    <h2>{text.files}</h2>
 
-        <article class="column">
-            <h2></h2>
-        </article>
-    </div>
+    <p>{text.preamble}</p>
 
+    <table class="table is-stripped">
+        <thead>
+        <tr>
+            {#each text.thead as label}
+                <th>{label}</th>
+            {/each}
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>{text._nav.name}</td>
+            <td>{text._nav.locus}</td>
+            <td>nav:object, <br />link:string, <br />icon: string, <br />roles: object</td>
+            <td>{text._nav.desc}</td>
+        </tr>
+
+        <tr>
+            <td>{text._text.name}</td>
+            <td>{text._text.locus}</td>
+            <td>header:object, <br />page:object</td>
+            <td>{text._text.desc}</td>
+        </tr>
+
+        <tr>
+            <td>{text._loader.name}</td>
+            <td>{text._loader.locus}</td>
+            <td>function: extends SvelteComponentDev</td>
+            <td>{text._loader.desc}</td>
+        </tr>
+
+        <tr>
+            <td>{text._route.name}</td>
+            <td>{text._route.locus}</td>
+            <td>default:object</td>
+            <td>{text._route.desc}</td>
+        </tr>
+
+        <tr>
+            <td>{text._svelte.name}</td>
+            <td>{text._svelte.locus}</td>
+            <td></td>
+            <td>{text._svelte.desc}</td>
+        </tr>
+
+        <tr>
+            <td>{text._config.name}</td>
+            <td>{text._config.locus}</td>
+            <td>pageConfig:object</td>
+            <td>{text._config.desc}</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <hr class="space-vert-large" />
 
     <h2>{text.props}</h2>
 
+    <p>{text.propsDesc}</p>
+
     <div class="row">
         <article class="column">
-            <h2>{text.route}</h2>
+            <h3>{text.route}</h3>
             <pre><code>{JSON.stringify(currentRoute, null, 4)}</code></pre>
         </article>
 
         <article class="column">
-            <h2>{text.parms}</h2>
+            <h3>{text.parms}</h3>
             <pre><code>{JSON.stringify(params, null, 4)}</code></pre>
         </article>
 
         <article class="column">
-            <h2>{text.config}</h2>
+            <h3>{text.config}</h3>
             <pre><code>{JSON.stringify(pageConfig, null, 4)}</code></pre>
         </article>
     </div>

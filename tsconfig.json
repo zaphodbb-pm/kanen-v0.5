@@ -5,7 +5,7 @@
     "sourceMap": true,
     "allowJs": true,
     "checkJs": true,
-    "types": ["meteor"],
+    "types": ["svelte", "meteor"],
     "lib": ["es6", "dom", "es2017"]
   },
 

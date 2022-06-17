@@ -1,7 +1,5 @@
 <script>
 
-    import {lastRoute} from "../../client/systemStores.mjs";
-
     /**
      * MainPage creates the page PageStructure
      *
@@ -10,7 +8,6 @@
      * @locus Client
      *
      * @param {Object} currentRoute
-     * @param {Object} params
      *
      * @notes
      *      1. Imports an object that holds the page route information
@@ -20,15 +17,19 @@
 
     //* props
     export let currentRoute;
-    export let params = {};
 
     //* get components
-    import Navbar from '../Navbar/Navbar.svelte'
-    import SideNav from '../Navbar/NavSideMenu.svelte'
-    import Footer from './Footer.svelte'
-    import Route from 'svelte-router-spa/src/components/route.svelte'
+    import Navbar from '../Navbar/Navbar.svelte';
+    import SideNav from '../Navbar/NavSideMenu.svelte';
+    import Footer from './Footer.svelte';
+    import Route from 'svelte-router-spa/src/components/route.svelte';
 
-    import { activeRoute } from 'svelte-router-spa/src/store'
+    //* get support files
+    import { activeRoute } from 'svelte-router-spa/src/store';
+    import {lastRoute} from "../../client/systemStores.mjs";
+
+    //* set any required parameters for Pages
+    const params = {userLoggedIn: false };
 
     //* keep track of path history
     $: {
@@ -43,8 +44,6 @@
 
 
 
-
-
 <div class="page-wrapper" id="page-layout-top">
 
     <Navbar currentRoute="{$activeRoute}" />
@@ -53,48 +52,6 @@
 
     <Route {currentRoute} {params} />
 
-    <!--
-
-    <header class="page-header">
-        <h1>Main Page Content h1 Heading</h1>
-        <p class="sub-title">A sub-title of supporting text</p>
-    </header>
-
-
-
-    <section class="main-content" id="page-layout">
-        <Route {currentRoute} {params} />
-    </section>
-
-    -->
-
     <Footer />
+
 </div>
-
-
-
-
-
-
-
-<!--
-<Navbar currentRoute="{$activeRoute}" />
-
-<div class="page-master-layout has-background-white">
-    <div class="columns">
-
-        <div class="column mr-4 is-narrow is-hidden-touch is-hidden-desktop-only" data-test="main-page-sidenav">
-            <SideNav {currentRoute} />
-        </div>
-
-        <div class="column">
-            <section id="page-layout">
-                <Route {currentRoute} {params} />
-            </section>
-
-            <Footer />
-        </div>
-
-    </div>
-</div>
--->

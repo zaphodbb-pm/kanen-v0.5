@@ -25,4 +25,4 @@ kschingiz:publish-aggregations
 mdg:meteor-apm-agent
 meteortesting:mocha
 zodern:melte
-fetch
+fetch@0.1.1

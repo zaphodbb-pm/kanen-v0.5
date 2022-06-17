@@ -6,10 +6,10 @@
  * @lends template
  * @locus Anywhere
  *
- * @exports {Object} - nav
- * @exports {String} - link
- * @exports {String} - icon
- * @exports {Object} - roles {read: [], write: []}
+ * @exports {Object} nav
+ * @exports {String} link
+ * @exports {String} icon
+ * @exports {Object} roles - {read: [], write: []}
  *
  * @notes
  *  1. In order to reduce the initial bundle size, the nav label is in a separate text file.
