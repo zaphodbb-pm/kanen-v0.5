@@ -2,7 +2,9 @@
   "name": "svelte-meteor",
   "private": true,
   "scripts": {
-    "start": "meteor run"
+    "start": "meteor run",
+    "cypress:ui": "cypress open",
+    "cypress:headless": "cypress run"
   },
   "meteor": {
     "nodeModules": {

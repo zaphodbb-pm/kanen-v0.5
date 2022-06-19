@@ -75,8 +75,6 @@ export const page = {
                     "in the 'template_text.js' file"
             },
 
-
-
             props: "Component Properties",
 
             propsDesc: "Each rendered Page gets passed 'currentRoute' and 'params, from the router.  " +

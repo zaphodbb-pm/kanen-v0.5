@@ -9,8 +9,6 @@
  */
 
 
-
-
 describe('Page Home exists', () => {
 
     const TITLE = "Kanen - A Seedling Starter Package" // common title
@@ -19,8 +17,8 @@ describe('Page Home exists', () => {
 
         //** get page and silence pwa and gdpr requests
         cy.visit('/home');
-        cy.get('.dismiss-pwa').click();
-        cy.get('#gdprAsk .delete').click();
+        //cy.get('.dismiss-pwa').click();
+        //cy.get('#gdprAsk .delete').click();
 
         cy.contains(TITLE);
     });

@@ -5,7 +5,7 @@
     "sourceMap": true,
     "allowJs": true,
     "checkJs": true,
-    "types": ["svelte", "meteor"],
+    "types": ["svelte", "meteor", "cypress", "node"],
     "lib": ["es6", "dom", "es2017"]
   },
 
@@ -15,6 +15,7 @@
     "public/*",
     "node_modules",
     "*.test.js",
-    "*.spec.js"
+    "*.spec.js",
+    "imports/**/tests/cypress/*"
   ]
 }

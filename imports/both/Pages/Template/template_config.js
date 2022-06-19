@@ -5,7 +5,7 @@
  * @function template_config
  * @locus Client
  *
- * @returns {Object} - {components, widgets}
+ * @exports {Object} pageConfig - {components, widgets}
  */
 
 export const pageConfig =  {
