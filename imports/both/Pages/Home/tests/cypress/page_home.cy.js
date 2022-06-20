@@ -8,18 +8,19 @@
  *  3. Run cypress in console at project root: npx cypress open
  */
 
+const pageName = "Home";
+const pageLink = "/home";
+const pageTitle = "Kanen - A Seedling Starter Package";
 
-describe('Page Home exists', () => {
+describe(`Page: ${pageName} exists`, () => {
 
-    const TITLE = "Kanen - A Seedling Starter Package" // common title
-
-    it("Get home page", () => {
+    it(`Get ${pageName} page`, () => {
 
         //** get page and silence pwa and gdpr requests
-        cy.visit('/home');
+        cy.visit(pageLink);
         //cy.get('.dismiss-pwa').click();
         //cy.get('#gdprAsk .delete').click();
 
-        cy.contains(TITLE);
+        cy.contains(pageTitle);
     });
 })

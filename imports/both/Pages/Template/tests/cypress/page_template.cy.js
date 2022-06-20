@@ -1,6 +1,5 @@
 /**
- * Home Page test using Cypress.io.
- * Also test page structure with Navbar and Footer.
+ * Template Page test using Cypress.io.
  *
  * @notes
  *  1. Install cypress at project root:  meteor npm install cypress --save-dev
@@ -10,16 +9,12 @@
 
 const pageName = "Template";
 const pageLink = "/template";
+const pageTitle = "Template Page";
 
 describe(`Page: ${pageName} exists`, () => {
 
     it(`Get ${pageName} page`, () => {
-
-        //** get page and silence pwa and gdpr requests
         cy.visit(pageLink);
-        //cy.get('.dismiss-pwa').click();
-        //cy.get('#gdprAsk .delete').click();
-
-        cy.contains(pageName);
+        cy.contains(pageTitle);
     });
 })

@@ -18,14 +18,14 @@
 
 
 //* load any required support files
-import {fileAbsolutePath} from "../../functions/fileAbsolutePath.mjs";
+import {fileAbsolutePath} from "../functions/fileAbsolutePath.mjs";
 
 
 //* track node version that we are using - should use most recent
 const nodeV = process.version;
 console.log("Node Version: ", nodeV);
 
-const version = await import("../../../imports/both/version.js");
+const version = await import("../../imports/both/version.js");
 console.log(`Project: ${version.default.APP_NAME} at version ${version.default.VERSION}`)
 
 
