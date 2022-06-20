@@ -7,7 +7,7 @@
  *
  */
 
-import {msgDecoration} from './msgDecoration.mjs'
+import {msgDecoration} from './msgDecoration.js'
 export const underTest = msgDecoration;
 
 const state =["success", "warning", "fail"];

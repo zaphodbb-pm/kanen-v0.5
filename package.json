@@ -6,6 +6,8 @@
     "cypress:ui": "cypress open",
     "cypress:headless": "cypress run"
   },
+  "type": "module",
+
   "meteor": {
     "nodeModules": {
       "recompile": {

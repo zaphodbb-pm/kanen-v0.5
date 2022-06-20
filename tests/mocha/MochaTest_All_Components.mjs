@@ -22,7 +22,6 @@
 const dirFunctions = "/imports"
 const testFileExtension = ".spec.mjs";
 
-
 import assert from "assert";
 
 //* track node version that we are using - should use most recent
@@ -35,7 +34,7 @@ console.log(`Project: ${version.default.APP_NAME} at version ${version.default.V
 describe("Check Setup Files", function () {
     it("system version", async function () {
         assert.strictEqual(version.default.APP_NAME, "Kanen");
-        assert.strictEqual(version.default.VERSION, "0.2.5");
+        assert.strictEqual(version.default.VERSION, "0.5.0");
     });
 });
 

@@ -24,8 +24,6 @@
 const directory = "/imports/functions/utilities";
 const functionUnderTest = "pipe";
 
-
-
 //* get standard support functions
 import {testAssertions} from "../functions/testAssertions.mjs";
 import { createRequire } from 'module'

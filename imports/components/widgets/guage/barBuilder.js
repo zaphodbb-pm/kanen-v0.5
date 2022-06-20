@@ -12,8 +12,8 @@
  *
  */
 
-import {progessValue} from './progressValue.mjs'
-import {setBackground} from '/imports/functions/supportDOM/setBackground'
+import {progessValue} from './progressValue.js'
+import {setBackground} from "../../../functions/supportDOM/setBackground.js";
 
 export function barBuilder(conf, load) {
     //** get decorative items or apply defaults

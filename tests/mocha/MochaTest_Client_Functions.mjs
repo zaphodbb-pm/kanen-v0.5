@@ -20,14 +20,11 @@
  */
 
 //* define directory to search for testplans
-const dirFunctions = "/imports/functions/supportDOM";
+const dirFunctions = "/imports";
 const testFileExtension = ".test.mjs";
 
 
 //* get support functions
-import { createRequire } from 'module'
-const require = createRequire(import.meta.url);
-const fs = require('fs');
 import assert from "assert";
 import {getTestFiles} from "../functions/getTestFiles.mjs";
 import {testAssertions} from "../functions/testAssertions.mjs";
@@ -43,7 +40,7 @@ console.log(`Project: ${version.default.APP_NAME} at version ${version.default.V
 describe("Check Setup Files", function () {
     it("system version", async function () {
         assert.strictEqual(version.default.APP_NAME, "Kanen");
-        assert.strictEqual(version.default.VERSION, "0.2.5");
+        assert.strictEqual(version.default.VERSION, "0.5.0");
     });
 });
 
@@ -62,9 +59,8 @@ describe("Run all tests", function () {
 
                 //* we need to use mjs extension to support es6 imports during Mocha testing
                 //* note that mocha seems to have challenges with trying to use --package <path> directive
-                const fileUnderTest = tf.replace(".test.mjs", ".js");
+                const fileUnderTest = tf.replace(".test.mjs", ".js").replace("/tests", "");
                 const functionUnderTest = tf.replace(".test.mjs", "").split("/").pop();
-
                 const fut = await import(fileUnderTest);
 
                 testAssertions(testPlan.testPlan, fut[functionUnderTest]);

@@ -3,7 +3,6 @@
  *
  * @memberof Components:Widgets
  * @function progessValue
- * @augments gauge
  * @locus Client
 
  * @param {Object} load - values to display
@@ -12,7 +11,9 @@
  *
  */
 
-import {toDecimals} from "/imports/functions/formatters/toDecimals.js";
+//import {toDecimals} from "/imports/functions/formatters/toDecimals.js";
+
+import {toDecimals} from "../../../functions/formatters/toDecimals.js";
 
 export function progessValue(load) {
     if (load) {

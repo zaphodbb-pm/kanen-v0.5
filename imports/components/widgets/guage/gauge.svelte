@@ -42,7 +42,7 @@
      */
 
     //* support functions
-    import {barBuilder} from "./barBuilder.mjs";
+    import {barBuilder} from "./barBuilder.js";
 
     //* props
     export let text = {};
