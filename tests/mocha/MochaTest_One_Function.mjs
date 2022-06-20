@@ -44,7 +44,7 @@ console.log(`Project: ${version.default.APP_NAME} at version ${version.default.V
 
 
 //* build required paths to get a single test file in a directory, import and execute tests
-const fileTestPlan = `${rpath}${directory}/${functionUnderTest}.test.mjs`;
+const fileTestPlan = `${rpath}${directory}/tests/${functionUnderTest}.test.mjs`;
 const fileUnderTest = `${rpath}${directory}/${functionUnderTest}.js`;
 //const fileUnderTestES6 = `${rpath}/tests/mocha/${functionUnderTest}.mjs`;
 

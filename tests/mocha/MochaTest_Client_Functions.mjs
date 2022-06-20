@@ -37,6 +37,8 @@ console.log("Node Version: ", nodeV);
 const version = await import("../../imports/both/version.js");
 console.log(`Project: ${version.default.APP_NAME} at version ${version.default.VERSION}`)
 
+
+
 describe("Check Setup Files", function () {
     it("system version", async function () {
         assert.strictEqual(version.default.APP_NAME, "Kanen");

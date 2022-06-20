@@ -1,23 +1,9 @@
 {
-  "name": "svelte-meteor",
+  "name": "svelte-meteor-mocha",
   "private": true,
-  "scripts": {
-    "start": "meteor run",
-    "cypress:ui": "cypress open",
-    "cypress:headless": "cypress run"
-  },
 
+  "type": "module",
 
-
-  "meteor": {
-    "nodeModules": {
-      "recompile": {
-        "svelte": [
-          "legacy"
-        ]
-      }
-    }
-  },
   "dependencies": {
     "@babel/runtime": "^7.18.3",
     "bcrypt": "^5.0.1",
