@@ -27,7 +27,7 @@
     import {i18n} from '/imports/functions/utilities/i18n'
 
     //* get accessory components
-    import Icon from '/imports/components/elements/icon.svelte'
+    import Icon from '/imports/components/elements/icon/icon.svelte'
 
 
     //* component controls
@@ -52,9 +52,9 @@
 
     <div class="expander-header {tabSettings}">
         <div class="expander-label">
-            {#if content.icon}
+            {#if content.icon_old}
                 <div class="label-icon">
-                    <Icon icon={getContext(content.icon)} class="text-1dot5rem"/>
+                    <Icon icon={getContext(content.icon_old)} class="text-1dot5rem"/>
                 </div>
             {/if}
 

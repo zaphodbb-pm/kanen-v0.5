@@ -47,7 +47,7 @@
 
     //* get accessory components
     import { getContext } from 'svelte';
-    import Icon from '/imports/components/elements/icon.svelte'
+    import Icon from '/imports/components/elements/icon/icon.svelte'
 
     //* support functions
     import {toDecimals} from '/imports/functions/formatters/toDecimals'
@@ -113,7 +113,7 @@
 <div class="infobox d-flex" style="{styleBox()}">
 
     <div class="style-box-icon" style="{styleIcon()}">
-        <Icon icon={getContext(config.icon)} />
+        <Icon icon={getContext(config.icon_old)} />
     </div>
 
     <div class="info-content">

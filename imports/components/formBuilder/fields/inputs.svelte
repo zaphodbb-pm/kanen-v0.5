@@ -19,7 +19,7 @@
     //* support functions
     import {validateEmail} from '/imports/functions/formatters/validateEmail'
     import {validatePhone} from '/imports/functions/formatters/validatePhone'
-    import Icon from '/imports/components/elements/icon.svelte'
+    import Icon from '/imports/components/elements/icon/icon.svelte'
     import {createEventDispatcher, getContext} from 'svelte';
     const dispatch = createEventDispatcher();
 

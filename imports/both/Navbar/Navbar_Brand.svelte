@@ -12,7 +12,7 @@
 
     import {layout} from '/imports/both/systemGlobals'
 
-    import Icon from '/imports/components/elements/icon.svelte'
+    import Icon from '/imports/components/elements/icon/icon.svelte'
     import { getContext } from 'svelte';
     let logo = getContext("iconLogo");
 

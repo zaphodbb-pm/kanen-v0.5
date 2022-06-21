@@ -19,7 +19,7 @@
     export let options = {};
 
     //* support functions
-    import Icon from '/imports/components/elements/icon.svelte'
+    import Icon from '/imports/components/elements/icon/icon.svelte'
     import {onMount, onDestroy, getContext, createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
     import Croppie from 'croppie'

@@ -21,7 +21,7 @@
     //* setup props to receive component data
     export let showModal = false;
     export let docId = "";
-    export let text;
+    export let text = "";
 
     //* get the user language preference from store; text from context and support functions
     import { getContext } from 'svelte';
@@ -32,7 +32,7 @@
     import {formatPhoneNumber} from '/imports/functions/formatters/formatPhoneNumber'
 
     //* get components
-    import Icon from '/imports/components/elements/icon.svelte'
+    import Icon from '/imports/components/elements/icon/icon.svelte'
 
 
     //* local reactive variable

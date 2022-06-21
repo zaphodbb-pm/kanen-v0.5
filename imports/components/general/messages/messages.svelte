@@ -36,7 +36,7 @@
     import {quintOut} from 'svelte/easing';
 
     //* get components
-    import Icon from '/imports/components/elements/icon.svelte'
+    import Icon from '/imports/components/elements/icon/icon.svelte'
 
     //* local reactive variables
     let msg = [];

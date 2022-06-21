@@ -26,7 +26,7 @@
     //* support functions
     import {documents} from '/imports/both/systemGlobals'
     import {fileReader} from '/imports/client/setup/textCommon'
-    import Icon from '/imports/components/elements/icon.svelte'
+    import Icon from '/imports/components/elements/icon/icon.svelte'
     import Crop_Image from '/imports/components/widgets/croppie.svelte'
     import {getContext, createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();

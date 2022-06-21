@@ -5,7 +5,6 @@
      * @memberof Pages:Login
      * @function authGoogle
      * @locus Client
-     * @augments Login
      *
      * @param {String} label - optional string to show instead of icon
      * @param {String|Number} value - text to show in credit
@@ -19,7 +18,7 @@
     export let service = ""
 
     //* support files
-    import Icon from '/imports/components/elements/icon.svelte'
+    import Icon from '/imports/components/elements/icon/icon.svelte'
     import {createEventDispatcher, getContext} from 'svelte';
     const dispatch = createEventDispatcher();
 

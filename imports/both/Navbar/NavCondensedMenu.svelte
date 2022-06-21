@@ -17,7 +17,7 @@
 
     //* component support files
     import { getContext } from 'svelte';
-    import Icon from '/imports/components/elements/icon.svelte'
+    import Icon from '/imports/components/elements/icon/icon.svelte'
     import {showRoutes} from '/imports/client/systemStores'
     import { navigateTo } from 'svelte-router-spa/src/spa_router'
 
@@ -47,7 +47,7 @@
        data-test="navbar-condensed">
 
         <div class="has-text-centered">
-            <Icon icon={getContext(link.icon)} class="text-1dot5rem"/>
+            <Icon icon={getContext(link.icon_old)} class="text-1dot5rem"/>
 
             {#if !bottom}
                 <div class="text-0dot8rem nav-page-text has-text-centered"

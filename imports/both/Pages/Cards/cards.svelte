@@ -31,7 +31,7 @@
 
 
     //* page body support **************************
-    import Icon from '/imports/components/elements/icon.svelte'
+    import Icon from '/imports/components/elements/icon/icon.svelte'
     import Card from '/imports/components/blocks/card.svelte';
 
     let text = page.components;

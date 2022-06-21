@@ -16,7 +16,7 @@
 
     //** support functions
     import {getContext} from 'svelte';
-    import Icon from '/imports/components/elements/icon.svelte'
+    import Icon from '/imports/components/elements/icon/icon.svelte'
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 

@@ -17,9 +17,9 @@ import assert from "assert";
 //import {tick} from "svelte";      // optional wait method
 
 //** add our local support functions relative to testing directory
-import {fileAbsolutePath} from "../../../tests/functions/fileAbsolutePath.mjs";
-import {fileLoad} from "../../../tests/functions/fileLoad.mjs";
-import {checkDOM} from "../../../tests/functions/domUtilities.mjs";
+import {fileAbsolutePath} from "../../../../../tests/functions/fileAbsolutePath.mjs";
+import {fileLoad} from "../../../../../tests/functions/fileLoad.mjs";
+import {checkDOM} from "../../../../../tests/functions/domUtilities.mjs";
 
 //* end of boilerplate *****************************************************************
 
@@ -28,11 +28,13 @@ import {checkDOM} from "../../../tests/functions/domUtilities.mjs";
 
 //* Step 2: define component under test (cut) ******************************************
 
-const directory = '/imports/components/elements'
-const component = "icon";        //******* define component name here
+const component = "icon";                               //******* define component name file fragment here
+const directory = '/imports/components/elements';       //******* set path to test
 
 //** since this runs on the server, we need to use absolute paths to get the component
-const cut = fileAbsolutePath(`${directory}/${component}.svelte`);
+//const cut = fileAbsolutePath(`${directory}/${component}.svelte`);
+
+const cut = fileAbsolutePath(`${directory}/${component}/${component}.svelte`);
 
 //* end of component getter ***********************************************************
 

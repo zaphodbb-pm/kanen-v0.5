@@ -14,7 +14,7 @@
     export let currentRoute;
 
     //* get system wide icon definition
-    import Icon from '/imports/components/elements/icon.svelte'
+    import Icon from '/imports/components/elements/icon/icon.svelte'
     import { getContext } from 'svelte';
 
     //* get route information and config
@@ -44,7 +44,7 @@
            href={link.name}>
 
             <div class="has-text-centered" title={link.label}>
-                <Icon icon={getContext(link.icon)} class="text-1dot5rem"/>
+                <Icon icon={getContext(link.icon_old)} class="text-1dot5rem"/>
                 <div class="text-0dot9rem has-text-centered is-hidden-touch" style="line-height: 1.2;">{link.label}</div>
             </div>
         </a>

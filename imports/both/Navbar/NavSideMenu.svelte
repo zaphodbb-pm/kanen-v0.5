@@ -58,7 +58,7 @@
                 <div class="space-vert">
                     {#each group as links (links.name)}
                         <a class="icon-nav-horz" href="{links.name}" title="{links.label}">
-                            <svg class="icon"><use href="#{links.icon}"/></svg>
+                            <svg class="icon"><use href="#{links.icon_old}"/></svg>
                             <span>{links.label}</span>
                         </a>
                     {/each}

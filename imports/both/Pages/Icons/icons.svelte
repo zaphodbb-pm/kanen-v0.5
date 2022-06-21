@@ -29,7 +29,7 @@
     import {lang} from '/imports/client/systemStores'
 
     import {mainIcons} from '/imports/client/setup/systemIcons'
-    import Icon from '/imports/components/elements/icon.svelte'
+    import Icon from '/imports/components/elements/icon/icon.svelte'
 
     //** get list of Icons and sort list ascending
     let allIcons = Object.entries(mainIcons);

@@ -47,7 +47,7 @@
 
     //* get accessory components
     //import {methodReturn} from "../../functions/func-methodReturn";
-    import Icon from '/imports/components/elements/icon.svelte'
+    import Icon from '/imports/components/elements/icon/icon.svelte'
 
     //* component controls
     let content = getContext("pageText").components;
@@ -111,9 +111,9 @@
         <div class="accordion">
 
             <a class="button accordion-header {tabSettings}" on:click|stopPropagation={ () => changetab(item.label) }>
-                {#if item.icon}
+                {#if item.icon_old}
                     <span class="icon">
-                        <Icon icon={getContext(item.icon)} class="text-1dot2rem"/>
+                        <Icon icon={getContext(item.icon_old)} class="text-1dot2rem"/>
                     </span>
                 {/if}
 

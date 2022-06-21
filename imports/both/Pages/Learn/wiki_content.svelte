@@ -24,7 +24,7 @@
     //* support files
     import { createEventDispatcher, getContext, setContext } from 'svelte';
     const dispatch = createEventDispatcher();
-    import Icon from '/imports/components/elements/icon.svelte'
+    import Icon from '/imports/components/elements/icon/icon.svelte'
     import {getDocs} from '/imports/functions/supportApplication/getDocs'
     import {timeAgo} from '/imports/functions/formatters/timeAgo'
     import {numString} from '/imports/functions/formatters/numString'

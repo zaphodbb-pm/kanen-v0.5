@@ -1,10 +1,10 @@
 /**
  * Allows you to do one unit test at a time.
- * This file is designed for use with Webstorm IDE and runs in its own node.js
- * instance.
+ * This file is designed for use with Webstorm IDE and runs in its own node.js instance.
+ * This file is wrapper to call up the actual test file 'tests/*.spec.mjs'
  *
  * @memberof Tests
- * @function mainMochaTest
+ * @function Test_One_Svelte_Comp
  * @locus Server
  *
  * @see {@link https://mochajs.org/#installation|for Mocha setup}
@@ -20,7 +20,6 @@
 //* load any required support files
 import {fileAbsolutePath} from "../functions/fileAbsolutePath.mjs";
 
-
 //* track node version that we are using - should use most recent
 const nodeV = process.version;
 console.log("Node Version: ", nodeV);
@@ -29,12 +28,12 @@ const version = await import("../../imports/both/version.js");
 console.log(`Project: ${version.default.APP_NAME} at version ${version.default.VERSION}`)
 
 
-//* get Svelte component under test
-const directory = '/imports/components/elements'
-const spec = "userCredit.spec.mjs";        //******* define component test file here
-
-const cut = fileAbsolutePath(`${directory}/${spec}`);
-
+//* get Svelte component under test (cut)
+const file = "icon";                                    //******* define component test file name here
+const directory = `/imports/components/elements`;
+const path = `${directory}/${file}/tests`;
+const spec = `${file}.spec.mjs`;
+const cut = fileAbsolutePath(`${path}/${spec}`);
 
 //** run component test
 await import(cut);

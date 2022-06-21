@@ -15,7 +15,7 @@
 
     //* support files
     import {userExtras} from "../../client/systemStores.mjs";
-    import Icon from "../../../imports/components/elements/icon.svelte"
+    import Icon from "./icon/icon.svelte"
 
     import { getContext } from 'svelte';
 

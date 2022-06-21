@@ -57,12 +57,14 @@ const opts = {
 //** compile component with "dainte" npm package
 const {instance, document} = await mount(cut, opts);
 
-console.log("instance", instance);
+//console.log("instance", instance);
 
-console.log("document", document);
+//console.log("document", document);
 
 let context = new Map();
 context.set("iconCredits", "iconCredits");
+
+
 
 instance.$$.context = context;
 

@@ -43,7 +43,7 @@
     import {components} from './fields/func-registerField'
     import {slide} from 'svelte/transition';
     import {quintOut} from 'svelte/easing';
-    import Icon from '/imports/components/elements/icon.svelte'
+    import Icon from '/imports/components/elements/icon/icon.svelte'
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 

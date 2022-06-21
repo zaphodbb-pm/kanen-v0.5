@@ -13,7 +13,7 @@
     import { getContext } from 'svelte';
 
     //** get any other components
-    import Icon from '/imports/components/elements/icon.svelte'
+    import Icon from '/imports/components/elements/icon/icon.svelte'
 
     //** event handlers
     import {createEventDispatcher} from 'svelte';

@@ -36,7 +36,7 @@
 
     //* get accessory components
     import {methodReturn} from '/imports/functions/utilities/methodReturn'
-    import Icon from '/imports/components/elements/icon.svelte'
+    import Icon from '/imports/components/elements/icon/icon.svelte'
 
 
     //* component controls
@@ -91,9 +91,9 @@
                     on:click={ () => changetab(item.label) }>
 
                     <a>
-                        {#if item.icon}
+                        {#if item.icon_old}
                             <span class="icon" title="{item.label}">
-                                <Icon icon={getContext(item.icon)} class="text-1dot2rem"/>
+                                <Icon icon={getContext(item.icon_old)} class="text-1dot2rem"/>
                             </span>
                         {/if}
 
