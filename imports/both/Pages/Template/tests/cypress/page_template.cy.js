@@ -17,13 +17,12 @@ describe(`Page: ${pageName} exists`, () => {
 
     it(`Get ${pageName} page`, () => {
         cy.visit(pageLink);
-        cy.contains(pageTitle);
 
+        cy.contains(pageTitle);
         cy.contains(pageExamples);
+        cy.contains(pageProps);
 
         cy.get("table").should('have.class', 'table is-striped');
-
-        cy.contains(pageProps);
 
         cy.get('h3').each($hdr => {
             assert.isString($hdr[0].innerText, '')
