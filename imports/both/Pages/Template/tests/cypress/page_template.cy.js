@@ -13,7 +13,7 @@ const pageTitle = "Template Page";
 const pageExamples = "Examples"
 const pageProps = "Component Properties"
 
-describe(`Page: ${pageName} exists`, () => {
+describe(`Page: ${pageName}`, () => {
 
     it(`Get ${pageName} page`, () => {
         cy.visit(pageLink);
