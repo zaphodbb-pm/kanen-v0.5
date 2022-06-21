@@ -5,6 +5,7 @@
  * @function testAssertions
  * @locus Server
  *
+ * @param {Object} plan - {label, tests: array of object scenarios }
  * @param {Object} link - absolute file path from user top
  *
  * @module doTest
@@ -20,7 +21,8 @@ const sinon = require("sinon");
 export async function testAssertions(plan, func){
 
     if(plan && func){
-        describe(plan.label, function () {
+        describe(`${plan.label} / ${plan.tests.length} tests`, function () {
+
             plan.tests.forEach( tv => {
                 let underTest = func;
 
@@ -63,6 +65,10 @@ export async function testAssertions(plan, func){
 
                         case "checkStringLength":
                             assert.strictEqual(underTest(...tv.args).length, tv.result);
+                            break;
+
+                        case "checkKeysLength":
+                            assert.strictEqual( Object.keys(underTest(...tv.args)).length, tv.result);
                             break;
 
                         default:

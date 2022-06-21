@@ -19,10 +19,12 @@
  */
 
 
-//* file to test: set directory and file file name to be used for testing;
-//* assumes testPlan file has same name as function file name
-const directory = "/imports/functions/utilities";
-const functionUnderTest = "pipe";
+//* file to test: set directory, subdirectory fragment and file name to be used for testing;
+//* assumes testPlan file (in 'tests' folder) has same name as function file name
+
+const directory = "/imports/both/Pages/Template";
+const dirFragment = "/functions";
+const functionUnderTest = "injectText";
 
 //* get standard support functions
 import {testAssertions} from "../functions/testAssertions.mjs";
@@ -42,35 +44,17 @@ const version = await import("../../imports/both/version.js");
 console.log(`Project: ${version.default.APP_NAME} at version ${version.default.VERSION}`)
 
 
-
 //* build required paths to get a single test file in a directory, import and execute tests
-const fileTestPlan = `${rpath}${directory}/tests/${functionUnderTest}.test.mjs`;
-const fileUnderTest = `${rpath}${directory}/${functionUnderTest}.js`;
-//const fileUnderTestES6 = `${rpath}/tests/mocha/${functionUnderTest}.mjs`;
+const fileTestPlan = `${rpath}${directory}/tests${dirFragment}/${functionUnderTest}.test.mjs`;
+const fileUnderTest = `${rpath}${directory}${dirFragment}/${functionUnderTest}.js`;
 
 
-//* run one test
-describe("Run one test", function () {
+//* run one function's test plan; can have multiple tests in a plan
+try {
+    const testPlan = await import(fileTestPlan);
+    const fut = await import(fileUnderTest);
 
-    it("get module", async function(){
-        try {
-            const testPlan = await import(fileTestPlan);
-
-            let fut = await import(fileUnderTest);
-
-            //* we need to use mjs extension to support es6 imports during Mocha testing
-            //* note that mocha seems to have challenges with trying to use --package <path> directive
-
-            /*
-            fs.renameSync(fileUnderTest, fileUnderTestES6);
-            const fut = await import(fileUnderTestES6);
-            fs.renameSync(fileUnderTestES6, fileUnderTest);
-             */
-
-            testAssertions(testPlan.testPlan, fut[functionUnderTest]);
-        } catch(err){
-            console.log("err", err);
-        }
-    });
-
-});
+    testAssertions(testPlan.testPlan, fut[functionUnderTest]);
+} catch(err){
+    console.log("err", err);
+}

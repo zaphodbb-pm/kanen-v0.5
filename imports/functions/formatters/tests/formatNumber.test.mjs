@@ -2,7 +2,7 @@
  * Test plan
  *
  * @memberof Tests
- * @augments formatNumber
+ * @augments injectText
  * @locus Anywhere
  *
  */

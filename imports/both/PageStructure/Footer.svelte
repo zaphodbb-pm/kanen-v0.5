@@ -29,15 +29,14 @@
     import {userPosition} from '/imports/client/systemStores'
     $: loc = $userPosition;
 
-
 </script>
 
 
 
 <footer class="page-footer">
-    <div>Meteor-Svelte Starter © 2021 - 2022</div>
+    <div>{version.APP_NAME} © {version.COPYRIGHT}</div>
     <div>page-footer</div>
-    <div>Version: 0.1.0 / March 21, 2022</div>
+    <div>Version: {version.VERSION} @ {version.LAST_UPDATE}</div>
 
     {#if $showWidget}
         <div class="text-0dot8rem mb-5">

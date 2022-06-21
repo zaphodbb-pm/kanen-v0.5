@@ -7,7 +7,7 @@
     "cypress:headless": "cypress run"
   },
 
-  "type": "module",
+  
 
   "meteor": {
     "nodeModules": {

@@ -27,15 +27,19 @@ export const page = {
             files: "Structural Page Files",
             thead: ["File Name", "Locus", "Exports", "Description"],
 
-            preamble: "Each unique page has its own directory and can be added or removed as needed.  " +
-                "Each Page is stand-alone and is controlled by 5 main files and one optional one.",
+            preamble: "<p>Each unique page has its own directory and can be added or removed as needed.  " +
+                "Each Page is stand-alone and is controlled by 5 main files and one optional one.</p>" +
+                "<p>A functions directory is also provided.  Generally, all logic should be abstracted to functions outside" +
+                "the Page.  This allows for more rigorous testing of these functions and makes the Page simpler.  " +
+                "Page testing is performed by Cypress based test files.  Both functions and page testinf files are in the " +
+                "associated 'test' directory that is unique to each page.</p>",
 
             _nav: {
                 name: "template_nav.js",
                 locus: "Client, Server",
                 desc: "Per Page navigation and text information.  " +
                     "Roles are used by server to control access to collections.  " +
-                    "Roles are also used on the client to suppress Page navigation link and Page rendering."
+                    "Roles are also used on the client to allow or suppress Page navigation link and Page rendering."
             },
 
             _text: {
@@ -75,12 +79,27 @@ export const page = {
                     "in the 'template_text.js' file"
             },
 
+            _functions: {
+                name: "/functions/*",
+                locus: "Client",
+                desc: "These functions are Page specific only.  General functions are handled in different directories."
+            },
+
+            _tests: {
+                name: "/tests/cypress/* <br/> /tests/functions/*",
+                locus: "Client",
+                desc: "Function testing is handled by Mocha.  Page testing is handled by Cypress.  " +
+                    "Component testing is handled by a special Mocha jig and uses 'jsdom'."
+            },
+
             props: "Component Properties",
 
             propsDesc: "Each rendered Page gets passed 'currentRoute' and 'params, from the router.  " +
                 "'currentRoute' contains information about the current route and the child routes.  " +
                 "'params' allows you to send any additional params to the rendered component.  " +
-                "This is useful if you add any logic in your template, to check user's permission for instance, and want to send extra info to the rendered component.",
+                "This is useful if you add any logic in your template, to check user's permission for instance, and want to " +
+                "send extra info to the rendered component.  " +
+                "The config file provides static set-up information for some components. ",
 
             route: "currentRoute",
             parms: "params",

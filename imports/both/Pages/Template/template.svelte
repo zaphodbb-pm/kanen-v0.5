@@ -1,18 +1,17 @@
-<script>
-    /**
-     * Layout for Template page.
-     *
-     * @memberof Pages:Template
-     * @function template
-     * @locus Client
-     *
-     * @notes
-     *  1. Main code for page control: page boilerplate and page body sections.
-     *  2. Common page boilerplate has two props: currentRoute and params from spa-router for rendering.
-     *  3. Common page boilerplate imports common PageHeader component.
-     *  4. Common page boilerplate injects language responsive text into "header" and "page".
-     *  5. Page-body contains specific code and html for this page's functionality.
-     */
+<script>/**
+ * Layout for Template page.
+ *
+ * @memberof Pages:Template
+ * @function template
+ * @locus Client
+ *
+ * @notes
+ *  1. Main code for page control: page boilerplate and page body sections.
+ *  2. Common page boilerplate has two props: currentRoute and params from spa-router for rendering.
+ *  3. Common page boilerplate imports common PageHeader component.
+ *  4. Common page boilerplate injects language responsive text into "header" and "page".
+ *  5. Page-body contains specific code and html for this page's functionality.
+ */
 
 
     //* page set-up boilerplate *************************************
@@ -37,13 +36,22 @@
     import {lang} from '/imports/client/systemStores'
     import {i18n} from '/imports/functions/utilities/i18n'
 
+    //* page-body functions *************************
+    import {injectText} from "./functions/injectText";
+
+
+    //* page controls / logic ***********************
     let message = "";
+    let textWith = "";
+    let textWithout = "";
+
     let text = i18n( page, "page", $lang);
 
     onMount(() => {
-        message = "<b>template page</b> mounted";
-
-        console.log("params", params);
+        const text = injectText();
+        textWith = text.with;
+        textWithout = text.without;
+        message = `<b>${text.bold}</b> ${text.normal}`;
     });
 
     onDestroy(() => {
@@ -63,8 +71,8 @@
 
     <div class="row">
         <div class="column">
-            <div>{message}</div>
-            <div>{@html message}</div>
+            <div>{message} {textWithout}</div>
+            <div>{@html message} {textWith}</div>
         </div>
 
         <div class="column">
@@ -81,62 +89,80 @@
 
     <h2>{text.files}</h2>
 
-    <p>{text.preamble}</p>
+    <p>{@html text.preamble}</p>
 
-    <table class="table is-stripped">
-        <thead>
-        <tr>
-            {#each text.thead as label}
-                <th>{label}</th>
-            {/each}
-        </tr>
-        </thead>
+    <div class="table-scroll space-vert-medium">
+        <table class="table is-striped">
+            <thead>
+            <tr>
+                {#each text.thead as label}
+                    <th>{label}</th>
+                {/each}
+            </tr>
+            </thead>
 
-        <tbody>
-        <tr>
-            <td>{text._nav.name}</td>
-            <td>{text._nav.locus}</td>
-            <td>nav:object, <br />link:string, <br />icon: string, <br />roles: object</td>
-            <td>{text._nav.desc}</td>
-        </tr>
+            <tbody>
+            <tr>
+                <td>{text._nav.name}</td>
+                <td>{text._nav.locus}</td>
+                <td>nav:object, <br />link:string, <br />icon: string, <br />roles: object</td>
+                <td>{text._nav.desc}</td>
+            </tr>
 
-        <tr>
-            <td>{text._text.name}</td>
-            <td>{text._text.locus}</td>
-            <td>header:object, <br />page:object</td>
-            <td>{text._text.desc}</td>
-        </tr>
+            <tr>
+                <td>{text._text.name}</td>
+                <td>{text._text.locus}</td>
+                <td>header:object, <br />page:object</td>
+                <td>{text._text.desc}</td>
+            </tr>
 
-        <tr>
-            <td>{text._loader.name}</td>
-            <td>{text._loader.locus}</td>
-            <td>function: extends SvelteComponentDev</td>
-            <td>{text._loader.desc}</td>
-        </tr>
+            <tr>
+                <td>{text._loader.name}</td>
+                <td>{text._loader.locus}</td>
+                <td>function: extends SvelteComponentDev</td>
+                <td>{text._loader.desc}</td>
+            </tr>
 
-        <tr>
-            <td>{text._route.name}</td>
-            <td>{text._route.locus}</td>
-            <td>default:object</td>
-            <td>{text._route.desc}</td>
-        </tr>
+            <tr>
+                <td>{text._route.name}</td>
+                <td>{text._route.locus}</td>
+                <td>default:object</td>
+                <td>{text._route.desc}</td>
+            </tr>
 
-        <tr>
-            <td>{text._svelte.name}</td>
-            <td>{text._svelte.locus}</td>
-            <td></td>
-            <td>{text._svelte.desc}</td>
-        </tr>
+            <tr>
+                <td>{text._svelte.name}</td>
+                <td>{text._svelte.locus}</td>
+                <td></td>
+                <td>{text._svelte.desc}</td>
+            </tr>
 
-        <tr>
-            <td>{text._config.name}</td>
-            <td>{text._config.locus}</td>
-            <td>pageConfig:object</td>
-            <td>{text._config.desc}</td>
-        </tr>
+            <tr>
+                <td>{text._config.name}</td>
+                <td>{text._config.locus}</td>
+                <td>pageConfig:object</td>
+                <td>{text._config.desc}</td>
+            </tr>
 
-        </tbody>
-    </table>
+            <tr>
+                <td>{text._functions.name}</td>
+                <td>{text._functions.locus}</td>
+                <td></td>
+                <td>{text._functions.desc}</td>
+            </tr>
+
+            <tr>
+                <td>{@html text._tests.name}</td>
+                <td>{text._tests.locus}</td>
+                <td></td>
+                <td>{text._tests.desc}</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+
 
     <hr class="space-vert-large" />
 

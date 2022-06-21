@@ -10,11 +10,23 @@
 const pageName = "Template";
 const pageLink = "/template";
 const pageTitle = "Template Page";
+const pageExamples = "Examples"
+const pageProps = "Component Properties"
 
 describe(`Page: ${pageName} exists`, () => {
 
     it(`Get ${pageName} page`, () => {
         cy.visit(pageLink);
         cy.contains(pageTitle);
+
+        cy.contains(pageExamples);
+
+        cy.get("table").should('have.class', 'table is-striped');
+
+        cy.contains(pageProps);
+
+        cy.get('h3').each($hdr => {
+            assert.isString($hdr[0].innerText, '')
+        });
     });
 })

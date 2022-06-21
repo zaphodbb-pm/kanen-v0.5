@@ -15,9 +15,9 @@
  */
 
 export default{
-    APP_NAME: "Kanen",                          // application name
-    VERSION: "0.5.0",                           // current version number
-    LAST_UPDATE:  "June 30 / 2021",             // the most recent update date
-    COPYRIGHT: "2022",                          // adjustable copyright notice
+    APP_NAME: "Svelte-Meteor Starter",                  // application name
+    VERSION: "0.5.0",                                   // current version number
+    LAST_UPDATE:  "June 30, 2022",                     // the most recent update date
+    COPYRIGHT: `2021 - ${(new Date()).getFullYear()}`,  // adjustable copyright notice
 }
 
