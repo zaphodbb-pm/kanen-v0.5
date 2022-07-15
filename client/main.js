@@ -53,5 +53,5 @@ serverConsole.subscribe();
 import App from '/imports/both/PageStructure/App.svelte'
 
 new App({
-    target: document.getElementById("svelte-app-top"),
+    target: document.getElementnnnById("svelte-app-top"),
 });
