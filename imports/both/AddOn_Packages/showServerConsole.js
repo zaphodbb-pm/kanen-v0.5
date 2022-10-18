@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Isomorphic routine that lets a server console message to be sent to the browser console for display.
  * This package is for development work that needs to get server logs.
@@ -17,6 +18,7 @@
  *
  *
  */
+
 
 
 if (Meteor.isServer) {
