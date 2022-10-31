@@ -17,7 +17,7 @@ export const nav = {en: "System Logs"};
 
 export const link = "/logsSystem";
 
-export const icon = "iconSysLogs";
+export const icon = "icon-bg-logs";
 
 // roles that can see this link in Navbar and be routed to
 // roles are also used by database write / read checking

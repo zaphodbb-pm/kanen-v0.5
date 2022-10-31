@@ -5,7 +5,6 @@
      * @memberof Pages:Starter
      * @function starter_grid
      * @locus Client
-     * @augments starter_list
      *
      * @param  {Object} config - decoration for table
      * @param  {Array}  labels
@@ -29,8 +28,6 @@
 
     //* support functions
     import {onMount, onDestroy, getContext} from 'svelte'
-    import Icon from '/imports/components/elements/icon/icon.svelte'
-    import {elements} from '/imports/both/systemGlobals'
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 

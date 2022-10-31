@@ -1,9 +1,21 @@
 /**
  * Build system page routes.  Note that all pages need to be registered here.
  *
- * @memberof Structure
+ * @name routes
  * @function routes
+ * @memberOf ClientMain
  * @locus Client
+ *
+ * @property {Object[]} allRoutes
+ * @property {string} allRoutes[].name - link that router will use, ie "/home"
+ * @property {Array} allRoutes[].roles - {read: array, write: array} - roles that can see this link in Navbar and be routed to, ie. ["all"]
+ * @property {Object} allRoutes[].layout - MainPage layout Svelte object
+ * @property {Object} allRoutes[].component - Page Svelte specific component
+ *
+ * @property {string} allRoutes[].icon - Navbar icon to show from global context (app page), ie. "iconLearn"
+ * @property {string} allRoutes[].label - Navbar text to show, ie. i18n(PageText, "navLabel", lang)
+ * @property {number} allRoutes[].group - For side navigation; group routes into a block
+ * @property {boolean} allRoutes[].isNavMobile - (optional) show link in mobile nav block at bottom or top
  *
  * @returns {Array} - array of route objects
  *
@@ -11,19 +23,15 @@
  *  1. Route objects are located within the associated page directory under /imports/both/pages<pageName>
  *  2. The order of the page route objects in the returned array determines the page order
  *
- *  @example
+ * @example
  *      Typical route object
  *          name =          {String} link that router will use, ie "/home"
+ *          roles =         {Array} of objects: {read: array, write: array} - roles that can see this link in Navbar and be routed to, ie. ["all"]
  *          layout =        {Object} MainPage layout Svelte object
  *          component =     {Object} Page Svelte specific component
- *          redirectTo =    {String} (optional) link to redirect page request to
- *          onlyIf =        {Object} (optional) { guard: userIsAdmin, redirect: '/login' }; block access if guard is false
  *
  *          icon =          {String} Navbar icon to show from global context (app page), ie. "iconLearn"
  *          label =         {String} Navbar text to show, ie. i18n(PageText, "navLabel", lang)
- *
- *          roles =         {Array} of objects: {read: array, write: array} - roles that can see this link in Navbar and be routed to, ie. ["all"]
- *
  *          group =         {Number} for side navigation; group routes into a block
  *          isNavMobile =   {Boolean} (optional) show link in mobile nav block at bottom or top
  *
@@ -31,37 +39,30 @@
 
 
 //* get page configuration information
-import Home from "./Pages/Home/home_route"
-import Template from './Pages/Template/template_route'
+import Home from './Pages/Home/home_route';
+import Template from './Pages/Template/template_route';
+import Icons from './Pages/Icons/icons_route';
+import Colours from './Pages/Colours/colours_route';
+import MiniWiki from './Pages/Learn/learn_route';
 
+import Cards from './Pages/Cards/cards_route';
+import Tabs from './Pages/WidgetsContent/widgetsContent_route';
+import Infoboxes from './Pages/Infoboxes/infoboxes_route';
+import Starter from './Pages/Starter/starter_page_route';
+import Login from './Pages/Login/login_route'
 
+import MyProfile from './Pages/MyProfile/myProfile_route';
+import ChangePassword from './Pages/ChangePassword/changePassword_route';
+import PubSub from './Pages/PubSub/pubSub_route';
 
-/*
-import Icons from '/imports/both/Pages/Icons/icons_route'
-import Colours from '/imports/both/Pages/Colours/colours_route'
-import MiniWiki from '/imports/both/Pages/Learn/learn_route'
+import BuildContent from './Pages/BuildContent/buildContent_route';
+import Documentation from './Pages/Documentation/documentation_route';
+import LogsSystem from './Pages/LogsSystem/logsSystem_route';
+import LogsUsers from './Pages/LogsUsers/logsUsers_route';
 
-import Cards from '/imports/both/Pages/Cards/cards_route'
-import Tabs from '/imports/both/Pages/WidgetsContent/widgetsContent_route'
-
-import Widgets from '/imports/both/Pages/Widgets/widgets_route'
-import Starter from '/imports/both/Pages/Starter/starter_page_route'
-import Login from '/imports/both/Pages/Login/login_route'
-
-import MyProfile from '/imports/both/Pages/MyProfile/myProfile_route'
-import PubSub from '/imports/both/Pages/PubSub/pubSub_route'
-import ChangePassword from '/imports/both/Pages/ChangePassword/changePassword_route'
-
-import BuildContent from '/imports/both/Pages/BuildContent/buildContent_route'
-import Documentation from '/imports/both/Pages/Documentation/documentation_route'
-import LogsSystem from '/imports/both/Pages/LogsSystem/logsSystem_route'
-import LogsUsers from '/imports/both/Pages/LogsUsers/logsUsers_route'
-
-import Users from '/imports/both/Pages/Users/users_route'
-import SysConfig from '/imports/both/Pages/SysConfig/sysConfig_route'
-import ExportImport from '/imports/both/Pages/ExportImport/exportImport_route'
-
- */
+import Users from "./Pages/Users/users_route";
+import SysConfig from './Pages/SysConfig/sysConfig_route';
+import ExportImport from './Pages/ExportImport/exportImport_route';
 
 
 
@@ -70,23 +71,20 @@ import ExportImport from '/imports/both/Pages/ExportImport/exportImport_route'
 const allRoutes = [
 
     Home,
-
     Template,
-
-    /*
     Icons,
     Colours,
     MiniWiki,
 
     Cards,
     Tabs,
-    Widgets,
+    Infoboxes,
     Starter,
     Login,
 
     MyProfile,
-    PubSub,
     ChangePassword,
+    PubSub,
 
     BuildContent,
     Documentation,
@@ -96,9 +94,6 @@ const allRoutes = [
     Users,
     SysConfig,
     ExportImport,
-
-     */
-
 
     //* not found or 404 page is redirected to home page
     {
@@ -112,4 +107,4 @@ const allRoutes = [
     }
 ];
 
-export {allRoutes}
+export {allRoutes};

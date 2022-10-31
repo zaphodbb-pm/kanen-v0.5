@@ -4,7 +4,6 @@
  * @memberof Pages:MyProfile
  * @function myProfile_form_schema
  * @locus Anywhere
- * @augments myProfile_form
  *
  * @returns {Object}
  *

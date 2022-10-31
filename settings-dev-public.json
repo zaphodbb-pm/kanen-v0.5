@@ -1,7 +1,7 @@
 {
   "require_documentation": true,
   "multi_tenancy": true,
-  "mongodb": "4.2.8",
+  "mongodb": "5.0.5",
 
   "service_google_clientId": "",
   "service_google_secret": "",

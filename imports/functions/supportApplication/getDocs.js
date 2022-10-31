@@ -1,7 +1,7 @@
 /**
  * Abstracts the database get of documents.
  *
- * @memberof Functions
+ * @memberOf Functions:
  * @function getDocs
  * @locus Client
  *
@@ -18,12 +18,15 @@
  */
 
 
+// @ts-ignore
+import { Meteor } from 'meteor/meteor'
+
 
 export async function getDocs(coll, type, search, options) {
     let method = type === "combo" ? "getCollDataCombo" : "getCollData";
 
     try {
-        return await Meteor.callPromise(method, coll, type, search, options);
+        return await Meteor.callAsync(method, coll, type, search, options);
     } catch (error) {
         console.warn("getDocs", coll, search, options, error);
         return [];

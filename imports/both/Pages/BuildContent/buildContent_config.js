@@ -4,19 +4,17 @@
  * @memberof Pages:BuildContent
  * @function buildContent_page_config
  * @locus Client
- * @augments buildContent_page
  *
  * @returns {Object}
  */
 
-import {components} from '/imports/both/systemGlobals'
 
 export const pageConfig =  {
 
     form: {
         coll:       "buildContent",     // target collection to send submit to
         showHdr:    true,               // show card header and title if true
-        bgTitle:    components.BG_CARD_INFO, // colour header text and background
+        bgTitle:    "", // colour header text and background
 
         hasGroups:  false,              // allows fields to be grouped onto the same row
         hasTabs:    false,              // has tabbed fields in form
@@ -29,7 +27,7 @@ export const pageConfig =  {
     list: {
         coll:       "buildContent",     // collection name to list
         showHdr:    true,               // show card header and title if true
-        bgTitle:    components.BG_CARD_TEAL, // sets card title background and text color
+        bgTitle:    "", // sets card title background and text color
 
         hasRows:    true,               // show row length selection box
         hasSearch:  true,               // show search box

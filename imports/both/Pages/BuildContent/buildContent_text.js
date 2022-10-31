@@ -4,7 +4,6 @@
  * @memberof Pages:BuildContent
  * @function buildContent_text
  * @locus Client
- * @augments buildContent_page
  *
  * @returns {Object}
  */

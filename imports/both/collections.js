@@ -1,17 +1,17 @@
+// @ts-nocheck
+
 /**
  * Collection definitions
  *
- * @memberof Structure
- * @function collections
+ * @memberOf ClientMain
+ * @memberOf ServerMain
+ * @module collections
  * @locus Anywhere
- *
- * @return {Object} collection
  *
  */
 
 
-// @ts-ignore
-import {Mongo} from 'meteor/mongo'
+import {Mongo} from "meteor/mongo";
 
 
 //** system info
@@ -21,7 +21,7 @@ global.LogsUsers = new Mongo.Collection("logsUsers");              // Tracks use
 global.LogsSensors = new Mongo.Collection("logsSensors");          // Tracks any real time sensor inputs
 
 
-//** client accessable data
+//** client accessible data
 global.Starter = new Mongo.Collection('starter');                  // sample starter coll; schema shows all field types
 global.Learn = new Mongo.Collection('learn');                      // extra content pages as part of a simple CMS
 global.Notifications = new Mongo.Collection('notifications');      // user generated activity that drives notifications (ie invites)

@@ -4,7 +4,6 @@
  * @memberof Pages:MyProfile
  * @function myProfile_text
  * @locus Client
- * @augments myProfile
  *
  * @returns {Object}
  */

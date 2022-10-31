@@ -4,7 +4,6 @@
  * @memberof Pages:WidgetsContent
  * @function widgetsContent_text
  * @locus Client
- * @augments widgetsContent
  *
  * @returns {Object}
  */
@@ -12,8 +11,8 @@
 //** page header; set to null to not display header or a specific item
 export const header = {
     en: {
-        title:  "Tab Widgets",
-        lead:   "A variety of tabbed content widgets",
+        title:  "Content Widgets",
+        lead:   "A variety of tabbed and accordion content widgets",
         body:   "",
     }
 };

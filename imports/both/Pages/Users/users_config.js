@@ -4,19 +4,16 @@
  * @memberof Pages:Users
  * @function users_config
  * @locus Client
- * @augments users
  *
  * @returns {Object}
  */
 
-import {components} from '/imports/both/systemGlobals'
 
 export const pageConfig =  {
 
     form: {
         coll:       "users",            // target collection to send submit to
         showHdr:    true,               // show card header and title if true
-        bgTitle:    components.BG_CARD_INFO, // colour header text and background
 
         hasGroups:  false,               // allows fields to be grouped onto the same row
         hasTabs:    false,               // has tabbed fields in form
@@ -29,7 +26,6 @@ export const pageConfig =  {
     list: {
         coll:       "users",            // collection name to list
         showHdr:    true,               // show card header and title if true
-        bgTitle:    components.BG_CARD_TEAL, // sets card title background and text color
 
         hasRows:    true,               // show row length selection box
         hasSearch:  true,               // show search box

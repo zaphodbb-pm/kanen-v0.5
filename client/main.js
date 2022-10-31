@@ -2,23 +2,24 @@
  * Main entry point for client code.
  * All common routines are imported here.
  *
- * @memberof Structure:Client
- * @function main
+ * @namespace ClientMain
+ * @module
  * @locus Client
  *
  * @notes
- *      1. Meteor_extensions.js and themeFiles.scss are eagerly loaded at startup.
+ *      1. Add language modifier to <html>.
+ *      2. If available, add service worker to enable PWA
+ *      3. Add sever console to client writer
+ *      4. Launch Svelte starting point
  *
  */
 
 
 //* load Meteor specific files
-import '/imports/both/collections'
-import '/imports/both/AddOn_Packages/showServerConsole'
-
+import '../imports/both/collections';
 
 //* prepare to add PWA through service worker
-import { Meteor } from 'meteor/meteor'
+import { Meteor } from 'meteor/meteor';
 
 Meteor.startup(() => {
 
@@ -45,13 +46,14 @@ Meteor.startup(() => {
 
 
 //* for dev / debug work: show server logs in client browser
-import '/imports/both/AddOn_Packages/showServerConsole'
+import '../imports/both/AddOn_Packages/showServerConsole';
 serverConsole.subscribe();
 
 
 //* load svelte framework
-import App from '/imports/both/PageStructure/App.svelte'
+import App from '../imports/both/PageStructure/App.svelte';
+
 
 new App({
-    target: document.getElementnnnById("svelte-app-top"),
+    target: document.getElementById("svelte-app-top"),
 });

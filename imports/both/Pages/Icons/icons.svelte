@@ -16,52 +16,71 @@
         export let params;
 
         //** page specific text and configuration
-        import {header, page} from './icons_text'
+        import {header, page} from './icons_text';
+        import {pageConfig} from './icons_config';
 
         //** app support files
-        import PageWrapper from '/imports/both/PageStructure/PageWrapper.svelte'
+        import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
 
 
     //* page body support **************************
-    import {i18n} from '/imports/functions/utilities/i18n'
-    import {lang} from '/imports/client/systemStores'
+    import {i18n} from '/imports/functions/utilities/i18n';
+    import {lang} from '/imports/client/systemStores';
 
-    import {mainIcons} from '/imports/client/setup/systemIcons'
-    import Icon from '/imports/components/elements/icon/icon.svelte'
+    const pageHeader = i18n(header, "", $lang);
 
     //** get list of Icons and sort list ascending
-    let allIcons = Object.entries(mainIcons);
+    let allIcons = pageConfig.components.iconsList;
     allIcons = allIcons.sort( (a,b) => a[0] > b[0] ? 1 : (a[0] < b[0] ? -1 : 0) );
+    const sample = 4;           // pick an icon for sizes and colour
 
 </script>
 
 
 
-<PageWrapper {header} >
 
-    <div class="content is-family-secondary">{i18n(page.page, "count", $lang) + allIcons.length}</div>
+<PageHeader header="{pageHeader}" />
 
-    <div class="columns is-mobile is-multiline">
+<main class="main-content">
+    <h2>{i18n(page.page, "example", $lang)}</h2>
+
+    <p><span class="{allIcons[sample]} is-small"></span>
+        <code>&lt;span class="{allIcons[sample]} is-small"&gt;&lt;/span&gt;</code>
+    </p>
+
+    <p><span class="{allIcons[sample]} has-text-tertiary"></span>
+        <code>&lt;span class="{allIcons[sample]} has-text-tertiary"&gt;&lt;/span&gt;</code>
+    </p>
+
+    <p><span class="{allIcons[sample]} is-medium has-text-secondary"></span>
+        <code>&lt;span class="{allIcons[sample]} is-medium has-text-secondary"&gt;&lt;/span&gt;</code>
+    </p>
+
+    <p><span class="{allIcons[sample]} is-large has-text-primary"></span>
+        <code>&lt;span class="{allIcons[sample]} is-large has-text-primary"&gt;&lt;/span&gt;</code>
+    </p>
+
+
+
+    <div class="space-component-medium"></div>
+
+
+
+    <h2>{i18n(page.page, "count", $lang) + allIcons.length}</h2>
+
+    <div class="row has-3x-minwidth">
         {#each allIcons as icon}
 
-            <div class="column is-half-mobile is-one-quarter-tablet is-narrow-desktop">
-                <div class="buffer">
-                    <div><b>{icon[0]}</b></div>
-
-                    <div class="d-flex align-items-center" data-testid="icon-block">
-                        <Icon icon={icon[1]} class="ml-2 is-size-6" />
-                        <Icon icon={icon[1]} class="ml-2 text-1dot2rem has-text-info" />
-                        <Icon icon={icon[1]} class="ml-2 is-size-4 has-text-link" />
-                        <Icon icon={icon[1]} class="ml-2 is-size-2 has-text-primary" />
-                    </div>
-
-                    <div>{icon[1].iconName + ".json"}</div>
+            <div class="column">
+                <div class="icon-nav">
+                    <span class="{icon} is-large"></span>
+                    <p>{"." + icon}</p>
                 </div>
             </div>
 
         {/each}
     </div>
 
-</PageWrapper>
+</main>

@@ -4,7 +4,6 @@
  * @memberof Pages:LogsUsers
  * @function logsUsers_text
  * @locus Client
- * @augments logsUsers
  *
  * @returns {Object}
  */

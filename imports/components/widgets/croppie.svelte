@@ -2,7 +2,7 @@
     /**
      * Croppie image controller.
      *
-     * @memberof Components:Widgets
+     * @memberof Components:Infoboxes
      * @function croppie
      * @locus Client
      *

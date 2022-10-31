@@ -4,7 +4,6 @@
  * @memberof Pages:Users
  * @function users_list
  * @locus Client
- * @augments users
  *
  * @returns {Object} - default = {sort: object, fields: array}
  *

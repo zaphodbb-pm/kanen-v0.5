@@ -18,7 +18,7 @@ export const nav = {en: "Learn"};
 
 export const link = "/learn";
 
-export const icon = "iconLearn";
+export const icon = "icon-bg-bookmark";
 
 // roles that can see this link in Navbar and be routed to
 // roles are also used by database write / read checking

@@ -21,20 +21,22 @@
 
         //** app support files
         import { onMount } from 'svelte';
-        import PageWrapper from '/imports/both/PageStructure/PageWrapper.svelte'
+        import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
 
 
     //* page-body support **************************
-    import Form_Holder from '/imports/components/formBuilder/formHolder.svelte'
-    import schema from './buildContent_form_schema'
-    import List_Holder from '/imports/components/listCollections/listHolder.svelte'
-    import listArray from './buildContent_list'
+    import schema from './buildContent_form_schema';
+    import listArray from './buildContent_list';
 
-    import {i18n} from '/imports/functions/utilities/i18n'
-    import {lang} from '/imports/client/systemStores'
+    //import Form_Holder from '/imports/components/formBuilder/formHolder.svelte'
+    //import List_Holder from '/imports/components/listCollections/listHolder.svelte'
 
+    import {i18n} from '/imports/functions/utilities/i18n';
+    import {lang} from '/imports/client/systemStores';
+
+    const pageHeader = i18n(header, "", $lang);
     let formText = i18n(page, "form", $lang);
     let listText = i18n(page, "list", $lang);
 
@@ -88,12 +90,15 @@
 
 
 
+<PageHeader header="{pageHeader}" />
 
-<PageWrapper {header} >
+<main class="main-content">
 
     <div class="columns">
 
         <article class="column is-5" class:is-hidden={!showList}>
+
+            <!--
             <List_Holder
                     config="{conf.list}"
                     {listText}
@@ -101,11 +106,14 @@
                     {sort}
                     submitted="{releaseEdit}"
                     on:send-doc="{docToEdit}"/>
+                    -->
 
         </article>
 
 
         <article class="column is-7" class:is-hidden={!showForm}>
+
+            <!--
             <Form_Holder
                     config="{conf.form}"
                     {formText}
@@ -115,9 +123,15 @@
                     {directdoc}
                     on:back-to-list="{checkOverlay}"
                     on:doc-submitted="{docSent}"/>
+                    -->
 
         </article>
 
     </div>
 
-</PageWrapper>
+</main>
+
+
+
+
+

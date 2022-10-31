@@ -16,12 +16,12 @@
     export let params;
 
     //** page specific text and configuration
-    import {header, page} from './changePassword_text'
-    import {pageConfig} from './changePassword_config'
+    import {header, page} from './changePassword_text';
+    import {pageConfig} from './changePassword_config';
 
     //** app support files
     import { setContext } from 'svelte';
-    import PageWrapper from '/imports/both/PageStructure/PageWrapper.svelte'
+    import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
 
@@ -31,10 +31,11 @@
     import {lang, userExtras} from '/imports/client/systemStores'
     import {roles} from './changePassword_nav'
 
-    import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte'
+    //import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte'
 
 
     //* local reactive variables
+    const pageHeader = i18n(header, "", $lang);
     let formFields = pageConfig.form;
     let text = i18n(page, "page", $lang);
     let errMsg = i18n(page, "errMsg", $lang);
@@ -90,8 +91,9 @@
 </script>
 
 
+<PageHeader header="{pageHeader}" />
 
-<PageWrapper {header} >
+<main class="main-content">
 
     <div class="columns is-centered">
         <div id="changePasswordForm-display" class="column is-half">
@@ -103,9 +105,12 @@
                 </header>
 
                 <form class="card-content">
+
+                    <!--
                     {#each formFields as field}
                         <Field_Wrapper class="my-4" {field} {watchFields} on:field-changed="{fieldChanged}"/>
                     {/each}
+                    -->
 
                     <a class="button is-primary my-5" on:click="{changePassword}">
                         {text.btnSend}
@@ -125,4 +130,4 @@
         </div>
     </div>
 
-</PageWrapper>
+</main>

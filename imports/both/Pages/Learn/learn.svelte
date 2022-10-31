@@ -21,7 +21,7 @@
 
         //** app support files
         import { setContext, onMount } from 'svelte';
-        import PageWrapper from '/imports/both/PageStructure/PageWrapper.svelte'
+        import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
 
@@ -38,13 +38,14 @@
     import Wiki_Toc from './wiki_toc.svelte'
     import Wiki_Content from './wiki_content.svelte'
     import Search_Box from '/imports/components/listCollections/searchbox.svelte'
-    import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte'
+    //import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte'
     import Modal_User from '/imports/components/blocks/modalUser.svelte'
 
     let formText = i18n(page, "form", $lang);
     setContext("formText", formText);
     setContext("pageText", page);
 
+    const pageHeader = i18n(header, "", $lang);
     let toc = i18n(page, "components", $lang).toc;
     let msgText = i18n(page, "components", $lang).messages;
 
@@ -198,15 +199,19 @@
 
 
 
-<PageWrapper {header} >
+<PageHeader header="{pageHeader}" />
 
-    <div class="columns">
-        <div class="column is-one-fifth-fullhd is-one-quarter-desktop is-one-third-tablet">
+<main class="main-content">
+    <div class="row">
+        <div class="column">
+
+            <!--
             <Field_Wrapper
                     class=""
                     field="{pageConfig.components.getLang}"
                     watchFields="{ {} }"
                     on:field-changed="{fieldChanged}"/>
+                    -->
 
         </div>
 
@@ -214,16 +219,18 @@
             <Search_Box fields="{info.fields}" on:search-changed="{newSearch}" />
         </div>
 
-        <div class="column is-one-quarter">
+        <div class="column">
+            <!--
             <Field_Wrapper
                     class=""
                     field="{pageConfig.components.readMode}"
                     watchFields="{ {} }"
                     on:field-changed="{readMode}"/>
+                    -->
         </div>
     </div>
 
-    <div class="columns mt-3">
+    <div class="columns">
         <div class="column is-one-fifth-fullhd is-one-quarter-desktop is-one-third-tablet">
 
             <Wiki_Toc
@@ -248,6 +255,7 @@
 
     </div>
 
+    <!--
     <Modal_User
             text="modal"
             {showModal}
@@ -255,5 +263,6 @@
             on:modal-addEvent={addEvent}
             on:modal-removeEvent={removeEvent}
             on:modalState={checkStateUser}/>
+            -->
 
-</PageWrapper>
+</main>

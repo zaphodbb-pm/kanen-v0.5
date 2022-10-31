@@ -4,7 +4,6 @@
  * @memberof Pages:Starter
  * @function starter_list
  * @locus Client
- * @augments starter_page
  *
  * @returns {Object} - default = {sort: object, fields: array}
  *

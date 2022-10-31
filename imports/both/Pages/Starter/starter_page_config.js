@@ -4,12 +4,11 @@
  * @memberof Pages:Starter
  * @function starter_page_config
  * @locus Client
- * @augments starter_page
  *
  * @returns {Object}
  */
 
-import {components} from '/imports/both/systemGlobals'
+
 import grid from './starter_grid.svelte'
 
 export const pageConfig =  {
@@ -31,7 +30,7 @@ export const pageConfig =  {
     form: {
         coll:       "starter",          // target collection to send submit to
         showHdr:    true,               // show card header and title if true
-        bgTitle:    components.BG_CARD_INFO, // colour header text and background
+        bgTitle:    "",                 // colour header text and background
 
         hasGroups:  true,               // allows fields to be grouped onto the same row
         hasTabs:    true,               // has tabbed fields in form
@@ -44,7 +43,7 @@ export const pageConfig =  {
     list: {
         coll:       "starter",          // collection name to list
         showHdr:    true,               // show card header and title if true
-        bgTitle:    components.BG_CARD_TEAL, // sets card title background and text color
+        bgTitle:    "",                 // sets card title background and text color
 
         hasRows:    true,               // show row length selection box
         hasSearch:  true,               // show search box

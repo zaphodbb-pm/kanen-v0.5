@@ -3,7 +3,7 @@
     /**
      * Info box with optional progress bar.
      *
-     * @memberof Components:Widgets
+     * @memberof Components:Infoboxes
      * @function infobox
      * @locus Client
      *

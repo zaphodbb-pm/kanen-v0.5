@@ -33,12 +33,12 @@
 
 
     //* page-body support **************************
-    import {lang} from '/imports/client/systemStores'
-    import {i18n} from '/imports/functions/utilities/i18n'
+    import {lang} from '/imports/client/systemStores';
+    import {i18n} from '/imports/functions/utilities/i18n';
 
     //* page-body functions *************************
     import {injectText} from "./functions/injectText";
-
+    const pageHeader = i18n(header, "", $lang);
 
     //* page controls / logic ***********************
     let message = "";
@@ -62,11 +62,12 @@
 
 
 
-<PageHeader header="{header}" />
+<PageHeader header="{pageHeader}" />
 
 
-<div class="main-content">
+<main class="main-content">
 
+    <!-- actual page content or components -->
     <h2>{text.examples}</h2>
 
     <div class="row">
@@ -91,8 +92,8 @@
 
     <p>{@html text.preamble}</p>
 
-    <div class="table-scroll space-vert-medium">
-        <table class="table is-striped">
+    <div class="table-scroll">
+        <table class="table is-striped scrollbreak-col-4">
             <thead>
             <tr>
                 {#each text.thead as label}
@@ -119,7 +120,7 @@
             <tr>
                 <td>{text._loader.name}</td>
                 <td>{text._loader.locus}</td>
-                <td>function: extends SvelteComponentDev</td>
+                <td>function: extends SvelteComponent</td>
                 <td>{text._loader.desc}</td>
             </tr>
 
@@ -163,7 +164,6 @@
     </div>
 
 
-
     <hr class="space-vert-large" />
 
     <h2>{text.props}</h2>
@@ -186,4 +186,4 @@
             <pre><code>{JSON.stringify(pageConfig, null, 4)}</code></pre>
         </article>
     </div>
-</div>
+</main>

@@ -4,7 +4,6 @@
  * @memberof Pages:Starter
  * @function starter_form_text_rows
  * @locus Client
- * @augments starter_form
  *
  * @returns {Object} formText
  *

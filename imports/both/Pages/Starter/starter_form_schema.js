@@ -4,7 +4,6 @@
  * @memberof Pages:Starter
  * @function starter_form_schema
  * @locus Anywhere
- * @augments starter_page
  *
  * @returns {Array} - array of field configuration objects
  *

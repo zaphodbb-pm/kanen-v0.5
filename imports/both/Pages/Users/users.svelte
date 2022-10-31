@@ -16,23 +16,41 @@
         export let params;
 
         //** page specific text and configuration
-        import {header, page} from './users_text'
-        import {pageConfig} from './users_config'
+        import {header, page} from './users_text';
+        import {pageConfig} from './users_config';
 
         //** app support files
-        import PageWrapper from '/imports/both/PageStructure/PageWrapper.svelte'
+        import { setContext } from 'svelte';
+        import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
 
 
+    //* page body support **************************
+    import {i18n} from "../../../functions/utilities/i18n.js";
+    import {lang} from "../../../client/systemStores.mjs";
+
+    let pageText = i18n(page, "page", $lang);
+
+    const pageHeader = i18n(header, "", $lang);
+
+    setContext("pageText", page);
+    //import TabContent from "../../../components/widgets/tabbedContent.svelte";
+
+
+
+
+
     //* page-body support **************************
-    import {i18n} from '/imports/functions/utilities/i18n'
-    import {lang} from '/imports/client/systemStores'
+
+
     import {deepClone} from '/imports/functions/utilities/deepClone'
 
-    import schema from './users_form_schema'
-    import listArray from './users_list'
-    import List_Form from '/imports/components/listForm/listForm.svelte'
+
+    //import schema from './users_form_schema'
+    //import listArray from './users_list'
+    //import List_Form from '/imports/components/listForm/listForm.svelte'
+
 
     let formText = i18n(page, "form", $lang);
     let listText = i18n(page, "list", $lang);
@@ -42,9 +60,14 @@
 
 
 
+<PageHeader header="{pageHeader}" />
 
-<PageWrapper {header} >
+<div class="main-content" id="page-layout">
 
+
+    Users
+
+    <!--
     <List_Form
             confList="{conf.list}"
             listArray="{listArray}"
@@ -53,5 +76,6 @@
             schema="{schema}"
             formText="{formText}"
     />
+    -->
 
-</PageWrapper>
+</div>

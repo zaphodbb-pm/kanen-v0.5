@@ -17,7 +17,7 @@ export const nav = {en: "Icons"};
 
 export const link = "/icons";
 
-export const icon = "iconIcons";
+export const icon = "icon-bg-icons";
 
 // roles that can see this link in Navbar and be routed to
 // roles are also used by database write / read checking

@@ -2,7 +2,7 @@
     /**
      * Expander box with slot for html content.
      *
-     * @memberof Components:Widgets
+     * @memberof Components:Infoboxes
      * @function expanderSlot
      * @locus Client
      *

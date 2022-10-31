@@ -4,7 +4,6 @@
  * @memberof Pages:SysConfig
  * @function sysConfig_form_schema
  * @locus Anywhere
- * @augments sysConfig_page
  *
  * @returns {Array} - array of field configuration objects
  *

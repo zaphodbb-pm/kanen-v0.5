@@ -4,19 +4,17 @@
  * @memberof Pages:LogsSystem
  * @function logsSystem_config
  * @locus Client
- * @augments logsSystem
  *
  * @returns {Object}
  */
 
-import {components} from '/imports/both/systemGlobals'
 
 export const pageConfig =  {
 
     list: {
         coll:       "logsSystem",      // collection name to list
         showHdr:    true,               // show card header and title if true
-        bgTitle:    components.BG_CARD_TEAL, // sets card title background and text color
+        bgTitle:    "", // sets card title background and text color
 
         hasRows:    true,              // show row length selection box
         hasSearch:  true,              // show search box

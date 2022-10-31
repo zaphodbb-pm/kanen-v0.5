@@ -4,14 +4,19 @@
  * @memberof Pages:Cards
  * @function cards_text
  * @locus Client
- * @augments cards
  *
  * @returns {Object}
  */
 
 
 //** page header; set to null to not display header or a specific item
-export const header = null;
+export const header = {
+    en: {
+        title:  "Card Page",
+        subtitle:   "Card layout examples.",
+        body:   "",
+    }
+};
 
 
 /*

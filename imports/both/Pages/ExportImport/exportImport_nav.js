@@ -18,7 +18,7 @@ export const nav = {en: "Export Import"};
 
 export const link = "/exportImport";
 
-export const icon = "iconExportImport";
+export const icon = "icon-bg-cloud-download";
 
 // roles that can see this link in Navbar and be routed to
 // roles are also used by database write / read checking

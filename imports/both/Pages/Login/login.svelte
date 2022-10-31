@@ -21,7 +21,7 @@
 
         //** app support files
         import { setContext  } from 'svelte';
-        import PageWrapper from '/imports/both/PageStructure/PageWrapper.svelte'
+        import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
 
@@ -32,11 +32,11 @@
     import {lang} from '/imports/client/systemStores'
 
     import {lastRoute} from '/imports/client/systemStores'
-    import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte'
+    //import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte'
     import Auth_Service from './authService.svelte'
-    import { navigateTo } from 'svelte-router-spa/src/spa_router'
 
     //* local static variables
+    const pageHeader = i18n(header, "", $lang);
     let services = pageConfig.services;
     let formFields = pageConfig.form;
     let formText = i18n(page, "form", $lang);
@@ -81,15 +81,15 @@
         } else {
             let penultimate = $lastRoute.length > 2 ? $lastRoute.slice(-2, -1)[0] : null;
             let target = penultimate && penultimate.name ? penultimate.name : "/myProfile";
-            navigateTo(target);
+            //navigateTo(target);
         }
     }
 
 </script>
 
+<PageHeader header="{pageHeader}" />
 
-
-<PageWrapper {header} >
+<main class="main-content">
 
     <div class="columns is-centered">
         <div id="loginForm-display" class="column is-half">
@@ -101,9 +101,12 @@
                 </header>
 
                 <form class="card-content">
+
+                    <!--
                     {#each formFields as field}
                         <Field_Wrapper class="my-4" {field} {watchFields} on:field-changed="{fieldChanged}"/>
                     {/each}
+                    -->
 
                     <a class="button is-primary mt-4" on:click="{authPassword}">
                         {text.btnSend}
@@ -134,4 +137,4 @@
         </div>
     </div>
 
-</PageWrapper>
+</main>

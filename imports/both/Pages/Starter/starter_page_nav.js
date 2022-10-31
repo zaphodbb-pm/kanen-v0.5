@@ -17,7 +17,7 @@ export const nav = {en: "Starter ListForm"};
 
 export const link = "/listForm";
 
-export const icon = "iconListForm";
+export const icon = "icon-bg-list";
 
 // roles that can see this link in Navbar and be routed to
 // roles are also used by database write / read checking

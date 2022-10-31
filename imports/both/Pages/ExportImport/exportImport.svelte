@@ -16,26 +16,27 @@
         export let params;
 
         //** page specific text and configuration
-        import {header, page} from './exportImport_text'
-        import {pageConfig} from './exportImport_config'
+        import {header, page} from './exportImport_text';
+        import {pageConfig} from './exportImport_config';
 
         //** app support files
         import { setContext } from 'svelte';
-        import PageWrapper from '/imports/both/PageStructure/PageWrapper.svelte'
+        import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
 
 
     //* page-body support **************************
-    import {i18n} from '/imports/functions/utilities/i18n'
-    import {lang} from '/imports/client/systemStores'
+    import {i18n} from '/imports/functions/utilities/i18n';
+    import {lang} from '/imports/client/systemStores';
 
-    import {methodReturn} from '/imports/functions/utilities/methodReturn'
-    import {parseJSONString} from '/imports/functions/formatters/parseJSONString'
-    import {fileName} from '/imports/functions/fileHandlers/fileName'
-    import {fileSaver} from '/imports/functions/fileHandlers/fileSaver'
-    import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte'
+    import {methodReturn} from '/imports/functions/utilities/methodReturn';
+    import {parseJSONString} from '/imports/functions/formatters/parseJSONString';
+    import {fileName} from '/imports/functions/fileHandlers/fileName';
+    import {fileSaver} from '/imports/functions/fileHandlers/fileSaver';
+    //import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte';
 
+    const pageHeader = i18n(header, "", $lang);
     let text = i18n(page, "components", $lang).card;
     let formText = i18n(page, "form", $lang);
     setContext("formText", formText);
@@ -150,8 +151,13 @@
 
 
 
-<PageWrapper {header} >
+<PageHeader header="{pageHeader}" />
 
+<main class="main-content">
+
+
+
+    <!--
     <div class="columns">
         <div class="column is-6-tablet">
 
@@ -226,5 +232,6 @@
 
         </div>
     </div>
+    -->
 
-</PageWrapper>
+</main>

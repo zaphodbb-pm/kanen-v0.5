@@ -3,7 +3,7 @@
     /**
      * Progress bar block vertical or horizontal.
      *
-     * @memberof Components:Widgets
+     * @memberof Components:Infoboxes
      * @function progressBars
      * @locus Client
      *

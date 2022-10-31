@@ -4,9 +4,10 @@
  * @memberof Pages:Users
  * @function users_text
  * @locus Client
- * @augments users
  *
- * @returns {Object}
+ * @exports {Object} - header
+ * @exports {Object} - page
+ * @exports {Object} - list
  */
 
 //** page header; set to null to not display header or a specific item

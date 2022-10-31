@@ -1,12 +1,14 @@
 /**
  * Builds navigation links object from routes info.
  *
- * @memberof Functions
+ * @memberOf Functions:
  * @function buildNavLinks
  * @locus Anywhere
  *
  * @param {Object} user - user extras object
- * @param {Object} routes - constructed router object
+ * @param {Object[]} routes - constructed router object array
+ *
+ * @see routes
  *
  * @return {Object} - reduced set of routes to links checked against user permissions
  *
@@ -34,5 +36,7 @@ export function buildNavLinks(user, routes) {
         }
     });
 
-    return out;
+    //return out;
+
+    return routes;
 }

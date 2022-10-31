@@ -13,7 +13,6 @@
 
     //** support functions
     import {userLoggedIn} from '/imports/client/systemStores'
-    import { navigateTo } from 'svelte-router-spa/src/spa_router'
     import {createEventDispatcher, getContext } from 'svelte';
     const dispatch = createEventDispatcher();
 
@@ -38,38 +37,43 @@
     //* functions that mutate variables
     function logout() {
         Meteor.logout(function () {
-            navigateTo("/login");
+            //navigateTo("/login");
         });
     }
 
 </script>
 
-    {#if user && user.profile}
-        <div class="user-profile dropdown is-right is-hoverable">
-            <a class="is-primary" aria-haspopup="true" aria-controls="navbar-dropdown-profile" title="{text.title}">
-                {#if user && user.profile && user.profile.image && user.profile.image.src}
-                    <figure class="avatar avatar-nm">
-                        <img src="/logo.svg" alt="Avatar">
-                    </figure>
-                {:else}
-                    <svg class="icon is-large"><use href="#icon-user"></use></svg>
-                {/if}
-            </a>
+    {#if user && user.profile }
+        <div class="dropdown is-right">
+
+            <div class="dropdown-trigger" tabindex="0">
+                <div class="dropdown-trigger" tabindex="0">
+                    <div class="button is-primary no-chevron" aria-haspopup="true" aria-controls="navbar-dropdown-menu2">
+                        {#if user?.profile?.image?.src}
+                            <figure class="avatar avatar-nm">
+                                <img src="{user?.profile?.image?.src}" alt="Avatar">
+                            </figure>
+                        {:else}
+                            <span class="icon-bg-user"></span>
+                        {/if}
+                    </div>
+                </div>
+            </div>
 
             <div class="dropdown-menu" id="navbar-dropdown-profile">
-                <nav>
-                    <a href="/template">{userName} {text.toProfile}</a>
-
-                    <hr/>
-
-                    <a href="/template">{text.changePassword}</a>
-                    <a on:click="{logout}">{text.logOut}</a>
+                <nav aria-label="Dropdown Menu">
+                    <ul>
+                        <li><a href="/template">{userName} {text.toProfile}</a></li>
+                        <li><a href="/template">{text.changePassword}</a></li>
+                        <li><hr></li>
+                        <li><a on:click="{logout}">{text.logOut}</a></li>
+                    </ul>
                 </nav>
             </div>
         </div>
     {:else}
         <a href="/template" class="icon-nav" title="Login">
-            <svg class="icon"><use href="#icon-login"></use></svg>
+            <span class="icon-bg-login"></span>
             <span>{text.signIn}</span>
         </a>
     {/if}

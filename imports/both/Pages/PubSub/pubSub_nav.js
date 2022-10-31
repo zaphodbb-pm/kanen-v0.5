@@ -17,7 +17,7 @@ export const nav = {en: "Pub Sub"};
 
 export const link = "/pubSub";
 
-export const icon = "iconPubSub";
+export const icon = "icon-bg-refresh";
 
 // roles that can see this link in Navbar and be routed to
 // roles are also used by database write / read checking

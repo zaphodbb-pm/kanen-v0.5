@@ -4,7 +4,6 @@
  * @memberof Pages:SysConfig
  * @function sysConfig_list
  * @locus Client
- * @augments sysConfig_page
  *
  * @returns {Object} - default = {sort: object, fields: array}
  *

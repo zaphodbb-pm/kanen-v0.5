@@ -27,26 +27,24 @@ export const page = {
         en: {
             overview: "Overview",
 
-            intro: "<p><b>Kanen</b> is built on the most current technologies as of 2020 using the latest releases of Meteor, MongoDb, Svelte and " +
+            intro: "<p><b>Kanen</b> is built on the most current technologies and using the latest releases of Meteor, MongoDb, Svelte and " +
                 "<a href='https://zaphodbb-pm.github.io/goldilocks-css/pages/home.html' target='_blank'>Goldilocks-CSS</a>.  " +
                 "It is also an opinionated view of the work that needs to get done.  </p>" +
-                "<p>This package is clearly not for everyone nor does it try to accommodate the latest new ideas.  " +
+                "<p>This package is clearly not for everyone nor does it try to accommodate the latest new shiny ideas.  " +
                 "This package is meant for business people / product managers that need to get outcomes quickly with applications " +
-                "that can scale during the initial growth phase of a company.</p>",
+                "that can scale during the initial growth phase of a company.</p>" +
+                "<p><b>Kanen</b> comes from the Mohawk language and means 'seed'.  " +
+                "The Mohawk people are indigenous to the St. Lawrence River Valley from Quebec City to upstate New York.  " +
+                "The seed ceremony is very important in the Mohawk culture as it represents a renewal in spring " +
+                "and prepares for growing food and nourishing the community.  </p>" +
+                "<p>We believe that <b>Kanen</b> reflects what we are trying to accomplish with this package.</p>",
 
-            quote: "“It can scarcely be denied that the supreme goal of all theory is to make the irreducible basic elements as simple " +
-                "and as few as possible without having to surrender the adequate representation of a single datum of experience. <br/> <br />" +
-                "<em>actual quote by Albert Einstein often rewritten as:</em> <br /> <br />" +
-                "“Everything should be as simple as it can be, but not simpler” ",
+            details: "Project Details",
 
-            defTitle: "What's in a name?",
+            quote: "Life is really simple, but we insist on making it complicated. <br>" +
+                    "Study the past if you would define the future. ",
 
-            definition:
-                    "<p><b>Kanen</b> comes from the Mohawk language and means 'seed'.  " +
-                    "The Mohawk people are indigenous to the St. Lawrence River Valley from Quebec to upstate New York.  " +
-                    "The seed ceremony is very important in the Mohawk culture as it represents a renewal in spring " +
-                    "and prepares for growing food and nourishing the community.  </p>" +
-                    "<p>We believe that <b>Kanen</b> reflects what we are trying to accomplish with this package.</p>",
+            cite: "Confucius, <cite><a href='https://www.thoughtco.com/best-confucius-quotes-2833291'>Thoughtco.com</a></cite>",
 
             philosophy: {
                 title: "Philosophy",
@@ -67,6 +65,7 @@ export const page = {
                     "Minimal Meteor add-on packages to reduce bundle size.",
                     "Uses Meteor methods for database read / store for greater speed.",
                     "Leverages MongoDb Change Streams for real time tracking.",
+                    "Set up to be a Progressive Web App",
                     "",
                     "Each page is self contained. Can be removed or added by editing route table.",
                     "Leverages Svelte-loadable to minimize initial app load.",
@@ -89,14 +88,16 @@ export const page = {
                 title: "Main Packages",
 
                 body: [
-                    "Meteor 2.7.2",
-                    "MongoDB 5.0.6",
-                    "Goldilocks 0.2.0 imported as separate files to allow for customization",
-                    "Svelte 3.48",
-                    "Svelte-router-spa",
+                    "Meteor 2.8.0",
+                    "MongoDB 5.0.5",
+                    "<a href='https://zaphodbb-pm.github.io/goldilocks-css/pages/home.html' target='_blank'>Goldilocks-CSS 0.2.0</a>",
+                    "Svelte 3.52",
                     "Svelte-loadable to reduce initial bundle size.",
-                    "Uses selected Feathers svg icons to minimize bundle size",
-                    "Supports Lineawesome / Fontawesome 5 formatted svg files."
+                    "svelte-pathfinder 3.4.0 router",
+                    "Uses selected Feathers svg icons in CSS background to minimize bundle size",
+                    "Supports Lineawesome formatted svg files in CSS background.",
+                    "Compressed Javascript size is 126 KB on initial load otherwise a couple of KB for each initial dynamic page load.",
+                    "Compressed CSS (with icons) is 26 KB."
                 ]
             },
 
@@ -109,7 +110,7 @@ export const page = {
         tabbed: {
             en: [
                 {
-                    icon: "iconGeneral",
+                    icon: "icon-bg-tag",
                     label: "General",
                     dbContent: null,  //dbContent: { coll: "", name: ""}
                     lead: "Pages that are generally accessible by unlogged in users.",
@@ -128,16 +129,16 @@ export const page = {
                 },
 
                 {
-                    icon: "iconComponents",
+                    icon: "icon-bg-grid",
                     label: "Components",
                     dbContent: null,
                     lead: "Special purpose pages that typically are only available to valid and logged in users.",
                     text: [
                         "<a href='/cards'>Cards</a> - basic examples of card component.",
 
-                        "<a href='/content-widgets'>Tab Widgets</a> - example of tabbed and accordion components.",
+                        "<a href='/content-widgets'>Tab Infoboxes</a> - example of tabbed and accordion components.",
 
-                        "<a href='/widgets'>Widgets</a> - a variety of dashboard like display widgets.",
+                        "<a href='/widgets'>Infoboxes</a> - a variety of dashboard like display widgets.",
 
                         "<a href='/listForm'>Starter ListForm</a> - list display and form builder example. " +
                         "Form includes all of the various field types and configurations.",
@@ -149,7 +150,7 @@ export const page = {
                 },
 
                 {
-                    icon: "iconUsers",
+                    icon: "icon-bg-user-plus",
                     label: "User",
                     dbContent: null,
                     lead: "User pages for only logged in or logging in users.  " +
@@ -168,7 +169,7 @@ export const page = {
                 },
 
                 {
-                    icon: "iconControlContent",
+                    icon: "icon-bg-edit",
                     label: "Content Control",
                     dbContent: null,
                     lead: "Pages only available to system admin for general maintenance.",
@@ -186,7 +187,7 @@ export const page = {
                 },
 
                 {
-                    icon: "iconAdminOnly",
+                    icon: "icon-bg-lock",
                     label: "Admin Only",
                     dbContent: null,
                     lead: "Pages only available to system super admin role.",

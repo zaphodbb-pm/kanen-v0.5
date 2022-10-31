@@ -4,7 +4,6 @@
  * @memberof Pages:Learn
  * @function learn_text
  * @locus Client
- * @augments learn
  *
  * @returns {Object}
  */

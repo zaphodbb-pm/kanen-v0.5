@@ -94,7 +94,7 @@
 
         //*** for dev purposes only
         if(itemsLen === 0){
-            itemsLen = 1;
+            itemsLen = initVal.length;
             items = [...initVal];
         }
 
@@ -108,38 +108,48 @@
 </script>
 
 
+<div class="dropdown is-right">
+    <div class="dropdown-trigger" tabindex="0">
+        <div class="button is-primary no-chevron" aria-haspopup="true" aria-controls="navbar-dropdown-menu2">
+            <figure>
+                <span class="icon-bg-bell"></span>
+                <span class="badge badge-danger no-border" role="status" aria-label="New notifications">
+                    {itemsLen}
+                </span>
+            </figure>
+        </div>
+    </div>
 
-<div class="dropdown is-hoverable is-right">
-    <a class="is-primary" aria-haspopup="true" aria-controls="navbar-dropdown-notifications">
-        <span class="badge is-badge-danger" data-badge="{itemsLen}" title="unread messages">
-            <svg class="icon is-large"><use href="#icon-bell"></use></svg>
-        </span>
-    </a>
+    <div class="dropdown-menu" id="navbar-dropdown-menu2">
+        <nav aria-label="Dropdown Menu">
+            <ul>
 
-    <div class="dropdown-menu" id="navbar-dropdown-notifications">
-        {#each items as item, index (index)}
-            <nav class="card space-vert">
-                <header class="card-header">
-                    <h4 class="card-header-title">
-                        {item.header}
-                    </h4>
-                </header>
+                {#each items as item, index (index)}
+                    <li>
+                        <article class="card space-vert">
+                            <header>
+                                <h4>{item.header}</h4>
+                            </header>
 
-                <div class="card-body">
-                    <div><b>{item.title}</b></div>
-                    <div>{item.date}</div>
-                    <div>{item.location}</div>
+                            <div>
+                                <div><b>{item.title}</b></div>
+                                <div>{item.date}</div>
+                                <div>{item.location}</div>
 
-                    <div class="level-end is-size-7 space-vert has-text-grey">
-                        <svg class="icon"><use href="#icon-clock"></use></svg>
-                        <span>{item.timeAgo}</span>
-                    </div>
+                                <div class="level-start is-size-7 space-vert has-text-grey">
+                                    <span class="icon-bg-clock"></span>
+                                    <span>{item.timeAgo}</span>
+                                </div>
 
-                    <button class="is-primary-outlined is-small has-hover" on:click="{() => readNotify(item)}">
-                        {text.read}
-                    </button>
-                </div>
-            </nav>
-        {/each}
+                                <button class="is-primary-outlined is-small has-hover" on:click="{() => readNotify(item)}">
+                                    {text.read}
+                                </button>
+                            </div>
+                        </article>
+                    </li>
+                {/each}
+
+            </ul>
+        </nav>
     </div>
 </div>

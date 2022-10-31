@@ -21,7 +21,7 @@
 
         //** app support files
         import { setContext } from 'svelte';
-        import PageWrapper from '/imports/both/PageStructure/PageWrapper.svelte'
+        import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
 
@@ -31,10 +31,11 @@
     import {i18n} from '/imports/functions/utilities/i18n'
     import {lang} from '/imports/client/systemStores'
 
-    import DeleteRecords from '/imports/components/elements/getRelativeDates.svelte'
-    import List_Holder from '/imports/components/listCollections/listHolder.svelte'
-    import listArray from './logsSystem_list'
+    //import DeleteRecords from '../../../../imports/components/elements/getRelativeDates.svelte'
+    //import List_Holder from '../../../../imports/components/listCollections/listHolder.svelte'
+    import listArray from './logsSystem_list';
 
+    const pageHeader = i18n(header, "", $lang);
     let listText = i18n(page, "list", $lang);
     let element = i18n(page, "element", $lang);
 
@@ -66,9 +67,13 @@
 
 
 
+<PageHeader header="{pageHeader}" />
 
-<PageWrapper {header} >
+<main class="main-content">
 
+
+
+    <!--
     <DeleteRecords on:new-range={deleteRange}/>
 
     <div class="columns">
@@ -85,4 +90,8 @@
 
     </div>
 
-</PageWrapper>
+    -->
+
+
+
+</main>

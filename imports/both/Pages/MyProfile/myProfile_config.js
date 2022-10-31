@@ -1,12 +1,9 @@
-import {components} from "../../systemGlobals";
-
 /**
  * Configuration for MyProfile components (optional).
  *
  * @memberof Pages:MyProfile
  * @function myProfile_config
  * @locus Client
- * @augments myProfile
  *
  * @returns {Object}
  */
@@ -16,7 +13,7 @@ export const pageConfig =  {
     form: {
         coll:       "myProfile",        // target collection to send submit to
         showHdr:    true,               // show card header and title if true
-        bgTitle:    components.BG_CARD_INFO, // colour header text and background
+        bgTitle:    "", // colour header text and background
 
         hasGroups:  true,               // allows fields to be grouped onto the same row
         hasTabs:    true,               // has tabbed fields in form

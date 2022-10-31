@@ -18,7 +18,6 @@
         import {header, page} from './home_text'
 
         //** app support files
-        import { setContext } from 'svelte';
         import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
@@ -28,25 +27,24 @@
     import {i18n} from "../../../functions/utilities/i18n.js";
     import {lang} from "../../../client/systemStores.mjs";
 
-    let pageText = i18n(page, "page", $lang);
-    //let headerText = i18n(header, "header", $lang);
+    const pageHeader = i18n(header, "", $lang);
+    const pageText = i18n(page, "page", $lang);
+    const tabbed = i18n(page.components, "tabbed", $lang);
 
-    setContext("pageText", page);
     import TabContent from "../../../components/widgets/tabbedContent.svelte"
-
 
 </script>
 
 
-<PageHeader header="{header}" />
+<PageHeader header="{pageHeader}" />
 
-<div class="main-content" id="page-layout">
+<main class="main-content">
 
     <div class="row is-centered-vert has-5x-minwidth">
         <section class="column">
             <h2>{pageText.overview}</h2>
 
-            <div class="sub-title">{@html pageText.intro}</div>
+            <div class="">{@html pageText.intro}</div>
         </section>
 
         <div class="column">
@@ -56,124 +54,61 @@
         </div>
     </div>
 
-    <figure class="blockquote">
+    <figure class="blockquote space-vert-large">
         <blockquote>
             <p>{@html pageText.quote}</p>
         </blockquote>
+        <figcaption>{@html pageText.cite}</figcaption>
     </figure>
+
+    <div class="space-component-large"></div>
+
+    <h2>{pageText.details}</h2>
 
     <div class="row">
         <div class="column">
             <section class="box-shadow">
-                <h2 class="has-text-secondary has-text-centered">{pageText.philosophy.title}</h2>
+                <h3 class="has-text-tertiary has-text-centered">{pageText.philosophy.title}</h3>
 
                 <ul>
                     {#each pageText.philosophy.body as item}
-                        <li class="">
-                            {item}
-                        </li>
+                        <li>{item}</li>
+                    {/each}
+                </ul>
+            </section>
+
+            <div class="space-component"></div>
+
+            <section class="box-shadow">
+                <h3 class="has-text-tertiary has-text-centered">{pageText.packages.title}</h3>
+
+                <ul>
+                    {#each pageText.packages.body as item}
+                        <li>{@html item}</li>
                     {/each}
                 </ul>
             </section>
         </div>
 
         <div class="column">
+            <section class="box-shadow">
+                <h3 class="has-text-tertiary has-text-centered">{pageText.features.title}</h3>
 
+                <ul>
+                    {#each pageText.features.body as item}
+                        {#if item}
+                            <li>{item}</li>
+                        {:else}
+                            <div class="space-component"></div>
+                        {/if}
+                    {/each}
+                </ul>
+            </section>
         </div>
     </div>
-</div>
 
-
-
-
-<!--
-<PageWrapper {header} >
-
-    <section class="buffer-y-large">
-        <div class="columns is-vcentered">
-            <div class="column">
-                <div class="lead content">{@html pageText.intro}</div>
-            </div>
-
-            <div class="column">
-                <figure class="mb-3 has-text-right">
-                    <img src="/home-page.jpg" class="" style="max-width: 200rem;" alt="home-image">
-                </figure>
-            </div>
-        </div>
+    <section class="space-vert-large">
+        <h3 class="has-text-tertiary">{pageText.explore}</h3>
+        <TabContent content="{tabbed}" tabSettings="is-fullwidth" />
     </section>
-
-    <section class="buffer-y-large">
-        <article class="message">
-            <div class="message-body">
-                {@html pageText.quote}
-            </div>
-        </article>
-    </section>
-
-    <section class="buffer-y-large">
-        <div class="columns">
-
-            <div class="column">
-                <div class="box content">
-                    <h1 class="title is-size-4 has-text-centered has-text-info">{pageText.philosophy.title}</h1>
-
-                    <ul>
-                        {#each pageText.philosophy.body as item}
-                            <li class="mb-2">
-                                {item}
-                            </li>
-                        {/each}
-                    </ul>
-                </div>
-
-                <div class="box content">
-                    <h1 class="title is-size-4 has-text-centered has-text-info">{pageText.packages.title}</h1>
-
-                    <ul>
-                        {#each pageText.packages.body as item}
-                            <li class="mb-2">
-                                {item}
-                            </li>
-                        {/each}
-                    </ul>
-                </div>
-            </div>
-
-            <div class="column is-7">
-                <div class="box content">
-                    <h1 class="title is-size-4 has-text-centered has-text-info">{pageText.features.title}</h1>
-
-                    <ul>
-                        {#each pageText.features.body as item}
-                            <li class="mb-2 {item ? '' : 'noDecoration'}" >
-                                {item}
-                            </li>
-                        {/each}
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="buffer-y-large">
-        <div class="title is-size-4 has-text-info">{pageText.explore}</div>
-        <TabContent text="tabbed" tabSettings="is-fullwidth" />
-    </section>
-
-    <section class="buffer-y-large">
-        <div class="title is-size-4 has-text-info">{pageText.defTitle}</div>
-        <div class="content">{@html pageText.definition}</div>
-    </section>
-
-</PageWrapper>
-
-
-
-<style>
-    .noDecoration {
-        list-style-type: none;
-        height: 1rem;
-    }
-</style>
--->
+</main>

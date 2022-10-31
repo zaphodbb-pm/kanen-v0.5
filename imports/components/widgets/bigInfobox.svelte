@@ -3,7 +3,7 @@
     /**
      * Big info box widget.
      *
-     * @memberof Components:Widgets
+     * @memberof Components:Infoboxes
      * @function bigInfobox
      * @locus Client
      *

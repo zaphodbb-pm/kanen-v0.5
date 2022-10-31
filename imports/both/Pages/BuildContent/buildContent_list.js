@@ -4,7 +4,6 @@
  * @memberof Pages:BuildContent
  * @function buildContent_list
  * @locus Client
- * @augments buildContent_page
  *
  * @returns {Object} - default = {sort: object, fields: array}
  *

@@ -8,6 +8,7 @@
  *
  * @exports {Object} nav
  * @exports {String} link
+ * @exports {String} params
  * @exports {String} icon
  * @exports {Object} roles - {read: [], write: []}
  *
@@ -20,7 +21,9 @@ export const nav = {en: "Template"};
 
 export const link = "/template";
 
-export const icon = "icon-layout";
+export let params = "?test=1";
+
+export const icon = "icon-bg-layout";
 
 // roles that can see this link in Navbar and be routed to
 // roles are also used by database write / read checking

@@ -20,22 +20,36 @@
 
         //** app support files
         import { setContext} from 'svelte';
-        import PageWrapper from '/imports/both/PageStructure/PageWrapper.svelte'
+        import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
 
 
 
     //* page body support **************************
+    import {i18n} from "../../../functions/utilities/i18n.js";
+    import {lang} from "../../../client/systemStores.mjs";
+
+    const pageHeader = i18n(header, "", $lang);
+
     setContext("pageText", page);
 
-    import TabContent from '/imports/components/widgets/tabbedContent.svelte'
-    import Accordian from '/imports/components/widgets/accordian.svelte'
+    //import TabContent from '/imports/components/widgets/tabbedContent.svelte'
+    //import Accordian from '/imports/components/widgets/accordian.svelte'
 
 </script>
 
 
 
+<PageHeader header="{pageHeader}" />
+
+<main class="main-content">
+
+    tabs and accordions
+</main>
+
+
+<!--
 <PageWrapper {header} >
 
     <div class="columns">
@@ -49,3 +63,4 @@
     </div>
 
 </PageWrapper>
+-->

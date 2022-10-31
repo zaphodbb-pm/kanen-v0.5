@@ -32,8 +32,8 @@ import schema from './users_form_schema';
 import list from './users_list'
 import {roles} from'./users_nav'
 
-import {fieldAddons} from '/imports/server/fieldAddons'
-import {buildAllFields} from '/imports/functions/supportApplication/buildAllFields'
+import {fieldAddons} from '../../../server/fieldAddons'
+import {buildAllFields} from '../../../functions/supportApplication/buildAllFields'
 
 export default {
     users: {

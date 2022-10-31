@@ -25,13 +25,17 @@
 
         //** app support files
         import {getContext } from 'svelte';
-        import PageWrapper from '/imports/both/PageStructure/PageWrapper.svelte'
+        import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
 
 
     //* page body support **************************
-    import Icon from '/imports/components/elements/icon/icon.svelte'
+    import {i18n} from "../../../functions/utilities/i18n.js";
+    import {lang} from "../../../client/systemStores.mjs";
+
+    const pageHeader = i18n(header, "", $lang);
+
     import Card from '/imports/components/blocks/card.svelte';
 
     let text = page.components;
@@ -46,6 +50,18 @@
 
 
 
+<PageHeader header="{pageHeader}" />
+
+<main class="main-content">
+
+    card layouts from component
+
+</main>
+
+
+
+
+<!--
 <PageWrapper {header} >
 
     <div class="columns">
@@ -69,3 +85,4 @@
     </div>
 
 </PageWrapper>
+-->

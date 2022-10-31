@@ -19,7 +19,7 @@ export const nav = {en: "My Profile"};
 
 export const link = "/my-profile";
 
-export const icon = "iconMyProfile";
+export const icon = "icon-bg-user-plus";
 
 // roles that can see this link in Navbar and be routed to
 // roles are also used by database write / read checking

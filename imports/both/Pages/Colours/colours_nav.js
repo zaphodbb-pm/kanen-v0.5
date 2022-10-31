@@ -19,7 +19,7 @@ export const nav = {en: "Colours"};
 
 export const link = "/colours";
 
-export const icon = "iconColours";
+export const icon = "icon-bg-palette";
 
 // roles that can see this link in Navbar and be routed to
 // roles are also used by database write / read checking

@@ -4,7 +4,6 @@
  * @memberof Pages:Documentation
  * @function documentation_text
  * @locus Client
- * @augments documentation
  *
  * @returns {Object}
  */

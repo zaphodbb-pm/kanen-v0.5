@@ -24,7 +24,6 @@
     //* support files
     import { createEventDispatcher, getContext, setContext } from 'svelte';
     const dispatch = createEventDispatcher();
-    import Icon from '/imports/components/elements/icon/icon.svelte'
     import {getDocs} from '/imports/functions/supportApplication/getDocs'
     import {timeAgo} from '/imports/functions/formatters/timeAgo'
     import {numString} from '/imports/functions/formatters/numString'
@@ -161,18 +160,19 @@
 
                     <div class="mt-2 text-0dot9rem has-text-grey level">
                         <div class="level-left">
-                            <Icon icon={getContext("iconReadTime")} />
+                            <span class="{getContext('iconReadTime')}"></span>
+
                             <div class="ml-2">{doc.time} min</div>
 
                             <div class="ml-3">({doc.length})</div>
                         </div>
 
                         <div class="level-right">
-                            <Icon icon={getContext("iconClock")} class=""/>
+                            <span class="{getContext('iconClock')}"></span>
 
                             {doc.timeAgo}
 
-                            <Icon icon={getContext("iconDefaultUser")} class="ml-3 mr-2"/>
+                            <span class="{getContext('iconDefaultUser')}"></span>
 
                             <a id="{doc.author}"
                                on:click="{() => dispatch('push-author', {_id: doc.author, name: doc.authorName})}">
@@ -199,14 +199,14 @@
                 </div>
 
                 <div class="d-flex justify-content-flex-end align-items-center">
-                    <Icon icon={getContext("iconDefaultUser")} class="mr-1"/>
+                    <span class="{getContext('iconDefaultUser')}"></span>
 
                     <a id="{document.author}"
                        on:click="{() => dispatch('push-author', {_id: document.author, name: document.authorName})}">
                         {document.authorName}
                     </a>
 
-                    <Icon icon={getContext("iconClock")} class="ml-3 mr-1"/>
+                    <span class="{getContext('iconClock')}"></span>
 
                     <div>
                         {document.timeAgo}

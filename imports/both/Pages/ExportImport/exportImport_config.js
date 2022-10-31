@@ -4,7 +4,6 @@
  * @memberof Pages:ExportImport
  * @function exportImport_config
  * @locus Client
- * @augments exportImport
  *
  * @returns {Object}
  */

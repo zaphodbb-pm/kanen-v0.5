@@ -4,7 +4,6 @@
  * @memberof Pages:PubSub
  * @function pubSub_text
  * @locus Client
- * @augments pubSub
  *
  * @returns {Object}
  */

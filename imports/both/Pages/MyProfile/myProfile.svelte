@@ -21,7 +21,7 @@
 
         //** app support files
         import { onMount } from 'svelte';
-        import PageWrapper from '/imports/both/PageStructure/PageWrapper.svelte'
+        import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
 
@@ -31,12 +31,13 @@
     import {i18n} from '/imports/functions/utilities/i18n'
     import {lang} from '/imports/client/systemStores'
 
-    import Form_Holder from '/imports/components/formBuilder/formHolder.svelte'
+    //import Form_Holder from '/imports/components/formBuilder/formHolder.svelte'
     import schema from './myProfile_form_schema'
 
     let formText = i18n(page, "form", $lang);
 
     //* local reactive variables
+    const pageHeader = i18n(header, "", $lang);
     let conf = pageConfig;
     let role = "";
     let editdoc = {};
@@ -87,10 +88,12 @@
 
 
 
+<PageHeader header="{pageHeader}" />
 
-<PageWrapper {header} >
-
+<main class="main-content">
     <div id="my-profile-display" class="column">
+
+        <!--
 
         <Form_Holder
                 config="{conf.form}"
@@ -101,7 +104,13 @@
                 {directdoc}
 
                 on:doc-submitted="{docSent}"/>
+                -->
 
     </div>
 
-</PageWrapper>
+</main>
+
+
+
+
+

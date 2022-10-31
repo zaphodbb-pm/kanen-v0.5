@@ -4,7 +4,6 @@
  * @memberof Pages:Login
  * @function login_config
  * @locus Client
- * @augments login
  *
  * @returns {Object}
  */

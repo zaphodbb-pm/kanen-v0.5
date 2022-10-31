@@ -17,7 +17,7 @@ export const nav = {en: "Build Content"};
 
 export const link = "/buildContent";
 
-export const icon = "iconBuildContent";
+export const icon = "icon-bg-file";
 
 // roles that can see this link in Navbar and be routed to
 // roles are also used by database write / read checking

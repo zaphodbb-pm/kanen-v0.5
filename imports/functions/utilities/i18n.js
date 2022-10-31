@@ -1,7 +1,7 @@
 /**
  * @summary Gets an object and finds text string based on user language preference.
  *
- * @memberof Functions
+ * @memberOf Functions:
  * @function i18n
  * @locus Client
  *

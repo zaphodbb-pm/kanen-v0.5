@@ -4,7 +4,6 @@
  * @memberof Pages:SysConfig
  * @function sysConfig_text
  * @locus Client
- * @augments sysConfig_page
  *
  * @returns {Object}
  */
@@ -129,7 +128,7 @@ export const page = {
             },
 
             showWidgets: {
-                label: "Show Debug Widgets",
+                label: "Show Debug Infoboxes",
                 helpText: "For development purposes, show info widgets such as browser lat/lng info.",
             },
         }

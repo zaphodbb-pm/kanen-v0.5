@@ -17,7 +17,7 @@ export const nav = {en: "System Config"};
 
 export const link = "/sysConfig";
 
-export const icon = "iconConfig";
+export const icon = "icon-bg-cog";
 
 // roles that can see this link in Navbar and be routed to
 // roles are also used by database write / read checking

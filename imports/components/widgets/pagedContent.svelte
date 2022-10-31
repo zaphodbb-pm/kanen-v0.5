@@ -2,7 +2,7 @@
     /**
      * @summary Accordion content add-in structured for displaying jsdoc information.
      *
-     * @memberof Components:Widgets
+     * @memberof Components:Infoboxes
      * @function pagedContent
      * @locus Client
      * @isTemplate true

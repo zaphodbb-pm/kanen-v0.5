@@ -1,9 +1,8 @@
 /**
- * @summary Nav label for Widgets Content page.
+ * @summary Nav label for WidgetsContent page.
  *
  * @memberof Pages:WidgetsContent
  * @name widgetsContent_nav
- * @lends widgetsContent
  * @locus Anywhere
  *
  * @exports {Object} - nav
@@ -13,11 +12,11 @@
  */
 
 
-export const nav = {en: "Tab Widgets"};
+export const nav = {en: "Widgets"};
 
-export const link = "/content-widgets";
+export const link = "/widgets";
 
-export const icon = "iconContent";
+export const icon = "icon-bg-folder";
 
 // roles that can see this link in Navbar and be routed to
 // roles are also used by database write / read checking

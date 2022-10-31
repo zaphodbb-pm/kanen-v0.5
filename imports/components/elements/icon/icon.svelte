@@ -16,15 +16,24 @@
      * 1. usage: <Icon class="extraClass" icon={iconName} />
      */
 
+
+
+
+    /*
     export let icon;
 
     let path = icon?.icon[4] ?? [];
     let classes = ($$props.class ? $$props.class : "");
     let viewBox = `0 0 ${icon?.icon[0] ?? 32} ${icon?.icon[1] ?? 32}`;
+*/
+
+
 
 </script>
 
 
+
+<!--
 <svg aria-hidden="true"
      class="fa-svelte {icon.iconName + ' ' + classes}"
      role="img"
@@ -45,3 +54,4 @@
         line-height: 0;
     }
 </style>
+-->

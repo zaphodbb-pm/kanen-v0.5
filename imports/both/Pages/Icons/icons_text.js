@@ -4,7 +4,6 @@
  * @memberof Pages:Icons
  * @function icons_text
  * @locus Client
- * @augments icons
  *
  * @returns {Object}
  */
@@ -14,17 +13,18 @@
 export const header = {
     en: {
         title:  "Icons Page",
-        lead:   "Shows the system wide key and Line-Awesome file name.",
-        body:   "Sizes are 1rem, 1.2rem, 1.5rem and 2.25rem. <br />" +
-                "Icon colours are: default text, 'has-text-info', 'has-text-link', 'has-text-primary'."
-    }
+        subtitle:   "",
+        body:   "CSS controlled svg icons set in HTML background.  Sizes are nominally 1rem, 1.27rem, 1.42rem and 1.8rem.<br>" +
+            "See <a href='https://zaphodbb-pm.github.io/goldilocks-css/pages/extend-elements/icons.html' target='_blank'>CSS website</a> " +
+            "for more details"}
 };
 
 
 export const page = {
 
     page: {
-        count: {en: "Total number of icons: "}
+        count: {en: "Total number of icons: "},
+        example: {en: "Example size and colour settings for icons. "}
     },
 
     components: {

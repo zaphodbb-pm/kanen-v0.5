@@ -17,7 +17,7 @@ export const nav = {en: "Jsdoc"};
 
 export const link = "/documentation";
 
-export const icon = "iconDocumentation";
+export const icon = "icon-bg-code";
 
 // roles that can see this link in Navbar and be routed to
 // roles are also used by database write / read checking

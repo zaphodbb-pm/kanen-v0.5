@@ -4,7 +4,6 @@
  * @memberof Pages:LogsSystem
  * @function logsSystem_text
  * @locus Client
- * @augments logsSystem
  *
  * @returns {Object}
  */

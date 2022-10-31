@@ -4,7 +4,6 @@
  * @memberof Pages:Users
  * @function users_form_schema
  * @locus Anywhere
- * @augments users
  *
  * @returns {Array} - array of field configuration objects
  *

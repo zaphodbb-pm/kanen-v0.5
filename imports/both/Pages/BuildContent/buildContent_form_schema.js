@@ -4,7 +4,6 @@
  * @memberof Pages:BuildContent
  * @function buildContent_form_schema
  * @locus Anywhere
- * @augments buildContent_page
  *
  * @returns {Array} - array of field configuration objects
  *

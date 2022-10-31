@@ -4,7 +4,6 @@
  * @memberof Pages:Cards
  * @function cards_text
  * @locus Client
- * @augments cards
  *
  * @returns {Object}
  */

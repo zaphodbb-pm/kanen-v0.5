@@ -1,9 +1,8 @@
 /**
  * Labels for bottom footer.
  *
- *
- * @memberof Structure:Client
  * @function Footer_text
+ * @memberOf Footer
  * @locus Client
  *
  * @returns {Object}

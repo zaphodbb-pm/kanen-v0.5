@@ -1,8 +1,9 @@
 /**
  * Main entry point for server code
  *
- * @memberof Structure:Server
- * @function server-main
+ * @namespace ServerMain
+ * @module
+ * @locus Client
  * @locus Server
  *
  * @notes

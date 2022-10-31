@@ -20,18 +20,20 @@
 
         //** app support files
         import { setContext, onMount } from 'svelte';
-        import PageWrapper from '/imports/both/PageStructure/PageWrapper.svelte'
+        import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
 
 
     //* page-body support **************************
-    import {i18n} from '/imports/functions/utilities/i18n'
-    import {lang} from '/imports/client/systemStores'
+    import {i18n} from '/imports/functions/utilities/i18n';
+    import {lang} from '/imports/client/systemStores';
+
+    const pageHeader = i18n(header, "", $lang);
     setContext("pageText", page);
 
-    import Accordian from '/imports/components/widgets/accordian.svelte'
-    import Paged from '/imports/components/widgets/pagedContent.svelte'
+    import Accordian from '/imports/components/widgets/accordian.svelte';
+    import Paged from '/imports/components/widgets/pagedContent.svelte';
 
     let result = [];
     let content = [];
@@ -58,7 +60,7 @@
 
     //* lifecycle
     onMount( async () => {
-        let results = await Meteor.callPromise("fetchDocumentation");
+        let results = await Meteor.callAsync("fetchDocumentation");
         content = preamble.concat(results);
     });
 
@@ -95,7 +97,9 @@
 
 
 
-<PageWrapper {header} >
+<PageHeader header="{pageHeader}" />
+
+<main class="main-content">
 
     <div class="columns">
 
@@ -130,4 +134,4 @@
         </div>
     </div>
 
-</PageWrapper>
+</main>

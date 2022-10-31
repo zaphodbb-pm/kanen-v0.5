@@ -4,7 +4,6 @@
  * @memberof Pages:ChangePassword
  * @function changePassword_text
  * @locus Client
- * @augments changePassword
  *
  * @returns {Object}
  */

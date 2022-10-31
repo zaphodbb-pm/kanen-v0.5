@@ -18,7 +18,6 @@
     export let service = ""
 
     //* support files
-    import Icon from '/imports/components/elements/icon/icon.svelte'
     import {createEventDispatcher, getContext} from 'svelte';
     const dispatch = createEventDispatcher();
 
@@ -37,7 +36,7 @@
 
 <div class="level-item">
     <a class="button is-info login-circle" on:click="{authService}" {title}>
-        <Icon icon={getContext(icon)} class="text-2dot0rem"/>
+        <span class="{getContext(icon)} is-large"></span>
     </a>
 </div>
 

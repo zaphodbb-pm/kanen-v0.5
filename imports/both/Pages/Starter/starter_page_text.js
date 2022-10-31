@@ -4,7 +4,6 @@
  * @memberof Pages:Starter
  * @function starter_text
  * @locus Client
- * @augments starter_page
  *
  * @returns {Object}
  */

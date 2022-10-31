@@ -51,7 +51,7 @@
 
         //** app support files
         import { onMount, onDestroy } from 'svelte';
-        import PageWrapper from '/imports/both/PageStructure/PageWrapper.svelte'
+        import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
 
@@ -61,6 +61,7 @@
     import {i18n} from '/imports/functions/utilities/i18n'
     import {lang} from '/imports/client/systemStores'
 
+    const pageHeader = i18n(header, "", $lang);
     let text = i18n(page, "page", $lang);
     let colours = ["is-primary", "is-info", "is-link", "is-success", "is-warning", "is-danger"]
     let values = new Array(len).fill({name: "init", value: 0});
@@ -114,7 +115,9 @@
 
 
 
-<PageWrapper {header} >
+<PageHeader header="{pageHeader}" />
+
+<main class="main-content">
 
     <article class="section">
         {text.report.title} ({text.report.suffix}) -
@@ -150,4 +153,4 @@
         {/each}
     </section>
 
-</PageWrapper>
+</main>

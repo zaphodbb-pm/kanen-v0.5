@@ -3,10 +3,9 @@
     /**
      * User Credit element
      *
-     * @memberof Components:Elements
-     * @function userCredit
+     * @memberOf Components:
+     * @module userCredit
      * @locus Client
-     * @augments Navbar
      *
      */
 
@@ -15,13 +14,8 @@
 
     //* support files
     import {userExtras} from "../../client/systemStores.mjs";
-    import Icon from "./icon/icon.svelte"
-
-    import { getContext } from 'svelte';
 
     console.log("userExtras", $userExtras);
-
-    //$: console.log("userExtras", $userExtras);
 
     //* local reactive variables
     let credit = 0;
@@ -32,14 +26,14 @@
 
 
 
-<div class="tags has-addons">
-    <data class="tag" value={credit}></data>
+<div class="tags is-compound" role="note" aria-label="Compound tag">
+    <span class="tag is-secondary">{credit}</span>
 
     {#if text.credits}
-        <data class="tag is-secondary" value={text.credits}></data>
+        <span class="tag">{text.credits}</span>
     {:else}
-        <data class="tag is-secondary" value="">
-            <Icon icon={getContext("iconCredits")} class=""/>
-        </data>
+        <span class="tag is-secondary">
+            <span class="icon-bg-bell"></span>
+        </span>
     {/if}
 </div>

@@ -50,7 +50,7 @@
 <div class="field has-addons">
     <div class="control">
         <a class="button is-static">
-            <Icon icon='{getContext("iconSearch")}' class="text-1dot5rem"/>
+            <span class="icon-bg-search"></span>
         </a>
     </div>
 
@@ -66,8 +66,7 @@
     <div class="control">
         {#if showIcon}
             <a class="button is-info is-outlined" on:click="{() => {showHelp = !showHelp;} }">
-
-                <Icon icon='{getContext("iconHelp")}' class="text-1dot5rem"/>
+                <span class="icon-bg-help"></span>
             </a>
         {/if}
     </div>

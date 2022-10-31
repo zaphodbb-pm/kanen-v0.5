@@ -29,9 +29,9 @@ export const page = {
 
             preamble: "<p>Each unique page has its own directory and can be added or removed as needed.  " +
                 "Each Page is stand-alone and is controlled by 5 main files and one optional one.</p>" +
-                "<p>A functions directory is also provided.  Generally, all logic should be abstracted to functions outside" +
+                "<p>A functions directory is also provided.  Generally, all logic should be abstracted to functions outside " +
                 "the Page.  This allows for more rigorous testing of these functions and makes the Page simpler.  " +
-                "Page testing is performed by Cypress based test files.  Both functions and page testinf files are in the " +
+                "Page testing is performed by Cypress based test files.  Both functions and page testing files are in the " +
                 "associated 'test' directory that is unique to each page.</p>",
 
             _nav: {

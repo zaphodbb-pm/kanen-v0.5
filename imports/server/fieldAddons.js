@@ -5,7 +5,7 @@
  * @function fieldAddons
  * @locus Server
  *
- * @returns {Object} - fieldAddons: extra fields to be added to a projection
+ * @exports {Object} - fieldAddons: extra fields to be added to a projection
  */
 
 export const fieldAddons =  {

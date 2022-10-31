@@ -1,12 +1,14 @@
 /**
  * Labels for Navbar items.
  *
- * @memberof Navbar
+ * @memberOf Navbar
  * @function Navbar_text
  * @locus Client
- * @augments Navbar
  *
- * @returns {Object}
+ * @exports {Object} - navbar text language encoded
+ * @exports {Object} - gdpr text language encoded
+ * @exports {Object} - pwa text language encoded
+ *
  */
 
 
