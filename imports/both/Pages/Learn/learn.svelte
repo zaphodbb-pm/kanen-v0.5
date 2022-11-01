@@ -2,8 +2,9 @@
     /**
      * Layout for Learn page.
      *
-     * @memberof Pages:Learn
-     * @function learn
+     * @name learn
+     * @module
+     * @memberOf Pages:learn
      * @locus Client
      *
      */

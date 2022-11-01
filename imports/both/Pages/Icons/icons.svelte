@@ -2,8 +2,9 @@
     /**
      * Layout for Icons page.
      *
-     * @memberof Pages:Icons
-     * @function Icons
+     * @name icons
+     * @module
+     * @memberOf Pages:icons
      * @locus Client
      *
      */

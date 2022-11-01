@@ -1,9 +1,9 @@
 <script>
     /**
      * Layout for BuildContent page.
-     *
-     * @memberof Pages:BuildContent
-     * @function buildContent_page
+     * @name buildContent
+     * @module
+     * @memberOf Pages:buildContent
      * @locus Client
      *
      */

@@ -2,8 +2,9 @@
     /**
      * @summary Layout for Documentation page.
      *
-     * @memberof Pages:Documentation
-     * @function documentation
+     * @name documentation
+     * @module
+     * @memberOf Pages:documentation
      * @locus Client
      *
      */

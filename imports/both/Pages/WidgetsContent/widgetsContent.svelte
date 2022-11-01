@@ -2,8 +2,9 @@
     /**
      * @summary Layout for WidgetsContent.
      *
-     * @memberof Pages:WidgetsContent
-     * @function widgetsContent
+     * @name widgetsContent
+     * @module
+     * @memberOf Pages:widgetsContent
      * @locus Client
      *
      */

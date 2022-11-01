@@ -1,9 +1,9 @@
 <script>
     /**
      * Layout for ChangePassword page.
-     *
-     * @memberof Pages:ChangePassword
-     * @function changePassword
+     * @name changePassword
+     * @module
+     * @memberOf Pages:changePassword
      * @locus Client
      *
      */

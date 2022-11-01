@@ -2,8 +2,9 @@
     /**
      * Layout for MyProfile page.
      *
-     * @memberof Pages:MyProfile
-     * @function myProfile
+     * @name myProfile
+     * @module
+     * @memberOf Pages:myProfile
      * @locus Client
      *
      */

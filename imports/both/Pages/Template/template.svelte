@@ -1,8 +1,9 @@
 <script>/**
  * Layout for Template page.
  *
- * @memberof Pages:Template
- * @function template
+ * @name template
+ * @module
+ * @memberOf Pages:template
  * @locus Client
  *
  * @notes

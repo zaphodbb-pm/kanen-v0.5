@@ -1,11 +1,14 @@
-<script>/**
-* Layout for Colours page.
-*
-* @memberof Pages:Colours
-* @function Icons
-* @locus Client
-*
-*/
+<script>
+
+    /**
+     * Layout for Colours page.
+     *
+     * @name colours
+     * @module
+     * @memberOf Pages:colours
+     * @locus Client
+     *
+     */
 
     //* page set-up boilerplate *************************************
 
@@ -27,6 +30,8 @@
     import {lang} from '/imports/client/systemStores';
 
     const pageHeader = i18n(header, "", $lang);
+    const pageText = i18n(page.page, "", $lang);
+    const colours = i18n(page, "columns", $lang);
 
 </script>
 
@@ -36,55 +41,35 @@
 
 <main class="main-content">
 
-    <h2>Colours</h2>
+    <h2>{pageText.h2}</h2>
 
     <div class="row">
-        <div class="column space-vert-medium">
-            <h3>{i18n(page.columns, "swatches", $lang)}</h3>
+        <div class="column">
+            <h3>{colours.main.title}</h3>
 
-
-
-            <!--
-            {#each swatches as swatch}
-                <div class="tags has-addons">
-                    <span class="tag is-large"
-                          style="background-color: {swatch[1]}; color: whitesmoke;">
-                        {swatch[1]}
-                    </span>
-
-                    <span class="tag is-large">{swatch[0]}</span>
-                </div>
+            {#each colours.main.colours as colour}
+                <div class="{colour[1]} has-height-5rem"></div>
+                <p class="is-title-4">{colour[0]}</p>
             {/each}
-
-            -->
         </div>
 
-        <div class="column space-vert-medium">
-            <h3>{i18n(page.columns, "boxes", $lang)}</h3>
+        <div class="column">
+            <h3>{colours.light.title}</h3>
 
-            <!--
-            {#each boxes as box}
-                <div class="box {box[1]}">
-                    {box[0]}
-                </div>
+            {#each colours.light.colours as colour}
+                <div class="{colour[1]} has-height-5rem"></div>
+                <p class="is-title-4">{colour[0]}</p>
             {/each}
-            -->
         </div>
 
-        <div class="column space-vert-medium">
-            <h3>{i18n(page.columns, "themes", $lang)}</h3>
+        <div class="column">
+            <h3>{colours.dark.title}</h3>
 
-            <!--
-            {#each themes as theme}
-                <div class="mb-3">
-                    <button class="button is-fullwidth {theme[1]}">
-                        {theme[0]}
-                    </button>
-                </div>
+            {#each colours.dark.colours as colour}
+                <div class="{colour[1]} has-height-5rem"></div>
+                <p class="is-title-4">{colour[0]}</p>
             {/each}
-            -->
         </div>
     </div>
-
 
 </main>

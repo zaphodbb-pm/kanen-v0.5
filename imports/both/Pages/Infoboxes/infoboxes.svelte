@@ -2,8 +2,9 @@
     /**
      * @summary Layout for Page Infoboxes.
      *
-     * @memberof Pages:Infoboxes
-     * @function infoboxes
+     * @name infoboxes
+     * @module
+     * @memberOf Pages:infoboxes
      * @locus Client
      *
      */
@@ -21,7 +22,7 @@
 
         //** app support files
         import { setContext } from 'svelte';
-        import PageHeader from "../../PageStructure/PageHeader.svelte";;
+        import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
 

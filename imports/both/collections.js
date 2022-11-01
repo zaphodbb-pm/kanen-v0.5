@@ -3,9 +3,10 @@
 /**
  * Collection definitions
  *
+ * @name collections
+ * @module
  * @memberOf ClientMain
  * @memberOf ServerMain
- * @module collections
  * @locus Anywhere
  *
  */

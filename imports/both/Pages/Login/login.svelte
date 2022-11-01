@@ -2,8 +2,9 @@
     /**
      * Layout for Login page.
      *
-     * @memberof Pages:Login
-     * @function login
+     * @name login
+     * @module
+     * @memberOf Pages:login
      * @locus Client
      *
      */
@@ -79,8 +80,8 @@
         if (err) {
             messages.push(err.message);
         } else {
-            let penultimate = $lastRoute.length > 2 ? $lastRoute.slice(-2, -1)[0] : null;
-            let target = penultimate && penultimate.name ? penultimate.name : "/myProfile";
+            //let penultimate = $lastRoute.length > 2 ? $lastRoute.slice(-2, -1)[0] : null;
+            //let target = penultimate && penultimate.name ? penultimate.name : "/myProfile";
             //navigateTo(target);
         }
     }

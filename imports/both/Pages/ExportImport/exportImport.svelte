@@ -2,8 +2,9 @@
     /**
      * General input card with export import functionality.
      *
-     * @memberof Pages:ExportImport
-     * @function exportImport
+     * @name exportImport
+     * @module
+     * @memberOf Pages:exportImport
      * @locus Client
      *
      */

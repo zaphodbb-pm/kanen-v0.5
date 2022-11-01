@@ -2,8 +2,9 @@
     /**
      * Layout for Starter page.
      *
-     * @memberof Pages:Starter
-     * @function starter_page
+     * @name starter
+     * @module
+     * @memberOf Pages:starter
      * @locus Client
      *
      */

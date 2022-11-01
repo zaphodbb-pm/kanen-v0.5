@@ -1,8 +1,10 @@
-<script>/**
+<script>
+/**
  * @summary Layout insert for Home page.
  *
- * @memberof Pages:Home
- * @function home
+ * @name home
+ * @module
+ * @memberOf Pages:home
  * @locus Client
  *
  */

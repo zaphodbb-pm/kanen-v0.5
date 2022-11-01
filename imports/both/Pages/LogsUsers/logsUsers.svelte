@@ -3,8 +3,9 @@
     /**
      * Layout for LogsUsers page.
      *
-     * @memberof Pages:LogsUsers
-     * @function logsUsers
+     * @name logsUser
+     * @module
+     * @memberOf Pages:logsUsers
      * @locus Client
      *
      */

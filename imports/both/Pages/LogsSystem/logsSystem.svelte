@@ -2,7 +2,9 @@
     /**
      * Layout for LogsSystem page.
      *
-     * @memberof Pages:LogsSystem
+     * @name logsSystem
+     * @module
+     * @memberOf Pages:logsSystem
      * @function logsSystem
      * @locus Client
      *

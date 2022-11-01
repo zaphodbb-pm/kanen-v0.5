@@ -2,8 +2,9 @@
     /**
      * Layout for users page.
      *
-     * @memberof Pages:Users
-     * @function users
+     * @name users
+     * @module
+     * @memberOf Pages:users
      * @locus Client
      *
      */

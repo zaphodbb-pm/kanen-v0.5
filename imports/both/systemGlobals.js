@@ -2,8 +2,8 @@
  * Client side constants to set up the environment.
  * This file provides a single entry point to provide consistency across all pages, components and elements.
  *
- * @memberOf Setup:Client
  * @name systemGlobals
+ * @memberOf Setup:Client
  * @locus Client
  *
  * @exports {Object} layout - controls layout options

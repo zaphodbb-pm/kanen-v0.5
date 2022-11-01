@@ -2,8 +2,9 @@
     /**
      * Layout for SysConfig page.
      *
-     * @memberof Pages:SysConfig
-     * @function sysConfig_page
+     * @name sysConfig
+     * @module
+     * @memberOf Pages:sysConfig
      * @locus Client
      *
      */

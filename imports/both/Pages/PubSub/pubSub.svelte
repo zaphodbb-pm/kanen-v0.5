@@ -32,8 +32,9 @@
     /**
      * Layout for PubSub page.
      *
-     * @memberof Pages:PubSub
-     * @function pubSub
+     * @name pubSub
+     * @module
+     * @memberOf Pages:pubSub
      * @locus Client
      *
      */

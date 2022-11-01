@@ -13,7 +13,7 @@
  * @property {String} LAST_UPDATE
  * @property {String} COPYRIGHT
  *
- * @returns {Object}
+ * @exports {Object}
  *
  */
 

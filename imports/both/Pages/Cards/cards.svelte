@@ -3,8 +3,9 @@
      * Layout for Cards Page.
      * Builds two sample cards with different configurations
      *
-     * @memberof Pages:Cards
-     * @function cards
+     * @name cards
+     * @module
+     * @memberOf Pages:cards
      * @locus Client
      *
      * @param {Object} currentRoute
