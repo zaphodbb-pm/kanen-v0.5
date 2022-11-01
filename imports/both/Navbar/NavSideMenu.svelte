@@ -47,7 +47,7 @@
                         {#each group as links (links.name)}
                             <li>
                                 <a class="icon-nav-horz {currentRoute === links.name ? 'is-active' : ''}"
-                                   href="{links.name + (links.params || '')}"
+                                   href="{links.name + (links.query || '')}"
                                    title="{links.label}">
 
                                     <span class="{links.icon}"></span>

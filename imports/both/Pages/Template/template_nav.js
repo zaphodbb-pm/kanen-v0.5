@@ -8,7 +8,7 @@
  *
  * @exports {Object} nav
  * @exports {String} link
- * @exports {String} params
+ * @exports {String} query
  * @exports {String} icon
  * @exports {Object} roles - {read: [], write: []}
  *
@@ -21,7 +21,7 @@ export const nav = {en: "Template"};
 
 export const link = "/template";
 
-export let params = "?test=1";
+export let query = "?desire=42";
 
 export const icon = "icon-bg-layout";
 

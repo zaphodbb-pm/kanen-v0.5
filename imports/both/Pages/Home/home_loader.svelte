@@ -9,12 +9,19 @@
      */
 
     //* setup props to receive route data
+    /** @type {Object} **/
     export let currentRoute;
-    export let params;
+
+    /** @type {Object} **/
+    export let params = {};
+
+    /** @type {Object} **/
+    export let query = {};
 
     //* get svelte component loader
+    /** @type { import('svelte-loadable')} **/
     import Loadable from 'svelte-loadable';
 
 </script>
 
-<Loadable loader={() => import('./home.svelte')} {currentRoute} {params} />
+<Loadable loader={() => import('./home.svelte')} {currentRoute} {params} {query}/>

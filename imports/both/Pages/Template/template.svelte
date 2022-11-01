@@ -18,8 +18,9 @@
     //* page set-up boilerplate *************************************
 
         //** setup props to receive route data (optional)
-        export let currentRoute;
-        export let params;
+        export let currentRoute = "";
+        export let params = {};
+        export let query = {};
 
         //** page specific text and configuration
         import {header, page} from './template_text'
@@ -171,15 +172,20 @@
 
     <p>{text.propsDesc}</p>
 
-    <div class="row">
+    <div class="row has-4x-minwidth">
         <article class="column">
             <h3>{text.route}</h3>
             <pre><code>{JSON.stringify(currentRoute, null, 4)}</code></pre>
         </article>
 
         <article class="column">
-            <h3>{text.parms}</h3>
+            <h3>{text.params}</h3>
             <pre><code>{JSON.stringify(params, null, 4)}</code></pre>
+        </article>
+
+        <article class="column">
+            <h3>{text.query}</h3>
+            <pre><code>{JSON.stringify(query, null, 4)}</code></pre>
         </article>
 
         <article class="column">

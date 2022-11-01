@@ -24,11 +24,14 @@
     export let currentRoute;
 
     /** @type {Object} **/
-    export let params;
+    export let params = {};
+
+    /** @type {Object} **/
+    export let query = {};
 
     //* get svelte component loader
     /** @type { import('svelte-loadable')} **/
     import Loadable from 'svelte-loadable';
 </script>
 
-<Loadable loader={() => import('./template.svelte')} {currentRoute} {params} />
+<Loadable loader={() => import('./template.svelte')} {currentRoute} {params} {query}/>

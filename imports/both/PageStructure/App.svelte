@@ -21,7 +21,7 @@
 
 
     //* set up system wide text context and get system wide variables
-    import { setContext, getContext } from 'svelte';
+    import { setContext } from 'svelte';
 
     import version from '/imports/both/version';
     setContext("Version", version);             //setup system wide version info
@@ -88,18 +88,17 @@
 
 
     //* load the path router -> will render main page & components based on nav-link selection
-    import { path, query, fragment, pattern, state } from 'svelte-pathfinder';
+    import { path, query } from 'svelte-pathfinder';
 
     let currentPath = $path.toString();
-    let params = $query.params;
     let currentPage = pagePaths[currentPath].component;
+    let params = {specials: "extra values"};
 
 
     //* build out static components
     import Navbar from '../Navbar/Navbar.svelte';
     import SideNav from '../Navbar/NavSideMenu.svelte';
     import Footer from './Footer.svelte';
-
 
 
 
@@ -124,8 +123,6 @@
             $userExtras = null;
             $showRoutes = navs;
         }
-
-        console.log("meteor", currentPath, $showRoutes);
     }
 
 </script>
@@ -140,7 +137,7 @@
 
     <!-- load <main> page content here -->
     {#if currentPage}
-        <svelte:component this="{currentPage}" currentRoute="{currentPath}" params="{params}"/>
+        <svelte:component this="{currentPage}" currentRoute="{currentPath}" {params} query="{$query.params}"/>
     {/if}
 
     <Footer />

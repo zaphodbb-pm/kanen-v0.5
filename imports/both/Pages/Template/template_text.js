@@ -102,7 +102,8 @@ export const page = {
                 "The config file provides static set-up information for some components. ",
 
             route: "currentRoute",
-            parms: "params",
+            params: "params",
+            query: "query",
             config: "Config File"
         }
     },

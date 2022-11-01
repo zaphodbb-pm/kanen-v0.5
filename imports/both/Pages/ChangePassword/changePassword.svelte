@@ -13,7 +13,8 @@
 
     //** setup props to receive route data (optional)
     export let currentRoute;
-    export let params;
+    export let params = {};
+    export let query = {};
 
     //** page specific text and configuration
     import {header, page} from './changePassword_text';

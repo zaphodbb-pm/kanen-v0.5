@@ -17,7 +17,7 @@
 
 import {getLang} from "../../../functions/supportApplication/getLang";
 import {i18n} from "../../../functions/utilities/i18n";
-import {nav, link, icon, roles, params} from './template_nav';
+import {nav, link, icon, roles, query} from './template_nav';
 import Page from './template_loader.svelte';
 
 let lang = getLang("en");
@@ -27,9 +27,9 @@ export default {
     roles: roles,                           // roles that can see this link in Navbar and be routed to
     component: Page,
 
-    params: params,                         // optional query string to append to url or dynamically added if needed
+    query: query,                           // optional query string to append to url or dynamically added if needed
     icon: icon,                             // Navbar icon to show
-    label: i18n(nav, "", lang),        // Navbar text to show
+    label: i18n(nav, "", lang),         // Navbar text to show
     group: 0,                               // for side navigation; group routes into a block
     isNavMobile: false,                     // (optional) show link in mobile nav block at bottom or top
 };
