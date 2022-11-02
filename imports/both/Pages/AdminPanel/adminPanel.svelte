@@ -1,10 +1,10 @@
 <script>
     /**
-     * @summary Layout for Page Infoboxes.
+     * @summary Layout for Page AdminPanel.
      *
-     * @name infoboxes
+     * @name adminPanel
      * @module
-     * @memberOf Pages:infoboxes
+     * @memberOf Pages:adminPanel
      * @locus Client
      *
      */
@@ -18,8 +18,8 @@
         export let query = {};
 
         //** page specific text and configuration
-        import {header, page} from './infoboxes_text';
-        import {pageConfig} from './infoboxes_config';
+        import {header, page} from './adminPanel_text';
+        import {pageConfig} from './adminPanel_config';
 
         //** app support files
         import { setContext } from 'svelte';

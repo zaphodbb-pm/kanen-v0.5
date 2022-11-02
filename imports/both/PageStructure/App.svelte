@@ -135,7 +135,7 @@
 
     <SideNav currentRoute="{currentPath}" />
 
-    <!-- load <main> page content here -->
+    <!-- load <header> and <main> page content here -->
     {#if currentPage}
         <svelte:component this="{currentPage}" currentRoute="{currentPath}" {params} query="{$query.params}"/>
     {/if}

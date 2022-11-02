@@ -47,7 +47,7 @@ import MiniWiki from './Pages/Learn/learn_route';
 
 import Cards from './Pages/Cards/cards_route';
 import Tabs from './Pages/WidgetsContent/widgetsContent_route';
-import Infoboxes from './Pages/Infoboxes/infoboxes_route';
+import AdminPanel from './Pages/AdminPanel/adminPanel_route';
 import Starter from './Pages/Starter/starter_page_route';
 import Login from './Pages/Login/login_route'
 
@@ -78,7 +78,7 @@ const allRoutes = [
 
     Cards,
     Tabs,
-    Infoboxes,
+    AdminPanel,
     Starter,
     Login,
 

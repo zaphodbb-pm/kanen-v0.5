@@ -1,7 +1,7 @@
 /**
  * @summary Creates file names with date and time stamp.
  *
- * @memberof Components:Infoboxes
+ * @memberof Components:AdminPanel
  * @function barBuilder
  * @locus Client
  *

@@ -28,38 +28,9 @@
     export let content = [];
     export let tabSettings = "";
 
-    //* get accessory components
-    import {methodReturn} from '/imports/functions/utilities/methodReturn'
-
-
-    /*
-    function body() {
-        (content).forEach(function (ct) {
-            if (!ct.text && ct.dbContent) {
-                let request = {
-                    coll: ct.dbContent.coll,
-                    query: {name: ct.dbContent.name},
-                    length: 1,
-                };
-
-                console.log("request", request);
-
-                Meteor.call("directCollection", request, function (err, res) {
-                    //methodReturn(err, res, "tabbedContent directCollection");
-
-                    if (res) {
-                        ct.text = res.contentPage;
-                    }
-                });
-
-
-            }
-        });
-
-        return content;
-    }
-
-     */
+    let className = ''
+    // noinspection ReservedWordAsName
+    export { className as class }
 
 </script>
 

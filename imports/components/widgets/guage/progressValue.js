@@ -1,7 +1,7 @@
 /**
  * Calculates the display value for a guage.
  *
- * @memberof Components:Infoboxes
+ * @memberof Components:AdminPanel
  * @function progessValue
  * @locus Client
 

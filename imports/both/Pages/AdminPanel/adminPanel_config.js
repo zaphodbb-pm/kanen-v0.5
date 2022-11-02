@@ -1,8 +1,8 @@
 /**
- * @summary Configuration for Infoboxes components.
+ * @summary Configuration for AdminPanel components.
  *
- * @memberof Pages:Infoboxes
- * @function infoboxes_text
+ * @memberOf Pages:adminPanel
+ * @function adminPanel_text
  * @locus Client
  *
  * @returns {Object}

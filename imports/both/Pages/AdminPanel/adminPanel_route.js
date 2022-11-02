@@ -1,8 +1,8 @@
 /**
- * @summary Route config information for Infoboxes.
+ * @summary Route config information for AdminPanel.
  *
- * @memberof Pages:Infoboxes
- * @function infoboxes_route
+ * @memberOf Pages:adminPanel
+ * @function adminPanel_route
  * @locus Client
  *
  * @returns {Object}
@@ -11,8 +11,8 @@
 
 import {getLang} from '../../../functions/supportApplication/getLang';
 import {i18n} from '../../../functions/utilities/i18n';
-import {nav, link, icon, roles} from './infoboxes_nav';
-import Page from './infoboxes_loader.svelte';
+import {nav, link, icon, roles} from './adminPanel_nav';
+import Page from './adminPanel_loader.svelte';
 
 
 

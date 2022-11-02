@@ -136,9 +136,9 @@ export const page = {
                     text: [
                         "<a href='/cards'>Cards</a> - basic examples of card component.",
 
-                        "<a href='/content-widgets'>Tab Infoboxes</a> - example of tabbed and accordion components.",
+                        "<a href='/content-widgets'>Tab AdminPanel</a> - example of tabbed and accordion components.",
 
-                        "<a href='/widgets'>Infoboxes</a> - a variety of dashboard like display widgets.",
+                        "<a href='/widgets'>AdminPanel</a> - a variety of dashboard like display widgets.",
 
                         "<a href='/listForm'>Starter ListForm</a> - list display and form builder example. " +
                         "Form includes all of the various field types and configurations.",

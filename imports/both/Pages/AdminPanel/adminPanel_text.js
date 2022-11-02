@@ -1,8 +1,8 @@
 /**
- * @summary Labels for Infoboxes.
+ * @summary Labels for AdminPanel.
  *
- * @memberof Pages:Infoboxes
- * @function infoboxes_text
+ * @memberOf Pages:adminPanel
+ * @function adminPanel_text
  * @locus Client
  *
  * @returns {Object}
@@ -11,8 +11,8 @@
 //** page header; set to null to not display header or a specific item
 export const header = {
     en: {
-        title:  "Infoboxes",
-        lead:   "A variety of information and report boxes and their config objects.",
+        title:  "Admin Panel",
+        lead:   "An example of a variety of information and report boxes and their config objects.",
         body:   null //"Supporting text for header",
     }
 };

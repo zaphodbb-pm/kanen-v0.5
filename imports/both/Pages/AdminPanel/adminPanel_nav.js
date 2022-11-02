@@ -1,9 +1,9 @@
 /**
- * @summary Nav label for Infoboxes page.
+ * @summary Nav label for AdminPanel page.
  *
- * @memberof Pages:Infoboxes
- * @name infoboxes_nav
- * @lends infoboxes
+ * @memberOf Pages:adminPanel
+ * @name adminPanel_nav
+ * @lends adminPanel
  * @locus Anywhere
  *
  * @exports {Object} - nav
@@ -13,9 +13,9 @@
  */
 
 
-export const nav = {en: "Infoboxes"};
+export const nav = {en: "Admin"};
 
-export const link = "/infoboxes";
+export const link = "/adminPanel";
 
 export const icon = "icon-bg-alert-info";
 

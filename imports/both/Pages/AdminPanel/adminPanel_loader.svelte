@@ -1,9 +1,9 @@
 <script>
     /**
      * Generic insert loader for pages.
-     *
-     * @memberof Pages:Infoboxes
-     * @function infoboxes_loader
+     * @name adminPanel_loader
+     * @module
+     * @memberOf Pages:adminPanel
      * @locus Client
      *
      */
@@ -25,4 +25,4 @@
 
 </script>
 
-<Loadable loader={() => import('./infoboxes.svelte')} {currentRoute} {params} {query}/>
+<Loadable loader={() => import('./adminPanel.svelte')} {currentRoute} {params} {query}/>

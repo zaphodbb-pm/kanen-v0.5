@@ -41,7 +41,7 @@
     import Wiki_Content from './wiki_content.svelte'
     import Search_Box from '/imports/components/listCollections/searchbox.svelte'
     //import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte'
-    import Modal_User from '/imports/components/blocks/modalUser.svelte'
+    //import Modal_User from '/imports/components/blocks/modalUser.svelte'
 
     let formText = i18n(page, "form", $lang);
     setContext("formText", formText);

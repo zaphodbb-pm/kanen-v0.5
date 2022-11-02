@@ -3,7 +3,7 @@
     /**
      * Square message block.
      *
-     * @memberof Components:Infoboxes
+     * @memberof Components:AdminPanel
      * @function squareBox
      * @locus Client
      *

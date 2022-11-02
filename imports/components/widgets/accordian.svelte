@@ -3,7 +3,7 @@
     /**
      * Accordion content widget.
      *
-     * @memberof Components:Infoboxes
+     * @memberof Components:AdminPanel
      * @function accordion
      * @locus Client
      *

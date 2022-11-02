@@ -1,7 +1,7 @@
 /**
- * @summary Nav label for WidgetsContent page.
+ * @summary Various content widgets WidgetsContent page.
  *
- * @memberof Pages:WidgetsContent
+ * @memberOf Pages:widgetsContent
  * @name widgetsContent_nav
  * @locus Anywhere
  *
@@ -12,9 +12,9 @@
  */
 
 
-export const nav = {en: "Widgets"};
+export const nav = {en: "Content"};
 
-export const link = "/widgets";
+export const link = "/contentWidgets";
 
 export const icon = "icon-bg-folder";
 

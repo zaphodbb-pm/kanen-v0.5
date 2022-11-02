@@ -14,36 +14,45 @@ export const header = {
     en: {
         title:  "Card Page",
         subtitle:   "Card layout examples.",
-        body:   "",
+        body: "See <a href='https://zaphodbb-pm.github.io/goldilocks-css/pages/extend-components/card.html' target='_blank'>Cards</a> " +
+            "for more details. <br><br>" +
+            "Cards can emit an event from the footer button (footEvent).<br>  " +
+            "The footEvent is captured by the parent and alerted as cardEvent. <br>"
     }
 };
-
-
-/*
-export const header = {
-    en: {
-        title:  "Home Page",
-        lead:   "Welcome to Kanen - the seedling starter package",
-        body:   "Introduction to Kanen.",
-    }
-};
- */
-
 
 
 export const page = {
+    headings: {
+        en: {
+            heading1: "Example With Image But No Title",
+            heading2: "Example With Title and Footer Only"
+        }
+    },
+
 
     components: {
-        cardOne: {
-            title: null,
-            image: "/default-test-image.jpg",
-            footer: null
-        },
 
-        cardTwo: {
-            title: {en: "Card Title"},
-            image: null,
-            footer: {en: ["Saver", "Ed", "Del"]}
+        en: {
+            cardOne: {
+                title: null,
+                subtitle: null,
+                body: "Hello World",
+                image: "/default-test-image.jpg",
+                altImage: "Soulful looking puppy",
+                footer: null
+            },
+
+            cardTwo: {
+                title: "Card Title",
+                subtitle: "Card Sub-Title",
+                body: "Another View",
+                image: null,
+                footer: [
+                    {class: "is-primary has-hover", text: "Save"},
+                    {class: "is-danger-outlined has-hover", text: "Delete"},
+                ]
+            }
         }
     }
 };

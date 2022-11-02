@@ -9829,7 +9829,7 @@ progress:indeterminate::-ms-fill
 }
 
 
-
+/* absolute widths */
 .has-width-1rem
 {
     width: 1rem !important;
@@ -9895,6 +9895,75 @@ progress:indeterminate::-ms-fill
     width: 40rem !important;
 }
 
+
+/* responsive widths */
+.has-max-width-1rem
+{
+    max-width: 1rem !important;
+}
+
+.has-max-width-2rem
+{
+    max-width: 2rem !important;
+}
+
+.has-max-width-3rem
+{
+    max-width: 3rem !important;
+}
+
+.has-max-width-4rem
+{
+    max-width: 4rem !important;
+}
+
+.has-max-width-5rem
+{
+    max-width: 5rem !important;
+}
+
+.has-max-width-6rem
+{
+    max-width: 6rem !important;
+}
+
+.has-max-width-8rem
+{
+    max-width: 8rem !important;
+}
+
+.has-max-width-10rem
+{
+    max-width: 10rem !important;
+}
+
+.has-max-width-15rem
+{
+    max-width: 15rem !important;
+}
+
+.has-max-width-20rem
+{
+    max-width: 20rem !important;
+}
+
+.has-max-width-25rem
+{
+    max-width: 25rem !important;
+}
+
+.has-max-width-30rem
+{
+    max-width: 30rem !important;
+}
+
+.has-max-width-40rem
+{
+    max-width: 40rem !important;
+}
+
+
+/* relative widths */
 .width-75
 {
     width: 75% !important;

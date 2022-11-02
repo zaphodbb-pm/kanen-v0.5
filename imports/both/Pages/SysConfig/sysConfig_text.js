@@ -128,7 +128,7 @@ export const page = {
             },
 
             showWidgets: {
-                label: "Show Debug Infoboxes",
+                label: "Show Debug AdminPanel",
                 helpText: "For development purposes, show info widgets such as browser lat/lng info.",
             },
         }

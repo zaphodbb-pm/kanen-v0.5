@@ -1,9 +1,10 @@
+<!--suppress ReservedWordAsName -->
 <script>
 
     /**
-     * Component block: card.
+     * Component block: card.  Uses a slot to allow for a body to be set by parent.
      *
-     * @memberof Components:Blocks
+     * @memberOf Components:blocks
      * @function card
      * @locus Client
      *
@@ -11,12 +12,12 @@
      */
 
     //* setup props to receive component data
-    export let text;            // text object; child of pageText.components
-    export let id;              // unique component id
+    export let text;        // text object; child of pageText.components; already language adjusted
+    export let id = "";     // unique component id
 
-    //* get the user language preference from store and text from context
-    import {i18n} from "../../functions/utilities/i18n.js";
-    import {lang} from "../../client/systemStores.mjs";
+    let className = ''
+    // noinspection ReservedWordAsName
+    export { className as class }
 
     //** event handlers
     import {createEventDispatcher} from 'svelte';
@@ -29,34 +30,34 @@
 </script>
 
 
-<article class="card {id ? id : ''}">
+
+
+<article class="card {className}" id="{id ? id : ''}">
+    {#if text.image}
+        <figure>
+            <img class="has-aspect-3x1" src={text.image} alt={text.altImage || ''}>
+        </figure>
+    {/if}
+
     {#if text.title}
-        <header class="card-header">
-            <p class="card-header-title">{i18n(text, "title", $lang)}</p>
+        <header>
+            <h3>{text.title}</h3>
+            {#if text.subtitle}
+                <p>{text.subtitle}</p>
+            {/if}
         </header>
     {/if}
 
-    {#if text.image}
-        <div class="card-image">
-            <figure class="image is-3by1">
-                <img src={text.image} alt="Placeholder">
-            </figure>
-        </div>
-    {/if}
-
-    <div class="card-content">
+    <div>
         <slot> </slot>
     </div>
 
-    {#if text.footer }
-        <footer class="card-footer">
-            {#each i18n(text, "footer", $lang) as foot, idx}
-                <a href="#!"
-                   class="card-footer-item"
-                   on:click|preventDefault={ () => footEvent(id, idx, foot) }>
-
-                    {foot}
-                </a>
+    {#if text.footer}
+        <footer>
+            {#each text.footer as foot, idx}
+                <button type="button" class="{foot.class}" on:click={ () => footEvent(id, idx, foot.text) }>
+                    {foot.text}
+                </button>
             {/each}
         </footer>
     {/if}
