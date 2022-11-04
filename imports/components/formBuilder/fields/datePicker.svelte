@@ -19,8 +19,8 @@
     export let field = {};
 
     //* support functions
-    import flatpickr from 'flatpickr';
-    import 'flatpickr/dist/flatpickr.css'
+    //import flatpickr from 'flatpickr';
+    //import 'flatpickr/dist/flatpickr.css'
     import {onMount, onDestroy, createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 
@@ -42,6 +42,8 @@
     }
 
     //* lifecycle states
+
+    /*
     onMount( () => {
         let target = document.getElementById("fp_" + field.field);
         fp = flatpickr(target, field.params);
@@ -52,6 +54,8 @@
     onDestroy( () => {
         fp.destroy();
     });
+
+     */
 
 </script>
 

@@ -26,7 +26,6 @@
     //* support functions
     import {documents} from '/imports/both/systemGlobals'
     import {fileReader} from '/imports/client/setup/textCommon'
-    import Icon from '/imports/components/elements/icon/icon.svelte'
     import Crop_Image from '/imports/components/widgets/croppie.svelte'
     import {getContext, createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
@@ -172,7 +171,7 @@
 
     <div class="control">
         <div class="button is-primary is-height-browse">
-            <Icon icon='{getContext("iconBrowse")}' class="text-1dot5rem"/>
+            <span class="icon-bg-folder is-medium"></span>
 
             <input type="file" class="input file-input add-cursor" on:input="{setfile}">
         </div>
@@ -184,7 +183,7 @@
 
             <div class="w-100 d-flex justify-content-between align-items-center">
                 {#if format === 'text' && showTxtImg}
-                    <Icon icon='{getContext("iconFileFile")}' class="is-size-1"/>
+                    <span class="icon-bg-file is-large"></span>
                 {/if}
 
                 {#if format === 'image'}
@@ -200,7 +199,7 @@
 
                 {#if messages}
                     <div class="icon-delete is-align-self-flex-end" on:click="{deleteInfo}">
-                        <Icon icon='{getContext("iconFileDelete")}' class="is-size-6"/>
+                        <span class="icon-bg-trash is-medium"></span>
                     </div>
                 {/if}
             </div>
@@ -211,7 +210,7 @@
     {#if hasCroppie}
         <div class="control">
             <div class="button is-primary is-height-browse is-last-item" on:click="{cropImage}">
-                <Icon icon='{getContext("iconCrop")}' class="text-1dot5rem"/>
+                <span class="icon-bg-crop is-medium"></span>
             </div>
         </div>
     {/if}

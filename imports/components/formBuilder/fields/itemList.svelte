@@ -17,7 +17,6 @@
     export let field = {};
 
     //* support functions
-    import Icon from '/imports/components/elements/icon/icon.svelte'
     import Sortable from '/imports/components/elements/rowDragDrop.svelte'
     import {getContext, createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
@@ -81,7 +80,7 @@
 <div class="box">
 
     <button class="button btn-rounded is-primary mb-3" on:click|preventDefault="{addRow}">
-        <Icon icon='{getContext("iconRowAdd")}' class="text-1dot5rem"/>
+        <span class="icon-bg-circle-plus is-medium has-text-primary"></span>
     </button>
 
     <Sortable
@@ -117,7 +116,7 @@
 
             <div class="w-10">
                 <div class="add-cursor has-text-centered" on:click="{() => deleteRow(item.id)}">
-                    <Icon icon='{getContext("iconDelete")}' class="text-1dot5rem has-text-danger"/>
+                    <span class="icon-bg-circle-minus is-medium has-text-danger"></span>
                 </div>
             </div>
         </div>

@@ -34,7 +34,7 @@
     import schema from './starter_form_schema';
     import listArray from './starter_list';
 
-    //import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte'
+    import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte'
     //import List_Form from '/imports/components/listForm/listForm.svelte'
 
     const pageHeader = i18n(header, "", $lang);
@@ -65,19 +65,24 @@
 
 <main class="main-content">
 
-    <div class="columns">
+    <div class="row">
 
-
-        <!--
-        <div class="column is-one-quarter is-offset-three-quarters">
+        <div class="column">
             <Field_Wrapper
                     class=""
                     field="{pageConfig.components.gridMode}"
                     watchFields="{ {} }"
                     on:field-changed="{gridMode}"/>
         </div>
-        -->
+
+
+        <div class="column">
+
+
+        </div>
+
     </div>
+
 
     <!--
     <List_Form

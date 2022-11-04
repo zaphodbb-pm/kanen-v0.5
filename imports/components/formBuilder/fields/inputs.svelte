@@ -19,7 +19,6 @@
     //* support functions
     import {validateEmail} from '/imports/functions/formatters/validateEmail'
     import {validatePhone} from '/imports/functions/formatters/validatePhone'
-    import Icon from '/imports/components/elements/icon/icon.svelte'
     import {createEventDispatcher, getContext} from 'svelte';
     const dispatch = createEventDispatcher();
 
@@ -112,11 +111,11 @@
             <a class="button has-text-grey" on:click={checkShow}>
                 {#if isText}
                     <span title="{showTitles.show}">
-                        <Icon icon='{getContext("iconShowText")}' class="text-1dot5rem" />
+                        <span class="icon-bg-eye is-medium"></span>
                     </span>
                 {:else}
                     <span title="{showTitles.hide}">
-                        <Icon icon='{getContext("iconHideText")}' class="text-1dot5rem"  />
+                        <span class="icon-bg-eye-off is-medium"></span>
                     </span>
                 {/if}
             </a>

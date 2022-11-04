@@ -60,7 +60,6 @@
     //* support functions
     import {sysConfig} from '/imports/client/systemStores'
     import {onMount, setContext, getContext} from 'svelte'
-    import Icon from '/imports/components/elements/icon/icon.svelte'
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 

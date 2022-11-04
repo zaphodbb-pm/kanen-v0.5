@@ -2,11 +2,9 @@
     /**
      * Api key builder.
      *
-     * @memberOf Components:Form
-     * @function apikey
+     * @module apikey
+     * @memberOf Components:form
      * @locus Client
-     * @isTemplate true
-     * @augments fieldWrapper
      *
      * @emits 'on-inputentry', {value: keyValue, error: false}
      *
@@ -21,7 +19,6 @@
 
     //* support functions
     import {generateId} from '/imports/functions/utilities/generateId'
-    import Icon from '/imports/components/elements/icon/icon.svelte'
     import {getContext, createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 
@@ -48,7 +45,7 @@
 <div class="field has-addons">
     <div class="control">
         <a class="button is-primary" on:click="{setkey}">
-            <Icon icon='{getContext("iconApiKey")}' class="text-1dot5rem"/>
+            <span class="icon-bg-key is-medium"></span>
         </a>
     </div>
 

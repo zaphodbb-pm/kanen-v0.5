@@ -36,7 +36,6 @@
 
     //* support functions
     import {getDocs} from '/imports/functions/supportApplication/getDocs'
-    import Icon from '/imports/components/elements/icon/icon.svelte'
     import {getContext, createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
     let formText = getContext("formText");
@@ -157,7 +156,7 @@
 
     {#if showColours}
         <div class="is-status-icon" style="color: {activeColour};">
-            <Icon icon='{getContext("iconStatus")}' class="text-1dot5rem"/>
+            <span class="icon-bg-alert-info is-medium"></span>
         </div>
     {/if}
 

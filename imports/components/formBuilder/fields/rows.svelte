@@ -35,7 +35,6 @@
 
     //* support functions
     import {deepClone} from '/imports/functions/utilities/deepClone'
-    import Icon from '/imports/components/elements/icon/icon.svelte'
     import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte'
     import Sortable from '/imports/components/elements/rowDragDrop.svelte'
     import {getContext,  setContext, createEventDispatcher} from 'svelte';
@@ -149,7 +148,7 @@
 <fieldset class="box field-rows">
 
     <button class="button btn-rounded is-primary mb-3" on:click|preventDefault="{addRow}">
-        <Icon icon='{getContext("iconRowAdd")}' class="text-1dot5rem"/>
+        <span class="icon-bg-circle-plus is-medium"></span>
     </button>
 
 
@@ -171,7 +170,7 @@
             </div>
 
             <div class="add-cursor" on:click="{() => deleteRow(item.row)}">
-                <Icon icon='{getContext("iconDelete")}' class="text-1dot5rem has-text-danger"/>
+                <span class="icon-bg-trash is-medium has-text-danger"></span>
             </div>
         </div>
 

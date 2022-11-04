@@ -5299,6 +5299,44 @@ figure:not(.avatar) > [class*='badge']
             mask-image: var(--icon-bg-calendar-url);
 }
 
+.icon-bg-circle-minus
+{
+    --icon-bg-circle-minus-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <circle cx="12" cy="12" r="10"></circle>\
+            <line x1="8" y1="12" x2="16" y2="12"></line>\
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-circle-minus-url);
+            mask-image: var(--icon-bg-circle-minus-url);
+}
+
+.icon-bg-circle-plus
+{
+    --icon-bg-circle-plus-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <circle cx="12" cy="12" r="10"></circle>\
+            <line x1="12" y1="8" x2="12" y2="16"></line>\
+            <line x1="8" y1="12" x2="16" y2="12"></line>\
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-circle-plus-url);
+            mask-image: var(--icon-bg-circle-plus-url);
+}
+
+.icon-bg-circle-x
+{
+    --icon-bg-circle-x-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <circle cx="12" cy="12" r="10"></circle>\
+            <line x1="15" y1="9" x2="9" y2="15"></line>\
+            <line x1="9" y1="9" x2="15" y2="15"></line> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-circle-x-url);
+            mask-image: var(--icon-bg-circle-x-url);
+}
+
 .icon-bg-clock
 {
     --icon-bg-clock-url: url('data:image/svg+xml;charset=utf8,\
@@ -5391,7 +5429,6 @@ figure:not(.avatar) > [class*='badge']
     -webkit-mask-image: var(--icon-bg-credit-card-url);
             mask-image: var(--icon-bg-credit-card-url);
 }
-
 
 .icon-bg-crop
 {
@@ -6278,6 +6315,547 @@ a.tag:hover
 .tag-list li
 {
     list-style: none;
+}
+
+progress
+{
+    display: block;
+    overflow: hidden;
+
+    width: 100%;
+    height: var(--size-6);
+    padding: 0;
+
+    border: none;
+    border-radius: 9999px;
+
+       -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+progress::-webkit-progress-bar
+{
+    background-color: var(--bg-element);
+}
+
+progress::-webkit-progress-value
+{
+    background-color: var(--grey-dark);
+}
+
+progress::-moz-progress-bar
+{
+    background-color: var(--grey-dark);
+}
+
+progress::-ms-fill
+{
+    border: none;
+    background-color: var(--grey-dark);
+}
+
+
+
+progress.is-progress-primary::-webkit-progress-value
+{
+    background-color: var(--primary);
+}
+
+progress.is-progress-primary::-moz-progress-bar
+{
+    background-color: var(--primary);
+}
+
+progress.is-progress-primary::-ms-fill
+{
+    background-color: var(--primary);
+}
+
+progress.is-progress-primary:indeterminate
+{
+    background-image: linear-gradient(to right, var(--primary) 30%, var(--bg-element) 30%);
+}
+
+progress.is-progress-secondary::-webkit-progress-value
+{
+    background-color: var(--secondary);
+}
+
+progress.is-progress-secondary::-moz-progress-bar
+{
+    background-color: var(--secondary);
+}
+
+progress.is-progress-secondary::-ms-fill
+{
+    background-color: var(--secondary);
+}
+
+progress.is-progress-secondary:indeterminate
+{
+    background-image: linear-gradient(to right, var(--secondary) 30%, var(--bg-element) 30%);
+}
+
+progress.is-progress-tertiary::-webkit-progress-value
+{
+    background-color: var(--tertiary);
+}
+
+progress.is-progress-tertiary::-moz-progress-bar
+{
+    background-color: var(--tertiary);
+}
+
+progress.is-progress-tertiary::-ms-fill
+{
+    background-color: var(--tertiary);
+}
+
+progress.is-progress-tertiary:indeterminate
+{
+    background-image: linear-gradient(to right, var(--tertiary) 30%, var(--bg-element) 30%);
+}
+
+progress.is-progress-link::-webkit-progress-value
+{
+    background-color: var(--link);
+}
+
+progress.is-progress-link::-moz-progress-bar
+{
+    background-color: var(--link);
+}
+
+progress.is-progress-link::-ms-fill
+{
+    background-color: var(--link);
+}
+
+progress.is-progress-link:indeterminate
+{
+    background-image: linear-gradient(to right, var(--link) 30%, var(--bg-element) 30%);
+}
+
+progress.is-progress-success::-webkit-progress-value
+{
+    background-color: var(--success);
+}
+
+progress.is-progress-success::-moz-progress-bar
+{
+    background-color: var(--success);
+}
+
+progress.is-progress-success::-ms-fill
+{
+    background-color: var(--success);
+}
+
+progress.is-progress-success:indeterminate
+{
+    background-image: linear-gradient(to right, var(--success) 30%, var(--bg-element) 30%);
+}
+
+progress.is-progress-warning::-webkit-progress-value
+{
+    background-color: var(--warning);
+}
+
+progress.is-progress-warning::-moz-progress-bar
+{
+    background-color: var(--warning);
+}
+
+progress.is-progress-warning::-ms-fill
+{
+    background-color: var(--warning);
+}
+
+progress.is-progress-warning:indeterminate
+{
+    background-image: linear-gradient(to right, var(--warning) 30%, var(--bg-element) 30%);
+}
+
+progress.is-progress-danger::-webkit-progress-value
+{
+    background-color: var(--danger);
+}
+
+progress.is-progress-danger::-moz-progress-bar
+{
+    background-color: var(--danger);
+}
+
+progress.is-progress-danger::-ms-fill
+{
+    background-color: var(--danger);
+}
+
+progress.is-progress-danger:indeterminate
+{
+    background-image: linear-gradient(to right, var(--danger) 30%, var(--bg-element) 30%);
+}
+
+progress:indeterminate
+{
+    animation-name: moveIndeterminate;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    background-color: var(--bg-element);
+    background-image: linear-gradient(to right, var(--black-ter) 30%, var(--bg-element) 30%);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 150% 150%;
+}
+
+progress:indeterminate::-webkit-progress-bar
+{
+    background-color: transparent;
+}
+
+progress:indeterminate::-moz-progress-bar
+{
+    background-color: transparent;
+}
+
+progress:indeterminate::-ms-fill
+{
+    animation-name: none;
+}
+
+@keyframes moveIndeterminate
+{
+    from
+    {
+        background-position: 200% 0;
+    }
+    to
+    {
+        background-position: -200% 0;
+    }
+}
+
+
+.progress-wrapper
+{
+    font-size: var(--size-6);
+
+    position: relative;
+
+    display: block;
+
+    width: 100%;
+    margin: var(--mar-vert) 0;
+
+    --progress-value-offset: 0;
+}
+
+.progress-wrapper > progress
+{
+    display: flex;
+
+    width: calc( 100% - 6ch );
+    margin-top: calc(var(--base-rem) / 5);
+
+    border-radius: 9999px;
+
+    align-items: center;
+}
+
+.progress-wrapper.is-small > progress
+{
+    height: var(--size-7);
+}
+
+.progress-wrapper.is-medium > progress
+{
+    height: var(--size-4);
+}
+
+.progress-wrapper.is-large > progress
+{
+    height: var(--size-2);
+}
+
+.progress-wrapper.is-small
+{
+    --progress-value-offset: calc( calc(var(--size-7) - var(--size-6)) / 2);
+}
+
+.progress-wrapper.is-medium
+{
+    --progress-value-offset: calc( calc(var(--size-4) - var(--size-6)) / 2);
+}
+
+.progress-wrapper.is-large
+{
+    --progress-value-offset: calc( calc(var(--size-2) - var(--size-6)) / 2);
+}
+
+.progress-wrapper[data-show]::after
+{
+    line-height: 1;
+
+    position: absolute;
+    right: 0;
+    bottom: var(--progress-value-offset);
+
+    content: attr(data-show);
+}
+.has-ribbon,
+.has-ribbon-left,
+.has-ribbon-bottom
+{
+    position: relative;
+}
+
+.ribbon
+{
+    font-size: var(--size-6);
+    font-weight: var(--weight-normal);
+
+    position: absolute;
+    z-index: 2;
+    top: .5em;
+    right: 0;
+
+    padding-right: var(--pad-horz);
+    padding-left: var(--pad-horz);
+
+    text-align: center;
+    white-space: nowrap;
+
+    border-right: none;
+    border-top-left-radius: var(--radius-small);
+    border-bottom-left-radius: var(--radius-small);
+
+    justify-content: center;
+}
+
+.has-ribbon-left .ribbon
+{
+    right: auto;
+    left: 0;
+
+    border-right: .1rem solid var(--bg-main-ter);
+    border-left: none;
+    border-radius: 0 var(--radius-small) var(--radius-small) 0;
+}
+
+.has-ribbon-bottom .ribbon
+{
+    top: auto;
+    bottom: .5em;
+}
+
+
+.ribbon.has-shadow
+{
+    right: -.25rem;
+
+    box-shadow: var(--shadow);
+}
+
+.ribbon.is-small
+{
+    font-size: var(--size-7);
+}
+.ribbon.is-medium
+{
+    font-size: var(--size-5);
+
+    padding-top: calc(.5 * var(--pad-vert) );
+    padding-bottom: calc(.5 * var(--pad-vert) );
+}
+.ribbon.is-large
+{
+    font-size: var(--size-4);
+
+    padding-top: var(--pad-vert);
+    padding-bottom: var(--pad-vert);
+}
+.ribbon.is-outlined
+{
+    background-color: transparent;
+}
+
+.tooltip
+{
+    position: relative;
+}
+
+.tooltip::after
+{
+    font-size: var(--size-7);
+    font-weight: var(--weight-medium);
+
+    position: absolute;
+    z-index: 300;
+    bottom: 100%;
+    left: 50%;
+
+    display: block;
+    overflow: hidden;
+
+    max-width: 20rem;
+    padding: .2rem .4rem;
+
+    content: attr(data-tooltip);
+    transition: opacity .2s, transform .2s;
+    transform: translate(-50%, .5rem);
+    white-space: pre;
+    text-overflow: ellipsis;
+    pointer-events: none;
+
+    opacity: 0;
+    color: var(--text-invert);
+    border-radius: calc( .5 * var(--radius) );
+    background-color: var(--bg-main-invert);
+}
+
+.tooltip[disabled],
+.tooltip.disabled
+{
+    pointer-events: auto;
+}
+
+
+/** default - controls tooltip going up plus arrow **/
+.tooltip::before
+{
+    position: absolute;
+    z-index: 300;
+    top: 0;
+    left: 50%;
+
+    width: 0;
+    height: 0;
+
+    content: '';
+    transition: opacity .2s, transform .2s;
+    transform: translate(-50%, 0);
+
+    opacity: 0;
+    border-width: .5rem;
+    border-style: solid;
+    border-color: var(--bg-main-invert) transparent transparent transparent;
+}
+
+.tooltip:focus::after,
+.tooltip:active::after,
+.tooltip:hover::after,
+.tooltip:focus::before,
+.tooltip:active::before,
+.tooltip:hover::before
+{
+    transform: translate(-50%, -.75rem);
+
+    opacity: 1;
+}
+
+
+/** controls tooltip going right plus arrow **/
+.tooltip.tooltip-right::before
+{
+    top: auto;
+    right: auto;
+    bottom: 50%;
+    left: 100%;
+
+    transform: translate(-1.25rem, 50%);
+
+    border-color: transparent var(--bg-main-invert) transparent transparent;
+}
+
+.tooltip.tooltip-right::after
+{
+    bottom: 50%;
+    left: 100%;
+
+    transform: translate(-.25rem, 50%);
+}
+
+.tooltip.tooltip-right:focus::after,
+.tooltip.tooltip-right:hover::after
+{
+    transform: translate(1.75rem, 50%);
+}
+
+.tooltip.tooltip-right:focus::before,
+.tooltip.tooltip-right:hover::before
+{
+    transform: translate(.75rem, 50% );
+}
+
+
+/** controls tooltip going left plus arrow **/
+.tooltip.tooltip-left::before
+{
+    right: 100%;
+    bottom: 50%;
+    left: auto;
+
+    transform: translate(1rem, 50%);
+
+    border-color: transparent transparent transparent var(--bg-main-invert);
+}
+
+.tooltip.tooltip-left::after
+{
+    right: 100%;
+    bottom: 50%;
+    left: auto;
+
+    transform: translate(1.5rem, 50%);
+}
+
+.tooltip.tooltip-left:focus::after,
+.tooltip.tooltip-left:hover::after
+{
+    transform: translate(-.75rem, 50%);
+}
+
+.tooltip.tooltip-left:focus::before,
+.tooltip.tooltip-left:hover::before
+{
+    transform: translate(.25rem, calc(50% + .25rem));
+}
+
+
+/** controls tooltip going down plus arrow **/
+.tooltip.tooltip-bottom::before
+{
+    top: 100%;
+    bottom: auto;
+    left: 50%;
+
+    transform: translate(-50%, -1rem);
+
+    border-color: transparent transparent var(--bg-main-invert) transparent;
+}
+
+.tooltip.tooltip-bottom::after
+{
+    top: 100%;
+    bottom: auto;
+
+    transform: translate(-50%, -.4rem);
+}
+
+.tooltip.tooltip-bottom:focus::after,
+.tooltip.tooltip-bottom:hover::after,
+.tooltip.tooltip-bottom:active::after
+{
+    transform: translate(-50%, .75rem);
+}
+
+.tooltip.tooltip-bottom:focus::before,
+.tooltip.tooltip-bottom:hover::before,
+.tooltip.tooltip-bottom:active::before
+{
+    transform: translate(-50%, -.25rem);
 }
 
 .blockquote
@@ -8572,547 +9150,6 @@ a.tag:hover
 .widgetbar-link span
 {
     font-weight: var(--weight-semibold);
-}
-
-progress
-{
-    display: block;
-    overflow: hidden;
-
-    width: 100%;
-    height: var(--size-6);
-    padding: 0;
-
-    border: none;
-    border-radius: 9999px;
-
-       -moz-appearance: none;
-    -webkit-appearance: none;
-}
-
-progress::-webkit-progress-bar
-{
-    background-color: var(--bg-element);
-}
-
-progress::-webkit-progress-value
-{
-    background-color: var(--grey-dark);
-}
-
-progress::-moz-progress-bar
-{
-    background-color: var(--grey-dark);
-}
-
-progress::-ms-fill
-{
-    border: none;
-    background-color: var(--grey-dark);
-}
-
-
-
-progress.is-progress-primary::-webkit-progress-value
-{
-    background-color: var(--primary);
-}
-
-progress.is-progress-primary::-moz-progress-bar
-{
-    background-color: var(--primary);
-}
-
-progress.is-progress-primary::-ms-fill
-{
-    background-color: var(--primary);
-}
-
-progress.is-progress-primary:indeterminate
-{
-    background-image: linear-gradient(to right, var(--primary) 30%, var(--bg-element) 30%);
-}
-
-progress.is-progress-secondary::-webkit-progress-value
-{
-    background-color: var(--secondary);
-}
-
-progress.is-progress-secondary::-moz-progress-bar
-{
-    background-color: var(--secondary);
-}
-
-progress.is-progress-secondary::-ms-fill
-{
-    background-color: var(--secondary);
-}
-
-progress.is-progress-secondary:indeterminate
-{
-    background-image: linear-gradient(to right, var(--secondary) 30%, var(--bg-element) 30%);
-}
-
-progress.is-progress-tertiary::-webkit-progress-value
-{
-    background-color: var(--tertiary);
-}
-
-progress.is-progress-tertiary::-moz-progress-bar
-{
-    background-color: var(--tertiary);
-}
-
-progress.is-progress-tertiary::-ms-fill
-{
-    background-color: var(--tertiary);
-}
-
-progress.is-progress-tertiary:indeterminate
-{
-    background-image: linear-gradient(to right, var(--tertiary) 30%, var(--bg-element) 30%);
-}
-
-progress.is-progress-link::-webkit-progress-value
-{
-    background-color: var(--link);
-}
-
-progress.is-progress-link::-moz-progress-bar
-{
-    background-color: var(--link);
-}
-
-progress.is-progress-link::-ms-fill
-{
-    background-color: var(--link);
-}
-
-progress.is-progress-link:indeterminate
-{
-    background-image: linear-gradient(to right, var(--link) 30%, var(--bg-element) 30%);
-}
-
-progress.is-progress-success::-webkit-progress-value
-{
-    background-color: var(--success);
-}
-
-progress.is-progress-success::-moz-progress-bar
-{
-    background-color: var(--success);
-}
-
-progress.is-progress-success::-ms-fill
-{
-    background-color: var(--success);
-}
-
-progress.is-progress-success:indeterminate
-{
-    background-image: linear-gradient(to right, var(--success) 30%, var(--bg-element) 30%);
-}
-
-progress.is-progress-warning::-webkit-progress-value
-{
-    background-color: var(--warning);
-}
-
-progress.is-progress-warning::-moz-progress-bar
-{
-    background-color: var(--warning);
-}
-
-progress.is-progress-warning::-ms-fill
-{
-    background-color: var(--warning);
-}
-
-progress.is-progress-warning:indeterminate
-{
-    background-image: linear-gradient(to right, var(--warning) 30%, var(--bg-element) 30%);
-}
-
-progress.is-progress-danger::-webkit-progress-value
-{
-    background-color: var(--danger);
-}
-
-progress.is-progress-danger::-moz-progress-bar
-{
-    background-color: var(--danger);
-}
-
-progress.is-progress-danger::-ms-fill
-{
-    background-color: var(--danger);
-}
-
-progress.is-progress-danger:indeterminate
-{
-    background-image: linear-gradient(to right, var(--danger) 30%, var(--bg-element) 30%);
-}
-
-progress:indeterminate
-{
-    animation-name: moveIndeterminate;
-    animation-duration: 1.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-
-    background-color: var(--bg-element);
-    background-image: linear-gradient(to right, var(--black-ter) 30%, var(--bg-element) 30%);
-    background-repeat: no-repeat;
-    background-position: top left;
-    background-size: 150% 150%;
-}
-
-progress:indeterminate::-webkit-progress-bar
-{
-    background-color: transparent;
-}
-
-progress:indeterminate::-moz-progress-bar
-{
-    background-color: transparent;
-}
-
-progress:indeterminate::-ms-fill
-{
-    animation-name: none;
-}
-
-@keyframes moveIndeterminate
-{
-    from
-    {
-        background-position: 200% 0;
-    }
-    to
-    {
-        background-position: -200% 0;
-    }
-}
-
-
-.progress-wrapper
-{
-    font-size: var(--size-6);
-
-    position: relative;
-
-    display: block;
-
-    width: 100%;
-    margin: var(--mar-vert) 0;
-
-    --progress-value-offset: 0;
-}
-
-.progress-wrapper > progress
-{
-    display: flex;
-
-    width: calc( 100% - 6ch );
-    margin-top: calc(var(--base-rem) / 5);
-
-    border-radius: 9999px;
-
-    align-items: center;
-}
-
-.progress-wrapper.is-small > progress
-{
-    height: var(--size-7);
-}
-
-.progress-wrapper.is-medium > progress
-{
-    height: var(--size-4);
-}
-
-.progress-wrapper.is-large > progress
-{
-    height: var(--size-2);
-}
-
-.progress-wrapper.is-small
-{
-    --progress-value-offset: calc( calc(var(--size-7) - var(--size-6)) / 2);
-}
-
-.progress-wrapper.is-medium
-{
-    --progress-value-offset: calc( calc(var(--size-4) - var(--size-6)) / 2);
-}
-
-.progress-wrapper.is-large
-{
-    --progress-value-offset: calc( calc(var(--size-2) - var(--size-6)) / 2);
-}
-
-.progress-wrapper[data-show]::after
-{
-    line-height: 1;
-
-    position: absolute;
-    right: 0;
-    bottom: var(--progress-value-offset);
-
-    content: attr(data-show);
-}
-.has-ribbon,
-.has-ribbon-left,
-.has-ribbon-bottom
-{
-    position: relative;
-}
-
-.ribbon
-{
-    font-size: var(--size-6);
-    font-weight: var(--weight-normal);
-
-    position: absolute;
-    z-index: 2;
-    top: .5em;
-    right: 0;
-
-    padding-right: var(--pad-horz);
-    padding-left: var(--pad-horz);
-
-    text-align: center;
-    white-space: nowrap;
-
-    border-right: none;
-    border-top-left-radius: var(--radius-small);
-    border-bottom-left-radius: var(--radius-small);
-
-    justify-content: center;
-}
-
-.has-ribbon-left .ribbon
-{
-    right: auto;
-    left: 0;
-
-    border-right: .1rem solid var(--bg-main-ter);
-    border-left: none;
-    border-radius: 0 var(--radius-small) var(--radius-small) 0;
-}
-
-.has-ribbon-bottom .ribbon
-{
-    top: auto;
-    bottom: .5em;
-}
-
-
-.ribbon.has-shadow
-{
-    right: -.25rem;
-
-    box-shadow: var(--shadow);
-}
-
-.ribbon.is-small
-{
-    font-size: var(--size-7);
-}
-.ribbon.is-medium
-{
-    font-size: var(--size-5);
-
-    padding-top: calc(.5 * var(--pad-vert) );
-    padding-bottom: calc(.5 * var(--pad-vert) );
-}
-.ribbon.is-large
-{
-    font-size: var(--size-4);
-
-    padding-top: var(--pad-vert);
-    padding-bottom: var(--pad-vert);
-}
-.ribbon.is-outlined
-{
-    background-color: transparent;
-}
-
-.tooltip
-{
-    position: relative;
-}
-
-.tooltip::after
-{
-    font-size: var(--size-7);
-    font-weight: var(--weight-medium);
-
-    position: absolute;
-    z-index: 300;
-    bottom: 100%;
-    left: 50%;
-
-    display: block;
-    overflow: hidden;
-
-    max-width: 20rem;
-    padding: .2rem .4rem;
-
-    content: attr(data-tooltip);
-    transition: opacity .2s, transform .2s;
-    transform: translate(-50%, .5rem);
-    white-space: pre;
-    text-overflow: ellipsis;
-    pointer-events: none;
-
-    opacity: 0;
-    color: var(--text-invert);
-    border-radius: calc( .5 * var(--radius) );
-    background-color: var(--bg-main-invert);
-}
-
-.tooltip[disabled],
-.tooltip.disabled
-{
-    pointer-events: auto;
-}
-
-
-/** default - controls tooltip going up plus arrow **/
-.tooltip::before
-{
-    position: absolute;
-    z-index: 300;
-    top: 0;
-    left: 50%;
-
-    width: 0;
-    height: 0;
-
-    content: '';
-    transition: opacity .2s, transform .2s;
-    transform: translate(-50%, 0);
-
-    opacity: 0;
-    border-width: .5rem;
-    border-style: solid;
-    border-color: var(--bg-main-invert) transparent transparent transparent;
-}
-
-.tooltip:focus::after,
-.tooltip:active::after,
-.tooltip:hover::after,
-.tooltip:focus::before,
-.tooltip:active::before,
-.tooltip:hover::before
-{
-    transform: translate(-50%, -.75rem);
-
-    opacity: 1;
-}
-
-
-/** controls tooltip going right plus arrow **/
-.tooltip.tooltip-right::before
-{
-    top: auto;
-    right: auto;
-    bottom: 50%;
-    left: 100%;
-
-    transform: translate(-1.25rem, 50%);
-
-    border-color: transparent var(--bg-main-invert) transparent transparent;
-}
-
-.tooltip.tooltip-right::after
-{
-    bottom: 50%;
-    left: 100%;
-
-    transform: translate(-.25rem, 50%);
-}
-
-.tooltip.tooltip-right:focus::after,
-.tooltip.tooltip-right:hover::after
-{
-    transform: translate(1.75rem, 50%);
-}
-
-.tooltip.tooltip-right:focus::before,
-.tooltip.tooltip-right:hover::before
-{
-    transform: translate(.75rem, 50% );
-}
-
-
-/** controls tooltip going left plus arrow **/
-.tooltip.tooltip-left::before
-{
-    right: 100%;
-    bottom: 50%;
-    left: auto;
-
-    transform: translate(1rem, 50%);
-
-    border-color: transparent transparent transparent var(--bg-main-invert);
-}
-
-.tooltip.tooltip-left::after
-{
-    right: 100%;
-    bottom: 50%;
-    left: auto;
-
-    transform: translate(1.5rem, 50%);
-}
-
-.tooltip.tooltip-left:focus::after,
-.tooltip.tooltip-left:hover::after
-{
-    transform: translate(-.75rem, 50%);
-}
-
-.tooltip.tooltip-left:focus::before,
-.tooltip.tooltip-left:hover::before
-{
-    transform: translate(.25rem, calc(50% + .25rem));
-}
-
-
-/** controls tooltip going down plus arrow **/
-.tooltip.tooltip-bottom::before
-{
-    top: 100%;
-    bottom: auto;
-    left: 50%;
-
-    transform: translate(-50%, -1rem);
-
-    border-color: transparent transparent var(--bg-main-invert) transparent;
-}
-
-.tooltip.tooltip-bottom::after
-{
-    top: 100%;
-    bottom: auto;
-
-    transform: translate(-50%, -.4rem);
-}
-
-.tooltip.tooltip-bottom:focus::after,
-.tooltip.tooltip-bottom:hover::after,
-.tooltip.tooltip-bottom:active::after
-{
-    transform: translate(-50%, .75rem);
-}
-
-.tooltip.tooltip-bottom:focus::before,
-.tooltip.tooltip-bottom:hover::before,
-.tooltip.tooltip-bottom:active::before
-{
-    transform: translate(-50%, -.25rem);
 }
 
 /* Background Colour Helpers */

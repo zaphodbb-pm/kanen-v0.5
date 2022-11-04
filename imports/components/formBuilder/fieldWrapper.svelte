@@ -36,6 +36,7 @@
     export let watchFields = {};
 
     let className;
+    // noinspection ReservedWordAsName
     export { className as class };
 
     //* support functions
@@ -43,7 +44,6 @@
     import {components} from './fields/func-registerField'
     import {slide} from 'svelte/transition';
     import {quintOut} from 'svelte/easing';
-    import Icon from '/imports/components/elements/icon/icon.svelte'
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 
@@ -202,48 +202,15 @@
 
             {#if helpText}
                 <span class="field-info has-text-primary add-cursor" on:click|stopPropagation="{toggleHelp}">
-                <Icon icon={getContext("iconHelp")} class="has-text-info"/>
-            </span>
+                    <span class="icon-bg-help"></span>
+                </span>
 
                 {#if fieldHelpShow}
-                    <div class= "mt-2 mb-4" transition:slide="{{delay: 100, duration: 300, easing: quintOut }}">
-                        <p class="is-family-secondary">{@html helpText}</p>
+                    <div class="" transition:slide="{{delay: 100, duration: 300, easing: quintOut }}">
+                        <p class="">{@html helpText}</p>
                     </div>
                 {/if}
             {/if}
         </div>
     </div>
 {/if}
-
-
-
-<style>
-
-    .field-info {
-        position: absolute;
-        top: -12px;
-        right: -12px;
-        font-size: 1.6rem;
-        background-color: #FFF;
-        line-height: 0;
-        border-radius: 50%;
-        padding: 0.25rem;
-        z-index: 10;
-    }
-
-    .has-float-label {
-        position: absolute;
-        left: 1rem;
-        top: -0.5rem;
-        background-color: #FFF;
-        padding: 0 0.25rem;
-        font-weight: 500;
-        font-size: 0.75rem;
-        z-index: 10;
-    }
-
-    .adjust-label {
-        left: 4rem;
-    }
-
-</style>

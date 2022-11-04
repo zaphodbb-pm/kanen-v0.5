@@ -19,7 +19,6 @@
     export let options = {};
 
     //* support functions
-    import Icon from '/imports/components/elements/icon/icon.svelte'
     import {onMount, onDestroy, getContext, createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
     import Croppie from 'croppie'
@@ -115,7 +114,7 @@
 <div class="croppie-area">
     <div class="is-croppie-save">
         <button class="button is-primary " on:click="{saveImage}">
-            <Icon icon='{getContext("iconCropSave")}' class="text-1dot5rem"/>
+            <span class="icon-bg-cloud-save is-medium"></span>
         </button>
     </div>
 
