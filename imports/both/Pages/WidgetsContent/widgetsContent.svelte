@@ -21,7 +21,7 @@
         import {header, page} from './widgetsContent_text'
 
         //** app support files
-        import { setContext} from 'svelte';
+        //import { setContext} from 'svelte';
         import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
@@ -33,11 +33,17 @@
     import {lang} from "../../../client/systemStores.mjs";
 
     const pageHeader = i18n(header, "", $lang);
+    const pageText = i18n(page, "page", $lang);
 
-    setContext("pageText", page);
+    const componentsText = i18n(page, "components", $lang);
 
-    //import TabContent from '/imports/components/widgets/tabbedContent.svelte'
-    //import Accordian from '/imports/components/widgets/accordian.svelte'
+
+    console
+
+    //setContext("pageText", page);
+
+    import TabContent from '/imports/components/widgets/tabbedContent.svelte'
+    import Accordian from '/imports/components/widgets/accordian.svelte'
 
 </script>
 
@@ -47,7 +53,35 @@
 
 <main class="main-content">
 
-    tabs and accordions
+    <section>
+        <h2>{pageText.headingTabs}</h2>
+
+        <p>{@html pageText.bodyTabs}</p>
+
+        <TabContent class="has-max-width-30rem" content="{componentsText.tabbed}"/>
+    </section>
+
+
+    <section class="space-vert-large">
+        <h2>{pageText.headingAccordions}</h2>
+
+        <p>{@html pageText.bodyAccordions}</p>
+
+
+        <Accordian class="has-max-width-30rem" content="{componentsText.tabbed}"   />
+    </section>
+
+    <!--
+    <section class="space-vert-large">
+        <h2>{pageText.headingAccordions}</h2>
+
+        <TabContent class="is-fullwidth" content="{tabbed}"/>
+    </section>
+    -->
+
+
+
+
 </main>
 
 

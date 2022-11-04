@@ -112,7 +112,6 @@ export const page = {
                 {
                     icon: "icon-bg-tag",
                     label: "General",
-                    dbContent: null,  //dbContent: { coll: "", name: ""}
                     lead: "Pages that are generally accessible by unlogged in users.",
                     text: [
                         "<a href='/home'>Home</a> - this page.",
@@ -131,7 +130,6 @@ export const page = {
                 {
                     icon: "icon-bg-grid",
                     label: "Components",
-                    dbContent: null,
                     lead: "Special purpose pages that typically are only available to valid and logged in users.",
                     text: [
                         "<a href='/cards'>Cards</a> - basic examples of card component.",
@@ -152,7 +150,6 @@ export const page = {
                 {
                     icon: "icon-bg-user-plus",
                     label: "User",
-                    dbContent: null,
                     lead: "User pages for only logged in or logging in users.  " +
                         "Use email: 'test-user@example.com' with password: 'test-user-kanen' to see these pages. ",
 
@@ -171,7 +168,6 @@ export const page = {
                 {
                     icon: "icon-bg-edit",
                     label: "Content Control",
-                    dbContent: null,
                     lead: "Pages only available to system admin for general maintenance.",
                     text: [
                         "<a href='/buildContent'>Build Content</a> - list / form to enter content into the mini-wiki.  " +
@@ -189,7 +185,6 @@ export const page = {
                 {
                     icon: "icon-bg-lock",
                     label: "Admin Only",
-                    dbContent: null,
                     lead: "Pages only available to system super admin role.",
                     text: [
                         "<a href='/users'>Users</a> - list and form to set up user information and role / group access.",

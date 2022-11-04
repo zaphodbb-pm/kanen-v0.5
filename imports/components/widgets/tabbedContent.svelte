@@ -4,16 +4,14 @@
      * Tabbed content widget.
      *
      * @module tabbedContent
-     * @memberOf Components:
+     * @memberOf Components:widgets
      * @locus Client
      *
-     * @param {String} tabSettings - tab label icon positioned at left of tab
      * @param {Object[]} content - input array of objects from parent
      * @param {String} content[]:icon - tab label icon positioned at left of tab
      * @param {String} content[]:label - tab label
+     * @param {String} content[]:lead - tab subtitle
      * @param {String} content[]:text - optional content to display in body of tab
-     * @param {String} content[]:list - optional sub content to display in a tab
-     * @param {Object} content[]:dbContent - dbContent: {coll: "", name: ""} optional content from database to display in body of tab
      *
      * @see Goldilocks-CSS documentation for {@link https://zaphodbb-pm.github.io/goldilocks-css/pages/extend-components/tabs.html|tabs}
      *
@@ -26,7 +24,6 @@
 
     //* external props
     export let content = [];
-    export let tabSettings = "";
 
     let className = ''
     // noinspection ReservedWordAsName
@@ -36,7 +33,7 @@
 
 
 
-<div class="tabs {tabSettings}">
+<div class="tabs {className}">
     {#each content as item, idx}
         <input type="radio" name="tab_unit_1" id="{item.label}" hidden checked="{idx === 0}">
     {/each}
@@ -55,7 +52,7 @@
     <div class="tab-content">
         {#each content as tab}
             <section>
-                <h2 class="sr-only">{tab.label}</h2>
+                <h3 class="sr-only">{tab.label}</h3>
 
                 {#if tab.lead}
                     <p class="lead">{tab.lead}</p>

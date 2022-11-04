@@ -20,41 +20,52 @@ export const header = {
 
 export const page = {
 
-    page: {},
+    page: {
+        en: {
+            headingTabs: "Standard Tabs",
+            headingAccordions: "Standard Accordions",
+
+            bodyTabs: "See <a href='https://zaphodbb-pm.github.io/goldilocks-css/pages/extend-components/tabs.html' target='_blank'> " +
+                "tabs configuration and control</a> for more details.",
+
+            bodyAccordions: "See <a href='https://zaphodbb-pm.github.io/goldilocks-css/pages/extend-components/accordions.html' target='_blank'> " +
+                "accordion configuration and control</a> for more details.",
+        }
+    },
 
     components: {
+        en: {
+            tabbed:
+                [
+                    {
+                        icon: "icon-bg-music",
+                        label: "Music",
+                        text: "The <b>quick</b> brown fox jumped over the <em>lazy</em> black dog.",
+                        style: "is-expander-primary"
+                    },
 
-        tabbed: {
-            en: [
-                {
-                    icon: "iconMusic",
-                    label: "Music",
-                    text: "The <b>quick</b> brown fox jumped over the <em>lazy</em> black dog.",
-                    dbContent: null  //dbContent: { coll: "", name: ""}
-                },
+                    {
+                        icon: "icon-bg-film",
+                        label: "Films",
+                        text: "some second tab text",
+                        style: "is-expander-secondary"
+                    },
 
-                {
-                    icon: "iconFilm",
-                    label: "Films",
-                    text: "some second tab text",
-                    dbContent: null
-                },
+                    {
+                        icon: "icon-bg-image",
+                        label: "Pictures",
+                        text: "Some pithy content talking about pictures.",
+                        style: "is-expander-tertiary"
+                    },
 
-                {
-                    icon: "iconImage",
-                    label: "Pictures",
-                    text: "Some pithy content talking about pictures.",
-                    dbContent: null
-                },
-
-                {
-                    icon: "iconDoc",
-                    label: "Docs",
-                    text: "<p>Third tab has extra long text.  This is formed into sentences and maybe also paragraphs.</p></br>" +
-                        "<p> <b>Note</b> that this area also supports html codes because we know the source is reliable.</p>",
-                    dbContent: null
-                },
-            ]
+                    {
+                        icon: "icon-bg-file",
+                        label: "Docs",
+                        text: "<p>Third tab has extra long text.  This is formed into sentences and maybe also paragraphs.</p></br>" +
+                            "<p> <b>Note</b> that this area also supports html codes because we know the source is reliable.</p>",
+                        style: "is-expander-danger"
+                    },
+                ]
         }
     }
 };

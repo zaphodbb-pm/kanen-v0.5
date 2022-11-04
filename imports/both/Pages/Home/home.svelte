@@ -112,6 +112,6 @@
 
     <section class="space-vert-large">
         <h3 class="has-text-tertiary">{pageText.explore}</h3>
-        <TabContent content="{tabbed}" tabSettings="is-fullwidth" />
+        <TabContent class="is-fullwidth" content="{tabbed}"/>
     </section>
 </main>

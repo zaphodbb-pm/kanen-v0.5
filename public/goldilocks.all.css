@@ -2757,6 +2757,7 @@ details.accordion summary
 
     position: relative;
 
+    display: flex;
     overflow: hidden;
 
     width: calc(100% - var(--padding-normal) - 3em);
@@ -2769,6 +2770,8 @@ details.accordion summary
     border: none;
     border-radius: var(--radius-comp);
     background: var(--bg-main-ter);
+
+    align-items: center;
 }
 
 details.accordion summary::-webkit-details-marker
