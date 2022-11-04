@@ -30,7 +30,7 @@
 
 import schema from './starter_form_schema';
 import list from './starter_list'
-import {roles} from'./starter_page_nav'
+import {roles} from './starter_nav'
 
 import {fieldAddons} from '../../../server/fieldAddons'
 import {buildAllFields} from '../../../functions/supportApplication/buildAllFields'

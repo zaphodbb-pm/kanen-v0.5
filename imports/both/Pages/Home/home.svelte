@@ -52,7 +52,7 @@
 
         <div class="column">
             <figure>
-                <img src="/home-page.jpg" class="" alt="Two puppies romping" loading="lazy">
+                <img src="/home-page.jpg" class="" alt="Two puppies with shoe">
             </figure>
         </div>
     </div>
@@ -102,7 +102,7 @@
                         {#if item}
                             <li>{item}</li>
                         {:else}
-                            <div class="space-component"></div>
+                            <li class="space-component"></li>
                         {/if}
                     {/each}
                 </ul>

@@ -2,8 +2,9 @@
     /**
      * Generic loader as a shim to insert page controller.
      *
-     * @memberof Pages:MyProfile
-     * @function myProfile_loader
+     * @name myProfile_loader
+     * @module
+     * @memberOf Pages:myProfile
      * @locus Client
      *
      * @notes

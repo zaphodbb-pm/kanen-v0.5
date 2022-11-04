@@ -1,7 +1,7 @@
 /**
  * Accesses MongoDb change stream functionality to replace oplog method.
  *
- * @memberof Functions:Server
+ * @memberOf Functions:Server
  * @function ChangeStreams
  * @locus Server
  *
@@ -15,7 +15,7 @@
  */
 
 
-class ChangeStreams {
+export class ChangeStreams {
     constructor(collection, pipeline, options) {
         this.collection = collection;
         this.pipeline = pipeline || {};
@@ -105,5 +105,3 @@ class ChangeStreams {
         }
     }
 }
-
-module.exports = ChangeStreams;

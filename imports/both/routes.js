@@ -48,7 +48,7 @@ import MiniWiki from './Pages/Learn/learn_route';
 import Cards from './Pages/Cards/cards_route';
 import Tabs from './Pages/WidgetsContent/widgetsContent_route';
 import AdminPanel from './Pages/AdminPanel/adminPanel_route';
-import Starter from './Pages/Starter/starter_page_route';
+import Starter from './Pages/Starter/starter_route';
 import Login from './Pages/Login/login_route'
 
 import MyProfile from './Pages/MyProfile/myProfile_route';

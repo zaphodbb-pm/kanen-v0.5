@@ -14,8 +14,8 @@
 
 import {getLang} from '../../../functions/supportApplication/getLang';
 import {i18n} from '../../../functions/utilities/i18n';
-import {nav, link, icon, roles} from './starter_page_nav';
-import Page from './starter_page_loader.svelte';
+import {nav, link, icon, roles} from './starter_nav';
+import Page from './starter_loader.svelte';
 
 
 let lang = getLang("en");

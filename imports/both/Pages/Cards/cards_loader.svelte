@@ -2,8 +2,9 @@
     /**
      * Generic insert loader for pages.
      *
-     * @memberof Pages:Cards
-     * @function cards_loader
+     * @name cards_loader
+     * @module
+     * @memberOf Pages:cards
      * @locus Client
      *
      */

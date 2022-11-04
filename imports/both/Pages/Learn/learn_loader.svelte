@@ -2,8 +2,9 @@
     /**
      * Generic loader as a shim to insert page controller.
      *
-     * @memberof Pages:Learn
-     * @function learn_loader
+     * @name learn_loader
+     * @module
+     * @memberOf Pages:learn
      * @locus Client
      *
      * @notes

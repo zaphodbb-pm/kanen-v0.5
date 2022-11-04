@@ -2,8 +2,9 @@
     /**
      * Generic insert loader for pages.
      *
-     * @memberof Pages:Colours
-     * @function colours_loader
+     * @name colours_loader
+     * @module
+     * @memberOf Pages:colours
      * @locus Client
      *
      */

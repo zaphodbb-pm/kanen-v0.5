@@ -2,8 +2,9 @@
     /**
      * Generic loader as a shim to insert page controller.
      *
-     * @memberof Pages:ExportImport
-     * @function exportImport_loader
+     * @name exportImport_loader
+     * @module
+     * @memberOf Pages:exportImport
      * @locus Client
      *
      * @notes

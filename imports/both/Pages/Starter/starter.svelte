@@ -18,8 +18,8 @@
         export let query = {};
 
         //** page specific text and configuration
-        import {header, page} from './starter_page_text';
-        import {pageConfig} from './starter_page_config';
+        import {header, page} from './starter_text';
+        import {pageConfig} from './starter_config';
 
         //** app support files
         import PageHeader from "../../PageStructure/PageHeader.svelte";

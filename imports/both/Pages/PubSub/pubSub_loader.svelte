@@ -2,8 +2,9 @@
     /**
      * Generic loader as a shim to insert page controller.
      *
-     * @memberof Pages:PubSub
-     * @function pubSub_loader
+     * @name pubSub_loader
+     * @module
+     * @memberOf Pages:pubSub
      * @locus Client
      *
      * @notes

@@ -38,14 +38,6 @@
     import {userPosition, userLoggedIn, userExtras} from '/imports/client/systemStores';
 
 
-    //* local reactive variables
-    let pagePaths = {};
-
-    //** prepare page lookup object for svelte component insertion
-    allRoutes.forEach( route => {
-        pagePaths[route.name] = route;
-    });
-
 
     //* load client-side system parameters
     Meteor.call("clientSysConfig", function(err, res){
@@ -57,49 +49,6 @@
             $sysDebug = res.showWidgets ? res.showWidgets : "";
         }
     })
-
-
-    //* get user position from browser
-    if(Meteor.settings.public.demo_mode){
-        $userPosition = {
-            lat: 45.4,
-            lng: -75.7,
-
-            accuracy: 1369,
-            altitude: null,
-            altitudeAccuracy: null,
-            heading: null,
-            speed: null,
-        };
-    }else{
-        navigator.geolocation.getCurrentPosition(function (position) {
-            $userPosition = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude,
-
-                accuracy: position.coords.accuracy,
-                altitude: position.coords.altitude,
-                altitudeAccuracy: position.coords.altitudeAccuracy,
-                heading: position.coords.heading,
-                speed: position.coords.speed,
-            };
-        });
-    }
-
-
-    //* load the path router -> will render main page & components based on nav-link selection
-    import { path, query } from 'svelte-pathfinder';
-
-    let currentPath = $path.toString();
-    let currentPage = pagePaths[currentPath].component;
-    let params = {specials: "extra values"};
-
-
-    //* build out static components
-    import Navbar from '../Navbar/Navbar.svelte';
-    import SideNav from '../Navbar/NavSideMenu.svelte';
-    import Footer from './Footer.svelte';
-
 
 
     //* respond to user login / logout / page refresh actions from parent Meteor instance
@@ -125,10 +74,42 @@
         }
     }
 
+
+    //* load the path router -> will render main page & components based on nav-link selection
+    import { path, query, pattern, click, state } from 'svelte-pathfinder';
+
+    //** local reactive variables
+    let currentPath = "";
+    let currentPage = "";
+    let params = {specials: "extra values"};
+    let pagePaths = {};
+
+    //** prepare page lookup object for svelte component insertion
+    allRoutes.forEach( route => {
+        pagePaths[route.name] = route;
+    });
+
+    //** reactively respond to change in nav path
+    $: {
+        currentPath = $path.toString();
+        currentPage = pagePaths[currentPath].component;
+    }
+
+
+    //* build out static components
+    import Navbar from '../Navbar/Navbar.svelte';
+    import SideNav from '../Navbar/NavSideMenu.svelte';
+    import Footer from './Footer.svelte';
+
 </script>
 
 
 
+<!-- intercept 'a' tag default operation and use 'href' to load appropriate main page component -->
+<svelte:window on:click={click} />
+
+
+<!-- full page scaffolding with insertable content area -->
 <div class="page-wrapper has-slidebar" id="page-layout-top">
 
     <Navbar currentRoute="{currentPath}" />
@@ -136,7 +117,7 @@
     <SideNav currentRoute="{currentPath}" />
 
     <!-- load <header> and <main> page content here -->
-    {#if currentPage}
+    {#if $pattern(currentPath) && currentPage}
         <svelte:component this="{currentPage}" currentRoute="{currentPath}" {params} query="{$query.params}"/>
     {/if}
 

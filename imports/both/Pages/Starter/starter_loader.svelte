@@ -2,8 +2,9 @@
     /**
      * Generic insert loader for pages.
      *
-     * @memberof Pages:Starter
-     * @function starter_page_loader
+     * @name starter_loader
+     * @module
+     * @memberOf Pages:starter
      * @locus Client
      *
      */
@@ -25,4 +26,4 @@
 
 </script>
 
-<Loadable loader={() => import('./starter_page.svelte')} {currentRoute} {params} {query}/>
+<Loadable loader={() => import('./starter.svelte')} {currentRoute} {params} {query}/>

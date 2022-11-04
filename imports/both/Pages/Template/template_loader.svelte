@@ -2,8 +2,9 @@
     /**
      * Generic svelte component loader as a shim to insert page controller.
      *
-     * @memberof Pages:Template
-     * @function template_loader
+     * @name template_loader
+     * @module
+     * @memberOf Pages:template
      * @locus Client
      *
      * @see {@link https://github.com/kaisermann/svelte-loadable}

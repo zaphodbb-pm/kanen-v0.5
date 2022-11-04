@@ -2,8 +2,9 @@
     /**
      * Generic loader as a shim to insert page controller.
      *
-     * @memberof Pages:ChangePassword
-     * @function changePassword_loader
+     * @name changePassword_loader
+     * @module
+     * @memberOf Pages:changePassword
      * @locus Client
      *
      * @notes

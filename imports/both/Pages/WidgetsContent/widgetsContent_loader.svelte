@@ -2,8 +2,9 @@
     /**
      * Generic insert loader for pages.
      *
-     * @memberof Pages:WidgetsContent
-     * @function widgetsContent_loader
+     * @name widgetsContent_loader
+     * @module
+     * @memberOf Pages:widgetsContent
      * @locus Client
      *
      */

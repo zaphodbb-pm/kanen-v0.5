@@ -2,8 +2,9 @@
     /**
      * Generic insert loader for pages.
      *
-     * @memberof Pages:LogsSystem
-     * @function logsSystem_loader
+     * @name logsSystem_loader
+     * @module
+     * @memberOf Pages:logsSystem
      * @locus Client
      *
      */

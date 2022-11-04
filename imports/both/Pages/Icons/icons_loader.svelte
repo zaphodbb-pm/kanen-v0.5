@@ -2,8 +2,9 @@
     /**
      * Generic insert loader for pages.
      *
-     * @memberof Pages:Icons
-     * @function icons_loader
+     * @name icons_loader
+     * @module
+     * @memberOf Pages:icons
      * @locus Client
      *
      */

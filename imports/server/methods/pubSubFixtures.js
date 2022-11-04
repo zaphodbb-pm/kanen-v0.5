@@ -1,9 +1,10 @@
+// @ts-nocheck
 import {Meteor} from "meteor/meteor";
 import {check} from "meteor/check";
 
-import {accessControl} from '/imports/server/setupACL'
-import {verifyRole} from '/imports/server/functions/verifyRole'
-import {ownsDocument} from '/imports/server/functions/ownsDocument'
+import {accessControl} from '../setupACL'
+import {verifyRole} from '../functions/verifyRole'
+import {ownsDocument} from '../functions/ownsDocument'
 
 
 Meteor.methods({
@@ -11,7 +12,7 @@ Meteor.methods({
     /**
      * Special Pub Sub fixture to upload an initial array of documents.
      *
-     * @memberof Methods
+     * @memberOf methods
      * @function bulkLoadDocs
      * @isMethod true
      * @locus Server
@@ -60,7 +61,7 @@ Meteor.methods({
     /**
      * Special Pub Sub fixture to update an array of documents.
      *
-     * @memberof Methods
+     * @memberOf methods
      * @function updateRealTimeDoc
      * @isMethod true
      * @locus Server

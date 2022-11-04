@@ -2,8 +2,9 @@
     /**
      * Generic insert loader for pages.
      *
-     * @memberof Pages:Home
-     * @function home_loader
+     * @name home_loader
+     * @module
+     * @memberOf Pages:home
      * @locus Client
      *
      */
