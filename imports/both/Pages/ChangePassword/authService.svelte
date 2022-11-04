@@ -2,7 +2,7 @@
     /**
      * Google based login authentication.
      *
-     * @memberof Pages:Login
+     * @memberOf Pages:login
      * @function authGoogle
      * @locus Client
      *

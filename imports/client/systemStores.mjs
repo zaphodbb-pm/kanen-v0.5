@@ -1,7 +1,7 @@
 /**
  * Finds a user's language preference
  *
- * @memberof Structure:Client
+ * @memberOf Structure:Client
  * @function systemStores
  * @locus Client
  *

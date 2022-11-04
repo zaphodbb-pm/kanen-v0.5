@@ -1,7 +1,7 @@
 /**
  * Takes a number and returns a string with added commas where required
  *
- * @memberof Functions
+ * @memberOf Functions
  * @function numString
  * @locus Anywhere
  *

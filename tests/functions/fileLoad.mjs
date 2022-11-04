@@ -1,7 +1,7 @@
 /**
  * Loads an arbitrary file from the project directory.
  *
- * @memberof Tests
+ * @memberOf Tests
  * @function fileLoad
  * @locus Server
  *

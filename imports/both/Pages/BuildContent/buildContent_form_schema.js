@@ -1,7 +1,7 @@
 /**
  * @summary Schema definition object for BuildContent collection.
  *
- * @memberof Pages:BuildContent
+ * @memberOf Pages:buildContent
  * @function buildContent_form_schema
  * @locus Anywhere
  *

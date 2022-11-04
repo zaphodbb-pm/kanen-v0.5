@@ -2,7 +2,7 @@
     /**
      * Api key builder.
      *
-     * @memberof Components:Form
+     * @memberOf Components:Form
      * @function apikey
      * @locus Client
      * @isTemplate true

@@ -1,7 +1,7 @@
 /**
  * @summary Labels for Cards.
  *
- * @memberof Pages:Cards
+ * @memberOf Pages:cards
  * @function cards_text
  * @locus Client
  *

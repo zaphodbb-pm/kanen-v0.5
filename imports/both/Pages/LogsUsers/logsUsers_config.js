@@ -1,7 +1,7 @@
 /**
  * Configuration for LogsUsers page components.
  *
- * @memberof Pages:LogsUsers
+ * @memberOf Pages:logsUsers
  * @function logsUsers_config
  * @locus Client
  *

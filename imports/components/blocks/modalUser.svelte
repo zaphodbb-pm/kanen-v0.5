@@ -3,7 +3,7 @@
     /**
      * @summary Modal display for user schema information information from a list item.
      *
-     * @memberof Components:Blocks
+     * @memberOf Components:Blocks
      * @function modalUser
      * @locus Client
      *

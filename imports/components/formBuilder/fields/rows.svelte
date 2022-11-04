@@ -2,7 +2,7 @@
     /**
      * Complex row container that can contain other form field types.
      *
-     * @memberof Components:Form
+     * @memberOf Components:Form
      * @function rows
      * @locus Client
      * @augments fieldWrapper

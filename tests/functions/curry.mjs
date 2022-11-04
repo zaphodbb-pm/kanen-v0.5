@@ -1,7 +1,7 @@
 /**
  * @summary General purpose curry function.
  *
- * @memberof Functions
+ * @memberOf Functions
  * @function adjustHexColor
  * @locus Anywhere
  *

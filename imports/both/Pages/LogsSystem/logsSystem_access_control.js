@@ -1,7 +1,7 @@
 /**
  * Provides the MongoDb projection objects for various read requests.
  *
- * @memberof Pages:LogsSystem
+ * @memberOf Pages:logsSystem
  * @function logsSystem_access_control
  * @locus Server
  *

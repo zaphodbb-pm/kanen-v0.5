@@ -1,7 +1,7 @@
 /**
  * Labels for PubSub page.
  *
- * @memberof Pages:PubSub
+ * @memberOf Pages:pubSub
  * @function pubSub_text
  * @locus Client
  *

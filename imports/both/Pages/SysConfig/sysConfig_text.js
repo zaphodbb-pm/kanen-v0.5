@@ -1,7 +1,7 @@
 /**
  * @summary Labels for SysConfig page.
  *
- * @memberof Pages:SysConfig
+ * @memberOf Pages:sysConfig
  * @function sysConfig_text
  * @locus Client
  *

@@ -1,7 +1,7 @@
 /**
  * Helper to build a projection object from a schema or list object.
  *
- * @memberof Functions
+ * @memberOf Functions
  * @function buildAllFields
  * @locus Anywhere
  *

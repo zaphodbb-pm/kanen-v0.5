@@ -1,7 +1,7 @@
 /**
  * Nav label for Learn page.
  *
- * @memberof Pages:Learn
+ * @memberOf Pages:learn
  * @name learn_nav
  * @lends learn
  * @locus Anywhere

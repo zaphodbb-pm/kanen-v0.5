@@ -1,7 +1,7 @@
 /**
  * Nav label for PubSub page.
  *
- * @memberof Pages:PubSub
+ * @memberOf Pages:pubSub
  * @name pubSub_nav
  * @lends pubSub
  * @locus Anywhere

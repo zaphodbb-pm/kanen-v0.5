@@ -1,7 +1,7 @@
 /**
  * Takes a number and scale factor, uses absolute value, scales number and returns a formatted string.
  *
- * @memberof Functions
+ * @memberOf Functions
  * @function formatNumber
  * @locus Anywhere
  *

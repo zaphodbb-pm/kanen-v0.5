@@ -1,10 +1,9 @@
 /**
  * Configuration for Learn components (optional).
  *
- * @memberof Pages:Learn
+ * @memberOf Pages:learn
  * @function learn_config
  * @locus Client
- * @augments learn
  *
  * @returns {Object}
  */

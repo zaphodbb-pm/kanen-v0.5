@@ -2,7 +2,7 @@
  * When finding docs, restrict to user documents from collection also include documents from user's group members.
  * Optional tenentId filtered.
  *
- * @memberof Functions:Server
+ * @memberOf Functions:Server
  * @function myDocuments
  * @locus Server
  *

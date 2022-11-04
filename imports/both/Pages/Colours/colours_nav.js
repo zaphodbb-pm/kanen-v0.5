@@ -1,7 +1,7 @@
 /**
  * @summary Nav label for Colours page.
  *
- * @memberof Pages:Colours
+ * @memberOf Pages:colours
  * @name colours_nav
  * @lends colours
  * @locus Anywhere

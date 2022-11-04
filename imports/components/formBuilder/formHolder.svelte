@@ -2,7 +2,7 @@
     /**
      * Top level component that holds a document edit form.
      *
-     * @memberof Components:Form
+     * @memberOf Components:Form
      * @function formHolder
      * @locus Client
      *

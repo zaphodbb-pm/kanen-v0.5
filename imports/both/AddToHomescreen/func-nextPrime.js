@@ -1,7 +1,7 @@
 /**
  * @summary Can be used to calculate the next prime number, a possible way to calculate when to next prompt.
  *
- * @memberof PWA
+ * @memberOf PWA
  * @function nextPrime
  * @locus Client
  *

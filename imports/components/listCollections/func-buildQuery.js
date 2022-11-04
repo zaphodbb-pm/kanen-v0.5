@@ -1,7 +1,7 @@
 /**
  * Build MongoDb query object from search.
  *
- * @memberof Components:List
+ * @memberOf Components:List
  * @function buildQuery
  * @locus Client
  * @augments searchBox

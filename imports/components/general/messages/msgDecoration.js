@@ -1,7 +1,7 @@
 /**
  * Builds decoration parameters for a system message.
  *
- * @memberof Functions
+ * @memberOf Functions
  * @function msgDecoration
  * @locus client
  * @augments messages

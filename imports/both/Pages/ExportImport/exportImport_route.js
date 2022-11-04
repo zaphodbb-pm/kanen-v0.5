@@ -1,7 +1,7 @@
 /**
  * Route config information for ExportImport page.
  *
- * @memberof Pages:ExportImport
+ * @memberOf Pages:exportImport
  * @function exportImport_route
  * @locus Client
  *

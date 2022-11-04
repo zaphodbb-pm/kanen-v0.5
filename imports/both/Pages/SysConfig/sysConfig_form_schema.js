@@ -1,7 +1,7 @@
 /**
  * @summary Schema definition object for SysConfig collection.
  *
- * @memberof Pages:SysConfig
+ * @memberOf Pages:sysConfig
  * @function sysConfig_form_schema
  * @locus Anywhere
  *

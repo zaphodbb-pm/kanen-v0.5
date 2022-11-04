@@ -1,7 +1,7 @@
 /**
  * Group an array of objects by key.
  *
- * @memberof Functions
+ * @memberOf Functions
  * @function groupBy
  * @locus Anywhere
  *

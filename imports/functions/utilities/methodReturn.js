@@ -1,7 +1,7 @@
 /**
  * Handles info returned from a method call.
  *
- * @memberof Functions
+ * @memberOf Functions
  * @function methodReturn
  * @locus Client
  *

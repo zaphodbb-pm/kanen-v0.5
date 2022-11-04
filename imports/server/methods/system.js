@@ -6,7 +6,7 @@ Meteor.methods({
     /**
      * @summary Meteor method to query server directly tfor system wide information.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function getSysInfo
      * @isMethod true
      * @locus Server
@@ -21,7 +21,7 @@ Meteor.methods({
     /**
      * @summary General client side system config info from database.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function clientSysConfig
      * @isMethod true
      * @locus Server
@@ -52,7 +52,7 @@ Meteor.methods({
     /**
      * @summary Meteor method to bulk remove documents by admin users.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function removeDocuments
      * @isMethod true
      * @locus Server
@@ -81,7 +81,7 @@ Meteor.methods({
     /**
      * @summary Builds client side icon set from icon sets from line awesome files in public directory.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function lineAwesomeIcons
      * @isMethod true
      * @locus Server

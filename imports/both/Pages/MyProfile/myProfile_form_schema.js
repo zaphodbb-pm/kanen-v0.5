@@ -1,7 +1,7 @@
 /**
  * Schema definition object for User Profile.
  *
- * @memberof Pages:MyProfile
+ * @memberOf Pages:myProfile
  * @function myProfile_form_schema
  * @locus Anywhere
  *

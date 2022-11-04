@@ -1,7 +1,7 @@
 /**
  * @summary Nav label for LogsUsers page.
  *
- * @memberof Pages:LogsUsers
+ * @memberOf Pages:logsUsers
  * @name logsUsers_nav
  * @lends logsUsers
  * @locus Anywhere

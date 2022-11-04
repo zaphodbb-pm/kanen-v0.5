@@ -1,7 +1,7 @@
 /**
  * @summary Schema definition object for Users collection.
  *
- * @memberof Pages:Users
+ * @memberOf Pages:users
  * @function users_form_schema
  * @locus Anywhere
  *

@@ -2,7 +2,7 @@
     /**
      * Grid to list documents and fields for docs.
      *
-     * @memberof Pages:Starter
+     * @memberOf Pages:starter
      * @function starter_grid
      * @locus Client
      *

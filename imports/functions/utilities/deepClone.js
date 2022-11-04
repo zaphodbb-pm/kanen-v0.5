@@ -1,7 +1,7 @@
 /**
  * Deep clones an object or array.
  *
- * @memberof Functions
+ * @memberOf Functions
  * @function deepClone
  * @locus Client
  *

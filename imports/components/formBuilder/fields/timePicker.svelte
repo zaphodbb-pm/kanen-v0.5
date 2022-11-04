@@ -2,7 +2,7 @@
     /**
      * Time picker popup.
      *
-     * @memberof Components:Form
+     * @memberOf Components:Form
      * @function timePicker
      * @locus Client
      * @augments fieldWrapper

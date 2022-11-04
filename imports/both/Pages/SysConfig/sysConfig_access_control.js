@@ -1,7 +1,7 @@
 /**
  * Provides the MongoDb projection objects for various read requests.
  *
- * @memberof Pages:SysConfig
+ * @memberOf Pages:sysConfig
  * @function sysConfig_access_control
  * @locus Server
  *

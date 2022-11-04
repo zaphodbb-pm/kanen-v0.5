@@ -2,7 +2,7 @@
     /**
      * Date filter plugin for List Holder Filters.
      *
-     * @memberof Components:List
+     * @memberOf Components:List
      * @function dateFilter
      * @augments listFilter
      *

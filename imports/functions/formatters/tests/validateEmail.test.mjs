@@ -1,7 +1,7 @@
 /**
  * Test plan
  *
- * @memberof Tests
+ * @memberOf Tests
  * @augments validateEmail
  * @locus Anywhere
  *

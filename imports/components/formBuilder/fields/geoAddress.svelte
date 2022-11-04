@@ -2,7 +2,7 @@
     /**
      * Field component for using Google Places api to get address predictions.
      *
-     * @memberof Components:Form
+     * @memberOf Components:Form
      * @function geoAddress
      * @locus Client
      * @augments fieldWrapper

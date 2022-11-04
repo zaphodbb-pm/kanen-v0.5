@@ -1,7 +1,7 @@
 /**
  * Configuration for ExportImport components (optional).
  *
- * @memberof Pages:ExportImport
+ * @memberOf Pages:exportImport
  * @function exportImport_config
  * @locus Client
  *

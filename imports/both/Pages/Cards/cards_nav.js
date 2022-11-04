@@ -1,7 +1,7 @@
 /**
  * @summary Nav label for Cards page.
  *
- * @memberof Pages:Cards
+ * @memberOf Pages:cards
  * @name cards_nav
  * @lends cards
  * @locus Anywhere

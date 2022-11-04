@@ -3,7 +3,7 @@
  * This file is designed for use with Webstorm IDE and runs in its own node.js instance.
  * This file is wrapper to call up the actual test file 'tests/*.spec.mjs'
  *
- * @memberof Tests
+ * @memberOf Tests
  * @function Test_One_Svelte_Comp
  * @locus Server
  *

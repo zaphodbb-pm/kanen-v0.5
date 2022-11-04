@@ -1,7 +1,7 @@
 /**
  * Sort an array of objects by key and direction.
  *
- * @memberof Functions
+ * @memberOf Functions
  * @function sortBy
  * @locus Anywhere
  *

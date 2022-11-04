@@ -1,7 +1,7 @@
 /**
  * Builds a projection object from a schema object.
  *
- * @memberof Functions:Server
+ * @memberOf Functions:Server
  * @function buildAllFields
  * @locus Server
  *

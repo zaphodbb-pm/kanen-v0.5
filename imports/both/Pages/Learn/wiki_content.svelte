@@ -2,7 +2,7 @@
     /**
      * @summary Component to display a page selected from a Table of Contents.
      *
-     * @memberof Pages:Learn
+     * @memberOf Pages:learn
      * @function wiki_content
      * @locus Client
      *

@@ -13,7 +13,7 @@ Meteor.methods({
     /**
      * External Login service support.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function getServiceConfiguration
      * @isMethod true
      * @locus Server
@@ -29,7 +29,7 @@ Meteor.methods({
     /**
      * Insert a new user object.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function userMgmtInsert
      * @isMethod true
      * @locus Server
@@ -83,7 +83,7 @@ Meteor.methods({
     /**
      * Update a user's main info.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function userMgmtUpdate
      * @isMethod true
      * @locus Server
@@ -149,7 +149,7 @@ Meteor.methods({
     /**
      * Update a user's profile field value.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function userMgmtUpdateItem
      * @isMethod true
      * @locus Server
@@ -175,7 +175,7 @@ Meteor.methods({
     /**
      * @summary Remove an existing user object.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function userMgmtRemove
      * @isMethod true
      * @locus Server
@@ -197,7 +197,7 @@ Meteor.methods({
     /**
      * @summary Update a user's credit value
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function userUpdateCredit
      * @isMethod true
      * @locus Server
@@ -226,7 +226,7 @@ Meteor.methods({
     /**
      * @summary Find a user's group members.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function getGroupMembers
      * @isMethod true
      * @locus Server
@@ -259,7 +259,7 @@ Meteor.methods({
     /**
      * Get extra user fields based on user id.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function loadExtraFields
      * @isMethod true
      * @locus Server

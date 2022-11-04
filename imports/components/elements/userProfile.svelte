@@ -2,7 +2,7 @@
     /**
      * My Profile icon and activator for User Profile Page.
      *
-     * @memberof Components:Elements
+     * @memberOf Components:Elements
      * @function userProfile
      * @locus Client
      * @augments Navbar

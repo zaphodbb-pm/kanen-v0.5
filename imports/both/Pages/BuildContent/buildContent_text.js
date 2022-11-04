@@ -1,7 +1,7 @@
 /**
  * @summary Labels for BuildContent page.
  *
- * @memberof Pages:BuildContent
+ * @memberOf Pages:buildContent
  * @function buildContent_text
  * @locus Client
  *

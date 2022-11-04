@@ -2,7 +2,7 @@
     /**
      * Shows document count as range / total of search (total docs).
      *
-     * @memberof Components:List
+     * @memberOf Components:List
      * @function docCount
      * @locus Client
      * @augments listHolder

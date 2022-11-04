@@ -1,7 +1,7 @@
 /**
  * @summary Labels for Starter page.
  *
- * @memberof Pages:Starter
+ * @memberOf Pages:starter
  * @function starter_text
  * @locus Client
  *

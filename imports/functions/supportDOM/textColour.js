@@ -1,7 +1,7 @@
 /**
  * Calculates white or black text colour for a given RGB background colour.
  *
- * @memberof Functions
+ * @memberOf Functions
  * @function textColour
  * @locus Client
  *

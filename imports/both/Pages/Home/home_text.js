@@ -1,7 +1,7 @@
 /**
  * @summary Labels for Home page.
  *
- * @memberof Pages:Home
+ * @memberOf Pages:home
  * @function home_text
  * @locus Client
  *

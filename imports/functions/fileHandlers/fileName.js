@@ -1,7 +1,7 @@
 /**
  * @summary Creates file names with date and time stamp.
  *
- * @memberof Functions
+ * @memberOf Functions
  * @function fileName
  * @locus Client
  *

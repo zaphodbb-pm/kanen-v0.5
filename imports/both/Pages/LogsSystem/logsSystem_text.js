@@ -1,7 +1,7 @@
 /**
  * @summary Labels for LogsSystem page.
  *
- * @memberof Pages:LogsSystem
+ * @memberOf Pages:logsSystem
  * @function logsSystem_text
  * @locus Client
  *

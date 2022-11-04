@@ -1,7 +1,7 @@
 /**
  * Configuration list block for LogsUsers page listing.
  *
- * @memberof Pages:LogsUsers
+ * @memberOf Pages:logsUsers
  * @function logsUsers_list
  * @locus Client
  *

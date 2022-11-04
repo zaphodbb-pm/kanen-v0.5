@@ -2,7 +2,7 @@
     /**
      * Date picker component based on Flatpickr.
      *
-     * @memberof Components:Form
+     * @memberOf Components:Form
      * @function datePicker
      * @locus Client
      * @augments fieldWrapper

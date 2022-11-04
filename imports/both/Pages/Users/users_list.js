@@ -1,7 +1,7 @@
 /**
  * Configuration list block for Users page listing.
  *
- * @memberof Pages:Users
+ * @memberOf Pages:users
  * @function users_list
  * @locus Client
  *

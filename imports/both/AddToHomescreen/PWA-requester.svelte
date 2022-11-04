@@ -2,7 +2,7 @@
     /**
      * Progressive Web App requester.
      *
-     * @memberof PWA
+     * @memberOf PWA
      * @function PWA-requester
      * @locus Client
      *

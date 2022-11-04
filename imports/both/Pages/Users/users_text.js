@@ -1,7 +1,7 @@
 /**
  * @summary Labels for Users page.
  *
- * @memberof Pages:Users
+ * @memberOf Pages:users
  * @function users_text
  * @locus Client
  *

@@ -1,7 +1,7 @@
 /**
  * Flattens a two level deep array.
  *
- * @memberof Functions
+ * @memberOf Functions
  * @function flattenArray
  * @locus Anywhere
  *

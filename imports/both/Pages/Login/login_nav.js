@@ -1,7 +1,7 @@
 /**
  * Nav label for Login page.
  *
- * @memberof Pages:Login
+ * @memberOf Pages:login
  * @name login_nav
  * @lends login
  * @locus Anywhere

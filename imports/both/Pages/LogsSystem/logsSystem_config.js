@@ -1,7 +1,7 @@
 /**
  * Configuration for LogsSystem page components.
  *
- * @memberof Pages:LogsSystem
+ * @memberOf Pages:logsSystem
  * @function logsSystem_config
  * @locus Client
  *

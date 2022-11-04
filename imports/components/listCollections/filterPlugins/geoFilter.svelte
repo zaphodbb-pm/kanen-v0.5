@@ -2,7 +2,7 @@
     /**
      * Geolocation filter plugin for List Holder Filters.
      *
-     * @memberof Components:List
+     * @memberOf Components:List
      * @function geoFilter
      * @augments listFilter
      *

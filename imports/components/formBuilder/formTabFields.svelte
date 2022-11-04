@@ -2,7 +2,7 @@
     /**
      * Form wrapper for tabbing fields.
      *
-     * @memberof Components:Form
+     * @memberOf Components:Form
      * @function formTabFields
      * @augments formHolder
      * @locus Client

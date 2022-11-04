@@ -1,7 +1,7 @@
 /**
  * Configuration for PubSub components (optional).
  *
- * @memberof Pages:PubSub
+ * @memberOf Pages:pubSub
  * @function pubSub_config
  * @locus Client
  *

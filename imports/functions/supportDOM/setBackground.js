@@ -1,7 +1,7 @@
 /**
  * For use by widgets; gets info from the flow object, extracts colour information and sets a background display colour.
  *
- * @memberof Functions
+ * @memberOf Functions
  * @function setBackground
  * @locus Client
  *

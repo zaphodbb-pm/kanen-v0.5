@@ -1,7 +1,7 @@
 /**
  * Import and register form field components.
  *
- * @memberof Components:Form
+ * @memberOf Components:Form
  * @function registerForm
  * @locus Client
  * @augments fieldWrapper

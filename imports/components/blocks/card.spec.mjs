@@ -1,7 +1,7 @@
 /**
  * Component test file.
  *
- * @memberof Components:Blocks
+ * @memberOf Components:Blocks
  * @augments card
  * @locus server based test
  *

@@ -1,7 +1,7 @@
 /**
  * Prepares the form fields object for tabbed / grouped display.
  *
- * @memberof Components:Form
+ * @memberOf Components:Form
  * @function orgFields
  * @locus Client
  * @augments formHolder

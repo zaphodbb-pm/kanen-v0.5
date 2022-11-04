@@ -1,7 +1,7 @@
 /**
  * @summary Nav label for Documentation page.
  *
- * @memberof Pages:Documentation
+ * @memberOf Pages:documentation
  * @name documentation_nav
  * @lends documentation
  * @locus Anywhere

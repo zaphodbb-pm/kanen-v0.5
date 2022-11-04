@@ -3,7 +3,7 @@
  * testing-library has a more complex work flow than is needed as
  * Svelte compiler with SSR provides quicker and more direct access to the DOM
  *
- * @memberof Tests
+ * @memberOf Tests
  * @function domUtilities
  * @locus Server
  *

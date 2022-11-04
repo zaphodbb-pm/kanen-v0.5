@@ -1,7 +1,7 @@
 /**
  * @summary Meteor friendly file saver.
  *
- * @memberof Functions
+ * @memberOf Functions
  * @function fileSaver
  * @locus Client
  *

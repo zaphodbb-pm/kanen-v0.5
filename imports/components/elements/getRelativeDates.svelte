@@ -3,7 +3,7 @@
      * Selector to get a relative date range for database record deletion.
      * Typically used to help manage the records in logs collection.
      *
-     * @memberof Components:Elements
+     * @memberOf Components:Elements
      * @function getRelativeDates
      * @locus Client
      *

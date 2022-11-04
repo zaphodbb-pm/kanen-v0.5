@@ -1,7 +1,7 @@
 /**
  * @summary Default options list.
  *
- * @memberof PWA
+ * @memberOf PWA
  * @function athDefaults
  * @locus Client
  *

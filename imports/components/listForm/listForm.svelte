@@ -3,7 +3,7 @@
 /**
      * Component insert combination for list and form components.
      *
-     * @memberof Components:ListForm
+     * @memberOf Components:ListForm
      * @function listForm
      * @locus Client
      *

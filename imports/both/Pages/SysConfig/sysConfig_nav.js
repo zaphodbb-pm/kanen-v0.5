@@ -1,7 +1,7 @@
 /**
  * @summary Nav label for SysConfig page.
  *
- * @memberof Pages:SysConfig
+ * @memberOf Pages:sysConfig
  * @name sysConfig_nav
  * @lends sysConfig
  * @locus Anywhere

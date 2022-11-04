@@ -12,7 +12,7 @@ Meteor.methods({
     /**
      * General insert document into collection.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function insertDoc
      * @isMethod true
      * @locus Server
@@ -56,7 +56,7 @@ Meteor.methods({
     /**
      * General document update into a collection.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function updateDoc
      * @isMethod true
      * @locus Server
@@ -91,7 +91,7 @@ Meteor.methods({
     /**
      * General document remover from a collection.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function removeDoc
      * @isMethod true
      * @locus Server
@@ -123,7 +123,7 @@ Meteor.methods({
     /**
      * General document update a document field item.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function inputterUpdateItem
      * @isMethod true
      * @locus Server
@@ -161,7 +161,7 @@ Meteor.methods({
     /**
      * General document item as array updates.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function updateDocArray
      * @isMethod true
      * @locus Server

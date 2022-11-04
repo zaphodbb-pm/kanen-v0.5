@@ -10,7 +10,7 @@ Meteor.methods({
     /**
      * @summary Sends documents as JSON from a collection.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function exportJSON
      * @isMethod true
      * @locus Server
@@ -46,7 +46,7 @@ Meteor.methods({
     /**
      * @summary Imports documents as JSON from a browser.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function importJSON
      * @isMethod true
      * @locus Server
@@ -82,7 +82,7 @@ Meteor.methods({
     /**
      * @summary Removes all documents from a collection.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function importBulkDataRemove
      * @isMethod true
      * @locus Server
@@ -116,7 +116,7 @@ Meteor.methods({
     /**
      * @summary Inserts all documents from a file into a collection.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function importBulkData
      * @isMethod true
      * @locus Server
@@ -165,7 +165,7 @@ Meteor.methods({
     /**
      * @summary Sends documents as CSV from a collection.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function exportFile
      * @isMethod true
      * @locus Server
@@ -225,7 +225,7 @@ Meteor.methods({
     /**
      * @summary Exports documents as CSV from a collection.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function exportCSV
      * @isMethod true
      * @locus Server
@@ -277,7 +277,7 @@ Meteor.methods({
     /**
      * @summary Imports documents as CSV to a collection.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function importCSV
      * @isMethod true
      * @locus Server
@@ -310,7 +310,7 @@ Meteor.methods({
     /**
      * @summary Imports documents as CSV to a collection.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function importCSVInsert
      * @isMethod true
      * @locus Server
@@ -334,7 +334,7 @@ Meteor.methods({
     /**
      * @summary Update a document as CSV to a collection.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function importCSVUpdate
      * @isMethod true
      * @locus Server

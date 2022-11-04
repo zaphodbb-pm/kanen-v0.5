@@ -2,7 +2,7 @@
     /**
      * Field component for colour picker.
      *
-     * @memberof Components:Form
+     * @memberOf Components:Form
      * @function colourPicker
      * @locus Client
      * @augments fieldWrapper

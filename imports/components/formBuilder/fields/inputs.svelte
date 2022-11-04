@@ -2,7 +2,7 @@
     /**
      * Field component for html input tags.
      *
-     * @memberof Components:Form
+     * @memberOf Components:Form
      * @function inputs
      * @locus Client
      * @augments fieldWrapper

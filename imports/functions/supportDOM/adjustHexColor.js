@@ -1,7 +1,7 @@
 /**
  * @summary Adjusts hex colour value up (to 100 percent; lighter) or down (to -100 percent; darker).
  *
- * @memberof Functions
+ * @memberOf Functions
  * @function adjustHexColor
  * @locus Client
  *

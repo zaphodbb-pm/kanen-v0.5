@@ -1,7 +1,7 @@
 /**
  * Executes assertion tests based on node.js assertion module.
  *
- * @memberof Tests
+ * @memberOf Tests
  * @function doTest
  * @locus Server
  *

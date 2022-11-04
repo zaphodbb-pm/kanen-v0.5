@@ -1,7 +1,7 @@
 /**
  * Configuration for Icons components.
  *
- * @memberof Pages:Icons
+ * @memberOf Pages:icons
  * @function template_config
  * @locus Client
  *

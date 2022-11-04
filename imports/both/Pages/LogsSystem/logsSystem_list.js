@@ -1,7 +1,7 @@
 /**
  * Configuration list block for LogsSystem page listing.
  *
- * @memberof Pages:LogsSystem
+ * @memberOf Pages:logsSystem
  * @function logsSystem_list
  * @locus Client
  *

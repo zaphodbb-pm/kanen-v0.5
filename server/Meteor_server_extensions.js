@@ -2,7 +2,7 @@
  * Extra meteor Collection functionality.
  * Replaces older packages to remove underscore dependency.
  *
- * @memberof Structure:Server
+ * @memberOf Structure:Server
  * @function Meteor_server_extensions
  * @locus Server
  *

@@ -2,7 +2,7 @@
     /**
      * Basic textarea box.
      *
-     * @memberof Components:Form
+     * @memberOf Components:Form
      * @function textarea
      * @locus Client
      * @augments fieldWrapper

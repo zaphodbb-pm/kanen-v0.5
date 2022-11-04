@@ -1,7 +1,7 @@
 /**
  * @summary Returns a browser name.
  *
- * @memberof PWA
+ * @memberOf PWA
  * @function checkPlatform
  * @locus Client
  *

@@ -1,7 +1,7 @@
 /**
  * Provides the MongoDb projection objects for various read requests.
  *
- * @memberof Pages:BuildContent
+ * @memberOf Pages:buildContent
  * @function buildContent_access_control
  * @locus Server
  *

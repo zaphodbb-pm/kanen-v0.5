@@ -1,7 +1,7 @@
 /**
  * @summary  Common routine to calculate MongoDB filters to streamline search.
  *
- * @memberof Components:List
+ * @memberOf Components:List
  * @function buildFilter
  * @locus Client
  * @augments listHolder

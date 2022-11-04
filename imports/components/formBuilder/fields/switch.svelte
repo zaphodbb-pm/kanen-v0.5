@@ -2,7 +2,7 @@
     /**
      * @summary Checkbox with switch css.
      *
-     * @memberof Components:Form
+     * @memberOf Components:Form
      * @function switch
      * @locus Client
      * @augments fieldWrapper

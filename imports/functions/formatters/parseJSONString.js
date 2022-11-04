@@ -1,7 +1,7 @@
 /**
  * @summary Converts a json string into an object and checks to make sure string is valid json or returns empty array.
  *
- * @memberof Functions
+ * @memberOf Functions
  * @function parseJSONString
  * @locus Anywhere
  *

@@ -2,7 +2,7 @@
     /**
      * Top level component that holds a document list.
      *
-     * @memberof Components:List
+     * @memberOf Components:List
      * @function listHolder
      * @locus Client
      *

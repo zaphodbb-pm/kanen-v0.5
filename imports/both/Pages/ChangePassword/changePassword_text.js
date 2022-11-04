@@ -1,7 +1,7 @@
 /**
  * Labels for ChangePassword page.
  *
- * @memberof Pages:ChangePassword
+ * @memberOf Pages:changePassword
  * @function changePassword_text
  * @locus Client
  *

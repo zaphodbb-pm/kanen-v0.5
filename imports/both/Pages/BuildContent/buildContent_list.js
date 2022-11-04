@@ -1,7 +1,7 @@
 /**
  * Configuration list block for BuildContent page listing.
  *
- * @memberof Pages:BuildContent
+ * @memberOf Pages:buildContent
  * @function buildContent_list
  * @locus Client
  *

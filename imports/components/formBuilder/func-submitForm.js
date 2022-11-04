@@ -1,7 +1,7 @@
 /**
  * Collects form inputs and submits to database upsert.
  *
- * @memberof Components:Form
+ * @memberOf Components:Form
  * @function submitForm
  * @locus Client
  * @augments formHolder

@@ -1,7 +1,7 @@
 /**
  * Functional composition of pure functions.
  *
- * @memberof Functions
+ * @memberOf Functions
  * @function pipe
  * @locus Anywhere
  *

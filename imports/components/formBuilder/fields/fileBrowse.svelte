@@ -2,7 +2,7 @@
     /**
      * File input component for text or image types.
      *
-     * @memberof Components:Form
+     * @memberOf Components:Form
      * @function fileBrowse
      * @locus Client
      * @augments fieldWrapper

@@ -1,7 +1,7 @@
 /**
  * Example file that abstracts logic from a svelte component.
  *
- * @memberof Functions
+ * @memberOf Functions
  * @function injectText
  * @locus client
  *

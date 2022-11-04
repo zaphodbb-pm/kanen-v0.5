@@ -2,7 +2,7 @@
     /**
      * Builds filter component for list.
      *
-     * @memberof Components:List
+     * @memberOf Components:List
      * @function listFilters
      * @locus Client
      * @augments listHolder

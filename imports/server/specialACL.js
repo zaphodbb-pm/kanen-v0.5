@@ -1,7 +1,7 @@
 /**
  * Server side setup of Access Control List for special collections.
  *
- * @memberof Structure:Server
+ * @memberOf Structure:Server
  * @function specialACL
  * @locus Server
  *

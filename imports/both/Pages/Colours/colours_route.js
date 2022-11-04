@@ -1,7 +1,7 @@
 /**
  * @summary Route config information for Colours Page.
  *
- * @memberof Pages:Colours
+ * @memberOf Pages:colours
  * @function colours_route
  * @locus Client
  *

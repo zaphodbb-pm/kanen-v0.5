@@ -1,7 +1,7 @@
 /**
  * @summary Formats a string of digits into a North American formatted phone number.
  *
- * @memberof Functions
+ * @memberOf Functions
  * @function formatPhoneNumber
  * @locus Client
  *

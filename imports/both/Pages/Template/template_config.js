@@ -1,7 +1,7 @@
 /**
  * Configuration for Template components (optional).
  *
- * @memberof Pages:Template
+ * @memberOf Pages:template
  * @function template_config
  * @locus Client
  *

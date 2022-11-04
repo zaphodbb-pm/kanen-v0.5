@@ -1,7 +1,7 @@
 /**
  * Nav label for MyProfile page.
  *
- * @memberof Pages:MyProfile
+ * @memberOf Pages:myProfile
  * @name myProfile_nav
  * @lends myProfile
  * @locus Anywhere

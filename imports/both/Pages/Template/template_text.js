@@ -1,7 +1,7 @@
 /**
  * Labels for Template page.
  *
- * @memberof Pages:Template
+ * @memberOf Pages:template
  * @function template_text
  * @locus Client
  *

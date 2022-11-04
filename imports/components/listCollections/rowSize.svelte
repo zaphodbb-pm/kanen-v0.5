@@ -2,7 +2,7 @@
     /**
      * Builds row selector and documents count.
      *
-     * @memberof Components:List
+     * @memberOf Components:List
      * @function rowSize
      * @locus client
      * @augments listHolder

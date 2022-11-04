@@ -2,7 +2,7 @@
     /**
      * Expander box with slot for html content.
      *
-     * @memberof Components:AdminPanel
+     * @memberOf Components:AdminPanel
      * @function expanderSlot
      * @locus Client
      *

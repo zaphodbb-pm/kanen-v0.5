@@ -1,8 +1,8 @@
 /**
  * Configuration for Starter page components.
  *
- * @memberof Pages:Starter
- * @function starter_page_config
+ * @memberOf Pages:starter
+ * @function starter_config
  * @locus Client
  *
  * @returns {Object}

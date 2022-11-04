@@ -1,7 +1,7 @@
 /**
  * Validate a user entered phone number.
  *
- * @memberof Functions
+ * @memberOf Functions
  * @function validatePhone
  * @locus Anywhere
  *

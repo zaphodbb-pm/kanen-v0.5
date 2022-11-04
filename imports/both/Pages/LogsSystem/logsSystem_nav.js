@@ -1,7 +1,7 @@
 /**
  * @summary Nav label for LogsSystem page.
  *
- * @memberof Pages:LogsSystem
+ * @memberOf Pages:logsSystem
  * @name logsSystem_nav
  * @lends logsSystem
  * @locus Anywhere

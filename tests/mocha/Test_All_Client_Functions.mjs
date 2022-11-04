@@ -3,7 +3,7 @@
  * This file is designed for use with Webstorm IDE and runs in its own node.js
  * instance.
  *
- * @memberof Tests
+ * @memberOf Tests
  * @function mainMochaTest
  * @locus Server
  *

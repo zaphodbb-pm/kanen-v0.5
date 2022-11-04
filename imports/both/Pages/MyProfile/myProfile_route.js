@@ -1,7 +1,7 @@
 /**
  * Route config information for MyProfile page.
  *
- * @memberof Pages:MyProfile
+ * @memberOf Pages:myProfile
  * @function myProfile_route
  * @locus Client
  *

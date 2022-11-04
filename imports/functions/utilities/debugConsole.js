@@ -1,7 +1,7 @@
 /**
  * Control the output of debug messages to the browser console.
  *
- * @memberof Functions
+ * @memberOf Functions
  * @function debugConsole
  * @locus Anywhere
  *

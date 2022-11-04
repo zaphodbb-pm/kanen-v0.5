@@ -1,7 +1,7 @@
 /**
  * @summary Nav label for Starter page.
  *
- * @memberof Pages:Starter
+ * @memberOf Pages:starter
  * @name starter_nav
  * @lends starter
  * @locus Anywhere

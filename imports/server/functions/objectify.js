@@ -1,7 +1,7 @@
 /**
  * Builds object from key/value pair.
  *
- * @memberof Functions:Server
+ * @memberOf Functions:Server
  * @function objectify
  * @locus Server
  *

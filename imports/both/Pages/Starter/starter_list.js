@@ -1,7 +1,7 @@
 /**
  * Configuration list block for Starter page listing.
  *
- * @memberof Pages:Starter
+ * @memberOf Pages:starter
  * @function starter_list
  * @locus Client
  *

@@ -1,7 +1,7 @@
 /**
  * Build formatters as fractions; num needs conversion and fraction is 8ths, 4trs, halfs.
  *
- * @memberof Functions
+ * @memberOf Functions
  * @function fractionalNumber
  * @locus Anywhere
  *

@@ -3,7 +3,7 @@
     /**
      * @summary GDPR notice popup widget.
      *
-     * @memberof Components:General
+     * @memberOf Components:General
      * @function gdprNotice
      * @locus Client
      *

@@ -1,7 +1,7 @@
 /**
  * Server side code to set up key collection indexes.
  *
- * @memberof Structure:Server
+ * @memberOf Structure:Server
  * @function server-indexing
  * @locus Server
  *

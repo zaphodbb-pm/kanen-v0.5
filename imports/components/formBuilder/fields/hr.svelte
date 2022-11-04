@@ -2,7 +2,7 @@
     /**
      * Horizontal divider component.
      *
-     * @memberof Components:Form
+     * @memberOf Components:Form
      * @function hr
      * @locus Client
      * @augments fieldWrapper

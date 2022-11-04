@@ -3,7 +3,7 @@
  * This file is designed for use with Webstorm IDE and runs in its own node.js instance.
  * This file loops thorugh all *.spec.mjs files to get and run Svelte component tests.
  *
- * @memberof Tests
+ * @memberOf Tests
  * @function MochaTest_All_Componnets
  * @locus Server
  *

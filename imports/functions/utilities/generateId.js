@@ -1,7 +1,7 @@
 /**
  * Own version of a character selector in order to build a variable length api key.
  *
- * @memberof Functions
+ * @memberOf Functions
  * @function generateId
  * @locus Anywhere
  *

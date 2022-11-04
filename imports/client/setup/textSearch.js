@@ -1,7 +1,7 @@
 /**
  * @summary System wide search bar language strings.
  *
- * @memberof Structure:Client
+ * @memberOf Structure:Client
  * @function textSearch
  * @locus Client
  *

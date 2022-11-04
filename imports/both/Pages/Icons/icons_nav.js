@@ -1,7 +1,7 @@
 /**
  * @summary Nav label for Icons page.
  *
- * @memberof Pages:Icons
+ * @memberOf Pages:icons
  * @name icons_nav
  * @lends icons
  * @locus Anywhere

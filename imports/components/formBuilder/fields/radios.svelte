@@ -2,7 +2,7 @@
     /**
      * Basic radio group.
      *
-     * @memberof Components:Form
+     * @memberOf Components:Form
      * @function radios
      * @locus Client
      * @augments fieldWrapper

@@ -2,7 +2,7 @@
     /**
      * Draggable item list.
      *
-     * @memberof Components:Form
+     * @memberOf Components:Form
      * @function itemList
      * @locus Client
      * @augments fieldWrapper

@@ -2,7 +2,7 @@
     /**
      * Static and dynamic select field.
      *
-     * @memberof Components:Form
+     * @memberOf Components:Form
      * @function selects
      * @locus Client
      * @augments fieldWrapper

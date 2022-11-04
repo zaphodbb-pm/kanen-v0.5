@@ -2,7 +2,7 @@
     /**
      * Row drag and drop component.
      *
-     * @memberof Components:Elements
+     * @memberOf Components:Elements
      * @function rowDragDrop
      * @locus Client
      *

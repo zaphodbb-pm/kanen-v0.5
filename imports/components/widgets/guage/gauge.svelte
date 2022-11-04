@@ -3,7 +3,7 @@
     /**
      * Circular gauge widget.
      *
-     * @memberof Components:AdminPanel
+     * @memberOf Components:AdminPanel
      * @function gauge
      * @locus Client
      *

@@ -1,7 +1,7 @@
 /**
  * @summary Labels for Colours page.
  *
- * @memberof Pages:Colours
+ * @memberOf Pages:colours
  * @function colours_text
  * @locus Client
  *

@@ -2,7 +2,7 @@
     /**
      * Submit button for form.
      *
-     * @memberof Components:Form
+     * @memberOf Components:Form
      * @function formSubmit
      * @augments formHolder
      * @locus Client

@@ -1,7 +1,7 @@
 /**
  * Configuration for Users page components.
  *
- * @memberof Pages:Users
+ * @memberOf Pages:users
  * @function users_config
  * @locus Client
  *

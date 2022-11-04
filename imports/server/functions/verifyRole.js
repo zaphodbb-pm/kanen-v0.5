@@ -1,7 +1,7 @@
 /**
  * Checks if user has a certain role.
  *
- * @memberof Functions:Server
+ * @memberOf Functions:Server
  * @function verifyRole
  * @locus Server
  *

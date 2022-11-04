@@ -1,7 +1,7 @@
 /**
  * @summary System wide common language strings.
  *
- * @memberof Structure:Client
+ * @memberOf Structure:Client
  * @function textCommon
  * @locus Client
  *

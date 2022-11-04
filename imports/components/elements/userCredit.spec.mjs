@@ -1,7 +1,7 @@
 /**
  * Component test file.
  *
- * @memberof Components:Elements
+ * @memberOf Components:Elements
  * @augments userCredit
  * @locus server based test
  *

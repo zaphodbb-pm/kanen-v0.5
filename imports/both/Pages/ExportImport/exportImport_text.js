@@ -1,7 +1,7 @@
 /**
  * Labels for ExportImport page.
  *
- * @memberof Pages:ExportImport
+ * @memberOf Pages:exportImport
  * @function exportImport_text
  * @locus Client
  *

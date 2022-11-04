@@ -1,7 +1,7 @@
 /**
  * Labels for Login page.
  *
- * @memberof Pages:Login
+ * @memberOf Pages:login
  * @function login_text
  * @locus Client
  *

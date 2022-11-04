@@ -1,7 +1,7 @@
 /**
  * Labels for MyProfile page.
  *
- * @memberof Pages:MyProfile
+ * @memberOf Pages:myProfile
  * @function myProfile_text
  * @locus Client
  *

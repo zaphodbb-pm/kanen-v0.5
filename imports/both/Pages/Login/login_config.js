@@ -1,7 +1,7 @@
 /**
  * Configuration for Login components (optional).
  *
- * @memberof Pages:Login
+ * @memberOf Pages:login
  * @function login_config
  * @locus Client
  *

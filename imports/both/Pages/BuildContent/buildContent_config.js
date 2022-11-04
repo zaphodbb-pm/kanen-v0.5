@@ -1,7 +1,7 @@
 /**
  * Configuration for BuildContent page components.
  *
- * @memberof Pages:BuildContent
+ * @memberOf Pages:buildContent
  * @function buildContent_page_config
  * @locus Client
  *

@@ -2,7 +2,7 @@
     /**
      * @summary Component for displaying a wiki table of contents.
      *
-     * @memberof Pages:Learn
+     * @memberOf Pages:learn
      * @function wiki_toc
      * @locus Client
      *

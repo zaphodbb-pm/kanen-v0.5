@@ -1,7 +1,7 @@
 /**
  * Nav label for ChangePassword page.
  *
- * @memberof Pages:ChangePassword
+ * @memberOf Pages:changePassword
  * @name changePassword_nav
  * @lends changePassword
  * @locus Anywhere

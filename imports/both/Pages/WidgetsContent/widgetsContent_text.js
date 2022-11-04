@@ -1,7 +1,7 @@
 /**
  * @summary Labels for WidgetsContent.
  *
- * @memberof Pages:WidgetsContent
+ * @memberOf Pages:widgetsContent
  * @function widgetsContent_text
  * @locus Client
  *

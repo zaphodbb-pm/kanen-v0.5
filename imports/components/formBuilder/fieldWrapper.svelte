@@ -2,7 +2,7 @@
     /**
      * Form wrapper around individual input fields.
      *
-     * @memberof Components:Form
+     * @memberOf Components:Form
      * @function fieldWrapper
      * @locus Client
      * @augments formTabFields

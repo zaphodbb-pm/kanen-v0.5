@@ -5,7 +5,7 @@
  * Optionally, a warning or error message can be sent to the console to help with debugging.
  *
  *
- * @memberof Functions
+ * @memberOf Functions
  * @function validate
  * @locus Anywhere
  *

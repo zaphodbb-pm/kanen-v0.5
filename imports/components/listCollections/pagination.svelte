@@ -2,7 +2,7 @@
     /**
      * @summary Builds pagination bar.
      *
-     * @memberof Components:List
+     * @memberOf Components:List
      * @function pagination
      * @locus Client
      * @augments listHolder

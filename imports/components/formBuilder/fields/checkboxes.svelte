@@ -2,7 +2,7 @@
     /**
      * Basic checkboxes.
      *
-     * @memberof Components:Form
+     * @memberOf Components:Form
      * @function checkboxes
      * @locus Client
      * @augments fieldWrapper

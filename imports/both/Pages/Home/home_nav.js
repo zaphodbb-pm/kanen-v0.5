@@ -1,8 +1,8 @@
 /**
  * @summary Nav label and role based access for Home page.
  *
- * @memberof Pages:Home
  * @name home_nav
+ * @memberOf Pages:home
  * @lends home
  * @locus Anywhere
  *

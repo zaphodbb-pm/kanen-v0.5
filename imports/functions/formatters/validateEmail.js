@@ -1,7 +1,7 @@
 /**
  * Validate a user entered email address.
  *
- * @memberof Functions
+ * @memberOf Functions
  * @function validateEmail
  * @locus Anywhere
  *

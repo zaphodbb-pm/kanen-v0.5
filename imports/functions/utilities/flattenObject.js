@@ -1,7 +1,7 @@
 /**
  * @summary Flattens a deeply nested object.
  *
- * @memberof Functions
+ * @memberOf Functions
  * @function flattenObject
  * @locus Anywhere
  *

@@ -2,7 +2,7 @@
     /**
      * Field component for Quill editor.
      *
-     * @memberof Components:Form
+     * @memberOf Components:Form
      * @function editor
      * @locus Client
      * @augments fieldWrapper

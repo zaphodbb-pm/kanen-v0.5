@@ -1,7 +1,7 @@
 /**
  * @summary Text for complex fieldset rows on the Starter page.
  *
- * @memberof Pages:Starter
+ * @memberOf Pages:starter
  * @function starter_form_text_rows
  * @locus Client
  *

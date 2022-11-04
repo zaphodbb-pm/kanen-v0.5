@@ -2,7 +2,7 @@
     /**
      * Typeahead select component.
      *
-     * @memberof Components:Form
+     * @memberOf Components:Form
      * @function typeahead
      * @locus Client
      * @augments fieldWrapper

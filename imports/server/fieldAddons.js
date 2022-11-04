@@ -1,7 +1,7 @@
 /**
  * Extends the MongoDb projection objects for various read requests.
  *
- * @memberof Structure:Server
+ * @memberOf Structure:Server
  * @function fieldAddons
  * @locus Server
  *

@@ -1,7 +1,7 @@
 /**
  * Configuration for MyProfile components (optional).
  *
- * @memberof Pages:MyProfile
+ * @memberOf Pages:myProfile
  * @function myProfile_config
  * @locus Client
  *

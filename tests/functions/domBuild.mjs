@@ -4,7 +4,7 @@
  * Svelte compiler with SSR provides quicker and more direct access to the DOM
  *
  *
- * @memberof Tests
+ * @memberOf Tests
  * @function domBuild
  * @locus Server
  *

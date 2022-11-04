@@ -1,7 +1,7 @@
 /**
  * Configuration for SysConfig page components.
  *
- * @memberof Pages:SysConfig
+ * @memberOf Pages:sysConfig
  * @function sysConfig_page_config
  * @locus Client
  *

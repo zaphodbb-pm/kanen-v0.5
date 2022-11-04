@@ -1,7 +1,7 @@
 /**
  * Builds an absolute URL to a file.
  *
- * @memberof Tests
+ * @memberOf Tests
  * @function fileAbsolutePath
  * @locus Server
  *

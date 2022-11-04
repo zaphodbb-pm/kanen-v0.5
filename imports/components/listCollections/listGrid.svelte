@@ -2,7 +2,7 @@
     /**
      * Grid to list documents and fields for docs.
      *
-     * @memberof Components:List
+     * @memberOf Components:List
      * @function listGrid
      * @locus Client
      * @augments listHolder

@@ -1,7 +1,7 @@
 /**
  * @summary Nav label for BuildContent page.
  *
- * @memberof Pages:BuildContent
+ * @memberOf Pages:buildContent
  * @name buildContent_nav
  * @lends buildContent
  * @locus Anywhere

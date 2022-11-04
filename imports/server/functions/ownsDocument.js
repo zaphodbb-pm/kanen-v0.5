@@ -1,7 +1,7 @@
 /**
  * Checks if user owns a document.
  *
- * @memberof Functions:Server
+ * @memberOf Functions:Server
  * @function ownsDocument
  * @locus Server
  *

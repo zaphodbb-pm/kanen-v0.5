@@ -1,7 +1,7 @@
 /**
  * @summary Text for Documentation Page.
  *
- * @memberof Pages:Documentation
+ * @memberOf Pages:documentation
  * @function documentation_text
  * @locus Client
  *

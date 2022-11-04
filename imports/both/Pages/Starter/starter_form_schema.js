@@ -1,7 +1,7 @@
 /**
  * @summary Schema definition object for Starter collection.
  *
- * @memberof Pages:Starter
+ * @memberOf Pages:starter
  * @function starter_form_schema
  * @locus Anywhere
  *

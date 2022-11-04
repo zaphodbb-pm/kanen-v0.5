@@ -1,7 +1,7 @@
 /**
  * Configuration for ChangePassword components (optional).
  *
- * @memberof Pages:ChangePassword
+ * @memberOf Pages:changePassword
  * @function changePassword_config
  * @locus Client
  *

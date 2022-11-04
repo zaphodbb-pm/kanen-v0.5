@@ -3,7 +3,7 @@
     /**
      * Big info box widget.
      *
-     * @memberof Components:AdminPanel
+     * @memberOf Components:AdminPanel
      * @function bigInfobox
      * @locus Client
      *

@@ -1,7 +1,7 @@
 /**
  * Configuration list block for SysConfig page listing.
  *
- * @memberof Pages:SysConfig
+ * @memberOf Pages:sysConfig
  * @function sysConfig_list
  * @locus Client
  *

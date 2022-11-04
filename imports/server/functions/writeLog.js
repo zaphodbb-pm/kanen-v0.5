@@ -1,7 +1,7 @@
 /**
  * Writes a log to a collection.
  *
- * @memberof Functions:Server
+ * @memberOf Functions:Server
  * @function writeLog
  * @locus Server
  *

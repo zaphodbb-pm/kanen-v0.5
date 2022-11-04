@@ -1,7 +1,7 @@
 /**
  * Labels for Learn page.
  *
- * @memberof Pages:Learn
+ * @memberOf Pages:learn
  * @function learn_text
  * @locus Client
  *

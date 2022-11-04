@@ -1,7 +1,7 @@
 /**
  * Nav label for ExportImport page.
  *
- * @memberof Pages:ExportImport
+ * @memberOf Pages:exportImport
  * @name exportImport_nav
  * @lends exportImport
  * @locus Anywhere

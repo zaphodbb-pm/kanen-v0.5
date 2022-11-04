@@ -2,7 +2,7 @@
     /**
      * Table to list documents and fields for docs.
      *
-     * @memberof Components:List
+     * @memberOf Components:List
      * @function listTable
      * @locus Client
      * @augments listHolder

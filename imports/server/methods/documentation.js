@@ -7,7 +7,7 @@ Meteor.methods({
     /**
      * Meteor method to scan for svelte files and build documentation.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function buildSvelteJsdoc
      * @isMethod true
      * @locus Server
@@ -43,7 +43,7 @@ Meteor.methods({
     /**
      * Meteor method to get formatted documentation.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function fetchDocumentation
      * @isMethod true
      * @locus Server
@@ -72,7 +72,7 @@ Meteor.methods({
     /**
      * Meteor method to scan for svelte generated jsdoc file and remove them.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function removeSvelteJsdoc
      * @isMethod true
      * @locus Server
@@ -103,7 +103,7 @@ Meteor.methods({
     /**
      * @summary Uses Meteor-jsdoc data file to display project documentation in the project itself.
      *
-     * @memberof Methods
+     * @memberOf Methods
      * @function buildDocumentation
      * @isMethod true
      * @locus Server

@@ -1,7 +1,7 @@
 /**
  * Nav label, link, icon and access control for Template page.
  *
- * @memberof Pages:Template
+ * @memberOf Pages:template
  * @name template_nav
  * @lends template
  * @locus Anywhere

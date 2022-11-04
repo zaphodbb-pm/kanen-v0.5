@@ -3,7 +3,7 @@
     /**
      * @summary Messages component to handle system wide notifications.
      *
-     * @memberof Components:General
+     * @memberOf Components:General
      * @function messages
      * @locus Client
      * @isTemplate true
