@@ -23,13 +23,16 @@
 
     //* common props from parent
     export let field = {};
+    export let error = "";
 
     //* support functions
     import {getDocs} from '/imports/functions/supportApplication/getDocs'
     import {getContext, createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
-    let formText = getContext("formText");
-    let source = formText[field.field] && formText[field.field].selects ? formText[field.field].selects : [];
+    const formText = getContext("formText");
+    const label = formText[field.field]?.label ?? "";
+
+    let source = formText[field.field]?.selects ?? [];
 
     let rows = field?.params?.rows ?? 5;
     let selValue = typeof field.value === "object" ? field.value : {_id: "", name: ""};
@@ -204,10 +207,13 @@
 </script>
 
 
+
 <div class="vbta">
 
     {#if setList && setList.length <= rows}
         <label class="select {field.css}">
+            <span>{label}</span>
+
             <select {...field.attributes}
                     bind:value="{selValue._id}"
                     on:change="{() => emitDropdown(selValue._id) }">
@@ -225,6 +231,8 @@
 
     {:else}
         <label>
+            <span>{label}</span>
+
             <input type="text" readonly
                    class="input vbta-hint {matches.length > 0 ? 'visible' : '' }"
                    bind:value="{hint}">

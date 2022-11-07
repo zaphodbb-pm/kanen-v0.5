@@ -1749,18 +1749,18 @@ button.delete.is-small
 }
 
 
-.form > label > input,
-.form > label > textarea,
-.form > label > select,
-.form .has-help-text label > input,
-.form .has-help-text label > textarea,
-.form .has-help-text label > select,
-.form .field-group > label > input,
-.form .field-group > label > textarea,
-.form .field-group > label > select,
-.form .field-group .has-help-text label > input,
-.form .field-group .has-help-text label > textarea,
-.form .field-group .has-help-text label > select
+.form > label input,
+.form > label textarea,
+.form > label select,
+.form .has-help-text label input,
+.form .has-help-text label textarea,
+.form .has-help-text label select,
+.form .field-group > label input,
+.form .field-group > label textarea,
+.form .field-group > label select,
+.form .field-group .has-help-text label input,
+.form .field-group .has-help-text label textarea,
+.form .field-group .has-help-text label select
 {
     font-size: var(--size-6);
 
@@ -1784,8 +1784,8 @@ button.delete.is-small
     -webkit-appearance: none;
 }
 
-.form label > input[type='checkbox'],
-.form .field-group label > input[type='checkbox']
+.form label input[type='checkbox'],
+.form .field-group label input[type='checkbox']
 {
     width: auto;
 
@@ -1797,7 +1797,7 @@ button.delete.is-small
 
 
 .form label select,
-.form .has-field-addons label > select
+.form .has-field-addons label select
 {
     cursor: pointer;
 
@@ -1869,10 +1869,10 @@ button.delete.is-small
 }
 
 
-.form label > input:focus-visible,
-.form label > textarea:focus-visible,
-.form label > select:focus-visible,
-.form label > div:focus-visible
+.form label input:focus-visible,
+.form label textarea:focus-visible,
+.form label select:focus-visible,
+.form label div:focus-visible
 {
     border: 2px solid var(--primary);
     outline: none;
@@ -1886,7 +1886,7 @@ button.delete.is-small
 
 .field-error
 {
-    border: 1px solid var(--danger);
+    border: 2px solid var(--danger) !important;
     border-radius: var(--radius-elem);
 }
 
@@ -1937,9 +1937,15 @@ button.delete.is-small
     border-bottom-left-radius: var(--radius-elem);
 }
 
-.form .has-field-addons > :first-child:has(input)
+.form .has-field-addons > :first-child:has(input),
+.form .has-field-addons > :last-child:has(input)
 {
     border: none;
+}
+
+.form .has-field-addons > :last-child:has(input)
+{
+    padding: 0;
 }
 
 .form .has-field-addons > :first-child input
@@ -1948,6 +1954,15 @@ button.delete.is-small
 
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+}
+
+.form .has-field-addons > :last-child input
+{
+    height: calc(2.5rem + 2px);
+    padding: 0;
+
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 
@@ -1963,15 +1978,15 @@ button.delete.is-small
     border: none;
 }
 
-.form .has-field-addons label.is-fullwidth
+.form .has-field-addons .is-fullwidth
 {
     width: 100%;
 }
 
 
-.form .has-field-addons > label > input,
-.form .has-field-addons > label > textarea,
-.form .has-field-addons > label > select
+.form .has-field-addons > label input,
+.form .has-field-addons > label textarea,
+.form .has-field-addons > label select
 {
     font-size: var(--size-6);
 
@@ -1992,7 +2007,7 @@ button.delete.is-small
     -webkit-appearance: none;
 }
 
-.form .has-field-addons > label > select
+.form .has-field-addons > label select
 {
     width: auto;
     padding-right: 3.5rem;
@@ -2054,7 +2069,7 @@ button.delete.is-small
 
 .form .switch input
 {
-    display: none;
+    display: none !important;
 }
 
 
@@ -4755,7 +4770,7 @@ details.accordion.is-expander-danger summary
 .tabs > input
 {
     position: absolute; /* then hide them off-screen */
-    left: -100%;
+    left: -100vw;
 
     display: block; /* "enable" hidden elements in IE/edge */
 }

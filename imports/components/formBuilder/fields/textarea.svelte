@@ -15,24 +15,27 @@
 
     //* common props from parent
     export let field = {};
+    export let error = "";
 
     //* support functions
-    import {createEventDispatcher} from 'svelte';
+    import {createEventDispatcher, getContext} from 'svelte';
     const dispatch = createEventDispatcher();
+    const formText = getContext("formText");
+    const label = formText[field.field] && formText[field.field].label ? formText[field.field].label : "";
+
 
     //* local reactive variable
     let inValue = "";
-    let checkValue = "";
 
-    $: setValue(field.value);
+    $: inValue = setValue(field.value);
 
 
     //* functions that mutate local variables
     function setValue(val){
         if(typeof val === 'object'){
-            inValue =  JSON.stringify(val);
+            return JSON.stringify(val);
         }else{
-            inValue = val;
+            return val;
         }
     }
 
@@ -56,7 +59,8 @@
 
 
 <label id="{field.field}">
-    <textarea class="textarea"
+    <span>{label}</span>
+    <textarea class="{error}"
               bind:value={inValue}
               {...field.attributes}
               on:keyup="{checkInput}"></textarea>

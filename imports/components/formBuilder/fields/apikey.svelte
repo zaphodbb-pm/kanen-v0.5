@@ -6,6 +6,9 @@
      * @memberOf Components:form
      * @locus Client
      *
+     * @param {Object} field
+     * @param {String} error
+     *
      * @emits 'on-inputentry', {value: keyValue, error: false}
      *
      * @notes
@@ -16,11 +19,14 @@
 
     //* common props from parent
     export let field = {};
+    export let error = ""
 
     //* support functions
     import {generateId} from '/imports/functions/utilities/generateId'
     import {getContext, createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
+    const formText = getContext("formText");
+    const label = formText[field.field]?.label ?? "";
 
     //* local reactive variable
     let keyValue = "";
@@ -41,17 +47,17 @@
 </script>
 
 
+<div class="has-field-addons">
+    <button type="button" class="is-primary" on:click={setkey}>
+        <span class="icon-bg-key is-medium"></span>
+    </button>
 
-<div class="field has-addons">
-    <div class="control">
-        <a class="button is-primary" on:click="{setkey}">
-            <span class="icon-bg-key is-medium"></span>
-        </a>
-    </div>
+    <label class="is-fullwidth">
+        <span>{label}</span>
 
-    <div class="control is-expanded">
         <input type="text" class="input"
                {...field.attributes}
                bind:value="{keyValue}">
-    </div>
+
+    </label>
 </div>

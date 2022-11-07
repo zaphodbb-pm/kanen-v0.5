@@ -380,7 +380,7 @@ export default [
         optional: true,
 
         tab: 2,
-        attributes: {type: "text", maxlength: 64},
+        attributes: {},
         params: {},
         defaultValue: "",
     },

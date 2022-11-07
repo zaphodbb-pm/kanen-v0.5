@@ -7,6 +7,7 @@
      * @locus Client
      *
      * @param {Object} field
+     * @param {String} error - class to show a field in error
      *
      * @emits 'on-inputentry' {value: value, error: errorVal} with text, number or other types
      *
@@ -20,8 +21,10 @@
     import {validateEmail} from '/imports/functions/formatters/validateEmail'
     import {validatePhone} from '/imports/functions/formatters/validatePhone'
     import {createEventDispatcher, getContext} from 'svelte';
+
     const dispatch = createEventDispatcher();
     const formText = getContext("formText");
+    const label = formText[field.field]?.label ?? "";
 
     //* local reactive variable
     let inValue = "";
@@ -29,10 +32,7 @@
     let attributes = field.attributes;
     let hasShow = field.attributes && field.attributes.type && field.attributes.type === "password";
     let isText = true;
-    const label = formText[field.field] && formText[field.field].label ? formText[field.field].label : "";
-
-
-    let showTitles = field.tag ? field.tag : {};
+    let showTitles = field?.tag ?? {};
 
 
     $: setValue(field.value);
@@ -129,7 +129,7 @@
 
 {:else}
 
-    <label id="{field.field}">
+    <label>
         <span>{label}</span>
         <input class="input {checkValue}"
                {...attributes}

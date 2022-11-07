@@ -18,7 +18,6 @@
     export let error = "";
 
     //* support functions
-    import {generateId} from '/imports/functions/utilities/generateId';
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
     import {getContext} from 'svelte'
@@ -28,8 +27,6 @@
     let inValue = false;
     const tag = formText[field.field] && formText[field.field].tag ? formText[field.field].tag : "";
     const label = formText[field.field] && formText[field.field].label ? formText[field.field].label : "";
-    const isCheck = !!(field.params && field.params.isCheck);
-    const uniqueId = generateId(6);
 
     $: setValue(field.value);
 
@@ -48,7 +45,7 @@
 
 
 
-<label>
+<label id="{field.field}" class="{error}">
     <span>{label}</span>
     <span class="switch">
         <input type="checkbox"

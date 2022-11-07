@@ -33,6 +33,7 @@
 
     //* common props from parent
     export let field = {};
+    export let error = "";
 
     //* support functions
     import {getDocs} from '/imports/functions/supportApplication/getDocs'
@@ -141,28 +142,6 @@
 
 
 
-<!--
-<label>
-    <span>{label}</span>
-
-    <select name="{field.field}">
-        <option value="one">Select One</option>
-        <option value="two">Select Two</option>
-    </select>
-
-    {#if showColours}
-        <div class="is-status-icon" style="color: {activeColour};">
-            <span class="icon-bg-alert-info is-medium"></span>
-        </div>
-    {/if}
-</label>
--->
-
-
-
-
-
-
 <label class="{field.css} {showColours ? 'has-colour-icon' : ''}">
     <span>{label}</span>
 
@@ -171,6 +150,7 @@
     {/if}
 
     <select name="{field.field}"
+            class="input {error}"
             {...field.attributes}
             bind:value="{selValue}"
             on:change="{() => emitSelect(selValue) }">
@@ -184,9 +164,6 @@
         {/each}
 
     </select>
-
-
-
 </label>
 
 

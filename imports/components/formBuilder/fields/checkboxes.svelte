@@ -5,10 +5,9 @@
      * @memberOf Components:Form
      * @function checkboxes
      * @locus Client
-     * @augments fieldWrapper
      *
      * @param {Object} field
-     * @param {Object} field.params - {col: number, buttons: true} uses button layout instead of checkboxes
+     * @param {String} error
      *
      * @emits 'on-inputentry' {value: value, error: false} with array of objects
      *
@@ -16,6 +15,7 @@
 
     //* common props from parent
     export let field = {};
+    export let error = "";
 
     //* support functions
     import {createEventDispatcher} from 'svelte';

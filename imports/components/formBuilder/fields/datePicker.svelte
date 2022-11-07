@@ -1,32 +1,32 @@
 <script>
     /**
-     * Date picker component based on Flatpickr.
+     * Date picker component based on input date.
      *
-     * @memberOf Components:Form
+     * @memberOf Components:form
      * @function datePicker
      * @locus Client
-     * @augments fieldWrapper
      *
      * @param {Object} field
+     * @param {String} error
      *
      * @emits 'on-inputentry' {value: value, error: errorVal} with text date string
-     *
-     * @see Based on work {@link https://flatpickr.js.org/|Flatpickr}
      *
      */
 
     //* common props from parent
     export let field = {};
+    export let error = "";
 
     //* support functions
-    //import flatpickr from 'flatpickr';
-    //import 'flatpickr/dist/flatpickr.css'
-    import {onMount, onDestroy, createEventDispatcher} from 'svelte';
+    import {createEventDispatcher, getContext} from 'svelte';
     const dispatch = createEventDispatcher();
+    const formText = getContext("formText");
+    const label = formText[field.field]?.label ?? "";
+
 
     //* local reactive variable
     let inValue = "";
-    let fp;
+    let attributes = field.attributes;
 
     $: setValue(field.value);
 
@@ -36,30 +36,30 @@
         inValue = val;
     }
 
-    function checkInput(selectedDates, dateStr){
-        inValue = dateStr;
-        dispatch('on-inputentry', {value: dateStr, error: false});
+    function checkInput(){
+        dispatch('on-inputentry', {value: inValue, error: false});
     }
 
-    //* lifecycle states
-
-    /*
-    onMount( () => {
-        let target = document.getElementById("fp_" + field.field);
-        fp = flatpickr(target, field.params);
-        fp.config.onChange.push(checkInput );
-        fp.jumpToDate(inValue);
-    });
-
-    onDestroy( () => {
-        fp.destroy();
-    });
-
-     */
 
 </script>
 
 
-<label>
-    <input type="text" id="fp_{field.field}" class="input" value="{inValue}">
+<label class="select">
+    <span>{label}</span>
+
+    <input type="date"
+           {...attributes}
+           bind:value={inValue}
+           on:change="{checkInput}">
 </label>
+
+
+<style>
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        cursor: pointer;
+    }
+
+    .main-theme-dark input[type="date"]::-webkit-calendar-picker-indicator {
+        filter: invert(0.9);
+    }
+</style>

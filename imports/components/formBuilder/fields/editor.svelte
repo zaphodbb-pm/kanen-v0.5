@@ -5,28 +5,28 @@
      * @memberOf Components:Form
      * @function editor
      * @locus Client
-     * @augments fieldWrapper
      *
      * @param {Object} field
+     * @param {String} error - class to show a field in error
      *
      * @emits 'on-inputentry' {value: value, error: errorVal} with text, number or other types
      *
      * @see Quill editor {@link https://quilljs.com/docs/formats/|toolbar setup}
      *
      * @notes
-     *      1. some css over-rides have been applied.
-     *         See '/imports/client/css/starter-custom/starter_override.scss'; line 36
      *
      */
 
     //* common props from parent
     export let field = {};
+    export let error = "";
 
 
     //* support functions
     import {onMount, onDestroy, getContext, createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
-    let formText = getContext("formText");
+    const formText = getContext("formText");
+    const label = formText[field.field]?.label ?? "";
 
     //* local reactive variable
     let inValue = "";
@@ -151,27 +151,29 @@
 </script>
 
 
-<div class="editor-wrapper">
-    <div bind:this={editor}></div>
 
-    <div class="quill-table-buttons">
-        <div class="buttons are-small my-2">
-            <button class="button" on:click|preventDefault={() => actionTable("insert-table")}>Insert Table</button>
-            <button class="button is-danger" on:click|preventDefault={() => actionTable("delete-table")}>Delete Table</button>
-        </div>
 
-        <div class="buttons are-small mb-2">
-            <button class="button" on:click|preventDefault={() => actionTable("insert-row-above")}>Insert Row Above</button>
-            <button class="button" on:click|preventDefault={() => actionTable("insert-row-below")}>Insert Row Below</button>
-            <button class="button is-danger" on:click|preventDefault={() => actionTable("delete-row")}>Delete Row</button>
+<label><span>{label}</span></label>
 
-        </div>
+<div bind:this={editor}></div>
 
-        <div class="buttons are-small">
-            <button class="button" on:click|preventDefault={() => actionTable("insert-column-left")}>Insert Column Left</button>
-            <button class="button" on:click|preventDefault={() => actionTable("insert-column-right")}>Insert Column Right</button>
-            <button class="button is-danger" on:click|preventDefault={() => actionTable("delete-column")}>Delete Column</button>
-        </div>
-
+<div class="space-vert">
+    <div class="buttons are-small my-2">
+        <button type="button" on:click={() => actionTable("insert-table")}>Ins Table</button>
+        <button type="button" class="button is-danger" on:click={() => actionTable("delete-table")}>Del Table</button>
     </div>
+
+    <div class="buttons are-small space-vert">
+        <button type="button" on:click={() => actionTable("insert-row-above")}>Ins Row Above</button>
+        <button type="button" on:click={() => actionTable("insert-row-below")}>Ins Row Below</button>
+        <button type="button" class="button is-danger" on:click={() => actionTable("delete-row")}>Del Row</button>
+    </div>
+
+    <div class="buttons are-small space-vert">
+        <button type="button" on:click={() => actionTable("insert-column-left")}>Ins Col Left</button>
+        <button type="button" on:click={() => actionTable("insert-column-right")}>Ins Col Right</button>
+        <button type="button" class="button is-danger" on:click={() => actionTable("delete-column")}>Del Col</button>
+    </div>
+
 </div>
+

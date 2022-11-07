@@ -7,7 +7,7 @@
      * @locus Client
      * @augments formTabFields
      *
-     * @param {Object}  field - unique field name identifier
+     * @param {Object}  field - set of field parameters
      * @param {String}  field.field - unique field name identifier
      * @param {String}  field.fieldType - type of input field
      * @param {String}  field.adjustLabel - shifts label right to accommodate button add-on
@@ -193,7 +193,7 @@
                 <span class="icon-bg-help"></span>
             </span>
 
-            <svelte:component this="{components[field.fieldType]}" {field} error="{fieldOpt}"  on:on-inputentry="{fieldUpdate}"/>
+            <svelte:component this="{components[field.fieldType]}" {field} error="{fieldOpt}" on:on-inputentry="{fieldUpdate}"/>
 
             {#if fieldHelpShow}
                 <p transition:slide="{{delay: 100, duration: 300, easing: quintOut }}">
@@ -204,7 +204,7 @@
 
     {:else}
 
-        <svelte:component this="{components[field.fieldType]}" {field} on:on-inputentry="{fieldUpdate}"/>
+        <svelte:component this="{components[field.fieldType]}" {field} error="{fieldOpt}" on:on-inputentry="{fieldUpdate}"/>
 
     {/if}
 {/if}
