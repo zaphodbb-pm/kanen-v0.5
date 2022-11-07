@@ -186,31 +186,25 @@
 
 
 {#if !fieldHide}
-    <div class="{className}">
-        <div class="field" style="position: relative;">
-            <div class="control {fieldOpt}">
-                {#if label}
-                    <label class="has-float-label {adjustLabel}">{label}</label>
-                {/if}
+    {#if helpText}
 
-                <svelte:component
-                        this="{components[field.fieldType]}"
-                        {field}
-                        on:on-inputentry="{fieldUpdate}"/>
+        <div class="has-help-text">
+            <span on:click|stopPropagation="{toggleHelp}">
+                <span class="icon-bg-help"></span>
+            </span>
 
-            </div>
+            <svelte:component this="{components[field.fieldType]}" {field} error="{fieldOpt}"  on:on-inputentry="{fieldUpdate}"/>
 
-            {#if helpText}
-                <span class="field-info has-text-primary add-cursor" on:click|stopPropagation="{toggleHelp}">
-                    <span class="icon-bg-help"></span>
-                </span>
-
-                {#if fieldHelpShow}
-                    <div class="" transition:slide="{{delay: 100, duration: 300, easing: quintOut }}">
-                        <p class="">{@html helpText}</p>
-                    </div>
-                {/if}
+            {#if fieldHelpShow}
+                <p transition:slide="{{delay: 100, duration: 300, easing: quintOut }}">
+                    {@html helpText}
+                </p>
             {/if}
         </div>
-    </div>
+
+    {:else}
+
+        <svelte:component this="{components[field.fieldType]}" {field} on:on-inputentry="{fieldUpdate}"/>
+
+    {/if}
 {/if}

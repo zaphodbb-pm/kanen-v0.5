@@ -1,10 +1,9 @@
 /**
  * Import and register form field components.
  *
- * @memberOf Components:Form
+ * @memberOf Components:form
  * @function registerForm
  * @locus Client
- * @augments fieldWrapper
  *
  * @returns {Object} - Svelte components
  *

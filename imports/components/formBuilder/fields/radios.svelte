@@ -20,9 +20,11 @@
     //* support functions
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
-    import {getContext} from 'svelte'
-    let formText = getContext("formText");
-    let source = formText[field.field] && formText[field.field].selects ? formText[field.field].selects : [];
+    import {getContext} from 'svelte';
+
+    const formText = getContext("formText");
+    const source = formText[field.field]?.selects ?? [];
+    const label = formText[field.field]?.label ?? "";
 
     //* local reactive variable
     let radValue = "";
@@ -42,33 +44,28 @@
         radValue = val._id;
     }
 
-    function colWidth() {
-        let cols = field.params && field.params.cols ? field.params.cols : 1;
-        cols = cols === 7 ? null :  Math.round(12 / cols);
-        return cols ? `is-${cols}` : "";
-    }
-
 </script>
 
 
 
-<div class="box">
-    <div class="columns is-multiline">
-        {#each source as rad, index}
-            <div class="column radio-field {colWidth()}">
 
-                <input type="radio"
-                       id="{rad.field + '_radio_' + index}"
-                       class="is-checkradio"
-                       title=""
-                       {...field.attributes}
-                       bind:group={radValue}
-                       value={rad._id}
-                       on:change|stopPropagation="{() => emitRadio(rad._id)}">
+<fieldset class="{field.css}">
+    <legend>{label}</legend>
 
-                <label for="{rad.field + '_radio_' + index}">{rad.name}</label>
-            </div>
-        {/each}
-    </div>
+    {#each source as rad, idx}
+        <label>
+            <input type="radio"
+                   id="{field.field + '_radio_' + idx}"
+                   name="{field.field + '_radio-group'}"
+                   title=""
 
-</div>
+                   {...field.attributes}
+                   bind:group={radValue}
+                   value={rad._id}
+                   on:change|stopPropagation="{() => emitRadio(rad._id)}">
+
+            <span>{rad.name}</span>
+        </label>
+    {/each}
+
+</fieldset>

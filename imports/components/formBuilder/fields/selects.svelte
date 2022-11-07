@@ -37,10 +37,13 @@
     //* support functions
     import {getDocs} from '/imports/functions/supportApplication/getDocs'
     import {getContext, createEventDispatcher} from 'svelte';
+
     const dispatch = createEventDispatcher();
-    let formText = getContext("formText");
-    let source = formText[field.field] && formText[field.field].selects ? formText[field.field].selects : [];
-    let firstOption = formText[field.field] && formText[field.field].tag ? formText[field.field].tag : "";
+    const formText = getContext("formText");
+    const label = formText[field.field]?.label ?? "";
+    const firstOption = formText[field.field]?.tag ?? "";
+
+    let source = formText[field.field]?.selects ?? [];
 
 
     //* local reactive variable
@@ -137,12 +140,40 @@
 </script>
 
 
-<div class="select {field.css}">
-    <select class="{showColours ? 'has-status-icon' : ''}"
+
+<!--
+<label>
+    <span>{label}</span>
+
+    <select name="{field.field}">
+        <option value="one">Select One</option>
+        <option value="two">Select Two</option>
+    </select>
+
+    {#if showColours}
+        <div class="is-status-icon" style="color: {activeColour};">
+            <span class="icon-bg-alert-info is-medium"></span>
+        </div>
+    {/if}
+</label>
+-->
+
+
+
+
+
+
+<label class="{field.css} {showColours ? 'has-colour-icon' : ''}">
+    <span>{label}</span>
+
+    {#if showColours}
+        <div class="status-item" style="background-color: {activeColour};"></div>
+    {/if}
+
+    <select name="{field.field}"
             {...field.attributes}
             bind:value="{selValue}"
             on:change="{() => emitSelect(selValue) }">
-
 
         <option disabled value="{firstOption._id}">{firstOption.name}</option>
 
@@ -154,35 +185,27 @@
 
     </select>
 
-    {#if showColours}
-        <div class="is-status-icon" style="color: {activeColour};">
-            <span class="icon-bg-alert-info is-medium"></span>
-        </div>
-    {/if}
-
-</div>
 
 
+</label>
 
 
 <style>
-
-    .has-status-icon {
-        padding-left: 2.25em;
+    .has-colour-icon select {
+        padding-left: 2.5em;
     }
 
-    .is-status-icon {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 4;
-
-        height: 2.5em;
-        pointer-events: none;
+    .status-item {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 2.5em;
-    }
+        top: 1em;
+        left: 1em;
 
+
+        height: 1em;
+        width: 1em;
+        border-radius: 50%;
+
+        z-index: 1;
+    }
 </style>
+

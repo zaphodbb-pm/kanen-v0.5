@@ -23,7 +23,7 @@
      *      configuration object to set up form:
      *          coll: "starter"                     // collection to submit field values to
      *          showHdr: false,                     // show card header and title if true
-     *          bgTitle: elements.BG_CARD,          // background colour for header
+     *          bgTitle: "",                        // background colour for header
      *
      *          hasGroups: false,                   // allows fields to be grouped onto the same row
      *          hasTabs:    false,                  // has tabbed fields in form
@@ -110,7 +110,7 @@
 
     let created = false;
     let currDoc = {};
-    let bgClone = elements.BG_BUTTON_CLONE;
+    let bgClone = "is-warning";
     let showClone = false;
 
     //* fields prepared for form display
@@ -290,7 +290,31 @@
 
 
 
-<div class=" card">
+<article class="card">
+    <header class="level {config.bgTitle}">
+        <h3>{formText.labels.hdr}</h3>
+        {#if showClone}
+            <a class="button {bgClone}"
+               on:click="{cloneItem}">
+                {formText.labels.cloneBtn}
+            </a>
+        {/if}
+    </header>
+
+    <div class="space-vert">
+        <Form_Tabs fields="{tabFields.fields}" on:field-changed="{fieldChanged}" />
+    </div>
+
+</article>
+
+
+
+
+
+
+<!--
+
+<div class="card">
 
     {#if config.showHdr}
         <div class="card-header level {config.bgTitle}">
@@ -299,7 +323,7 @@
             </div>
 
             {#if showClone}
-                <a class="button mr-2 {bgClone}"
+                <a class="button {bgClone}"
                    on:click="{cloneItem}">
                     {formText.labels.cloneBtn}
                 </a>
@@ -334,4 +358,7 @@
         </div>
     </div>
 
+
 </div>
+
+  -->

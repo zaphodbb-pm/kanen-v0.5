@@ -2,10 +2,9 @@
     /**
      * Field component for html input tags.
      *
-     * @memberOf Components:Form
+     * @memberOf Components:form
      * @function inputs
      * @locus Client
-     * @augments fieldWrapper
      *
      * @param {Object} field
      *
@@ -15,24 +14,28 @@
 
     //* common props from parent
     export let field = {};
+    export let error = "";
 
     //* support functions
     import {validateEmail} from '/imports/functions/formatters/validateEmail'
     import {validatePhone} from '/imports/functions/formatters/validatePhone'
     import {createEventDispatcher, getContext} from 'svelte';
     const dispatch = createEventDispatcher();
+    const formText = getContext("formText");
 
     //* local reactive variable
     let inValue = "";
-    let checkValue = "";
+    let checkValue = error;
     let attributes = field.attributes;
     let hasShow = field.attributes && field.attributes.type && field.attributes.type === "password";
     let isText = true;
+    const label = formText[field.field] && formText[field.field].label ? formText[field.field].label : "";
+
+
     let showTitles = field.tag ? field.tag : {};
 
 
     $: setValue(field.value);
-
 
 
     //* functions that mutate local variables
@@ -46,7 +49,7 @@
 
         if(test){
             inValue = test.value;
-            checkValue = test.error ? "field-input-error" : "";
+            checkValue = test.error ? "field-error" : "";
             dispatch('on-inputentry', test );
         }
     }
@@ -98,27 +101,40 @@
 
 
 
-<div id="{field.field}" class="field has-addons">
-    <div class="control is-expanded">
+
+{#if hasShow}
+
+    <div class="has-field-addons">
+        <label class="is-fullwidth">
+            <span>{label}</span>
+            <input class="input {checkValue}"
+                   {...attributes}
+                   bind:value={inValue}
+                   on:keyup="{checkInput}">
+
+        </label>
+
+        <button type="button" on:click={checkShow}>
+            {#if isText}
+                    <span title="{showTitles.show}">
+                        <span class="icon-bg-eye is-medium"></span>
+                    </span>
+            {:else}
+                    <span title="{showTitles.hide}">
+                        <span class="icon-bg-eye-off is-medium"></span>
+                    </span>
+            {/if}
+        </button>
+    </div>
+
+{:else}
+
+    <label id="{field.field}">
+        <span>{label}</span>
         <input class="input {checkValue}"
                {...attributes}
                bind:value={inValue}
                on:keyup="{checkInput}">
-    </div>
+    </label>
 
-    {#if hasShow}
-        <div class="control">
-            <a class="button has-text-grey" on:click={checkShow}>
-                {#if isText}
-                    <span title="{showTitles.show}">
-                        <span class="icon-bg-eye is-medium"></span>
-                    </span>
-                {:else}
-                    <span title="{showTitles.hide}">
-                        <span class="icon-bg-eye-off is-medium"></span>
-                    </span>
-                {/if}
-            </a>
-        </div>
-    {/if}
-</div>
+{/if}

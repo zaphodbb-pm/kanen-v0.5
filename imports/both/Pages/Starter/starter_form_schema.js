@@ -220,6 +220,7 @@ export default [
         tab: 0,
         attributes: {},
         params: {cols: 2, buttons: true},
+        css: "is-vertical",
         defaultValue: [],
     },
 

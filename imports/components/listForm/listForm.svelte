@@ -24,7 +24,7 @@
     import {messages} from '/imports/client/systemStores'
 
     import Form_Holder from '/imports/components/formBuilder/formHolder.svelte'
-    import List_Holder from '/imports/components/listCollections/listHolder.svelte'
+    //import List_Holder from '/imports/components/listCollections/listHolder.svelte'
 
     setContext("formText", formText);
 
@@ -113,9 +113,12 @@
 
 
 
-<div class="columns">
+<div class="row">
 
-    <article class="column {mode === 'grid' ? 'is-12' : confList?.css ?? 'is-5'}" class:is-hidden={!showList}>
+
+    <div class="column {mode === 'grid' ? 'is-12' : confList?.css ?? 'is-5'}" class:is-hidden={!showList}>
+
+        <!--
         <List_Holder
                 config="{confList}"
                 {listText}
@@ -123,10 +126,11 @@
                 {sort}
                 submitted="{releaseEdit}"
                 on:send-doc="{docToEdit}"/>
+                -->
 
-    </article>
+    </div>
 
-    <article class="column {confForm?.css ?? 'is-7' }" class:is-hidden={!showForm}>
+    <div class="column {confForm?.css ?? 'is-7' }" class:is-hidden={!showForm}>
         <Form_Holder
                 config="{confForm}"
                 {formText}
@@ -138,6 +142,6 @@
                 on:doc-submitted="{docSent}"
                 on:method-return={methodMessage}/>
 
-    </article>
+    </div>
 
 </div>

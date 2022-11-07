@@ -40,9 +40,9 @@
 
     //* reactive variables
     let formBtn =  btnCreate;
-    let formBtnColor =  elements.BG_BUTTON;
-    let formBtnColorAlt =  elements.BG_BUTTON_ALT;
-    let btnColor =  elements.BG_BUTTON;
+    let formBtnColor =  "is-primary";
+    let formBtnColorAlt =  "is-secondary-outlined";
+    let btnColor =  "is-tertiary";
     let errFields = [];
 
     $:  setBtnState(btnState);

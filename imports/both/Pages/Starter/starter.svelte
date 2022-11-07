@@ -35,7 +35,7 @@
     import listArray from './starter_list';
 
     import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte'
-    //import List_Form from '/imports/components/listForm/listForm.svelte'
+    import List_Form from '/imports/components/listForm/listForm.svelte'
 
     const pageHeader = i18n(header, "", $lang);
     let formText = i18n(page, "form", $lang);
@@ -65,26 +65,18 @@
 
 <main class="main-content">
 
-    <div class="row">
-
-        <div class="column">
+    <div class="level-end space-vert-medium">
+        <form class="form has-width-15rem">
             <Field_Wrapper
                     class=""
                     field="{pageConfig.components.gridMode}"
                     watchFields="{ {} }"
                     on:field-changed="{gridMode}"/>
-        </div>
-
-
-        <div class="column">
-
-
-        </div>
-
+        </form>
     </div>
 
 
-    <!--
+
     <List_Form
             confList="{conf.list}"
             listArray="{listArray}"
@@ -93,7 +85,6 @@
             schema="{schema}"
             formText="{formText}"
     />
-    -->
 
 
 </main>

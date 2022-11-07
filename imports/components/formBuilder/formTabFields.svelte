@@ -67,10 +67,120 @@
 
 
 
+<style>
 
-<div class="form-tabs">
+
+</style>
+
+
+
+<div>
+
+    <div class="tabs is-boxed">
+
+        {#each tabLabels as label, idx}
+            <input type="radio" name="tab_unit_1" id="{label}" hidden checked="{idx === 0}">
+        {/each}
+
+        <ul hidden>
+            {#each tabLabels as label, idx}
+                <li>
+                    <label for="{label}">{label}</label>
+                </li>
+            {/each}
+        </ul>
+
+
+
+
+        <div class="tab-content">
+            <form class="form">
+
+            {#if config.hasTabs}
+                {#each fields as tab, index}
+                    {#if config.hasGroups}
+                        {#each tab as groups, grp}
+
+                                {#each groups as field}
+                                    <div class="column {field.group && field.group.class ? field.group.class : '' }">
+                                        <Field_Wrapper class="" {field} {watchFields}  on:field-changed="{fieldChanged}"/>
+                                    </div>
+                                {/each}
+
+                        {/each}
+                    {:else}
+
+                            {#each tab as field}
+                                <Field_Wrapper class="" {field} {watchFields}  on:field-changed="{fieldChanged}"/>
+                            {/each}
+
+                    {/if}
+                {/each}
+
+
+            {:else}
+
+                {#if config.hasGroups}
+                    {#each fields as groups, idg}
+                        <form class="columns">
+                            {#each groups as field}
+                                <div class="column {field.group && field.group.class ? field.group.class : '' }">
+                                    <Field_Wrapper class="" {field} {watchFields}  on:field-changed="{fieldChanged}"/>
+                                </div>
+                            {/each}
+                        </form>
+                    {/each}
+                {:else}
+
+                    {#each fields as field}
+                        <Field_Wrapper class="" {field} {watchFields} on:field-changed="{fieldChanged}"/>
+                    {/each}
+
+                {/if}
+
+            {/if}
+
+            </form>
+
+
+
+
+            <!--
+            {#each content as tab}
+                <section>
+                    <h3 class="sr-only">{tab.label}</h3>
+
+                    {#if tab.lead}
+                        <p class="lead">{tab.lead}</p>
+                    {/if}
+
+                    {#if Array.isArray(tab.text)}
+                        <ul>
+                            {#each tab.text as item}
+                                <li>{@html item}</li>
+                            {/each}
+                        </ul>
+
+                    {:else}
+                        {@html tab.text}
+                    {/if}
+
+                </section>
+            {/each}
+            -->
+        </div>
+
+
+    </div>
+
+
+
+
+    <div class="space-component-large"></div>
 
     <!-- header for tabs or stepper -->
+
+    <!--
     {#if config.hasTabs}
         {#if config.hasStepper}
 
@@ -101,9 +211,12 @@
 
         {/if}
     {/if}
+    -->
 
 
     <!-- main body of input fields; organized around tabs and / or grouped fields   -->
+
+    <!--
     {#if config.hasTabs}
 
         {#each fields as tab, index}
@@ -112,7 +225,7 @@
                     <form class="columns" class:is-hidden={!(tabLabels[index] === currTab)}>
                         {#each groups as field}
                             <div class="column {field.group && field.group.class ? field.group.class : '' }">
-                                <Field_Wrapper class="" {field} {watchFields}  on:field-changed="{fieldChanged}"/>
+                                <Field_Wrapper {field} {watchFields}  on:field-changed="{fieldChanged}"/>
                             </div>
                         {/each}
                     </form>
@@ -120,7 +233,7 @@
             {:else}
                 <form class:is-hidden={!(tabLabels[index] === currTab)}>
                     {#each tab as field}
-                        <Field_Wrapper class="mb-3 pt-3" {field} {watchFields}  on:field-changed="{fieldChanged}"/>
+                        <Field_Wrapper {field} {watchFields}  on:field-changed="{fieldChanged}"/>
                     {/each}
                 </form>
             {/if}
@@ -133,20 +246,21 @@
                 <form class="columns">
                     {#each groups as field}
                         <div class="column {field.group && field.group.class ? field.group.class : '' }">
-                            <Field_Wrapper class="pt-3" {field} {watchFields}  on:field-changed="{fieldChanged}"/>
+                            <Field_Wrapper {field} {watchFields}  on:field-changed="{fieldChanged}"/>
                         </div>
                     {/each}
                 </form>
             {/each}
         {:else}
-            <form>
-                {#each fields as field}
-                    <Field_Wrapper class="mb-3 pt-3" {field} {watchFields} on:field-changed="{fieldChanged}"/>
-                {/each}
-            </form>
+
+            {#each fields as field}
+                <Field_Wrapper {field} {watchFields} on:field-changed="{fieldChanged}"/>
+            {/each}
+
         {/if}
 
     {/if}
+    -->
 
 
     <!-- footer for stepper -->
