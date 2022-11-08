@@ -2,10 +2,10 @@
     /**
      * Form wrapper around individual input fields.
      *
-     * @memberOf Components:Form
-     * @function fieldWrapper
+     * @module fieldWrapper
+     * @memberOf Components:form
+     *
      * @locus Client
-     * @augments formTabFields
      *
      * @param {Object}  field - set of field parameters
      * @param {String}  field.field - unique field name identifier
@@ -19,6 +19,9 @@
      * @param {Object}  field.listen - {src: <fieldName>, key: watching object -> <keyName>, value: <trigger value>}
      * @param {Array}   field.role - list of user role strings that can see this field
      * @param {String}  field.css - certain field inserts can be further modified with css
+     *
+     * @param {Object} watchFields
+     * @param {String} className
      *
      * @notes
      *  Support text is set by 'formHolder' into context 'formText':
@@ -193,7 +196,12 @@
                 <span class="icon-bg-help"></span>
             </span>
 
-            <svelte:component this="{components[field.fieldType]}" {field} error="{fieldOpt}" on:on-inputentry="{fieldUpdate}"/>
+            <svelte:component
+                    this="{components[field.fieldType]}"
+                    class="{className}"
+                    {field}
+                    error="{fieldOpt}"
+                    on:on-inputentry="{fieldUpdate}"/>
 
             {#if fieldHelpShow}
                 <p transition:slide="{{delay: 100, duration: 300, easing: quintOut }}">
@@ -204,7 +212,12 @@
 
     {:else}
 
-        <svelte:component this="{components[field.fieldType]}" {field} error="{fieldOpt}" on:on-inputentry="{fieldUpdate}"/>
+        <svelte:component
+                this="{components[field.fieldType]}"
+                class="{className}"
+                {field}
+                error="{fieldOpt}"
+                on:on-inputentry="{fieldUpdate}"/>
 
     {/if}
 {/if}

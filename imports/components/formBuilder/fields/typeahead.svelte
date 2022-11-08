@@ -2,10 +2,9 @@
     /**
      * Typeahead select component.
      *
-     * @memberOf Components:Form
-     * @function typeahead
+     * @module typeahead
+     * @memberOf Components:form
      * @locus Client
-     * @augments fieldWrapper
      *
      * @param {Object} field
      * @param {Object} field.params (static) - {type: "staticSelect", rows: 10}
@@ -24,6 +23,10 @@
     //* common props from parent
     export let field = {};
     export let error = "";
+
+    let className;
+    // noinspection ReservedWordAsName
+    export { className as class };
 
     //* support functions
     import {getDocs} from '/imports/functions/supportApplication/getDocs'
@@ -208,7 +211,7 @@
 
 
 
-<div class="vbta">
+<div class="vbta {className}">
 
     {#if setList && setList.length <= rows}
         <label class="select {field.css}">

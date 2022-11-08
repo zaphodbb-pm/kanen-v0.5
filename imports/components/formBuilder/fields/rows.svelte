@@ -2,12 +2,13 @@
     /**
      * Complex row container that can contain other form field types.
      *
-     * @memberOf Components:Form
-     * @function rows
+     * @module rows
+     * @memberOf Components:form
      * @locus Client
-     * @augments fieldWrapper
      *
      * @param {Object} field
+     * @param {String} error - class to show a field in error
+     * @param {String} className
      *
      * @emits 'on-inputentry' {value: value, error: errorVal} - value {Object} of field values
      *
@@ -32,6 +33,11 @@
 
     //* common props from parent
     export let field = {};
+    export let error = "";
+
+    let className;
+    // noinspection ReservedWordAsName
+    export { className as class };
 
     //* support functions
     import {deepClone} from '/imports/functions/utilities/deepClone'
@@ -39,7 +45,6 @@
     import Sortable from '/imports/components/elements/rowDragDrop.svelte'
     import {getContext,  setContext, createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
-
 
     //* local reactive variable
     let list = [];
@@ -50,7 +55,8 @@
 
     //** set new formText context for embedded formWrapper
     let formText = getContext("formText");
-    let rowText = formText[field.field] && formText[field.field].rowText ? formText[field.field].rowText : null;
+    const label = formText[field.field]?.label ?? "";
+    let rowText = formText[field.field]?.rowText ?? null;
 
     if(rowText){
         setContext("formText", rowText);
@@ -145,6 +151,86 @@
 
 
 
+<fieldset class="row-list {error}">
+    <legend>{label}</legend>
+
+    <button type="button" class="add-rows is-rounded is-primary" on:click="{addRow}">
+        <span class="icon-bg-circle-plus is-medium"></span>
+    </button>
+
+    <Sortable
+            bind:list={list}
+            {key}
+            on:sort={sortList}
+            let:item={item}>
+
+
+        <div class="level">
+            <div class="row-id">{item.row}</div>
+
+            {#each Object.values(item.fields) as field, idf (field.field + item.row)}
+                <Field_Wrapper
+                        class="{className}"
+                        {field}
+                        on:field-changed="{e => fieldsUpdate(item.row, e.detail) }"/>
+            {/each}
+
+            <div class="has-text-centered" on:click="{() => deleteRow(item.row)}">
+                <span class="icon-bg-circle-minus is-medium has-text-danger"></span>
+            </div>
+        </div>
+
+    </Sortable>
+
+</fieldset>
+
+
+
+
+<style>
+
+    .row-list {
+        padding-top: 5rem;
+    }
+
+    .row-list .level {
+        flex-direction: row;
+        align-items: center;
+        padding: 0;
+        column-gap: 0;
+    }
+
+    .row-list .level label {
+        min-width: 5rem;
+    }
+
+    .row-list textarea {
+        flex: auto;
+        padding: var(--padding);
+    }
+
+    .add-rows {
+        padding: 0.5rem;
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+    }
+
+    .add-rows > span {
+        margin: 0;
+    }
+
+    .row-id {
+        padding: 0.25rem 0.75rem;
+        background-color: #EEE;
+        border-radius: 50%;
+    }
+
+</style>
+
+
+<!--
+
 <fieldset class="box field-rows">
 
     <button class="button btn-rounded is-primary mb-3" on:click|preventDefault="{addRow}">
@@ -199,3 +285,4 @@
     }
 
 </style>
+-->

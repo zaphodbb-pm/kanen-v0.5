@@ -2,7 +2,7 @@
     /**
      * Row drag and drop component.
      *
-     * @memberOf Components:Elements
+     * @memberOf Components:elements
      * @function rowDragDrop
      * @locus Client
      *
@@ -33,7 +33,7 @@
     //** flip animation
     const [send, receive] = crossfade({
         duration: d => Math.sqrt(d * 200),
-        fallback(node, params) {
+        fallback(node, {}) {
             const style = getComputedStyle(node);
             const transform = style.transform === "none" ? "" : style.transform;
             return {
@@ -111,13 +111,15 @@
 
 <style>
     ul {
-        list-style: none;
         padding: 0;
+        width: 100%;
     }
 
     li {
         transition: border 0.1s linear;
         cursor: grabbing;
+        list-style: none;
+        margin: 0 0 1rem 0.5rem;
     }
 
     .over {

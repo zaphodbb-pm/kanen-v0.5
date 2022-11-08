@@ -2,12 +2,13 @@
     /**
      * Field component for html input tags.
      *
+     * @module inputs
      * @memberOf Components:form
-     * @function inputs
      * @locus Client
      *
      * @param {Object} field
      * @param {String} error - class to show a field in error
+     * @param {String} class
      *
      * @emits 'on-inputentry' {value: value, error: errorVal} with text, number or other types
      *
@@ -16,6 +17,10 @@
     //* common props from parent
     export let field = {};
     export let error = "";
+
+    let className;
+    // noinspection ReservedWordAsName
+    export { className as class };
 
     //* support functions
     import {validateEmail} from '/imports/functions/formatters/validateEmail'
@@ -104,7 +109,7 @@
 
 {#if hasShow}
 
-    <div class="has-field-addons">
+    <div class="has-field-addons {className} {field.css || ''}">
         <label class="is-fullwidth">
             <span>{label}</span>
             <input class="input {checkValue}"
@@ -129,7 +134,7 @@
 
 {:else}
 
-    <label>
+    <label class="{className} {field.css || ''}">
         <span>{label}</span>
         <input class="input {checkValue}"
                {...attributes}

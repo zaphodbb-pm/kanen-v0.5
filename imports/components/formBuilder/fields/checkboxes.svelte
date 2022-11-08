@@ -2,8 +2,8 @@
     /**
      * Basic checkboxes.
      *
-     * @memberOf Components:Form
-     * @function checkboxes
+     * @module checkboxes
+     * @memberOf Components:form
      * @locus Client
      *
      * @param {Object} field
@@ -50,7 +50,7 @@
 
 
 
-<fieldset class="{field.css}">
+<fieldset class="{field.css} {error}">
     <legend>{label}</legend>
 
     {#each source as cb}

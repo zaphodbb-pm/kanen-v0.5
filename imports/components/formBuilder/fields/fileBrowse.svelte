@@ -2,11 +2,11 @@
     /**
      * File input component for text or image types.
      *
-     * @memberOf Components:Form
-     * @function fileBrowse
+     * @module fileBrowse
+     * @memberOf Components:form
      * @locus Client
-     * @augments fieldWrapper
      *
+     * @param {String} error - class to show a field in error
      * @param {Object} field
      * @param {Object} field.params (text) - {format: "text", type: ["json", "text.*"]},
      * @param {Object} field.params (image) -   { format: "image", type: ["image.*"],
@@ -19,9 +19,10 @@
 
     //* common props from parent
     export let field = {};
+    export let error = {};
 
     //* special case for importing large json files
-    import {userLoggedIn, userExtras} from '/imports/client/systemStores'
+    import {userExtras} from '/imports/client/systemStores'
 
     //* support functions
     import {documents} from '/imports/both/systemGlobals'
@@ -29,7 +30,8 @@
     import Crop_Image from '/imports/components/widgets/croppie.svelte'
     import {getContext, createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
-    let formText = getContext("formText");
+    const formText = getContext("formText");
+    const label = formText[field.field]?.label ?? "";
 
 
     //* local reactive variable
@@ -167,52 +169,46 @@
 </script>
 
 
-<div class="field has-addons">
 
-    <div class="control">
-        <div class="button is-primary is-height-browse">
-            <span class="icon-bg-folder is-medium"></span>
+<div class="has-field-addons">
 
-            <input type="file" class="input file-input add-cursor" on:input="{setfile}">
-        </div>
+    <div class="button is-primary is-height-browse">
+        <span class="icon-bg-folder is-medium"></span>
+
+        <input type="file" class="input file-input" on:input="{setfile}">
     </div>
 
+    <label class="is-height-browse is-file-name">
+        <span>{label}</span>
 
-    <div class="control is-expanded">
-        <div class="button is-height-browse is-file-name">
+        <span class="file-area">
+            {#if format === 'text' && showTxtImg}
+                <span class="icon-bg-file is-large"></span>
+            {/if}
 
-            <div class="w-100 d-flex justify-content-between align-items-center">
-                {#if format === 'text' && showTxtImg}
-                    <span class="icon-bg-file is-large"></span>
-                {/if}
+            {#if format === 'image'}
+                <img class="file-icon-img-src"
+                     src="{icon_img}"
+                     title="image file"
+                     style=""
+                     alt=""
+                     on:click="{showFileImage}">
+            {/if}
 
-                {#if format === 'image'}
-                    <img class="file-icon-img-src"
-                         src="{icon_img}"
-                         title="image file"
-                         style=""
-                         alt=""
-                         on:click="{showFileImage}">
-                {/if}
+            <span class="is-message-area">{@html messages}</span>
 
-                <div class="is-message-area">{@html messages}</div>
-
-                {#if messages}
-                    <div class="icon-delete is-align-self-flex-end" on:click="{deleteInfo}">
-                        <span class="icon-bg-trash is-medium"></span>
-                    </div>
-                {/if}
-            </div>
-
-        </div>
-    </div>
+            {#if messages}
+                <span class="has-text-danger add-cursor" on:click="{deleteInfo}">
+                    <span class="icon-bg-trash is-medium"></span>
+                </span>
+            {/if}
+        </span>
+    </label>
 
     {#if hasCroppie}
-        <div class="control">
-            <div class="button is-primary is-height-browse is-last-item" on:click="{cropImage}">
-                <span class="icon-bg-crop is-medium"></span>
-            </div>
-        </div>
+        <button type="button" class="is-primary is-height-browse" on:click="{cropImage}">
+            <span class="icon-bg-crop is-medium"></span>
+        </button>
     {/if}
 </div>
 
@@ -223,42 +219,70 @@
             on:croppie-result={result}/>
 {/if}
 
-<div class="modal {showModal ? 'is-active': ''}">
-    <div class="modal-background"></div>
-    <div class="modal-card">
 
-        <header class="modal-card-head">
-            <p class="modal-card-title" style="width:90%;">{messages}</p>
-            <button class="delete" on:click|preventDefault="{hideModal}" aria-label="close"></button>
-        </header>
 
-        <section class="modal-card-body">
-            <img class="show-modal-image" src="{icon_img}" title="" alt="">
-        </section>
+
+<!--
+<button type="button" id="{'#modal-opener_' + field.field}" class="is-primary has-hover">
+    <a href="{'#modal-one_' + field.field}">Open Modal</a>
+</button>
+
+<div id="{'#modal-one_' + field.field}" class="modal-overlay">
+    <div class="modal">
+        <article class="modal-card">
+            <header>
+                <h2>{messages}</h2>
+                <a class="delete" href="{'#modal-opener_' + field.field}" aria-label="delete"></a>
+            </header>
+
+            <div>
+                <img class="show-modal-image" src="{icon_img}" title="" alt="inputted image">
+            </div>
+
+            <footer>
+                <button class="is-primary has-hover">Save Changes</button>
+                <a href="#modal-opener" class="button is-danger-outlined has-hover">Cancel Action</a>
+            </footer>
+        </article>
     </div>
 </div>
-
-
-
+-->
 
 
 <style>
-    .file-icon-img-src {
-        max-width: none;
-        max-height: 4rem;
+    .add-cursor {
         cursor: pointer;
-    }
-
-    .icon-delete {
-        font-size: 1rem;
-        height: 1rem;
-        color: #D81B60;
-        cursor: pointer;
-        margin-bottom: 0.5rem;
     }
 
     .is-height-browse {
         height: 6rem;
+        padding: 0;
+    }
+
+    .file-area {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+
+    .file-input {
+        height: 6rem !important;
+        width: 3rem;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .file-icon-img-src {
+        width: auto;
+        max-height: 4rem;
+        cursor: pointer;
+        margin-left: 1rem;
     }
 
     .is-file-name {
@@ -268,17 +292,10 @@
     }
 
     .is-message-area {
-        width: 100%;
-        height: 6rem;
         padding-left: 1rem;
         overflow: auto;
         white-space: normal;
         word-break: break-word;
-    }
-
-    .is-last-item {
-        border-top-right-radius: 4px !important;
-        border-bottom-right-radius: 4px !important;
     }
 
     .show-modal-image {

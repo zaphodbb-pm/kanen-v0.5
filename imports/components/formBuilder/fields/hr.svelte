@@ -2,14 +2,18 @@
     /**
      * Horizontal divider component.
      *
+     * @module hr
      * @memberOf Components:form
-     * @function hr
      * @locus Client
+     *
+     * @param {Object} field
+     * @param {String} error - class to show a field in error
      *
      */
 
     //* common props from parent
     export let field = {};
+    export let error = "";
 
     //* support functions
     import {getContext} from 'svelte'
@@ -20,22 +24,6 @@
 
 
 
-<div id="{field.field}"
-     class="is-divider field-hr hr-buffer"
-     data-content="{tag}">
-
+<div class="divider-box">
+    <div class="divider" data-content="{tag}" style="margin-bottom: 0;"></div>
 </div>
-
-
-
-<style>
-    .field-hr::after {
-        color: #777 !important;
-        font-size: 1rem;
-    }
-
-    .hr-buffer {
-        margin: 1rem 0 0.5rem 0;
-    }
-
-</style>

@@ -2,12 +2,13 @@
     /**
      * @summary Checkbox with switch css.
      *
+     * @module switch
      * @memberOf Components:Form
-     * @function switch
      * @locus Client
-     * @augments fieldWrapper
      *
      * @param {Object} field with field.params.isCheck ? true = checkbox : else = toggle
+     * @param {String} error
+     * @param {String} class
      *
      * @emits 'on-inputentry' {value: value, error: errorVal} with boolean
      *
@@ -16,6 +17,10 @@
     //* common props from parent
     export let field = {};
     export let error = "";
+
+    let className;
+    // noinspection ReservedWordAsName
+    export { className as class };
 
     //* support functions
     import {createEventDispatcher} from 'svelte';
@@ -45,7 +50,7 @@
 
 
 
-<label id="{field.field}" class="{error}">
+<label class="{error} {className} {field.css || ''}">
     <span>{label}</span>
     <span class="switch">
         <input type="checkbox"

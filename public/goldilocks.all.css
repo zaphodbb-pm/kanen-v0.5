@@ -307,6 +307,9 @@ use https://www.colorhexa.com/ or https://paletton.com/ to build complimentary c
     --text-code: var(--secondary-light);;
 }
 
+/** other special items that need control **/
+
+
 /* Pure css HTML base elements and reset */
 /** note that some HTML tags are set in other element files **/
 
@@ -1742,7 +1745,11 @@ button.delete.is-small
     top: calc( -.75 * var(--margin));
     left: var(--margin);
 
+    overflow: hidden;
+
     padding: 0  calc( .5 * var(--pad-horz) );
+
+    white-space: nowrap;
 
     color: var(--text-elem);
     background-color: var(--bg-main-elem);
@@ -1771,7 +1778,7 @@ button.delete.is-small
     box-sizing: border-box;
     width: 100%;
     margin: 0;
-    padding: .75rem 3.5rem .5rem .75rem;
+    padding: var(--pad-vert) var(--pad-horz);
 
     color: var(--text-elem);
     border: 1px solid var(--border-main-darker);
@@ -1782,6 +1789,15 @@ button.delete.is-small
             appearance: none;
        -moz-appearance: none;
     -webkit-appearance: none;
+}
+
+
+.form > label select,
+.form .has-help-text label select,
+.form .field-group > label select,
+.form .field-group .has-help-text label select
+{
+    padding-right: 2.5rem;
 }
 
 .form label input[type='checkbox'],
@@ -1806,7 +1822,7 @@ button.delete.is-small
     background-image: var(--indicator);
     background-repeat: no-repeat;
     background-attachment: scroll;
-    background-position: right 1em center;
+    background-position: right .5em center;
     background-clip: border-box;
     background-origin: padding-box;
     background-size: 1.5em 1.5em;
@@ -1863,11 +1879,6 @@ button.delete.is-small
     align-items: center;
 }
 
-.form fieldset label > span
-{
-    margin: 0 calc( .5 * var(--gap-col) );
-}
-
 
 .form label input:focus-visible,
 .form label textarea:focus-visible,
@@ -1883,6 +1894,13 @@ button.delete.is-small
 {
     margin: 0;
 }
+
+.form fieldset input[type='checkbox'] + span,
+.form fieldset input[type='radio'] + span
+{
+    margin-left: var(--mar-horz);
+}
+
 
 .field-error
 {
@@ -2152,6 +2170,7 @@ button.delete.is-small
     padding: .25em;
 
     color: var(--secondary);
+    border-radius: 50%;
     background-color: var(--bg-main);
 }
 
@@ -8339,18 +8358,6 @@ a.tag:hover
     width: 6rem;
     height: 6rem;
 }
-
-
-/*
-.reportbox > img {
-    border-radius: var(--radius-elem);
-    border: solid 0.25rem var(--border-main);
-    height: auto;
-    width: auto;
-    object-fit: cover;
-}
-
- */
 
 
 /* text setup */

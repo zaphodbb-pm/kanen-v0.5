@@ -2,12 +2,13 @@
     /**
      * Basic textarea box.
      *
-     * @memberOf Components:Form
-     * @function textarea
+     * @module textarea
+     * @memberOf Components:form
      * @locus Client
-     * @augments fieldWrapper
      *
      * @param {Object} field
+     * @param {String} error
+     * @param {String} class
      *
      * @emits 'on-inputentry' {value: value, error: errorVal} with string
      *
@@ -16,6 +17,10 @@
     //* common props from parent
     export let field = {};
     export let error = "";
+
+    let className;
+    // noinspection ReservedWordAsName
+    export { className as class };
 
     //* support functions
     import {createEventDispatcher, getContext} from 'svelte';
@@ -58,7 +63,7 @@
 </script>
 
 
-<label id="{field.field}">
+<label class="{error} {className}">
     <span>{label}</span>
     <textarea class="{error}"
               bind:value={inValue}

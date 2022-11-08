@@ -425,6 +425,7 @@ export default [
             config: fieldsetRows,
         },
 
+        css: "has-max-width-8rem",
         optional: true,
         defaultValue: [],
     }

@@ -2,12 +2,13 @@
     /**
      * Field component for using Google Places api to get address predictions.
      *
-     * @memberOf Components:Form
-     * @function geoAddress
+     * @module geoAddress
+     * @memberOf Components:form
      * @locus Client
-     * @augments fieldWrapper
      *
      * @param {Object} field
+     * @param {String} error - class to show a field in error
+     * @param {String} class
      *
      * @emits 'on-inputentry' {value: {address: String, geoLocation: geoObject} error: errorVal}
      *
@@ -15,10 +16,17 @@
 
     //* common props from parent
     export let field = {};
+    export let error = "";
+
+    let className;
+    // noinspection ReservedWordAsName
+    export { className as class };
 
     //* support functions
     import {createEventDispatcher, getContext} from 'svelte';
     const dispatch = createEventDispatcher();
+    const formText = getContext("formText");
+    const label = formText[field.field]?.label ?? "";
 
     //* local reactive variable
     let inValue = "";
@@ -60,7 +68,7 @@
         selected = true;
 
         //** get geocode for selected address string
-        let addr = await Meteor.callPromise("geoAddress", encodeURIComponent(sel.description) );
+        let addr = await Meteor.callAsync("geoAddress", encodeURIComponent(sel.description) );
 
         if(addr.status === 200 && addr.infoStatus === 200){
             let info = addr.info;
@@ -84,11 +92,16 @@
 
 
 
-<div id="{field.field}" class="vbta">
-    <input class="input vbta-input"
-           {...attributes}
-           bind:value={inValue}
-           on:keyup="{checkInput}">
+<div class="vbta {error} {className}">
+
+    <label>
+        <span>{label}</span>
+        <input class="input vbta-input"
+               {...attributes}
+               bind:value={inValue}
+               on:keyup="{checkInput}">
+    </label>
+
 
     <div class="vbta-menu {predictions.length && selected ? 'visible' : ''}">
         <ul>

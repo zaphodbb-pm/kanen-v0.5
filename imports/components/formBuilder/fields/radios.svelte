@@ -2,11 +2,11 @@
     /**
      * Basic radio group.
      *
-     * @memberOf Components:Form
-     * @function radios
+     * @module radios
+     * @memberOf Components:form
      * @locus Client
-     * @augments fieldWrapper
      *
+     * @param {String} error
      * @param {Object} field
      * @param {Object} field.params - {col: number}
      *
@@ -16,6 +16,7 @@
 
     //* common props from parent
     export let field = {};
+    export let error = "";
 
     //* support functions
     import {createEventDispatcher} from 'svelte';
@@ -49,7 +50,7 @@
 
 
 
-<fieldset class="{field.css}">
+<fieldset class="{field.css} {error}">
     <legend>{label}</legend>
 
     {#each source as rad, idx}

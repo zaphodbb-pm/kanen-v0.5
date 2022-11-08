@@ -25,6 +25,7 @@ export default {
         field: "field1",
         fieldType: "input",
 
+        css: "has-max-width-6rem",
         attributes: {type: "text"},
         params: {},
         optional: true,
@@ -36,6 +37,7 @@ export default {
         field: "field2",
         fieldType: "input",
 
+        css: "has-max-width-5rem",
         attributes: {type: "number", min: 0, step: 1},
         params: {},
         optional: true,
@@ -47,6 +49,7 @@ export default {
         fieldType: "select",
         optional: true,
 
+        css: "has-max-width-8rem",
         attributes: {},
         params: {type: "staticSelect"},
         defaultValue: {_id: "all", name: "All Options"},
@@ -56,6 +59,7 @@ export default {
         field: "field4",
         fieldType: "switch",
 
+        css: "has-max-width-10rem",
         attributes: {},
         params: {isCheck: true},
         optional: true,

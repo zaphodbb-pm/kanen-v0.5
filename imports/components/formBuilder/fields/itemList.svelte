@@ -2,12 +2,12 @@
     /**
      * Draggable item list.
      *
-     * @memberOf Components:Form
-     * @function itemList
+     * @module itemList
+     * @memberOf Components:form
      * @locus Client
-     * @augments fieldWrapper
      *
      * @param {Object} field
+     * @param {String} error - class to show a field in error
      *
      * @emits 'on-inputentry' {value: value, error: errorVal} with text, number or other types
      *
@@ -15,11 +15,14 @@
 
     //* common props from parent
     export let field = {};
+    export let error = "";
 
     //* support functions
     import Sortable from '/imports/components/elements/rowDragDrop.svelte'
     import {getContext, createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
+    const formText = getContext("formText");
+    const label = formText[field.field]?.label ?? "";
 
     //* local reactive variable
     let list = [];
@@ -77,10 +80,13 @@
 
 
 
-<div class="box">
 
-    <button class="button btn-rounded is-primary mb-3" on:click|preventDefault="{addRow}">
-        <span class="icon-bg-circle-plus is-medium has-text-primary"></span>
+
+<fieldset class="item-list {error}">
+    <legend>{label}</legend>
+
+    <button type="button" class="add-rows is-rounded is-primary" on:click="{addRow}">
+        <span class="icon-bg-circle-plus is-medium"></span>
     </button>
 
     <Sortable
@@ -89,55 +95,70 @@
         on:sort={sortList}
         let:item={item}>
 
-        <div class="level mb-2">
-            <div class="w-10">
-                <span class="row-id">{item.id}</span>
-            </div>
+        <div class="level">
+            <div class="row-id">{item.id}</div>
 
             {#if field.params.showCheck}
-                <div class="mr-3" style="height: 1.5rem; width: 1.5rem;">
+                <label>
                     <input type="checkbox"
                            class="is-checkradio is-info has-background-color"
                            title=""
                            id="{'checkbox_' + uniqueId + '_' + item.id}"
                            checked="{item.check}"
                            on:change="{e => updateElement(item, 'check', e.target.checked)}">
-
-                    <label for="{'checkbox_' + uniqueId + '_' + item.id}"></label>
-                </div>
+                </label>
             {/if}
 
-            <div class="w-80">
-                <textarea class="textarea"
-                          value="{item.text}"
-                          on:input="{e => updateElement(item, 'text', e.target.value)}"
-                          rows="2"></textarea>
-            </div>
+            <textarea class="textarea"
+                      value="{item.text}"
+                      on:input="{e => updateElement(item, 'text', e.target.value)}"
+                      rows="2"></textarea>
 
-            <div class="w-10">
-                <div class="add-cursor has-text-centered" on:click="{() => deleteRow(item.id)}">
-                    <span class="icon-bg-circle-minus is-medium has-text-danger"></span>
-                </div>
+            <div class="has-text-centered" on:click="{() => deleteRow(item.id)}">
+                <span class="icon-bg-circle-minus is-medium has-text-danger"></span>
             </div>
         </div>
 
     </Sortable>
 
-</div>
+</fieldset>
+
 
 
 
 <style>
-    .btn-rounded {
-        border-radius: 50%;
-        padding: 0.25rem;
-        width: 2.5rem;
+
+    .item-list {
+        padding-top: 5rem;
+    }
+
+    .item-list .level {
+        flex-direction: row;
+        align-items: center;
+        padding: 0;
+    }
+
+    .item-list textarea {
+        flex: auto;
+        padding: var(--padding);
+    }
+
+    .add-rows {
+        padding: 0.5rem;
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+    }
+
+    .add-rows > span {
+        margin: 0;
     }
 
     .row-id {
-        margin-top: 0.5rem;
-        padding: 0.5rem 0.75rem;
+        padding: 0.25rem 0.75rem;
         background-color: #EEE;
         border-radius: 50%;
     }
+
 </style>
+

@@ -2,8 +2,8 @@
     /**
      * Date picker component based on input date.
      *
+     * @module datePicker
      * @memberOf Components:form
-     * @function datePicker
      * @locus Client
      *
      * @param {Object} field
@@ -40,11 +40,10 @@
         dispatch('on-inputentry', {value: inValue, error: false});
     }
 
-
 </script>
 
 
-<label class="select">
+<label class="select {error}">
     <span>{label}</span>
 
     <input type="date"

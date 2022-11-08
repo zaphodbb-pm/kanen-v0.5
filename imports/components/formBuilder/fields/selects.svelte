@@ -2,14 +2,14 @@
     /**
      * Static and dynamic select field.
      *
+     * @module selects
      * @memberOf Components:Form
-     * @function selects
      * @locus Client
-     * @augments fieldWrapper
      *
      * @param {Object} field
      * @param {Object} field.params1 - {type: "staticSelect", colours: true}
      * @param {Object} field.params2 - {type: "dynamicSelect", coll: "starter", filter: {fields: {name: 1}}, options: {sort: {name: 1}} }
+     * @param {String} class
      *
      * @emits 'on-inputentry' {value: value, error: false} with array of objects
      *
@@ -34,6 +34,10 @@
     //* common props from parent
     export let field = {};
     export let error = "";
+
+    let className;
+    // noinspection ReservedWordAsName
+    export { className as class };
 
     //* support functions
     import {getDocs} from '/imports/functions/supportApplication/getDocs'
@@ -142,7 +146,7 @@
 
 
 
-<label class="{field.css} {showColours ? 'has-colour-icon' : ''}">
+<label class="{field.css} {showColours ? 'has-colour-icon' : ''} {error} {className} {field.css || ''}">
     <span>{label}</span>
 
     {#if showColours}

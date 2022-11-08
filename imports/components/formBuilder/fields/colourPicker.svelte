@@ -2,8 +2,8 @@
     /**
      * Field component for colour picker.
      *
-     * @memberOf Components:Form
-     * @function colourPicker
+     * @module colourPicker
+     * @memberOf Components:form
      * @locus Client
      *
      * @param {Object} field
@@ -46,7 +46,7 @@
 
 
 
-<label class="select">
+<label class="select {error}">
     <span>{label}</span>
 
     <input type="color"
