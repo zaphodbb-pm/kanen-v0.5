@@ -130,7 +130,9 @@
     onMount(async () => {
         //** load big modules dynamically only when needed
         const { default: Quill } = await import("quill");
-        await import('./editor.css');
+        await import('quill/dist/quill.snow.css');
+
+        //await import('./editor.css');
 
         //** wait for html template ready
         if(!editor){ return; }

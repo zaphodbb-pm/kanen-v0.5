@@ -24,25 +24,19 @@
     import Croppie from 'croppie'
     import 'croppie/croppie.css'
 
-
-
-    console.log("croppie", options);
-
     //* local reactive variables
     let croppie = null;
 
     let defaultOptions = {
-                boundary: {
-                    customClass: "",
-                    enableExif: true,
-                    enableOrientation: true
-                },
+        customClass: "",
+        enableExif: true,
+        enableOrientation: true,
 
-            enableResize: false,
-            enableZoom: true,
-            enforceBoundary: true,
-            mouseWheelZoom: true,
-            showZoomer: true,
+        enableResize: false,
+        enableZoom: true,
+        enforceBoundary: true,
+        mouseWheelZoom: true,
+        showZoomer: true,
 
         croppieInitialized: function () {},
 
@@ -131,7 +125,7 @@
 
     .croppie-area {
         position: relative;
-        height: auto;
+        height: 500px;
         margin-bottom: 75px;
     }
 
