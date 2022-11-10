@@ -8,6 +8,7 @@
      *
      * @param {Object} field
      * @param {String} error
+     * @param {String} className
      *
      * @emits 'on-inputentry' {value: value, error: false} with array of objects
      *
@@ -16,6 +17,10 @@
     //* common props from parent
     export let field = {};
     export let error = "";
+
+    let className;
+    // noinspection ReservedWordAsName
+    export { className as class };
 
     //* support functions
     import {createEventDispatcher} from 'svelte';

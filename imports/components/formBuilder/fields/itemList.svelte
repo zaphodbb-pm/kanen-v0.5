@@ -8,6 +8,7 @@
      *
      * @param {Object} field
      * @param {String} error - class to show a field in error
+     * @param {String} className
      *
      * @emits 'on-inputentry' {value: value, error: errorVal} with text, number or other types
      *
@@ -16,6 +17,10 @@
     //* common props from parent
     export let field = {};
     export let error = "";
+
+    let className;
+    // noinspection ReservedWordAsName
+    export { className as class };
 
     //* support functions
     import Sortable from '/imports/components/elements/rowDragDrop.svelte'

@@ -6,6 +6,8 @@
      * @memberOf Components:form
      * @locus Client
      *
+     * @param {String} error
+     * @param {String} className
      * @param {Object} field
      * @param {Object} field.params (static) - {type: "staticSelect", rows: 10}
      * @param {Object} field.params (dynamic) - {type: "dynamicSelect", rows: 10, coll: "circuits", filter: {fields: {_id: 1, name: 1}}, options: {sort: {name: 1}}}

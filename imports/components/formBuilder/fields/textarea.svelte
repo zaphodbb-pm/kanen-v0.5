@@ -8,7 +8,7 @@
      *
      * @param {Object} field
      * @param {String} error
-     * @param {String} class
+     * @param {String} className
      *
      * @emits 'on-inputentry' {value: value, error: errorVal} with string
      *

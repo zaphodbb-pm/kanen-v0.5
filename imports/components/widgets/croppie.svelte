@@ -2,7 +2,7 @@
     /**
      * Croppie image controller.
      *
-     * @memberOf Components:AdminPanel
+     * @memberOf Components:widgets
      * @function croppie
      * @locus Client
      *
@@ -23,6 +23,10 @@
     const dispatch = createEventDispatcher();
     import Croppie from 'croppie'
     import 'croppie/croppie.css'
+
+
+
+    console.log("croppie", options);
 
     //* local reactive variables
     let croppie = null;
@@ -127,7 +131,7 @@
 
     .croppie-area {
         position: relative;
-        height: 500px;
+        height: auto;
         margin-bottom: 75px;
     }
 

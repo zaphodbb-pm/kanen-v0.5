@@ -8,12 +8,17 @@
      *
      * @param {Object} field
      * @param {String} error - class to show a field in error
+     * @param {String} className
      *
      */
 
     //* common props from parent
     export let field = {};
     export let error = "";
+
+    let className;
+    // noinspection ReservedWordAsName
+    export { className as class };
 
     //* support functions
     import {getContext} from 'svelte'

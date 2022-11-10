@@ -7,6 +7,7 @@
      * @locus Client
      *
      * @param {String} error - class to show a field in error
+     * @param {String} className
      * @param {Object} field
      * @param {Object} field.params (text) - {format: "text", type: ["json", "text.*"]},
      * @param {Object} field.params (image) -   { format: "image", type: ["image.*"],
@@ -20,6 +21,10 @@
     //* common props from parent
     export let field = {};
     export let error = {};
+
+    let className;
+    // noinspection ReservedWordAsName
+    export { className as class };
 
     //* special case for importing large json files
     import {userExtras} from '/imports/client/systemStores'
@@ -44,7 +49,7 @@
     let showCroppie = false;
     let showCropArea = false;
 
-    let showModal = false;
+    let showModal = ".hide-modal";
 
     let showDelete = false;
     let showTxtImg = false;
@@ -159,24 +164,24 @@
     }
 
     function showFileImage(){
-        showModal = true;
+        showModal = "show-modal";
     }
 
     function hideModal(){
-        showModal = false;
+        showModal = "hide-modal";
     }
 
 </script>
 
 
 
-<div class="has-field-addons">
+<div class="has-field-addons" id="{field.field}">
 
-    <div class="button is-primary is-height-browse">
+    <button type="button"  class="is-primary is-height-browse">
         <span class="icon-bg-folder is-medium"></span>
 
         <input type="file" class="input file-input" on:input="{setfile}">
-    </div>
+    </button>
 
     <label class="is-height-browse is-file-name">
         <span>{label}</span>
@@ -222,31 +227,26 @@
 
 
 
-<!--
-<button type="button" id="{'#modal-opener_' + field.field}" class="is-primary has-hover">
-    <a href="{'#modal-one_' + field.field}">Open Modal</a>
-</button>
+{#if format === 'image'}
 
-<div id="{'#modal-one_' + field.field}" class="modal-overlay">
-    <div class="modal">
-        <article class="modal-card">
-            <header>
-                <h2>{messages}</h2>
-                <a class="delete" href="{'#modal-opener_' + field.field}" aria-label="delete"></a>
-            </header>
+    <div id="{'modal_' + field.field}" class="modal-overlay {showModal}">
+        <div class="modal">
+            <article class="modal-card">
+                <header>
+                    <h2>{messages}</h2>
 
-            <div>
-                <img class="show-modal-image" src="{icon_img}" title="" alt="inputted image">
-            </div>
+                    <button type="button" class="delete" on:click="{hideModal}"></button>
+                </header>
 
-            <footer>
-                <button class="is-primary has-hover">Save Changes</button>
-                <a href="#modal-opener" class="button is-danger-outlined has-hover">Cancel Action</a>
-            </footer>
-        </article>
+                <div>
+                    <img class="show-modal-image" src="{icon_img}" title="" alt="inputted image">
+                </div>
+            </article>
+        </div>
     </div>
-</div>
--->
+
+{/if}
+
 
 
 <style>
@@ -298,8 +298,25 @@
         word-break: break-word;
     }
 
+    .show-modal {
+        visibility: visible;
+        opacity: 1;
+        position: fixed;
+        z-index: 100;
+        height:auto;
+    }
+
+    .hide-modal {
+        visibility: hidden;
+        opacity: 0;
+        position: relative;
+        z-index: unset;
+        height: 0;
+    }
+
     .show-modal-image {
         width: 100%;
+        object-fit: contain;
     }
 
 </style>

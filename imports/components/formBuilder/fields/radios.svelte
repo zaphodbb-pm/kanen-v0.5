@@ -7,6 +7,7 @@
      * @locus Client
      *
      * @param {String} error
+     * @param {String} className
      * @param {Object} field
      * @param {Object} field.params - {col: number}
      *
@@ -17,6 +18,10 @@
     //* common props from parent
     export let field = {};
     export let error = "";
+
+    let className;
+    // noinspection ReservedWordAsName
+    export { className as class };
 
     //* support functions
     import {createEventDispatcher} from 'svelte';

@@ -206,13 +206,14 @@ export const page = {
 
             startFile: {
                 label: "Get File",
-                helpText: "",
+                helpText: "Browse local device for files.  Reads text and json file types.  " +
+                        "The file size is limited to 500KB.",
             },
 
             startImage: {
                 label: "Get Image",
-                helpText: "Standard file browser that loads a string representation of the file data.  " +
-                        "The file size is limited to 250KB.",
+                helpText: "Browse local device for files.  Reads image file types such as jpeg, jpg, png, gif, etc..  " +
+                        "The file size is limited to 500KB.",
             },
 
 

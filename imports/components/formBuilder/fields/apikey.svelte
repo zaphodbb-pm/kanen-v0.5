@@ -8,6 +8,7 @@
      *
      * @param {Object} field
      * @param {String} error
+     * @param {String} className
      *
      * @emits 'on-inputentry', {value: keyValue, error: false}
      *
@@ -20,6 +21,10 @@
     //* common props from parent
     export let field = {};
     export let error = ""
+
+    let className;
+    // noinspection ReservedWordAsName
+    export { className as class };
 
     //* support functions
     import {generateId} from '/imports/functions/utilities/generateId'

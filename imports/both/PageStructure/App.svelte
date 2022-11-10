@@ -92,7 +92,7 @@
     //** reactively respond to change in nav path
     $: {
         currentPath = $path.toString();
-        currentPage = pagePaths[currentPath].component;
+        currentPage = pagePaths[currentPath]?.component ?? pagePaths["/home"].component;
     }
 
 

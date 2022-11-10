@@ -8,6 +8,7 @@
      *
      * @param {Object} field
      * @param {String} error - class to show a field in error
+     * @param {String} className
      *
      * @emits 'on-inputentry' {value: value, error: errorVal} with text, number or other types
      *
@@ -20,6 +21,10 @@
     //* common props from parent
     export let field = {};
     export let error = "";
+
+    let className;
+    // noinspection ReservedWordAsName
+    export { className as class };
 
 
     //* support functions
@@ -64,6 +69,9 @@
     }
 
     function actionTable(type){
+
+        return;
+
         switch(type){
             case "insert-table":
                 table.insertTable(3, 3);
@@ -121,7 +129,7 @@
     //* lifecycle states
     onMount(async () => {
         //** load big modules dynamically only when needed
-        const { default: Quill } = await import("./editor");
+        const { default: Quill } = await import("quill");
         await import('./editor.css');
 
         //** wait for html template ready
@@ -131,7 +139,7 @@
             theme: "snow",
             modules: {
                 toolbar: toolbarOptions,
-                table: true,
+                //table: true,
             },
             placeholder: formText[field.field].tag
         });
@@ -157,6 +165,8 @@
 
 <div bind:this={editor}></div>
 
+
+<!--
 <div class="space-vert">
     <div class="buttons are-small my-2">
         <button type="button" on:click={() => actionTable("insert-table")}>Ins Table</button>
@@ -176,4 +186,5 @@
     </div>
 
 </div>
+-->
 

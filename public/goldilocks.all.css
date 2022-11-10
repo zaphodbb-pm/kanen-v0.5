@@ -3778,6 +3778,12 @@ details.accordion.is-expander-danger summary
     flex-shrink: 1;
 }
 
+.modal-card > div:last-child
+{
+    border-bottom-right-radius: var(--radius-comp);
+    border-bottom-left-radius: var(--radius-comp);
+}
+
 .navbar
 {
     position: relative;
