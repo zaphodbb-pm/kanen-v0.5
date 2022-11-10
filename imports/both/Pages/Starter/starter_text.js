@@ -206,8 +206,7 @@ export const page = {
 
             startFile: {
                 label: "Get File",
-                helpText: "Standard file browser that loads a string representation of the file data.  " +
-                        "The file size is limited to 250KB.",
+                helpText: "",
             },
 
             startImage: {
