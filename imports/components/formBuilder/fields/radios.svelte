@@ -11,7 +11,7 @@
      * @param {Object} field
      * @param {Object} field.params - {col: number}
      *
-     * @emits 'on-inputentry' {value: value, error: false} with array of objects
+     * @fires on-inputentry
      *
      */
 
@@ -42,6 +42,11 @@
     function emitRadio(selId){
         //** get text for _id values
         let item = source.find( (s) => s._id === selId )
+
+        /**
+         * @event on-inputentry
+         * @type {object} - {value: value, error: false} with array of objects
+         */
         dispatch('on-inputentry', {value: item, error: false});
     }
 

@@ -11,7 +11,7 @@
      * @param {Object} field.params2 - {type: "dynamicSelect", coll: "starter", filter: {fields: {name: 1}}, options: {sort: {name: 1}} }
      * @param {String} className
      *
-     * @emits 'on-inputentry' {value: value, error: false} with array of objects
+     * @fires on-inputentry
      *
      * @notes
      *  params- {type, coll, field, filter} object provides behaviour information:
@@ -68,6 +68,11 @@
         let colour = item && item.colour ? item.colour : null;
         let out = colour ? {_id: item._id, name: item.name, colour: colour} : {_id: item._id, name: item.name};
         activeColour = colour;
+
+        /**
+         * @event on-inputentry
+         * @type {object} - {value: value, error: false} with array of objects
+         */
         dispatch('on-inputentry', {value: out, error: false}  );
     }
 
@@ -178,7 +183,7 @@
 
     .status-item {
         position: absolute;
-        top: 1em;
+        top: 0.75em;
         left: 1em;
 
 

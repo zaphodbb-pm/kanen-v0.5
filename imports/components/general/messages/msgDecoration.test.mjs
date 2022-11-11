@@ -1,9 +1,10 @@
 /**
  * Test plan
  *
- * @memberOf Tests
- * @augments msgDecoration
- * @locus Anywhere
+ * @name msgDecoration.test
+ * @private
+ * @memberOf Components:general:messages
+ * @locus test
  *
  */
 

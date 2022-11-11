@@ -2,14 +2,14 @@
     /**
      * Row drag and drop component.
      *
+     * @module rowDragDrop
      * @memberOf Components:elements
-     * @function rowDragDrop
      * @locus Client
      *
      * @param {Array} list - array of objects to sort
      * @param {String} key - object key to use
      *
-     * @emits: 'sort' - {Array} newList
+     * @fires sort
      *
      * @see Adapted from {@link https://github.com/brunomolteni/svelte-sortable-list|svelte-sortable-list}
      *
@@ -74,6 +74,11 @@
     const reorder = ({ from, to }) => {
         let newList = [...list];
         newList[from] = [newList[to], (newList[to] = newList[from])][0];
+
+        /**
+         * @event sort
+         * @type {Array}
+         */
         dispatch("sort", newList);
     };
 
@@ -119,7 +124,7 @@
         transition: border 0.1s linear;
         cursor: grabbing;
         list-style: none;
-        margin: 0 0 1rem 0.5rem;
+        margin: 0 0 1rem 0.5rem !important;
     }
 
     .over {

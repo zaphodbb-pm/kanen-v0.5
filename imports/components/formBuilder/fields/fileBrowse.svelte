@@ -14,7 +14,7 @@
      *                                            croppie: {viewport: {width: 450, height: 150, type: 'square'} }
      *                                          }
      *
-     * @emits 'on-inputentry' {value: {src, name}, error: false}
+     * @fires on-inputentry
      *
      */
 
@@ -121,6 +121,10 @@
                 messages = file.name;
                 inValue = {name: file.name, src: reader.result};
 
+                /**
+                 * @event on-inputentry
+                 * @type {object} - {value: keyValue, error: false}
+                 */
                 dispatch('on-inputentry', {value: inValue, error: false} );
             };
 
@@ -146,6 +150,10 @@
         messages = "";
         inValue = {name: "", src: "", size: 0};
 
+        /**
+         * @event on-inputentry
+         * @type {object} - {value: keyValue, error: false}
+         */
         dispatch('on-inputentry', {value: inValue, error: false} );
     }
 
@@ -159,6 +167,11 @@
         inValue.src = output.detail;
         showCropArea = false;
         showCroppie = false;
+
+        /**
+         * @event on-inputentry
+         * @type {object} - {value: keyValue, error: false}
+         */
 
         dispatch('on-inputentry', {value: inValue, error: false} );
     }
@@ -302,7 +315,7 @@
         visibility: visible;
         opacity: 1;
         position: fixed;
-        z-index: 100;
+        z-index: 1000;
         height:auto;
     }
 

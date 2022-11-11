@@ -10,7 +10,7 @@
      * @param {String} error - class to show a field in error
      * @param {String} className
      *
-     * @emits 'on-inputentry' {value: {address: String, geoLocation: geoObject} error: errorVal}
+     * @fires on-inputentry
      *
      */
 
@@ -73,6 +73,11 @@
         if(addr.status === 200 && addr.infoStatus === 200){
             let info = addr.info;
             let out = {address: info.address, geoLocation: info.geoLocation, parts: info.parts};
+
+            /**
+             * @event on-inputentry
+             * @type {object} - {value: {address: String, geoLocation: geoObject} error: errorVal}
+             */
             dispatch('on-inputentry', {value: out, error: false}  );
         }else{
             console.log("getGeocode error", addr);

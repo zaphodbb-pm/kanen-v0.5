@@ -30,7 +30,7 @@
      *      tag - (optional) extra text for some components such as 'switch'
      *      selects - (optional) array of {_id, name} objects for 'select' component
      *
-     * @emits field-changed - {Object}
+     * @emits field-changed
      *
      */
 
@@ -96,7 +96,12 @@
     function fieldUpdate(inMsg){
         fieldOpt = testValid(inMsg.detail.value, field.optional);
 
-        //*** flow input fields changes up to holder
+        /** flow input fields changes up to holder
+         *
+         * @event field-changed
+         * @type {object}
+         */
+
         dispatch('field-changed', {
             field: field.field,
             fieldType: field.fieldType,

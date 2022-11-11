@@ -1703,9 +1703,11 @@ button.delete.is-small
 
 /** optional form header **/
 .form.has-form-shadow > p,
-.form.is-form-tabbed > p
+.form.is-form-tabbed > p,
+.form.has-form-shadow > div.level,
+.form.is-form-tabbed > div.level
 {
-    font-size: var(--size-3);
+    font-size: var(--size-5);
     font-weight: var(--weight-semibold);
 
     padding: var(--pad-horz);
@@ -1714,13 +1716,29 @@ button.delete.is-small
     border-top-right-radius: inherit;
 }
 
-.form.has-form-shadow > p
+.form.has-form-shadow > div.level,
+.form.is-form-tabbed > div.level
+{
+    margin-bottom: var(--margin);
+}
+
+.form.has-form-shadow > div.level p,
+.form.is-form-tabbed > div.level p
+{
+    margin: 0;
+    padding: 0;
+}
+
+.form.has-form-shadow > p,
+.form.has-form-shadow > div.level
 {
     margin: calc(-1 * var(--padding-medium)) calc(-1 * var(--padding-medium)) var(--padding-large);
 }
 
 .form.has-form-shadow > p:not([class*='is-']),
-.form.is-form-tabbed > p:not([class*='is-'])
+.form.has-form-shadow > div.level:not([class*='is-']),
+.form.is-form-tabbed > p:not([class*='is-']),
+.form.is-form-tabbed > div.level:not([class*='is-'])
 {
     background-color: var(--bg-element);
 }
@@ -2096,8 +2114,6 @@ button.delete.is-small
 {
     display: flex;
 
-    margin-bottom: var(--margin);
-
     justify-content: space-between;
     align-items: center;
 }
@@ -2159,7 +2175,6 @@ button.delete.is-small
 .form .switch span::before
 {
     position: absolute;
-    top: .75rem;
     left: 2rem;
 
     display: block;
@@ -2178,7 +2193,6 @@ button.delete.is-small
 .form .switch span::after
 {
     position: absolute;
-    top: 1rem;
     left: 1.25rem;
 
     display: block;
@@ -2301,7 +2315,7 @@ button.delete.is-small
     text-indent: 0;
 }
 
-.form .form-tabs ul label
+.form .form-tabs > ul label
 {
     line-height: 1;
 
@@ -2319,7 +2333,7 @@ button.delete.is-small
     align-items: center;
 }
 
-.form .form-tabs ul label:hover
+.form .form-tabs > ul label:hover
 {
     margin-bottom: 0;
 
@@ -2328,14 +2342,14 @@ button.delete.is-small
     background-color: var(--bg-main-ter);
 }
 
-.form .form-tabs ul label span:last-child
+.form .form-tabs > ul label span:last-child
 {
     font-size: 1em;
 
     margin: 0 0 0 .5em;
 }
 
-.form .form-tabs ul label span:first-child
+.form .form-tabs > ul label span:first-child
 {
     font-size: 1em;
 

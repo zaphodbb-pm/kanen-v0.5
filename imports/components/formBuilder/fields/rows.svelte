@@ -10,7 +10,7 @@
      * @param {String} error - class to show a field in error
      * @param {String} className
      *
-     * @emits 'on-inputentry' {value: value, error: errorVal} - value {Object} of field values
+     * @fires on-inputentry
      *
      * @notes
      *   1. Any field types in FormHolder can used as sub-fields in this component.
@@ -102,6 +102,10 @@
             }
         } )
 
+        /**
+         * @event on-inputentry
+         * @type {object} - {value: value, error: errorVal} - value {Object} of field values
+         */
         dispatch('on-inputentry', {value: out, error: false});
     }
 
@@ -196,8 +200,9 @@
     .row-list .level {
         flex-direction: row;
         align-items: center;
-        padding: 0;
         column-gap: 0;
+        border-bottom: 1px solid var(--border-main);
+        padding: var(--padding) 0;
     }
 
     .row-list .level label {
@@ -227,62 +232,3 @@
     }
 
 </style>
-
-
-<!--
-
-<fieldset class="box field-rows">
-
-    <button class="button btn-rounded is-primary mb-3" on:click|preventDefault="{addRow}">
-        <span class="icon-bg-circle-plus is-medium"></span>
-    </button>
-
-
-    <Sortable
-            bind:list={list}
-            {key}
-            on:sort={sortList}
-            let:item={item}>
-
-        <div class="d-flex justify-content-between align-items-center my-4">
-            <div class="row-id">
-                {item.row}
-            </div>
-
-            <div class="d-flex justify-content-between align-items-center">
-                {#each Object.values(item.fields) as field, idf (field.field + item.row)}
-                    <Field_Wrapper class="mx-1" field="{field}" on:field-changed="{e => fieldsUpdate(item.row, e.detail) }"/>
-                {/each}
-            </div>
-
-            <div class="add-cursor" on:click="{() => deleteRow(item.row)}">
-                <span class="icon-bg-trash is-medium has-text-danger"></span>
-            </div>
-        </div>
-
-    </Sortable>
-
-</fieldset>
-
-
-<style>
-
-    .row-id {
-        display: inline-flex;
-        padding: 0.25rem;
-        background-color: #EEE;
-        border-radius: 50%;
-        min-width: 2rem;
-        margin-right: 0.5rem;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .btn-rounded {
-        border-radius: 50%;
-        padding: 0.25rem;
-        width: 2.5rem;
-    }
-
-</style>
--->

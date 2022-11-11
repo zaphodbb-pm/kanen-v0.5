@@ -3,17 +3,16 @@
     /**
      * @summary Messages component to handle system wide notifications.
      *
-     * @memberOf Components:General
-     * @function messages
+     * @module messages
+     * @memberOf Components:general:messages
      * @locus Client
-     * @isTemplate true
      *
      * @see Based on work by {@link https://buefy.org/documentation/notification|Buefy}
      *
      * @param {Boolean} closable - adds an 'X' button that closes the notification (default true)
      * @param {Number} duration - if null or 0, stays open; else will close after x  milliseconds (default 5000)
      *
-     * @emits 'message-end' with string = id of message removed from queue
+     * @fires message-end
      *
      * @notes
      *  1. typical message object format:
@@ -34,9 +33,6 @@
     const dispatch = createEventDispatcher();
     import {slide} from 'svelte/transition';
     import {quintOut} from 'svelte/easing';
-
-    //* get components
-    import Icon from '/imports/components/elements/icon/icon.svelte'
 
     //* local reactive variables
     let msg = [];
@@ -65,6 +61,10 @@
         let removeMsg = $messages;
         $messages = removeMsg.filter( (m) => m.id !== msg.id);
 
+        /**
+         * @event message-end
+         * @type {String} - id of message removed from queue
+         */
         dispatch('message-end', msg.id);
     }
 
@@ -88,7 +88,7 @@
                     <div class="media">
                         {#if message.hasIcon}
                             <div class="media-left">
-                                <Icon icon={getContext(message.hasIcon)} class="text-2dot0rem"/>
+                                <span><span class="{getContext(message.hasIcon)}"></span></span>
                             </div>
                         {/if}
 

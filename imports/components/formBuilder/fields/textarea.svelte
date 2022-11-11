@@ -10,7 +10,7 @@
      * @param {String} error
      * @param {String} className
      *
-     * @emits 'on-inputentry' {value: value, error: errorVal} with string
+     * @fires on-inputentry
      *
      */
 
@@ -57,6 +57,10 @@
             out = inValue;
         }
 
+        /**
+         * @event on-inputentry
+         * @type {object} - {value: value, error: errorVal} with string
+         */
         dispatch('on-inputentry', {value: out, error: false} )
     }
 

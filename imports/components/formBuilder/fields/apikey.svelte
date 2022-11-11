@@ -10,7 +10,7 @@
      * @param {String} error
      * @param {String} className
      *
-     * @emits 'on-inputentry', {value: keyValue, error: false}
+     * @fires 'on-inputentry'
      *
      * @notes
      * 1. Restrict use to administrator to set api keys for users
@@ -46,6 +46,11 @@
     //* event handlers
     function setkey() {
         keyValue = generateId(field.params.length);
+
+        /**
+         * @event on-inputentry
+         * @type {Object} - {value: keyValue, error: false}
+         */
         dispatch('on-inputentry', {value: keyValue, error: false}  );
     }
 

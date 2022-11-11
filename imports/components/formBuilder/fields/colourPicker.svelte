@@ -10,7 +10,7 @@
      * @param {String} error
      * @param {String} className
      *
-     * @emits 'on-inputentry' {value: value, error: errorVal} with object
+     * @fires on-inputentry
      *
      */
 
@@ -44,6 +44,11 @@
 
     //* event handlers
     function checkInput(){
+
+        /**
+         * @event on-inputentry
+         * @type {object} - {value: keyValue, error: false}
+         */
         dispatch('on-inputentry', {value: inValue, error: false});
     }
 

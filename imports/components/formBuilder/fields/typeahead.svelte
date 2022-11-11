@@ -12,7 +12,7 @@
      * @param {Object} field.params (static) - {type: "staticSelect", rows: 10}
      * @param {Object} field.params (dynamic) - {type: "dynamicSelect", rows: 10, coll: "circuits", filter: {fields: {_id: 1, name: 1}}, options: {sort: {name: 1}}}
      *
-     * @emits 'on-inputentry' {value: value, error: false} with array of objects
+     * @fires on-inputentry
      *
      * @see Based on work by {@link https://github.com/mattrosendin/vue-bulma-typeahead|Matt Rosendin}
      *
@@ -79,6 +79,10 @@
         query = sel;
         hint = sel;
 
+        /**
+         * @event on-inputentry
+         * @type {object} - {value: value, error: false} with array of objects
+         */
         dispatch('on-inputentry', {value: out, error: false}  );
     }
 
@@ -88,6 +92,11 @@
 
         if(item){
             let out = {_id: item._id, name: item.name};
+
+            /**
+             * @event on-inputentry
+             * @type {object} - {value: value, error: false} with array of objects
+             */
             dispatch('on-inputentry', {value: out, error: false}  );
         }
     }
@@ -266,7 +275,12 @@
     .vbta {
         width: 100%;
         position: relative;
-        display: inline-block;
+        display: block;
+        margin: var(--margin-form) 0;
+    }
+
+    .vbta > label {
+        margin: 0;
     }
 
     .vbta-input {

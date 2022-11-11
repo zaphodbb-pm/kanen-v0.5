@@ -10,7 +10,7 @@
      * @param {String} error
      * @param {String} className
      *
-     * @emits 'on-inputentry' {value: value, error: errorVal} with boolean
+     * @fires on-inputentry
      *
      */
 
@@ -43,6 +43,11 @@
 
     function clickSwitch(){
         inValue = !inValue;
+
+        /**
+         * @event on-inputentry
+         * @type {object} - {value: value, error: errorVal} with boolean
+         */
         dispatch('on-inputentry', {value: inValue, error: false} );
     }
 

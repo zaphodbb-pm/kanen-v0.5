@@ -10,7 +10,7 @@
      * @param {String} error
      * @param {String} className
      *
-     * @emits 'on-inputentry' {value: value, error: errorVal} with text date string
+     * @fires on-inputentry
      *
      */
 
@@ -42,6 +42,11 @@
     }
 
     function checkInput(){
+
+        /**
+         * @event on-inputentry
+         * @type {object} - {value: value, error: errorVal} with text date string
+         */
         dispatch('on-inputentry', {value: inValue, error: false});
     }
 

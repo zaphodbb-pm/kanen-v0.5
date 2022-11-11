@@ -3,18 +3,17 @@
     /**
      * @summary Modal display for user schema information information from a list item.
      *
-     * @memberOf Components:Blocks
-     * @function modalUser
+     * @module modalUser
+     * @memberOf Components:blocks
      * @locus Client
      *
      * @param {Boolean} showModal - turns modal on or off
      * @param {String} text - target for text package
      * @param {Object} modalInfo - {user info}
      *
-     * @emits modal-addEvent - doc id
-     * @emits modal-removeEvent - doc id
-     *
-     * @return nothing
+     * @fires modal-addEvent
+     * @fires modal-removeEvent
+     * @fires modalState
      *
      */
 
@@ -30,9 +29,6 @@
     import {getDocs} from '/imports/functions/supportApplication/getDocs'
     import {timeAgo} from '/imports/functions/formatters/timeAgo'
     import {formatPhoneNumber} from '/imports/functions/formatters/formatPhoneNumber'
-
-    //* get components
-    import Icon from '/imports/components/elements/icon/icon.svelte'
 
 
     //* local reactive variable
@@ -56,15 +52,30 @@
 
     function btnClose() {
         openModal = false;
+
+        /**
+         * @event modalState
+         * @type {Boolean}
+         */
         dispatch('modalState', openModal);
     }
 
     function sendAddEvent() {
+
+        /**
+         * @event modal-addEvent
+         * @type {String} - doc id
+         */
         dispatch('modal-addEvent', info._id);
         btnClose();
     }
 
     function sendRemoveEvent() {
+
+        /**
+         * @event modal-removeEvent
+         * @type {String} - doc id
+         */
         dispatch('modal-removeEvent', info._id);
         btnClose();
     }
@@ -101,7 +112,7 @@
                                 {#if !!(info.profile && info.profile.image && info.profile.image.src)}
                                     <img src="{info.profile.image.src}" class="user-image" alt="user image">
                                 {:else}
-                                    <Icon icon={getContext("iconDefaultUser")} class="ml-3 mr-2 text-4dot0rem"/>
+                                    <span><span class="icon-bg-user"></span></span>
                                 {/if}
                             </td>
                             <td class="is-modal-label has-text-right">{modalText.username}</td>

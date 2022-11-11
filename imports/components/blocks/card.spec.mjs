@@ -1,9 +1,10 @@
 /**
  * Component test file.
  *
- * @memberOf Components:Blocks
- * @augments card
- * @locus server based test
+ * @name card.spec
+ * @private
+ * @memberOf Components:blocks
+ * @locus test
  *
  */
 

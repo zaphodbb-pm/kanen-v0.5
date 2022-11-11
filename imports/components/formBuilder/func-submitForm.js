@@ -4,7 +4,6 @@
  * @memberOf Components:Form
  * @function submitForm
  * @locus Client
- * @augments formHolder
  *
  * @param {Array} doc - document to submit [ {field: value} ]
  * @param {String} coll - name of mongoDB collection to store document
@@ -17,7 +16,9 @@
  */
 
 
-import {methodReturn} from '/imports/functions/utilities/methodReturn'
+// @ts-ignore
+import { Meteor } from 'meteor/meteor';
+import {methodReturn} from '../../functions/utilities/methodReturn'
 
 
 export async function submitForm(doc, coll, clone, test, emit, extras) {
@@ -49,7 +50,7 @@ export async function submitForm(doc, coll, clone, test, emit, extras) {
 
         case coll === "myProfile":
             Meteor.call('userMgmtUpdateItem', "profile", doc, function (err, res) {
-                methodReturn(err, res, "submit myProfile");
+                methodReturn(err, res, "submit myProfile", null);
 
                 if (res) {
                     emit("doc-submitted", true);
@@ -64,14 +65,14 @@ export async function submitForm(doc, coll, clone, test, emit, extras) {
                     if (res) {
                         emit("doc-submitted", true);
                     }
-                    methodReturn(err, res);
+                    methodReturn(err, res, "", null);
                 });
             } else {
                 Meteor.call('userMgmtUpdate', doc._id, doc, function (err, res) {
                     if (res) {
                         emit("doc-submitted", true);
                     }
-                    methodReturn(err, res);
+                    methodReturn(err, res, "", null);
                 });
             }
             break;
@@ -79,8 +80,10 @@ export async function submitForm(doc, coll, clone, test, emit, extras) {
         default:
             //** check if this document includes a reference to an address; get geo location if true
             if(doc.address){
-                let HTTPresult = await HTTP.getPromise(buildRequestUrl(doc.address, "string"));
-                doc = getGeoLocation(doc, HTTPresult);
+
+                console.log("need to update to fetch");
+                //let HTTPresult = await HTTP.getPromise(buildRequestUrl(doc.address, "string"));
+                //doc = getGeoLocation(doc, HTTPresult);
             }
 
             generalSubmit(coll, doc, emit);
@@ -93,7 +96,7 @@ function generalSubmit(coll, doc, emit) {
 
     if (!doc._id) {
         Meteor.call('insertDoc', coll, doc, function (err, res) {
-            methodReturn(err, res, "submit insertDoc");
+            methodReturn(err, res, "submit insertDoc", null);
 
             if (res) {
                 emit("doc-submitted", true);
@@ -104,7 +107,7 @@ function generalSubmit(coll, doc, emit) {
     } else {
 
         Meteor.call('updateDoc', coll, doc._id, doc, function (err, res) {
-            methodReturn(err, res, "submit updateDoc");
+            methodReturn(err, res, "submit updateDoc", null);
 
             if (res) {
                 emit("doc-submitted", true);

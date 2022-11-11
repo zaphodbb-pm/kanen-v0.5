@@ -2,10 +2,9 @@
     /**
      * Notifications widget for Navbar.
      *
-     * @memberOf Components:Elements
-     * @function interest
+     * @module notifications
+     * @memberOf Components:elements
      * @locus Client
-     * @augments Navbar
      *
      */
 

@@ -2,9 +2,8 @@
     /**
      * Submit button for form.
      *
-     * @memberOf Components:Form
-     * @function formSubmit
-     * @augments formHolder
+     * @module formSubmit
+     * @memberOf Components:form
      * @locus Client
      *
      * @param {String}   btnEdit
@@ -14,7 +13,8 @@
      * @param {Object}   btnInvText
      * @param {Number}   btnCount
      *
-     * @return nothing - emits: submit-btn
+     * @fires back-btn
+     * @fires submit-btn
      *
      */
 
@@ -22,8 +22,6 @@
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 
-    //* support files
-    import {elements} from '/imports/both/systemGlobals'
 
     //* props
     export let btnEdit;
@@ -51,10 +49,18 @@
 
 
     function submit() {
+        /**
+         * @event submit-btn
+         * @type {Boolean}
+         */
         dispatch('submit-btn', true);
     }
 
     function backToCaller() {
+        /**
+         * @event back-btn
+         * @type {Boolean}
+         */
         dispatch('back-btn', true);
     }
 
@@ -73,13 +79,13 @@
 
 
 <div class="submit-buttons">
-    <div class="d-flex">
-        <div class="button {btnColor}" on:click="{submit}">
+    <div class="level">
+        <button class="{btnColor} has-hover" on:click="{submit}">
             {formBtn}
-        </div>
+        </button>
 
         {#if btnBackShow}
-            <button class="button is-info ml-5" on:click="{backToCaller}">
+            <button class="button is-link" on:click="{backToCaller}">
                 {btnBack}
             </button>
         {/if}

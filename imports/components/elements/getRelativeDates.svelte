@@ -3,11 +3,12 @@
      * Selector to get a relative date range for database record deletion.
      * Typically used to help manage the records in logs collection.
      *
-     * @memberOf Components:Elements
+     *
+     * @memberOf Components:elements
      * @function getRelativeDates
      * @locus Client
      *
-     * @emits 'new-range' - {$lt: now - ranges[radio] };
+     * @fires 'new-range'
      */
 
     //* support files
@@ -51,7 +52,12 @@
 
         let out = {$lt: now - ranges[radio] };
 
-        dispatch("new-range", out);
+        /**
+         * @event 'new-range'
+         * @type {Object} - {$lt: now - ranges[radio] };
+         */
+
+        dispatch('new-range', out);
     }
 
 </script>

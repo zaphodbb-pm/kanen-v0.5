@@ -1,12 +1,12 @@
 /**
  * Component test file.
  *
- * @memberOf Components:Elements
- * @augments userCredit
- * @locus server based test
+ * @name userCredit.spec
+ * @private
+ * @memberOf Components:elements
+ * @locus test
  *
  * @notes
- * 1. usage: <Icon class="extraClass" icon={iconName} />
  */
 
 

@@ -10,7 +10,7 @@
      * @param {String} error - class to show a field in error
      * @param {String} className
      *
-     * @emits 'on-inputentry' {value: value, error: errorVal} with text, number or other types
+     * @fires on-inputentry
      *
      * @see Quill editor {@link https://quilljs.com/docs/formats/|toolbar setup}
      *
@@ -65,6 +65,11 @@
     //* event handlers
     function checkInput(){
         let value = quill.root.innerHTML;
+
+        /**
+         * @event on-inputentry
+         * @type {object} - {value: value, error: false}
+         */
         dispatch('on-inputentry', {value: value, error: false});
     }
 

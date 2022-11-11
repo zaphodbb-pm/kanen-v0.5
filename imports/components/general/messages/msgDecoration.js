@@ -1,10 +1,9 @@
 /**
  * Builds decoration parameters for a system message.
  *
- * @memberOf Functions
  * @function msgDecoration
+ * @memberOf Components:general:messages
  * @locus client
- * @augments messages
  *
  * @param {String} state
  * @param {Boolean} closable

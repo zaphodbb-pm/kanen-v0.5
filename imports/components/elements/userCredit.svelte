@@ -3,8 +3,8 @@
     /**
      * User Credit element
      *
-     * @memberOf Components:
      * @module userCredit
+     * @memberOf Components:
      * @locus Client
      *
      */

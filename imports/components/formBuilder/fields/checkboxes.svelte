@@ -10,7 +10,7 @@
      * @param {String} error
      * @param {String} className
      *
-     * @emits 'on-inputentry' {value: value, error: false} with array of objects
+     * @fires on-inputentry
      *
      */
 
@@ -43,6 +43,11 @@
     function emitCheckedNames(){
         //** get text for _id values
         let items = checkedNames.map( (cn) => source.find( (s) => s._id === cn ) );
+
+        /**
+         * @event on-inputentry
+         * @type {object} - {value: keyValue, error: false}
+         */
         dispatch('on-inputentry', {value: items, error: false});
     }
 

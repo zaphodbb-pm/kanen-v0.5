@@ -3,9 +3,12 @@
     /**
      * @summary GDPR notice popup widget.
      *
-     * @memberOf Components:General
-     * @function gdprNotice
+     * @module gdprNotice
+     * @memberOf Components:general:
      * @locus Client
+     *
+     * @fires cookie-status
+     * @fires gdpr-cookie
      *
      * @requires tinyCookie_from_'tiny-cookie'
      *
@@ -37,6 +40,11 @@
             isOpen = true;
         }
         status = visitedType;
+
+        /**
+         * @event cookie-status
+         * @type {Object}
+         */
         dispatch('cookie-status', visitedType);
     }
 
@@ -90,6 +98,11 @@
         }
         status = 'accept';
         isOpen = false;
+
+        /**
+         * @event gdpr-cookie
+         * @type {String}
+         */
         dispatch('gdpr-cookie', 'accepted');
     }
 

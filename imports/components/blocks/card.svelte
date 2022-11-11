@@ -4,11 +4,11 @@
     /**
      * Component block: card.  Uses a slot to allow for a body to be set by parent.
      *
+     * @module card
      * @memberOf Components:blocks
-     * @function card
      * @locus Client
      *
-     * @emits 'footEvent' - {item: id, key: key, label: label}
+     * @fires footEvent
      */
 
     //* setup props to receive component data
@@ -24,6 +24,11 @@
     const dispatch = createEventDispatcher();
 
     function footEvent(id, key, label){
+        /**
+         * @event footEvent
+         * @type {object} - {item: id, key: key, label: label}
+         */
+
         dispatch("footEvent", {item: id, key: key, label: label} );
     }
 

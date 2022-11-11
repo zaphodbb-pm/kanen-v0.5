@@ -5,7 +5,7 @@
  * @function textSearch
  * @locus Client
  *
- * @exports {Object} default {label, helpText}
+ * @exports default
  *
  */
 

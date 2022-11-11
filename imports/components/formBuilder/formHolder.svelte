@@ -2,8 +2,8 @@
     /**
      * Top level component that holds a document edit form.
      *
-     * @memberOf Components:Form
-     * @function formHolder
+     * @module formHolder
+     * @memberOf Components:form
      * @locus Client
      *
      * @param {Object} config - see example
@@ -14,20 +14,19 @@
      * @param {Object} directdoc - full doc object with values; bypasses collection fetch cycle by "editdoc"
      * @param {String} coll - valid collection name
      *
-     * @emits  back-to-list - {Boolean} for overlayed list / form pairs
-     * @emits  show-form-preview - {Object}} current document object with newly entered values
-     * @emits  doc-submitted - {Boolean} end of submit cycle; sent by function "submitForm"
-     * @emits  current-editted-doc - {Object} after submit; current document object with newly entered values
+     * @fires back-to-list
+     * @fires current-editted-doc
+     * @fires show-schema-preview
      *
      * @example
      *      configuration object to set up form:
      *          coll: "starter"                     // collection to submit field values to
      *          showHdr: false,                     // show card header and title if true
      *          bgTitle: "",                        // background colour for header
+     *          formType: "",                       // modifier for formHolder container: one of "", "has-form-shadow" or "is-form-tabbed"
      *
      *          hasGroups: false,                   // allows fields to be grouped onto the same row
      *          hasTabs:    false,                  // has tabbed fields in form
-     *          hasStepper: false,                  // use stepper layout for tab fields (usually hasTabs is set to true)
      *          hasPreview: true,                   // form can show a preview of select data fields
      *          hasOverlay: false,                  // support for form overlaying the list during edit operation
      *          clone: true,                        // show clone button on form
@@ -64,17 +63,15 @@
 
     //** svelte handlers
     import {userExtras, sysConfig} from '/imports/client/systemStores'
-    import {onMount, setContext, getContext} from 'svelte';
+    import {onMount, setContext} from 'svelte';
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 
     //* make form text available to all children components
     setContext("formText", formText);
-    setContext("formConfig", config);
     setContext("debugOptions", $sysConfig.sysDebug);
 
     //* get application specific support libraries
-    import {elements} from '/imports/both/systemGlobals'
     import {getDocs} from '/imports/functions/supportApplication/getDocs'
     import {submitForm} from './func-submitForm'
     import {orgFields} from "./func-orgFields";
@@ -147,11 +144,20 @@
 
     //* event handlers
     function backToCaller(msg) {
+        /**
+         * @event back-to-list
+         * @type {Boolean} - for overlayed list / form pairs
+         */
         dispatch("back-to-list", msg);
     }
 
     function showPreview() {
         let newValues = Object.assign(currDoc, fieldValues);
+
+        /**
+         * @event show-schema-preview
+         * @type {Object}
+         */
         dispatch("show-schema-preview", newValues);
     }
 
@@ -169,6 +175,11 @@
         //** send completed doc to server insert / update methods
         submitForm(newValues, coll, true, false, dispatch);
         tabFields.fields = tabFields.defaults;
+
+        /**
+         * @event current-editted-doc
+         * @type {Object}
+         */
         dispatch("current-editted-doc", newValues);
     }
 
@@ -289,76 +300,31 @@
 </script>
 
 
-
-<article class="card">
-    <header class="level {config.bgTitle}">
-        <h3>{formText.labels.hdr}</h3>
-        {#if showClone}
-            <a class="button {bgClone}"
-               on:click="{cloneItem}">
-                {formText.labels.cloneBtn}
-            </a>
-        {/if}
-    </header>
-
-    <div class="space-vert">
-        <Form_Tabs fields="{tabFields.fields}" on:field-changed="{fieldChanged}" />
-    </div>
-
-</article>
-
-
-
-
-
-
-<!--
-
-<div class="card">
+<form id="test-form" class="form {config.formType}" method="post">
 
     {#if config.showHdr}
-        <div class="card-header level {config.bgTitle}">
-            <div class="card-header-title " style="color: inherit; font-size: inherit; font-weight: inherit;">
-                {formText.labels.hdr}
-            </div>
+        <div class="level {config.bgTitle}">
+            <p class="{config.bgTitle}">{formText.labels.hdr}</p>
 
             {#if showClone}
-                <a class="button {bgClone}"
-                   on:click="{cloneItem}">
+                <button class="is-warning"
+                        on:click="{cloneItem}">
                     {formText.labels.cloneBtn}
-                </a>
+                </button>
             {/if}
         </div>
     {/if}
 
+    <Form_Tabs fields="{tabFields.fields}" {config} on:field-changed="{fieldChanged}" />
 
-    <div class="card-content">
-        <div id="tabbed-inputs">
+    <div class="form-footer" >
+        <Form_Submit {...submit} on:submit-btn="{submitDoc}" on:back-btn="{backToCaller}" />
 
-            <Form_Tabs fields="{tabFields.fields}" on:field-changed="{fieldChanged}" />
-
-            <div class="buffer-y-large mt-4">
-                <div class="level">
-
-                    <div class="level-left">
-                        <Form_Submit {...submit} on:submit-btn="{submitDoc}" on:back-btn="{backToCaller}" />
-                    </div>
-
-                    <div class="level-right">
-                        {#if config.hasPreview && submit.btnState}
-                            <button class="button is-info" on:click="{showPreview}">
-                                {formText.labels.previewBtn}
-                            </button>
-                        {/if}
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
+        {#if config.hasPreview && !submit.btnState}
+            <button class="button is-tertiary-outlined has-hover" on:click="{showPreview}">
+                {formText.labels.previewBtn}
+            </button>
+        {/if}
     </div>
 
-
-</div>
-
-  -->
+</form>

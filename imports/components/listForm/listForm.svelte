@@ -3,12 +3,10 @@
 /**
      * Component insert combination for list and form components.
      *
-     * @memberOf Components:ListForm
-     * @function listForm
+     * @module listForm
+     * @memberOf Components:listForm:
      * @locus Client
      *
-     * @emits {Object} edit-initiated - {coll, type, data}
-     * @emits {Object} doc-sent - {document object}
      */
 
     export let confList = {};
@@ -24,7 +22,7 @@
     import {messages} from '/imports/client/systemStores'
 
     import Form_Holder from '/imports/components/formBuilder/formHolder.svelte'
-    //import List_Holder from '/imports/components/listCollections/listHolder.svelte'
+    import List_Holder from '/imports/components/listCollections/listHolder.svelte'
 
     setContext("formText", formText);
 
@@ -118,7 +116,6 @@
 
     <div class="column {mode === 'grid' ? 'is-12' : confList?.css ?? 'is-5'}" class:is-hidden={!showList}>
 
-        <!--
         <List_Holder
                 config="{confList}"
                 {listText}
@@ -126,11 +123,11 @@
                 {sort}
                 submitted="{releaseEdit}"
                 on:send-doc="{docToEdit}"/>
-                -->
+
 
     </div>
 
-    <div class="column {confForm?.css ?? 'is-7' }" class:is-hidden={!showForm}>
+    <div class="column {confForm?.css ?? '' }" class:is-hidden={!showForm}>
         <Form_Holder
                 config="{confForm}"
                 {formText}
