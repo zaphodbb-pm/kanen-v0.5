@@ -1,16 +1,14 @@
 /**
  * Build MongoDb query object from search.
  *
- * @memberOf Components:List
+ * @memberOf Components:list
  * @function buildQuery
  * @locus Client
- * @augments searchBox
- *
  *
  * @param {String} str
  * @param {Array} fields
  *
- * @return {Object} modified MongoDb query
+ * @return {Object} - modified MongoDb query
  *
  */
 
@@ -72,7 +70,7 @@ function orSplit(str, list) {
         let orTerm = [];
 
         if (el.includes("+")) {
-            orArray.push(andSplit(el, fields));
+            orArray.push(andSplit(el, list));
         } else {
             list.forEach( (eli) => {
                 let item = {};

@@ -2,12 +2,11 @@
     /**
      * Builds a string to be used by various search mechanisms.
      *
-     * @memberOf Components:List
-     * @function searchbox
+     * @module searchbox
+     * @memberOf Components:list
      * @locus Client
-     * @augments listHolder
      *
-     * @emits 'search-changed' with {search: string, query: object}
+     * @fires 'search-changed'
      *
      */
 
@@ -18,7 +17,6 @@
     import {onMount, getContext} from 'svelte';
     import {slide} from 'svelte/transition';
     import {quintOut} from 'svelte/easing';
-    //import Icon from '/imports/components/elements/icon/icon.svelte'
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 
@@ -41,6 +39,12 @@
     function changesearch() {
         searchchars = searchchars.replace(/ /g, '');            // remove all white spaces
         let query = searchchars.length > 2 ? buildQuery(searchchars, fields) : {};
+
+            /**
+             * @event search-changed
+             * @type {Object} - {search: string, query: object}
+             */
+
         dispatch('search-changed', {search: searchchars, query: query});
     }
 

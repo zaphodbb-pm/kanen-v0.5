@@ -2,10 +2,9 @@
     /**
      * Table to list documents and fields for docs.
      *
+     * @module listTable
      * @memberOf Components:List
-     * @function listTable
      * @locus Client
-     * @augments listHolder
      *
      * @param  {Object} config - decoration for table
      * @param  {Array}  labels
@@ -13,7 +12,10 @@
      * @param  {String} collection
      * @param  {Boolean} submitted
      *
-     * @returns nothing
+     * @fires item-modal
+     * @fires item-modal-user
+     * @fires item-edit
+     * @fires item-delete
      *
      * @notes
      *      Column types:
@@ -51,7 +53,6 @@
     //** support functions
     import {sysConfig, sysDebug} from '/imports/client/systemStores'
     import {getContext} from 'svelte';
-    import Icon from '/imports/components/elements/icon/icon.svelte'
     import {elements} from '/imports/both/systemGlobals'
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
@@ -65,7 +66,6 @@
     let calendar = i18n( getContext("commonText"), "calendar", $lang);
     let deleteText = i18n( getContext("commonText"), "confirmDelete", $lang);
 
-    let EDIT_COLOR = elements.EDIT_COLOR;
     let tagColour = "is-info";                          // default tag colour
     let inEdit = false;
     let bgEdit = "";
@@ -91,11 +91,21 @@
     //* event handlers
     function modalDoc(msg) {
         let showDoc = documents.find( (doc) =>  doc._id === msg);
+
+        /**
+         * @event item-modal
+         * @type {Array}
+         */
         dispatch('item-modal', showDoc);
     }
 
     function modalUserDoc(msg) {
         let showDoc = documents.find( (doc) =>  doc._id === msg);
+
+        /**
+         * @event item-modal-user
+         * @type {Array}
+         */
         dispatch('item-modal-user', showDoc);
     }
 
@@ -113,6 +123,11 @@
     }
 
     function deleteDoc(msg) {
+
+        /**
+         * @event item-delete
+         * @type {Array}
+         */
         dispatch('item-delete', {id: msg});
     }
 
@@ -144,6 +159,11 @@
             currRow = msg;
             inEdit = true;
         }
+
+        /**
+         * @event item-edit
+         * @type {Object}
+         */
 
         dispatch('item-edit', {
             id: currRow,
@@ -297,8 +317,8 @@
                         {:else if cell.type === 'link' }
                             <td class="add-cursor">
                                 <a href="{cell.url}" target="_blank">
-                                    <span class="">
-                                        <Icon icon='{getContext("iconView")}' class="text-1dot5rem"/>
+                                    <span>
+                                        <span class="icon-bg-eye is-medium"></span>
                                     </span>
                                 </a>
                             </td>
@@ -355,7 +375,7 @@
                         {:else if cell.type === 'status' }
                             <td class="has-text-left list-status">
                                 <span style="{cell.value && cell.value.colour ? 'color: ' + cell.value.colour : ''}">
-                                    <Icon icon='{getContext("iconStatus")}' class="text-1dot5rem"/>
+                                    <span class="icon-bg-cog is-medium"></span>
                                 </span>
                                 {cell.value && cell.value.name ? cell.value.name : '' }
                             </td>
@@ -416,7 +436,7 @@
                                     {:else}
 
                                         <span>
-                                            <Icon icon='{getContext("iconDelete")}' class="text-1dot5rem has-text-danger"/>
+                                            <span class="icon-bg-trash has-text-danger is-medium"></span>
                                         </span>
                                     {/if}
                                 </td>
@@ -427,7 +447,7 @@
                                     style="max-width: 10%;">
 
                                     <span>
-                                        <Icon icon='{getContext("iconDelete")}' class="text-1dot5rem has-text-danger"/>
+                                        <span class="icon-bg-trash has-text-danger is-medium"></span>
                                     </span>
                                 </td>
                             {/if}

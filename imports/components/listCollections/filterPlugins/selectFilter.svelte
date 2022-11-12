@@ -4,11 +4,10 @@
      *
      * @memberOf Components:List
      * @function selectFilter
-     * @augments listFilter
      *
      * @param  {Object} field - field info that also configures the filter
      *
-     * @emits filter-changed -> {outFilter: <fieldName>: {$gte: isodate, $lte: isodate } }
+     * @fires filter-changed
      *
      */
 
@@ -33,6 +32,11 @@
         } else {
             outFilter[field.field + "._id"] = val;
         }
+
+        /**
+         * @event filter-changed
+         * @type {Object} - {outFilter: <fieldName>: {$gte: isodate, $lte: isodate } }
+         */
 
         dispatch("filter-changed", outFilter);
     }

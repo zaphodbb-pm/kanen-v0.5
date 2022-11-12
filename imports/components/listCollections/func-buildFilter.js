@@ -1,16 +1,16 @@
 /**
  * @summary  Common routine to calculate MongoDB filters to streamline search.
  *
- * @memberOf Components:List
  * @function buildFilter
+ * @memberOf Components:list
  * @locus Client
- * @augments listHolder
  *
  * @param {Number} numItems - Integer: from rows/page selector to set number documents to fetch
  * @param {Number} start - Integer: the pointer to where to start getting numItems
  * @param {Number} queried - Integer: total number documents available to meet author / group criteria
  * @param {Object} sort - any MongoDb sort field parameters
- * @return {{start: number, end: number, filterSubscribe: {sort: {}, limit: number}, filterSearch: {sort: {}, skip: number, limit: number}}}
+ *
+ * @return {Object} - {{start: number, end: number, filterSubscribe: {sort: {}, limit: number}, filterSearch: {sort: {}, skip: number, limit: number}}}
  *
  * @example
  *  Output =            Object:

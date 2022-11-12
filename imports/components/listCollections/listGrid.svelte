@@ -2,10 +2,9 @@
     /**
      * Grid to list documents and fields for docs.
      *
-     * @memberOf Components:List
-     * @function listGrid
+     * @module listGrid
+     * @memberOf Components:list
      * @locus Client
-     * @augments listHolder
      *
      * @param  {Object} config - decoration for table
      * @param  {Array}  labels
@@ -13,8 +12,8 @@
      * @param  {String} collection
      * @param  {Boolean} submitted
      *
-     * @returns nothing
-     *
+     * @fires item-edit
+     * @fires item-delete
      */
 
     //* props
@@ -26,8 +25,6 @@
 
     //* support functions
     import {onMount, onDestroy, getContext} from 'svelte'
-    import Icon from '/imports/components/elements/icon/icon.svelte'
-    import {elements} from '/imports/both/systemGlobals'
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 
@@ -36,8 +33,6 @@
 
 
     //* local reactive variables
-    let EDIT_COLOR = elements.EDIT_COLOR;               // set color when item is in edit mode
-
     let TAGS = {                                        // sets background label colour for "tag" cell
         Image: "label-success",
         Trigger: "label-info",
@@ -59,6 +54,11 @@
     let notice = "default grid"
 
     function deleteDoc(id) {
+
+        /**
+         * @event item-delete
+         * @type {Object} - item id
+         */
         dispatch('item-delete', {
             id: id,
         });
@@ -76,6 +76,10 @@
             inEdit = true;
         }
 
+        /**
+         * @event item-edit
+         * @type {Object}
+         */
         dispatch('item-edit', {
             id: currRow,
             edit: inEdit
@@ -144,7 +148,7 @@
 
 
 <div>
-    <div class="columns is-multiline">
+    <div class="row">
         {#each tableItems(collection, labels, documents) as row, idx}
             <div class="column {width}">
 
@@ -196,7 +200,7 @@
                                      class="add-cursor has-text-right" style="max-width: 100%;">
 
                                     <span>
-                                        <Icon icon='{getContext("iconDelete")}' class="text-1dot5rem has-text-danger"/>
+                                        <span class="icon-bg-trash is-medium has-text-danger"></span>
                                     </span>
                                 </div>
 

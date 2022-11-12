@@ -2,15 +2,14 @@
     /**
      * @summary Builds pagination bar.
      *
-     * @memberOf Components:List
-     * @function pagination
+     * @module pagination
+     * @memberOf Components:list
      * @locus Client
-     * @augments listHolder
      *
      * @param  {Number} rows
      * @param  {Number} totalDocs
      *
-     * @emits 'page-changed' - {Object}
+     * @fires page-changed
      *
      */
 
@@ -47,6 +46,11 @@
     //* event handler
     function changepager(page) {
         currPage = page;
+
+        /**
+         * @event page-changed
+         * @type {Object}
+         */
         dispatch('page-changed', {
             page: page
         });

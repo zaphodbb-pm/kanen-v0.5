@@ -2,13 +2,14 @@
     /**
      * Geolocation filter plugin for List Holder Filters.
      *
+     * @module geoFilter
      * @memberOf Components:List
-     * @function geoFilter
-     * @augments listFilter
+     * @locus client
+     *
      *
      * @param  {Object} field - field info that also configures the filter
      *
-     * @emits filter-changed -> {outFilter: <fieldName>: {$gte: isodate, $lte: isodate } }
+     * @fires filter-changed
      *
      */
 
@@ -71,6 +72,11 @@
             default:
                 outFilter[field.field] = null;
         }
+
+        /**
+         * @event filter-changed
+         * @type {Object} - {outFilter: <fieldName>: {$gte: isodate, $lte: isodate } }
+         */
 
         dispatch("filter-changed", outFilter);
     }

@@ -2,10 +2,9 @@
     /**
      * Shows document count as range / total of search (total docs).
      *
-     * @memberOf Components:List
-     * @function docCount
+     * @module docCount
+     * @memberOf Components:list
      * @locus Client
-     * @augments listHolder
      *
      * @param  {String} docCountLabel
      *
@@ -16,12 +15,11 @@
 
     //** support functions
     import {getContext} from 'svelte';
-    import Icon from '/imports/components/elements/icon/icon.svelte'
 
 </script>
 
 
-<div class="ml-4 mb-3 d-flex align-items-center">
-    <Icon icon='{getContext("iconDoc")}' class="text-1dot5rem"/>
+<div class="level-start">
+    <span><span class="{getContext('iconDo')} is-medium"></span></span>
     <span>{docCountLabel}</span>
 </div>

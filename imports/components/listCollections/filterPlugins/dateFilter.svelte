@@ -2,13 +2,13 @@
     /**
      * Date filter plugin for List Holder Filters.
      *
-     * @memberOf Components:List
-     * @function dateFilter
-     * @augments listFilter
+     * @module dateFilter
+     * @memberOf Components:list
+     * @locus client
      *
      * @param  {Object} field - field info that also configures the filter
      *
-     * @emits filter-changed -> {outFilter: <fieldName>: {$gte: isodate, $lte: isodate } }
+     * @fires filter-changed
      *
      */
 
@@ -16,8 +16,6 @@
     export let field = {};
 
     //* support functions
-    import flatpickr from 'flatpickr';
-    import 'flatpickr/dist/flatpickr.css'
     import {onMount, onDestroy, createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 
@@ -31,6 +29,8 @@
     let selected;
 
     //* lifecycle states
+
+    /*
     onMount( () => {
         //** if using absolute date range, then mount "filepickr" component
         if(!relativeDates){
@@ -41,11 +41,16 @@
         }
     });
 
+     */
+
+    /*
     onDestroy( () => {
         if(!relativeDates){
             fp.destroy();
         }
     });
+
+     */
 
 
     //* event handlers
@@ -66,6 +71,10 @@
             outFilter[field.field] = dir < 0 ? {$gte: past, $lte: today} : {$gte: today, $lte: future};
         }
 
+        /**
+         * @event filter-changed
+         * @type {Object} - {outFilter: <fieldName>: {$gte: isodate, $lte: isodate } }
+         */
         dispatch("filter-changed", outFilter);
     }
 
@@ -73,7 +82,9 @@
         inValue = "";
         outFilter[field.field] = null;
         hasRange = false;
-        fp.clear();
+        //fp.clear();
+
+
         dispatch("filter-changed", outFilter);
     }
 

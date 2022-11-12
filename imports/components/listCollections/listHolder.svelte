@@ -2,8 +2,8 @@
     /**
      * Top level component that holds a document list.
      *
-     * @memberOf Components:List
-     * @function listHolder
+     * @module listHolder
+     * @memberOf Components:list
      * @locus Client
      *
      * @param {Object} config - see example
@@ -12,11 +12,11 @@
      * @param {Boolean} submitted - indicator for document submission by a form
      * @param {String} coll - valid collection name
      *
-     * @return nothing
-     *
-     * @emits send-doc {message}
-     * @emits modal-doc {msg}
-     * @emits list-docs-ready - array of document objects
+     * @fires modal-doc
+     * @fires modal-doc-user
+     * @fires 'delete-doc'
+     * @fires list-docs-ready
+     * @fires send-doc
      *
      * @example
      *      config options for controlling list layout
@@ -124,10 +124,19 @@
 
     //* event handlers
     function docModal(msg) {
+        /**
+         * @event modal-doc
+         * @type {Object}
+         */
+
         dispatch("modal-doc", msg.detail);
     }
 
     function docModalUser(msg) {
+        /**
+         * @event modal-doc-user
+         * @type {Object}
+         */
         dispatch("modal-doc-user", msg.detail);
     }
 
@@ -138,6 +147,11 @@
                     methodReturn(err, res, "listHolder userMgmtRemove", debugOptions);
 
                     if (res) {
+
+                        /**
+                         * @event delete-doc
+                         * @type {Object}
+                         */
                         dispatch("delete-doc", msg.detail);
                         getCurrentDocs();
                     }
@@ -149,6 +163,7 @@
                     methodReturn(err, res, "listHolder removeDoc", debugOptions);
 
                     if (res) {
+
                         dispatch("delete-doc", msg.detail);
                         getCurrentDocs();
                     }
@@ -169,6 +184,10 @@
             message.type = "edit";
         }
 
+        /**
+         * @event send-doc
+         * @type {Object} - {value: keyValue, error: false}
+         */
         dispatch("send-doc", message);
     }
 
@@ -256,9 +275,13 @@
         );
 
         documents = await getDocs(coll, "listList", combineSearch, f.filterSearch);
-        methodReturn(null, documents, "submit insertDoc", debugOptions );
+        methodReturn(null, documents, "submit insertDoc", debugOptions ?? 's' );
         docCountLabel = `${f.start} - ${f.end} / ${docCounts} (${totalDocs})`;
 
+        /**
+         * @event list-docs-ready
+         * @type {Array}
+         */
         dispatch("list-docs-ready", documents);
     }
 
@@ -281,7 +304,7 @@
         let res = 0;
 
         try {
-            res = await Meteor.callPromise("countDocs", coll, query);
+            res = await Meteor.callAsync("countDocs", coll, query);
         } catch (error) {
             console.warn("countDocs", error);
         }
@@ -371,7 +394,7 @@
                     <div class="column is-3">
                         <div class="d-flex flex-row-reverse">
                             <div class="button {filterState}" on:click="{setFilter}">
-                                <Icon icon='{getContext("iconFilters")}' class="text-1dot5rem"/>
+                                <span><span class="icon-bg-filter is-medium"></span></span>
                             </div>
                         </div>
                     </div>

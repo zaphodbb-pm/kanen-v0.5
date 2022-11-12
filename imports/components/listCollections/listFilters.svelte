@@ -2,14 +2,13 @@
     /**
      * Builds filter component for list.
      *
-     * @memberOf Components:List
-     * @function listFilters
+     * @module listFilters
+     * @memberOf Components:list
      * @locus Client
-     * @augments listHolder
      *
      * @param  {Array} filters - array of filter objects
      *
-     * @returns {Object} - emits 'filters-changed' - a valid MongoDb selector object across all filter components
+     * @fires 'filters-changed'
      *
      * @notes
      *  Types:
@@ -51,6 +50,10 @@
             }
         })
 
+        /**
+         * @event filters-changed
+         * @type {Object} - outFilter, a valid MongoDb selector object across all filter components
+         */
         dispatch("filters-changed", outFilter);
     }
 
@@ -58,7 +61,7 @@
 
 
 <div class="list-filters filter-selects">
-    {#each filters as field (field.field) }
+    {#each filters as field (field.field)}
         <div class="filter-items">
 
             <svelte:component

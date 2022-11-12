@@ -2,21 +2,19 @@
     /**
      * Builds row selector and documents count.
      *
-     * @memberOf Components:List
-     * @function rowSize
+     * @module rowSize
+     * @memberOf Components:list
      * @locus client
-     * @augments listHolder
      *
      * @param  {Object} config - decoration for row selector
      * @param  {String} label
      *
-     * @emits 'row-changed' - {row: initval}
+     * @fires 'row-changed'
      *
      */
 
     //** support functions
     import {getContext} from 'svelte';
-    import Icon from '/imports/components/elements/icon/icon.svelte'
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 
@@ -27,6 +25,10 @@
 
     //* event handlers
     function changerow() {
+        /**
+         * @event row-changed
+         * @type {Object} - {row: initval}
+         */
         dispatch('row-changed', {
             row: initval
         });
@@ -38,7 +40,7 @@
 <div class="field has-addons">
     <div class="control">
         <a class="button is-static">
-            <Icon icon='{getContext("iconRows")}' class="text-1dot5rem"/>
+            <span><span class="icon-bg-list is-medium"></span></span>
         </a>
     </div>
 
