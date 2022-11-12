@@ -53,6 +53,9 @@
          * @event submit-btn
          * @type {Boolean}
          */
+
+        console.log("func submit");
+
         dispatch('submit-btn', true);
     }
 
@@ -80,12 +83,12 @@
 
 <div class="submit-buttons">
     <div class="level">
-        <button class="{btnColor} has-hover" on:click="{submit}">
+        <button type="button" class="{btnColor} has-hover" on:click="{submit}">
             {formBtn}
         </button>
 
         {#if btnBackShow}
-            <button class="button is-link" on:click="{backToCaller}">
+            <button type="button"  class="is-link" on:click="{backToCaller}">
                 {btnBack}
             </button>
         {/if}

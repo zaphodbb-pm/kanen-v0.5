@@ -1,8 +1,8 @@
 /**
  * Handles info returned from a method call.
  *
- * @memberOf Functions
  * @function methodReturn
+ * @memberOf functions
  * @locus Client
  *
  * @param {String|Object} err - error code or message from method
@@ -17,7 +17,7 @@
 
 //** deals with return values from a server method call
 export function methodReturn(err, res, label, options) {
-    if( options.includes("s") ){
+    if( !!options && options.includes("s") ){
         const labelOut = label ?? "out";
 
         if (err) {

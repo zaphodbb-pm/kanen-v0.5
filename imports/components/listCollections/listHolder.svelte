@@ -1,4 +1,6 @@
 <script>
+    import {Meteor} from "meteor/meteor";
+
     /**
      * Top level component that holds a document list.
      *
@@ -144,7 +146,7 @@
         switch (true) {
             case coll === "users":
                 Meteor.call('userMgmtRemove', msg.detail.id, function (err, res) {
-                    methodReturn(err, res, "listHolder userMgmtRemove", debugOptions);
+                    methodReturn(err, res, "listHolder userMgmtRemove", debugOptions ?? '');
 
                     if (res) {
 
@@ -160,7 +162,7 @@
 
             default:
                 Meteor.call('removeDoc', coll, msg.detail.id, function (err, res) {
-                    methodReturn(err, res, "listHolder removeDoc", debugOptions);
+                    methodReturn(err, res, "listHolder removeDoc", debugOptions ?? '');
 
                     if (res) {
 
@@ -274,8 +276,20 @@
                 sort ? sort : {}
         );
 
+
         documents = await getDocs(coll, "listList", combineSearch, f.filterSearch);
-        methodReturn(null, documents, "submit insertDoc", debugOptions ?? 's' );
+
+        //console.log("getCurrentDocs", coll, combineSearch, f.filterSearch);
+
+
+        //documents = await getDocs(coll, "listList", combineSearch, f.filterSearch);
+
+        //documents = await Meteor.callAsync("getCollData", coll, "listList", combineSearch, f.filterSearch);
+
+        console.log("listHolder documents", documents);
+
+
+        methodReturn(null, documents, "submit insertDoc", debugOptions ?? '' );
         docCountLabel = `${f.start} - ${f.end} / ${docCounts} (${totalDocs})`;
 
         /**

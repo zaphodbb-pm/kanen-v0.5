@@ -94,8 +94,14 @@ export async function submitForm(doc, coll, clone, test, emit, extras) {
 
 function generalSubmit(coll, doc, emit) {
 
+    console.log("generalSubmit", coll, doc, emit);
+
     if (!doc._id) {
         Meteor.call('insertDoc', coll, doc, function (err, res) {
+
+            console.log("insertDoc", err, res);
+
+
             methodReturn(err, res, "submit insertDoc", null);
 
             if (res) {

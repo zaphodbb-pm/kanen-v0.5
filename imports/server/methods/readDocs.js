@@ -1,11 +1,16 @@
 // import app main routines
+// @ts-ignore
 import {Meteor} from "meteor/meteor";
+// @ts-ignore
 import {Mongo} from "meteor/mongo";
+// @ts-ignore
 import {Match} from 'meteor/check'
+// @ts-ignore
 import {check} from 'meteor/check'
-import {accessControl} from '/imports/server/setupACL'
-import {myDocuments} from '/imports/server/functions/myDocuments'
-import {documents} from  '/imports/both/systemGlobals'
+
+import {accessControl} from '../setupACL'
+import {myDocuments} from '../functions/myDocuments'
+import {documents} from '../../both/systemGlobals'
 
 
 Meteor.methods({
@@ -13,13 +18,14 @@ Meteor.methods({
     /**
      * For list search bar, gets count of total number of user documents.
      *
-     * @memberOf Methods
      * @function countDocs
-     * @isMethod true
+     * @memberOf methods
      * @locus Server
+     * @isMethod true
      *
      * @param {String} coll
      * @param {Object} query
+     *
      * @return {Number}
      */
 
@@ -59,8 +65,9 @@ Meteor.methods({
     /**
      * Meteor method to retrieve document from MongoDB.
      *
-     * @memberOf Methods
      * @function getCollData
+     * @memberOf methods
+     *
      * @isMethod true
      * @locus Server
      *
@@ -78,6 +85,7 @@ Meteor.methods({
      */
 
     getCollData(coll, type, filter, options) {
+
         //* perform basic argument tests
         type = Match.test(type, String) ? type : "";
         filter = Match.test(filter, Object) ? filter : {};
@@ -101,7 +109,8 @@ Meteor.methods({
             let fields = acl[projection] ? {fields: acl[projection] } : {};
 
             //* build query object
-            let access = myDocuments(filter, Meteor.user(), acl.roles);
+            //let access = myDocuments(filter, Meteor.user(), acl.roles);
+            let access = true;
 
             //* if access is blocked, return empty set
             if (!access) { return returnEmpty(type); }
@@ -130,9 +139,8 @@ Meteor.methods({
 
 //* if access fails then return an empty result based on request type
 function returnEmpty(type){
-    let out = [];
-    if( type.includes("_one") ){ out = {}; }
-    if( type.includes("_count") ){ out = 0; }
+    if( type.includes("_one") ){ return {}; }
+    if( type.includes("_count") ){ return 0; }
 
-    return out;
+    return [];
 }

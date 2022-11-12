@@ -33,8 +33,8 @@
     import {i18n} from '/imports/functions/utilities/i18n'
     import {lang} from '/imports/client/systemStores'
 
-    import {lastRoute} from '/imports/client/systemStores'
-    //import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte'
+    //import {lastRoute} from '/imports/client/systemStores'
+    import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte'
     import Auth_Service from './authService.svelte'
 
     //* local static variables
@@ -93,7 +93,23 @@
 
 <main class="main-content">
 
-    <div class="columns is-centered">
+
+
+
+
+    <form class="form has-form-shadow">
+        <header class="is-secondary">{text.labelTitle}</header>
+
+
+    </form>
+
+
+
+
+
+
+    <!--
+    <div class="row is-centered">
         <div id="loginForm-display" class="column is-half">
 
             <div class="login-form card">
@@ -104,16 +120,16 @@
 
                 <form class="card-content">
 
-                    <!--
+
                     {#each formFields as field}
                         <Field_Wrapper class="my-4" {field} {watchFields} on:field-changed="{fieldChanged}"/>
                     {/each}
-                    -->
 
-                    <a class="button is-primary mt-4" on:click="{authPassword}">
+
+                    <button type="button" class="is-primary" on:click="{authPassword}">
                         {text.btnSend}
-                    </a>
-
+                    </button>
+                    
                     {#if services}
                         <div class="is-divider field-hr" style="margin: 2.5rem 0 0.5rem 0;" data-content="{text.labelDivider}"></div>
 
@@ -138,5 +154,6 @@
 
         </div>
     </div>
+    -->
 
 </main>

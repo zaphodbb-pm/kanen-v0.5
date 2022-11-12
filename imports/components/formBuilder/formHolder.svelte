@@ -231,6 +231,9 @@
     async function submitDoc() {
         let newValues = {};
 
+        console.log("submitDoc");
+
+
         //** flag as a newly created doc
         if (!submit.btnState) {
             let defFields = Object.assign({}, defaults);
