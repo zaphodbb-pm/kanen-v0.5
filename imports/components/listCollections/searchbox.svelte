@@ -51,34 +51,34 @@
 </script>
 
 
-<div class="field has-addons">
-    <div class="control">
-        <a class="button is-static">
-            <span class="icon-bg-search"></span>
-        </a>
-    </div>
 
-    <div class="control is-expanded">
-        <input type="text"
-               class="input"
-               on:keyup="{changesearch}"
-               bind:value="{searchchars}"
-               aria-label="input field"
-               title="search input">
-    </div>
+<div style="flex-wrap: nowrap; width: 75%;">
 
-    <div class="control">
+    <div class="has-field-addons">
+        <button type="button" class="is-secondary-outlined" aria-label="icon only">
+            <span class="icon-bg-search is-medium"></span>
+        </button>
+
+        <label class="is-fullwidth">
+            <span>{label}</span>
+            <input type="text"
+                   class="input"
+                   on:keyup="{changesearch}"
+                   aria-label="search field"
+                   title="search">
+        </label>
+
         {#if showIcon}
             <a class="button is-info is-outlined" on:click="{() => {showHelp = !showHelp;} }">
                 <span class="icon-bg-help"></span>
             </a>
         {/if}
     </div>
+
+    {#if showHelp}
+        <div transition:slide="{{delay: 100, duration: 300, easing: quintOut }}">
+            <p>{@html helpText}</p>
+        </div>
+    {/if}
+
 </div>
-
-
-{#if showHelp}
-    <div transition:slide="{{delay: 100, duration: 300, easing: quintOut }}">
-        <p class="is-family-secondary">{@html helpText}</p>
-    </div>
-{/if}

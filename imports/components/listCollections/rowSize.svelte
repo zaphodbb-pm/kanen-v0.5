@@ -37,6 +37,28 @@
 </script>
 
 
+
+<div class="has-field-addons has-width-10rem">
+    <button class="is-secondary-outlined" aria-label="icon only">
+        <span class="icon-bg-list is-medium"></span>
+    </button>
+
+    <label class="has-width-8rem">
+        <select bind:value="{initval}" on:change="{changerow}">
+            {#each opts as option}
+                <option>{option}</option>
+            {/each}
+        </select>
+    </label>
+</div>
+
+
+
+
+
+
+
+<!--
 <div class="field has-addons">
     <div class="control">
         <a class="button is-static">
@@ -54,3 +76,4 @@
         </span>
     </div>
 </div>
+-->

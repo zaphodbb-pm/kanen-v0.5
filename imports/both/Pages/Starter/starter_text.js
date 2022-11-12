@@ -288,7 +288,7 @@ export const page = {
             },
 
             startStaticSelect: {
-                label: "Select",
+                label: "Day",
 
                 filter: [
                     {_id: "all", name: "All", colour: "#000000"},

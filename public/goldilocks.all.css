@@ -1702,47 +1702,39 @@ button.delete.is-small
 
 
 /** optional form header **/
-.form.has-form-shadow > p,
-.form.is-form-tabbed > p,
-.form.has-form-shadow > div.level,
-.form.is-form-tabbed > div.level
+.form.has-form-shadow header,
+.form.is-form-tabbed header
 {
     font-size: var(--size-5);
     font-weight: var(--weight-semibold);
 
+    display: flex;
+
+    margin-bottom: 0;
     padding: var(--pad-horz);
 
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
+
+    align-items: center;
+    justify-content: space-between;
 }
 
-.form.has-form-shadow > div.level,
-.form.is-form-tabbed > div.level
-{
-    margin-bottom: var(--margin);
-}
 
-.form.has-form-shadow > div.level p,
-.form.is-form-tabbed > div.level p
-{
-    margin: 0;
-    padding: 0;
-}
-
-.form.has-form-shadow > p,
-.form.has-form-shadow > div.level
+.form.has-form-shadow header
 {
     margin: calc(-1 * var(--padding-medium)) calc(-1 * var(--padding-medium)) var(--padding-large);
 }
 
-.form.has-form-shadow > p:not([class*='is-']),
-.form.has-form-shadow > div.level:not([class*='is-']),
-.form.is-form-tabbed > p:not([class*='is-']),
-.form.is-form-tabbed > div.level:not([class*='is-'])
+.form.is-form-tabbed header
+{
+    margin: 0 0 var(--padding-large) 0;
+}
+
+.form.has-form-shadow header:not([class*='is-'])
 {
     background-color: var(--bg-element);
 }
-
 
 
 /* form elements control */
@@ -1756,6 +1748,7 @@ button.delete.is-small
     border: none;
 
     flex-wrap: wrap;
+    align-items: center;
     justify-content: space-between;
     gap: var(--gap-row) var(--gap-col);
 }
@@ -2677,6 +2670,36 @@ img
     width: 100%;
 
     white-space: nowrap;
+}
+
+
+/* optional box shadow wrapper */
+.table-boxed
+{
+    position: relative;
+
+    margin: 0;
+    padding: var(--padding);
+
+    border-radius: var(--radius-comp);
+    box-shadow: var(--shadow);
+}
+
+.table-boxed header
+{
+    font-size: var(--size-5);
+    font-weight: var(--weight-semibold);
+
+    display: flex;
+
+    margin: calc(-1 * var(--padding)) calc(-1 * var(--padding)) var(--padding) calc(-1 * var(--padding));
+    padding: var(--pad-horz);
+
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+
+    align-items: center;
+    justify-content: space-between;
 }
 
 

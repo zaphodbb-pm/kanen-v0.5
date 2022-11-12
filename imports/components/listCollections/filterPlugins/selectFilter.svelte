@@ -2,8 +2,8 @@
     /**
      * Selection box filter plugin for List Holder Filters.
      *
-     * @memberOf Components:List
-     * @function selectFilter
+     * @module selectFilter
+     * @memberOf Components:list
      *
      * @param  {Object} field - field info that also configures the filter
      *
@@ -15,8 +15,10 @@
     export let field = {};
 
     //* support functions
-    import {createEventDispatcher} from 'svelte';
+    import {createEventDispatcher, getContext} from 'svelte';
     const dispatch = createEventDispatcher();
+    const listText = getContext("listText");
+    const label = listText[field.field]?.label ?? "";
 
     //* local reactive variables
     let selected;
@@ -45,8 +47,10 @@
 
 
 
-<div class="select">
-    <select title="Filter"
+<label>
+    <span>{label}</span>
+
+    <select title="Select Filter"
             bind:value="{selected}"
             on:change="{() => emitFilter( selected ) }">
 
@@ -56,4 +60,4 @@
             </option>
         {/each}}
     </select>
-</div>
+</label>

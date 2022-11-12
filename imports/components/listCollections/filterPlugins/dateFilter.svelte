@@ -16,8 +16,10 @@
     export let field = {};
 
     //* support functions
-    import {onMount, onDestroy, createEventDispatcher} from 'svelte';
+    import {onMount, onDestroy, createEventDispatcher, getContext} from 'svelte';
     const dispatch = createEventDispatcher();
+    const listText = getContext("listText");
+    const label = listText[field.field]?.label ?? "";
 
     //* local reactive variable
     let outFilter = {};
@@ -110,8 +112,10 @@
 
 {#if relativeDates}
 
-    <div class="date select">
-        <select title="Filter"
+    <label>
+        <span>{label}</span>
+
+        <select title="Date Filter"
                 bind:value="{selected}"
                 on:change="{() => emitFilter( selected ) }">
 
@@ -121,30 +125,63 @@
                 </option>
             {/each}}
         </select>
-    </div>
+    </label>
 
 {:else}
 
-    <div class="date field has-addons">
-        <div class="control">
+    <div style="flex-wrap: nowrap; width: 75%;">
+        <div class="has-field-addons">
             <label>
-                <input type="text"
-                       id="fp_{field.field}"
-                       class="input"
-                       style="width: 14rem;"
+                <span>{label}</span>
+
+                <input type="date"
+                       id="fp1_{field.field}"
+                       style="width: 9rem;"
                        bind:value="{inValue}"
                        placeholder={field.filterText.placeholder}>
+            </label>
 
+            <label>
+                <input type="date"
+                       id="fp2_{field.field}"
+                       style="width: 9rem;"
+                       bind:value="{inValue}"
+                       placeholder={field.filterText.placeholder}>
+            </label>
+
+            {#if hasRange}
+                <button type="button" class="is-warning" on:click="{clearDateRange}">
+                    <span class="delete"></span>
+                </button>
+            {/if}
+
+        </div>
+    </div>
+
+
+
+
+
+    <!--
+    <div class="field has-addons">
+        <div class="control">
+            <label>
+                <input type="date"
+                       id="fp_{field.field}"
+                       style="width: 8rem;"
+                       bind:value="{inValue}"
+                       placeholder={field.filterText.placeholder}>
             </label>
         </div>
 
         {#if hasRange}
             <div class="control">
-                <a class="button is-warning" on:click="{clearDateRange}">
-                    <div class="delete"></div>
-                </a>
+                <button type="button" class="is-warning" on:click="{clearDateRange}">
+                    <span class="delete"></span>
+                </button>
             </div>
         {/if}
     </div>
+    -->
 
 {/if}

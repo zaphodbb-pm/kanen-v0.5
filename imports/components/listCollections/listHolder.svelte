@@ -92,7 +92,7 @@
 
     let addFilters = {};
     let getFilters = [];
-    let filterState =  "is-light";
+    let filterState =  "is-primary-outlined";
     let showFilters = false;
 
     let docCounts = 0;
@@ -218,7 +218,7 @@
 
     function setFilter() {
         //* if search filters are allowed, then turn on the filter button to show or hide the column filters
-        filterState = filterState === "is-light" ? "is-primary" : "is-light";
+        filterState = filterState === "is-primary-outlined" ? "is-primary" : "is-primary-outlined";
         showFilters = filterState === "is-primary";
     }
 
@@ -353,94 +353,86 @@
 
 
 
-<div class="card list-holder-container">
-
+<div class="table-boxed">
     {#if config.showHdr}
-        <div class="card-header {config.bgTitle}">
-            <div class="card-header-title" style="color: inherit; font-size: inherit; font-weight: inherit;">
-                {listText.labels.hdr}
-            </div>
+        <header class="{config.bgTitle}">
+            {listText.labels.hdr}
+        </header>
+    {/if}
+
+    {#if config.hasOverlay && listText.labels?.addNew}
+        <div class="level">
+            <div></div>
+
+            <button type="button"  class="is-primary-outlined"
+                    on:click="{ () => docEdit({}) }">
+                {listText.labels?.addNew}
+            </button>
         </div>
     {/if}
 
-    <div class="card-content">
-        <div id="comp_listCollections">
-            {#if config.hasOverlay && listText.labels?.addNew}
-                <div class="w-100 d-flex justify-content-between mb-3">
+    <form class="form">
+        {#if config.hasRows}
+            <div class="level">
+                <Row_Size on:row-changed="{newRow}" />
+                <Doc_Count {docCountLabel }/>
+            </div>
+        {/if}
+
+        {#if  !!config.hasSearch || !!config.hasFilters}
+            <div class="level">
+                {#if config.hasSearch}
+                    <Search {fields} on:search-changed="{newSearch}" />
+                {:else}
                     <div></div>
-
-                    <button class="button is-primary is-outlined"
-                            on:click="{ () => docEdit({}) }">
-                        {listText.labels?.addNew}
-                    </button>
-                </div>
-            {/if}
-
-            {#if config.hasRows}
-                <div id="comp_rowSize" class="is-flex justify-content-between align-items-center">
-                    <Row_Size on:row-changed="{newRow}" />
-                    <Doc_Count {docCountLabel }/>
-                </div>
-            {/if}
-
-            <div class="columns">
-                <div class="column">
-                    {#if config.hasSearch}
-                        <Search {fields} on:search-changed="{newSearch}" />
-                    {/if}
-                </div>
+                {/if}
 
                 {#if !!config.hasFilters}
-                    <div class="column is-3">
-                        <div class="d-flex flex-row-reverse">
-                            <div class="button {filterState}" on:click="{setFilter}">
-                                <span><span class="icon-bg-filter is-medium"></span></span>
-                            </div>
-                        </div>
-                    </div>
+                    <button type="button" class="{filterState} has-hover" on:click="{setFilter}">
+                        <span class="icon-bg-filter is-medium"></span>
+                    </button>
                 {/if}
             </div>
+        {/if}
 
-            {#if config.hasFilters && showFilters}
-                <List_Filters filters="{getFilters}" on:filters-changed="{filterList}" />
-            {/if}
+        {#if config.hasFilters && showFilters}
+            <List_Filters filters="{getFilters}" on:filters-changed="{filterList}" />
+        {/if}
+    </form>
 
-            {#if config.hasPager}
-                <div id="comp_pagination">
-                    <Pagination rows="{docRows}" totalDocs="{docCounts}" on:page-changed="{newPage}"/>
-                </div>
-            {/if}
-
-
-            {#if config.display === 'grid'}
-
-                <svelte:component
-                        this={ListGrid}
-                        {config}
-                        labels="{fields}"
-                        {documents}
-                        collection="{coll}"
-                        {submitted}
-
-                        on:item-delete="{docDelete}"
-                        on:item-edit="{docEdit}"/>
-
-            {:else}
-
-                <List_Table
-                    {config}
-                    labels="{fields}"
-                    {documents}
-                    collection="{coll}"
-                    {submitted}
-
-                    on:item-delete="{docDelete}"
-                    on:item-edit="{docEdit}"
-                    on:item-modal="{docModal}"
-                    on:item-modal-user="{docModalUser}"/>
-
-            {/if}
+    {#if config.hasPager}
+        <div id="comp_pagination">
+            <Pagination rows="{docRows}" totalDocs="{docCounts}" on:page-changed="{newPage}"/>
         </div>
-    </div>
+    {/if}
 
+    {#if config.display === 'grid'}
+
+        <svelte:component
+                this={ListGrid}
+                {config}
+                labels="{fields}"
+                {documents}
+                collection="{coll}"
+                {submitted}
+
+                on:item-delete="{docDelete}"
+                on:item-edit="{docEdit}"/>
+
+    {:else}
+
+        <List_Table
+                {config}
+                labels="{fields}"
+                {documents}
+                collection="{coll}"
+                {submitted}
+
+                on:item-delete="{docDelete}"
+                on:item-edit="{docEdit}"
+                on:item-modal="{docModal}"
+                on:item-modal-user="{docModalUser}"/>
+
+    {/if}
 </div>
+

@@ -17,8 +17,11 @@
     export let field = {};
 
     //* support functions
-    import {createEventDispatcher} from 'svelte';
+    import {createEventDispatcher, getContext} from 'svelte';
     const dispatch = createEventDispatcher();
+    const listText = getContext("listText");
+    const label = listText[field.field]?.label ?? "";
+
     import {userPosition} from '/imports/client/systemStores'
 
     //* local reactive variable
@@ -85,7 +88,10 @@
 
 
 
-<div class="select">
+
+<label>
+    <span>{label}</span>
+
     <select title="Filter"
             bind:value="{selected}"
             on:change="{() => emitFilter( selected ) }">
@@ -96,4 +102,4 @@
             </option>
         {/each}}
     </select>
-</div>
+</label>

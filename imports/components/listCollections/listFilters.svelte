@@ -60,7 +60,9 @@
 </script>
 
 
-<div class="list-filters filter-selects">
+
+
+<div class="field-group" style="flex-wrap: nowrap;">
     {#each filters as field (field.field)}
         <div class="filter-items">
 
@@ -72,24 +74,3 @@
         </div>
     {/each}
 </div>
-
-
-
-<style>
-
-    .filter-selects {
-        align-items: center;
-        display: flex;
-        flex-basis: auto;
-        flex-grow: 0;
-        flex-shrink: 0;
-
-        justify-content: end;
-        flex-wrap: wrap;
-    }
-
-    .filter-items {
-        padding: 0 0.5rem 0.75rem 0;
-    }
-
-</style>

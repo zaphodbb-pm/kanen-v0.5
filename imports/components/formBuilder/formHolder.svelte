@@ -303,8 +303,8 @@
 <form id="test-form" class="form {config.formType}" method="post">
 
     {#if config.showHdr}
-        <div class="level {config.bgTitle}">
-            <p class="{config.bgTitle}">{formText.labels.hdr}</p>
+        <header class="{config.bgTitle}">
+            {formText.labels.hdr}
 
             {#if showClone}
                 <button class="is-warning"
@@ -312,7 +312,7 @@
                     {formText.labels.cloneBtn}
                 </button>
             {/if}
-        </div>
+        </header>
     {/if}
 
     <Form_Tabs fields="{tabFields.fields}" {config} on:field-changed="{fieldChanged}" />
