@@ -34,8 +34,8 @@
     import schema from './starter_form_schema';
     import listArray from './starter_list';
 
-    import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte'
-    import List_Form from '/imports/components/listForm/listForm.svelte'
+    import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte';
+    import List_Form from '/imports/components/listForm/listForm.svelte';
 
     const pageHeader = i18n(header, "", $lang);
     let formText = i18n(page, "form", $lang);

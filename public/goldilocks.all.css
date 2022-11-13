@@ -2158,6 +2158,7 @@ button.delete.is-small
 {
     display: flex;
 
+    height: 1.5rem;
     padding-left: 4.5rem;
 
     border: none;

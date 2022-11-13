@@ -14,7 +14,8 @@ export const pageConfig =  {
     form: {
         coll:       "sysConfig",        // target collection to send submit to
         showHdr:    true,               // show card header and title if true
-        bgTitle:    "", // colour header text and background
+        bgTitle:    "is-tertiary",      // colour header text and background
+        formType:   "is-form-tabbed",   // modifier for formHolder to add features
 
         hasGroups:  false,              // allows fields to be grouped onto the same row
         hasTabs:    true,               // has tabbed fields in form
@@ -27,7 +28,7 @@ export const pageConfig =  {
     list: {
         coll:       "sysConfig",        // collection name to list
         showHdr:    true,               // show card header and title if true
-        bgTitle:    "", // sets card title background and text color
+        bgTitle:    "is-secondary",     // sets card title background and text color
 
         hasRows:    false,              // show row length selection box
         hasSearch:  false,              // show search box

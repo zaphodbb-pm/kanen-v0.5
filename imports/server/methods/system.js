@@ -1,4 +1,7 @@
+// @ts-nocheck
+// @ts-ignore
 import {Meteor} from "meteor/meteor";
+// @ts-ignore
 import {check} from 'meteor/check'
 
 Meteor.methods({
@@ -6,8 +9,8 @@ Meteor.methods({
     /**
      * @summary Meteor method to query server directly tfor system wide information.
      *
-     * @memberOf Methods
      * @function getSysInfo
+     * @memberOf methods
      * @isMethod true
      * @locus Server
      *
@@ -21,8 +24,8 @@ Meteor.methods({
     /**
      * @summary General client side system config info from database.
      *
-     * @memberOf Methods
      * @function clientSysConfig
+     * @memberOf methods
      * @isMethod true
      * @locus Server
      *
@@ -52,8 +55,8 @@ Meteor.methods({
     /**
      * @summary Meteor method to bulk remove documents by admin users.
      *
-     * @memberOf Methods
      * @function removeDocuments
+     * @memberOf methods
      * @isMethod true
      * @locus Server
      *
@@ -81,8 +84,8 @@ Meteor.methods({
     /**
      * @summary Builds client side icon set from icon sets from line awesome files in public directory.
      *
-     * @memberOf Methods
      * @function lineAwesomeIcons
+     * @memberOf methods
      * @isMethod true
      * @locus Server
      *

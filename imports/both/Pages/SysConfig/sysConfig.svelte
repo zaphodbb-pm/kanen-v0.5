@@ -33,10 +33,10 @@
     import {i18n} from '/imports/functions/utilities/i18n';
     import {lang} from '/imports/client/systemStores';
 
-    import schema from './sysConfig_form_schema';
-    //import Form_Holder from '/imports/components/formBuilder/formHolder.svelte';
-    import listArray from './sysConfig_list';
-    //import List_Holder from '/imports/components/listCollections/listHolder.svelte';
+    import Form_Holder from '../../../../imports/components/formBuilder/formHolder.svelte'
+    import schema from './sysConfig_form_schema'
+    import List_Holder from '../../../../imports/components/listCollections/listHolder.svelte'
+    import listArray from './sysConfig_list'
 
     const pageHeader = i18n(header, "", $lang);
     let formText = i18n(page, "form", $lang);
@@ -95,12 +95,9 @@
 
 <main class="main-content">
 
-    <div class="columns">
+    <div class="row">
 
-        <article class="column is-5" class:is-hidden={!showList}>
-
-
-            <!--
+        <div class="column" class:is-hidden={!showList}>
             <List_Holder
                     config="{conf.list}"
                     {listText}
@@ -108,14 +105,10 @@
                     {sort}
                     submitted="{releaseEdit}"
                     on:send-doc="{docToEdit}"/>
-                    -->
-
-        </article>
+        </div>
 
 
-        <article class="column is-7" class:is-hidden={!showForm}>
-
-            <!--
+        <div class="column" class:is-hidden={!showForm}>
             <Form_Holder
                     config="{conf.form}"
                     {formText}
@@ -125,9 +118,7 @@
                     {directdoc}
                     on:back-to-list="{checkOverlay}"
                     on:doc-submitted="{docSent}"/>
-                    -->
-
-        </article>
+        </div>
 
     </div>
 
