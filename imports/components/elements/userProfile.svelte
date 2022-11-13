@@ -4,7 +4,6 @@
      *
      * @module userProfile
      * @memberOf Components:elements
-     *
      * @locus Client
      *
      */
@@ -13,7 +12,8 @@
 
     //** support functions
     import {userLoggedIn} from '/imports/client/systemStores'
-    import {createEventDispatcher, getContext } from 'svelte';
+    import {createEventDispatcher } from 'svelte';
+    import {goto} from  'svelte-pathfinder';
     const dispatch = createEventDispatcher();
 
     //* component controls
@@ -26,6 +26,9 @@
 
     $: {
         user = $userLoggedIn;
+
+        console.log("userProfile", user);
+
         showImg = !!user;
 
         if(showImg){
@@ -37,13 +40,14 @@
     //* functions that mutate variables
     function logout() {
         Meteor.logout(function () {
-            //navigateTo("/login");
+            goto("/home");
         });
     }
 
 </script>
 
-    {#if user && user.profile }
+
+    {#if user && user._id }
         <div class="dropdown is-right">
 
             <div class="dropdown-trigger" tabindex="0">
@@ -63,8 +67,8 @@
             <div class="dropdown-menu" id="navbar-dropdown-profile">
                 <nav aria-label="Dropdown Menu">
                     <ul>
-                        <li><a href="/template">{userName} {text.toProfile}</a></li>
-                        <li><a href="/template">{text.changePassword}</a></li>
+                        <li><a href="/my-profile">{userName} {text.toProfile}</a></li>
+                        <li><a href="/changePassword">{text.changePassword}</a></li>
                         <li><hr></li>
                         <li><a on:click="{logout}">{text.logOut}</a></li>
                     </ul>
@@ -72,7 +76,7 @@
             </div>
         </div>
     {:else}
-        <a href="/template" class="icon-nav" title="Login">
+        <a href="/login" class="icon-nav" title="Login">
             <span class="icon-bg-login"></span>
             <span>{text.signIn}</span>
         </a>

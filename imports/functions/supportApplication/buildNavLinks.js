@@ -36,7 +36,5 @@ export function buildNavLinks(user, routes) {
         }
     });
 
-    //return out;
-
-    return routes;
+    return out;
 }

@@ -53,7 +53,6 @@
     //** support functions
     import {sysConfig, sysDebug} from '/imports/client/systemStores'
     import {getContext} from 'svelte';
-    import {elements} from '/imports/both/systemGlobals'
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 
@@ -326,7 +325,7 @@
                         {:else if cell.type === 'edit' }
                             <td on:click="{ () => editDoc(cell.id) }"
                                 style="word-wrap: break-word; word-break: break-all;"
-                                class="add-cursor has-text-info has-text-weight-semibold text-left">
+                                class="add-cursor has-text-link is-text-semibold">
 
                                 {cell.value}
                             </td>
@@ -334,7 +333,7 @@
                         {:else if cell.type === 'modal' }
                             <td on:click="{() => modalDoc(cell.id) }"
                                 style="word-wrap: break-word; word-break: break-all;"
-                                class="add-cursor has-text-link has-text-weight-semibold text-left">
+                                class="add-cursor has-text-link is-text-semibold">
 
                                 {cell.value}
                             </td>

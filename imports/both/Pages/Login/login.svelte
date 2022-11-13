@@ -22,7 +22,7 @@
         import {pageConfig} from './login_config'
 
         //** app support files
-        import { setContext  } from 'svelte';
+        import { setContext } from 'svelte';
         import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
@@ -30,8 +30,10 @@
 
 
     //* page-body support **************************
-    import {i18n} from '/imports/functions/utilities/i18n'
-    import {lang} from '/imports/client/systemStores'
+    import {i18n} from '/imports/functions/utilities/i18n';
+    import {lang} from '/imports/client/systemStores';
+    import {goto} from  'svelte-pathfinder';
+    import {userLoggedIn, userExtras} from '/imports/client/systemStores';
 
     //import {lastRoute} from '/imports/client/systemStores'
     import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte'
@@ -81,9 +83,12 @@
         if (err) {
             messages.push(err.message);
         } else {
-            //let penultimate = $lastRoute.length > 2 ? $lastRoute.slice(-2, -1)[0] : null;
-            //let target = penultimate && penultimate.name ? penultimate.name : "/myProfile";
-            //navigateTo(target);
+
+            console.log("$userLoggedIn", $userLoggedIn);
+
+            console.log("$userExtras", $userExtras);
+
+            goto("/my-profile")
         }
     }
 
@@ -98,12 +103,27 @@
             <header class="is-secondary">{text.labelTitle}</header>
 
             {#each formFields as field}
-                <Field_Wrapper {field} {watchFields} on:field-changed="{fieldChanged}"/>
+                <Field_Wrapper class="" {field} {watchFields} on:field-changed="{fieldChanged}"/>
             {/each}
 
             <button type="button" class="is-primary" on:click="{authPassword}">
                 {text.btnSend}
             </button>
+
+            {#if services}
+                <div class="is-divider field-hr" style="margin: 2.5rem 0 0.5rem 0;" data-content="{text.labelDivider}"></div>
+
+                {#each services as service}
+                    <div class="divider-box">
+                        <div class="divider" data-content="{text.labelDivider}"></div>
+
+                        <div class="level">
+                            <Auth_Service on:on-auth={Auth} {...service} />
+                        </div>
+                    </div>
+
+                {/each}
+            {/if}
 
 
             {#if messages.length > 0}

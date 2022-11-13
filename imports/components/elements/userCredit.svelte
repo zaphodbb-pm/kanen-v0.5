@@ -15,8 +15,6 @@
     //* support files
     import {userExtras} from "../../client/systemStores.mjs";
 
-    console.log("userExtras", $userExtras);
-
     //* local reactive variables
     let credit = 0;
 

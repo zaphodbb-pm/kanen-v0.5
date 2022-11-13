@@ -2,23 +2,24 @@
     /**
      * Google based login authentication.
      *
+     * @module authGoogle
      * @memberOf Pages:login
-     * @function authGoogle
      * @locus Client
      *
-     * @param {String} label - optional string to show instead of icon
-     * @param {String|Number} value - text to show in credit
+     * @param {String} icon - icon for service
+     * @param {String} title - name to show
+     * @param {String} service - name of login service
      *
      */
 
 
     //* props
-    export let icon  = "";
+    export let icon = "";
     export let title = "";
-    export let service = ""
+    export let service = "";
 
     //* support files
-    import {createEventDispatcher, getContext} from 'svelte';
+    import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 
 
@@ -35,8 +36,8 @@
 </script>
 
 <div class="level-item">
-    <a class="button is-info login-circle" on:click="{authService}" {title}>
-        <span class="{getContext(icon)} is-large"></span>
+    <a class="button is-link login-circle" on:click="{authService}" title="{title}">
+        <span class="{icon}"></span>
     </a>
 </div>
 
@@ -47,7 +48,14 @@
         height: 4rem;
         width: 4rem;
         border-radius: 50%;
-        font-size: 2rem;
+        padding: 0;
+    }
+
+    .login-circle > span {
+        height: 2rem;
+        width: 2rem;
+        padding: 0;
+        margin: 0;
     }
 
 </style>

@@ -41,7 +41,7 @@
 
     import Notifications from '/imports/components/elements/notifications.svelte'
     import UserProfile from '/imports/components/elements/userProfile.svelte'
-    import UserCredit from '/imports/components/elements/userCredit.svelte'
+    //import UserCredit from '/imports/components/elements/userCredit.svelte'
 
     //** simple nav configuration options for aside navs
     let theme = "light";        // "light" or "dark" background
@@ -87,7 +87,7 @@
         <div class="navbar-right">
             <nav aria-label="Secondary Actions">
                 <ul>
-                    <li><UserCredit text="{navText.userCredit}"/></li>
+                    <!--<li><UserCredit text="{navText.userCredit}"/></li>-->
 
                     <li><Notifications text="{navText.notifications}" /></li>
 
