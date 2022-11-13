@@ -93,15 +93,35 @@
 
 <main class="main-content">
 
+    <div class="level-centered">
+        <form class="form has-form-shadow has-width-20rem">
+            <header class="is-secondary">{text.labelTitle}</header>
+
+            {#each formFields as field}
+                <Field_Wrapper {field} {watchFields} on:field-changed="{fieldChanged}"/>
+            {/each}
+
+            <button type="button" class="is-primary" on:click="{authPassword}">
+                {text.btnSend}
+            </button>
 
 
+            {#if messages.length > 0}
+                <div class="space-component"></div>
+
+                <div class="message is-warning-light" class:is-hidden="{messages.length < 1}">
+                    <div class="message-body">
+                        {#each messages as message}
+                            <p>{message}</p>
+                        {/each}
+                    </div>
+                </div>
+            {/if}
+
+        </form>
+    </div>
 
 
-    <form class="form has-form-shadow">
-        <header class="is-secondary">{text.labelTitle}</header>
-
-
-    </form>
 
 
 

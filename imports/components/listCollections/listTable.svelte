@@ -284,7 +284,7 @@
 
     <table class="table is-striped is-narrow is-hoverable is-fullwidth mt-3">
         <thead>
-            <tr class="">
+            <tr>
                 {#each tableLabels(labels) as tl}
                     <th class="{tl.css}">{tl.label}</th>
                 {/each}
@@ -416,9 +416,7 @@
                         {:else if cell.type === 'del' }
 
                             {#if confirmDelete}
-                                <td on:click="{() => confirmDel(cell.value)}"
-                                    class="add-cursor has-text-centered"
-                                    style="max-width: 10%;">
+                                <td class="table-delete-td" on:click="{() => confirmDel(cell.value)}">
 
                                     {#if confirm === cell.value}
                                         <div class="confirm-delete depth-1 d-flex justify-content-between has-text-left align-items-center">
@@ -426,29 +424,21 @@
                                                 {deleteText.btnRemove}
                                             </button>
 
-                                            <p class="mx-3 has-text-centered text-0dot8rem">{deleteText.msg}</p>
+                                            <p class="has-text-centered text-0dot8rem">{deleteText.msg}</p>
 
-                                            <button class="button is-small is-primary is-outlined" on:click|stopPropagation="{cancelDelete}">
+                                            <button type="button" class="is-small is-primary-outlined" on:click|stopPropagation="{cancelDelete}">
                                                 {deleteText.btnCancel}
                                             </button>
                                         </div>
 
                                     {:else}
-
-                                        <span>
-                                            <span class="icon-bg-trash has-text-danger is-medium"></span>
-                                        </span>
+                                        <span class="icon-bg-trash has-text-danger table-delete-icon"></span>
                                     {/if}
                                 </td>
 
                             {:else}
-                                <td on:click="{() => deleteDoc(cell.value)}"
-                                    class="add-cursor has-text-centered"
-                                    style="max-width: 10%;">
-
-                                    <span>
-                                        <span class="icon-bg-trash has-text-danger is-medium"></span>
-                                    </span>
+                                <td class="table-delete-td" on:click="{() => deleteDoc(cell.value)}">
+                                    <span class="icon-bg-trash has-text-danger table-delete-icon"></span>
                                 </td>
                             {/if}
 
@@ -504,6 +494,17 @@
         padding: 0.5rem;
         background-color: whitesmoke;
         border: solid 1px #c0c0c0;
+    }
+
+    .table-delete-td {
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .table-delete-icon {
+        padding: 0;
+        margin: 0;
+        vertical-align: middle;
     }
 
 </style>
