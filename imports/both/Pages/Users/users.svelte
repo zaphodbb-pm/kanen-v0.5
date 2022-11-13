@@ -44,14 +44,11 @@
 
 
     //* page-body support **************************
-
-
     import {deepClone} from '/imports/functions/utilities/deepClone'
+    import schema from './users_form_schema'
+    import listArray from './users_list'
 
-
-    //import schema from './users_form_schema'
-    //import listArray from './users_list'
-    //import List_Form from '/imports/components/listForm/listForm.svelte'
+    import List_Form from '/imports/components/listForm/listForm.svelte'
 
 
     let formText = i18n(page, "form", $lang);
@@ -66,10 +63,6 @@
 
 <div class="main-content" id="page-layout">
 
-
-    Users
-
-    <!--
     <List_Form
             confList="{conf.list}"
             listArray="{listArray}"
@@ -78,6 +71,5 @@
             schema="{schema}"
             formText="{formText}"
     />
-    -->
 
 </div>

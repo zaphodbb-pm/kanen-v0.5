@@ -63,6 +63,7 @@
             <span>{label}</span>
             <input type="text"
                    class="input"
+                   bind:value="{searchchars}"
                    on:keyup="{changesearch}"
                    aria-label="search field"
                    title="search">

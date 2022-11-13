@@ -65,9 +65,9 @@
     let calendar = i18n( getContext("commonText"), "calendar", $lang);
     let deleteText = i18n( getContext("commonText"), "confirmDelete", $lang);
 
-    let tagColour = "is-info";                          // default tag colour
+    let tagColour = "is-link";                          // default tag colour
     let inEdit = false;
-    let bgEdit = "";
+    let bgEdit = "is-warning-light";
     let currRow = "";
     let actRow = "";
     let submit = submitted;
@@ -77,11 +77,11 @@
 
     let TAGS = {
         // sets background label colour for "tag" cell
-        login: "is-info",
+        login: "is-link",
         logout: "is-warning",
         system: "is-danger",
         startup: "is-danger",
-        default: "is-info",
+        default: "is-link",
     };
 
     $: releaseItem(submitted);
@@ -347,7 +347,7 @@
                             </td>
 
                         {:else if cell.type === 'text' || cell.type === 'select' || cell.type === 'timeStamp'}
-                            <td class="has-text-left">
+                            <td class="text_cell" style="word-wrap: break-word; word-break: break-all;">
                                 {cell.prefix}{cell.value}{cell.suffix}
                             </td>
 
@@ -357,17 +357,17 @@
                             </td>
 
                         {:else if cell.type === 'date' }
-                            <td class="has-text-left list-date">
+                            <td class="">
                                 {formatDate(cell.value, calendar)}
                             </td>
 
                         {:else if cell.type === 'phone' }
-                            <td class="has-text-left list-date">
+                            <td class="">
                                 <a href="'tel:' + {cell.value}">{formatPhoneNumber(cell.value)}</a>
                             </td>
 
                         {:else if cell.type === 'email' }
-                            <td class="has-text-left list-date">
+                            <td class="">
                                 <a href="'mailTo:' + {cell.value}">{cell.value}</a>
                             </td>
 

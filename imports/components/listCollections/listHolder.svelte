@@ -243,6 +243,7 @@
     }
 
     function newSearch(msg) {
+
         //* respond to a user entering text into the search bar by constructing search fragment object
         let query = msg.detail.query;
         let target = msg.detail.search;
@@ -278,16 +279,6 @@
 
 
         documents = await getDocs(coll, "listList", combineSearch, f.filterSearch);
-
-        //console.log("getCurrentDocs", coll, combineSearch, f.filterSearch);
-
-
-        //documents = await getDocs(coll, "listList", combineSearch, f.filterSearch);
-
-        //documents = await Meteor.callAsync("getCollData", coll, "listList", combineSearch, f.filterSearch);
-
-        console.log("listHolder documents", documents);
-
 
         methodReturn(null, documents, "submit insertDoc", debugOptions ?? '' );
         docCountLabel = `${f.start} - ${f.end} / ${docCounts} (${totalDocs})`;
