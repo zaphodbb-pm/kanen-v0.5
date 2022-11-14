@@ -370,18 +370,6 @@ select
     padding: 0;
 }
 
-textarea::-moz-placeholder,
-input::-moz-placeholder
-{
-    color: inherit;
-}
-
-textarea:-ms-input-placeholder,
-input:-ms-input-placeholder
-{
-    color: inherit;
-}
-
 textarea::placeholder,
 input::placeholder
 {
@@ -452,7 +440,6 @@ dl > dd
 
     list-style: none;
 
-    -webkit-margin-start: 1rem;
     margin-inline-start: 1rem;
 }
 
@@ -615,8 +602,7 @@ pre
 
     grid-template-columns: 100%;
     row-gap: var(--gutter);
-    -moz-column-gap: var(--gutter);
-         column-gap: var(--gutter);
+    column-gap: var(--gutter);
     justify-items: stretch;
     align-items: stretch;
 }
@@ -780,8 +766,7 @@ pre
 
     align-items: center;
     flex-wrap: wrap;
-    -moz-column-gap: var(--gap-col);
-         column-gap: var(--gap-col);
+    column-gap: var(--gap-col);
     row-gap: var(--gap-row);
 }
 
@@ -866,8 +851,7 @@ pre
 
         padding-left: var(--gap-col);
 
-        -moz-column-gap: var(--gap-col);
-             column-gap: var(--gap-col);
+        column-gap: var(--gap-col);
         row-gap: var(--gap-row);
         align-items: flex-start;
     }
@@ -905,8 +889,7 @@ pre
     .level-start.is-mobile,
     .level-end.is-mobile
     {
-        -moz-column-gap: calc( .75 * var(--gap-col) );
-             column-gap: calc( .75 * var(--gap-col) );
+        column-gap: calc( .75 * var(--gap-col) );
         row-gap: calc( .75 * var(--gap-row) );
     }
 
@@ -924,8 +907,7 @@ pre
 {
     display: grid;
 
-    -moz-column-gap: 0;
-         column-gap: 0;
+    column-gap: 0;
     row-gap: 0;
     grid-template-columns: auto 4fr;
     grid-template-rows: repeat(5, auto);
@@ -940,8 +922,7 @@ pre
 {
     display: grid;
 
-    -moz-column-gap: 0;
-         column-gap: 0;
+    column-gap: 0;
     row-gap: 0;
     grid-template-columns: auto 4fr;
     grid-template-rows: repeat(6, auto);
@@ -1074,8 +1055,7 @@ pre
     background-color: var(--bg-component);
 
     justify-content: space-between;
-    -moz-column-gap: calc( 2 * var(--gap-col) );
-         column-gap: calc( 2 * var(--gap-col) );
+    column-gap: calc( 2 * var(--gap-col) );
     row-gap: var(--gap-row);
     flex-wrap: wrap;
 }
@@ -1254,8 +1234,7 @@ pre
     padding: 0;
 
     flex-wrap: wrap;
-    -moz-column-gap: var(--gap-col);
-         column-gap: var(--gap-col);
+    column-gap: var(--gap-col);
     row-gap: var(--gap-row);
 }
 
@@ -1347,23 +1326,19 @@ button.is-default-inverted,
     color: var(--text-comp);
     border: none;
 
-    -webkit-text-decoration-color: var(--text-comp);
-            text-decoration-color: var(--text-comp);
-    -webkit-text-decoration-line: underline;
-            text-decoration-line: underline;
+    text-decoration-color: var(--text-comp);
+    text-decoration-line: underline;
     text-underline-offset: .25em;
 }
 
 button.is-default-inverted.has-hover:hover,
 .button.is-default-inverted.has-hover:hover
 {
-            text-decoration: underline var(--text-elem);
+    text-decoration: underline var(--text-elem);
 
     color: var(--text-elem);
     border: none;
     background-color: var(--bg-element);
-
-    -webkit-text-decoration: underline var(--text-elem);
 }
 
 button.is-rounded,
@@ -1527,7 +1502,8 @@ button.is-loading::after,
     height: 1em;
 
     content: '';
-    animation: spinAround .5s infinite linear;
+    -webkit-animation: spinAround .5s infinite linear;
+            animation: spinAround .5s infinite linear;
 
     border: 2px solid var(--bg-main);
     border-top-color: transparent;
@@ -1548,7 +1524,8 @@ button.is-loading-dark::after,
     height: 1em;
 
     content: '';
-    animation: spinAround .5s infinite linear;
+    -webkit-animation: spinAround .5s infinite linear;
+            animation: spinAround .5s infinite linear;
 
     border: 2px solid var(--bg-main-invert);
     border-top-color: transparent;
@@ -1851,9 +1828,7 @@ button.delete.is-small
 {
     width: auto;
 
-    -webkit-appearance: auto;
-       -moz-appearance: auto;
-            appearance: auto;
+    appearance: auto;
     --webkit-appearance: auto;
 }
 
@@ -1872,16 +1847,6 @@ button.delete.is-small
     background-clip: border-box;
     background-origin: padding-box;
     background-size: 1.5em 1.5em;
-}
-
-.form label input::-moz-placeholder
-{
-    color: var(--text-light);
-}
-
-.form label input:-ms-input-placeholder
-{
-    color: var(--text-light);
 }
 
 .form label input::placeholder
@@ -2456,14 +2421,12 @@ img
 
 .img-fit-cover
 {
-    -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
 }
 
 .img-fit-contain
 {
-    -o-object-fit: contain;
-       object-fit: contain;
+    object-fit: contain;
 }
 
 .img-as-content
@@ -2545,8 +2508,7 @@ img
 /** defaults to having image cover area **/
 :is([class*='has-aspect'])
 {
-    -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
 }
 
 /** make sure that any (optional) caption remains under the image **/
@@ -3583,8 +3545,7 @@ details.accordion.is-expander-danger summary
 
     display: none;
 
-    width: -moz-max-content;
-    width:      max-content;
+    width: max-content;
     min-width: 12rem;
     max-width: 18rem;
     padding-top: 4px;
@@ -3841,8 +3802,7 @@ details.accordion.is-expander-danger summary
     border-bottom: solid 2px var(--grey-light);
 
     flex-wrap: wrap;
-    -moz-column-gap: var(--gap-col);
-         column-gap: var(--gap-col);
+    column-gap: var(--gap-col);
     row-gap: var(--gap-row);
     align-items: center;
     justify-content: space-between;
@@ -3862,8 +3822,7 @@ details.accordion.is-expander-danger summary
     padding: 0;
 
     flex-wrap: wrap;
-    -moz-column-gap: var(--gap-col);
-         column-gap: var(--gap-col);
+    column-gap: var(--gap-col);
     row-gap: var(--gap-row);
     align-items: center;
 }
@@ -3885,8 +3844,7 @@ details.accordion.is-expander-danger summary
     width: auto;
 
     flex-wrap: wrap;
-    -moz-column-gap: var(--gap-col);
-         column-gap: var(--gap-col);
+    column-gap: var(--gap-col);
     row-gap: var(--gap-row);
     align-items: center;
 }
@@ -4259,8 +4217,7 @@ details.accordion.is-expander-danger summary
         background-color: inherit;
 
         justify-content: center;
-        -moz-column-gap: 0;
-             column-gap: 0;
+        column-gap: 0;
     }
 
     .navbar .navbar-center.show-bottom-nav .dropdown .dropdown-menu
@@ -5521,8 +5478,7 @@ figure:not(.avatar) > [class*='badge']
     padding: 0;
 
     flex-wrap: wrap;
-    -moz-column-gap: 0;
-         column-gap: 0;
+    column-gap: 0;
     row-gap: 0;
     align-items: center;
 }
@@ -5536,8 +5492,7 @@ figure:not(.avatar) > [class*='badge']
     padding: 0;
 
     flex-wrap: nowrap;
-    -moz-column-gap: 0;
-         column-gap: 0;
+    column-gap: 0;
     row-gap: 0;
     justify-content: flex-start;
     align-items: center;
@@ -6723,7 +6678,6 @@ a.tag:hover
     border-left: .3rem solid var(--secondary);
     background-color: var(--bg-component);
 
-    -moz-column-break-inside: avoid;
     break-inside: avoid;
 }
 
@@ -6817,8 +6771,7 @@ a.tag:hover
     grid-template-rows: 1fr;
     grid-auto-flow: column;
     grid-auto-columns: minmax( var(--carousel-image-width) , 1fr);
-    -ms-scroll-snap-type: x proximity;
-        scroll-snap-type: x proximity;
+    scroll-snap-type: x proximity;
 }
 
 .carousel > ul::before
@@ -6848,8 +6801,7 @@ a.tag:hover
 {
     height: var(--carousel-image-height);
 
-    -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
 }
 
 .carousel .no-scrollbar
@@ -6873,8 +6825,7 @@ a.tag:hover
     border-radius: var(--radius-comp);
     background-color: var(--bg-component);
 
-    -moz-column-gap: calc( 2 * var(--gap-col) );
-         column-gap: calc( 2 * var(--gap-col) );
+    column-gap: calc( 2 * var(--gap-col) );
     align-items: center;
     justify-content: space-around;
     --color: var(--main-color-complement-low, 0);
@@ -7035,13 +6986,7 @@ a.tag:hover
     background-color: var(--color-1);
 
     --line-size: 2px;
-    -webkit-clip-path: polygon(
-    0 calc(100% * (1 - var(--start, var(--size)))),
-    100% calc(100% * (1 - var(--size))),
-    100% calc(100% * (1 - var(--size)) - var(--line-size)),
-    0 calc(100% * (1 - var(--start, var(--size))) - var(--line-size))
-    );
-            clip-path: polygon(
+    clip-path: polygon(
     0 calc(100% * (1 - var(--start, var(--size)))),
     100% calc(100% * (1 - var(--size))),
     100% calc(100% * (1 - var(--size)) - var(--line-size)),
@@ -7057,8 +7002,7 @@ a.tag:hover
 
     background-color: transparent !important;
 
-    -webkit-clip-path: unset;
-            clip-path: unset;
+    clip-path: unset;
 }
 
 
@@ -7301,9 +7245,7 @@ a.tag:hover
 {
     width: 100%;
 
-    -webkit-margin-start: .25rem;
     margin-inline-start: .25rem;
-    -webkit-margin-end: .25rem;
     margin-inline-end: .25rem;
 }
 
@@ -7331,6 +7273,7 @@ a.tag:hover
     border-right: solid 1px var(--border-main);
     border-bottom: solid 1px var(--border-main);
     border-left: solid 1px var(--border-main);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(var(--border-main)), to(transparent));
     background-image: linear-gradient(var(--border-main) 1px, transparent 1px);
     background-size: 100% 20%;
 }
@@ -7637,8 +7580,7 @@ a.tag:hover
     align-items: flex-start;
     justify-content: flex-start;
     flex-wrap: nowrap;
-    -moz-column-gap: var(--gap-col);
-         column-gap: var(--gap-col);
+    column-gap: var(--gap-col);
 }
 
 .comments > li.comment:last-child
@@ -7716,8 +7658,7 @@ a.tag:hover
     flex-direction: row;
 
     flex-wrap: nowrap;
-    -moz-column-gap: calc( 3 * var(--gap-col) );
-         column-gap: calc( 3 * var(--gap-col) );
+    column-gap: calc( 3 * var(--gap-col) );
 }
 
 .divider,
@@ -8059,8 +8000,7 @@ a.tag:hover
     flex-direction: column;
 
     min-width: 10rem;
-    max-width: -moz-max-content;
-    max-width:      max-content;
+    max-width: max-content;
     margin: 0;
     padding: 0;
 
@@ -8082,8 +8022,7 @@ a.tag:hover
 
     align-items: center;
     justify-content: space-between;
-    -moz-column-gap: calc( var(--gap-col) * 2 );
-         column-gap: calc( var(--gap-col) * 2 );
+    column-gap: calc( var(--gap-col) * 2 );
 }
 
 .infobox > div > p
@@ -8294,8 +8233,7 @@ a.tag:hover
 
     border-radius: var(--radius-elem);
 
-    -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
 }
 /** large volume text layouts **/
 .magazine
@@ -8307,10 +8245,8 @@ a.tag:hover
 
     word-spacing: .1em;
 
-    -moz-column-width: var(--magazine-width);
-         column-width: var(--magazine-width);
-    -moz-column-gap: calc(1.5 *  var(--gutter) );
-         column-gap: calc(1.5 *  var(--gutter) );
+    column-width: var(--magazine-width);
+    column-gap: calc(1.5 *  var(--gutter) );
     orphans: 2;
     widows: 3;
 }
@@ -8338,14 +8274,12 @@ a.tag:hover
 
 .magazine.is-wide
 {
-    -moz-column-width: calc( var(--magazine-width) * 1.33);
-         column-width: calc( var(--magazine-width) * 1.33);
+    column-width: calc( var(--magazine-width) * 1.33);
 }
 
 .magazine.is-narrow
 {
-    -moz-column-width: calc( var(--magazine-width) / 1.33);
-         column-width: calc( var(--magazine-width) / 1.33);
+    column-width: calc( var(--magazine-width) / 1.33);
 }
 
 .magazine .mag-block
@@ -8354,7 +8288,6 @@ a.tag:hover
 
     margin: 2rem 0;
 
-    -moz-column-break-inside: avoid;
     break-inside: avoid;
 }
 
@@ -8551,8 +8484,7 @@ a.tag:hover
     flex-direction: row;
 
     min-width: 10rem;
-    max-width: -moz-max-content;
-    max-width:      max-content;
+    max-width: max-content;
     margin: 0;
     padding: var(--padding-medium);
 
@@ -8562,8 +8494,7 @@ a.tag:hover
 
     justify-content: space-between;
     align-items: center;
-    -moz-column-gap: calc( var(--gap-col) * 2 );
-         column-gap: calc( var(--gap-col) * 2 );
+    column-gap: calc( var(--gap-col) * 2 );
 }
 
 .reportbox p
@@ -8617,8 +8548,7 @@ a.tag:hover
     border: solid .25rem var(--border-main);
     border-radius: var(--radius-elem);
 
-    -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
 }
 
 .reportbox > img:has(+ label)
@@ -8848,8 +8778,7 @@ a.tag:hover
     border: none;
     background-color: var(--bg-component);
 
-    -moz-column-gap: var(--gap-col);
-         column-gap: var(--gap-col);
+    column-gap: var(--gap-col);
     row-gap: var(--gap-row);
     align-items: center;
     justify-content: flex-end;
@@ -9175,10 +9104,14 @@ progress.is-progress-danger:indeterminate
 
 progress:indeterminate
 {
-    animation-name: moveIndeterminate;
-    animation-duration: 1.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    -webkit-animation-name: moveIndeterminate;
+            animation-name: moveIndeterminate;
+    -webkit-animation-duration: 1.5s;
+            animation-duration: 1.5s;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
 
     background-color: var(--bg-element);
     background-image: linear-gradient(to right, var(--black-ter) 30%, var(--bg-element) 30%);
@@ -9200,6 +9133,18 @@ progress:indeterminate::-moz-progress-bar
 progress:indeterminate::-ms-fill
 {
     animation-name: none;
+}
+
+@-webkit-keyframes moveIndeterminate
+{
+    from
+    {
+        background-position: 200% 0;
+    }
+    to
+    {
+        background-position: -200% 0;
+    }
 }
 
 @keyframes moveIndeterminate
@@ -9661,26 +9606,23 @@ progress:indeterminate::-ms-fill
 
 .is-primary-inverted
 {
-            text-decoration: underline var(--primary);
+    text-decoration: underline var(--primary);
 
     color: var(--primary);
     border: none;
     background-color: var(--bg-main);
 
-    -webkit-text-decoration: underline var(--primary);
     text-underline-offset: .25em;
 }
 
 .is-primary-inverted.has-hover:hover
 {
-            text-decoration: underline var(--primary-dark);
+    text-decoration: underline var(--primary-dark);
 
     opacity: 1;
     color: var(--primary-dark);
     border: none;
     background-color: var(--bg-element);
-
-    -webkit-text-decoration: underline var(--primary-dark);
 }
 
 
@@ -9723,26 +9665,23 @@ progress:indeterminate::-ms-fill
 
 .is-secondary-inverted
 {
-            text-decoration: underline var(--secondary);
+    text-decoration: underline var(--secondary);
 
     color: var(--secondary);
     border: none;
     background-color: var(--bg-main);
 
-    -webkit-text-decoration: underline var(--secondary);
     text-underline-offset: .25em;
 }
 
 .is-secondary-inverted.has-hover:hover
 {
-            text-decoration: underline var(--secondary-dark);
+    text-decoration: underline var(--secondary-dark);
 
     opacity: 1;
     color: var(--secondary-dark);
     border: none;
     background-color: var(--bg-element);
-
-    -webkit-text-decoration: underline var(--secondary-dark);
 }
 
 
@@ -9783,26 +9722,23 @@ progress:indeterminate::-ms-fill
 
 .is-tertiary-inverted
 {
-            text-decoration: underline var(--tertiary);
+    text-decoration: underline var(--tertiary);
 
     color: var(--tertiary);
     border: none;
     background-color: var(--bg-main);
 
-    -webkit-text-decoration: underline var(--tertiary);
     text-underline-offset: .25em;
 }
 
 .is-tertiary-inverted.has-hover:hover
 {
-            text-decoration: underline var(--tertiary-dark);
+    text-decoration: underline var(--tertiary-dark);
 
     opacity: 1;
     color: var(--tertiary-dark);
     border: none;
     background-color: var(--bg-element);
-
-    -webkit-text-decoration: underline var(--tertiary-dark);
 }
 
 
@@ -9843,26 +9779,23 @@ progress:indeterminate::-ms-fill
 
 .is-link-inverted
 {
-            text-decoration: underline var(--link);
+    text-decoration: underline var(--link);
 
     color: var(--link);
     border: none;
     background-color: var(--bg-main);
 
-    -webkit-text-decoration: underline var(--link);
     text-underline-offset: .25em;
 }
 
 .is-link-inverted.has-hover:hover
 {
-            text-decoration: underline var(--link-dark);
+    text-decoration: underline var(--link-dark);
 
     opacity: 1;
     color: var(--link-dark);
     border: none;
     background-color: var(--bg-element);
-
-    -webkit-text-decoration: underline var(--link-dark);
 }
 
 
@@ -9903,26 +9836,23 @@ progress:indeterminate::-ms-fill
 
 .is-success-inverted
 {
-            text-decoration: underline var(--success);
+    text-decoration: underline var(--success);
 
     color: var(--success);
     border: none;
     background-color: var(--bg-main);
 
-    -webkit-text-decoration: underline var(--success);
     text-underline-offset: .25em;
 }
 
 .is-success-inverted.has-hover:hover
 {
-            text-decoration: underline var(--success-dark);
+    text-decoration: underline var(--success-dark);
 
     opacity: 1;
     color: var(--success-dark);
     border: none;
     background-color: var(--bg-element);
-
-    -webkit-text-decoration: underline var(--success-dark);
 }
 
 
@@ -9964,26 +9894,23 @@ progress:indeterminate::-ms-fill
 
 .is-warning-inverted
 {
-            text-decoration: underline var(--warning);
+    text-decoration: underline var(--warning);
 
     color: var(--warning);
     border: none;
     background-color: var(--bg-main);
 
-    -webkit-text-decoration: underline var(--warning);
     text-underline-offset: .25em;
 }
 
 .is-warning-inverted.has-hover:hover
 {
-            text-decoration: underline var(--warning-dark);
+    text-decoration: underline var(--warning-dark);
 
     opacity: 1;
     color: var(--warning-dark);
     border: none;
     background-color: var(--bg-element);
-
-    -webkit-text-decoration: underline var(--warning-dark);
 }
 
 
@@ -10027,26 +9954,23 @@ progress:indeterminate::-ms-fill
 
 .is-danger-inverted
 {
-            text-decoration: underline var(--danger);
+    text-decoration: underline var(--danger);
 
     color: var(--danger);
     border: none;
     background-color: var(--bg-main);
 
-    -webkit-text-decoration: underline var(--danger);
     text-underline-offset: .25em;
 }
 
 .is-danger-inverted.has-hover:hover
 {
-            text-decoration: underline var(--danger-dark);
+    text-decoration: underline var(--danger-dark);
 
     opacity: 1;
     color: var(--danger-dark);
     border: none;
     background-color: var(--bg-element);
-
-    -webkit-text-decoration: underline var(--danger-dark);
 }
 
 

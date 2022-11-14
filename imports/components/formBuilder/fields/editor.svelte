@@ -167,7 +167,7 @@
 
 
 
-<label class="editor {className} {field.css || ''}">
+<label class="field--editor {className} {field.css || ''}">
 
     <span>{label} two</span>
 

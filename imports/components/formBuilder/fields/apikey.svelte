@@ -57,7 +57,7 @@
 </script>
 
 
-<div class="api-key has-field-addons {error} {className} {field.css || ''}">
+<div class="field--api-key has-field-addons {error} {className} {field.css || ''}">
     <button type="button" class="is-primary" on:click={setkey}>
         <span class="icon-bg-key is-medium"></span>
     </button>

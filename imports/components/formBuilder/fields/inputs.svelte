@@ -139,7 +139,7 @@
 
 {:else}
 
-    <label class="inputs {className} {field.css || ''}">
+    <label class="field--inputs {className} {field.css || ''}">
         <span>{label}</span>
         <input class="input {checkValue}"
                {...attributes}

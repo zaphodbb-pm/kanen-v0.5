@@ -80,6 +80,8 @@
     function updateFile(inMsg) {
         let msg = inMsg.detail.value;
 
+        console.log("updateFile", msg);
+
         let test = parseJSONString(msg.src);
 
         if (test) {
@@ -92,6 +94,12 @@
             console.warn("Not a valid JSON file: ", msg.name);
             disableImport = true;
         }
+        
+        console.log("disableExport", disableExport);
+
+        console.log("disableImport", disableImport, disableImport || disableExport);
+
+
     }
 
     //** card specific action execution

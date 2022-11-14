@@ -53,7 +53,7 @@
 </script>
 
 
-<label class="date-picker {error} {className} {field.css || ''}">
+<label class="field--date-picker {error} {className} {field.css || ''}">
     <span>{label}</span>
 
     <input type="date"

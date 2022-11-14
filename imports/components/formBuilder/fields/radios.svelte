@@ -60,7 +60,7 @@
 
 
 
-<fieldset class="radio-list {error} {className} {field.css || ''}">
+<fieldset class="field--radio-list {error} {className} {field.css || ''}">
     <legend>{label}</legend>
 
     {#each source as rad, idx}

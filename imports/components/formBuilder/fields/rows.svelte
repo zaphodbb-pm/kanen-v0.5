@@ -155,7 +155,7 @@
 
 
 
-<fieldset class="row-list {error} {className} {field.css || ''}">
+<fieldset class="field--row-list {error} {className} {field.css || ''}">
     <legend>{label}</legend>
 
     <button type="button" class="add-rows is-rounded is-primary" on:click="{addRow}">

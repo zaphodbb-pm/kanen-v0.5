@@ -55,7 +55,7 @@
 
 
 
-<label class="switch-field {error} {className} {field.css || ''}">
+<label class="field--switch {error} {className} {field.css || ''}">
     <span>{label}</span>
     <span class="switch">
         <input type="checkbox"

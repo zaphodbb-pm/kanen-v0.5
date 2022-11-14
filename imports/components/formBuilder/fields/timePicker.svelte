@@ -53,7 +53,7 @@
 </script>
 
 
-<label class="time-picker {error} {className} {field.css || ''}">
+<label class="field--time-picker {error} {className} {field.css || ''}">
     <span>{label}</span>
 
     <input type="time"

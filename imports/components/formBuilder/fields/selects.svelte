@@ -151,7 +151,7 @@
 
 
 
-<label class="selects {showColours ? 'has-colour-icon' : ''} {error} {className} {field.css || ''}">
+<label class="field--selects {showColours ? 'has-colour-icon' : ''} {error} {className} {field.css || ''}">
     <span>{label}</span>
 
     {#if showColours}
