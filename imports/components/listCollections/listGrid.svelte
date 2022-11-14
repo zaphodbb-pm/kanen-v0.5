@@ -153,63 +153,59 @@
             <div class="column {width}">
 
                 <div class="card">
-                    <div class="card-content">
-                        {#if notice}
-                            <div class="p-1 has-background-white-ter">{notice}</div>
+                    {#if notice}
+                        <header>{notice}</header>
+                    {/if}
+
+                    {#each row as cell, idx}
+                        {#if cell.type === 'pict'}
+                            <figure>
+                                <img class="has-aspect-2x1" src="{cell.url}"  alt="image">
+                            </figure>
+
+                        {:else if cell.type === 'edit'}
+                            <div on:click="{ () => editDoc(cell.id) }"
+                                 style="word-wrap: break-word; word-break: break-all;"
+                                 class="add-cursor has-text-info has-text-weight-semibold text-left">
+
+                                {cell.value}
+                            </div>
+
+                        {:else if cell.type === 'newpage'}
+                            <div on:click="{ () => launchPage(cell.id) }"
+                                 style="word-wrap: break-word; word-break: break-all;"
+                                 class="add-cursor has-text-info has-text-weight-semibold text-left">
+
+                                {cell.value}
+                            </div>
+
+                        {:else if cell.type === 'text' || cell.type === 'select'}
+                            <div class="has-text-left is-size-7">
+                                <strong>{cell.keyName}:</strong> {cell.value}
+                            </div>
+
+                        {:else if cell.type === 'object'}
+                            <div>{cell.value}</div>
+
+                        {:else if cell.type === 'boolean'}
+                            <div class="text-green text-center">
+                                <span>{cell.value ? "&#10004;" : ""}</span>
+                            </div>
+
+                        {:else if cell.type === 'del'}
+                            <div on:click="{ () => deleteDoc(cell.value)}"
+                                 class="add-cursor has-text-right" style="max-width: 100%;">
+
+                                <span>
+                                    <span class="icon-bg-trash is-medium has-text-danger"></span>
+                                </span>
+                            </div>
+
+                        {:else}
+                            <div>n/a</div>
                         {/if}
+                    {/each}
 
-                        {#each row as cell, idx}
-                            {#if cell.type === 'pict'}
-                                <div class="card-image" style="margin: -1.5rem -1.5rem 1.5rem -1.5rem">
-                                    <figure class="image is-2by1">
-                                        <img src="{cell.url}"  alt="image">
-                                    </figure>
-                                </div>
-
-                            {:else if cell.type === 'edit'}
-                                <div on:click="{ () => editDoc(cell.id) }"
-                                     style="word-wrap: break-word; word-break: break-all;"
-                                     class="add-cursor has-text-info has-text-weight-semibold text-left">
-
-                                    {cell.value}
-                                </div>
-
-                            {:else if cell.type === 'newpage'}
-                                <div on:click="{ () => launchPage(cell.id) }"
-                                     style="word-wrap: break-word; word-break: break-all;"
-                                     class="add-cursor has-text-info has-text-weight-semibold text-left">
-
-                                    {cell.value}
-                                </div>
-
-                            {:else if cell.type === 'text' || cell.type === 'select'}
-                                <div class="has-text-left is-size-7">
-                                    <strong>{cell.keyName}:</strong> {cell.value}
-                                </div>
-
-                            {:else if cell.type === 'object'}
-                                <div>{cell.value}</div>
-
-                            {:else if cell.type === 'boolean'}
-                                <div class="text-green text-center">
-                                    <span>{cell.value ? "&#10004;" : ""}</span>
-                                </div>
-
-                            {:else if cell.type === 'del'}
-                                <div on:click="{ () => deleteDoc(cell.value)}"
-                                     class="add-cursor has-text-right" style="max-width: 100%;">
-
-                                    <span>
-                                        <span class="icon-bg-trash is-medium has-text-danger"></span>
-                                    </span>
-                                </div>
-
-                            {:else}
-                                <div>n/a</div>
-                            {/if}
-
-                        {/each}
-                    </div>
                 </div>
 
             </div>

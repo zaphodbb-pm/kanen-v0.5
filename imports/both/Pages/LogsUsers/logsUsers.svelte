@@ -34,8 +34,8 @@
     import {i18n} from '/imports/functions/utilities/i18n';
     import {lang} from '/imports/client/systemStores';
 
-    //import DeleteRecords from '/imports/components/elements/getRelativeDates.svelte';
-    //import List_Holder from '/imports/components/listCollections/listHolder.svelte';
+    import DeleteRecords from '../../../../imports/components/elements/getRelativeDates.svelte';
+    import List_Holder from '../../../../imports/components/listCollections/listHolder.svelte';
     import listArray from './logsUsers_list';
 
     const pageHeader = i18n(header, "", $lang);
@@ -78,13 +78,11 @@
 
 <main class="main-content">
 
-
-    <!--
     <DeleteRecords on:new-range={deleteRange}/>
 
-    <div class="columns">
+    <div class="row">
+        <div class="column">
 
-        <article class="column">
             <List_Holder
                     config="{conf.list}"
                     {listText}
@@ -92,10 +90,7 @@
                     {sort}
                     submitted="{releaseEdit}"/>
 
-        </article>
-
+        </div>
     </div>
-    -->
-
 
 </main>

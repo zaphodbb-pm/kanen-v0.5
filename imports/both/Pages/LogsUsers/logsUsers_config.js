@@ -14,7 +14,7 @@ export const pageConfig =  {
     list: {
         coll:       "logsUsers",        // collection name to list
         showHdr:    true,               // show card header and title if true
-        bgTitle:    "", // sets card title background and text color
+        bgTitle:    "is-secondary",     // sets card title background and text color
 
         hasRows:    true,               // show row length selection box
         hasSearch:  true,               // show search box

@@ -2265,12 +2265,6 @@ button.delete.is-small
     box-shadow: var(--shadow);
 }
 
-
-.form .form-tabs
-{
-    overflow-x: scroll;
-}
-
 .form .form-tabs > input
 {
     position: absolute; /* then hide them off-screen */
@@ -3097,6 +3091,1482 @@ h4 + .sub-title,
 .has-text-light
 {
     color: var(--grey-light);
+}
+
+.avatar
+{
+    position: relative;
+
+    display: inline-block;
+
+    width: 1rem;
+    height: 1rem;
+    margin: 0;
+
+    vertical-align: middle;
+
+    color: var(--text-elem);
+    border-radius: 50%;
+    background: var(--bg-element);
+}
+
+.avatar > img
+{
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+
+    border-radius: 50%;
+}
+
+.avatar.avatar-xl
+{
+    font-size: calc(var(--base-font-size) * 5 / 3);
+
+    width: calc(var(--base-font-size) * 5);
+    height: calc(var(--base-font-size) * 5);
+}
+
+.avatar.avatar-xl > img,
+.avatar.avatar-xl > div
+{
+    width: calc(var(--base-font-size) * 5);
+    height: calc(var(--base-font-size) * 5);
+}
+
+.avatar.avatar-lg
+{
+    font-size: calc(var(--base-font-size) * 4 / 3);
+
+    width: calc(var(--base-font-size) * 4);
+    height: calc(var(--base-font-size) * 4);
+}
+
+.avatar.avatar-lg > img,
+.avatar.avatar-lg > div
+{
+    width: calc(var(--base-font-size) * 4);
+    height: calc(var(--base-font-size) * 4);
+}
+
+.avatar.avatar-nm
+{
+    font-size: var(--base-font-size);
+
+    width: calc(var(--base-font-size) * 3);
+    height: calc(var(--base-font-size) * 3);
+}
+
+.avatar.avatar-nm > img,
+.avatar.avatar-nm > div
+{
+    width: calc(var(--base-font-size) * 3);
+    height: calc(var(--base-font-size) * 3);
+}
+
+.avatar.avatar-sm
+{
+    font-size: calc(var(--base-font-size) * 2 / 3);
+
+    width: calc(var(--base-font-size) * 2);
+    height: calc(var(--base-font-size) * 2);
+}
+
+.avatar.avatar-sm > img,
+.avatar.avatar-sm > div
+{
+    width: calc(var(--base-font-size) * 2);
+    height: calc(var(--base-font-size) * 2);
+}
+
+.avatar.avatar-xs
+{
+    font-size: calc(var(--base-font-size) / 3);
+
+    width: var(--base-font-size);
+    height: var(--base-font-size);
+}
+
+.avatar.avatar-xs > img,
+.avatar.avatar-xs > div
+{
+    width: var(--base-font-size);
+    height: var(--base-font-size);
+}
+
+
+
+.avatar[data-initials]::before
+{
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+
+    content: attr(data-initials);
+    transform: translate(-50%,-50%);
+
+    color: currentColor;
+}
+
+.avatar-presence-online::after,
+.avatar-presence-busy::after,
+.avatar-presence-away::after
+{
+    position: absolute;
+    z-index: 2;
+    right: 14.64%;
+    bottom: 14.64%;
+
+    display: block;
+
+    width: .5em;
+    height: .5em;
+    padding: .1rem;
+
+    content: '';
+    transform: translate(50%,50%);
+
+    border-radius: 50%;
+    background-color: var(--grey-light);
+    box-shadow: 0 0 0 .1rem var(--bg-main-elem);
+}
+
+.avatar.avatar-presence-online::after
+{
+    background-color: var(--success);
+}
+
+.avatar.avatar-presence-busy::after
+{
+    background-color: var(--danger);
+}
+
+.avatar.avatar-presence-away::after
+{
+    background-color: var(--warning);
+}
+
+[class*='badge']
+{
+    font-size: .85rem;
+    font-weight: var(--weight-medium);
+    line-height: 1;
+
+    position: relative;
+
+    display: inline-flex;
+
+    min-width: .7rem;
+    height: 1rem;
+    padding: .1rem .25rem;
+
+    transform: translate(-.05rem,-.75rem);
+    white-space: nowrap;
+
+    color: var(--text-invert);
+    border-radius: 1rem;
+    background: var(--grey-dark);
+    background-clip: padding-box;
+    box-shadow: 0 0 0 .1rem var(--bg-main);
+
+    align-items: center;
+    justify-content: center;
+}
+
+[class*='badge'].no-border
+{
+    box-shadow: unset;
+}
+
+[class*='badge']:empty
+{
+    width: .5rem;
+    min-width: .5rem;
+    height: .5rem;
+    padding: 0;
+}
+
+button:has(span),
+figure:has(span)
+{
+    position: relative;
+}
+
+button > [class*='badge']
+{
+    position: absolute;
+    top: 0;
+    right: -.5rem;
+}
+
+figure > [class*='badge']
+{
+    position: absolute;
+    z-index: 2;
+    top: .5rem;
+    right: -.5rem;
+}
+
+figure:not(.avatar) > [class*='badge']
+{
+    top: .25rem;
+}
+
+
+/* colour controls */
+.badge-primary
+{
+    color: var(--primary-text-invert);
+    background-color: var(--primary);
+}
+
+.badge-secondary
+{
+    color: var(--secondary-text-invert);
+    background-color: var(--secondary);
+}
+
+.badge-tertiary
+{
+    color: var(--tertiary-text-invert);
+    background-color: var(--tertiary);
+}
+
+.badge-success
+{
+    color: var(--success-text-invert);
+    background-color: var(--success-dark);
+}
+
+.badge-warning
+{
+    color: var(--warning-text-invert);
+    background-color: var(--warning-dark);
+}
+
+.badge-danger
+{
+    color: var(--danger-text-invert);
+    background-color: var(--danger);
+}
+
+.badge-link
+{
+    color: var(--link-text-invert);
+    background-color: var(--link);
+}
+
+/* icon main controls */
+.icon
+{
+    font-size: var(--size-4);
+
+    width: 1em;
+    height: 1em;
+    margin: 0 var(--padding);
+}
+
+.icon-nav
+{
+    display: flex;
+    flex-direction: column;
+
+    margin: 0;
+    padding: 0;
+
+    flex-wrap: wrap;
+    -moz-column-gap: 0;
+         column-gap: 0;
+    row-gap: 0;
+    align-items: center;
+}
+
+.icon-nav-horz
+{
+    display: flex;
+    flex-direction: row;
+
+    margin: 0;
+    padding: 0;
+
+    flex-wrap: nowrap;
+    -moz-column-gap: 0;
+         column-gap: 0;
+    row-gap: 0;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.icon-nav-horz .icon
+{
+    margin-left: 0;
+}
+
+
+/* using backgrounds for svg images */
+[class*='icon-bg-']:not(.icon-nav)
+{
+    font-size: var(--size-4);
+
+    display: inline-block;
+
+    width: 1em;
+    height: 1em;
+    margin: 0   var(--padding);
+
+    background-color: currentColor;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+            mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+}
+
+[class*='icon-bg-'].is-large
+{
+    font-size: var(--size-1);
+}
+
+[class*='icon-bg-'].is-medium
+{
+    font-size: var(--size-3);
+}
+
+[class*='icon-bg-'].is-small
+{
+    font-size: var(--size-6);
+}
+
+
+/* icon set based on feathers with some lineawesome */
+/* Note that chrome and firefox recognize '-webkit-mask-image' and safari uses 'mask-image' declaration */
+
+
+.icon-bg-alert-danger
+{
+    --icon-bg-alert-danger-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2">\
+            </polygon><line x1="15" y1="9" x2="9" y2="15"></line>\
+            <line x1="9" y1="9" x2="15" y2="15"></line>\
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-alert-danger-url);
+            mask-image: var(--icon-bg-alert-danger-url);
+}
+
+.icon-bg-alert-info
+{
+    --icon-bg-alert-info-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <circle cx="12" cy="12" r="10"></circle>\
+            <line x1="12" y1="16" x2="12" y2="12">\
+            </line><line x1="12" y1="8" x2="12.01" y2="8"></line>\
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-alert-info-url);
+            mask-image: var(--icon-bg-alert-info-url);
+}
+
+.icon-bg-alert-success
+{
+    --icon-bg-alert-success-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  32  32" fill="black" stroke="none"> \
+            <path d="M 16 3 C 8.80 3 3 8.80 3 16 C 3 23.20 8.80 29 16 29 C 23.20 29 29 23.20 29 16 C 29 14.60 28.81 13.21 28.31 11.91 \
+            L 26.69 13.5 C 26.89 14.30 27 15.10 27 16 C 27 22.10 22.10 27 16 27 C 9.90 27 5 22.10 5 16 C 5 9.90 9.90 5 16 5 \
+            C 19 5 21.70 6.20 23.59 8.09 L 25 6.69 C 22.70 4.39 19.5 3 16 3 Z \
+            M 27.28 7.28 L 16 18.56 L 11.72 14.28 L 10.28 15.72 L 15.28 20.72 L 16 21.41 L 16.72 20.72 L 28.72 8.72 Z"/>\
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-alert-success-url);
+            mask-image: var(--icon-bg-alert-success-url);
+}
+
+.icon-bg-alert-warning
+{
+    --icon-bg-alert-warning-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>\
+            <line x1="12" y1="9" x2="12" y2="13"></line>\
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>\
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-alert-warning-url);
+            mask-image: var(--icon-bg-alert-warning-url);
+}
+
+.icon-bg-bell
+{
+    --icon-bg-bell-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/> \
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-bell-url);
+            mask-image: var(--icon-bg-bell-url);
+}
+
+.icon-bg-bookmark
+{
+    --icon-bg-bookmark-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-bookmark-url);
+            mask-image: var(--icon-bg-bookmark-url);
+}
+
+.icon-bg-calendar
+{
+    --icon-bg-calendar-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/> \
+            <line x1="16" y1="2" x2="16" y2="6"/> \
+            <line x1="8" y1="2" x2="8" y2="6"/> \
+            <line x1="3" y1="10" x2="21" y2="10"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-calendar-url);
+            mask-image: var(--icon-bg-calendar-url);
+}
+
+.icon-bg-circle-minus
+{
+    --icon-bg-circle-minus-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <circle cx="12" cy="12" r="10"></circle>\
+            <line x1="8" y1="12" x2="16" y2="12"></line>\
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-circle-minus-url);
+            mask-image: var(--icon-bg-circle-minus-url);
+}
+
+.icon-bg-circle-plus
+{
+    --icon-bg-circle-plus-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <circle cx="12" cy="12" r="10"></circle>\
+            <line x1="12" y1="8" x2="12" y2="16"></line>\
+            <line x1="8" y1="12" x2="16" y2="12"></line>\
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-circle-plus-url);
+            mask-image: var(--icon-bg-circle-plus-url);
+}
+
+.icon-bg-circle-x
+{
+    --icon-bg-circle-x-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <circle cx="12" cy="12" r="10"></circle>\
+            <line x1="15" y1="9" x2="9" y2="15"></line>\
+            <line x1="9" y1="9" x2="15" y2="15"></line> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-circle-x-url);
+            mask-image: var(--icon-bg-circle-x-url);
+}
+
+.icon-bg-clock
+{
+    --icon-bg-clock-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <circle cx="12" cy="12" r="10"/> \
+            <polyline points="12 6 12 12 16 14"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-clock-url);
+            mask-image: var(--icon-bg-clock-url);
+}
+
+.icon-bg-cloud-download
+{
+    --icon-bg-cloud-download-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <polyline points="8 17 12 21 16 17"/> \
+            <line x1="12" y1="12" x2="12" y2="21"/> \
+            <path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-cloud-download-url);
+            mask-image: var(--icon-bg-cloud-download-url);
+}
+
+.icon-bg-cloud-save
+{
+    --icon-bg-cloud-save-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <polyline points="16 16 12 12 8 16"/> \
+            <line x1="12" y1="12" x2="12" y2="21"/> \
+            <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/> \
+            <polyline points="16 16 12 12 8 16"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-cloud-save-url);
+            mask-image: var(--icon-bg-cloud-save-url);
+}
+
+.icon-bg-code
+{
+    --icon-bg-code-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <polyline points="16 18 22 12 16 6"/> \
+            <polyline points="8 6 2 12 8 18"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-code-url);
+            mask-image: var(--icon-bg-code-url);
+}
+
+.icon-bg-cog
+{
+    --icon-bg-cog-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <circle cx="12" cy="12" r="3"/> \
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51 \
+                V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06 \
+                a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06 \
+                a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09 \
+                a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1 \
+                H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-cog-url);
+            mask-image: var(--icon-bg-cog-url);
+}
+
+.icon-bg-content
+{
+    --icon-bg-content-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <polyline points="4 7 4 4 20 4 20 7"/> \
+            <line x1="9" y1="20" x2="15" y2="20"/> \
+            <line x1="12" y1="4" x2="12" y2="20"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-content-url);
+            mask-image: var(--icon-bg-content-url);
+}
+
+.icon-bg-credit-card
+{
+    --icon-bg-credit-card-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>\
+            <line x1="1" y1="10" x2="23" y2="10"></line>\
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-credit-card-url);
+            mask-image: var(--icon-bg-credit-card-url);
+}
+
+.icon-bg-crop
+{
+    --icon-bg-crop-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M6.13 1L6 16a2 2 0 0 0 2 2h15"/> \
+            <path d="M1 6.13L16 6a2 2 0 0 1 2 2v15"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-crop-url);
+            mask-image: var(--icon-bg-crop-url);
+}
+
+.icon-bg-day
+{
+    --icon-bg-day-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <circle cx="12" cy="12" r="5"/> \
+            <line x1="12" y1="1" x2="12" y2="3"/> \
+            <line x1="12" y1="21" x2="12" y2="23"/> \
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/> \
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/> \
+            <line x1="1" y1="12" x2="3" y2="12"/> \
+            <line x1="21" y1="12" x2="23" y2="12"/> \
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/> \
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-day-url);
+            mask-image: var(--icon-bg-day-url);
+}
+
+.icon-bg-edit
+{
+    --icon-bg-edit-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/> \
+            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-edit-url);
+            mask-image: var(--icon-bg-edit-url);
+}
+
+.icon-bg-eye
+{
+    --icon-bg-eye-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/> \
+            <circle cx="12" cy="12" r="3"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-eye-url);
+            mask-image: var(--icon-bg-eye-url);
+}
+
+.icon-bg-eye-off
+{
+    --icon-bg-eye-off-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4 \
+            c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/> \
+            <line x1="1" y1="1" x2="23" y2="23"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-eye-off-url);
+            mask-image: var(--icon-bg-eye-off-url);
+}
+
+.icon-bg-facebook
+{
+    --icon-bg-facebook-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-facebook-url);
+            mask-image: var(--icon-bg-facebook-url);
+}
+
+.icon-bg-file
+{
+    --icon-bg-file-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/> \
+            <polyline points="14 2 14 8 20 8"/> \
+            <line x1="16" y1="13" x2="8" y2="13"/> \
+            <line x1="16" y1="17" x2="8" y2="17"/> \
+            <polyline points="10 9 9 9 8 9"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-file-url);
+            mask-image: var(--icon-bg-file-url);
+}
+
+.icon-bg-film
+{
+    --icon-bg-film-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/> \
+            <line x1="7" y1="2" x2="7" y2="22"/> \
+            <line x1="17" y1="2" x2="17" y2="22"/> \
+            <line x1="2" y1="12" x2="22" y2="12"/> \
+            <line x1="2" y1="7" x2="7" y2="7"/> \
+            <line x1="2" y1="17" x2="7" y2="17"/> \
+            <line x1="17" y1="17" x2="22" y2="17"/> \
+            <line x1="17" y1="7" x2="22" y2="7"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-film-url);
+            mask-image: var(--icon-bg-film-url);
+}
+
+.icon-bg-filter
+{
+    --icon-bg-filter-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-filter-url);
+            mask-image: var(--icon-bg-filter-url);
+}
+
+.icon-bg-folder
+{
+    --icon-bg-folder-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-folder-url);
+            mask-image: var(--icon-bg-folder-url);
+}
+
+
+.icon-bg-github
+{
+    --icon-bg-github-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7 \
+            A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1 \
+            A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" /> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-github-url);
+            mask-image: var(--icon-bg-github-url);
+}
+
+.icon-bg-google
+{
+    --icon-bg-google-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  488  512"> \
+            <path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8 \
+            c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256 \
+            c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1 \
+            c2.3 12.7 3.9 24.9 3.9 41.4z"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-google-url);
+            mask-image: var(--icon-bg-google-url);
+}
+
+.icon-bg-grid
+{
+    --icon-bg-grid-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <rect x="3" y="3" width="7" height="7"/> \
+            <rect x="14" y="3" width="7" height="7"/> \
+            <rect x="14" y="14" width="7" height="7"/> \
+            <rect x="3" y="14" width="7" height="7"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-grid-url);
+            mask-image: var(--icon-bg-grid-url);
+}
+
+.icon-bg-help
+{
+    --icon-bg-help-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <circle cx="12" cy="12" r="10"/> \
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/> \
+            <line x1="12" y1="17" x2="12.01" y2="17"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-help-url);
+            mask-image: var(--icon-bg-help-url);
+}
+
+.icon-bg-home
+{
+    --icon-bg-home-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/> \
+            <polyline points="9 22 9 12 15 12 15 22"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-home-url);
+            mask-image: var(--icon-bg-home-url);
+}
+
+.icon-bg-icons
+{
+    --icon-bg-icons-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  28  28" fill="black" stroke="none"> \
+            <path d="M 5 5 L 5 27 L 27 27 L 27 5 Z M 7 7 L 15 7 L 15 15 L 7 15 Z \
+                M 17 7 L 25 7 L 25 15 L 17 15 Z M 11 9 L 8 13 L 14 13 Z M 19 9 L 19 13 L 23 13 L 23 9 Z M 7 17 L 15 17 L 15 25 L 7 25 Z \
+                M 17 17 L 25 17 L 25 25 L 17 25 Z M 21 18 L 19 21 L 21 24 L 23 21 Z \
+                M 11 19 C 9.89 19 9 19.89 9 21 C 9 22.11 9.89 23 11 23 C 12.11 23 13 22.11 13 21 C 13 19.89 12.11 19 11 19 Z"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-icons-url);
+            mask-image: var(--icon-bg-icons-url);
+}
+
+.icon-bg-image
+{
+    --icon-bg-image-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/> \
+            <circle cx="8.5" cy="8.5" r="1.5"/> \
+            <polyline points="21 15 16 10 5 21"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-image-url);
+            mask-image: var(--icon-bg-image-url);
+}
+
+.icon-bg-key
+{
+    --icon-bg-key-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-key-url);
+            mask-image: var(--icon-bg-key-url);
+}
+
+.icon-bg-layout
+{
+    --icon-bg-layout-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/> \
+            <line x1="3" y1="9" x2="21" y2="9"/> \
+            <line x1="9" y1="21" x2="9" y2="9"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-layout-url);
+            mask-image: var(--icon-bg-layout-url);
+}
+
+.icon-bg-link
+{
+    --icon-bg-link-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/> \
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-link-url);
+            mask-image: var(--icon-bg-link-url);
+}
+
+.icon-bg-linkedin
+{
+    --icon-bg-linkedin-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /> \
+            <rect x="2" y="9" width="4" height="12" /> \
+            <circle cx="4" cy="4" r="2" /> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-linkedin-url);
+            mask-image: var(--icon-bg-linkedin-url);
+}
+
+.icon-bg-list
+{
+    --icon-bg-list-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <line x1="8" y1="6" x2="21" y2="6"/> \
+            <line x1="8" y1="12" x2="21" y2="12"/> \
+            <line x1="8" y1="18" x2="21" y2="18"/> \
+            <line x1="3" y1="6" x2="3.01" y2="6"/> \
+            <line x1="3" y1="12" x2="3.01" y2="12"/> \
+            <line x1="3" y1="18" x2="3.01" y2="18"/>\
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-list-url);
+            mask-image: var(--icon-bg-list-url);
+}
+
+.icon-bg-lock
+{
+    --icon-bg-lock-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>\
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>\
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-lock-url);
+            mask-image: var(--icon-bg-lock-url);
+}
+
+.icon-bg-lock-open
+{
+    --icon-bg-lock-open-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>\
+            <path d="M7 11V7a5 5 0 0 1 9.9-1"></path>\
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-lock-open-url);
+            mask-image: var(--icon-bg-lock-open-url);
+}
+
+
+.icon-bg-login
+{
+    --icon-bg-login-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/> \
+            <polyline points="10 17 15 12 10 7"/> \
+            <line x1="15" y1="12" x2="3" y2="12"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-login-url);
+            mask-image: var(--icon-bg-login-url);
+}
+
+.icon-bg-logout
+{
+    --icon-bg-logout-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/> \
+            <polyline points="16 17 21 12 16 7"/> \
+            <line x1="21" y1="12" x2="9" y2="12"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-logout-url);
+            mask-image: var(--icon-bg-logout-url);
+}
+
+.icon-bg-logs
+{
+    --icon-bg-logs-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-logs-url);
+            mask-image: var(--icon-bg-logs-url);
+}
+
+.icon-bg-mail
+{
+    --icon-bg-mail-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/> \
+            <polyline points="22,6 12,13 2,6"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-mail-url);
+            mask-image: var(--icon-bg-mail-url);
+}
+
+.icon-bg-map
+{
+    --icon-bg-map-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/> \
+            <line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-map-url);
+            mask-image: var(--icon-bg-map-url);
+}
+
+.icon-bg-marker
+{
+    --icon-bg-marker-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/> \
+            <circle cx="12" cy="10" r="3"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-marker-url);
+            mask-image: var(--icon-bg-marker-url);
+}
+
+.icon-bg-music
+{
+    --icon-bg-music-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M9 18V5l12-2v13"/> \
+            <circle cx="6" cy="18" r="3"/> \
+            <circle cx="18" cy="16" r="3"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-music-url);
+            mask-image: var(--icon-bg-music-url);
+}
+
+.icon-bg-night
+{
+    --icon-bg-night-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-night-url);
+            mask-image: var(--icon-bg-night-url);
+}
+
+.icon-bg-palette
+{
+    --icon-bg-palette-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  32  32" fill="black" stroke="none"> \
+            <path d="M 15.59 2.97 C 15.06 2.98 14.52 3.043 13.97 3.13 L 13.94 3.13 \
+                    C 8.61 3.10 4.30 8.19 3.22 13.5 C 2.89 15.01 2.91 16.42 3.13 17.81 C 3.13 17.82 3.13 17.84 3.13 17.84 \
+                    C 3.45 20.19 6.5 21.22 8.22 19.5 C 9.45 18.27 11.27 18.270 12.5 19.5 C 13.73 20.73 13.73 22.55 12.5 23.78 \
+                    C 10.78 25.5 11.81 28.55 14.16 28.88 C 14.16 28.88 14.18 28.87 14.19 28.88 \
+                    C 15.57 29.09 16.97 29.10 18.47 28.78 C 18.48 28.78 18.49 28.78 18.5 28.78 \
+                    C 23.82 27.79 28.01 23.38 28.875 18.06 L 28.88 18.03 C 30.01 10.39 24.42 3.72 17.16 3.03 \
+                    C 16.64 2.98 16.13 2.95 15.59 2.97 Z \
+                    M 15.63 4.97 C 16.08 4.95 16.53 4.96 16.97 5 C 23.16 5.57 27.88 11.21 26.91 17.75 \
+                    C 26.18 22.23 22.59 25.99 18.13 26.81 L 18.09 26.81 C 16.82 27.09 15.64 27.09 14.44 26.91 \
+                    C 13.62 26.80 13.24 25.89 13.91 25.22 C 15.88 23.25 15.88 20.06 13.91 18.09 \
+                    C 11.94 16.13 8.75 16.13 6.78 18.09 C 6.11 18.76 5.20 18.38 5.09 17.56 \
+                    C 4.91 16.36 4.91 15.18 5.19 13.91 C 6.11 9.42 9.77 5.82 14.25 5.09 C 14.72 5.02 15.17 4.98 15.63 4.97 Z \
+                    M 14 7 C 12.89 7 12 7.89 12 9 C 12 10.11 12.89 11 14 11 C 15.11 11 16 10.11 16 9 C 16 7.89 15.11 7 14 7 Z \
+                    M 21 9 C 19.89 9 19 9.89 19 11 C 19 12.11 19.89 13 21 13 C 22.11 13 23 12.11 23 11 C 23 9.89 22.11 9 21 9 Z \
+                    M 9 11 C 7.89 11 7 11.89 7 13 C 7 14.11 7.89 15 9 15 C 10.11 15 11 14.11 11 13 C 11 11.89 10.11 11 9 11 Z \
+                    M 23 16 C 21.89 16 21 16.89 21 18 C 21 19.11 21.89 20 23 20 C 24.11 20 25 19.11 25 18 C 25 16.89 24.11 16 23 16 Z \
+                    M 19 21 C 17.89 21 17 21.89 17 23 C 17 24.11 17.89 25 19 25 C 20.11 25 21 24.11 21 23 C 21 21.89 20.11 21 19 21 Z"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-palette-url);
+            mask-image: var(--icon-bg-palette-url);
+}
+
+.icon-bg-phone
+{
+    --icon-bg-phone-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3 \
+            a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67 \
+            A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91 \
+            a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-phone-url);
+            mask-image: var(--icon-bg-phone-url);
+}
+
+.icon-bg-printer
+{
+    --icon-bg-printer-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <polyline points="6 9 6 2 18 2 18 9"/> \
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/> \
+            <rect x="6" y="14" width="12" height="8"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-printer-url);
+            mask-image: var(--icon-bg-printer-url);
+}
+
+.icon-bg-profile
+{
+    --icon-bg-profile-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/> \
+            <circle cx="8.5" cy="7" r="4"/> \
+            <line x1="20" y1="8" x2="20" y2="14"/> \
+            <line x1="23" y1="11" x2="17" y2="11"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-profile-url);
+            mask-image: var(--icon-bg-profile-url);
+}
+
+.icon-bg-refresh
+{
+    --icon-bg-refresh-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <polyline points="23 4 23 10 17 10"/> \
+            <polyline points="1 20 1 14 7 14"/> \
+            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-refresh-url);
+            mask-image: var(--icon-bg-refresh-url);
+}
+
+.icon-bg-save
+{
+    --icon-bg-save-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/> \
+            <polyline points="17 21 17 13 7 13 7 21"/> \
+            <polyline points="7 3 7 8 15 8"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-save-url);
+            mask-image: var(--icon-bg-save-url);
+}
+
+.icon-bg-search
+{
+    --icon-bg-search-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <circle cx="11" cy="11" r="8"/> \
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-search-url);
+            mask-image: var(--icon-bg-search-url);
+}
+
+.icon-bg-send
+{
+    --icon-bg-send-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <line x1="22" y1="2" x2="11" y2="13"/> \
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-send-url);
+            mask-image: var(--icon-bg-send-url);
+}
+
+.icon-bg-settings
+{
+    --icon-bg-settings-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <line y1="4" x1="21" y2="4" x2="14"/> \
+            <line y1="4" x1="10" y2="4" x2="3"/> \
+            <line y1="12" x1="21" y2="12" x2="12"/> \
+            <line y1="12" x1="8" y2="12" x2="3"/> \
+            <line y1="20" x1="21" y2="20" x2="16"/> \
+            <line y1="20" x1="12" y2="20" x2="3"/> \
+            <line y1="1" x1="14" y2="7" x2="14"/> \
+            <line y1="9" x1="8" y2="15" x2="8"/> \
+            <line y1="17" x1="16" y2="23" x2="16"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-settings-url);
+            mask-image: var(--icon-bg-settings-url);
+}
+
+.icon-bg-share
+{
+    --icon-bg-share-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/> \
+            <polyline points="16 6 12 2 8 6"/> \
+            <line x1="12" y1="2" x2="12" y2="15"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-share-url);
+            mask-image: var(--icon-bg-share-url);
+}
+
+.icon-bg-shopping-cart
+{
+    --icon-bg-shopping-cart-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <circle cx="9" cy="21" r="1"/> \
+            <circle cx="20" cy="21" r="1"/> \
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-shopping-cart-url);
+            mask-image: var(--icon-bg-shopping-cart-url);
+}
+
+.icon-bg-slack
+{
+    --icon-bg-slack-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z" /> \
+            <path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" /> \
+            <path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z" /> \
+            <path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z" /> \
+            <path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z" /> \
+            <path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z" /> \
+            <path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z" /> \
+            <path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z" /> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-slack-url);
+            mask-image: var(--icon-bg-slack-url);
+}
+
+.icon-bg-tag
+{
+    --icon-bg-tag-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/> \
+            <line x1="7" y1="7" x2="7.01" y2="7"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-tag-url);
+            mask-image: var(--icon-bg-tag-url);
+}
+
+.icon-bg-trash
+{
+    --icon-bg-trash-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <polyline points="3 6 5 6 21 6"/> \
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/> \
+            <line x1="10" y1="11" x2="10" y2="17"/> \
+            <line x1="14" y1="11" x2="14" y2="17"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-trash-url);
+            mask-image: var(--icon-bg-trash-url);
+}
+
+.icon-bg-twitter
+{
+    --icon-bg-twitter-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2 \
+                c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" /> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-twitter-url);
+            mask-image: var(--icon-bg-twitter-url);
+}
+
+.icon-bg-user
+{
+    --icon-bg-user-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/> \
+            <circle cx="12" cy="7" r="4"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-user-url);
+            mask-image: var(--icon-bg-user-url);
+}
+
+.icon-bg-user-plus
+{
+    --icon-bg-user-plus-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2">\
+            </path><circle cx="8.5" cy="7" r="4">\
+            </circle><line x1="20" y1="8" x2="20" y2="14">\
+            </line><line x1="23" y1="11" x2="17" y2="11"></line>\
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-user-plus-url);
+            mask-image: var(--icon-bg-user-plus-url);
+}
+
+.icon-bg-users
+{
+    --icon-bg-users-url: url('data:image/svg+xml;charset=utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" \
+            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/> \
+            <circle cx="9" cy="7" r="4"/> \
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/> \
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/> \
+        </svg>');
+    -webkit-mask-image: var(--icon-bg-users-url);
+            mask-image: var(--icon-bg-users-url);
+}
+
+.notification
+{
+    position: relative;
+
+    padding: 1.25rem 2.5rem 1.25rem 1.5rem;
+
+    pointer-events: none;
+
+    border-radius: var(--radius);
+}
+
+.notification:not([class*=' is-']),
+.notification.is-delete
+{
+    color: var(--text);
+    background-color: var(--bg-element);
+}
+
+.notification > .delete
+{
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+
+    pointer-events: bounding-box;
+}
+
+.notification > p
+{
+    margin: 0;
+    padding: 0;
+}
+
+.tag
+{
+    font-size: var(--size-7);
+    font-weight: var(--weight-medium);
+    line-height: var(--line-height-150);
+
+    display: inline-flex;
+
+    height: 2em;
+    padding-right: .75em;
+    padding-left: .75em;
+
+    white-space: nowrap;
+
+    border-radius: var(--radius);
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+.tag:not([class*=' is-']),
+.tag.is-delete
+{
+    color: var(--text);
+    background-color: var(--bg-element);
+}
+
+.tag .delete
+{
+    font-size: inherit;
+
+    width: 1.4em;
+    min-width: unset;
+    max-width: unset;
+    height: 1.4em;
+    min-height: unset;
+    max-height: unset;
+    margin: 0 -.375rem 0 .5rem;
+    padding: 0;
+}
+
+/* text sizes */
+.tag.tag-normal
+{
+    font-size: var(--size-7);
+}
+
+.tag.tag-medium
+{
+    font-size: var(--size-6);
+}
+
+.tag.tag-large
+{
+    font-size: var(--size-5);
+}
+
+
+
+/* adjust icon layout */
+.tag [class*='icon-bg']
+{
+    font-size: inherit;
+
+    display: inline-flex;
+
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* control delete tag layout */
+.tag.is-delete
+{
+    position: relative;
+
+    width: 2em;
+    margin-left: 1px;
+    padding: 0;
+}
+
+.tag.is-delete::before,
+.tag.is-delete::after
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    display: block;
+
+    content: '';
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    transform-origin: center center;
+
+    background-color: currentColor;
+}
+
+.tag.is-delete::before
+{
+    width: 50%;
+    height: 1px;
+}
+
+.tag.is-delete::after
+{
+    width: 1px;
+    height: 50%;
+}
+
+.tag.is-delete:hover,
+.tag.is-delete:focus
+{
+    background-color: var(--grey-light);
+}
+
+.tag.is-delete:active
+{
+    background-color: var(--grey-lighter);
+}
+
+.tag.is-rounded
+{
+    border-radius: 9999px;
+}
+
+a.tag:hover
+{
+    text-decoration: underline;
+}
+
+
+.tags
+{
+    display: flex;
+
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.tags .tag:not(:last-child)
+{
+    margin-right: var(--mar-horz);
+}
+
+.tags.is-rounded  .tag
+{
+    border-radius: 9999px;
+}
+
+.tags.are-medium .tag:not(.is-normal):not(.is-large)
+{
+    font-size: var(--size-6);
+}
+
+.tags.are-large .tag:not(.is-normal):not(.is-medium)
+{
+    font-size: var(--size-5);
+}
+
+
+/* compound tag  and lists */
+.tags.is-compound .tag
+{
+    margin-right: 0;
+}
+
+.tags.is-compound .tag:not(:first-child)
+{
+    margin-left: 0;
+
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.tags.is-compound .tag:not(:last-child)
+{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+
+.tag-list
+{
+    display: flex;
+
+    align-items: center;
+}
+
+.tag-list li
+{
+    list-style: none;
 }
 
 /* Accordion styles */
@@ -5229,1482 +6699,6 @@ details.accordion.is-expander-danger summary
 .tabs > input:nth-child(9):checked ~ div.tab-content > section:nth-child(9)
 {
     position: static;
-}
-
-.avatar
-{
-    position: relative;
-
-    display: inline-block;
-
-    width: 1rem;
-    height: 1rem;
-    margin: 0;
-
-    vertical-align: middle;
-
-    color: rgba(255,255,255,.85);
-    border-radius: 50%;
-    background: var(--secondary);
-}
-
-.avatar > img
-{
-    position: relative;
-    z-index: 1;
-
-    width: 100%;
-    height: 100%;
-    max-height: 100%;
-
-    border-radius: 50%;
-}
-
-.avatar.avatar-xl
-{
-    font-size: calc(var(--base-font-size) * 5 / 3);
-
-    width: calc(var(--base-font-size) * 5);
-    height: calc(var(--base-font-size) * 5);
-}
-
-.avatar.avatar-xl > img,
-.avatar.avatar-xl > div
-{
-    width: calc(var(--base-font-size) * 5);
-    height: calc(var(--base-font-size) * 5);
-}
-
-.avatar.avatar-lg
-{
-    font-size: calc(var(--base-font-size) * 4 / 3);
-
-    width: calc(var(--base-font-size) * 4);
-    height: calc(var(--base-font-size) * 4);
-}
-
-.avatar.avatar-lg > img,
-.avatar.avatar-lg > div
-{
-    width: calc(var(--base-font-size) * 4);
-    height: calc(var(--base-font-size) * 4);
-}
-
-.avatar.avatar-nm
-{
-    font-size: var(--base-font-size);
-
-    width: calc(var(--base-font-size) * 3);
-    height: calc(var(--base-font-size) * 3);
-}
-
-.avatar.avatar-nm > img,
-.avatar.avatar-nm > div
-{
-    width: calc(var(--base-font-size) * 3);
-    height: calc(var(--base-font-size) * 3);
-}
-
-.avatar.avatar-sm
-{
-    font-size: calc(var(--base-font-size) * 2 / 3);
-
-    width: calc(var(--base-font-size) * 2);
-    height: calc(var(--base-font-size) * 2);
-}
-
-.avatar.avatar-sm > img,
-.avatar.avatar-sm > div
-{
-    width: calc(var(--base-font-size) * 2);
-    height: calc(var(--base-font-size) * 2);
-}
-
-.avatar.avatar-xs
-{
-    font-size: calc(var(--base-font-size) / 3);
-
-    width: var(--base-font-size);
-    height: var(--base-font-size);
-}
-
-.avatar.avatar-xs > img,
-.avatar.avatar-xs > div
-{
-    width: var(--base-font-size);
-    height: var(--base-font-size);
-}
-
-
-
-.avatar[data-initials]::before
-{
-    position: absolute;
-    z-index: 1;
-    top: 50%;
-    left: 50%;
-
-    content: attr(data-initials);
-    transform: translate(-50%,-50%);
-
-    color: currentColor;
-}
-
-.avatar-presence-online::after,
-.avatar-presence-busy::after,
-.avatar-presence-away::after
-{
-    position: absolute;
-    z-index: 2;
-    right: 14.64%;
-    bottom: 14.64%;
-
-    display: block;
-
-    width: .5em;
-    height: .5em;
-    padding: .1rem;
-
-    content: '';
-    transform: translate(50%,50%);
-
-    border-radius: 50%;
-    background-color: var(--grey-light);
-    box-shadow: 0 0 0 .1rem var(--bg-main-elem);
-}
-
-.avatar.avatar-presence-online::after
-{
-    background-color: var(--success);
-}
-
-.avatar.avatar-presence-busy::after
-{
-    background-color: var(--danger);
-}
-
-.avatar.avatar-presence-away::after
-{
-    background-color: var(--warning);
-}
-
-[class*='badge']
-{
-    font-size: .85rem;
-    font-weight: var(--weight-medium);
-    line-height: 1;
-
-    position: relative;
-
-    display: inline-flex;
-
-    min-width: .7rem;
-    height: 1rem;
-    padding: .1rem .25rem;
-
-    transform: translate(-.05rem,-.75rem);
-    white-space: nowrap;
-
-    color: var(--text-invert);
-    border-radius: 1rem;
-    background: var(--grey-dark);
-    background-clip: padding-box;
-    box-shadow: 0 0 0 .1rem var(--bg-main);
-
-    align-items: center;
-    justify-content: center;
-}
-
-[class*='badge'].no-border
-{
-    box-shadow: unset;
-}
-
-[class*='badge']:empty
-{
-    width: .5rem;
-    min-width: .5rem;
-    height: .5rem;
-    padding: 0;
-}
-
-button:has(span),
-figure:has(span)
-{
-    position: relative;
-}
-
-button > [class*='badge']
-{
-    position: absolute;
-    top: 0;
-    right: -.5rem;
-}
-
-figure > [class*='badge']
-{
-    position: absolute;
-    z-index: 2;
-    top: .5rem;
-    right: -.5rem;
-}
-
-figure:not(.avatar) > [class*='badge']
-{
-    top: .25rem;
-}
-
-
-/* colour controls */
-.badge-primary
-{
-    color: var(--primary-text-invert);
-    background-color: var(--primary);
-}
-
-.badge-secondary
-{
-    color: var(--secondary-text-invert);
-    background-color: var(--secondary);
-}
-
-.badge-tertiary
-{
-    color: var(--tertiary-text-invert);
-    background-color: var(--tertiary);
-}
-
-.badge-success
-{
-    color: var(--success-text-invert);
-    background-color: var(--success-dark);
-}
-
-.badge-warning
-{
-    color: var(--warning-text-invert);
-    background-color: var(--warning-dark);
-}
-
-.badge-danger
-{
-    color: var(--danger-text-invert);
-    background-color: var(--danger);
-}
-
-.badge-link
-{
-    color: var(--link-text-invert);
-    background-color: var(--link);
-}
-
-/* icon main controls */
-.icon
-{
-    font-size: var(--size-4);
-
-    width: 1em;
-    height: 1em;
-    margin: 0 var(--padding);
-}
-
-.icon-nav
-{
-    display: flex;
-    flex-direction: column;
-
-    margin: 0;
-    padding: 0;
-
-    flex-wrap: wrap;
-    -moz-column-gap: 0;
-         column-gap: 0;
-    row-gap: 0;
-    align-items: center;
-}
-
-.icon-nav-horz
-{
-    display: flex;
-    flex-direction: row;
-
-    margin: 0;
-    padding: 0;
-
-    flex-wrap: nowrap;
-    -moz-column-gap: 0;
-         column-gap: 0;
-    row-gap: 0;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.icon-nav-horz .icon
-{
-    margin-left: 0;
-}
-
-
-/* using backgrounds for svg images */
-[class*='icon-bg-']:not(.icon-nav)
-{
-    font-size: var(--size-4);
-
-    display: inline-block;
-
-    width: 1em;
-    height: 1em;
-    margin: 0   var(--padding);
-
-    background-color: currentColor;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-
-            mask-repeat: no-repeat;
-    -webkit-mask-repeat: no-repeat;
-}
-
-[class*='icon-bg-'].is-large
-{
-    font-size: var(--size-1);
-}
-
-[class*='icon-bg-'].is-medium
-{
-    font-size: var(--size-3);
-}
-
-[class*='icon-bg-'].is-small
-{
-    font-size: var(--size-6);
-}
-
-
-/* icon set based on feathers with some lineawesome */
-/* Note that chrome and firefox recognize '-webkit-mask-image' and safari uses 'mask-image' declaration */
-
-
-.icon-bg-alert-danger
-{
-    --icon-bg-alert-danger-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2">\
-            </polygon><line x1="15" y1="9" x2="9" y2="15"></line>\
-            <line x1="9" y1="9" x2="15" y2="15"></line>\
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-alert-danger-url);
-            mask-image: var(--icon-bg-alert-danger-url);
-}
-
-.icon-bg-alert-info
-{
-    --icon-bg-alert-info-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <circle cx="12" cy="12" r="10"></circle>\
-            <line x1="12" y1="16" x2="12" y2="12">\
-            </line><line x1="12" y1="8" x2="12.01" y2="8"></line>\
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-alert-info-url);
-            mask-image: var(--icon-bg-alert-info-url);
-}
-
-.icon-bg-alert-success
-{
-    --icon-bg-alert-success-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  32  32" fill="black" stroke="none"> \
-            <path d="M 16 3 C 8.80 3 3 8.80 3 16 C 3 23.20 8.80 29 16 29 C 23.20 29 29 23.20 29 16 C 29 14.60 28.81 13.21 28.31 11.91 \
-            L 26.69 13.5 C 26.89 14.30 27 15.10 27 16 C 27 22.10 22.10 27 16 27 C 9.90 27 5 22.10 5 16 C 5 9.90 9.90 5 16 5 \
-            C 19 5 21.70 6.20 23.59 8.09 L 25 6.69 C 22.70 4.39 19.5 3 16 3 Z \
-            M 27.28 7.28 L 16 18.56 L 11.72 14.28 L 10.28 15.72 L 15.28 20.72 L 16 21.41 L 16.72 20.72 L 28.72 8.72 Z"/>\
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-alert-success-url);
-            mask-image: var(--icon-bg-alert-success-url);
-}
-
-.icon-bg-alert-warning
-{
-    --icon-bg-alert-warning-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>\
-            <line x1="12" y1="9" x2="12" y2="13"></line>\
-            <line x1="12" y1="17" x2="12.01" y2="17"></line>\
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-alert-warning-url);
-            mask-image: var(--icon-bg-alert-warning-url);
-}
-
-.icon-bg-bell
-{
-    --icon-bg-bell-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/> \
-            <path d="M13.73 21a2 2 0 0 1-3.46 0"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-bell-url);
-            mask-image: var(--icon-bg-bell-url);
-}
-
-.icon-bg-bookmark
-{
-    --icon-bg-bookmark-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-bookmark-url);
-            mask-image: var(--icon-bg-bookmark-url);
-}
-
-.icon-bg-calendar
-{
-    --icon-bg-calendar-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/> \
-            <line x1="16" y1="2" x2="16" y2="6"/> \
-            <line x1="8" y1="2" x2="8" y2="6"/> \
-            <line x1="3" y1="10" x2="21" y2="10"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-calendar-url);
-            mask-image: var(--icon-bg-calendar-url);
-}
-
-.icon-bg-circle-minus
-{
-    --icon-bg-circle-minus-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <circle cx="12" cy="12" r="10"></circle>\
-            <line x1="8" y1="12" x2="16" y2="12"></line>\
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-circle-minus-url);
-            mask-image: var(--icon-bg-circle-minus-url);
-}
-
-.icon-bg-circle-plus
-{
-    --icon-bg-circle-plus-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <circle cx="12" cy="12" r="10"></circle>\
-            <line x1="12" y1="8" x2="12" y2="16"></line>\
-            <line x1="8" y1="12" x2="16" y2="12"></line>\
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-circle-plus-url);
-            mask-image: var(--icon-bg-circle-plus-url);
-}
-
-.icon-bg-circle-x
-{
-    --icon-bg-circle-x-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <circle cx="12" cy="12" r="10"></circle>\
-            <line x1="15" y1="9" x2="9" y2="15"></line>\
-            <line x1="9" y1="9" x2="15" y2="15"></line> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-circle-x-url);
-            mask-image: var(--icon-bg-circle-x-url);
-}
-
-.icon-bg-clock
-{
-    --icon-bg-clock-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <circle cx="12" cy="12" r="10"/> \
-            <polyline points="12 6 12 12 16 14"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-clock-url);
-            mask-image: var(--icon-bg-clock-url);
-}
-
-.icon-bg-cloud-download
-{
-    --icon-bg-cloud-download-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <polyline points="8 17 12 21 16 17"/> \
-            <line x1="12" y1="12" x2="12" y2="21"/> \
-            <path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-cloud-download-url);
-            mask-image: var(--icon-bg-cloud-download-url);
-}
-
-.icon-bg-cloud-save
-{
-    --icon-bg-cloud-save-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <polyline points="16 16 12 12 8 16"/> \
-            <line x1="12" y1="12" x2="12" y2="21"/> \
-            <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/> \
-            <polyline points="16 16 12 12 8 16"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-cloud-save-url);
-            mask-image: var(--icon-bg-cloud-save-url);
-}
-
-.icon-bg-code
-{
-    --icon-bg-code-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <polyline points="16 18 22 12 16 6"/> \
-            <polyline points="8 6 2 12 8 18"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-code-url);
-            mask-image: var(--icon-bg-code-url);
-}
-
-.icon-bg-cog
-{
-    --icon-bg-cog-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <circle cx="12" cy="12" r="3"/> \
-            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51 \
-                V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06 \
-                a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06 \
-                a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09 \
-                a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1 \
-                H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-cog-url);
-            mask-image: var(--icon-bg-cog-url);
-}
-
-.icon-bg-content
-{
-    --icon-bg-content-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <polyline points="4 7 4 4 20 4 20 7"/> \
-            <line x1="9" y1="20" x2="15" y2="20"/> \
-            <line x1="12" y1="4" x2="12" y2="20"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-content-url);
-            mask-image: var(--icon-bg-content-url);
-}
-
-.icon-bg-credit-card
-{
-    --icon-bg-credit-card-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>\
-            <line x1="1" y1="10" x2="23" y2="10"></line>\
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-credit-card-url);
-            mask-image: var(--icon-bg-credit-card-url);
-}
-
-.icon-bg-crop
-{
-    --icon-bg-crop-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M6.13 1L6 16a2 2 0 0 0 2 2h15"/> \
-            <path d="M1 6.13L16 6a2 2 0 0 1 2 2v15"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-crop-url);
-            mask-image: var(--icon-bg-crop-url);
-}
-
-.icon-bg-day
-{
-    --icon-bg-day-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <circle cx="12" cy="12" r="5"/> \
-            <line x1="12" y1="1" x2="12" y2="3"/> \
-            <line x1="12" y1="21" x2="12" y2="23"/> \
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/> \
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/> \
-            <line x1="1" y1="12" x2="3" y2="12"/> \
-            <line x1="21" y1="12" x2="23" y2="12"/> \
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/> \
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-day-url);
-            mask-image: var(--icon-bg-day-url);
-}
-
-.icon-bg-edit
-{
-    --icon-bg-edit-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/> \
-            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-edit-url);
-            mask-image: var(--icon-bg-edit-url);
-}
-
-.icon-bg-eye
-{
-    --icon-bg-eye-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/> \
-            <circle cx="12" cy="12" r="3"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-eye-url);
-            mask-image: var(--icon-bg-eye-url);
-}
-
-.icon-bg-eye-off
-{
-    --icon-bg-eye-off-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4 \
-            c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/> \
-            <line x1="1" y1="1" x2="23" y2="23"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-eye-off-url);
-            mask-image: var(--icon-bg-eye-off-url);
-}
-
-.icon-bg-facebook
-{
-    --icon-bg-facebook-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-facebook-url);
-            mask-image: var(--icon-bg-facebook-url);
-}
-
-.icon-bg-file
-{
-    --icon-bg-file-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/> \
-            <polyline points="14 2 14 8 20 8"/> \
-            <line x1="16" y1="13" x2="8" y2="13"/> \
-            <line x1="16" y1="17" x2="8" y2="17"/> \
-            <polyline points="10 9 9 9 8 9"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-file-url);
-            mask-image: var(--icon-bg-file-url);
-}
-
-.icon-bg-film
-{
-    --icon-bg-film-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/> \
-            <line x1="7" y1="2" x2="7" y2="22"/> \
-            <line x1="17" y1="2" x2="17" y2="22"/> \
-            <line x1="2" y1="12" x2="22" y2="12"/> \
-            <line x1="2" y1="7" x2="7" y2="7"/> \
-            <line x1="2" y1="17" x2="7" y2="17"/> \
-            <line x1="17" y1="17" x2="22" y2="17"/> \
-            <line x1="17" y1="7" x2="22" y2="7"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-film-url);
-            mask-image: var(--icon-bg-film-url);
-}
-
-.icon-bg-filter
-{
-    --icon-bg-filter-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-filter-url);
-            mask-image: var(--icon-bg-filter-url);
-}
-
-.icon-bg-folder
-{
-    --icon-bg-folder-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-folder-url);
-            mask-image: var(--icon-bg-folder-url);
-}
-
-
-.icon-bg-github
-{
-    --icon-bg-github-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7 \
-            A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1 \
-            A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" /> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-github-url);
-            mask-image: var(--icon-bg-github-url);
-}
-
-.icon-bg-google
-{
-    --icon-bg-google-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  488  512"> \
-            <path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8 \
-            c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256 \
-            c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1 \
-            c2.3 12.7 3.9 24.9 3.9 41.4z"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-google-url);
-            mask-image: var(--icon-bg-google-url);
-}
-
-.icon-bg-grid
-{
-    --icon-bg-grid-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <rect x="3" y="3" width="7" height="7"/> \
-            <rect x="14" y="3" width="7" height="7"/> \
-            <rect x="14" y="14" width="7" height="7"/> \
-            <rect x="3" y="14" width="7" height="7"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-grid-url);
-            mask-image: var(--icon-bg-grid-url);
-}
-
-.icon-bg-help
-{
-    --icon-bg-help-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <circle cx="12" cy="12" r="10"/> \
-            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/> \
-            <line x1="12" y1="17" x2="12.01" y2="17"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-help-url);
-            mask-image: var(--icon-bg-help-url);
-}
-
-.icon-bg-home
-{
-    --icon-bg-home-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/> \
-            <polyline points="9 22 9 12 15 12 15 22"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-home-url);
-            mask-image: var(--icon-bg-home-url);
-}
-
-.icon-bg-icons
-{
-    --icon-bg-icons-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  28  28" fill="black" stroke="none"> \
-            <path d="M 5 5 L 5 27 L 27 27 L 27 5 Z M 7 7 L 15 7 L 15 15 L 7 15 Z \
-                M 17 7 L 25 7 L 25 15 L 17 15 Z M 11 9 L 8 13 L 14 13 Z M 19 9 L 19 13 L 23 13 L 23 9 Z M 7 17 L 15 17 L 15 25 L 7 25 Z \
-                M 17 17 L 25 17 L 25 25 L 17 25 Z M 21 18 L 19 21 L 21 24 L 23 21 Z \
-                M 11 19 C 9.89 19 9 19.89 9 21 C 9 22.11 9.89 23 11 23 C 12.11 23 13 22.11 13 21 C 13 19.89 12.11 19 11 19 Z"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-icons-url);
-            mask-image: var(--icon-bg-icons-url);
-}
-
-.icon-bg-image
-{
-    --icon-bg-image-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/> \
-            <circle cx="8.5" cy="8.5" r="1.5"/> \
-            <polyline points="21 15 16 10 5 21"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-image-url);
-            mask-image: var(--icon-bg-image-url);
-}
-
-.icon-bg-key
-{
-    --icon-bg-key-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-key-url);
-            mask-image: var(--icon-bg-key-url);
-}
-
-.icon-bg-layout
-{
-    --icon-bg-layout-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/> \
-            <line x1="3" y1="9" x2="21" y2="9"/> \
-            <line x1="9" y1="21" x2="9" y2="9"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-layout-url);
-            mask-image: var(--icon-bg-layout-url);
-}
-
-.icon-bg-link
-{
-    --icon-bg-link-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/> \
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-link-url);
-            mask-image: var(--icon-bg-link-url);
-}
-
-.icon-bg-linkedin
-{
-    --icon-bg-linkedin-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /> \
-            <rect x="2" y="9" width="4" height="12" /> \
-            <circle cx="4" cy="4" r="2" /> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-linkedin-url);
-            mask-image: var(--icon-bg-linkedin-url);
-}
-
-.icon-bg-list
-{
-    --icon-bg-list-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <line x1="8" y1="6" x2="21" y2="6"/> \
-            <line x1="8" y1="12" x2="21" y2="12"/> \
-            <line x1="8" y1="18" x2="21" y2="18"/> \
-            <line x1="3" y1="6" x2="3.01" y2="6"/> \
-            <line x1="3" y1="12" x2="3.01" y2="12"/> \
-            <line x1="3" y1="18" x2="3.01" y2="18"/>\
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-list-url);
-            mask-image: var(--icon-bg-list-url);
-}
-
-.icon-bg-lock
-{
-    --icon-bg-lock-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>\
-            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>\
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-lock-url);
-            mask-image: var(--icon-bg-lock-url);
-}
-
-.icon-bg-lock-open
-{
-    --icon-bg-lock-open-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>\
-            <path d="M7 11V7a5 5 0 0 1 9.9-1"></path>\
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-lock-open-url);
-            mask-image: var(--icon-bg-lock-open-url);
-}
-
-
-.icon-bg-login
-{
-    --icon-bg-login-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/> \
-            <polyline points="10 17 15 12 10 7"/> \
-            <line x1="15" y1="12" x2="3" y2="12"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-login-url);
-            mask-image: var(--icon-bg-login-url);
-}
-
-.icon-bg-logout
-{
-    --icon-bg-logout-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/> \
-            <polyline points="16 17 21 12 16 7"/> \
-            <line x1="21" y1="12" x2="9" y2="12"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-logout-url);
-            mask-image: var(--icon-bg-logout-url);
-}
-
-.icon-bg-logs
-{
-    --icon-bg-logs-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-logs-url);
-            mask-image: var(--icon-bg-logs-url);
-}
-
-.icon-bg-mail
-{
-    --icon-bg-mail-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/> \
-            <polyline points="22,6 12,13 2,6"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-mail-url);
-            mask-image: var(--icon-bg-mail-url);
-}
-
-.icon-bg-map
-{
-    --icon-bg-map-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/> \
-            <line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-map-url);
-            mask-image: var(--icon-bg-map-url);
-}
-
-.icon-bg-marker
-{
-    --icon-bg-marker-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/> \
-            <circle cx="12" cy="10" r="3"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-marker-url);
-            mask-image: var(--icon-bg-marker-url);
-}
-
-.icon-bg-music
-{
-    --icon-bg-music-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M9 18V5l12-2v13"/> \
-            <circle cx="6" cy="18" r="3"/> \
-            <circle cx="18" cy="16" r="3"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-music-url);
-            mask-image: var(--icon-bg-music-url);
-}
-
-.icon-bg-night
-{
-    --icon-bg-night-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-night-url);
-            mask-image: var(--icon-bg-night-url);
-}
-
-.icon-bg-palette
-{
-    --icon-bg-palette-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  32  32" fill="black" stroke="none"> \
-            <path d="M 15.59 2.97 C 15.06 2.98 14.52 3.043 13.97 3.13 L 13.94 3.13 \
-                    C 8.61 3.10 4.30 8.19 3.22 13.5 C 2.89 15.01 2.91 16.42 3.13 17.81 C 3.13 17.82 3.13 17.84 3.13 17.84 \
-                    C 3.45 20.19 6.5 21.22 8.22 19.5 C 9.45 18.27 11.27 18.270 12.5 19.5 C 13.73 20.73 13.73 22.55 12.5 23.78 \
-                    C 10.78 25.5 11.81 28.55 14.16 28.88 C 14.16 28.88 14.18 28.87 14.19 28.88 \
-                    C 15.57 29.09 16.97 29.10 18.47 28.78 C 18.48 28.78 18.49 28.78 18.5 28.78 \
-                    C 23.82 27.79 28.01 23.38 28.875 18.06 L 28.88 18.03 C 30.01 10.39 24.42 3.72 17.16 3.03 \
-                    C 16.64 2.98 16.13 2.95 15.59 2.97 Z \
-                    M 15.63 4.97 C 16.08 4.95 16.53 4.96 16.97 5 C 23.16 5.57 27.88 11.21 26.91 17.75 \
-                    C 26.18 22.23 22.59 25.99 18.13 26.81 L 18.09 26.81 C 16.82 27.09 15.64 27.09 14.44 26.91 \
-                    C 13.62 26.80 13.24 25.89 13.91 25.22 C 15.88 23.25 15.88 20.06 13.91 18.09 \
-                    C 11.94 16.13 8.75 16.13 6.78 18.09 C 6.11 18.76 5.20 18.38 5.09 17.56 \
-                    C 4.91 16.36 4.91 15.18 5.19 13.91 C 6.11 9.42 9.77 5.82 14.25 5.09 C 14.72 5.02 15.17 4.98 15.63 4.97 Z \
-                    M 14 7 C 12.89 7 12 7.89 12 9 C 12 10.11 12.89 11 14 11 C 15.11 11 16 10.11 16 9 C 16 7.89 15.11 7 14 7 Z \
-                    M 21 9 C 19.89 9 19 9.89 19 11 C 19 12.11 19.89 13 21 13 C 22.11 13 23 12.11 23 11 C 23 9.89 22.11 9 21 9 Z \
-                    M 9 11 C 7.89 11 7 11.89 7 13 C 7 14.11 7.89 15 9 15 C 10.11 15 11 14.11 11 13 C 11 11.89 10.11 11 9 11 Z \
-                    M 23 16 C 21.89 16 21 16.89 21 18 C 21 19.11 21.89 20 23 20 C 24.11 20 25 19.11 25 18 C 25 16.89 24.11 16 23 16 Z \
-                    M 19 21 C 17.89 21 17 21.89 17 23 C 17 24.11 17.89 25 19 25 C 20.11 25 21 24.11 21 23 C 21 21.89 20.11 21 19 21 Z"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-palette-url);
-            mask-image: var(--icon-bg-palette-url);
-}
-
-.icon-bg-phone
-{
-    --icon-bg-phone-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3 \
-            a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67 \
-            A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91 \
-            a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-phone-url);
-            mask-image: var(--icon-bg-phone-url);
-}
-
-.icon-bg-printer
-{
-    --icon-bg-printer-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <polyline points="6 9 6 2 18 2 18 9"/> \
-            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/> \
-            <rect x="6" y="14" width="12" height="8"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-printer-url);
-            mask-image: var(--icon-bg-printer-url);
-}
-
-.icon-bg-profile
-{
-    --icon-bg-profile-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/> \
-            <circle cx="8.5" cy="7" r="4"/> \
-            <line x1="20" y1="8" x2="20" y2="14"/> \
-            <line x1="23" y1="11" x2="17" y2="11"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-profile-url);
-            mask-image: var(--icon-bg-profile-url);
-}
-
-.icon-bg-refresh
-{
-    --icon-bg-refresh-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <polyline points="23 4 23 10 17 10"/> \
-            <polyline points="1 20 1 14 7 14"/> \
-            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-refresh-url);
-            mask-image: var(--icon-bg-refresh-url);
-}
-
-.icon-bg-save
-{
-    --icon-bg-save-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/> \
-            <polyline points="17 21 17 13 7 13 7 21"/> \
-            <polyline points="7 3 7 8 15 8"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-save-url);
-            mask-image: var(--icon-bg-save-url);
-}
-
-.icon-bg-search
-{
-    --icon-bg-search-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <circle cx="11" cy="11" r="8"/> \
-            <line x1="21" y1="21" x2="16.65" y2="16.65"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-search-url);
-            mask-image: var(--icon-bg-search-url);
-}
-
-.icon-bg-send
-{
-    --icon-bg-send-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <line x1="22" y1="2" x2="11" y2="13"/> \
-            <polygon points="22 2 15 22 11 13 2 9 22 2"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-send-url);
-            mask-image: var(--icon-bg-send-url);
-}
-
-.icon-bg-settings
-{
-    --icon-bg-settings-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <line y1="4" x1="21" y2="4" x2="14"/> \
-            <line y1="4" x1="10" y2="4" x2="3"/> \
-            <line y1="12" x1="21" y2="12" x2="12"/> \
-            <line y1="12" x1="8" y2="12" x2="3"/> \
-            <line y1="20" x1="21" y2="20" x2="16"/> \
-            <line y1="20" x1="12" y2="20" x2="3"/> \
-            <line y1="1" x1="14" y2="7" x2="14"/> \
-            <line y1="9" x1="8" y2="15" x2="8"/> \
-            <line y1="17" x1="16" y2="23" x2="16"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-settings-url);
-            mask-image: var(--icon-bg-settings-url);
-}
-
-.icon-bg-share
-{
-    --icon-bg-share-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/> \
-            <polyline points="16 6 12 2 8 6"/> \
-            <line x1="12" y1="2" x2="12" y2="15"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-share-url);
-            mask-image: var(--icon-bg-share-url);
-}
-
-.icon-bg-shopping-cart
-{
-    --icon-bg-shopping-cart-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <circle cx="9" cy="21" r="1"/> \
-            <circle cx="20" cy="21" r="1"/> \
-            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-shopping-cart-url);
-            mask-image: var(--icon-bg-shopping-cart-url);
-}
-
-.icon-bg-slack
-{
-    --icon-bg-slack-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z" /> \
-            <path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" /> \
-            <path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z" /> \
-            <path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z" /> \
-            <path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z" /> \
-            <path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z" /> \
-            <path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z" /> \
-            <path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z" /> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-slack-url);
-            mask-image: var(--icon-bg-slack-url);
-}
-
-.icon-bg-tag
-{
-    --icon-bg-tag-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/> \
-            <line x1="7" y1="7" x2="7.01" y2="7"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-tag-url);
-            mask-image: var(--icon-bg-tag-url);
-}
-
-.icon-bg-trash
-{
-    --icon-bg-trash-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <polyline points="3 6 5 6 21 6"/> \
-            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/> \
-            <line x1="10" y1="11" x2="10" y2="17"/> \
-            <line x1="14" y1="11" x2="14" y2="17"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-trash-url);
-            mask-image: var(--icon-bg-trash-url);
-}
-
-.icon-bg-twitter
-{
-    --icon-bg-twitter-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2 \
-                c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" /> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-twitter-url);
-            mask-image: var(--icon-bg-twitter-url);
-}
-
-.icon-bg-user
-{
-    --icon-bg-user-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/> \
-            <circle cx="12" cy="7" r="4"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-user-url);
-            mask-image: var(--icon-bg-user-url);
-}
-
-.icon-bg-user-plus
-{
-    --icon-bg-user-plus-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2">\
-            </path><circle cx="8.5" cy="7" r="4">\
-            </circle><line x1="20" y1="8" x2="20" y2="14">\
-            </line><line x1="23" y1="11" x2="17" y2="11"></line>\
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-user-plus-url);
-            mask-image: var(--icon-bg-user-plus-url);
-}
-
-.icon-bg-users
-{
-    --icon-bg-users-url: url('data:image/svg+xml;charset=utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" \
-            viewBox="0  0  24  24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> \
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/> \
-            <circle cx="9" cy="7" r="4"/> \
-            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/> \
-            <path d="M16 3.13a4 4 0 0 1 0 7.75"/> \
-        </svg>');
-    -webkit-mask-image: var(--icon-bg-users-url);
-            mask-image: var(--icon-bg-users-url);
-}
-
-.notification
-{
-    position: relative;
-
-    padding: 1.25rem 2.5rem 1.25rem 1.5rem;
-
-    pointer-events: none;
-
-    border-radius: var(--radius);
-}
-
-.notification:not([class*=' is-']),
-.notification.is-delete
-{
-    color: var(--text);
-    background-color: var(--bg-element);
-}
-
-.notification > .delete
-{
-    position: absolute;
-    top: .5rem;
-    right: .5rem;
-
-    pointer-events: bounding-box;
-}
-
-.notification > p
-{
-    margin: 0;
-    padding: 0;
-}
-
-.tag
-{
-    font-size: var(--size-7);
-    font-weight: var(--weight-medium);
-    line-height: var(--line-height-150);
-
-    display: inline-flex;
-
-    height: 2em;
-    padding-right: .75em;
-    padding-left: .75em;
-
-    white-space: nowrap;
-
-    border-radius: var(--radius);
-
-    align-items: center;
-    justify-content: center;
-}
-
-
-.tag:not([class*=' is-']),
-.tag.is-delete
-{
-    color: var(--text);
-    background-color: var(--bg-element);
-}
-
-.tag .delete
-{
-    font-size: inherit;
-
-    width: 1.4em;
-    min-width: unset;
-    max-width: unset;
-    height: 1.4em;
-    min-height: unset;
-    max-height: unset;
-    margin: 0 -.375rem 0 .5rem;
-    padding: 0;
-}
-
-/* text sizes */
-.tag.tag-normal
-{
-    font-size: var(--size-7);
-}
-
-.tag.tag-medium
-{
-    font-size: var(--size-6);
-}
-
-.tag.tag-large
-{
-    font-size: var(--size-5);
-}
-
-
-
-/* adjust icon layout */
-.tag [class*='icon-bg']
-{
-    font-size: inherit;
-
-    display: inline-flex;
-
-    margin-right: auto;
-    margin-left: auto;
-}
-
-/* control delete tag layout */
-.tag.is-delete
-{
-    position: relative;
-
-    width: 2em;
-    margin-left: 1px;
-    padding: 0;
-}
-
-.tag.is-delete::before,
-.tag.is-delete::after
-{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    display: block;
-
-    content: '';
-    transform: translateX(-50%) translateY(-50%) rotate(45deg);
-    transform-origin: center center;
-
-    background-color: currentColor;
-}
-
-.tag.is-delete::before
-{
-    width: 50%;
-    height: 1px;
-}
-
-.tag.is-delete::after
-{
-    width: 1px;
-    height: 50%;
-}
-
-.tag.is-delete:hover,
-.tag.is-delete:focus
-{
-    background-color: var(--grey-light);
-}
-
-.tag.is-delete:active
-{
-    background-color: var(--grey-lighter);
-}
-
-.tag.is-rounded
-{
-    border-radius: 9999px;
-}
-
-a.tag:hover
-{
-    text-decoration: underline;
-}
-
-
-.tags
-{
-    display: flex;
-
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-}
-
-.tags .tag:not(:last-child)
-{
-    margin-right: var(--mar-horz);
-}
-
-.tags.is-rounded  .tag
-{
-    border-radius: 9999px;
-}
-
-.tags.are-medium .tag:not(.is-normal):not(.is-large)
-{
-    font-size: var(--size-6);
-}
-
-.tags.are-large .tag:not(.is-normal):not(.is-medium)
-{
-    font-size: var(--size-5);
-}
-
-
-/* compound tag  and lists */
-.tags.is-compound .tag
-{
-    margin-right: 0;
-}
-
-.tags.is-compound .tag:not(:first-child)
-{
-    margin-left: 0;
-
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
-.tags.is-compound .tag:not(:last-child)
-{
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-
-.tag-list
-{
-    display: flex;
-
-    align-items: center;
-}
-
-.tag-list li
-{
-    list-style: none;
 }
 
 .blockquote

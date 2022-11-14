@@ -38,7 +38,7 @@
 
     //* local reactive variables
     let calendar = i18n( getContext("commonText"), "calendar", $lang);
-    let width =  "is-6-tablet is-4-desktop is-3-widescreen";
+    let width =  "has-3x-minwidth";
     let notice = "starter grid"
 
     let inEdit = false;
@@ -149,91 +149,89 @@
 </script>
 
 
-<div>
-    <div class="columns is-multiline">
+<div class="row {width}">
+    {#each items as row, idx}
+        <div class="column">
 
-        {#each items as row, idx}
-            <div class="column {width}">
+            <div class="card" style="overflow: hidden;">
+                {#if row.startImage &&  row.startImage.value && row.startImage.value.src}
+                    <figure>
+                        <img src="{row.startImage.value.src}"  class="has-aspect-2x1" alt="image">
+                    </figure>
 
-                <div class="card" style="overflow: hidden;">
-
-                    {#if row.startImage &&  row.startImage.value && row.startImage.value.src}
-                        <div class="card-image" >
-                            <figure class="image is-3by1">
-                                <img src="{row.startImage.value.src}"  alt="image">
-                            </figure>
-                        </div>
-
-                    {:else}
-                        {#if notice}
-                            <div class="mb-3 pl-2 has-background-white-ter">{notice}</div>
-                        {/if}
+                {:else}
+                    {#if notice}
+                            <header>{notice}</header>
                     {/if}
+                {/if}
 
-                    <div class="card-content">
-                        {#each  Object.values(row) as cell, idx}
+                <div>
+                    {#each  Object.values(row) as cell, idx}
 
-                            {#if cell.type === 'edit'}
-                                <div on:click="{ () => editDoc(cell.id) }"
-                                     style="word-wrap: break-word; word-break: break-all;"
-                                     class="add-cursor has-text-info has-text-weight-semibold text-left">
-
-                                    {cell.value}
-                                </div>
-
-                            {:else if cell.type === 'newpage'}
-                                <div on:click="{ () => launchPage(cell.id) }"
-                                     style="word-wrap: break-word; word-break: break-all;"
-                                     class="add-cursor has-text-info has-text-weight-semibold text-left">
+                        {#if cell.type === 'edit'}
+                            <div>
+                                <a on:click="{ () => editDoc(cell.id) }"
+                                   style="word-wrap: break-word; word-break: break-all;"
+                                   class="is-text-semibold add-cursor">
 
                                     {cell.value}
-                                </div>
+                                </a>
+                            </div>
 
-                            {:else if cell.type === 'text' || cell.type === 'select' || cell.type === 'timeStamp'}
-                                <div class="has-text-left">
-                                    {cell.prefix ? cell.prefix : ""}{cell.value}{cell.suffix ? cell.suffix : ""}
-                                </div>
+                        {:else if cell.type === 'newpage'}
+                            <div>
+                                <a on:click="{ () => launchPage(cell.id) }"
+                                     style="word-wrap: break-word; word-break: break-all;"
+                                     class="is-text-semibold add-cursor">
 
-                            {:else if cell.type === 'date' }
-                                <div class="has-text-left list-date">
-                                    {formatDate(cell.value, calendar)}
-                                </div>
+                                    {cell.value}
+                                </a>
+                            </div>
 
+                        {:else if cell.type === 'text' || cell.type === 'select' || cell.type === 'timeStamp'}
+                            <div>
+                                {cell.prefix ? cell.prefix : ""}{cell.value}{cell.suffix ? cell.suffix : ""}
+                            </div>
 
-                            {:else if cell.type === 'address'}
-                                <div class="d-flex">
-                                    {#if typeof cell.value === "string"}
-                                        <strong>{cell.keyName}:</strong> {cell.value}
-                                    {:else}
+                        {:else if cell.type === 'date' }
+                            <div>{formatDate(cell.value, calendar)}</div>
 
-                                        {#if cell.value && cell.value.coordinates}
-                                            <strong>{cell.keyName}:</strong>
-                                            <div>
-                                                <div>{cell.value.coordinates[0]}, </div>
-                                                <div>{cell.value.coordinates[1]}</div>
-                                            </div>
-                                        {/if}
+                        {:else if cell.type === 'address'}
+                            <div class="level">
+                                {#if typeof cell.value === "string"}
+                                    <strong>{cell.keyName}:</strong> {cell.value}
+                                {:else}
+
+                                    {#if cell.value && cell.value.coordinates}
+                                        <strong>{cell.keyName}:</strong>
+                                        <div>
+                                            <div>{cell.value.coordinates[0]}, </div>
+                                            <div>{cell.value.coordinates[1]}</div>
+                                        </div>
                                     {/if}
-                                </div>
+                                {/if}
+                            </div>
 
-                            {:else if cell.type === 'boolean'}
-                                <div class="text-green text-center">
-                                    <strong>{cell.keyName}:</strong> <span>{cell.value ? "&#10004;" : ""}</span>
-                                </div>
+                        {:else if cell.type === 'boolean'}
+                            <div class="has-text-tertiary has-text-centered">
+                                <strong>{cell.keyName}:</strong> <span>{cell.value ? "&#10004;" : ""}</span>
+                            </div>
 
-                            {:else if cell.type === 'del' }
+                        {:else if cell.type === 'del' }
+                            <div on:click="{ () => deleteDoc(cell.value)}"
+                                 class="add-cursor has-text-end">
 
-                            {:else if cell.type === 'cardImage' }
+                                <span><span class="icon-bg-trash is-medium has-text-danger"></span></span>
+                            </div>
 
-                            {:else}
-                                <strong>{cell.keyName}:</strong> <span>n/a</span>
-                            {/if}
+                        {:else}
+                            <strong>{cell.keyName}:</strong> <span>n/a</span>
+                        {/if}
 
-                        {/each}
-                    </div>
+                    {/each}
                 </div>
-
             </div>
-        {/each}
-    </div>
+
+        </div>
+    {/each}
 </div>

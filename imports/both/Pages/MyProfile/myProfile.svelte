@@ -30,10 +30,10 @@
 
 
     //* page-body support **************************
-    import {i18n} from '/imports/functions/utilities/i18n'
-    import {lang} from '/imports/client/systemStores'
+    import {i18n} from '/imports/functions/utilities/i18n';
+    import {lang} from '/imports/client/systemStores';
 
-    //import Form_Holder from '/imports/components/formBuilder/formHolder.svelte'
+    import Form_Holder from '/imports/components/formBuilder/formHolder.svelte'
     import schema from './myProfile_form_schema'
 
     let formText = i18n(page, "form", $lang);
@@ -95,8 +95,6 @@
 <main class="main-content">
     <div id="my-profile-display" class="column">
 
-        <!--
-
         <Form_Holder
                 config="{conf.form}"
                 {formText}
@@ -106,10 +104,8 @@
                 {directdoc}
 
                 on:doc-submitted="{docSent}"/>
-                -->
 
     </div>
-
 </main>
 
 

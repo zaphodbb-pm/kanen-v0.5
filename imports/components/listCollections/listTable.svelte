@@ -281,7 +281,7 @@
 
 <div class="table-container">
 
-    <table class="table is-striped is-narrow is-hoverable is-fullwidth mt-3">
+    <table class="table is-fullwidth">
         <thead>
             <tr>
                 {#each tableLabels(labels) as tl}
@@ -292,7 +292,7 @@
 
         <tbody>
             {#each tableItems(collection, labels, documents) as row, idx}
-                <tr  class="{row[0] && row[0].id && (currRow === row[0].id) ? 'EDIT_COLOR' : ''}" style="position: relative;">
+                <tr  class="{row[0] && row[0].id && (currRow === row[0].id) ? 'is-warning-light' : ''}" style="position: relative;">
 
                     {#each row as cell}
 
@@ -324,8 +324,8 @@
 
                         {:else if cell.type === 'edit' }
                             <td on:click="{ () => editDoc(cell.id) }"
-                                style="word-wrap: break-word; word-break: break-all;"
-                                class="add-cursor has-text-link is-text-semibold">
+                                style="word-wrap: break-word; word-break: break-all; color: var(--link)"
+                                class="add-cursor is-text-semibold">
 
                                 {cell.value}
                             </td>

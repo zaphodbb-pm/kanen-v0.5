@@ -49,6 +49,8 @@
         showList = !!confList?.hasOverlay || !confForm?.hasOverlay;
         showForm = !confForm?.hasOverlay;
         releaseEdit = true;
+
+        console.log("checkOverlay", showList, showForm);
     }
 
     function docToEdit(msg) {
@@ -113,9 +115,7 @@
 
 <div class="row">
 
-
-    <div class="column {mode === 'grid' ? 'is-12' : confList?.css ?? 'is-5'}" class:is-hidden={!showList}>
-
+    <div class="column {mode === 'grid' ? '' : confList?.css ?? ''}" class:is-hidden={!showList}>
         <List_Holder
                 config="{confList}"
                 {listText}
@@ -123,8 +123,6 @@
                 {sort}
                 submitted="{releaseEdit}"
                 on:send-doc="{docToEdit}"/>
-
-
     </div>
 
     <div class="column {confForm?.css ?? '' }" class:is-hidden={!showForm}>
@@ -138,7 +136,13 @@
                 on:back-to-list="{checkOverlay}"
                 on:doc-submitted="{docSent}"
                 on:method-return={methodMessage}/>
-
     </div>
 
 </div>
+
+
+<style>
+    .is-hidden {
+        display: none;
+    }
+</style>

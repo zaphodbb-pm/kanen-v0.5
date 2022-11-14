@@ -75,8 +75,6 @@
         </form>
     </div>
 
-
-
     <List_Form
             confList="{conf.list}"
             listArray="{listArray}"

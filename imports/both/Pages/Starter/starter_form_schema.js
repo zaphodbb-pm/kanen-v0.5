@@ -368,7 +368,8 @@ export default [
 
             //* include croppie setup
             croppie: {
-                viewport: {width: 'auto', height: 150, type: 'square'},
+                viewport: {width: 'auto', height: 300, type: 'square'},
+                enableResize: true
             },
         },
         defaultValue: {name: "", src: ""},
