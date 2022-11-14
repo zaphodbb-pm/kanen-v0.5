@@ -32,7 +32,7 @@
     import {lang, userExtras} from '/imports/client/systemStores'
     import {roles} from './changePassword_nav'
 
-    //import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte'
+    import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte'
 
 
     //* local reactive variables
@@ -65,10 +65,10 @@
     }
 
 
-    function changePassword(msg){
+    function changePassword(){
         messages = [];
 
-        let userRole = $userExtras && $userExtras.role && $userExtras.role._id ? $userExtras.role._id : "n/a";
+        let userRole = $userExtras?.role?._id ?? "n/a";
         let verify = roles.write.includes(userRole);
 
         if(verify){
@@ -96,39 +96,30 @@
 
 <main class="main-content">
 
-    <div class="columns is-centered">
-        <div id="changePasswordForm-display" class="column is-half">
+    <div class="level-centered">
+        <form class="form has-form-shadow has-width-20rem">
+            <header class="is-secondary">{text.labelTitle}</header>
 
-            <div class="changePassword-form card">
+            {#each formFields as field}
+                <Field_Wrapper class="" {field} {watchFields} on:field-changed="{fieldChanged}"/>
+            {/each}
 
-                <header class="card-header">
-                    <p class="card-header-title">{text.labelTitle}</p>
-                </header>
+            <button type="button" class="is-primary" on:click="{changePassword}">
+                {text.btnSend}
+            </button>
 
-                <form class="card-content">
+            {#if messages.length > 0}
+                <div class="space-component"></div>
+                <div class="message is-warning-light" class:is-hidden="{messages.length < 1}">
+                    <div class="message-body">
+                        {#each messages as message}
+                            <p>{message}</p>
+                        {/each}
+                    </div>
+                </div>
+            {/if}
 
-                    <!--
-                    {#each formFields as field}
-                        <Field_Wrapper class="my-4" {field} {watchFields} on:field-changed="{fieldChanged}"/>
-                    {/each}
-                    -->
-
-                    <a class="button is-primary my-5" on:click="{changePassword}">
-                        {text.btnSend}
-                    </a>
-
-                    <article class="message is-warning" class:is-hidden="{messages.length < 1}">
-                        <div class="message-body">
-                            {#each messages as message}
-                                <p>{message}</p>
-                            {/each}
-                        </div>
-                    </article>
-                </form>
-
-            </div>
-
-        </div>
+        </form>
     </div>
 
 </main>

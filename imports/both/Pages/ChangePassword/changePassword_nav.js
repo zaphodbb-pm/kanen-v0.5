@@ -27,13 +27,13 @@ export const icon = "icon-bg-settings";
 let demoMode = getMeteorSettings("demo_mode");
 
 const normal = {
-    read: ["basic", "standard", "pro", "siteAdmin"],
-    write: ["basic", "standard", "pro", "siteAdmin"]
+    read: ["basic", "standard", "pro", "siteAdmin", "administrator"],
+    write: ["basic", "standard", "pro", "siteAdmin", "administrator"]
 }
 
 const demo = {
-    read: ["basic", "standard", "pro", "siteAdmin"],
-    write: ["siteAdmin"]
+    read: ["basic", "standard", "pro", "siteAdmin", "administrator"],
+    write: ["siteAdmin", "administrator"]
 }
 
 export const roles = demoMode ? demo : normal;
