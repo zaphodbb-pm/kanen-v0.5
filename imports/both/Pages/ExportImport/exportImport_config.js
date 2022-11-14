@@ -16,7 +16,6 @@ export const pageConfig =  {
             fieldType: "select",
             optional: true,
 
-            css: "is-fullwidth",
             attributes: {},
             params: {type: "staticSelect"},
             defaultValue: {_id: "", name: ""},

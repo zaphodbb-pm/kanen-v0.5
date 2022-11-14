@@ -56,7 +56,7 @@
 
 
 
-<label class="select {error}">
+<label class="colour-picker {error} {className} {field.css || ''}">
     <span>{label}</span>
 
     <input type="color"

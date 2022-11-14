@@ -60,7 +60,7 @@
 
 
 
-<fieldset class="{field.css} {error}">
+<fieldset class="checkboxes {error} {className} {field.css || ''}">
     <legend>{label}</legend>
 
     {#each source as cb}

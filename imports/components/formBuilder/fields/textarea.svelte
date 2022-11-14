@@ -67,7 +67,7 @@
 </script>
 
 
-<label class="{error} {className}">
+<label class="text-area {error} {className} {field.css || ''}">
     <span>{label}</span>
     <textarea class="{error}"
               bind:value={inValue}

@@ -36,7 +36,7 @@
     import {parseJSONString} from '/imports/functions/formatters/parseJSONString';
     import {fileName} from '/imports/functions/fileHandlers/fileName';
     import {fileSaver} from '/imports/functions/fileHandlers/fileSaver';
-    //import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte';
+    import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte';
 
     const pageHeader = i18n(header, "", $lang);
     let text = i18n(page, "components", $lang).card;
@@ -158,82 +158,59 @@
 <main class="main-content">
 
 
+    <div class="level-centered">
+        <div class="has-max-width-40rem">
 
-    <!--
-    <div class="columns">
-        <div class="column is-6-tablet">
+            <form class="form has-form-shadow">
+                <header class="is-secondary">{text.title}</header>
 
-            <article class="import-export card">
+                <div class="level">
+                    <Field_Wrapper
+                            class="has-width-20rem"
+                            field="{pageConfig.components.collections}"
+                            watchFields="{ {} }"
+                            on:field-changed="{updateCollection}"/>
 
-                <div class="card-header has-background-info">
-                    <div class="card-header-title has-text-weight-semibold has-text-white" >
-                        {text.title}
-                    </div>
+                    <button type="button" class="is-primary-outlined has-hover"
+                            disabled="{disableExport}"
+                            on:click="{exportFile}">
+
+                        {text.btnSend}
+                    </button>
                 </div>
 
-                <div class="card-content">
 
-                    <div class="level pb-5">
-                        <div class="level-left w-75">
-                            <div class="control w-100">
+                <div class="level">
+                    <Field_Wrapper
+                            class="has-width-20rem"
+                            field="{pageConfig.components.fileInput}"
+                            watchFields="{ {} }"
+                            on:field-changed="{updateFile}"/>
 
-                                <Field_Wrapper
-                                        class=""
-                                        field="{pageConfig.components.collections}"
-                                        watchFields="{ {} }"
-                                        on:field-changed="{updateCollection}"/>
+                    <button type="button" class="is-primary-outlined has-hover"
+                            disabled="{disableImport || disableExport}"
+                            on:click="{importFile}">
+                        {text.btnReceive}
+                    </button>
+                </div>
 
-                            </div>
-                        </div>
 
-                        <div class="level-right">
-                            <button class="button is-primary is-outlined"
-                                    disabled="{disableExport}"
-                                    on:click="{exportFile}">
 
-                                {text.btnSend}
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="level mt-5">
-                        <div class="level-left w-75">
-                            <div class="control w-100">
-
-                                <Field_Wrapper
-                                        class=""
-                                        field="{pageConfig.components.fileInput}"
-                                        watchFields="{ {} }"
-                                        on:field-changed="{updateFile}"/>
-
-                            </div>
-                        </div>
-
-                        <div class="level-right">
-                            <button class="button is-primary is-outlined"
-                                    disabled="{disableImport || disableExport}"
-                                    on:click="{importFile}">
-                                {text.btnReceive}
-                            </button>
-                        </div>
-                    </div>
-
-                    {#if messages.length > 0}
-                        <article class="message is-warning">
+                {#if messages.length > 0}
+                    <div class="form-footer">
+                        <div class="message is-warning-light">
                             <div class="message-body">
                                 {#each messages as message}
                                     <p>{message}</p>
                                 {/each}
                             </div>
-                        </article>
-                    {/if}
+                        </div>
+                    </div>
+                {/if}
 
-                </div>
-
-            </article>
+            </form>
 
         </div>
     </div>
-    -->
 
 </main>

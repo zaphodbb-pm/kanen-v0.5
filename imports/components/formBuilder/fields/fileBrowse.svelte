@@ -188,7 +188,7 @@
 
 
 
-<div class="has-field-addons" id="{field.field}">
+<div class="file-browse has-field-addons {className}  {field.css || ''}" id="{field.field}">
 
     <button type="button"  class="is-primary is-height-browse">
         <span class="icon-bg-folder is-medium"></span>

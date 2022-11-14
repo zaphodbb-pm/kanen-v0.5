@@ -222,7 +222,7 @@
 
 
 
-<div class="vbta {className}">
+<div class="typeahead vbta {error} {className} {field.css || ''}">
 
     {#if setList && setList.length <= rows}
         <label class="select {field.css}">

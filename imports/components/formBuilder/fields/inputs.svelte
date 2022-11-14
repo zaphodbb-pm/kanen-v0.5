@@ -114,8 +114,8 @@
 
 {#if hasShow}
 
-    <div class="has-field-addons {className} {field.css || ''}">
-        <label class="is-fullwidth">
+    <div class="inputs has-field-addons {className} {field.css || ''}">
+        <label class="width-full">
             <span>{label}</span>
             <input class="input {checkValue}"
                    {...attributes}
@@ -139,7 +139,7 @@
 
 {:else}
 
-    <label class="{className} {field.css || ''}">
+    <label class="inputs {className} {field.css || ''}">
         <span>{label}</span>
         <input class="input {checkValue}"
                {...attributes}

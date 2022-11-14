@@ -484,15 +484,23 @@
     }
 
     .confirm-delete {
-        position: absolute;
-        right: 1.5rem;
-
-        margin-top: -1.5rem;
+        display: flex;
         min-height: 3rem;
         width: 90%;
+
+        position: absolute;
+        right: 1.5rem;
+        margin-top: -1.5rem;
         padding: 0.5rem;
+
         background-color: whitesmoke;
         border: solid 1px #c0c0c0;
+        border-radius: var(--radius-comp);
+        z-index: 10;
+    }
+
+    .confirm-delete > p {
+        margin: 0;
     }
 
     .table-delete-td {

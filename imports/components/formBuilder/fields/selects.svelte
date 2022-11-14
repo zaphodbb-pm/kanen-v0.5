@@ -151,7 +151,7 @@
 
 
 
-<label class="{field.css} {showColours ? 'has-colour-icon' : ''} {error} {className} {field.css || ''}">
+<label class="selects {showColours ? 'has-colour-icon' : ''} {error} {className} {field.css || ''}">
     <span>{label}</span>
 
     {#if showColours}
@@ -159,7 +159,7 @@
     {/if}
 
     <select name="{field.field}"
-            class="input {error}"
+            class="{error}"
             {...field.attributes}
             bind:value="{selValue}"
             on:change="{() => emitSelect(selValue) }">

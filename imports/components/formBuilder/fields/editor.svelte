@@ -167,10 +167,14 @@
 
 
 
+<label class="editor {className} {field.css || ''}">
 
-<label><span>{label}</span></label>
+    <span>{label} two</span>
 
-<div bind:this={editor}></div>
+    <span style="display: block" bind:this={editor}></span>
+</label>
+
+
 
 
 <!--

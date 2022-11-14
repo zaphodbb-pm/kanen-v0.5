@@ -92,7 +92,7 @@
 
 
 
-<fieldset class="item-list {error}">
+<fieldset class="item-list {error} {className} {field.css || ''}">
     <legend>{label}</legend>
 
     <button type="button" class="add-rows is-rounded is-primary" on:click="{addRow}">

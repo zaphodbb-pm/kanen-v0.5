@@ -97,9 +97,9 @@
 
 
 
-<div class="vbta {error} {className}">
+<div class="vbta {error} {className} {field.css || ''}">
 
-    <label>
+    <label class="geo-address">
         <span>{label}</span>
         <input class="input vbta-input"
                {...attributes}
