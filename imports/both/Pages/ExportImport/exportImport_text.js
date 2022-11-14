@@ -23,8 +23,10 @@ export const page = {
     components: {
         en: {
             card: {
-                //* card general labels
                 title: "Export / Import Documents to a Collection",
+                description: "Select the collection to use first!  You can then export this collection or " +
+                    "import is available to find a file and load it into the database.",
+
                 btnSend: "Export",
                 btnReceive: "Import",
 
@@ -41,6 +43,7 @@ export const page = {
 
     form: {
         en: {
+
             collections: {
                 label: "Select Collection",
                 helpText: "",

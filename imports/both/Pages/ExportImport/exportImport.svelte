@@ -31,18 +31,17 @@
     //* page-body support **************************
     import {i18n} from '/imports/functions/utilities/i18n';
     import {lang} from '/imports/client/systemStores';
-
-    import {methodReturn} from '/imports/functions/utilities/methodReturn';
     import {parseJSONString} from '/imports/functions/formatters/parseJSONString';
     import {fileName} from '/imports/functions/fileHandlers/fileName';
     import {fileSaver} from '/imports/functions/fileHandlers/fileSaver';
-    import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte';
+    import {methodReturn} from '/imports/functions/utilities/methodReturn';
 
     const pageHeader = i18n(header, "", $lang);
     let text = i18n(page, "components", $lang).card;
     let formText = i18n(page, "form", $lang);
     setContext("formText", formText);
 
+    import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte';
 
     //* local reactive variables
     let messages = [];
@@ -79,9 +78,6 @@
 
     function updateFile(inMsg) {
         let msg = inMsg.detail.value;
-
-        console.log("updateFile", msg);
-
         let test = parseJSONString(msg.src);
 
         if (test) {
@@ -94,12 +90,6 @@
             console.warn("Not a valid JSON file: ", msg.name);
             disableImport = true;
         }
-        
-        console.log("disableExport", disableExport);
-
-        console.log("disableImport", disableImport, disableImport || disableExport);
-
-
     }
 
     //** card specific action execution
@@ -165,12 +155,13 @@
 
 <main class="main-content">
 
-
     <div class="level-centered">
-        <div class="has-max-width-40rem">
+        <div class="has-max-width-30rem">
 
             <form class="form has-form-shadow">
                 <header class="is-secondary">{text.title}</header>
+
+                <p>{text.description}</p>
 
                 <div class="level">
                     <Field_Wrapper
@@ -187,7 +178,6 @@
                     </button>
                 </div>
 
-
                 <div class="level">
                     <Field_Wrapper
                             class="has-width-20rem"
@@ -202,8 +192,6 @@
                     </button>
                 </div>
 
-
-
                 {#if messages.length > 0}
                     <div class="form-footer">
                         <div class="message is-warning-light">
@@ -215,7 +203,6 @@
                         </div>
                     </div>
                 {/if}
-
             </form>
 
         </div>
