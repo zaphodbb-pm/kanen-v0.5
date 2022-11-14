@@ -29,6 +29,6 @@
 
 
 
-<div class="field--divider-box  {className} {field.css || ''}">
+<div class="field--hr  divider-box  {className} {field.css || ''}">
     <div class="divider" data-content="{tag}" style="margin-bottom: 0;"></div>
 </div>

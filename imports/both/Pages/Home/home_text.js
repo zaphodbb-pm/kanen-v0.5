@@ -62,25 +62,33 @@ export const page = {
                 title: "Features",
 
                 body: [
+                    [
                     "Minimal Meteor add-on packages to reduce bundle size.",
                     "Uses Meteor methods for database read / store for greater speed.",
                     "Leverages MongoDb Change Streams for real time tracking.",
-                    "Set up to be a Progressive Web App",
-                    "",
+                    "Set up to be a Progressive Web App"
+                        ],
+
+                    [
                     "Each page is self contained. Can be removed or added by editing route table.",
                     "Leverages Svelte-loadable to minimize initial app load.",
                     "Uses Svelte stores for state management.",
                     "Uses Svelte context for text and other static information.",
-                    "All text is abstracted on a per page basis to allow for internationalization and easy maintenance.",
-                    "",
+                    "All text is abstracted on a per page basis to allow for internationalization and easy maintenance."
+                        ],
+
+                    [
                     "Includes a variety of widgets / components for content display or dashboard indicators.",
                     "Includes a mini-wiki to provide user learning resources.",
                     "Built-in form builder with 16 configurable field types. Supports tabbed sections and horizontal grouped fields.",
-                    "Built-in document lister with filter plugins and compound search. Supports table or grid layouts.",
-                    "",
+                    "Built-in document lister with filter plugins and compound search. Supports table or grid layouts."
+                        ],
+
+                    [
                     "Supports built-in user roles and groups for access control.",
                     "Includes System Config file for dynamic application control and debug reporting.",
-                    "Logs system and user activity.",
+                    "Logs system and user activity."
+                        ]
                 ]
             },
 
@@ -92,7 +100,7 @@ export const page = {
                     "MongoDB 5.0.5",
                     "<a href='https://zaphodbb-pm.github.io/goldilocks-css/pages/home.html' target='_blank'>Goldilocks-CSS 0.2.0</a>",
                     "Svelte 3.52",
-                    "Svelte-loadable to reduce initial bundle size.",
+                    "Svelte-loadable 2.0.1 to reduce initial bundle size.",
                     "svelte-pathfinder 3.4.0 router",
                     "Uses selected Feathers svg icons in CSS background to minimize bundle size",
                     "Supports Lineawesome formatted svg files in CSS background.",

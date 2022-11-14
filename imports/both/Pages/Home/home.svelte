@@ -97,15 +97,13 @@
             <section class="box-shadow">
                 <h3 class="has-text-tertiary has-text-centered">{pageText.features.title}</h3>
 
-                <ul>
-                    {#each pageText.features.body as item}
-                        {#if item}
+                {#each pageText.features.body as block}
+                    <ul class="space-vert-medium">
+                        {#each block as item}
                             <li>{item}</li>
-                        {:else}
-                            <li class="space-component"></li>
-                        {/if}
-                    {/each}
-                </ul>
+                        {/each}
+                    </ul>
+                {/each}
             </section>
         </div>
     </div>
