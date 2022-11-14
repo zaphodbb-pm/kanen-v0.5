@@ -142,11 +142,11 @@ export const page = {
                     text: [
                         "<a href='/cards'>Cards</a> - basic examples of card component.",
 
-                        "<a href='/content-widgets'>Tab AdminPanel</a> - example of tabbed and accordion components.",
+                        "<a href='/content-widgets'>Content Widgets</a> - example of tabbed and accordion components.",
 
-                        "<a href='/widgets'>AdminPanel</a> - a variety of dashboard like display widgets.",
+                        "<a href='/admin-panel'>AdminPanel</a> - a variety of dashboard like display widgets.",
 
-                        "<a href='/listForm'>Starter ListForm</a> - list display and form builder example. " +
+                        "<a href='/starter-list-form'>Starter ListForm</a> - list display and form builder example. " +
                         "Form includes all of the various field types and configurations.",
 
                         "<a href='/login'>Login</a> - for a user that wants to login with an email / password or " +
@@ -183,10 +183,6 @@ export const page = {
 
                         "<a href='/documentation'>Jsdoc</a> - Jsdoc style documentation for all of the executable files in this application.  " +
                         "This is for development purposes to aid a programmer in building more functionality.",
-
-                        "<a href='/logsSystem'>System Logs</a> - a variety of dashboard like display widgets.",
-
-                        "<a href='/logsUsers'>User Logs</a> - a variety of dashboard like display widgets.",
                     ]
                 },
 
@@ -195,12 +191,16 @@ export const page = {
                     label: "Admin Only",
                     lead: "Pages only available to system super admin role.",
                     text: [
-                        "<a href='/users'>Users</a> - list and form to set up user information and role / group access.",
+                        "<a href='/users'>Users</a> - set up user information and role / group access.",
 
-                        "<a href='/sysConfig'>System Config</a> - list and form to control certain system wide configuration options.",
+                        "<a href='/sysConfig'>System Config</a> - control certain system wide configuration options.",
 
                         "<a href='/exportImport'>Export Import</a> - administration to send a JSON formatted collection file to a user " +
                         "computer.  User can also upload a JSON file to a collection.",
+
+                        "<a href='/logsSystem'>System Logs</a> - tracks system level activity.",
+
+                        "<a href='/logsUsers'>User Logs</a> - tracks user logins.",
                     ]
                 },
             ]

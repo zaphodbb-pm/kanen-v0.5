@@ -117,9 +117,7 @@
                     <div class="divider-box">
                         <div class="divider" data-content="{text.labelDivider}"></div>
 
-                        <div class="level">
-                            <Auth_Service on:on-auth={Auth} {...service} />
-                        </div>
+                        <Auth_Service on:on-auth={Auth} {...service} />
                     </div>
 
                 {/each}
@@ -140,60 +138,5 @@
 
         </form>
     </div>
-
-
-
-
-
-
-
-
-    <!--
-    <div class="row is-centered">
-        <div id="loginForm-display" class="column is-half">
-
-            <div class="login-form card">
-
-                <header class="card-header">
-                    <p class="card-header-title">{text.labelTitle}</p>
-                </header>
-
-                <form class="card-content">
-
-
-                    {#each formFields as field}
-                        <Field_Wrapper class="my-4" {field} {watchFields} on:field-changed="{fieldChanged}"/>
-                    {/each}
-
-
-                    <button type="button" class="is-primary" on:click="{authPassword}">
-                        {text.btnSend}
-                    </button>
-                    
-                    {#if services}
-                        <div class="is-divider field-hr" style="margin: 2.5rem 0 0.5rem 0;" data-content="{text.labelDivider}"></div>
-
-                        {#each services as service}
-                            <section class="level mt-5">
-                                <Auth_Service on:on-auth={Auth} {...service} />
-                            </section>
-                        {/each}
-                    {/if}
-
-                    <article class="message is-warning" class:is-hidden="{messages.length < 1}">
-                        <div class="message-body">
-                            {#each messages as message}
-                                <p>{message}</p>
-                            {/each}
-                        </div>
-                    </article>
-
-                </form>
-
-            </div>
-
-        </div>
-    </div>
-    -->
 
 </main>

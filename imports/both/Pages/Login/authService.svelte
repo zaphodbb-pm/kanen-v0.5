@@ -35,7 +35,7 @@
 
 </script>
 
-<div class="level-item">
+<div class="level-centered">
     <a class="button is-link login-circle" on:click="{authService}" title="{title}">
         <span class="{icon}"></span>
     </a>

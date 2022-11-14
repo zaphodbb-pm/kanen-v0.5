@@ -57,12 +57,12 @@ import PubSub from './Pages/PubSub/pubSub_route';
 
 import BuildContent from './Pages/BuildContent/buildContent_route';
 import Documentation from './Pages/Documentation/documentation_route';
-import LogsSystem from './Pages/LogsSystem/logsSystem_route';
-import LogsUsers from './Pages/LogsUsers/logsUsers_route';
 
 import Users from "./Pages/Users/users_route";
 import SysConfig from './Pages/SysConfig/sysConfig_route';
 import ExportImport from './Pages/ExportImport/exportImport_route';
+import LogsSystem from './Pages/LogsSystem/logsSystem_route';
+import LogsUsers from './Pages/LogsUsers/logsUsers_route';
 
 
 
@@ -88,12 +88,12 @@ const allRoutes = [
 
     BuildContent,
     Documentation,
-    LogsSystem,
-    LogsUsers,
 
     Users,
     SysConfig,
     ExportImport,
+    LogsSystem,
+    LogsUsers,
 
     //* not found or 404 page is redirected to home page
     {

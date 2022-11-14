@@ -15,7 +15,7 @@
 
 export const nav = {en: "Starter ListForm"};
 
-export const link = "/listForm";
+export const link = "/starter-list-form";
 
 export const icon = "icon-bg-list";
 

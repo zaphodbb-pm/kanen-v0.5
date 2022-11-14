@@ -58,7 +58,7 @@ export const page = {
             _route: {
                 name: "template_route.js",
                 locus: "Client",
-                desc: "Configuration object for 'svelte-router-spa' npm module.  Builds unique Page to be rendered.  " +
+                desc: "Configuration object for 'svelte-pathfinder' npm module.  Builds unique Page to be rendered into the parent 'App'.  " +
                     "Uses output from 'template_loader.svelte' and 'template_nav.js'."
             },
 
@@ -94,7 +94,7 @@ export const page = {
 
             props: "Component Properties",
 
-            propsDesc: "Each rendered Page gets passed 'currentRoute' and 'params, from the router.  " +
+            propsDesc: "Each rendered Page gets passed 'currentRoute' and 'params', from the router.  " +
                 "'currentRoute' contains information about the current route and the child routes.  " +
                 "'params' allows you to send any additional params to the rendered component.  " +
                 "This is useful if you add any logic in your template, to check user's permission for instance, and want to " +

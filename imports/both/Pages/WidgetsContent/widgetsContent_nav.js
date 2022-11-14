@@ -14,7 +14,7 @@
 
 export const nav = {en: "Content"};
 
-export const link = "/contentWidgets";
+export const link = "/content-widgets";
 
 export const icon = "icon-bg-folder";
 

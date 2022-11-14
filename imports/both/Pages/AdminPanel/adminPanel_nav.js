@@ -15,7 +15,7 @@
 
 export const nav = {en: "Admin"};
 
-export const link = "/adminPanel";
+export const link = "/admin-panel";
 
 export const icon = "icon-bg-alert-info";
 
