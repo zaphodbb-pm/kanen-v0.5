@@ -85,30 +85,29 @@
 
 </script>
 
-<nav class="pagination is-centered is-small mt-2" role="navigation" aria-label="pagination">
-    {#if showPages}
 
-        <ul class="pagination-list">
-            {#if more}
-                <li>
-                    <a on:click="{prev}" class="pagination-link" aria-label="prev">&lt;</a>
-                </li>
-            {/if}
+<div class="space-vert-medium">
+    <nav class="pagination is-centered is-small" aria-label="pagination">
+        {#if showPages}
 
-            {#each items as item}
-                <li>
-                    <a class="pagination-link { item === currPage ? 'is-current':  ''}" on:click="{() => changepager(item) }">
-                        {item}
-                    </a>
-                </li>
-            {/each}
+            <ul>
+                {#if more}
+                    <li class="prev"><a href="#extend-comp_pagination">&lt;</a></li>
+                {/if}
 
-            {#if more}
-                <li>
-                    <a on:click="{next}" class="pagination-link" aria-label="next">&gt;</a>
-                </li>
-            {/if}
-        </ul>
+                {#each items as item}
+                    <li>
+                        <a class="{ item === currPage ? 'is-current':  ''}"  on:click="{() => changepager(item) }" aria-label="{currPage}" aria-current="page">
+                            {item}
+                        </a>
+                    </li>
+                {/each}
 
-    {/if}
-</nav>
+                {#if more}
+                    <li class="next"><a href="#extend-comp_pagination" >&gt;</a></li>
+                {/if}
+            </ul>
+
+        {/if}
+    </nav>
+</div>

@@ -49,8 +49,6 @@
         showList = !!confList?.hasOverlay || !confForm?.hasOverlay;
         showForm = !confForm?.hasOverlay;
         releaseEdit = true;
-
-        console.log("checkOverlay", showList, showForm);
     }
 
     function docToEdit(msg) {
