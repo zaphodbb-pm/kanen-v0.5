@@ -31,8 +31,8 @@
     import schema from './buildContent_form_schema';
     import listArray from './buildContent_list';
 
-    //import Form_Holder from '/imports/components/formBuilder/formHolder.svelte'
-    //import List_Holder from '/imports/components/listCollections/listHolder.svelte'
+    import Form_Holder from '/imports/components/formBuilder/formHolder.svelte'
+    import List_Holder from '/imports/components/listCollections/listHolder.svelte'
 
     import {i18n} from '/imports/functions/utilities/i18n';
     import {lang} from '/imports/client/systemStores';
@@ -95,26 +95,23 @@
 
 <main class="main-content">
 
-    <div class="columns">
+    <div class="row">
+        <div class="column is-span-2" class:is-hidden={!showList}>
 
-        <article class="column is-5" class:is-hidden={!showList}>
-
-            <!--
             <List_Holder
                     config="{conf.list}"
+                    class="has-width-15rem"
                     {listText}
                     {fields}
                     {sort}
                     submitted="{releaseEdit}"
                     on:send-doc="{docToEdit}"/>
-                    -->
 
-        </article>
+        </div>
 
 
-        <article class="column is-7" class:is-hidden={!showForm}>
+        <div class="column is-span-3" class:is-hidden={!showForm}>
 
-            <!--
             <Form_Holder
                     config="{conf.form}"
                     {formText}
@@ -124,10 +121,8 @@
                     {directdoc}
                     on:back-to-list="{checkOverlay}"
                     on:doc-submitted="{docSent}"/>
-                    -->
 
-        </article>
-
+        </div>
     </div>
 
 </main>
