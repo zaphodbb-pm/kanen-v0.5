@@ -33,16 +33,18 @@
 
     //* local reactive variable
     let modalText = i18n(getContext("pageText"), "components", $lang)[text];
-    let openModal = false;
+    let openModal = "hide-modal";
     let info = null;
 
-    //* respond to changes in props
+    //* respond to change in props
     $: {
-        openModal = showModal;
+        openModal = showModal ? "show-modal" : "hide-modal";
 
         if(showModal && docId){
             loadInfo(docId);
         }
+
+        console.log("showModal", showModal, docId, openModal);
     }
 
 
@@ -51,13 +53,13 @@
     const dispatch = createEventDispatcher();
 
     function btnClose() {
-        openModal = false;
+        openModal = "hide-modal";
 
         /**
          * @event modalState
          * @type {Boolean}
          */
-        dispatch('modalState', openModal);
+        dispatch('modalState', false);
     }
 
     function sendAddEvent() {
@@ -84,121 +86,142 @@
     //** load key information based on props change
     async function loadInfo(id){
         let testInfo = await getDocs("authors", "listLong_one", {_id:  id}, {});
-        info = Object.keys(testInfo).length > 0 ? testInfo : null;
+
+        if(testInfo){
+            info = Object.keys(testInfo).length > 0 ? testInfo : {};
+        }else{
+            info = {username: modalText.noUserFound};
+        }
     }
 
 </script>
 
 
 
+<div id="{'modal_' + docId}" class="modal-overlay {openModal}">
+    <div class="modal">
+        <article class="modal-card">
+            <header>
+                <h2>{modalText.title}</h2>
 
-<article class="modal modal-user" class:is-active="{openModal}" class:is-clipped="{openModal}">
-    <div class="modal-background"></div>
-    <div class="modal-card">
+                <button type="button" class="delete" on:click="{btnClose}"></button>
+            </header>
 
-        <header class="modal-card-head">
-            <p class="modal-card-title">{modalText.title}</p>
-            <button on:click="{btnClose}" class="delete" aria-label="close"></button>
-        </header>
+            <div class="level-start">
+                {#if docId && info}
 
-        <section class="modal-card-body">
-            {#if docId && info}
+                    <figure>
+                        {#if !!(info.profile && info.profile.image && info.profile.image.src)}
+                            <img src="{info.profile.image.src}" class="user-image" alt="user image">
+                        {:else}
+                            <span class="icon-bg-user user-image"></span>
+                        {/if}
+                    </figure>
 
-                <table>
-                    <tbody>
 
+                    <table class="table numbers-col-1">
+
+                        <tbody>
                         <tr>
-                            <td rowspan="10">
-                                {#if !!(info.profile && info.profile.image && info.profile.image.src)}
-                                    <img src="{info.profile.image.src}" class="user-image" alt="user image">
-                                {:else}
-                                    <span><span class="icon-bg-user"></span></span>
-                                {/if}
-                            </td>
-                            <td class="is-modal-label has-text-right">{modalText.username}</td>
-                            <td class="is-modal-value">{info.username}</td>
+                            <td>{modalText.username}:</td>
+                            <td>{info.username}</td>
                         </tr>
 
                         <tr>
-                            <td class="is-modal-label has-text-right">{modalText.name}</td>
-                            <td class="is-modal-value">{info.profile && info.profile.name ? info.profile.name : ""}</td>
+                            <td>{modalText.name}:</td>
+                            <td>{info.profile && info.profile.name ? info.profile.name : ""}</td>
                         </tr>
 
                         <tr>
-                            <td class="is-modal-label has-text-right">{modalText.role}</td>
-                            <td class="is-modal-value">{info.role && info.role.name ? info.role.name : ""}</td>
+                            <td>{modalText.role}:</td>
+                            <td>{info.role && info.role.name ? info.role.name : ""}</td>
                         </tr>
 
                         <tr>
-                            <td class="is-modal-label has-text-right">{modalText.mainEmail}</td>
-                            <td class="is-modal-value">{info.emails && info.emails[0] && info.emails[0].address ? info.emails[0].address : ""}</td>
+                            <td>{modalText.mainEmail}:</td>
+                            <td>{info.emails && info.emails[0] && info.emails[0].address ? info.emails[0].address : ""}</td>
                         </tr>
 
                         <tr>
-                            <td class="is-modal-label has-text-right">{modalText.secondaryEmail}</td>
-                            <td class="is-modal-value">{info.profile && info.profile.email ? info.profile.email : ""}</td>
+                            <td>{modalText.secondaryEmail}:</td>
+                            <td>{info.profile && info.profile.email ? info.profile.email : ""}</td>
                         </tr>
 
                         <tr>
-                            <td class="is-modal-label has-text-right">{modalText.phone}</td>
-                            <td class="is-modal-value">{info.profile && info.profile.phone ? formatPhoneNumber(info.profile.phone) : ""}</td>
+                            <td>{modalText.phone}:</td>
+                            <td>{info.profile && info.profile.phone ? formatPhoneNumber(info.profile.phone) : ""}</td>
                         </tr>
 
                         <tr>
-                            <td class="is-modal-label has-text-right">{modalText.active}</td>
-                            <td class="is-modal-value">{info.active}</td>
+                            <td>{modalText.active}:</td>
+                            <td>{info.active}</td>
                         </tr>
 
                         <tr>
-                            <td class="is-modal-label has-text-right">{modalText.updatedAt}</td>
-                            <td class="is-modal-value">{info.updatedAt ? timeAgo(info.updatedAt) : ""}</td>
+                            <td>{modalText.updatedAt}:</td>
+                            <td>{info.updatedAt ? timeAgo(info.updatedAt) : ""}</td>
                         </tr>
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
 
-            {:else}
+                {:else}
 
-                <p>{modalText.noAccess}</p>
+                    <p>{modalText.noAccess}</p>
 
+                {/if}
+            </div>
+
+            {#if info && (modalText.addEvent || modalText.removeEvent) }
+                <footer class="modal-card-foot">
+                    {#if modalText.addEvent}
+                        <button class="button is-primary" on:click="{sendAddEvent}">
+                            {modalText.addEvent}
+                        </button>
+                    {/if}
+
+                    {#if modalText.removeEvent}
+                        <button class="button is-danger" on:click="{sendRemoveEvent}">
+                            {modalText.removeEvent}
+                        </button>
+                    {/if}
+                </footer>
             {/if}
-        </section>
 
-        {#if info && (modalText.addEvent || modalText.removeEvent) }
-            <footer class="modal-card-foot">
-                {#if modalText.addEvent}
-                    <button class="button is-primary" on:click="{sendAddEvent}">
-                        {modalText.addEvent}
-                    </button>
-                {/if}
-
-                {#if modalText.removeEvent}
-                    <button class="button is-danger" on:click="{sendRemoveEvent}">
-                        {modalText.removeEvent}
-                    </button>
-                {/if}
-            </footer>
-        {/if}
-
+        </article>
     </div>
-</article>
-
+</div>
 
 
 <style>
-    .is-modal-label {
-        padding: 0 0.5rem;
+
+    .modal-card .table td {
+        border: none;
     }
 
-    .is-modal-value {
-        padding: 0 0.5rem;
-        font-weight: bold;
+    .modal-card .table td:nth-of-type(1) {
+        font-weight: var(--weight-semibold);
+    }
+
+    .show-modal {
+        visibility: visible;
+        opacity: 1;
+        position: fixed;
+        z-index: 1000;
+        height:auto;
+    }
+
+    .hide-modal {
+        visibility: hidden;
+        opacity: 0;
+        position: relative;
+        z-index: unset;
+        height: 0;
     }
 
     .user-image {
-        height: 4rem;
-        width: 4rem;
-        margin-right: 2rem;
+        height: 6rem;
+        width: 6rem;
         border-radius: 50%;
     }
 

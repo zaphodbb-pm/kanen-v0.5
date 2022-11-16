@@ -111,7 +111,7 @@
 
 
 
-<div class="row">
+<div class="row has-4x-minwidth">
 
     <div class="column {mode === 'grid' ? '' : confList?.css ?? ''}" class:is-hidden={!showList}>
         <List_Holder

@@ -40,8 +40,8 @@
     import Wiki_Toc from './wiki_toc.svelte'
     import Wiki_Content from './wiki_content.svelte'
     import Search_Box from '/imports/components/listCollections/searchbox.svelte'
-    //import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte'
-    //import Modal_User from '/imports/components/blocks/modalUser.svelte'
+    import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte'
+    import Modal_User from '/imports/components/blocks/modalUser.svelte'
 
     let formText = i18n(page, "form", $lang);
     setContext("formText", formText);
@@ -82,7 +82,7 @@
         showModal = msg.detail;
     }
 
-    function addEvent(msg){
+    function addEvent(){
         let newMsg = {
             id: generateId(8),
             state: "add",
@@ -92,7 +92,7 @@
         $messages = [... $messages, newMsg];
     }
 
-    function removeEvent(msg){
+    function removeEvent(){
         let newMsg = {
             id: generateId(8),
             state: "remove",
@@ -204,36 +204,32 @@
 <PageHeader header="{pageHeader}" />
 
 <main class="main-content">
-    <div class="row">
-        <div class="column">
 
-            <!--
-            <Field_Wrapper
-                    class=""
-                    field="{pageConfig.components.getLang}"
-                    watchFields="{ {} }"
-                    on:field-changed="{fieldChanged}"/>
-                    -->
+    <div class="space-vert-medium">
+        <form class="form has-form-shadow">
+            <div class="field-group" style="margin: 0;">
+                <Field_Wrapper
+                        class=""
+                        field="{pageConfig.components.getLang}"
+                        watchFields="{ {} }"
+                        on:field-changed="{fieldChanged}"/>
 
-        </div>
+                <Search_Box fields="{info.fields}" on:search-changed="{newSearch}" />
 
-        <div class="column">
-            <Search_Box fields="{info.fields}" on:search-changed="{newSearch}" />
-        </div>
-
-        <div class="column">
-            <!--
-            <Field_Wrapper
-                    class=""
-                    field="{pageConfig.components.readMode}"
-                    watchFields="{ {} }"
-                    on:field-changed="{readMode}"/>
-                    -->
-        </div>
+                <Field_Wrapper
+                        class=""
+                        field="{pageConfig.components.readMode}"
+                        watchFields="{ {} }"
+                        on:field-changed="{readMode}"/>
+            </div>
+        </form>
     </div>
 
-    <div class="columns">
-        <div class="column is-one-fifth-fullhd is-one-quarter-desktop is-one-third-tablet">
+
+
+
+    <div class="row">
+        <div class="column is-span-1">
 
             <Wiki_Toc
                     pageid="{info.pageid}"
@@ -243,7 +239,7 @@
 
         </div>
 
-        <div class="column">
+        <div class="column is-span-3">
 
             <Wiki_Content
                     pageid="{info.pageid}"
@@ -257,7 +253,7 @@
 
     </div>
 
-    <!--
+
     <Modal_User
             text="modal"
             {showModal}
@@ -265,6 +261,6 @@
             on:modal-addEvent={addEvent}
             on:modal-removeEvent={removeEvent}
             on:modalState={checkStateUser}/>
-            -->
+
 
 </main>

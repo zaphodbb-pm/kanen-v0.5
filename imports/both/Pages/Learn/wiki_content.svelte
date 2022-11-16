@@ -22,7 +22,7 @@
     export let mode = true;
 
     //* support files
-    import { createEventDispatcher, getContext, setContext } from 'svelte';
+    import { createEventDispatcher } from 'svelte';
     const dispatch = createEventDispatcher();
     import {getDocs} from '/imports/functions/supportApplication/getDocs'
     import {timeAgo} from '/imports/functions/formatters/timeAgo'
@@ -142,45 +142,47 @@
 
 
 
-<div class="wiki-content card">
-    <div class="card-content">
+<div class="card">
+    <div class="">
 
         {#if showList}
 
             {#each listDocs() as doc (doc._id)}
-                <div class="pb-2 mb-3 has-border-bottom">
+                <div class="space-vert-medium">
 
-                    <a class="text-1dot2rem is-family-secondary has-text-weight-bold"
+                    <a class="is-size-5 is-text-semibold add-cursor"
                        id="{doc._id}"
                        on:click="{() => dispatch('getpage', doc._id)}">
                         {doc.name}
                     </a>
 
-                    <p>{doc.content}</p>
+                    <p style="margin-bottom: 0.5rem;">{doc.content}</p>
 
-                    <div class="mt-2 text-0dot9rem has-text-grey level">
-                        <div class="level-left">
-                            <span class="{getContext('iconReadTime')}"></span>
+                    <div class="level is-size-7 has-text-grey">
+                        <div class="icon-nav-horz">
+                            <span class="icon-bg-file"></span>
 
-                            <div class="ml-2">{doc.time} min</div>
+                            <span>{doc.time + " min"}&nbsp;</span>
 
-                            <div class="ml-3">({doc.length})</div>
+                            <span>({doc.length})</span>
                         </div>
 
-                        <div class="level-right">
-                            <span class="{getContext('iconClock')}"></span>
+                        <div class="level-end">
+                            <div class="icon-nav-horz">
+                                <span class="icon-bg-clock"></span>
 
-                            {doc.timeAgo}
+                                {doc.timeAgo}
+                            </div>
 
-                            <span class="{getContext('iconDefaultUser')}"></span>
+                            <div class="icon-nav-horz">
+                                <span class="icon-bg-user"></span>
 
-                            <a id="{doc.author}"
-                               on:click="{() => dispatch('push-author', {_id: doc.author, name: doc.authorName})}">
-                                {doc.authorName}
-                            </a>
+                                <a id="{doc.author}"
+                                   on:click="{() => dispatch('push-author', {_id: doc.author, name: doc.authorName})}">
+                                    {doc.authorName}
+                                </a>
+                            </div>
                         </div>
-
-
                     </div>
 
                 </div>
@@ -188,41 +190,50 @@
 
         {:else}
 
-            <div class="has-border-bottom mb-2">
-                <div class="title is-3">{document.name}</div>
-                <div class="subtitle is-4"  class:is-hidden={!document.contentLead}>{document.contentLead}</div>
+            <div style="border-bottom: 1px solid var(--border-main); margin-bottom: 0.5rem;">
+                <h2>{document.name}</h2>
+
+                {#if document.contentLead}
+                    <div class="sub-title">{document.contentLead}</div>
+                {/if}
             </div>
 
-            <div class="subtitle text-0dot8rem d-flex justify-content-between align-items-center">
-                <div>
-                    <span class="is-hidden-touch">id: {document._id}</span>
-                </div>
+            <div class="level sub-title is-size-7">
+                <div>id: {document._id}</div>
 
-                <div class="d-flex justify-content-flex-end align-items-center">
-                    <span class="{getContext('iconDefaultUser')}"></span>
+                <div class="level-end">
+                    <div class="icon-nav-horz">
+                        <span class="icon-bg-user"></span>
 
-                    <a id="{document.author}"
-                       on:click="{() => dispatch('push-author', {_id: document.author, name: document.authorName})}">
-                        {document.authorName}
-                    </a>
+                        <a id="{document.author}" class="add-cursor"
+                           on:click="{() => dispatch('push-author', {_id: document.author, name: document.authorName})}">
+                            {document.authorName}
+                        </a>
+                    </div>
 
-                    <span class="{getContext('iconClock')}"></span>
+                    <span></span>
 
-                    <div>
+                    <div class="icon-nav-horz">
+                        <span class="icon-bg-clock"></span>
                         {document.timeAgo}
                     </div>
                 </div>
             </div>
 
-            <p class="subtitle is-5 buffer-y" class:is-hidden={!document.contentSummary}>{document.contentSummary}</p>
+            {#if document.contentSummary}
+                <p class="is-size-5 space-medium">
+                    {document.contentSummary}
+                </p>
+            {/if}
 
             {#if mode}
                 {#each sliceParagraphs(document.contentPage) as page}
-                    <div class="content is-magazine-layout">{@html page}</div>
-                    <hr class="my-5" />
+                    <div class="magazine is-narrow space-vert-medium" style="border-bottom: 1px solid var(--border-main)">
+                        {@html page}
+                    </div>
                 {/each}
             {:else}
-                <div class="content">
+                <div class="space-vert-medium">
                     {@html document.contentPage}
                 </div>
             {/if}

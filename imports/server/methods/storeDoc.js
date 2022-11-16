@@ -1,10 +1,17 @@
+// @ts-ignore
 import {Meteor} from "meteor/meteor";
-import {check} from 'meteor/check'
+// @ts-ignore
+import {check} from 'meteor/check';
+// @ts-ignore
+import {Mongo} from "meteor/mongo";
+// @ts-ignore
+import {Match} from "meteor/check";
 
-import {accessControl} from '/imports/server/setupACL'
-import {verifyRole} from '/imports/server/functions/verifyRole'
-import {ownsDocument} from '/imports/server/functions/ownsDocument'
-import {objectify} from '/imports/server/functions/objectify'
+
+import {accessControl} from '../setupACL'
+import {verifyRole} from '../functions/verifyRole'
+import {ownsDocument} from '../functions/ownsDocument'
+import {objectify} from '../functions/objectify'
 
 
 
@@ -12,7 +19,7 @@ Meteor.methods({
     /**
      * General insert document into collection.
      *
-     * @memberOf Methods
+     * @memberOf methods
      * @function insertDoc
      * @isMethod true
      * @locus Server
@@ -56,7 +63,7 @@ Meteor.methods({
     /**
      * General document update into a collection.
      *
-     * @memberOf Methods
+     * @memberOf methods
      * @function updateDoc
      * @isMethod true
      * @locus Server
@@ -91,7 +98,7 @@ Meteor.methods({
     /**
      * General document remover from a collection.
      *
-     * @memberOf Methods
+     * @memberOf methods
      * @function removeDoc
      * @isMethod true
      * @locus Server
@@ -123,7 +130,7 @@ Meteor.methods({
     /**
      * General document update a document field item.
      *
-     * @memberOf Methods
+     * @memberOf methods
      * @function inputterUpdateItem
      * @isMethod true
      * @locus Server
@@ -161,7 +168,7 @@ Meteor.methods({
     /**
      * General document item as array updates.
      *
-     * @memberOf Methods
+     * @memberOf methods
      * @function updateDocArray
      * @isMethod true
      * @locus Server

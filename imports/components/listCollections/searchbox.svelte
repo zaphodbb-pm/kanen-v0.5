@@ -14,7 +14,7 @@
     export let fields = [];
 
     //** support functions
-    import {onMount, getContext} from 'svelte';
+    import {onMount} from 'svelte';
     import {slide} from 'svelte/transition';
     import {quintOut} from 'svelte/easing';
     import {createEventDispatcher} from 'svelte';
@@ -52,7 +52,7 @@
 
 
 
-<div style="flex-wrap: nowrap; width: 75%;">
+<div style="flex-wrap: nowrap; max-width: 75%;">
 
     <div class="has-field-addons">
         <button type="button" class="is-secondary-outlined" aria-label="icon only">

@@ -28,19 +28,18 @@
     const formText = getContext("formText");
     const label = formText[field.field] && formText[field.field].label ? formText[field.field].label : "";
 
-
     //* local reactive variable
     let inValue = "";
 
-    $: inValue = setValue(field.value);
+    $: setValue(field.value);
 
 
     //* functions that mutate local variables
     function setValue(val){
         if(typeof val === 'object'){
-            return JSON.stringify(val);
+            inValue =  JSON.stringify(val);
         }else{
-            return val;
+            inValue = val;
         }
     }
 
@@ -57,19 +56,16 @@
             out = inValue;
         }
 
-        /**
-         * @event on-inputentry
-         * @type {object} - {value: value, error: errorVal} with string
-         */
         dispatch('on-inputentry', {value: out, error: false} )
     }
 
 </script>
 
 
-<label class="field--text-area {error} {className} {field.css || ''}">
+<label>
     <span>{label}</span>
-    <textarea class="{error}"
+
+    <textarea class="textarea"
               bind:value={inValue}
               {...field.attributes}
               on:keyup="{checkInput}"></textarea>

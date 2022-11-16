@@ -4,7 +4,7 @@
  * This package is for development work that needs to get server logs.
  * This is also helpful on a staging server to help with any debugging work.
  *
- * @memberOf Structure
+ * @memberOf Structure:server
  * @function showServerConsole
  * @locus Client
  *

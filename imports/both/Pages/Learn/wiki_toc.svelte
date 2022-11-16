@@ -26,21 +26,20 @@
 </script>
 
 
-<div class="vue-wiki-toc card">
 
-    <div class="card-header has-background-info">
-        <div class="card-header-title has-text-white">
-            {tocHeader}
-        </div>
-    </div>
 
-    <div class="card-content">
+<article class="card">
+    <header class="is-secondary">
+        <h2 >{tocHeader}</h2>
+    </header>
+
+    <div class="toc-content">
 
         <ul class="cleanList">
             {#each tocTitles as title (title._id)}
                 <li>
                     <a id="{title._id}"
-                       class="is-text-semibold"
+                       class="is-text-semibold add-cursor"
                        class:active={title._id === pageid}
                        on:click="{() => dispatch('getpage', title._id)}">
 
@@ -49,9 +48,9 @@
 
                     {#if title.children}
 
-                        <ul class="cleanList ml-2 mt-2">
+                        <ul class="cleanList">
                             {#each title.children as children (children._id)}
-                                <li class="mb-2 text-bold add-cursor" style="line-height: 1.2;">
+                                <li class="add-cursor" style="line-height: 1.2;">
 
                                     <a id="{children._id}"
                                        class:active="{children._id === pageid}"
@@ -60,9 +59,9 @@
                                     </a>
 
                                     {#if children.children && children.children.length > 0}
-                                        <ul class="cleanList ml-2" style="line-height: 1;">
+                                        <ul class="cleanList" style="line-height: 1;">
                                             {#each children.children as children2 (children2._id)}
-                                                <li class=" text-bold add-cursor">
+                                                <li class="add-cursor">
                                                     <a id="{children2._id}"
                                                        class:active="{children2._id === pageid}"
                                                        on:click="{() => dispatch('getpage', children2._id) }">
@@ -79,22 +78,40 @@
 
                     {/if}
 
-                    <hr class="mt-2 mb-4" />
+                    <hr />
 
                 </li>
             {/each}
         </ul>
 
     </div>
-</div>
-
+</article>
 
 
 <style>
+    .toc-content {
+        margin-left: -0.75rem;
+    }
 
-    .active {
+    .cleanList {
+        margin: 1rem 0;
+    }
+
+    .cleanList ul {
+        margin: 0;
+    }
+
+    .cleanList li {
+        list-style: none;
+    }
+
+    .cleanList li a {
+        color: var(--tertiary);
+    }
+
+    .cleanList li a.active {
+        color: var(--text-darker);
         font-weight: 600;
-        color: #4a4a4a;
     }
 
 </style>

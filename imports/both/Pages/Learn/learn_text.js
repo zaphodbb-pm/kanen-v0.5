@@ -43,7 +43,9 @@ export const page = {
                 addEvent: "Add",
                 removeEvent: "Remove",
 
-                noAccess: "You do not have the privileges to access to this information."
+                noAccess: "You do not have the privileges to access to this information.",
+
+                noUserFound: "Error: no user found"
             },
 
             messages: {

@@ -263,9 +263,6 @@
 
 
 <style>
-    .add-cursor {
-        cursor: pointer;
-    }
 
     .is-height-browse {
         height: 6rem;
