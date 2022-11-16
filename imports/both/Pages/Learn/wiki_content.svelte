@@ -30,10 +30,8 @@
 
     //* local reactive variables
     let wordPerMin = 225;
-    let wordsPerPage = 350;
     let charPerPage = 2100;
     let document = "";
-    let docList = [];
 
     $: {
         if (pageid && pageid.length > 0) {

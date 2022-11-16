@@ -49,7 +49,7 @@
 
         //** page specific text and configuration
         import {header, page} from './pubSub_text'
-        import {pageConfig} from './pubSub_config'
+        //import {pageConfig} from './pubSub_config'
 
         //** app support files
         import { onMount, onDestroy } from 'svelte';
@@ -64,16 +64,36 @@
     import {lang} from '/imports/client/systemStores'
 
     const pageHeader = i18n(header, "", $lang);
+
     let text = i18n(page, "page", $lang);
-    let colours = ["is-primary", "is-info", "is-link", "is-success", "is-warning", "is-danger"]
     let values = new Array(len).fill({name: "init", value: 0});
-
-    let timeStart = Date.now();
-    let timeEnd = Date.now();
-    let currentItem = "";
     let intervalId = null;
-
     let timings = {min: 0, max: 0, avg: 0};
+
+    let colours = ["is-progress-primary", "is-progress-secondary", "is-progress-tertiary", "is-progress-link",
+        "is-progress-success", "is-progress-warning", "is-progress-danger"];
+
+
+
+    /* react to any changes in the collection and update the progress bar values */
+    $m: {
+        let allDocs = RealTime.find({author: Meteor.userId()}, {limit: len}).fetch();
+
+        allDocs = allDocs.map( (rt) => {
+            let timeStart = rt && rt.updatedAt ? rt.updatedAt : Date.now();
+            rt.delay = Date.now() - timeStart;
+            return rt;
+        })
+
+        values = allDocs;
+
+        //*** extract values into an array and then find min, max and avg
+        let delays = allDocs.map(ad => ad.delay);
+
+        timings.min = Math.min(...delays);
+        timings.max = Math.max(...delays);
+        timings.avg = Math.round( delays.reduce((a, b) => a + b, 0) / delays.length );
+    }
 
     onMount( () => {
 
@@ -84,27 +104,6 @@
             });
 
         }, interval);
-
-        //** respond to db changes propagated in real time from server over Meteor Publish / Subscribe
-        Tracker.autorun(function(){
-            let allDocs = RealTime.find({author: Meteor.userId()}, {limit: len}).fetch();
-
-            allDocs = allDocs.map( (rt) => {
-                let timeStart = rt && rt.updatedAt ? rt.updatedAt : Date.now();
-                rt.delay = Date.now() - timeStart;
-                return rt;
-            })
-
-            values = allDocs;
-
-            //*** extract values into an array and then find min, max and avg
-            let delays = allDocs.map(ad => ad.delay);
-
-            timings.min = Math.min(...delays);
-            timings.max = Math.max(...delays);
-            timings.avg = Math.round( delays.reduce((a, b) => a + b, 0) / delays.length );
-        });
-
     });
 
     onDestroy( () => {
@@ -121,38 +120,48 @@
 
 <main class="main-content">
 
-    <article class="section">
+    <p>{text.report.interval} {interval / 1000}</p>
+
+    <p>
         {text.report.title} ({text.report.suffix}) -
         {text.report.min}: {timings.min};
         {text.report.max}: {timings.max};
         {text.report.avg}: {timings.avg}
-    </article>
+    </p>
 
-    <section class="section">
-        <div class="w-25">
 
-            <div class="d-flex justify-content-between mb-2 mr-4 has-text-weight-semibold">
-                <p>{text.labels.name}</p>
-                <p>{text.labels.value}</p>
-                <p>{text.labels.delay}</p>
-            </div>
+    <table class="space-medium">
+        <thead>
+            <tr>
+                <th>{text.labels.name}</th>
+                <th>{text.labels.value}</th>
+                <th>{text.labels.delay}</th>
+                <th></th>
+            </tr>
+        </thead>
 
-        </div>
-
-        {#each values as item, idx (idx)}
-            <div class="mb-2 d-flex">
-
-                <div class="w-30 mr-4">
-                    <div class="d-flex justify-content-between">
-                        <div>{item.name}</div>
-                        <div>{item.value}</div>
-                        <div>{item.delay}</div>
-                    </div>
-                </div>
-
-                <progress class="progress {colours[idx % colours.length]}" value="{item.value}" max="100">{item.value}%</progress>
-            </div>
-        {/each}
-    </section>
+        <tbody>
+            {#each values as item, idx (idx)}
+                <tr>
+                    <td>{item.name}</td>
+                    <td>{item.value}</td>
+                    <td>{item.delay}</td>
+                    <td style="width: 100%;">
+                        <progress class="progress {colours[idx % colours.length]}" value="{item.value}" max="100">{item.value}%</progress>
+                    </td>
+                </tr>
+            {/each}
+        </tbody>
+    </table>
 
 </main>
+
+
+<style>
+    table td,
+    table th {
+        padding:0.5rem;
+    }
+
+
+</style>
