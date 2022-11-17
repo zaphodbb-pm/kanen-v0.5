@@ -1,7 +1,7 @@
 /**
  * Round number to specified number of digits; if digits is '0', return an integer.
  *
- * @memberOf Functions
+ * @memberOf functions
  * @function toDecimals
  * @locus Anywhere
  *

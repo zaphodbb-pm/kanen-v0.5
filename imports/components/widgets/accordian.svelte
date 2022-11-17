@@ -13,6 +13,8 @@
      * @param {String} content[].text - content to display in body of accordion
      * @param {String} content[].style - optional class to apply to each accordion in group
      *
+     * @param {String} className - optional top level css controls
+     *
      * @notes
      * 1. Standalone component that gets a configuration object from its parent
      * 2. The content.text area can include html tags

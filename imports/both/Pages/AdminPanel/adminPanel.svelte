@@ -22,7 +22,7 @@
         import {pageConfig} from './adminPanel_config';
 
         //** app support files
-        import { setContext } from 'svelte';
+        //import { setContext } from 'svelte';
         import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
@@ -34,56 +34,16 @@
     import {i18n} from '/imports/functions/utilities/i18n';
 
     const pageHeader = i18n(header, "", $lang);
-    let lng = $lang;
-    setContext("pageText", page);
-    setContext("pageConfig", pageConfig);
+    const pageText = i18n(page, "page", $lang);
+    const widgetText = i18n(page, "widgets", $lang);
+    const configs = pageConfig.widgets;
 
+    import ReportBox from "../../../components/widgets/reportbox.svelte";
 
-    /*
-    import Expander from '/imports/components/widgets/expanderSlot.svelte'
-    let expander1Text =  i18n(page.components, "expander1", lng);
-    let expander2Text =  i18n(page.components, "expander2", lng);
+    /* set payloads for widgets */
+    let payLoadReportbox1 = {value: 100, max: 128};
+    let payLoadReportbox2 = {value: 26, max: 128};
 
-    import Infobox from '/imports/components/widgets/infobox.svelte'
-    let infoboxText =  i18n(page.components, "infobox", lng);
-    let infoboxText2 =  i18n(page.components, "infobox2", lng);
-
-    let payload = {
-        values: [47.56],
-        maxValues: [120]
-    };
-
-    import ProgBars from '/imports/components/widgets/progressBars.svelte'
-    let progbarText =  i18n(page.components, "progExample", lng);
-
-    let plBars = {
-        values: [23, 47, 92],
-        maxValues: [100, 100, 100],
-    }
-
-    import Gauge from '/imports/components/widgets/guage/gauge.svelte'
-    let guage1Text =  i18n(page.components, "gaugeRing", lng);
-    let guage2Text =  i18n(page.components, "gaugePie", lng);
-
-    let g1 = {
-        values: [95],
-        maxValues: [120],
-    };
-
-    let g2 = {
-        values: [70],
-        maxValues: [120],
-    };
-
-    import SquareBox from '/imports/components/widgets/squareBox.svelte'
-    let sbText =  i18n(page.components, "squarebox", lng);
-    let sb = {values: [95]};
-
-    import BigBox from '/imports/components/widgets/bigInfobox.svelte'
-    let bigText =  i18n(page.components, "bigInfobox", lng);
-    let bigPayload = {values: [55], maxValues: [120],};
-
-     */
 
 </script>
 
@@ -92,7 +52,75 @@
 
 <main class="main-content">
 
-    infoboxes
+    <section>
+        <h2>{pageText.reportsTitle}</h2>
+
+        <div class="level-start">
+            <p>{pageText.reports}</p>
+
+            <div class="space-medium">
+                <ReportBox
+                        class=""
+                        text="{widgetText.reportbox1}"
+                        config="{configs.reportbox1}"
+                        payload="{payLoadReportbox1}" />
+            </div>
+
+            <div class="space-medium">
+                <ReportBox
+                        class=""
+                        text="{widgetText.reportbox2}"
+                        config="{configs.reportbox2}"
+                        payload="{payLoadReportbox2}" />
+            </div>
+        </div>
+    </section>
+
+
+    <section class="space-vert-large">
+        <h2>{pageText.infoTitle}</h2>
+
+        <div class="level-start">
+
+            <p>{pageText.info}</p>
+
+            <div>Box 1</div>
+
+            <div>Box 2</div>
+
+        </div>
+    </section>
+
+
+    <section class="space-vert-large">
+        <h2>{pageText.gaugesTitle}</h2>
+
+        <div class="level-start">
+
+            <p>{pageText.gauges}</p>
+
+            <div>gauge 1</div>
+
+            <div>gauge 2</div>
+
+        </div>
+    </section>
+
+
+    <section class="space-vert-large">
+        <h2>{pageText.chartsTitle}</h2>
+
+        <div class="level-start">
+
+            <p>{pageText.charts}</p>
+
+            <div>chart 1</div>
+
+            <div>chart 2</div>
+
+        </div>
+    </section>
+
 
 </main>
 

@@ -104,10 +104,10 @@
 
 <main class="main-content">
 
-    <div class="columns">
+    <div class="row">
 
-        <div class="column is-offset-3">
-            <div class="mb-3">
+        <div class="column">
+            <div class="">
                 {@html i18n(page.page, "howToUse", $lang)}
             </div>
 
@@ -125,13 +125,13 @@
     </div>
 
     <div id="documentation-list">
-        <div class="columns">
-            <div class="column is-3">
+        <div class="row">
+            <div class="column span-1">
                 <Accordian {tabSettings} text="{content}" {eventMain} {eventSub}
                            on:doc-main-topic="{changeBody}" on:doc-subtopic="{changeSub}"/>
             </div>
 
-            <div class="column">
+            <div class="column span-3">
                 <Paged {content} {newCategory} {newTopic} />
             </div>
         </div>

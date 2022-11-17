@@ -8508,9 +8508,10 @@ a.tag:hover
 /* icon setup */
 .reportbox > div
 {
-    width: 3rem;
-    height: 3rem;
-    padding: var(--padding);
+    line-height: 0;
+
+    margin: 0;
+    padding: 0;
 
     color: var(--text-invert);
     border-radius: var(--radius-rounded);
@@ -8520,21 +8521,12 @@ a.tag:hover
 .reportbox > div > span:not(.icon-nav)
 {
     font-size: 3rem;
+    line-height: 0;
 
-    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    margin: 1rem;
 }
-
-.reportbox > div:has(+ label)
-{
-    width: 4rem;
-    height: 4rem;
-}
-
-.reportbox > div:has(+ label) > span:not(.icon-nav)
-{
-    font-size: 4rem;
-}
-
 
 
 /* image setup */

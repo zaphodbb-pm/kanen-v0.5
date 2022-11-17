@@ -21,12 +21,40 @@ export const header = {
 export const page = {
 
     page: {
-        col1:{en: "Infobox"},
-        col2:{en: "Progress Bars"},
-        col3:{en: "Gauges"},
-        col4:{en: "SquareBox & BigBox"}
+        en: {
+            reportsTitle:"Report Widget",
+            reports: "Report key performance",
+
+            infoTitle:"Information Widget",
+            info: "Information Widgets",
+
+            gaugesTitle:"Gauge Widget",
+            gauges: "Gauge Widget",
+
+            chartsTitle:"Chart Widget",
+            charts: "Chart Widget"
+        }
     },
 
+    widgets: {
+        en: {
+            reportbox1: {
+                title: "Report One",
+                srCaption: "Report Box One Info",
+                valPrefix: "$",
+            },
+
+            reportbox2: {
+                title: "Report Two",
+                srCaption: "Report Box Two Info",
+                progLabel: "progress",
+                valSuffix: "€",
+            }
+        }
+    }
+
+
+    /*
     components: {
         infobox: {
             en: {
@@ -109,4 +137,6 @@ export const page = {
             name: {en: "Name"}
         },
     }
+
+     */
 };
