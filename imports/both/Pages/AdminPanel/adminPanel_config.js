@@ -33,6 +33,20 @@ export const pageConfig =  {
             //icon: "",
             lowThreshold: 20,
             highThreshold: 50,
+        },
+
+        infobox1: {
+            icon: "icon-bg-settings",
+            //image: "",
+            //alt: "",
+            type: "primary"
+        },
+
+        infobox2: {
+            //icon: "",
+            image: "/images/report-frog-luggage.jpg",
+            alt: "Frog with luggage",
+            type: "secondary"
         }
 
     }

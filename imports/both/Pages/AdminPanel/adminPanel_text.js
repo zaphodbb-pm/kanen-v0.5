@@ -18,6 +18,12 @@ export const header = {
 };
 
 
+const url = window.location.href;
+
+
+
+
+
 export const page = {
 
     page: {
@@ -49,6 +55,25 @@ export const page = {
                 srCaption: "Report Box Two Info",
                 progLabel: "progress",
                 valSuffix: "€",
+            },
+
+            infobox1: {
+                title: "Boiling Point",
+                srCaption: "Info Box Boiling Point",
+                //prefix: "",
+                suffix: "ºF",
+                //footer: "",
+                //url: "",
+            },
+
+            infobox2: {
+                title: "Repair Cost",
+                srCaption: "Info Box Repair Cost",
+                prefix: "€",
+                separator: ".",
+                //suffix: "",
+                footer: "Buy Deal Now",
+                url: "/admin-panel#admin-info-box",
             }
         }
     }

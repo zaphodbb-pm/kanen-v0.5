@@ -8074,8 +8074,7 @@ a.tag:hover
 /* position icon */
 .infobox > div > div
 {
-    width: 5rem;
-    height: 5rem;
+    line-height: 0;
 
     color: var(--grey-dark);
     border-radius: var(--radius-rounded);
@@ -8083,9 +8082,13 @@ a.tag:hover
 
 .infobox > div > div > span:not(.icon-nav)
 {
-    font-size: 5rem;
+    font-size: 4rem;
+    line-height: 0;
 
+    width: 4rem;
+    height: 4rem;
     margin: 0;
+    padding: 0;
 }
 
 
@@ -8188,19 +8191,19 @@ a.tag:hover
 /** footer **/
 .infobox-primary > a
 {
-    color: var(--primary-text);
+    color: var(--primary-text-invert);
     background-color: var(--primary);
 }
 
 .infobox-secondary > a
 {
-    color: var(--secondary-text);
+    color: var(--secondary-text-invert);
     background-color: var(--secondary);
 }
 
 .infobox-tertiary > a
 {
-    color: var(--tertiary-text);
+    color: var(--tertiary-text-invert);
     background-color: var(--tertiary);
 }
 

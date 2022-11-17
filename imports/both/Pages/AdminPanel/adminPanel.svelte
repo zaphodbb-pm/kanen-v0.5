@@ -39,11 +39,14 @@
     const configs = pageConfig.widgets;
 
     import ReportBox from "../../../components/widgets/reportbox.svelte";
+    import InfoBox from "../../../components/widgets/infobox.svelte";
 
     /* set payloads for widgets */
     let payLoadReportbox1 = {value: 100, max: 128};
     let payLoadReportbox2 = {value: 26, max: 128};
 
+    let payLoadInfobox1 = {value: 212};
+    let payLoadInfobox2 = {value: 4321};
 
 </script>
 
@@ -77,16 +80,28 @@
     </section>
 
 
-    <section class="space-vert-large">
+    <section id="admin-info-box" class="space-vert-large">
         <h2>{pageText.infoTitle}</h2>
 
         <div class="level-start">
 
             <p>{pageText.info}</p>
 
-            <div>Box 1</div>
+            <div class="space-medium">
+                <InfoBox
+                        class=""
+                        text="{widgetText.infobox1}"
+                        config="{configs.infobox1}"
+                        payload="{payLoadInfobox1}" />
+            </div>
 
-            <div>Box 2</div>
+            <div class="space-medium">
+                <InfoBox
+                        class=""
+                        text="{widgetText.infobox2}"
+                        config="{configs.infobox2}"
+                        payload="{payLoadInfobox2}" />
+            </div>
 
         </div>
     </section>
