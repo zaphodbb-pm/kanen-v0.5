@@ -28,17 +28,37 @@ export const page = {
 
     page: {
         en: {
+            tabs: ["Text", "Config", "Payload"],
+
             reportsTitle:"Report Widget",
-            reports: "Report key performance",
+
+            reports: "These widgets can be used to report key performance states.<br><br>  " +
+                "Progress bar is optional and set by 'isProgress switch to true in config file.  " +
+                "Low and high thresholds can also be set to change colour between 'success', 'warning' or 'danger'.  " +
+                "Title and value prefix are set in the '*_text.js' file.<br><br>  " +
+                "Data values are set in the payload object.",
 
             infoTitle:"Information Widget",
-            info: "Information Widgets",
+            info: "These widgets can typically be used to display important numbers that need to be tracked.<br><br>  " +
+                "Colours can also be set to change colour between 'primary', 'secondary' or 'tertiary'.  " +
+                "An optional footer with text and url is also available." +
+                "Title, value thousands separator with prefix or suffix are set in the '*_text.js' file.<br><br>  " +
+                "Data values are set in the payload object.",
 
             gaugesTitle:"Gauge Widget",
-            gauges: "Gauge Widget",
+            gauges: "The gauge widgets are typically used to display useful single number values in relation to an overall range.<br><br>  " +
+                "The gauge can be structured as 'donut', 'ring' or 'meter'.  " +
+                "Colours can also be set to change colour between 'primary', 'secondary' or 'tertiary'.  " +
+                "A relative or absolute value can be displayed.  If the value is relative, then low and high threshold settings with use " +
+                "'success, 'warning' or 'danger' colours will override<br><br>." +
+                "Title and suffix are set in the '*_text.js' file.<br><br>  " +
+                "A single data value is set in the payload object.",
 
             chartsTitle:"Chart Widget",
-            charts: "Chart Widget"
+            charts: "The charts are typically used to display time series or data series that you want to compare .<br><br>  " +
+                "The charts can be structured as 'column', 'line', 'pie' or 'donut'. Columns and lines support multiple datasets.<br><br>." +
+                "Title and suffix are set in the '*_text.js' file.<br><br>  " +
+                "A single data value is set in the payload object."
         }
     },
 
@@ -53,7 +73,9 @@ export const page = {
             reportbox2: {
                 title: "Report Two",
                 srCaption: "Report Box Two Info",
-                progLabel: "progress",
+                progLabel: "progress title (optional)",
+                progSuffix: "",
+                valPrefix: "",
                 valSuffix: "€",
             },
 
@@ -71,97 +93,25 @@ export const page = {
                 srCaption: "Info Box Repair Cost",
                 prefix: "€",
                 separator: ".",
-                //suffix: "",
+                suffix: "",
                 footer: "Buy Deal Now",
                 url: "/admin-panel#admin-info-box",
-            }
+            },
+
+            gauge1: {
+                title: "Complete",
+                suffix: "%",
+            },
+
+            gauge2: {
+                title: "Temp",
+                suffix: "ºF",
+            },
+
+            gauge3: {
+                title: "Depth",
+                suffix: "µ",
+            },
         }
     }
-
-
-    /*
-    components: {
-        infobox: {
-            en: {
-                title: "Complex Box",
-                barText: "Progress",
-                prefix: "$",
-                suffix: "-sfx"
-            }
-        },
-
-        infobox2: {
-            en: {
-                title: "Simple Box",
-                barText: "",
-                prefix: "",
-                suffix: ""
-            }
-        },
-
-        expander1: {
-            en: {
-                icon: "iconPayload",
-                logo: "",
-                title: "Payload",
-                subTitle: ""
-            }
-        },
-
-        expander2: {
-            en: {
-                icon: "iconConfig",
-                logo: "",
-                title: "Config",
-                subTitle: "JSON object format"
-            }
-        },
-
-        progExample: {
-            en: {
-                labels: ["One", "Two", "Three"]
-            }
-        },
-
-        gaugeRing: {
-            en: {
-                title: "Gauge1",                  // main title for widget
-                description: "Circular Ring",     // more detail
-            }
-        },
-
-        gaugePie: {
-            en: {
-                title: "Gauge2",                // main title for widget
-                description: "Circular Pie",    // more detail
-            }
-        },
-
-        squarebox: {
-            en: {
-                suffix: "%",                    // value suffix
-                title: "Dog Walkers",           // slug line
-            }
-        },
-
-        bigInfobox: {
-            en: {
-                prefix: "$",
-                title: "Economics",             // slug line
-                suffix: "%",                    // value suffix
-                link: "http://www.apple.com",   // info link only (optional)
-                linkText: "More Info",          // info link text only (optional)
-            }
-        },
-
-        list: {
-            name: {en: "Name"}
-        },
-
-        form: {
-            name: {en: "Name"}
-        },
-    }
-
-     */
 };

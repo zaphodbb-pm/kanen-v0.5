@@ -30,7 +30,7 @@ export const pageConfig =  {
             isProgress: true,
             image: "/images/report-teddy-bear-music.jpg",
             alt: "Teddy bear",
-            //icon: "",
+            icon: "",
             lowThreshold: 20,
             highThreshold: 50,
         },
@@ -43,11 +43,31 @@ export const pageConfig =  {
         },
 
         infobox2: {
-            //icon: "",
+            icon: "",
             image: "/images/report-frog-luggage.jpg",
             alt: "Frog with luggage",
             type: "secondary"
-        }
+        },
+
+        gauge1: {
+            gauge: "donut",
+            type: "primary",
+            isRelative: true
+        },
+
+        gauge2: {
+            gauge: "ring",
+            type: "tertiary",
+            isRelative: false,
+            lowThreshold: 20,
+            highThreshold: 50
+        },
+
+        gauge3: {
+            gauge: "meter",
+            type: "secondary",
+            isRelative: false
+        },
 
     }
 };

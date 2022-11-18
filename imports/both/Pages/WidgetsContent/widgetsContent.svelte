@@ -34,16 +34,10 @@
 
     const pageHeader = i18n(header, "", $lang);
     const pageText = i18n(page, "page", $lang);
-
     const componentsText = i18n(page, "components", $lang);
 
-
-    console
-
-    //setContext("pageText", page);
-
-    import TabContent from '/imports/components/widgets/tabbedContent.svelte'
-    import Accordian from '/imports/components/widgets/accordian.svelte'
+    import TabContent from '../../../components/widgets/tabbedContent.svelte'
+    import Accordian from '../../../components/widgets/accordian.svelte'
 
 </script>
 

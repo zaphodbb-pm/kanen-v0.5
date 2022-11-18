@@ -3,7 +3,7 @@
      * Information box with optional image and optional progress bar.
      *
      * @module reportbox
-     * @memberOf Components:adminPanel
+     * @memberOf Components:widgets
      * @locus Client
      *
      * @param {Object} text - widget text strings
