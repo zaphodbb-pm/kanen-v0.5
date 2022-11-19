@@ -1,5 +1,5 @@
 /**
- * Configuration for ExportImport components (optional).
+ * Configuration for ExportImport Components (optional).
  *
  * @memberOf Pages:exportImport
  * @function exportImport_config

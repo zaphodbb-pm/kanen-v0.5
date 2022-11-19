@@ -22,7 +22,6 @@
         import {pageConfig} from './adminPanel_config';
 
         //** app support files
-        //import { setContext } from 'svelte';
         import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
@@ -31,16 +30,31 @@
 
     //* page body support **************************
     import {lang} from '/imports/client/systemStores';
-    import {i18n} from '/imports/functions/utilities/i18n';
+    import {i18n} from '/imports/Functions/utilities/i18n';
 
     const pageHeader = i18n(header, "", $lang);
     const pageText = i18n(page, "page", $lang);
     const widgetText = i18n(page, "widgets", $lang);
     const configs = pageConfig.widgets;
 
-    import ReportBox from "../../../components/widgets/reportbox.svelte";
-    import InfoBox from "../../../components/widgets/infobox.svelte";
-    import Gauge from "../../../components/widgets/gauge.svelte";
+    import ReportBox from "../../../Components/widgets/reportbox.svelte";
+    import InfoBox from "../../../Components/widgets/infobox.svelte";
+    import Gauge from "../../../Components/widgets/gauge.svelte";
+    import Charts from "../../../Components/widgets/charts.svelte";
+
+
+    /* support function */
+    function arrayToString(key, val){           // keeps code display of array elements on one line
+        if (Array.isArray(val)) {
+            if( Array.isArray(val[0]) ){
+                return val.map( v => `[ ${v.join(", ")} ]`);
+            }else{
+                return JSON.stringify(val);
+            }
+        }
+        return val;
+    }
+
 
     /* set payloads for widgets */
     let payLoadReportbox1 = {value: 100, max: 128};
@@ -52,6 +66,31 @@
     let payLoadGauge1 = {value: 64, max: 128};
     let payLoadGauge2 = {value: 103, max: 212};
     let payLoadGauge3 = {value: 333, max: 999};
+
+    let payLoadCharts1 = {
+        value: [ [3, 4, 5, 6, 7] ],
+        max: 10
+    };
+
+    let payLoadCharts2 = {
+        value: [ [7, 6, 5, 4, 3] ],
+        max: 10
+    };
+
+    let payLoadCharts3 = {
+        value: [ [18, 22, 26, 25.5, 28.5] ],
+        max: 40
+    };
+
+    let payLoadCharts4 = {
+        value: [
+            [3, 4, 5, 6.5, 7.5],
+            [4, 5, 6, 7, 6],
+            [5, 6, 7, 6, 8],
+            [6, 7, 8, 6, 7]
+        ],
+        max: 10
+    }
 
 </script>
 
@@ -256,92 +295,98 @@
 
                 <div class="row has-1x-minwidth">
                     <div class="column is-span-3">
-                        charts column
+                        <Charts class="has-height-15rem" text="{widgetText.charts1}" config="{configs.charts1}" payload="{payLoadCharts1}" />
                     </div>
 
                     <div class="column is-span-2">
                         <details class="accordion is-expander-secondary">
                             <summary><span>{pageText.tabs[0]}</span></summary>
-                            <div><pre><code>{JSON.stringify(widgetText.infobox1, null, 2)}</code></pre></div>
+                            <div><pre><code>{JSON.stringify(widgetText.charts1, null, 2)}</code></pre></div>
                         </details>
 
                         <details class="accordion is-expander-tertiary">
                             <summary><span>{pageText.tabs[1]}</span></summary>
-                            <div><pre><code>{JSON.stringify(configs.infobox1, null, 2)}</code></pre></div>
+                            <div><pre><code>{JSON.stringify(configs.charts1, null, 2)}</code></pre></div>
                         </details>
 
                         <details class="accordion is-expander-primary">
                             <summary><span>{pageText.tabs[2]}</span></summary>
-                            <div><pre><code>{JSON.stringify(payLoadInfobox1, null, 2)}</code></pre></div>
+                            <div><pre><code>{JSON.stringify(payLoadCharts1, arrayToString, 2)}</code></pre></div>
                         </details>
                     </div>
                 </div>
 
+                <div class="space-component-medium"></div>
+
                 <div class="row has-1x-minwidth">
                     <div class="column is-span-3">
-                        charts donut
+                        <Charts class="has-height-15rem" text="{widgetText.charts2}" config="{configs.charts2}" payload="{payLoadCharts2}" />
                     </div>
 
                     <div class="column is-span-2">
                         <details class="accordion is-expander-secondary">
                             <summary><span>{pageText.tabs[0]}</span></summary>
-                            <div><pre><code>{JSON.stringify(widgetText.infobox1, null, 2)}</code></pre></div>
+                            <div><pre><code>{JSON.stringify(widgetText.charts2, null, 2)}</code></pre></div>
                         </details>
 
                         <details class="accordion is-expander-tertiary">
                             <summary><span>{pageText.tabs[1]}</span></summary>
-                            <div><pre><code>{JSON.stringify(configs.infobox1, null, 2)}</code></pre></div>
+                            <div><pre><code>{JSON.stringify(configs.charts2, null, 2)}</code></pre></div>
                         </details>
 
                         <details class="accordion is-expander-primary">
                             <summary><span>{pageText.tabs[2]}</span></summary>
-                            <div><pre><code>{JSON.stringify(payLoadInfobox1, null, 2)}</code></pre></div>
+                            <div><pre><code>{JSON.stringify(payLoadCharts2, arrayToString, 2)}</code></pre></div>
                         </details>
                     </div>
                 </div>
 
+                <div class="space-component-medium"></div>
+
                 <div class="row has-1x-minwidth">
                     <div class="column is-span-3">
-                        charts line
+                        <Charts class="has-height-20rem" text="{widgetText.charts3}" config="{configs.charts3}" payload="{payLoadCharts3}" />
                     </div>
 
                     <div class="column is-span-2">
                         <details class="accordion is-expander-secondary">
                             <summary><span>{pageText.tabs[0]}</span></summary>
-                            <div><pre><code>{JSON.stringify(widgetText.infobox1, null, 2)}</code></pre></div>
+                            <div><pre><code>{JSON.stringify(widgetText.charts3, null, 2)}</code></pre></div>
                         </details>
 
                         <details class="accordion is-expander-tertiary">
                             <summary><span>{pageText.tabs[1]}</span></summary>
-                            <div><pre><code>{JSON.stringify(configs.infobox1, null, 2)}</code></pre></div>
+                            <div><pre><code>{JSON.stringify(configs.charts3, null, 2)}</code></pre></div>
                         </details>
 
                         <details class="accordion is-expander-primary">
                             <summary><span>{pageText.tabs[2]}</span></summary>
-                            <div><pre><code>{JSON.stringify(payLoadInfobox1, null, 2)}</code></pre></div>
+                            <div><pre><code>{JSON.stringify(payLoadCharts3, arrayToString, 2)}</code></pre></div>
                         </details>
                     </div>
                 </div>
 
+                <div class="space-component-medium"></div>
+
                 <div class="row has-1x-minwidth">
                     <div class="column is-span-3">
-                        charts multiple lines
+                        <Charts class="has-height-30rem" text="{widgetText.charts4}" config="{configs.charts4}" payload="{payLoadCharts4}" />
                     </div>
 
                     <div class="column is-span-2">
                         <details class="accordion is-expander-secondary">
                             <summary><span>{pageText.tabs[0]}</span></summary>
-                            <div><pre><code>{JSON.stringify(widgetText.infobox1, null, 2)}</code></pre></div>
+                            <div><pre><code>{JSON.stringify(widgetText.charts4, null, 2)}</code></pre></div>
                         </details>
 
                         <details class="accordion is-expander-tertiary">
                             <summary><span>{pageText.tabs[1]}</span></summary>
-                            <div><pre><code>{JSON.stringify(configs.infobox1, null, 2)}</code></pre></div>
+                            <div><pre><code>{JSON.stringify(configs.charts4, null, 2)}</code></pre></div>
                         </details>
 
                         <details class="accordion is-expander-primary">
                             <summary><span>{pageText.tabs[2]}</span></summary>
-                            <div><pre><code>{JSON.stringify(payLoadInfobox1, null, 2)}</code></pre></div>
+                            <div><pre><code>{JSON.stringify(payLoadCharts4, arrayToString, 2)}</code></pre></div>
                         </details>
                     </div>
                 </div>

@@ -13,7 +13,7 @@
 export const header = {
     en: {
         title:  "Software Documentation",
-        lead:   "List of all software pages, routines and components.",
+        lead:   "List of all software pages, routines and Components.",
         body:   null //"",
     }
 };
@@ -45,7 +45,7 @@ export const page = {
                 notSupported: "Documentation is not supported for this environment.",
 
                 setup: "<p>We use automated JSDoc generation for Meteor projects in the form of the standard " +
-                    "<a href='http://usejsdoc.org/'>jsdoc</a>.  Vue components are handled by the add-on " +
+                    "<a href='http://usejsdoc.org/'>jsdoc</a>.  Vue Components are handled by the add-on " +
                     "<a href='https://github.com/Kocal/jsdoc-vuejs'>jsdoc-vuejs</a>.  " +
                     "See the link for set up and running the program over your code files.  " +
                     "From the parent to your code directory, run jsdoc as: " +

@@ -1,5 +1,5 @@
 /**
- * Configuration for LogsSystem page components.
+ * Configuration for LogsSystem page Components.
  *
  * @memberOf Pages:logsSystem
  * @function logsSystem_config

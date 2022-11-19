@@ -27,14 +27,14 @@
 
 
     //* page body support **************************
-    import {i18n} from "../../../functions/utilities/i18n.js";
+    import {i18n} from "../../../Functions/utilities/i18n.js";
     import {lang} from "../../../client/systemStores.mjs";
 
     const pageHeader = i18n(header, "", $lang);
     const pageText = i18n(page, "page", $lang);
     const tabbed = i18n(page.components, "tabbed", $lang);
 
-    import TabContent from "../../../components/widgets/tabbedContent.svelte"
+    import TabContent from "../../../Components/widgets/tabbedContent.svelte"
 
 </script>
 

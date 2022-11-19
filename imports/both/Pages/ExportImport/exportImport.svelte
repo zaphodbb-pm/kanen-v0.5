@@ -29,19 +29,19 @@
 
 
     //* page-body support **************************
-    import {i18n} from '/imports/functions/utilities/i18n';
+    import {i18n} from '/imports/Functions/utilities/i18n';
     import {lang} from '/imports/client/systemStores';
-    import {parseJSONString} from '/imports/functions/formatters/parseJSONString';
-    import {fileName} from '/imports/functions/fileHandlers/fileName';
-    import {fileSaver} from '/imports/functions/fileHandlers/fileSaver';
-    import {methodReturn} from '/imports/functions/utilities/methodReturn';
+    import {parseJSONString} from '/imports/Functions/formatters/parseJSONString';
+    import {fileName} from '/imports/Functions/fileHandlers/fileName';
+    import {fileSaver} from '/imports/Functions/fileHandlers/fileSaver';
+    import {methodReturn} from '/imports/Functions/utilities/methodReturn';
 
     const pageHeader = i18n(header, "", $lang);
     let text = i18n(page, "components", $lang).card;
     let formText = i18n(page, "form", $lang);
     setContext("formText", formText);
 
-    import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte';
+    import Field_Wrapper from '/imports/Components/formBuilder/fieldWrapper.svelte';
 
     //* local reactive variables
     let messages = [];

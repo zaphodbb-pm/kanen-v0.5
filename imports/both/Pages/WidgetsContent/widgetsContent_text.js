@@ -25,10 +25,10 @@ export const page = {
             headingTabs: "Standard Tabs",
             headingAccordions: "Standard Accordions",
 
-            bodyTabs: "See <a href='https://zaphodbb-pm.github.io/goldilocks-css/pages/extend-components/tabs.html' target='_blank'> " +
+            bodyTabs: "See <a href='https://zaphodbb-pm.github.io/goldilocks-css/pages/extend-Components/tabs.html' target='_blank'> " +
                 "tabs configuration and control</a> for more details.",
 
-            bodyAccordions: "See <a href='https://zaphodbb-pm.github.io/goldilocks-css/pages/extend-components/accordions.html' target='_blank'> " +
+            bodyAccordions: "See <a href='https://zaphodbb-pm.github.io/goldilocks-css/pages/extend-Components/accordions.html' target='_blank'> " +
                 "accordion configuration and control</a> for more details.",
         }
     },

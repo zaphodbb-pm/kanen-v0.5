@@ -31,14 +31,14 @@
 
 
     //* page body support **************************
-    import {i18n} from "../../../functions/utilities/i18n.js";
+    import {i18n} from "../../../Functions/utilities/i18n.js";
     import {lang} from "../../../client/systemStores.mjs";
 
     const pageHeader = i18n(header, "", $lang);
     const pageHeadings = i18n(page, "headings", $lang);
     const componentText = i18n(page, "components", $lang);
 
-    import Card from '../../../../imports/components/blocks/card.svelte';
+    import Card from '../../../Components/blocks/card.svelte';
 
     //* respond to component events
     function cardEvent(event){

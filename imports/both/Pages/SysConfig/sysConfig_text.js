@@ -115,10 +115,10 @@ export const page = {
                 label:      "Debug Level",
                 helpText: 'The debug level determines what messages will be sent to the console.<br/>  ' +
                     '"o" = onMount or onDestroy sections.<br/>  ' +
-                    '"c" = components.<br/> ' +
+                    '"c" = Components.<br/> ' +
                     '"e" = event handlers.<br/> ' +
-                    '"f" = functions.<br/>  ' +
-                    '"m" = collection methods.<br/>  ' +
+                    '"f" = Functions.<br/>  ' +
+                    '"m" = collection Methods.<br/>  ' +
                     '"p" = page messages.<br/> ' +
                     '"r" = reactive variable settings.<br/> ' +
                     '"s" = system messages.<br/>  ' +

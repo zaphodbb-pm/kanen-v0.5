@@ -31,11 +31,11 @@
 
 
     //* page-body support **************************
-    import {i18n} from '/imports/functions/utilities/i18n';
+    import {i18n} from '/imports/Functions/utilities/i18n';
     import {lang} from '/imports/client/systemStores';
 
-    import DeleteRecords from '../../../../imports/components/elements/getRelativeDates.svelte';
-    import List_Holder from '../../../../imports/components/listCollections/listHolder.svelte';
+    import DeleteRecords from '../../../Components/elements/getRelativeDates.svelte';
+    import List_Holder from '../../../Components/listCollections/listHolder.svelte';
     import listArray from './logsUsers_list';
 
     const pageHeader = i18n(header, "", $lang);

@@ -58,7 +58,7 @@
  *              },
  *              tab: 1,                             Number: (optional) displays field in selected form tab set by formTabFields
  *              attributes: {},                     Object: adds attributes to html tags such as 'input'
- *              params: {                           Object: (optional) extra config for complex components
+ *              params: {                           Object: (optional) extra config for complex Components
  *                  type: "dynamicSelect",
  *                  coll: "starter",
  *                  filter: {fields: {name: 1}},

@@ -52,7 +52,7 @@ export const page = {
 
             formTabs: ["Basic", "Complex", "Advanced", "Modules"],
 
-            //** special form components outside of input form
+            //** special form Components outside of input form
             gridMode: {
                 label: "",
                 helpText: "Show list items in a grid instead of a table.",

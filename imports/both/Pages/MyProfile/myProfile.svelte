@@ -30,10 +30,10 @@
 
 
     //* page-body support **************************
-    import {i18n} from '/imports/functions/utilities/i18n';
+    import {i18n} from '/imports/Functions/utilities/i18n';
     import {lang} from '/imports/client/systemStores';
 
-    import Form_Holder from '/imports/components/formBuilder/formHolder.svelte'
+    import Form_Holder from '/imports/Components/formBuilder/formHolder.svelte'
     import schema from './myProfile_form_schema'
 
     let formText = i18n(page, "form", $lang);

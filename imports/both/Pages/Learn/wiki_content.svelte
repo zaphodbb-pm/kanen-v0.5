@@ -24,9 +24,9 @@
     //* support files
     import { createEventDispatcher } from 'svelte';
     const dispatch = createEventDispatcher();
-    import {getDocs} from '/imports/functions/supportApplication/getDocs'
-    import {timeAgo} from '/imports/functions/formatters/timeAgo'
-    import {numString} from '/imports/functions/formatters/numString'
+    import {getDocs} from '/imports/Functions/supportApplication/getDocs'
+    import {timeAgo} from '/imports/Functions/formatters/timeAgo'
+    import {numString} from '/imports/Functions/formatters/numString'
 
     //* local reactive variables
     let wordPerMin = 225;

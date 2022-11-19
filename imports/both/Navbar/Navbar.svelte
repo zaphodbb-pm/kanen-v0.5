@@ -17,11 +17,11 @@
     const dispatch = createEventDispatcher();
 
     //* get the user language preference from store
-    import {i18n} from '/imports/functions/utilities/i18n'
+    import {i18n} from '/imports/Functions/utilities/i18n'
     import {lang} from '/imports/client/systemStores'
 
 
-    //* get page text information and set contexts for children components
+    //* get page text information and set contexts for children Components
     import {navbar, gdpr, pwa} from './Navbar_text'
     let navText = i18n(navbar, "", $lang);
     let gdprNotice = i18n(gdpr, "", $lang);
@@ -31,17 +31,17 @@
     //setContext("gdprNotice", i18n(gdpr, "", $lang) );
     setContext("pwaText", i18n(pwa, "", $lang) );
 
-    //* components
+    //* Components
     import NavShortcuts from "./NavCondensedMenu.svelte";
     import SlideNavMenu from "./SlideNavMenu.svelte";
 
-    //import Messages from '/imports/components/general/messages/messages.svelte'
-    //import GDPR from '/imports/components/general/gdprNotice.svelte'
+    //import Messages from '/imports/Components/general/messages/messages.svelte'
+    //import GDPR from '/imports/Components/general/gdprNotice.svelte'
     //import PWA from '/imports/both/AddToHomescreen/PWA-requester.svelte'
 
-    import Notifications from '/imports/components/elements/notifications.svelte'
-    import UserProfile from '/imports/components/elements/userProfile.svelte'
-    //import UserCredit from '/imports/components/elements/userCredit.svelte'
+    import Notifications from '/imports/Components/elements/notifications.svelte'
+    import UserProfile from '/imports/Components/elements/userProfile.svelte'
+    //import UserCredit from '/imports/Components/elements/userCredit.svelte'
 
     //** simple nav configuration options for aside navs
     let theme = "light";        // "light" or "dark" background

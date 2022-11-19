@@ -29,7 +29,7 @@
 
 
     //* page body support **************************
-    import {i18n} from "../../../functions/utilities/i18n.js";
+    import {i18n} from "../../../Functions/utilities/i18n.js";
     import {lang} from "../../../client/systemStores.mjs";
 
     let pageText = i18n(page, "page", $lang);
@@ -37,18 +37,18 @@
     const pageHeader = i18n(header, "", $lang);
 
     setContext("pageText", page);
-    //import TabContent from "../../../components/widgets/tabbedContent.svelte";
+    //import TabContent from "../../../Components/widgets/tabbedContent.svelte";
 
 
 
 
 
     //* page-body support **************************
-    import {deepClone} from '/imports/functions/utilities/deepClone'
+    import {deepClone} from '/imports/Functions/utilities/deepClone'
     import schema from './users_form_schema'
     import listArray from './users_list'
 
-    import List_Form from '/imports/components/listForm/listForm.svelte'
+    import List_Form from '/imports/Components/listForm/listForm.svelte'
 
 
     let formText = i18n(page, "form", $lang);

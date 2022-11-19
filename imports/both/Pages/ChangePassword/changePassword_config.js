@@ -1,5 +1,5 @@
 /**
- * Configuration for ChangePassword components (optional).
+ * Configuration for ChangePassword Components (optional).
  *
  * @memberOf Pages:changePassword
  * @function changePassword_config

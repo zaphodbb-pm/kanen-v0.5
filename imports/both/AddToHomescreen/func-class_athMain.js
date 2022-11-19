@@ -25,7 +25,7 @@ export class athMainClass{
         this.session = session;
     }
 
-    //* methods
+    //* Methods
     doLog( logStr ) {
         if ( this.options.logging ) {
             console.log( logStr );

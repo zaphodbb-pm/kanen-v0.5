@@ -26,21 +26,21 @@ import Version from '/imports/both/version'
 
 
 //** load method modules
-import '/imports/server/methods/system';
-import '/imports/server/methods/storeDoc';
-import '/imports/server/methods/readDocs';
-import '/imports/server/methods/exportImport';
-import '/imports/server/methods/userMgmt';
-import '/imports/server/methods/documentation'
-import '/imports/server/methods/pubSubFixtures'
+import '/imports/server/Methods/system';
+import '/imports/server/Methods/storeDoc';
+import '/imports/server/Methods/readDocs';
+import '/imports/server/Methods/exportImport';
+import '/imports/server/Methods/userMgmt';
+import '/imports/server/Methods/documentation'
+import '/imports/server/Methods/pubSubFixtures'
 
-//** special publish collections
-import '/imports/server/publish/realTime'
+//** special Publish collections
+import '/imports/server/Publish/realTime'
 
 
 
 //** main configuration set up
-import {writeLog} from '/imports/server/functions/writeLog'
+import {writeLog} from '/imports/server/Functions/writeLog'
 
 //** debug routines
 import '/imports/both/AddOn_Packages/showServerConsole'

@@ -41,7 +41,7 @@ describe("Check Setup Files", function () {
 
 
 
-//* add support functions
+//* add support Functions
 import {getTestFiles} from "../functions/getTestFiles.mjs";
 
 

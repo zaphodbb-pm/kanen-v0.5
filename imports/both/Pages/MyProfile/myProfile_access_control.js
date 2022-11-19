@@ -16,7 +16,7 @@
 import schema from './myProfile_form_schema';
 import {roles} from'./myProfile_nav'
 
-import {buildAllFields} from '../../../functions/supportApplication/buildAllFields'
+import {buildAllFields} from '../../../Functions/supportApplication/buildAllFields'
 import {fieldAddons} from '../../../server/fieldAddons'
 
 export default {

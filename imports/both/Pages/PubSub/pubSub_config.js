@@ -1,5 +1,5 @@
 /**
- * Configuration for PubSub components (optional).
+ * Configuration for PubSub Components (optional).
  *
  * @memberOf Pages:pubSub
  * @function pubSub_config

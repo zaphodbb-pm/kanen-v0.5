@@ -12,8 +12,8 @@
  */
 
 
-import {getLang} from '../../../functions/supportApplication/getLang';
-import {i18n} from '../../../functions/utilities/i18n';
+import {getLang} from '../../../Functions/supportApplication/getLang';
+import {i18n} from '../../../Functions/utilities/i18n';
 import {nav, link, icon, roles} from './pubSub_nav';
 import Page from './pubSub_loader.svelte';
 

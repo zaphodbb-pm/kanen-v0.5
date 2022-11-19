@@ -28,11 +28,11 @@
 
 
     //* page-body support **************************
-    import {i18n} from '/imports/functions/utilities/i18n'
+    import {i18n} from '/imports/Functions/utilities/i18n'
     import {lang, userExtras} from '/imports/client/systemStores'
     import {roles} from './changePassword_nav'
 
-    import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte'
+    import Field_Wrapper from '/imports/Components/formBuilder/fieldWrapper.svelte'
 
 
     //* local reactive variables

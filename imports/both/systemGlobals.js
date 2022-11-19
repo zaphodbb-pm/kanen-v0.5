@@ -1,6 +1,6 @@
 /**
  * Client side constants to set up the environment.
- * This file provides a single entry point to provide consistency across all pages, components and elements.
+ * This file provides a single entry point to provide consistency across all pages, Components and elements.
  *
  * @name systemGlobals
  * @memberOf Setup:Client

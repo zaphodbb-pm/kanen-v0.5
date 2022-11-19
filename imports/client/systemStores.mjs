@@ -6,7 +6,7 @@
  * @locus Client
  *
  * @exports {Object} sysConfig - server derived: get certain system parameters for client side configuration
- * @exports {Boolean} showWidget - sysConfig derived: show extra components for dev, debug work
+ * @exports {Boolean} showWidget - sysConfig derived: show extra Components for dev, debug work
  * @exports {String} sysDebug - sysConfig derived: string list of items that will log messages to the console
  *
  * @exports {String} lang - browser derived: user language preference as a two letter code
@@ -31,7 +31,7 @@ export let showWidget = writable( false );
 export let sysDebug = writable( "" );
 
 //* set language preference
-import {getLang} from '../functions/supportApplication/getLang.js'
+import {getLang} from '../Functions/supportApplication/getLang.js'
 export let lang = writable( getLang("en") );
 
 //* set user stores

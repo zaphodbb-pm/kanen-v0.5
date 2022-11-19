@@ -1,5 +1,5 @@
 /**
- * @summary Configuration for AdminPanel components.
+ * @summary Configuration for AdminPanel Components.
  *
  * @memberOf Pages:adminPanel
  * @function adminPanel_text
@@ -69,5 +69,28 @@ export const pageConfig =  {
             isRelative: false
         },
 
+        charts1: {
+            type: "column",
+            modifiers: "show-caption show-labels show-values show-grid",
+            showLegend: false
+        },
+
+        charts2: {
+            type: "donut",
+            modifiers: "has-buffer show-caption",
+            showLegend: true
+        },
+
+        charts3: {
+            type: "line",
+            modifiers: "show-caption show-labels show-values show-grid",
+            showLegend: false
+        },
+
+        charts4: {
+            type: "line",
+            modifiers: "multiple show-caption show-labels show-grid",
+            showLegend: true
+        }
     }
 };

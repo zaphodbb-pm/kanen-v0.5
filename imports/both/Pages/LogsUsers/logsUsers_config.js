@@ -1,5 +1,5 @@
 /**
- * Configuration for LogsUsers page components.
+ * Configuration for LogsUsers page Components.
  *
  * @memberOf Pages:logsUsers
  * @function logsUsers_config

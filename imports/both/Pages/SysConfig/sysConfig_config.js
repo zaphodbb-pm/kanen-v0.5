@@ -1,5 +1,5 @@
 /**
- * Configuration for SysConfig page components.
+ * Configuration for SysConfig page Components.
  *
  * @memberOf Pages:sysConfig
  * @function sysConfig_page_config

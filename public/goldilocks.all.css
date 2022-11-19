@@ -277,7 +277,7 @@ use https://www.colorhexa.com/ or https://paletton.com/ to build complimentary c
     --danger-text-invert: hsl( 348, 100%, 100%);
     --grey-light: hsl(0, 0%, 75%);
     --grey-lighter: hsl(0, 0%, 85%);
-    /** invert colours for elements and components **/
+    /** invert colours for elements and Components **/
     --border-main: var(--grey);
     --border-main-darker: var(--grey-light);
     --bg-main: var(--black);
@@ -491,7 +491,7 @@ pre
     padding: 0;
 
     border-left: var(--pad-vert) solid var(--tertiary);
-    background-color: var(--white-ter);
+    background-color: var(--white-bis);
 }
 
 code
@@ -518,7 +518,7 @@ pre > code
     overflow-x: scroll;
 
     max-width: 100%;
-    padding: 0 0 0 1em;
+    padding: 0 1em;
 
     white-space: pre;
 
@@ -3139,6 +3139,11 @@ details.accordion[open] summary
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
 
+    filter: invert(2%);
+}
+
+.accordions details.accordion[open] summary
+{
     filter: invert(5%);
 }
 
@@ -9992,7 +9997,7 @@ progress:indeterminate::-ms-fill
     background-color: var(--grey-light);
 }
 
-/* fixed heights for elements / components */
+/* fixed heights for elements / Components */
 .has-height-5rem
 {
     height: 5rem;

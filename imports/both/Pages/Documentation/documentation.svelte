@@ -29,14 +29,14 @@
 
 
     //* page-body support **************************
-    import {i18n} from '/imports/functions/utilities/i18n';
+    import {i18n} from '/imports/Functions/utilities/i18n';
     import {lang} from '/imports/client/systemStores';
 
     const pageHeader = i18n(header, "", $lang);
     setContext("pageText", page);
 
-    import Accordian from '/imports/components/widgets/accordian.svelte';
-    import Paged from '/imports/components/widgets/pagedContent.svelte';
+    import Accordian from '/imports/Components/widgets/accordian.svelte';
+    import Paged from '/imports/Components/widgets/pagedContent.svelte';
 
     let result = [];
     let content = [];

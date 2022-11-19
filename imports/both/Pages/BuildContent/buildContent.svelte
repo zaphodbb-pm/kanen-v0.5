@@ -31,10 +31,10 @@
     import schema from './buildContent_form_schema';
     import listArray from './buildContent_list';
 
-    import Form_Holder from '/imports/components/formBuilder/formHolder.svelte'
-    import List_Holder from '/imports/components/listCollections/listHolder.svelte'
+    import Form_Holder from '/imports/Components/formBuilder/formHolder.svelte'
+    import List_Holder from '/imports/Components/listCollections/listHolder.svelte'
 
-    import {i18n} from '/imports/functions/utilities/i18n';
+    import {i18n} from '/imports/Functions/utilities/i18n';
     import {lang} from '/imports/client/systemStores';
 
     const pageHeader = i18n(header, "", $lang);
@@ -62,7 +62,7 @@
     });
 
 
-    //* functions that mutate reactive variables
+    //* Functions that mutate reactive variables
     function checkOverlay() {
         showList = !!conf.list.hasOverlay || !conf.form.hasOverlay;
         showForm = !conf.form.hasOverlay;

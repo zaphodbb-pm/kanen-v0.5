@@ -1,5 +1,5 @@
 /**
- * Configuration for MyProfile components (optional).
+ * Configuration for MyProfile Components (optional).
  *
  * @memberOf Pages:myProfile
  * @function myProfile_config

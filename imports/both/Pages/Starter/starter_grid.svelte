@@ -26,14 +26,14 @@
     // get the user language preference from store
     import {lang} from '/imports/client/systemStores'
 
-    //* support functions
+    //* support Functions
     import {onMount, onDestroy, getContext} from 'svelte'
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 
-    import {i18n} from '/imports/functions/utilities/i18n'
-    import {dotNotation} from '/imports/functions/utilities/dotNotation'
-    import {timeAgo} from '/imports/functions/formatters/timeAgo'
+    import {i18n} from '/imports/Functions/utilities/i18n'
+    import {dotNotation} from '/imports/Functions/utilities/dotNotation'
+    import {timeAgo} from '/imports/Functions/formatters/timeAgo'
 
 
     //* local reactive variables

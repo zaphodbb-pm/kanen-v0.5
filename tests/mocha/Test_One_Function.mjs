@@ -23,10 +23,10 @@
 //* assumes testPlan file (in 'tests' folder) has same name as function file name
 
 const directory = "/imports/both/Pages/Template";
-const dirFragment = "/functions";
+const dirFragment = "/Functions";
 const functionUnderTest = "injectText";
 
-//* get standard support functions
+//* get standard support Functions
 import {testAssertions} from "../functions/testAssertions.mjs";
 import { createRequire } from 'module'
 const require = createRequire(import.meta.url);

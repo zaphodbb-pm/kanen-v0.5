@@ -15,7 +15,7 @@
 import list from './logsUsers_list'
 import {roles} from'./logsUsers_nav'
 
-import {buildAllFields} from '../../../functions/supportApplication/buildAllFields'
+import {buildAllFields} from '../../../Functions/supportApplication/buildAllFields'
 
 export default {
     logsUsers: {

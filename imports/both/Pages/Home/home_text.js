@@ -64,7 +64,7 @@ export const page = {
                 body: [
                     [
                     "Minimal Meteor add-on packages to reduce bundle size.",
-                    "Uses Meteor methods for database read / store for greater speed.",
+                    "Uses Meteor Methods for database read / store for greater speed.",
                     "Leverages MongoDb Change Streams for real time tracking.",
                     "Set up to be a Progressive Web App"
                         ],
@@ -78,7 +78,7 @@ export const page = {
                         ],
 
                     [
-                    "Includes a variety of widgets / components for content display or dashboard indicators.",
+                    "Includes a variety of widgets / Components for content display or dashboard indicators.",
                     "Includes a mini-wiki to provide user learning resources.",
                     "Built-in form builder with 16 configurable field types. Supports tabbed sections and horizontal grouped fields.",
                     "Built-in document lister with filter plugins and compound search. Supports table or grid layouts."
@@ -142,7 +142,7 @@ export const page = {
                     text: [
                         "<a href='/cards'>Cards</a> - basic examples of card component.",
 
-                        "<a href='/content-widgets'>Content Widgets</a> - example of tabbed and accordion components.",
+                        "<a href='/content-widgets'>Content Widgets</a> - example of tabbed and accordion Components.",
 
                         "<a href='/admin-panel'>AdminPanel</a> - a variety of dashboard like display widgets.",
 

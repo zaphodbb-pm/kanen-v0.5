@@ -30,12 +30,12 @@
 
 
     //* page-body support **************************
-    import {i18n} from '/imports/functions/utilities/i18n';
+    import {i18n} from '/imports/Functions/utilities/i18n';
     import {lang} from '/imports/client/systemStores';
 
-    import Form_Holder from '../../../../imports/components/formBuilder/formHolder.svelte'
+    import Form_Holder from '../../../Components/formBuilder/formHolder.svelte'
     import schema from './sysConfig_form_schema'
-    import List_Holder from '../../../../imports/components/listCollections/listHolder.svelte'
+    import List_Holder from '../../../Components/listCollections/listHolder.svelte'
     import listArray from './sysConfig_list'
 
     const pageHeader = i18n(header, "", $lang);
@@ -63,7 +63,7 @@
     });
 
 
-    //* functions that mutate reactive variables
+    //* Functions that mutate reactive variables
     function checkOverlay() {
         showList = !!conf.list.hasOverlay || !conf.form.hasOverlay;
         showForm = !conf.form.hasOverlay;

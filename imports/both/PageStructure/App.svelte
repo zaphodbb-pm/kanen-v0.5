@@ -13,8 +13,8 @@
      *      2. context: "commonText" - system wide text strings
      *      3. systemGlobals: "documents" - mongodb doc options / limits
      *
-     *      4. system stores: "$userLoggedIn" - holds Meteor.user() object for children components
-     *      5. system stores: "$userExtras" - holds some extra fields like 'roles'  for children components
+     *      4. system stores: "$userLoggedIn" - holds Meteor.user() object for children Components
+     *      5. system stores: "$userExtras" - holds some extra fields like 'roles'  for children Components
      *      6. system stores: "$showRoutes" - filtered list of routes based on user role
      *
      */
@@ -34,7 +34,7 @@
 
 
     //* set up user extra items
-    import {buildNavLinks} from '/imports/functions/supportApplication/buildNavLinks';
+    import {buildNavLinks} from '/imports/Functions/supportApplication/buildNavLinks';
     import {userPosition, userLoggedIn, userExtras} from '/imports/client/systemStores';
 
 
@@ -75,7 +75,7 @@
     }
 
 
-    //* load the path router -> will render main page & components based on nav-link selection
+    //* load the path router -> will render main page & Components based on nav-link selection
     import { path, query, pattern, click, state } from 'svelte-pathfinder';
 
     //** local reactive variables
@@ -96,7 +96,7 @@
     }
 
 
-    //* build out static components
+    //* build out static Components
     import Navbar from '../Navbar/Navbar.svelte';
     import SideNav from '../Navbar/NavSideMenu.svelte';
     import Footer from './Footer.svelte';

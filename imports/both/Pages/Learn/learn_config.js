@@ -1,5 +1,5 @@
 /**
- * Configuration for Learn components (optional).
+ * Configuration for Learn Components (optional).
  *
  * @memberOf Pages:learn
  * @function learn_config

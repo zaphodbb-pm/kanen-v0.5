@@ -30,13 +30,13 @@
 
 
     //* page-body support **************************
-    import {i18n} from '/imports/functions/utilities/i18n';
+    import {i18n} from '/imports/Functions/utilities/i18n';
     import {lang} from '/imports/client/systemStores';
     import {goto} from  'svelte-pathfinder';
     import {userLoggedIn, userExtras} from '/imports/client/systemStores';
 
     //import {lastRoute} from '/imports/client/systemStores'
-    import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte'
+    import Field_Wrapper from '/imports/Components/formBuilder/fieldWrapper.svelte'
     import Auth_Service from './authService.svelte'
 
     //* local static variables

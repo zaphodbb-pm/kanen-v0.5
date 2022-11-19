@@ -1,5 +1,5 @@
 /**
- * Configuration for BuildContent page components.
+ * Configuration for BuildContent page Components.
  *
  * @memberOf Pages:buildContent
  * @function buildContent_page_config

@@ -1,11 +1,11 @@
 /**
- * Configuration for Icons components.
+ * Configuration for Icons Components.
  *
  * @memberOf Pages:icons
  * @function template_config
  * @locus Client
  *
- * @exports {Object} pageConfig - {components, widgets}
+ * @exports {Object} pageConfig - {Components, widgets}
  */
 
 export const pageConfig =  {

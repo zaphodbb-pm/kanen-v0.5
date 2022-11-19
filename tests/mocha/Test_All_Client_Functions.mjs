@@ -24,7 +24,7 @@ const dirFunctions = "/imports";
 const testFileExtension = ".test.mjs";
 
 
-//* get support functions
+//* get support Functions
 import assert from "assert";
 import {getTestFiles} from "../functions/getTestFiles.mjs";
 import {testAssertions} from "../functions/testAssertions.mjs";

@@ -14,7 +14,7 @@
  * @param {String} getAttribute.element - html tag name
  * @param {String} getAttribute.attribute - html element attribute name
  *
- * @export checkDOM - utility functions {getAttribute}
+ * @export checkDOM - utility Functions {getAttribute}
  */
 
 

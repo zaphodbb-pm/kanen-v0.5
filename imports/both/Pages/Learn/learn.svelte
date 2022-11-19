@@ -29,19 +29,19 @@
 
 
     //* page-body support **************************
-    import {i18n} from '/imports/functions/utilities/i18n'
+    import {i18n} from '/imports/Functions/utilities/i18n'
     import {lang} from '/imports/client/systemStores'
     import {messages} from '/imports/client/systemStores'
 
-    import {getDocs} from '/imports/functions/supportApplication/getDocs'
-    import {sortBy} from '/imports/functions/utilities/sortBy'
-    import {generateId} from '/imports/functions/utilities/generateId'
+    import {getDocs} from '/imports/Functions/supportApplication/getDocs'
+    import {sortBy} from '/imports/Functions/utilities/sortBy'
+    import {generateId} from '/imports/Functions/utilities/generateId'
 
     import Wiki_Toc from './wiki_toc.svelte'
     import Wiki_Content from './wiki_content.svelte'
-    import Search_Box from '/imports/components/listCollections/searchbox.svelte'
-    import Field_Wrapper from '/imports/components/formBuilder/fieldWrapper.svelte'
-    import Modal_User from '/imports/components/blocks/modalUser.svelte'
+    import Search_Box from '/imports/Components/listCollections/searchbox.svelte'
+    import Field_Wrapper from '/imports/Components/formBuilder/fieldWrapper.svelte'
+    import Modal_User from '/imports/Components/blocks/modalUser.svelte'
 
     let formText = i18n(page, "form", $lang);
     setContext("formText", formText);
@@ -135,7 +135,7 @@
         showModal = false;
     }
 
-    //* support functions
+    //* support Functions
     async function findDocs(query) {
         const sort = {sort: {name: 1}, limit: 100};
         let lang = langComp && (langComp === "all") ? {} : {"contentLang._id": {$in: [langComp, "all"]} };

@@ -20,7 +20,7 @@ const nodeV = process.version;
 console.log("node version", nodeV);
 
 
-//* add support functions
+//* add support Functions
 import {doTest} from "../../functions/doTest.mjs"
 import {getTestFiles} from "../../functions/getTestFiles.mjs";
 
@@ -37,8 +37,8 @@ describe("Check Setup Files", function () {
 //* get all test files in a directory, import and execute tests
 const testFileExtension = ".mjs";
 
-//** tests for components
-const dirComps = "/imports/components"
+//** tests for Components
+const dirComps = "/imports/Components"
 const testsComps = getTestFiles(dirComps, testFileExtension);
 
 console.log(`'${dirComps}' test files found = `, testsComps.length);
@@ -46,8 +46,8 @@ console.log(`'${dirComps}' test files found = `, testsComps.length);
 testsComps.forEach( tc => {import(tc)});
 
 
-//** tests for functions
-const dirFunctions = "/imports/functions"
+//** tests for Functions
+const dirFunctions = "/imports/Functions"
 const testsFound = getTestFiles(dirFunctions, testFileExtension);
 
 console.log(`'${dirFunctions}' test files found = `, testsFound.length);

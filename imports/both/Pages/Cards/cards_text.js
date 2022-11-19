@@ -14,7 +14,7 @@ export const header = {
     en: {
         title:  "Card Page",
         subtitle:   "Card layout examples.",
-        body: "See <a href='https://zaphodbb-pm.github.io/goldilocks-css/pages/extend-components/card.html' target='_blank'>Cards</a> " +
+        body: "See <a href='https://zaphodbb-pm.github.io/goldilocks-css/pages/extend-Components/card.html' target='_blank'>Cards</a> " +
             "for more details. <br><br>" +
             "Cards can emit an event from the footer button (footEvent).<br>  " +
             "The footEvent is captured by the parent and alerted as cardEvent. <br>"

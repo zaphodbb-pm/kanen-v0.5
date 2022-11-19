@@ -27,7 +27,7 @@
 
 
     //* page body support **************************
-    import {i18n} from '/imports/functions/utilities/i18n';
+    import {i18n} from '/imports/Functions/utilities/i18n';
     import {lang} from '/imports/client/systemStores';
 
     const pageHeader = i18n(header, "", $lang);

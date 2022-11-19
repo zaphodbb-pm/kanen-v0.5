@@ -29,15 +29,15 @@
 
 
     //* page body support **************************
-    import {i18n} from "../../../functions/utilities/i18n.js";
+    import {i18n} from "../../../Functions/utilities/i18n.js";
     import {lang} from "../../../client/systemStores.mjs";
 
     const pageHeader = i18n(header, "", $lang);
     const pageText = i18n(page, "page", $lang);
     const componentsText = i18n(page, "components", $lang);
 
-    import TabContent from '../../../components/widgets/tabbedContent.svelte'
-    import Accordian from '../../../components/widgets/accordian.svelte'
+    import TabContent from '../../../Components/widgets/tabbedContent.svelte'
+    import Accordian from '../../../Components/widgets/accordian.svelte'
 
 </script>
 

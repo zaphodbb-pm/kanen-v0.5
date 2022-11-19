@@ -1,5 +1,5 @@
 /**
- * Configuration for Starter page components.
+ * Configuration for Starter page Components.
  *
  * @memberOf Pages:starter
  * @function starter_config

@@ -19,7 +19,7 @@
     export let tocTitles = [];
     export let pageid = "";
 
-    //* support functions
+    //* support Functions
     import { createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 

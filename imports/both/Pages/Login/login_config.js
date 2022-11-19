@@ -1,5 +1,5 @@
 /**
- * Configuration for Login components (optional).
+ * Configuration for Login Components (optional).
  *
  * @memberOf Pages:login
  * @function login_config

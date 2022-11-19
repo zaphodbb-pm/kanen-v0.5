@@ -44,8 +44,8 @@ describe("Check Setup Files", function () {
 //* get all test files in a directory, import and execute tests
 const testFileExtension = ".test.mjs";
 
-//** test functions
-const directory = "/imports/functions"
+//** test Functions
+const directory = "/imports/Functions"
 const testsFound = getTestFiles(directory, testFileExtension);
 
 console.log(`'${directory}' test files found = `, testsFound.length);

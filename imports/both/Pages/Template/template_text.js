@@ -6,7 +6,7 @@
  * @locus Client
  *
  * @exports {Object} - header: {title, lead, body}
- * @exports {Object} - page: {page, components, list, form}
+ * @exports {Object} - page: {page, Components, list, form}
  */
 
 //** page header; set to null to not display header or a specific item
@@ -29,9 +29,9 @@ export const page = {
 
             preamble: "<p>Each unique page has its own directory and can be added or removed as needed.  " +
                 "Each Page is stand-alone and is controlled by 5 main files and one optional one.</p>" +
-                "<p>A functions directory is also provided.  Generally, all logic should be abstracted to functions outside " +
-                "the Page.  This allows for more rigorous testing of these functions and makes the Page simpler.  " +
-                "Page testing is performed by Cypress based test files.  Both functions and page testing files are in the " +
+                "<p>A Functions directory is also provided.  Generally, all logic should be abstracted to Functions outside " +
+                "the Page.  This allows for more rigorous testing of these Functions and makes the Page simpler.  " +
+                "Page testing is performed by Cypress based test files.  Both Functions and page testing files are in the " +
                 "associated 'test' directory that is unique to each page.</p>",
 
             _nav: {
@@ -45,7 +45,7 @@ export const page = {
             _text: {
                 name: "template_text.js",
                 locus: "Client",
-                desc: "All text should be abstracted from components.  This then supports language switching based on user preferences."
+                desc: "All text should be abstracted from Components.  This then supports language switching based on user preferences."
             },
 
             _loader: {
@@ -67,26 +67,26 @@ export const page = {
                 locus: "Client",
                 desc: "Page layout that will be rendered by the router.  This is the place that all the interesting things " +
                     "(that you can dream up) will happen.  Uses 'template_text.js' and optional 'template_config.js' files " +
-                    "to hydrate the Page and components with static language controlled information."
+                    "to hydrate the Page and Components with static language controlled information."
             },
 
             _config: {
                 name: "template_config.js",
                 locus: "Client",
-                desc: "Optional configuration file for components embedded in a Page.  " +
+                desc: "Optional configuration file for Components embedded in a Page.  " +
                     "These would typically be widgets such accordions, progress bars, info boxes, etc.  " +
                     "CSS classes, data points and other items would be set here.  Note that any text would be contained " +
                     "in the 'template_text.js' file"
             },
 
             _functions: {
-                name: "/functions/*",
+                name: "/Functions/*",
                 locus: "Client",
-                desc: "These functions are Page specific only.  General functions are handled in different directories."
+                desc: "These Functions are Page specific only.  General Functions are handled in different directories."
             },
 
             _tests: {
-                name: "/tests/cypress/* <br/> /tests/functions/*",
+                name: "/tests/cypress/* <br/> /tests/Functions/*",
                 locus: "Client",
                 desc: "Function testing is handled by Mocha.  Page testing is handled by Cypress.  " +
                     "Component testing is handled by a special Mocha jig and uses 'jsdom'."
@@ -99,7 +99,7 @@ export const page = {
                 "'params' allows you to send any additional params to the rendered component.  " +
                 "This is useful if you add any logic in your template, to check user's permission for instance, and want to " +
                 "send extra info to the rendered component.  " +
-                "The config file provides static set-up information for some components. ",
+                "The config file provides static set-up information for some Components. ",
 
             route: "currentRoute",
             params: "params",
@@ -123,7 +123,7 @@ export const page = {
         }
     },
 
-    //** example for list / form components
+    //** example for list / form Components
     list: {
         en: {
             name: "Name"

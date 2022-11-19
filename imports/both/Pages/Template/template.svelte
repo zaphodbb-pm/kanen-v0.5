@@ -27,7 +27,7 @@
         import {pageConfig} from './template_config'
 
         //** app support files
-        import { setContext, getContext, onMount, onDestroy } from 'svelte';
+        import { onMount, onDestroy } from 'svelte';
         import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
@@ -36,9 +36,9 @@
 
     //* page-body support **************************
     import {lang} from '/imports/client/systemStores';
-    import {i18n} from '/imports/functions/utilities/i18n';
+    import {i18n} from '/imports/Functions/utilities/i18n';
 
-    //* page-body functions *************************
+    //* page-body Functions *************************
     import {injectText} from "./functions/injectText";
     const pageHeader = i18n(header, "", $lang);
 
@@ -69,7 +69,7 @@
 
 <main class="main-content">
 
-    <!-- actual page content or components -->
+    <!-- actual page content or Components -->
     <h2>{text.examples}</h2>
 
     <div class="row">

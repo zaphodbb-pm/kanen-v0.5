@@ -1,5 +1,5 @@
 /**
- * Configuration for Users page components.
+ * Configuration for Users page Components.
  *
  * @memberOf Pages:users
  * @function users_config
