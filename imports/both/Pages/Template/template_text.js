@@ -5,8 +5,9 @@
  * @function template_text
  * @locus Client
  *
- * @exports {Object} - header: {title, lead, body}
- * @exports {Object} - page: {page, Components, list, form}
+ * @property {Object} header - i18n of {title, lead, body}
+ * @property {Object} page - i18n of {page, components, list, form}
+ *
  */
 
 //** page header; set to null to not display header or a specific item

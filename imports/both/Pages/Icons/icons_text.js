@@ -5,7 +5,8 @@
  * @function icons_text
  * @locus Client
  *
- * @returns {Object}
+ * @property {Object} header - i18n of {title, lead, body}
+ * @property {Object} page - i18n of {page, components}
  */
 
 

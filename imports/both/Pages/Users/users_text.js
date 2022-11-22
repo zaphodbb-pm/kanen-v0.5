@@ -5,9 +5,9 @@
  * @function users_text
  * @locus Client
  *
- * @exports {Object} - header
- * @exports {Object} - page
- * @exports {Object} - list
+ * @property {Object} header - i18n of {title, lead, body}
+ * @property {Object} page - i18n of {form, list}
+ *
  */
 
 //** page header; set to null to not display header or a specific item

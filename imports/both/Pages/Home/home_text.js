@@ -5,8 +5,8 @@
  * @function home_text
  * @locus Client
  *
- * @exports {Object} - {header}
- * @exports {Object} - {page}
+ * @property {Object} header - i18n of {title, lead, body}
+ * @property {Object} page - i18n of {page, components}
  */
 
 

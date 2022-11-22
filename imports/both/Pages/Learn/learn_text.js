@@ -5,7 +5,8 @@
  * @function learn_text
  * @locus Client
  *
- * @returns {Object}
+ * @property {Object} header - i18n of {title, lead, body}
+ * @property {Object} page - i18n of {components, form}
  */
 
 //** page header; set to null to not display header or a specific item
