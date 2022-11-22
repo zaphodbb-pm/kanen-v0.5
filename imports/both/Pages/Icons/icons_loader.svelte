@@ -7,17 +7,16 @@
      * @memberOf Pages:icons
      * @locus Client
      *
+     * @param {String} currentRoute - page path name
+     * @param {Object} params - any parameters from path url
+     * @param {Object} query - any query fragment from path url
+     *
      */
 
 
-    //* setup props to receive route data
-    /** @type {Object} **/
+        //* setup props to receive route data
     export let currentRoute;
-
-    /** @type {Object} **/
     export let params = {};
-
-    /** @type {Object} **/
     export let query = {};
 
     //* get svelte component loader

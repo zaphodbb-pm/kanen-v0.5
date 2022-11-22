@@ -7,6 +7,10 @@
      * @memberOf Pages:template
      * @locus Client
      *
+     * @param {String} currentRoute - page path name
+     * @param {Object} params - any parameters from path url
+     * @param {Object} query - any query fragment from path url
+     *
      * @see {@link https://github.com/kaisermann/svelte-loadable}
      *
      * @notes
@@ -20,14 +24,9 @@
      */
 
 
-    /* setup props to receive route data and pass down into page component */
-    /** @type {Object} **/
+    //* setup props to receive route data
     export let currentRoute;
-
-    /** @type {Object} **/
     export let params = {};
-
-    /** @type {Object} **/
     export let query = {};
 
     //* get svelte component loader
