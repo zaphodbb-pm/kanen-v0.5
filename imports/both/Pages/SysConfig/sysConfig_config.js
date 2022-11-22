@@ -5,7 +5,8 @@
  * @function sysConfig_page_config
  * @locus Client
  *
- * @returns {Object}
+ * @property {Object} pageConfig - {form, list}
+ *
  */
 
 

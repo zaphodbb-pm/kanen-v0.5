@@ -5,7 +5,8 @@
  * @function changePassword_config
  * @locus Client
  *
- * @returns {Object}
+ * @property {Object} pageConfig - form[{}]
+ *
  */
 
 export const pageConfig =  {

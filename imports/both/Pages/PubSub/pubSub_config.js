@@ -5,7 +5,7 @@
  * @function pubSub_config
  * @locus Client
  *
- * @returns {Object}
+ * @property {Object} pageConfig - {components, widgets}
  */
 
 export const pageConfig =  {

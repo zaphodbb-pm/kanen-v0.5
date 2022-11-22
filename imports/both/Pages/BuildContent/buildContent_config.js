@@ -5,7 +5,7 @@
  * @memberOf Pages:buildContent
  * @locus Client
  *
- * @returns {Object}
+ * @property {Object} pageConfig - {form, list}
  */
 
 

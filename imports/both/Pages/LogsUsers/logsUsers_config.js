@@ -5,7 +5,8 @@
  * @function logsUsers_config
  * @locus Client
  *
- * @returns {Object}
+ * @property {Object} pageConfig - {list}
+ *
  */
 
 

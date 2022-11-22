@@ -5,7 +5,8 @@
  * @function starter_config
  * @locus Client
  *
- * @returns {Object}
+ * @property {Object} pageConfig - {components, form, list}
+ *
  */
 
 

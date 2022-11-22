@@ -5,7 +5,7 @@
  * @function login_config
  * @locus Client
  *
- * @returns {Object}
+ * @property {Object} pageConfig - {form, services}
  */
 
 export const pageConfig =  {

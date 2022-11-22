@@ -5,7 +5,8 @@
  * @memberOf Pages:adminPanel
  * @locus Client
  *
- * @returns {Object}
+ * @property {Object} pageConfig - {components, widgets}
+ *
  */
 
 

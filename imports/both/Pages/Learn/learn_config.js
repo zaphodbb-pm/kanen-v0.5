@@ -5,7 +5,7 @@
  * @function learn_config
  * @locus Client
  *
- * @returns {Object}
+ * @property {Object} pageConfig - {components}
  */
 
 export const pageConfig =  {
