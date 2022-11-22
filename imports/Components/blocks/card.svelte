@@ -1,4 +1,3 @@
-<!--suppress ReservedWordAsName -->
 <script>
 
     /**

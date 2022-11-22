@@ -1,8 +1,8 @@
 /**
- * @summary System wide version constants.
+ * System wide version constants.
  *
- * @memberOf Structure:Server
  * @function version
+ * @memberOf ClientMain
  * @locus Client
  *
  *

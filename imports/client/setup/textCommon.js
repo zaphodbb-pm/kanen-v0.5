@@ -1,8 +1,8 @@
 /**
  * @summary System wide common language strings.
  *
- * @memberOf Structure:Client
  * @function textCommon
+ * @memberOf App
  * @locus Client
  *
  * @exports fileReader

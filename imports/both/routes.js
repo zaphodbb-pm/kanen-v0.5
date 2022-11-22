@@ -3,7 +3,7 @@
  *
  * @name routes
  * @function routes
- * @memberOf ClientMain
+ * @memberOf App
  * @locus Client
  *
  * @property {Object[]} allRoutes

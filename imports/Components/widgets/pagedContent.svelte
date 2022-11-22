@@ -29,26 +29,40 @@
 
 
 <div class="pagedContent">
+
     {#each content as item, idx}
         <div class="pagedContent">
             {#if item.list && item.list.length > 0}
                 {#each item.list as subtopic, ids}
 
                     {#if newCategory === item.label}
+
                         {#if subtopic.info}
-                            <div class="card border-0 mb-4">
-                                <div id="{subtopic.name}" class="card-header has-background-warning"
-                                     style="font-size: 1.25em; font-weight: bold">
-                                    <h5 class="card-header-title m-0">{subtopic.name}</h5>
-                                </div>
+                            <div class="card">
+                                <header class="is-tertiary"><h3>{subtopic.name}</h3></header>
 
                                 <div class="card-content">
                                     <div class="content">{@html subtopic.info} </div>
                                 </div>
                             </div>
-                        {:else}
-                            <div class="card mb-4">
 
+                        {:else}
+
+                            <div class="card">
+                                <header class="is-warning-light">
+                                    <div class="level">
+                                        <h3 style="margin: 0;">{subtopic.name}</h3>
+                                        <span>{subtopic.locus}</span>
+                                    </div>
+
+                                    <div>
+                                        <span class="">{subtopic.import}</span>
+                                        <span class="">(line {subtopic.lineno})</span>
+                                    </div>
+                                </header>
+
+
+                                <!--
                                 <div style="background-color: #eee; padding: 0.75rem;">
                                     <div id="{subtopic.name}">
                                         <span class="" style="font-size: 1.25em; font-weight: bold">{subtopic.name}</span>
@@ -60,6 +74,7 @@
                                         <span class="">(line {subtopic.lineno})</span>
                                     </div>
                                 </div>
+                                -->
 
                                 <div class="card-content">
 
@@ -188,3 +203,12 @@
         </div>
     {/each}
 </div>
+
+
+<style>
+
+    .pagedContent .card {
+        margin-bottom: 2rem;
+    }
+
+</style>

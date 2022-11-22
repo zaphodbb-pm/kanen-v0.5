@@ -1,3 +1,4 @@
+// @ts-ignore
 import {Meteor} from "meteor/meteor";
 import {sortBy} from "../../Functions/utilities/sortBy.js";
 import {groupBy} from "../../Functions/utilities/groupBy";
@@ -7,8 +8,8 @@ Meteor.methods({
     /**
      * Meteor method to scan for svelte files and build documentation.
      *
-     * @memberOf Methods
      * @function buildSvelteJsdoc
+     * @memberOf Methods:
      * @isMethod true
      * @locus Server
      *
@@ -31,8 +32,11 @@ Meteor.methods({
             let pattern = /\/\*\*\s*\n([^\*]|(\*(?!\/)))*\*\//g;
             let test = readFile.match(pattern);
 
+
+            console.log("test", typeof test, sv );
+
             if(test){
-                fs.writeFileSync(sv.replace("svelte", "jsdoc"), test);
+                fs.writeFileSync(sv.replace("svelte", "jsdoc"), test[0]);
             }
         })
 
@@ -43,7 +47,7 @@ Meteor.methods({
     /**
      * Meteor method to get formatted documentation.
      *
-     * @memberOf Methods
+     * @memberOf Methods:
      * @function fetchDocumentation
      * @isMethod true
      * @locus Server
@@ -57,6 +61,7 @@ Meteor.methods({
         if (Meteor.settings.require_documentation) {
 
             try {
+                // @ts-ignore
                 documentation = Assets.getText("documentation.json");
                 documentation = JSON.parse(documentation);
                 documentation = reformatDoc(documentation);
@@ -72,7 +77,7 @@ Meteor.methods({
     /**
      * Meteor method to scan for svelte generated jsdoc file and remove them.
      *
-     * @memberOf Methods
+     * @memberOf Methods:
      * @function removeSvelteJsdoc
      * @isMethod true
      * @locus Server
@@ -103,8 +108,8 @@ Meteor.methods({
     /**
      * @summary Uses Meteor-jsdoc data file to display project documentation in the project itself.
      *
-     * @memberOf Methods
      * @function buildDocumentation
+     * @memberOf Methods:
      * @isMethod true
      * @locus Server
      *
@@ -159,6 +164,7 @@ Meteor.methods({
         let documentation = [];
 
         if (Meteor.settings.require_documentation) {
+            // @ts-ignore
             let rawDoc = Assets.getText("raw-documentation.json");
             let getDoc = JSON.parse(rawDoc);
 
@@ -180,11 +186,13 @@ Meteor.methods({
             });
 
             documentation = formatDocumentation(filteredDocs);
-            documentation = JSON.stringify(filteredDocs);
 
+            let formattedDoc = JSON.stringify(documentation);
+
+            // @ts-ignore
             let fs = Npm.require('fs');
 
-            fs.writeFile(process.env["PWD"] + "/private/documentation.json", documentation, "utf8",
+            fs.writeFile(process.env["PWD"] + "/private/documentation.json", formattedDoc, "utf8",
                 function (err) {
                     if (err) throw err;
                     console.log('File write json done!');
@@ -356,7 +364,7 @@ function reformatDoc(res){
         let list = Object.entries( groupBy(res, "memberof") );
 
         //** prepare documentation for insertion into an accordion component
-        list = list.map(function (li) {
+        let out = list.map(function (li) {
             return {
                 icon: null,
                 label: li && li[0] ? li[0] : "n/a",
@@ -367,14 +375,14 @@ function reformatDoc(res){
         });
 
         //** sort topic and the body of a topic
-        list = sortBy(list, "label");
+        out = sortBy(out, "label",1);
 
-        list = list.map((topic) => {
-            topic.list = sortBy(topic.list, "name");
+        out = out.map((topic) => {
+            topic.list = sortBy(topic.list, "name", 1);
             return topic;
         });
 
-        content = list;
+        content = out;
     }
 
     return content;

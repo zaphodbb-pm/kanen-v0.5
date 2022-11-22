@@ -1,8 +1,8 @@
 /**
- * @summary Route config information for AdminPanel.
+ * Route config information for AdminPanel.
  *
- * @memberOf Pages:adminPanel
  * @function adminPanel_route
+ * @memberOf Pages:adminPanel
  * @locus Client
  *
  * @returns {Object}

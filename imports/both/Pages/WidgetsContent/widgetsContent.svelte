@@ -37,7 +37,7 @@
     const componentsText = i18n(page, "components", $lang);
 
     import TabContent from '../../../Components/widgets/tabbedContent.svelte'
-    import Accordian from '../../../Components/widgets/accordian.svelte'
+    import Accordion from '../../../Components/widgets/accordion.svelte'
 
 </script>
 
@@ -61,36 +61,7 @@
 
         <p>{@html pageText.bodyAccordions}</p>
 
-
-        <Accordian class="has-max-width-30rem" content="{componentsText.tabbed}"   />
+        <Accordion class="has-max-width-30rem" content="{componentsText.tabbed}"   />
     </section>
-
-    <!--
-    <section class="space-vert-large">
-        <h2>{pageText.headingAccordions}</h2>
-
-        <TabContent class="is-fullwidth" content="{tabbed}"/>
-    </section>
-    -->
-
-
-
 
 </main>
-
-
-<!--
-<PageWrapper {header} >
-
-    <div class="columns">
-        <article class="column is-6">
-            <TabContent text="tabbed" tabSettings="is-toggle is-fullwidth" />
-        </article>
-
-        <article class="column is-6">
-            <Accordian text="tabbed" tabSettings="is-warning is-light"  />
-        </article>
-    </div>
-
-</PageWrapper>
--->

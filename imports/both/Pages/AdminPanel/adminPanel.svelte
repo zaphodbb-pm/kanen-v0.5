@@ -1,6 +1,6 @@
 <script>
     /**
-     * @summary Layout for Page AdminPanel.
+     * Page layout for AdminPanel.
      *
      * @name adminPanel
      * @module

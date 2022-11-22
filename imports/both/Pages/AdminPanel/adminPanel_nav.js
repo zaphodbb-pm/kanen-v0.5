@@ -1,15 +1,15 @@
 /**
- * @summary Nav label for AdminPanel page.
+ * Nav label for AdminPanel page.
  *
- * @memberOf Pages:adminPanel
  * @name adminPanel_nav
- * @lends adminPanel
+ * @memberOf Pages:adminPanel
  * @locus Anywhere
  *
- * @exports {Object} - nav
- * @exports {String} - link
- * @exports {String} - icon
- * @exports {Object} - roles {read: [], write: []}
+ * @property {Object} nav - i18n link label text
+ * @property {String} link - page link url
+ * @property {String} icon - CSS icon class
+ * @property {Object} roles  - access permission {read: [], write: []}
+ *
  */
 
 

@@ -1,8 +1,8 @@
 /**
  * @summary Default options list.
  *
- * @memberOf PWA
  * @function athDefaults
+ * @memberOf ClientMain
  * @locus Client
  *
  * @param {String} appID

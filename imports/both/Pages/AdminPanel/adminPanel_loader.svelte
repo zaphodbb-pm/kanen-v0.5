@@ -1,6 +1,7 @@
 <script>
     /**
      * Generic insert loader for pages.
+     *
      * @name adminPanel_loader
      * @module
      * @memberOf Pages:adminPanel

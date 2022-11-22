@@ -1,8 +1,8 @@
 /**
  * Configuration for BuildContent page Components.
  *
- * @memberOf Pages:buildContent
  * @function buildContent_page_config
+ * @memberOf Pages:buildContent
  * @locus Client
  *
  * @returns {Object}

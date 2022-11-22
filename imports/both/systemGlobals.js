@@ -3,7 +3,7 @@
  * This file provides a single entry point to provide consistency across all pages, Components and elements.
  *
  * @name systemGlobals
- * @memberOf Setup:Client
+ * @memberOf App
  * @locus Client
  *
  * @exports {Object} layout - controls layout options

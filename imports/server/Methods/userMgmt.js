@@ -220,7 +220,7 @@ Meteor.methods({
                 credit = credit > 0 ? credit : 0;
 
                 Meteor.users.update({_id: this.userId}, {$set: {credit: credit}});
-                return {status: 400, _id: null, text: `User does not have access privileges; ${item} has NOT been updated`};
+                return {status: 400, _id: null, text: `User does not have access privileges; ${doc.name} has NOT been updated`};
             } else {
                 return {status: 400, _id: this.userId, text: `User does not exist or has no credit`};
             }

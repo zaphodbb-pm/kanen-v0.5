@@ -1,8 +1,8 @@
 /**
  * @summary Returns a browser name.
  *
- * @memberOf PWA
  * @function checkPlatform
+ * @memberOf ClientMain
  * @locus Client
  *
  * @param {Object} _ua -user agent from browser
@@ -32,10 +32,12 @@ export function checkPlatform(_ua) {
     }
 
     platform.isChromium = ( "onbeforeinstallprompt" in window );
+    // @ts-ignore
     platform.isInWebAppiOS = ( window.navigator.standalone === true );
     platform.isInWebAppChrome = ( window.matchMedia( '(display-mode: standalone)' ).matches );
     platform.isMobileSafari = platform.isIDevice && _ua.indexOf( 'Safari' ) > -1 && _ua.indexOf( 'CriOS' ) < 0;
     platform.isStandalone = window.matchMedia( '(display-mode: standalone)' ).matches ||
+        // @ts-ignore
         window.navigator.standalone === true ||
         platform.isInWebAppiOS ||
         platform.isInWebAppChrome;

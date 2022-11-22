@@ -6,11 +6,11 @@
  * @lends template
  * @locus Anywhere
  *
- * @exports {Object} nav
- * @exports {String} link
- * @exports {String} query
- * @exports {String} icon
- * @exports {Object} roles - {read: [], write: []}
+ * @property {Object} nav - i18n link label text
+ * @property {String} link - page link url
+ * @property {String} icon - CSS icon class
+ * @property {Object} roles  - access permission {read: [], write: []}
+ *
  *
  * @notes
  *  1. In order to reduce the initial bundle size, the nav label is in a separate text file.

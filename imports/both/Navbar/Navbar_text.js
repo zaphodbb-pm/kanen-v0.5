@@ -1,8 +1,8 @@
 /**
  * Labels for Navbar items.
  *
- * @memberOf Navbar
  * @function Navbar_text
+ * @memberOf Navbar
  * @locus Client
  *
  * @exports {Object} - navbar text language encoded

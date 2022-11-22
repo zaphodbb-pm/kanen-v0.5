@@ -1,8 +1,8 @@
 import {Meteor} from "meteor/meteor";
-import {check} from 'meteor/check'
-import {flattenObject} from '/imports/Functions/utilities/flattenObject'
-import {myDocuments} from '/imports/server/Functions/myDocuments'
-import {verifyRole} from "/imports/server/Functions/verifyRole"
+import {check} from 'meteor/check';
+import {Mongo} from 'meteor/mongo'
+
+import {verifyRole} from "../Functions/verifyRole";
 
 
 Meteor.methods({
@@ -10,7 +10,7 @@ Meteor.methods({
     /**
      * @summary Sends documents as JSON from a collection.
      *
-     * @memberOf Methods
+     * @memberOf Methods:
      * @function exportJSON
      * @isMethod true
      * @locus Server
@@ -19,6 +19,8 @@ Meteor.methods({
      * @param {Object} query
      * @return {{records: number, size: number, data: string}}
      */
+
+
     exportJSON: function(coll, query) {
         check(coll, String);
         check(query, Object);
@@ -35,19 +37,20 @@ Meteor.methods({
             if( coll === 'users' ){
                 docs = Meteor.users.find( query ).fetch();
             }else{
+                // @ts-ignore
                 docs = Mongo.Collection.get(coll).find( query ).fetch();
             }
 
             let jsonDocs = JSON.stringify( docs );
-            return { records: docs.length, size: jsonDocs.length, data:jsonDocs };
+            return { records: docs.length, size: jsonDocs.length, data: jsonDocs };
         }
     },
 
     /**
      * @summary Imports documents as JSON from a browser.
      *
-     * @memberOf Methods
      * @function importJSON
+     * @memberOf Methods:
      * @isMethod true
      * @locus Server
      *
@@ -55,6 +58,7 @@ Meteor.methods({
      * @param {Array} doc
      * @return {string}
      */
+
     importJSON: function (coll, doc) {
         check(coll, String);
         check(doc, Array);
@@ -64,12 +68,14 @@ Meteor.methods({
 
 
             doc.forEach( (el) => {
+                // @ts-ignore
                 exists = !!Mongo.Collection.get(coll).findOne( {_id: el._id} );
 
                 if( !exists ){
                     if( coll === 'users' ){
                         Meteor.users.insert(el);
                     }else{
+                        // @ts-ignore
                         Mongo.Collection.get(coll).insert(el);
                     }
                 }
@@ -79,11 +85,12 @@ Meteor.methods({
         }
     },
 
+
     /**
      * @summary Removes all documents from a collection.
      *
-     * @memberOf Methods
      * @function importBulkDataRemove
+     * @memberOf Methods:
      * @isMethod true
      * @locus Server
      *
@@ -95,6 +102,7 @@ Meteor.methods({
 
         //* make sure only authorized people can flush out a collection
         if(Meteor.userId() && verifyRole(Meteor.userId(), "administrator") ){                            // check if user is logged in
+            // @ts-ignore
             Mongo.Collection.get(coll).remove({});      // flush collection before loading new docs
             return {
                 status: 200,
@@ -116,14 +124,15 @@ Meteor.methods({
     /**
      * @summary Inserts all documents from a file into a collection.
      *
-     * @memberOf Methods
      * @function importBulkData
+     * @memberOf Methods:
      * @isMethod true
      * @locus Server
      *
      * @param {String} coll
      * @param {Object} doc
-     * @return {string}
+     *
+     * @return {Object}
      */
     importBulkData: function (coll, doc) {
         check(coll, String);
@@ -135,10 +144,12 @@ Meteor.methods({
             if (Array.isArray(doc)) {
                 count = doc.length;
                 doc.forEach(function (item) {
+                    // @ts-ignore
                     Mongo.Collection.get(coll).insert(item);
                 })
             } else {
                 count = 1;
+                // @ts-ignore
                 Mongo.Collection.get(coll).insert(doc);
             }
 
@@ -159,201 +170,5 @@ Meteor.methods({
                 method: "importBulkData"
             }
         }
-    },
-
-
-    /**
-     * @summary Sends documents as CSV from a collection.
-     *
-     * @memberOf Methods
-     * @function exportFile
-     * @isMethod true
-     * @locus Server
-     *
-     * @requires {flattenObject}_from_'/imports/functionsBoth/func-flattenObject'
-     * @requires {myDocuments}_from_'/imports/server/Functions/func-myDocuments'
-     *
-     * @param {String} coll
-     * @param {Object} query
-     * @param {Object} filter
-     * @param {String} heading
-     * @param {String} delimiter
-     * @return {String}
-     */
-    exportFile: function(coll, query, filter, heading, delimiter){
-        check(coll, String);
-        check(query, Object);
-        check(filter, Object);
-        check(heading, String);
-        check(delimiter, String);
-
-        if( Meteor.userId() ){                          // check if user is logged in
-
-            if(query){
-                check(query, Object);
-            }else{
-                query = {};
-            }
-
-            if(filter){
-                check(filter, Object);
-            }else{
-                filter = {};
-            }
-
-            heading = heading ? heading : false;
-            delimiter = delimiter ? delimiter : ",";
-
-            query = myDocuments( query, this.userId, ["author"] );
-
-            let docs = Mongo.Collection.get(coll).find( query, filter ).fetch();
-            let data = [];
-
-            docs.forEach( (el) => {
-                if( Object.keys(el.data).includes("ids") ){
-                    data.push( flattenObject( Object.assign( el.data.ids,  el.data.text ) ) );
-                }else{
-                    data.push( flattenObject( el.data ) );
-                }
-            });
-
-            return CSV.unparse( data, heading, delimiter );
-        }
-    },
-
-
-    /**
-     * @summary Exports documents as CSV from a collection.
-     *
-     * @memberOf Methods
-     * @function exportCSV
-     * @isMethod true
-     * @locus Server
-     *
-     * @requires {myDocuments}_from_'/imports/server/Functions/func-myDocuments'
-     *
-     * @param {String} coll
-     * @param {Object} query
-     * @param {Object} filter
-     * @param {String} heading
-     * @param {String} delimiter
-     * @return {String}
-     */
-    exportCSV: function(coll, query, filter, heading, delimiter){
-        check(coll, String);
-        check(query, Object);
-        check(filter, Object);
-        check(heading, String);
-        check(delimiter, String);
-
-        if( Meteor.userId() ){                          // check if user is logged in
-            if(query){
-                check(query, Object);
-            }else{
-                query = {};
-            }
-
-            if(filter){
-                check(filter, Object);
-            }else{
-                filter = {};
-            }
-
-            query = myDocuments( query, this.userId, ["author"] );
-            heading = heading ? heading : false;
-            delimiter = delimiter ? delimiter : ",";
-            let docs = Mongo.Collection.get(coll).find( query, filter ).fetch();
-
-            let data = [];
-            docs.forEach( (el, idx) => {
-                data[idx] = el;
-                data[idx]._id = el._id;
-            })
-
-            return CSV.unparse( data, heading, delimiter );
-        }
-    },
-
-    /**
-     * @summary Imports documents as CSV to a collection.
-     *
-     * @memberOf Methods
-     * @function importCSV
-     * @isMethod true
-     * @locus Server
-     *
-     * @param {String} coll
-     * @param {Object} doc
-     * @return {string}
-     */
-    importCSV: function (coll, doc) {
-        check(coll, String);
-        check(doc, Object);
-
-        if(Meteor.userId()){                            // check if user is logged in
-            let exists = true;                          // default value to stop insertion
-            let docs = Object.values(doc);
-
-             docs.forEach( (el) => {
-                 exists = !!Mongo.Collection.get(coll).findOne( {_id: el._id} );
-
-                 if( !exists ){
-                     Mongo.Collection.get(coll).insert(el);
-                 }
-             })
-
-            return "Any new documents have been added to " +  coll + " by importCSV";
-
-        }
-    },
-
-    /**
-     * @summary Imports documents as CSV to a collection.
-     *
-     * @memberOf Methods
-     * @function importCSVInsert
-     * @isMethod true
-     * @locus Server
-     *
-     * @param {String} coll
-     * @param {Object} doc
-     * @return {string}
-     */
-    importCSVInsert: function (coll, doc) {
-        check(coll, String);
-        check(doc, Object);
-
-        if(Meteor.userId()){                            // check if user is logged in
-            delete doc["_id"];
-            doc.updatedAt = Date.now();
-            let id = Mongo.Collection.get(coll).insert(doc);
-            return id + " has been added to " + coll;
-        }
-    },
-
-    /**
-     * @summary Update a document as CSV to a collection.
-     *
-     * @memberOf Methods
-     * @function importCSVUpdate
-     * @isMethod true
-     * @locus Server
-     *
-     * @param {String} coll
-     * @param {Object} doc
-     * @return {string}
-     */
-    importCSVUpdate: function (coll, doc) {
-        check(coll, String);
-        check(doc, Object);
-
-        if( Meteor.userId() ) {                           // check if user is logged in
-            let docId = doc["_id"];
-            delete doc["_id"];
-            doc.updatedAt = Date.now();
-            Mongo.Collection.get(coll).update( {_id: docId}, doc );
-            return docId + " has been updated on " + coll;
-        }
-    },
-
+    }
 });

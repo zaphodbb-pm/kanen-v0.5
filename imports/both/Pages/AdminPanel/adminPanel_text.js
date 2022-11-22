@@ -1,8 +1,8 @@
 /**
- * @summary Labels for AdminPanel.
+ * Labels for AdminPanel.
  *
- * @memberOf Pages:adminPanel
  * @function adminPanel_text
+ * @memberOf Pages:adminPanel
  * @locus Client
  *
  * @returns {Object}

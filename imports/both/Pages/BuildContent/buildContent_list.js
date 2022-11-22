@@ -1,8 +1,8 @@
 /**
  * Configuration list block for BuildContent page listing.
  *
- * @memberOf Pages:buildContent
  * @function buildContent_list
+ * @memberOf Pages:buildContent
  * @locus Client
  *
  * @returns {Object} - default = {sort: object, fields: array}

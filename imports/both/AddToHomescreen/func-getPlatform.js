@@ -1,8 +1,8 @@
 /**
  * @summary Returns a browser name.
  *
- * @memberOf PWA
  * @function getPlatform
+ * @memberOf ClientMain
  * @locus Client
  *
  * @param {Object} platform - browser types

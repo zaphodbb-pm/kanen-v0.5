@@ -2,8 +2,8 @@
     /**
      * Progressive Web App requester.
      *
-     * @memberOf PWA
-     * @function PWA-requester
+     * @module PWA-requester
+     * @memberOf ClientMain
      * @locus Client
      *
      * @see based on work by {@link https://github.com/docluv/add-to-homescreen|Chris Love}

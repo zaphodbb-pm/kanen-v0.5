@@ -29,13 +29,19 @@
 
 
     //* page-body support **************************
+    import {Meteor} from 'meteor/meteor';
     import {i18n} from '/imports/Functions/utilities/i18n';
     import {lang} from '/imports/client/systemStores';
 
     const pageHeader = i18n(header, "", $lang);
     setContext("pageText", page);
 
-    import Accordian from '/imports/Components/widgets/accordian.svelte';
+    //** event handlers
+    import {createEventDispatcher} from 'svelte';
+    const dispatch = createEventDispatcher();
+
+    //import Accordion from '/imports/Components/widgets/accordion.svelte';
+    import DocNav from '/imports/Components/widgets/jsdocNav.svelte'
     import Paged from '/imports/Components/widgets/pagedContent.svelte';
 
     let result = [];
@@ -65,10 +71,25 @@
     onMount( async () => {
         let results = await Meteor.callAsync("fetchDocumentation");
         content = preamble.concat(results);
+
+
+        console.log("content", content);
     });
 
 
     //* switch categories and topics
+    let  currTab = content && content.length > 0 ? content[0].label : "";
+
+    function changetab(tab) {
+        currTab = tab;
+        dispatch(eventMain, tab);
+    }
+
+    function setContent(sub) {
+        dispatch(eventSub, sub);
+    }
+
+
     function changeBody(msg) {
         newCategory = msg.detail;
     }
@@ -111,30 +132,31 @@
                 {@html i18n(page.page, "howToUse", $lang)}
             </div>
 
-            <div class="level">
-                <button class="button is-primary is-outlined" on:click={getSvelte}>
-                    {i18n(page.components, "btnJsdoc", $lang)}
-                </button>
+            <div class="space-vert-medium">
+                <div class="level">
+                    <button type="button" class="is-primary-outlined" on:click={getSvelte}>
+                        {i18n(page.components, "btnJsdoc", $lang)}
+                    </button>
 
-                <button class="button is-primary is-outlined" on:click={buildDocumentation}>
-                    {i18n(page.components, "btnGetDocs", $lang)}
-                </button>
+                    <button type="button" class="is-primary-outlined" on:click={buildDocumentation}>
+                        {i18n(page.components, "btnGetDocs", $lang)}
+                    </button>
+                </div>
             </div>
 
         </div>
     </div>
 
-    <div id="documentation-list">
-        <div class="row">
-            <div class="column span-1">
-                <Accordian {tabSettings} text="{content}" {eventMain} {eventSub}
-                           on:doc-main-topic="{changeBody}" on:doc-subtopic="{changeSub}"/>
-            </div>
 
-            <div class="column span-3">
-                <Paged {content} {newCategory} {newTopic} />
-            </div>
+    <div class="row has-2x-minwidth">
+        <div class="column is-span-1">
+            <DocNav text="{content}" {eventMain} {eventSub} on:doc-main-topic="{changeBody}" on:doc-subtopic="{changeSub}"/>
+        </div>
+
+        <div class="column is-span-2">
+            <Paged {content} {newCategory} {newTopic} />
         </div>
     </div>
 
 </main>
+

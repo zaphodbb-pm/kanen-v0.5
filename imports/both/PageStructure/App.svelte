@@ -5,7 +5,7 @@
      *
      * @name App
      * @module
-     * @memberOf Client
+     * @memberOf ClientMain
      * @locus Client
      *
      * @notes

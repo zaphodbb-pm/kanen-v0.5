@@ -1,8 +1,8 @@
 /**
  * Provides the MongoDb projection objects for various read requests.
  *
- * @memberOf Pages:buildContent
  * @function buildContent_access_control
+ * @memberOf Pages:buildContent
  * @locus Server
  *
  * @returns {Object} - access control parameters

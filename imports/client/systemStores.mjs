@@ -1,8 +1,8 @@
 /**
  * Finds a user's language preference
  *
- * @memberOf Structure:Client
  * @function systemStores
+ * @memberOf App
  * @locus Client
  *
  * @exports {Object} sysConfig - server derived: get certain system parameters for client side configuration

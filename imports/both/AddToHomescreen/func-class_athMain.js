@@ -1,8 +1,8 @@
 /**
  * @summary Returns a browser name.
  *
- * @memberOf PWA
  * @function class_athMain
+ * @memberOf ClientMain
  * @locus Client
  *
  * @param {Object} opts

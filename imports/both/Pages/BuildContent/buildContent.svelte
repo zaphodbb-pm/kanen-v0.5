@@ -1,6 +1,7 @@
 <script>
     /**
      * Layout for BuildContent page.
+     *
      * @name buildContent
      * @module
      * @memberOf Pages:buildContent

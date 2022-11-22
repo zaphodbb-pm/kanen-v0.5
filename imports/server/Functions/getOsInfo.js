@@ -32,9 +32,10 @@ export function getOSinfo(){
         arch:       os.arch(),
         hostname:   os.hostname(),
         homedir:    os.homedir(),
-        uptime:     parseInt( os.uptime() / 3600 ).toString() + " hours",
-        freemem:    parseInt( os.freemem() / 1024 / 1024 ).toString() + "MB",
-        totalmem:   parseInt( os.totalmem() / 1024 / 1024 ).toString() + "MB",
+
+        uptime:     Math.round( os.uptime() / 3600 ).toString() + " hours",
+        freemem:    Math.round( os.freemem() / 1024 / 1024 ).toString() + "MB",
+        totalmem:   Math.round( os.totalmem() / 1024 / 1024 ).toString() + "MB",
         load:       ldAvg,
         loadtrunc:  [ ldAvg[0].toFixed(2),ldAvg[1].toFixed(2), ldAvg[2].toFixed(2) ],
         numCPUs:    os.cpus().length,

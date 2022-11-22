@@ -9,6 +9,16 @@
  * @memberOf ServerMain
  * @locus Anywhere
  *
+ * @typedef {Object} Collections
+ * @property {Object} SysConfig
+ * @property {Object} LogsSystem
+ * @property {Object} LogsUsers
+ * @property {Object} LogsSensors
+ * @property {Object} Starter
+ * @property {Object} Learn
+ * @property {Object} Notifications
+ * @property {Object} RealTime
+ *
  */
 
 
