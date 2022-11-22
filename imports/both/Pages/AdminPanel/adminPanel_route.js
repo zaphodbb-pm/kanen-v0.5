@@ -14,6 +14,8 @@
  * @property {Number}  route.group - for side navigation; group routes into a block
  * @property {Boolean} route.isNavMobile -(optional) show link in mobile nav block at bottom or top
  *
+ * @notes
+ *      1.  Remember to register this page at /imports/both/routes.js
  */
 
 

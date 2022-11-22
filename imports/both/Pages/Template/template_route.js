@@ -5,13 +5,22 @@
  * @function template_route
  * @locus Client
  *
- * @returns {Object} - {name, layout, component, icon, label, roles, group, isNavMobile}
+ * @property {Object}  route
+ * @property {String}  route.name - link that router will use
+ * @property {Object}  route.roles - {read: [String], write [String]}
+ * @property {Object}  route.component - svelte module
+ * @property {String}  route.icon - Navbar icon to show
+ * @property {String}  route.label - Navbar text to show
+ * @property {Number}  route.group - for side navigation; group routes into a block
+ * @property {Boolean} route.isNavMobile -(optional) show link in mobile nav block at bottom or top
  *
  * @notes
  *  1. File 'template_nav.js' holds navigation and associated text configuration information
- *  2. Client side: Remember to register template_route.js at /imports/both/routes
+ *  2. Client side: Remember to register template_route.js at /imports/both/routes.js
  *  3. Server side: if this page needs access to collections,
  *                  then register template_access_control at /imports/ server/setupACL.js
+ *
+ *
  */
 
 
