@@ -7,6 +7,9 @@
      * @memberOf Pages:adminPanel
      * @locus Client
      *
+     * @param {String} currentRoute - page path name
+     * @param {Object} params - any parameters from path url
+     * @param {Object} query - any query fragment from path url
      */
 
 

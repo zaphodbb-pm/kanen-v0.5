@@ -6,6 +6,10 @@
  * @memberOf Pages:template
  * @locus Client
  *
+ * @param {String} currentRoute - page path name
+ * @param {Object} params - any parameters from path url
+ * @param {Object} query - any query fragment from path url
+ *
  * @notes
  *  1. Main code for page control: page boilerplate and page body sections.
  *  2. Common page boilerplate has two props: currentRoute and params from spa-router for rendering.
