@@ -1,7 +1,8 @@
 /**
- * @summary Route config information for Icons page.
+ * Route config information for Icons page.
  *
- * @function icons_route
+ * @name icons_route
+ * @constant {Object}
  * @memberOf Pages:icons
  * @locus Client
  *

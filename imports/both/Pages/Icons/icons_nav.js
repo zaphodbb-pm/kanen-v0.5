@@ -1,5 +1,5 @@
 /**
- * @summary Nav label for Icons page.
+ * Nav label for Icons page.
  *
  * @name icons_nav
  * @memberOf Pages:icons

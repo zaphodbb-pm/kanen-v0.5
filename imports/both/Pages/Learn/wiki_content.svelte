@@ -1,17 +1,19 @@
 <script>
     /**
-     * @summary Component to display a page selected from a Table of Contents.
+     * Component to display a page selected from a Table of Contents.
      *
+     * @name wiki_content
+     * @module
      * @memberOf Pages:learn
-     * @function wiki_content
      * @locus Client
      *
      * @param {String}  pageid - page id to fetch page to display
      * @param {Boolean} showList - display single page content or a summary list of pages from search box
      * @param {Array}   list - page id to fetch page to display
+     * @param {Boolean} mode - switches between single article or a list of article summaries
      *
-     * @emits 'getpage' with string = id of page to fetch
-     * @emits 'push-author' with object = {_id: doc.author, name: doc.authorName}
+     * @fires 'getpage' with string = id of page to fetch
+     * @fires 'push-author' with object = {_id: doc.author, name: doc.authorName}
      */
 
 

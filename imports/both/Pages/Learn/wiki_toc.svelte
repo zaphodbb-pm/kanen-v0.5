@@ -1,16 +1,16 @@
 <script>
     /**
-     * @summary Component for displaying a wiki table of contents.
+     * Component for displaying a wiki table of contents.
      *
+     * @name wiki_toc
      * @memberOf Pages:learn
-     * @function wiki_toc
      * @locus Client
      *
      * @param {Array}   tocTitles - tiered (up to 3) list of titles
      * @param {String}  tocHeader - header text for ToC box
      * @param {String}  pageid - page id
      *
-     * @emits 'getpage' with string = id of page to fetch
+     * @fires 'getpage' with string = id of page to fetch
      *
      */
 

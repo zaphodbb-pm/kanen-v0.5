@@ -1,6 +1,6 @@
 <script>
     /**
-     * @summary Layout for Documentation page.
+     * Documentation page displays code structure and provides component details.
      *
      * @name documentation
      * @module

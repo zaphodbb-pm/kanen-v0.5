@@ -1,6 +1,6 @@
 <script>
     /**
-     * General input card with export import functionality.
+     * For use by administrators to export JSON data from a collection or to import JSON data into a collection.
      *
      * @name exportImport
      * @module

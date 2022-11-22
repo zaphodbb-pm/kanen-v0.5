@@ -1,8 +1,9 @@
 /**
- * @summary Labels for Cards.
+ * Text for Cards page.
  *
+ * @name cards_text
+ * @constant {Object}
  * @memberOf Pages:cards
- * @function cards_text
  * @locus Client
  *
  * @property {Object} header - i18n of {title, lead, body}

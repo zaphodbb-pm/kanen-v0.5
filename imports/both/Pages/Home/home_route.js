@@ -1,7 +1,8 @@
 /**
- * @summary Route config information for Home page.
+ * Route config information for Home page.
  *
- * @function home_route
+ * @name home_route
+ * @constant {Object}
  * @memberOf Pages:home
  * @locus Client
  *

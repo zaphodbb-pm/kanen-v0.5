@@ -1,8 +1,9 @@
 /**
  * Configuration list block for LogsSystem page listing.
  *
+ * @name logsSystem_list
+ * @constant {Object}
  * @memberOf Pages:logsSystem
- * @function logsSystem_list
  * @locus Client
  *
  * @returns {Object} - default = {sort: object, fields: array}

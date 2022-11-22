@@ -1,8 +1,9 @@
 /**
- * Labels for ChangePassword page.
+ * Text for ChangePassword page.
  *
+ * @name changePassword_text
+ * @constant {Object}
  * @memberOf Pages:changePassword
- * @function changePassword_text
  * @locus Client
  *
  * @property {Object} header - i18n of {title, lead, body}

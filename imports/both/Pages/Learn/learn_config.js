@@ -1,8 +1,9 @@
 /**
  * Configuration for Learn Components (optional).
  *
+ * @name learn_config
+ * @constant {Object}
  * @memberOf Pages:learn
- * @function learn_config
  * @locus Client
  *
  * @property {Object} pageConfig - {components}

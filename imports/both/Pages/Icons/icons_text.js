@@ -1,8 +1,9 @@
 /**
- * @summary Labels for Icons page.
+ * Text for Icons page.
  *
+ * @name icons_text
+ * @constant {Object}
  * @memberOf Pages:icons
- * @function icons_text
  * @locus Client
  *
  * @property {Object} header - i18n of {title, lead, body}

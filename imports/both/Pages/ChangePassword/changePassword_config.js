@@ -1,8 +1,9 @@
 /**
  * Configuration for ChangePassword Components (optional).
  *
+ * @name changePassword_config
+ * @constant {Object}
  * @memberOf Pages:changePassword
- * @function changePassword_config
  * @locus Client
  *
  * @property {Object} pageConfig - form[{}]

@@ -1,8 +1,8 @@
 /**
- * @summary Labels for BuildContent page.
+ * Text for BuildContent page.
  *
+ * @name buildContent_text
  * @memberOf Pages:buildContent
- * @function buildContent_text
  * @locus Client
  *
  * @property {Object} header - i18n of {title, lead, body}

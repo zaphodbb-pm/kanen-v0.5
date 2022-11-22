@@ -1,6 +1,6 @@
 <script>
     /**
-     * Layout for Icons page.
+     * Icons page displays icons and sizing options.
      *
      * @name icons
      * @module

@@ -1,7 +1,6 @@
 <script>
     /**
-     * Layout for Cards Page.
-     * Builds two sample cards with different configurations
+     * Layout for Cards Page.  Builds two sample cards with different configurations.
      *
      * @name cards
      * @module

@@ -1,5 +1,5 @@
 /**
- * @summary Nav label for LogsUsers page.
+ * Nav label for LogsUsers page.
  *
  * @name logsUsers_nav
  * @memberOf Pages:logsUsers

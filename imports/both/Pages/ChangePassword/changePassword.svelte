@@ -1,6 +1,7 @@
 <script>
     /**
-     * Layout for ChangePassword page.
+     * ChangePassword page accepts new password and requires old password before change is enabled.
+     *
      * @name changePassword
      * @module
      * @memberOf Pages:changePassword

@@ -1,8 +1,9 @@
 /**
- * @summary Labels for Colours page.
+ * Text for Colours page.
  *
+ * @name colours_text
+ * @constant {Object}
  * @memberOf Pages:colours
- * @function colours_text
  * @locus Client
  *
  * @property {Object} header - i18n of {title, lead, body}

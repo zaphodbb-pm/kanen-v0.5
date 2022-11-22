@@ -1,6 +1,6 @@
 <script>
     /**
-     * Layout for MyProfile page.
+     * MyProfile page is a form to populate the profile field in the user object.
      *
      * @name myProfile
      * @module

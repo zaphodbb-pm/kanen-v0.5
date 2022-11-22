@@ -1,7 +1,7 @@
 <script>
 
     /**
-     * Layout for Colours page.
+     * Colours page shows available colours set by CSS file variables.
      *
      * @name colours
      * @module

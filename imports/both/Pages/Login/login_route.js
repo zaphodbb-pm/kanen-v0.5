@@ -1,7 +1,8 @@
 /**
  * Route config information for Login page.
  *
- * @function login_route
+ * @name login_route
+ * @constant {Object}
  * @memberOf Pages:login
  * @locus Client
  *

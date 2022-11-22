@@ -1,8 +1,9 @@
 /**
- * Labels for Learn page.
+ * Text for Learn page.
  *
+ * @name learn_text
+ * @constant {Object}
  * @memberOf Pages:learn
- * @function learn_text
  * @locus Client
  *
  * @property {Object} header - i18n of {title, lead, body}

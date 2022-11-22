@@ -1,11 +1,12 @@
 /**
  * Schema definition object for BuildContent collection.
  *
- * @function buildContent_form_schema
+ * @name buildContent_form_schema
+ * @constant {Object}
  * @memberOf Pages:buildContent
  * @locus Anywhere
  *
- * @returns {Array} - array of field configuration objects
+ * @property {Array} default  - array of field configuration objects
  *
  * @example
  * Schema items

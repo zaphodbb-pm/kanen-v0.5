@@ -1,7 +1,7 @@
 /**
  * Text for AdminPanel.
  *
- * @function adminPanel_text
+ * @name adminPanel_text
  * @memberOf Pages:adminPanel
  * @locus Client
  *

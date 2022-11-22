@@ -1,8 +1,9 @@
 /**
  * Configuration for Login Components (optional).
  *
+ * @name login_config
+ * @constant {Object}
  * @memberOf Pages:login
- * @function login_config
  * @locus Client
  *
  * @property {Object} pageConfig - {form, services}

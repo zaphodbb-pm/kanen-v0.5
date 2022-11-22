@@ -1,8 +1,9 @@
 /**
  * Configuration for MyProfile Components (optional).
  *
+ * @name myProfile_config
+ * @constant {Object}
  * @memberOf Pages:myProfile
- * @function myProfile_config
  * @locus Client
  *
  * @property {Object} pageConfig - {form}

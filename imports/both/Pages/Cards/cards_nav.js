@@ -1,5 +1,5 @@
 /**
- * @summary Nav label for Cards page.
+ * Nav label for Cards page.
  *
  * @name cards_nav
  * @memberOf Pages:cards

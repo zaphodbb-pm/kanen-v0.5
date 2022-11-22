@@ -1,8 +1,9 @@
 /**
  * Configuration for Icons Components.
  *
+ * @name template_config
+ * @constant {Object}
  * @memberOf Pages:icons
- * @function template_config
  * @locus Client
  *
  * @property {Object} pageConfig - {components}

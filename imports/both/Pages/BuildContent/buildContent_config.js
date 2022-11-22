@@ -1,7 +1,8 @@
 /**
  * Configuration for BuildContent page Components.
  *
- * @function buildContent_page_config
+ * @name buildContent_page_config
+ * @constant {Object}
  * @memberOf Pages:buildContent
  * @locus Client
  *

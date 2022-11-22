@@ -1,12 +1,14 @@
 /**
  * Configuration for ExportImport Components (optional).
  *
+ * @name exportImport_config
+ * @constant {Object}
  * @memberOf Pages:exportImport
- * @function exportImport_config
  * @locus Client
  *
  * @property {Object} pageConfig - {components}
  */
+
 
 export const pageConfig =  {
 

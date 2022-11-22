@@ -1,8 +1,9 @@
 /**
- * Labels for Login page.
+ * Text for Login page.
  *
+ * @name login_text
+ * @constant {Object}
  * @memberOf Pages:login
- * @function login_text
  * @locus Client
  *
  * @property {Object} header - i18n of {title, lead, body}

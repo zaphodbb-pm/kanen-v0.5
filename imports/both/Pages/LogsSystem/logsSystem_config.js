@@ -1,8 +1,9 @@
 /**
  * Configuration for LogsSystem page Components.
  *
+ * @name logsSystem_config
+ * @constant {Object}
  * @memberOf Pages:logsSystem
- * @function logsSystem_config
  * @locus Client
  *
  * @property {Object} pageConfig - {list}

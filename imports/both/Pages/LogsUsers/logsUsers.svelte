@@ -1,7 +1,7 @@
 <script>
 
     /**
-     * Layout for LogsUsers page.
+     * LogsUsers page list user login / logout activity and includes ip addresses.
      *
      * @name logsUser
      * @module

@@ -1,11 +1,10 @@
 <script>
     /**
-     * Layout for LogsSystem page.
+     * LogsSystem page shows logs captured for system activity.
      *
      * @name logsSystem
      * @module
      * @memberOf Pages:logsSystem
-     * @function logsSystem
      * @locus Client
      *
      * @param {String} currentRoute - page path name

@@ -1,8 +1,9 @@
 /**
  * @summary Labels for LogsSystem page.
  *
+ * @name logsSystem_text
+ * @constant {Object}
  * @memberOf Pages:logsSystem
- * @function logsSystem_text
  * @locus Client
  *
  * @property {Object} header - i18n of {title, lead, body}

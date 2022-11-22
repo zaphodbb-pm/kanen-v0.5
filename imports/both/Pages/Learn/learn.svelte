@@ -1,6 +1,6 @@
 <script>
     /**
-     * Layout for Learn page.
+     * Learn page fetches content from database and allows navigation through topics..
      *
      * @name learn
      * @module

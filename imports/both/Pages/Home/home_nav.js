@@ -1,5 +1,5 @@
 /**
- * @summary Nav label and role based access for Home page.
+ * Nav label and role based access for Home page.
  *
  * @name home_nav
  * @memberOf Pages:home

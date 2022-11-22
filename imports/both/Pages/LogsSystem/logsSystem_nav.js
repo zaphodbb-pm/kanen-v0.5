@@ -1,5 +1,5 @@
 /**
- * @summary Nav label for LogsSystem page.
+ * Nav label for LogsSystem page.
  *
  * @name logsSystem_nav
  * @memberOf Pages:logsSystem

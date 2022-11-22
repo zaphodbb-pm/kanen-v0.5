@@ -1,8 +1,9 @@
 /**
- * @summary Labels for Home page.
+ * Text for Home page.
  *
+ * @name home_text
+ * @constant {Object}
  * @memberOf Pages:home
- * @function home_text
  * @locus Client
  *
  * @property {Object} header - i18n of {title, lead, body}

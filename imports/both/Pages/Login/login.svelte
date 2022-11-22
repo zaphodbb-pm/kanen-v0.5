@@ -1,6 +1,6 @@
 <script>
     /**
-     * Layout for Login page.
+     * Standard Login page.
      *
      * @name login
      * @module

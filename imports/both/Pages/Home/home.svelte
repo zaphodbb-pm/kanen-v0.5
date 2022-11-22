@@ -1,6 +1,6 @@
 <script>
 /**
- * @summary Layout insert for Home page.
+ * Site home page with project commentary
  *
  * @name home
  * @module

@@ -1,8 +1,9 @@
 /**
  * Labels for MyProfile page.
  *
+ * @name myProfile_text
+ * @constant {Object}
  * @memberOf Pages:myProfile
- * @function myProfile_text
  * @locus Client
  *
  * @property {Object} header - i18n of {title, lead, body}

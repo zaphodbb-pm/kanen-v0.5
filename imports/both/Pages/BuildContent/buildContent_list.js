@@ -1,11 +1,12 @@
 /**
  * Configuration list block for BuildContent page listing.
  *
- * @function buildContent_list
+ * @name buildContent_list
+ * @constant {Object}
  * @memberOf Pages:buildContent
  * @locus Client
  *
- * @returns {Object} - default = {sort: object, fields: array}
+ * @property {Object} default - {sort: object, fields: array}
  *
  * @example
  * Typical object structure for listing table

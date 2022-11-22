@@ -1,7 +1,8 @@
 /**
  * Configuration for AdminPanel Components.
  *
- * @function adminPanel_text
+ * @name adminPanel_text
+ * @constant {Object}
  * @memberOf Pages:adminPanel
  * @locus Client
  *

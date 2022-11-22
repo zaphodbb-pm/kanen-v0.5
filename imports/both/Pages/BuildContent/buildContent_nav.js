@@ -1,5 +1,5 @@
 /**
- * @summary Nav label for BuildContent page.
+ * Nav label for BuildContent page.
  *
  * @name buildContent_nav
  * @memberOf Pages:buildContent

@@ -1,8 +1,9 @@
 /**
- * @summary Text for Documentation Page.
+ * Text for Documentation Page.
  *
+ * @name documentation_text
+ * @constant {Object}
  * @memberOf Pages:documentation
- * @function documentation_text
  * @locus Client
  *
  * @property {Object} header - i18n of {title, lead, body}

@@ -1,8 +1,9 @@
 /**
- * Labels for ExportImport page.
+ * Text for ExportImport page.
  *
+ * @name exportImport_text
+ * @constant {Object}
  * @memberOf Pages:exportImport
- * @function exportImport_text
  * @locus Client
  *
  * @property {Object} header - i18n of {title, lead, body}
