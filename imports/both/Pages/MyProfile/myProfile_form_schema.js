@@ -22,6 +22,7 @@
  *          country =           String: address: country
  *          postCode =          String: address: postal or zip code
  *
+ * Config Object: see /imports/Components/formBuilder/formHolder.svelte for details
  */
 
 export default [

@@ -34,13 +34,13 @@
      *      schema object per field item:
      *          field: "startDynamicSelect",        String: (required) field name in database
      *          fieldType: "select",                String: (required) see fieldWrapper notes
-     *          optional: true,                     Boolean: (required) if false, forces user entry to present in order to submit form
+     *          optional: true,                     Boolean: (required) if false, forces user entry in order to allow submit form
      *
      *          css: "is-fullwidth",                String: (optional for fieldWrapper) adds css to fieldWrapper
      *          adjustLabel: true,                  Boolean: (optional for fieldWrapper) shifts label right to accommodate button add-on
      *          group: {                            Object: (optional for formTabFields) allows formTabFields to create horizontal group of fields
      *              section: 0,                                     (required) unique index number per group of fields
-     *              class: "is-two-thirds"                          (optional) column width control; else equal widths
+     *              class: "is-span-2"                          (optional) column width control; else equal widths
      *          },
      *          tab: 1,                             Number: (optional for formTabFields) displays field in selected form tab set by formTabFields
      *          attributes: {},                     Object: (optional per field) adds attributes to html tags such as 'input'

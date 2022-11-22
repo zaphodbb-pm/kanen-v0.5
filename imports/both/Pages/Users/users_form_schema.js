@@ -22,6 +22,7 @@
  *          apiKey =        String: long random alpha-numeric string
  *          admin =         Boolean: administrator access
  *
+ * Config Object: see /imports/Components/formBuilder/formHolder.svelte for details
  */
 
 

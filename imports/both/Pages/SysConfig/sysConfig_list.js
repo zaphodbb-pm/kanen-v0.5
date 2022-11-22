@@ -16,6 +16,16 @@
  *
  *      //updatedAt =         String: unix timestamp converted to time ago format
  *
+ * list config object:
+ *      field:      {String}  - unique field name in database
+ *      key:        {String}  - field name or child key as field.child
+ *      type:       {String}  - cell widget, see /imports/Components/listCollections/listTable.svelte
+ *      label:      {String}  - field that will be overridden by text from <file>_text.js
+ *      filter:     {Object}  - filter configuration information
+ *      filterText: {Object}  - text for various parts of a filter
+ *      condition:  {Object}  - general MongoDb search criterion merged with other items for a final query: {$gte: now}
+ *      sort:       {Number}  - ascending (1) or descending (-1) or none (0)
+ *      search:     {Boolean} - search bar can use this field for any search
  */
 
 

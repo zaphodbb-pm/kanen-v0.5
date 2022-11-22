@@ -46,7 +46,7 @@
  *          tenantId =              String: user tenantId when in multi-tenant mode
  *          updatedAt =             Number: epoch timestamp
  *
- * Config Object:
+ * Config Object: see /imports/Components/formBuilder/formHolder.svelte for details
  *              field: "startDynamicSelect",        String: field name in database
  *              fieldType: "select",                String: see fieldWrapper notes
  *              optional: true,                     Boolean: if false, forces user entry to present in order to submit form
@@ -54,7 +54,7 @@
  *              adjustLabel: true,                  Boolean: (optional) shifts label right to accommodate button add-on
  *              group: {                            Object: (optional) allows formTabFields to create horizontal group of fields
  *                  section: 0,
- *                  class: "is-two-thirds"
+ *                  class: "is-span-2"
  *              },
  *              tab: 1,                             Number: (optional) displays field in selected form tab set by formTabFields
  *              attributes: {},                     Object: adds attributes to html tags such as 'input'

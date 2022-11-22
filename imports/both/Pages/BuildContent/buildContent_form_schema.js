@@ -5,8 +5,6 @@
  * @memberOf Pages:buildContent
  * @locus Anywhere
  *
- *
- *
  * @returns {Array} - array of field configuration objects
  *
  * @example
@@ -18,32 +16,9 @@
  *          contentLead =       String: lead text
  *          contentSummary=     String: summary text
  *          contentPage=        String: JSON.stringify version of the html + css content
-
  *
- * Config Object:
- *              field: "startDynamicSelect",        String: field name in database
- *              fieldType: "select",                String: see fieldWrapper notes
- *              optional: true,                     Boolean: if false, forces user entry to present in order to submit form
  *
- *              adjustLabel: true,                  Boolean: (optional) shifts label right to accommodate button add-on
- *              group: {                            Object: (optional) allows formTabFields to create horizontal group of fields
- *                  section: 0,
- *                  class: "is-two-thirds"
- *              },
- *              tab: 1,                             Number: (optional) displays field in selected form tab set by formTabFields
- *              attributes: {},                     Object: adds attributes to html tags such as 'input'
- *              params: {                           Object: (optional) extra config for complex Components
- *                  type: "dynamicSelect",
- *                  coll: "buildContent",
- *                  filter: {fields: {name: 1}},
- *                  options: {sort: {name: 1}}
- *              },
- *              defaultValue: {_id: "", name: ""},  {Object|String|Number} submit adds values if no user entry
- *
- *              css: "is-fullwidth",                String: (optional) adds css to fieldWrapper
- *              listen: {src, key, value}           Object: {src: <fieldName>, key: watching object -> <keyName>, value: <trigger value>}
- *              role: ["admin]                      Array: list of user role strings that can see this field
- *
+ * Config Object: see /imports/Components/formBuilder/formHolder.svelte for details
  *
  */
 

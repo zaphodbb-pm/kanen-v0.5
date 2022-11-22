@@ -27,6 +27,7 @@
  *          debugLevel =    String: for debug purposes; one or more of "ohefmpstw"
  *          showWidgets =   Boolean: debugging widgets such as lat/lng info
  *
+ * Config Object: see /imports/Components/formBuilder/formHolder.svelte for details
  */
 
 
