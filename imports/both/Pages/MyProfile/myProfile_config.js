@@ -6,6 +6,7 @@
  * @locus Client
  *
  * @property {Object} pageConfig - {form}
+ *
  */
 
 export const pageConfig =  {
