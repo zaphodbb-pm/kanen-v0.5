@@ -40,15 +40,15 @@
      *              target: null,               // page to send item to with item id
      *
      *      field object keys:
-     *              field: "name",              // field name
-     *              key: "name",                // document key value
-     *              label: "Field Name",        // user readable label for list field
-     *              type: "inDateRange",        // how to display in the table or grid; also used by filter
-     *              filter: config,             // filter configuration information
-     *              filterText: object          // text for various parts of a filter
-     *              condition: {$gte: now},     // general MongoDb search criterion merged with other items for a final query
-     *              sort: 1,                    // allows sorting based on value returned
-     *              search: true,               // allows for searching from search bar
+     *              field: "name",              // {String} field name
+     *              key: "name",                // {String} document key value
+     *              label: "Field Name",        // {String} user readable label for list field
+     *              type: "inDateRange",        // {String} how to display in the table or grid; also used by filter
+     *              filter: config,             // {Object} filter configuration information
+     *              filterText: object          // {Object} text for various parts of a filter
+     *              condition: {$gte: now},     // {Object} general MongoDb search criterion merged with other items for a final query
+     *              sort: 1,                    // {Number} allows sorting based on value returned
+     *              search: true,               // {Boolean} allows for searching from search bar
      *
      */
 
