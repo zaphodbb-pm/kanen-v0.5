@@ -1,5 +1,5 @@
 /**
- * Nav label for AdminPanel page.
+ * Nav labels for AdminPanel page.
  *
  * @name adminPanel_nav
  * @memberOf Pages:adminPanel

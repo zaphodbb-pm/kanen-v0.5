@@ -1,5 +1,5 @@
 /**
- * Labels for AdminPanel.
+ * Text for AdminPanel.
  *
  * @function adminPanel_text
  * @memberOf Pages:adminPanel

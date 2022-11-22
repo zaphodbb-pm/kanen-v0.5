@@ -1,6 +1,6 @@
 <script>
     /**
-     * Page layout for AdminPanel.
+     * Page layout for AdminPanel.  Displays various widgets for use in an admin panel.
      *
      * @name adminPanel
      * @module

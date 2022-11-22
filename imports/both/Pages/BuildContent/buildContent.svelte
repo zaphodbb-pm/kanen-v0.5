@@ -1,6 +1,6 @@
 <script>
     /**
-     * Layout for BuildContent page.
+     * Page BuildContent that allows administrators to create magazine style content for educational purposes.
      *
      * @name buildContent
      * @module

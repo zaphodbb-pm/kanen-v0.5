@@ -5,7 +5,7 @@
  * @function logsUsers_access_control
  * @locus Server
  *
- * @returns {Object} - access control parameters
+ * @property {Object} default - access control parameters
  *
  * @notes
  *  1. Register this access control at '/imports/server/setupACL.js'

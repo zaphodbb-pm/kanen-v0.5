@@ -5,7 +5,7 @@
  * @function pubSub_access_control
  * @locus Server
  *
- * @returns {Object} - access control parameters
+ * @property {Object} default - access control parameters
  *
  *
  * @notes
