@@ -1,9 +1,8 @@
 /**
  * @summary Nav label for Colours page.
  *
- * @memberOf Pages:colours
  * @name colours_nav
- * @lends colours
+ * @memberOf Pages:colours
  * @locus Anywhere
  *
  * @property {Object} nav - i18n link label text

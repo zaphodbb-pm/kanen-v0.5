@@ -1,8 +1,8 @@
 /**
  * Route config information for LogsSystem page.
  *
- * @memberOf Pages:logsSystem
  * @function logsSystem_route
+ * @memberOf Pages:logsSystem
  * @locus Client
  *
  * @property {Object}  route

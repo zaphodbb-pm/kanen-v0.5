@@ -1,8 +1,8 @@
 /**
  * Route config information for BuildContent page.
  *
- * @memberOf Pages:buildContent
  * @function buildContent_page_route
+ * @memberOf Pages:buildContent
  * @locus Client
  *
  * @property {Object}  route

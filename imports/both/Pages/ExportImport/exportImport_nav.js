@@ -1,9 +1,8 @@
 /**
  * Nav label for ExportImport page.
  *
- * @memberOf Pages:exportImport
  * @name exportImport_nav
- * @lends exportImport
+ * @memberOf Pages:exportImport
  * @locus Anywhere
  *
  * @property {Object} nav - i18n link label text

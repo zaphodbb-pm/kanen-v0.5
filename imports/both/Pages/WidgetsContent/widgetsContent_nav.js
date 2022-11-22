@@ -1,8 +1,8 @@
 /**
  * @summary Various content widgets WidgetsContent page.
  *
- * @memberOf Pages:widgetsContent
  * @name widgetsContent_nav
+ * @memberOf Pages:widgetsContent
  * @locus Anywhere
  *
  * @property {Object} nav - i18n link label text

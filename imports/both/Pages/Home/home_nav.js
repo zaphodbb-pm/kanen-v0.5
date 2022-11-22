@@ -3,7 +3,6 @@
  *
  * @name home_nav
  * @memberOf Pages:home
- * @lends home
  * @locus Anywhere
  *
  * @property {Object} nav - i18n link label text

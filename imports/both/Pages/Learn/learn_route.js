@@ -1,8 +1,8 @@
 /**
  * Route config information for Learn page.
  *
- * @memberOf Pages:learn
  * @function learn_route
+ * @memberOf Pages:learn
  * @locus Client
  *
  * @property {Object}  route

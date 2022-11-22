@@ -1,8 +1,8 @@
 /**
  * Route config information for Starter page.
  *
- * @memberOf Pages:starter
  * @function starter_page_route
+ * @memberOf Pages:starter
  * @locus Client
  *
  * @property {Object}  route

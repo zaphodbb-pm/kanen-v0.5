@@ -1,8 +1,8 @@
 /**
  * @summary Route config information for Documentation page.
  *
- * @memberOf Pages:documentation
  * @function documentation_route
+ * @memberOf Pages:documentation
  * @locus Client
  *
  * @property {Object}  route

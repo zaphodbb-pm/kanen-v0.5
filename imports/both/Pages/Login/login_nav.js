@@ -1,9 +1,8 @@
 /**
  * Nav label for Login page.
  *
- * @memberOf Pages:login
  * @name login_nav
- * @lends login
+ * @memberOf Pages:login
  * @locus Anywhere
  *
  * @property {Object} nav - i18n link label text

@@ -1,9 +1,8 @@
 /**
  * @summary Nav label for Documentation page.
  *
- * @memberOf Pages:documentation
  * @name documentation_nav
- * @lends documentation
+ * @memberOf Pages:documentation
  * @locus Anywhere
  *
  * @property {Object} nav - i18n link label text

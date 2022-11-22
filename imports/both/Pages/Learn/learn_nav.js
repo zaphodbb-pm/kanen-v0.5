@@ -1,9 +1,8 @@
 /**
  * Nav label for Learn page.
  *
- * @memberOf Pages:learn
  * @name learn_nav
- * @lends learn
+ * @memberOf Pages:learn
  * @locus Anywhere
  *
  * @property {Object} nav - i18n link label text

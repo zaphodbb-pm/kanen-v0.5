@@ -11,16 +11,11 @@
  * Typical object structure for listing table
  *      _id =               String: id for the document in that table row
  *      name =              String: item name
- *      startStaticSelect = Object: option from selector
- *      startDateTime =     String: YYYY-mm-dd format
- *
- *      //updatedAt =         String: unix timestamp converted to time ago format
+ *      updatedAt =         String: unix timestamp converted to time ago format
  *
  * list config object:  see /imports/Components/listCollections/listHolder.svelte for details
  *
  */
-
-
 
 export default {
     sort: {"parentPage._id": 1, "contentWeight": 1},
@@ -53,4 +48,4 @@ export default {
             search: false,
         }
     ]
-}
+};

@@ -1,9 +1,8 @@
 /**
  * @summary Nav label for SysConfig page.
  *
- * @memberOf Pages:sysConfig
  * @name sysConfig_nav
- * @lends sysConfig
+ * @memberOf Pages:sysConfig
  * @locus Anywhere
  *
  * @property {Object} nav - i18n link label text

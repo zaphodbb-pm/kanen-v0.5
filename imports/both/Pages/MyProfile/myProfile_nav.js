@@ -1,9 +1,8 @@
 /**
  * Nav label for MyProfile page.
  *
- * @memberOf Pages:myProfile
  * @name myProfile_nav
- * @lends myProfile
+ * @memberOf Pages:myProfile
  * @locus Anywhere
  *
  * @property {Object} nav - i18n link label text

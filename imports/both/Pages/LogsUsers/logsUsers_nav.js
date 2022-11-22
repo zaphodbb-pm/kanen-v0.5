@@ -1,9 +1,8 @@
 /**
  * @summary Nav label for LogsUsers page.
  *
- * @memberOf Pages:logsUsers
  * @name logsUsers_nav
- * @lends logsUsers
+ * @memberOf Pages:logsUsers
  * @locus Anywhere
  *
  * @property {Object} nav - i18n link label text

@@ -1,8 +1,8 @@
 /**
  * @summary Route config information for Cards.
  *
- * @memberOf Pages:cards
  * @function cards_route
+ * @memberOf Pages:cards
  * @locus Client
  *
  * @property {Object}  route

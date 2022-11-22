@@ -1,9 +1,8 @@
 /**
  * @summary Nav label for Icons page.
  *
- * @memberOf Pages:icons
  * @name icons_nav
- * @lends icons
+ * @memberOf Pages:icons
  * @locus Anywhere
  *
  * @property {Object} nav - i18n link label text

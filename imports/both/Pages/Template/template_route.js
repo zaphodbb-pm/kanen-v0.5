@@ -1,8 +1,8 @@
 /**
  * Route config information for Template page.
  *
- * @memberOf Pages:template
  * @function template_route
+ * @memberOf Pages:template
  * @locus Client
  *
  * @property {Object}  route

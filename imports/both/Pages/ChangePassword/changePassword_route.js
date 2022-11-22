@@ -1,8 +1,8 @@
 /**
  * Route config information for ChangePassword page.
  *
- * @memberOf Pages:changePassword
  * @function changePassword_route
+ * @memberOf Pages:changePassword
  * @locus Client
  *
  * @property {Object}  route

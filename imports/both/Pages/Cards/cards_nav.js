@@ -1,9 +1,8 @@
 /**
  * @summary Nav label for Cards page.
  *
- * @memberOf Pages:cards
  * @name cards_nav
- * @lends cards
+ * @memberOf Pages:cards
  * @locus Anywhere
  *
  * @property {Object} nav - i18n link label text

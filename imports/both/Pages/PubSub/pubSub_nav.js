@@ -1,9 +1,8 @@
 /**
  * Nav label for PubSub page.
  *
- * @memberOf Pages:pubSub
  * @name pubSub_nav
- * @lends pubSub
+ * @memberOf Pages:pubSub
  * @locus Anywhere
  *
  * @property {Object} nav - i18n link label text

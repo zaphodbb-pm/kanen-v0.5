@@ -1,9 +1,8 @@
 /**
  * @summary Nav label for Starter page.
  *
- * @memberOf Pages:starter
  * @name starter_nav
- * @lends starter
+ * @memberOf Pages:starter
  * @locus Anywhere
  *
  * @property {Object} nav - i18n link label text

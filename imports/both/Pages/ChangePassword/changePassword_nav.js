@@ -1,9 +1,8 @@
 /**
  * Nav label for ChangePassword page.
  *
- * @memberOf Pages:changePassword
  * @name changePassword_nav
- * @lends changePassword
+ * @memberOf Pages:changePassword
  * @locus Anywhere
  *
  * @property {Object} nav - i18n link label text

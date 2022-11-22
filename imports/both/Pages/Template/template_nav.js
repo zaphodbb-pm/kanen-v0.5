@@ -1,9 +1,8 @@
 /**
  * Nav label, link, icon and access control for Template page.
  *
- * @memberOf Pages:template
  * @name template_nav
- * @lends template
+ * @memberOf Pages:template
  * @locus Anywhere
  *
  * @property {Object} nav - i18n link label text
