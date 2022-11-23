@@ -1,5 +1,5 @@
 /**
- * @summary Nav label for SysConfig page.
+ * Text for SysConfig page.
  *
  * @name sysConfig_nav
  * @memberOf Pages:sysConfig

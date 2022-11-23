@@ -1,7 +1,8 @@
 /**
  * Route config information for PubSub page.
  *
- * @function pubSub_route
+ * @name pubSub_route
+ * @constant {Object}
  * @memberOf Pages:pubSub
  * @locus Client
  *

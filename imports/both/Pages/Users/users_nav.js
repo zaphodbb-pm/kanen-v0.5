@@ -1,5 +1,5 @@
 /**
- * @summary Nav label for Users page.
+ * Nav label for Users page.
  *
  * @name users_nav
  * @memberOf Pages:users

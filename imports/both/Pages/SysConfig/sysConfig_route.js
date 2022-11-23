@@ -1,7 +1,8 @@
 /**
  * Route config information for SysConfig page.
  *
- * @function sysConfig_page_route
+ * @name sysConfig_page_route
+ * @constant {Object}
  * @memberOf Pages:sysConfig
  * @locus Client
  *

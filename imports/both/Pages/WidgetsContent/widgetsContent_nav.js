@@ -1,5 +1,5 @@
 /**
- * @summary Various content widgets WidgetsContent page.
+ * Nav labels for WidgetsContent page.
  *
  * @name widgetsContent_nav
  * @memberOf Pages:widgetsContent

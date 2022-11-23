@@ -6,8 +6,13 @@
  * @function Meteor_server_extensions
  * @locus Server
  *
- * @see {@link https://github.com/rclai/meteor-collection-extensions/blob/master/collection-extensions.js|lai:collection-extensions}
- * @see {@link https://github.com/dburles/mongo-collection-instances/blob/master/mongo-instances.js|dburles:mongo-collection-instances}
+ *
+ * @augments Meteor.Collection
+ * @property {Function} get
+ * @property {Function} getAll
+ *
+ * @see {@link https://github.com/Meteor-Community-Packages/meteor-collection-extensions}
+ * @see {@link https://github.com/Meteor-Community-Packages/mongo-collection-instances}
  *
  */
 

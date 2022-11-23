@@ -1,11 +1,12 @@
 /**
  * Provides the MongoDb projection objects for various read requests.
  *
+ * @name access control parameters
+ * @constant {Object}
  * @memberOf Pages:sysConfig
- * @property {Object} default - access control parameters
  * @locus Server
  *
- * @returns {Object} - access control parameters
+ * @property {Object} default - access control parameters
  *
  * @example
  *  default object:

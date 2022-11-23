@@ -1,11 +1,12 @@
 /**
  * Configuration list block for Users page listing.
  *
+ * @name users_list
+ * @constant {Object}
  * @memberOf Pages:users
- * @function users_list
  * @locus Client
  *
- * @returns {Object} - default = {sort: object, fields: array}
+ * @property {Object} default - {sort: object, fields: array}
  *
  * @example
  * Typical object structure for listing table

@@ -1,8 +1,9 @@
 /**
- * @summary Labels for Users page.
+ * Text for Users page.
  *
+ * @name users_text
+ * @constant {Object}
  * @memberOf Pages:users
- * @function users_text
  * @locus Client
  *
  * @property {Object} header - i18n of {title, lead, body}

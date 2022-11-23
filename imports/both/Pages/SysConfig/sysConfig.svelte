@@ -1,6 +1,6 @@
 <script>
     /**
-     * Layout for SysConfig page.
+     * SysConfig page provides a form to set up system-wide parameters.
      *
      * @name sysConfig
      * @module

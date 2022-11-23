@@ -1,5 +1,5 @@
 /**
- * @summary Nav label for Starter page.
+ * Nav label for Starter page.
  *
  * @name starter_nav
  * @memberOf Pages:starter

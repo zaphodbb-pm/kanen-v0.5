@@ -1,6 +1,6 @@
 <script>
     /**
-     * @summary Layout for WidgetsContent.
+     * Various content widgets WidgetsContent page.
      *
      * @name widgetsContent
      * @module

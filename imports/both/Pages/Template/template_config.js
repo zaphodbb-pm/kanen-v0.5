@@ -1,8 +1,9 @@
 /**
  * Configuration for Template Components (optional).
  *
+ * @name template_config
+ * @constant {Object}
  * @memberOf Pages:template
- * @function template_config
  * @locus Client
  *
  * @property {Object} pageConfig - {components widgets}

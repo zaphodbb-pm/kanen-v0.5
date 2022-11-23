@@ -1,8 +1,9 @@
 /**
- * @summary Labels for WidgetsContent.
+ * Text for WidgetsContent.
  *
+ * @name widgetsContent_text
+ * @constant {Object}
  * @memberOf Pages:widgetsContent
- * @function widgetsContent_text
  * @locus Client
  *
  * @property {Object} header - i18n of {title, lead, body}

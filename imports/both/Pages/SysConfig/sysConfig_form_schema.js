@@ -1,11 +1,12 @@
 /**
- * @summary Schema definition object for SysConfig collection.
+ * Schema definition object for SysConfig collection.
  *
+ * @name sysConfig_form_schema
+ * @constant {Object}
  * @memberOf Pages:sysConfig
- * @function sysConfig_form_schema
  * @locus Anywhere
  *
- * @returns {Array} - array of field configuration objects
+ * @property {Array} default- array of field configuration objects
  *
  * @example
  * Schema items

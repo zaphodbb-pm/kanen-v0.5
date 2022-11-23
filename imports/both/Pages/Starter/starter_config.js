@@ -1,8 +1,9 @@
 /**
  * Configuration for Starter page Components.
  *
+ * @name starter_config
+ * @constant {Object}
  * @memberOf Pages:starter
- * @function starter_config
  * @locus Client
  *
  * @property {Object} pageConfig - {components, form, list}

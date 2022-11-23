@@ -1,8 +1,9 @@
 /**
- * Labels for Template page.
+ * Text for Template page.
  *
+ * @name template_text
+ * @constant {Object}
  * @memberOf Pages:template
- * @function template_text
  * @locus Client
  *
  * @property {Object} header - i18n of {title, lead, body}

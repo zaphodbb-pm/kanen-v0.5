@@ -1,8 +1,9 @@
 /**
  * Configuration for Users page Components.
  *
+ * @name users_config
+ * @constant {Object}
  * @memberOf Pages:users
- * @function users_config
  * @locus Client
  *
  * @property {Object} pageConfig - {form, list}

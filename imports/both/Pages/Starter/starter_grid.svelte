@@ -2,8 +2,8 @@
     /**
      * Grid to list documents and fields for docs.
      *
+     * @module starter_grid
      * @memberOf Pages:starter
-     * @function starter_grid
      * @locus Client
      *
      * @param  {Object} config - decoration for table

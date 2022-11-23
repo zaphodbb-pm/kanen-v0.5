@@ -1,11 +1,12 @@
 /**
- * @summary Schema definition object for Users collection.
+ * Schema definition object for Users collection.
  *
+ * @name users_form_schema
+ * @constant {Object}
  * @memberOf Pages:users
- * @function users_form_schema
  * @locus Anywhere
  *
- * @returns {Array} - array of field configuration objects
+ * @property {Array} default - array of field configuration objects
  *
  * @example
  * Schema items

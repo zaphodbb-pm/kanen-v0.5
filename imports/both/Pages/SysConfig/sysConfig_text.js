@@ -1,8 +1,9 @@
 /**
- * @summary Labels for SysConfig page.
+ * Text for SysConfig page.
  *
+ * @name sysConfig_text
+ * @constant {Object}
  * @memberOf Pages:sysConfig
- * @function sysConfig_text
  * @locus Client
  *
  * @property {Object} header - i18n of {title, lead, body}

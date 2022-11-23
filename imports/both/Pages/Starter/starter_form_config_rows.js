@@ -1,11 +1,12 @@
 /**
- * @summary Text for complex fieldset rows on the Starter page.
+ * Text for complex fieldset rows on the Starter page.
  *
+ * @name starter_form_text_rows
+ * @constant {Object}
  * @memberOf Pages:starter
- * @function starter_form_text_rows
  * @locus Client
  *
- * @returns {Object} formText
+ * @property {Object} default - formText for rows in a form field
  *
  * @notes
  *    Field types set:

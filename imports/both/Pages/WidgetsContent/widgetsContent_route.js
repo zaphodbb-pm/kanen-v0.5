@@ -1,7 +1,8 @@
 /**
- * @summary Route config information for WidgetsContent.
+ * Route config information for WidgetsContent.
  *
- * @function widgetsContent_route
+ * @name widgetsContent_route
+ * @constant {Object}
  * @memberOf Pages:widgetsContent
  * @locus Client
  *

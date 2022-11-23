@@ -1,11 +1,12 @@
 /**
- * @summary Schema definition object for Starter collection.
+ * Schema definition object for Starter collection.
  *
+ * @name starter_form_schema
+ * @constant {Object}
  * @memberOf Pages:starter
- * @function starter_form_schema
  * @locus Anywhere
  *
- * @returns {Array} - array of field configuration objects
+ * @property {Array} default - array of field configuration objects
  *
  * @example
  * Schema items

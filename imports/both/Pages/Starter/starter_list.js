@@ -1,11 +1,12 @@
 /**
  * Configuration list block for Starter page listing.
  *
+ * @name starter_list
+ * @constant {Object}
  * @memberOf Pages:starter
- * @function starter_list
  * @locus Client
  *
- * @returns {Object} - default = {sort: object, fields: array}
+ * @property {Object} default - {sort: object, fields: array}
  *
  * @example
  * Typical object structure for listing table

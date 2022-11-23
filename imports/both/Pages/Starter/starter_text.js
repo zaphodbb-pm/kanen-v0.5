@@ -1,8 +1,9 @@
 /**
- * @summary Labels for Starter page.
+ * Text for Starter page.
  *
+ * @name starter_text
+ * @constant {Object}
  * @memberOf Pages:starter
- * @function starter_text
  * @locus Client
  *
  * @property {Object} header - i18n of {title, lead, body}

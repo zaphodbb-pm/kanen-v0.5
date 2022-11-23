@@ -1,6 +1,6 @@
 <script>
     /**
-     * Layout for Starter page.
+     * Starter page is a showcase for a tabbed form with all field types and a fully configured list table with serach and filters.
      *
      * @name starter
      * @module

@@ -1,5 +1,5 @@
 <script>/**
- * Layout for Template page.
+ * Template page provides a simple starting point for adding and customizing your own pages.
  *
  * @name template
  * @module

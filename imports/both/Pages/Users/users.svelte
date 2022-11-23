@@ -1,6 +1,6 @@
 <script>
     /**
-     * Layout for users page.
+     * Users page allows for adding, editing or deleting users on this system.
      *
      * @name users
      * @module

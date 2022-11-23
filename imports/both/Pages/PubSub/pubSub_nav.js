@@ -1,5 +1,5 @@
 /**
- * Nav label for PubSub page.
+ * Nav labels for PubSub page.
  *
  * @name pubSub_nav
  * @memberOf Pages:pubSub

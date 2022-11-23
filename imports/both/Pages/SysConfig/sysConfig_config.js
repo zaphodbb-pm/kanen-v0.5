@@ -1,8 +1,9 @@
 /**
  * Configuration for SysConfig page Components.
  *
+ * @name sysConfig_page_config
+ * @constant {Object}
  * @memberOf Pages:sysConfig
- * @function sysConfig_page_config
  * @locus Client
  *
  * @property {Object} pageConfig - {form, list}

@@ -1,8 +1,9 @@
 /**
  * Provides the MongoDb projection objects for various read requests.
  *
+ * @name users_access_control
+ * @constant {Object}
  * @memberOf Pages:users
- * @function users_access_control
  * @locus Server
  *
  * @property {Object} default - access control parameters

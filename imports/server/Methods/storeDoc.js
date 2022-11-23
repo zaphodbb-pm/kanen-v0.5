@@ -1,10 +1,6 @@
-// @ts-ignore
 import {Meteor} from "meteor/meteor";
-// @ts-ignore
 import {check} from 'meteor/check';
-// @ts-ignore
 import {Mongo} from "meteor/mongo";
-// @ts-ignore
 import {Match} from "meteor/check";
 
 
@@ -134,6 +130,9 @@ Meteor.methods({
      * @function inputterUpdateItem
      * @isMethod true
      * @locus Server
+     *
+     * @typedef Mongo.Collection
+     * @property {Function} get
      *
      * @requires {objectify}_from_'/imports/functionsBoth/func-objectify'
      *
