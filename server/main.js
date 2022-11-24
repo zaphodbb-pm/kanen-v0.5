@@ -43,7 +43,7 @@ import '/imports/server/Publish/realTime'
 import {writeLog} from '/imports/server/Functions/writeLog'
 
 //** debug routines
-import '/imports/both/AddOn_Packages/showServerConsole'
+//import '/imports/both/AddOn_Packages/showServerConsole'
 
 
 Meteor.startup(() => {
@@ -92,9 +92,11 @@ if (Meteor.isServer) {
             array: [1, 2, 3, 4],
             text: "this is some text",
             number: 42
+
+
         };
 
-        showServerLogs("LogsSystem", msg, true);
+        //showServerLogs("LogsSystem", msg, true);
     }, 5000);
     //****** end of example
 

@@ -26,8 +26,8 @@
     import version from '/imports/both/version';
     setContext("Version", version);             //setup system wide version info
 
-    import commonText from '/imports/client/setup/textCommon';
-    setContext("commonText", commonText);       // setup system wide text strings (all languages)
+    import commonText from '/imports/client/text_common';
+    setContext("commonText", commonText);       // setup system-wide text strings (all languages)
 
     import {sysConfig, sysDebug, showWidget, showRoutes} from '/imports/client/systemStores';
     import {allRoutes} from '../routes';
@@ -35,7 +35,7 @@
 
     //* set up user extra items
     import {buildNavLinks} from '/imports/Functions/supportApplication/buildNavLinks';
-    import {userPosition, userLoggedIn, userExtras} from '/imports/client/systemStores';
+    import {userLoggedIn, userExtras} from '/imports/client/systemStores';
 
 
 
@@ -76,7 +76,7 @@
 
 
     //* load the path router -> will render main page & Components based on nav-link selection
-    import { path, query, pattern, click, state } from 'svelte-pathfinder';
+    import { path, query, pattern, click } from 'svelte-pathfinder';
 
     //** local reactive variables
     let currentPath = "";

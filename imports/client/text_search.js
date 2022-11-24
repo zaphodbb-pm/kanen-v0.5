@@ -1,11 +1,12 @@
 /**
- * @summary System wide search bar language strings.
+ * System-wide search bar language strings.
  *
+ * @name textSearch
+ * @constant {Object}
  * @memberOf App
- * @function textSearch
  * @locus Client
  *
- * @exports default
+ * @property {Object} default - {label, helpText}
  *
  */
 

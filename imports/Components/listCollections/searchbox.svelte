@@ -22,7 +22,7 @@
 
     import {buildQuery} from './func-buildQuery'
     import {i18n} from '/imports/Functions/utilities/i18n'
-    import searchBoxText from '/imports/client/setup/textSearch'
+    import searchBoxText from '/imports/client/text_search'
 
     //* local reactive variables
     let helpText = i18n(searchBoxText, "helpText");

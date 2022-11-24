@@ -29,10 +29,14 @@
     //* special case for importing large json files
     import {userExtras} from '/imports/client/systemStores'
 
+    //* language common text
+    import {i18n} from '/imports/Functions/utilities/i18n';
+    import {lang} from '/imports/client/systemStores';
+    let fileReader = i18n( getContext("commonText"), "fileReader", $lang);
+
     //* support Functions
-    import {documents} from '/imports/both/systemGlobals'
-    import {fileReader} from '/imports/client/setup/textCommon'
-    import Crop_Image from '/imports/Components/widgets/croppie.svelte'
+    import {documents} from '/imports/both/systemGlobals';
+    import Crop_Image from '/imports/Components/widgets/croppie.svelte';
     import {getContext, createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
     const formText = getContext("formText");

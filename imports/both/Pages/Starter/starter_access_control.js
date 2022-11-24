@@ -33,8 +33,8 @@ import schema from './starter_form_schema';
 import list from './starter_list'
 import {roles} from './starter_nav'
 
-import {fieldAddons} from '../../../server/fieldAddons'
-import {buildAllFields} from '../../../Functions/supportApplication/buildAllFields'
+import {fieldAddons} from '../../../server/fieldAddons';
+import {buildAllFields} from '../../../Functions/supportApplication/buildAllFields';
 
 export default {
     starter: {

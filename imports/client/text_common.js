@@ -1,20 +1,14 @@
 /**
- * @summary System wide common language strings.
+ * System-wide common language strings.
  *
- * @function textCommon
+ * @name text_common
  * @memberOf App
  * @locus Client
  *
- * @exports fileReader
- * @exports default
+ * @property {Object} default - {userLangs, currencies, confirmDelete, fileReader, calendar}
+ *
  *
  */
-
-
-export const fileReader = {
-    file_too_long: "Can't load files larger than getImageSizeKB.  <br/>Size = ",
-    file_wrong_type: "File type is not supported.  <br/>Type = ",
-}
 
 export default{
     userLangs: {
@@ -40,6 +34,13 @@ export default{
             msg: "Are you sure you want to delete?",
             btnRemove: "Remove",
             btnCancel: "Not now!"
+        }
+    },
+
+    fileReader: {
+        en: {
+            file_too_long: "Can't load files larger than getImageSizeKB.  <br/>Size = ",
+            file_wrong_type: "File type is not supported.  <br/>Type = ",
         }
     },
 

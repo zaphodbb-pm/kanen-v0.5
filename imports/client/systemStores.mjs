@@ -1,24 +1,24 @@
 /**
  * Finds a user's language preference
  *
- * @function systemStores
+ * @name systemStores
  * @memberOf App
  * @locus Client
  *
- * @exports {Object} sysConfig - server derived: get certain system parameters for client side configuration
- * @exports {Boolean} showWidget - sysConfig derived: show extra Components for dev, debug work
- * @exports {String} sysDebug - sysConfig derived: string list of items that will log messages to the console
+ * @property {Object} sysConfig - server derived: get certain system parameters for client side configuration
+ * @property {Boolean} showWidget - sysConfig derived: show extra Components for dev, debug work
+ * @property {String} sysDebug - sysConfig derived: string list of items that will log messages to the console
  *
- * @exports {String} lang - browser derived: user language preference as a two letter code
+ * @property {String} lang - browser derived: user language preference as a two letter code
  *
- * @exports {Object} userPosition - browser derived: lat / lng co-ordinates
- * @exports {Object} userLoggedIn - client derived: store variable gets returned Meteor.user() object at login
- * @exports {Object} userExtras - server derived: logged in user gets their extra account information
+ * @property {Object} userPosition - browser derived: lat / lng co-ordinates
+ * @property {Object} userLoggedIn - client derived: store variable gets returned Meteor.user() object at login
+ * @property {Object} userExtras - server derived: logged in user gets their extra account information
  *
- * @exports {Array} showRoutes - user filtered list of routes to show
- * @exports {String} lastRoute - last viewed page before new page selected
+ * @property {Array} showRoutes - user filtered list of routes to show
+ * @property {String} lastRoute - last viewed page before new page selected
  *
- * @exports {String} messages - system comms channels
+ * @property {String} messages - system comms channels
  *
  */
 

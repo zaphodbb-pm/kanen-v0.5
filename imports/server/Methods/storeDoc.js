@@ -1,7 +1,6 @@
 import {Meteor} from "meteor/meteor";
-import {check} from 'meteor/check';
 import {Mongo} from "meteor/mongo";
-import {Match} from "meteor/check";
+import { check } from 'meteor/check';
 
 
 import {accessControl} from '../setupACL'
@@ -22,6 +21,12 @@ Meteor.methods({
      *
      * @param {String} coll
      * @param {Object} doc
+     * @param {String} doc.tenantId
+     * @param {String} doc.updated
+     *
+     * @property {Object} Meteor
+     * @property {String} Meteor.user().tenantId
+     *
      *
      * @return {Object}
      */
@@ -33,7 +38,8 @@ Meteor.methods({
         let acl = accessControl[coll];
 
         if( verifyRole(Meteor.user(), acl.roles) ) {
-            doc.tenantId = Meteor.user() && Meteor.user().tenantId ? Meteor.user().tenantId : "general";
+            let user = Meteor.user();
+            doc.tenantId = user && user.tenantId ? Meteor.user().tenantId : "general";
             doc.updatedAt = Date.now();
 
             //* inject group name server side for security

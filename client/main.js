@@ -46,8 +46,8 @@ Meteor.startup(() => {
 
 
 //* for dev / debug work: show server logs in client browser
-import '../imports/both/AddOn_Packages/showServerConsole';
-serverConsole.subscribe();
+//import '../imports/both/AddOn_Packages/showServerConsole';
+//serverConsole.subscribe();
 
 
 //* load svelte framework
