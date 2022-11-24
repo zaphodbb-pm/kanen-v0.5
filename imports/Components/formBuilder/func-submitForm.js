@@ -2,26 +2,26 @@
  * Collects form inputs and submits to database upsert.
  *
  * @function submitForm
- * @memberOf Components:Form
+ * @memberOf Components:form
  * @locus Client
  *
- * @param {Array} doc - document to submit [ {field: value} ]
- * @param {String} coll - name of mongoDB collection to store document
+ * @param {Array}   doc - document to submit [ {field: value} ]
+ * @param {String}  coll - name of mongoDB collection to store document
  * @param {Boolean} clone - flag to create a clone of the current document
  * @param {Boolean} test - for testing only; does not submit form but does all the checks
  * @param {Boolean} dispatch - parent's dispatch function object
+ * @param {Object}  extras - user extra fields
  *
  * @returns nothing - submits doc object to collection
  *
  */
 
 
-// @ts-ignore
 import { Meteor } from 'meteor/meteor';
 import {methodReturn} from '../../Functions/utilities/methodReturn'
 
 
-export async function submitForm(doc, coll, clone, test, emit, extras) {
+export async function submitForm(doc, coll, clone, test, emit, extras = {}) {
     //** check if cloning original document, then remove original id field to allow Mongo to complete an insertion
     if (clone) {
         delete doc._id;
@@ -32,6 +32,8 @@ export async function submitForm(doc, coll, clone, test, emit, extras) {
     let me = Meteor.user();
     doc.author = doc.author ? doc.author : (Meteor.userId() ? Meteor.userId() : "unknown");
     doc.authorName = doc.authorName ? doc.authorName : (me && me.username ? me.username : "username");
+
+    // @ts-ignore
     doc.authorFullName = doc.authorFullName ? doc.authorFullName : (me && me.profile && me.profile.name ? me.profile.name : "");
 
     doc.tenantId = doc.tenantId ? doc.tenantId : extras && extras.tenantId ? extras.tenantId : "general";
@@ -94,14 +96,8 @@ export async function submitForm(doc, coll, clone, test, emit, extras) {
 
 function generalSubmit(coll, doc, emit) {
 
-    console.log("generalSubmit", coll, doc, emit);
-
     if (!doc._id) {
         Meteor.call('insertDoc', coll, doc, function (err, res) {
-
-            console.log("insertDoc", err, res);
-
-
             methodReturn(err, res, "submit insertDoc", null);
 
             if (res) {

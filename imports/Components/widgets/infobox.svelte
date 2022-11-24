@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     /**
      * Information box with optional image and optional progress bar.
      *

@@ -2,13 +2,13 @@
     /**
      * Croppie image controller.
      *
+     * @module croppie
      * @memberOf Components:widgets
-     * @function croppie
      * @locus Client
      *
      * @param {Object} doc - document object that can be shown
      *
-     * @emits 'croppie-result' - {String}
+     * @fires 'croppie-result'
      *
      * @see {@link https://github.com/foliotek/croppie}
      *
@@ -38,8 +38,6 @@
         mouseWheelZoom: true,
         showZoomer: true,
 
-        croppieInitialized: function () {},
-
         viewport: {
             width: 200,
             height: 200,
@@ -62,7 +60,7 @@
 
 
     //* croppie controls
-    function initCroppie(options) {
+    function initCroppie(options = {}) {
         let el = document.getElementById("croppieContainer");
         croppie = new Croppie(el, options);
     }
@@ -83,8 +81,7 @@
         croppie.setZoom(value);
     }
 
-    function resultCroppie(options, cb) {
-        if (!options) options = {type: 'base64'};
+    function resultCroppie(options = {type: 'base64'}, cb = null) {
         return croppie.result(options).then(output => {
             if (!cb) {
                 dispatch('croppie-result', output);

@@ -119,6 +119,7 @@
     //** determine what layout switches are active
     let tabLen = formText.formTabs && Array.isArray(formText.formTabs) ? formText.formTabs.length : 0;
     let hasTabs = tabLen > 0 && (!!config.hasTabs || !!config.hasStepper);
+    let userExtraFields;
 
     let organize = {
         hasTabs: hasTabs,
@@ -127,6 +128,8 @@
     }
 
     $: loadEditdoc(editdoc);
+
+    $: userExtraFields = $userExtras;
 
 
     onMount( () => {
@@ -231,9 +234,6 @@
     async function submitDoc() {
         let newValues = {};
 
-        console.log("submitDoc");
-
-
         //** flag as a newly created doc
         if (!submit.btnState) {
             let defFields = Object.assign({}, defaults);
@@ -293,7 +293,7 @@
             //** send completed doc to server insert / update Methods
             tabFields.fields = adjFields;
 
-            submitForm(newValues, coll, false, false, dispatch, $userExtras);
+            submitForm(newValues, coll, false, false, dispatch, userExtraFields);
 
             tabFields.fields = tabFields.defaults;
             dispatch("current-editted-doc", newValues);

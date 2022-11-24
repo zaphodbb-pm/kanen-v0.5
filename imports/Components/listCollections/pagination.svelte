@@ -1,6 +1,6 @@
 <script>
     /**
-     * @summary Builds pagination bar.
+     * Builds pagination bar.
      *
      * @module pagination
      * @memberOf Components:list

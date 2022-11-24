@@ -30,21 +30,34 @@
      *      tag - (optional) extra text for some Components such as 'switch'
      *      selects - (optional) array of {_id, name} objects for 'select' component
      *
-     * @emits field-changed
+     * @fires field-changed
      *
      */
 
     //* props
-    export let field = {};
-    export let watchFields = {};
+    export let field = {
+            adjustLabel: false,
+            field: "",
+            listen: {
+                src: undefined
+            },
+            defaultValue: undefined,
+            value: undefined,
+            tag: undefined,
+            optional: true,
+            fieldType: undefined
+        };
+    export let watchFields = {
+        field: undefined
+    };
 
     let className;
     // noinspection ReservedWordAsName
     export { className as class };
 
     //* support Functions
-    import {getContext} from 'svelte'
-    import {components} from './fields/func-registerField'
+    import {getContext} from 'svelte';
+    import {components} from './fields/func-registerField';
     import {slide} from 'svelte/transition';
     import {quintOut} from 'svelte/easing';
     import {createEventDispatcher} from 'svelte';
@@ -60,6 +73,8 @@
     let helpText = formText && formText[field.field] && formText[field.field].helpText ? formText[field.field].helpText : "";
     let adjustLabel = field.adjustLabel ? "adjust-label" : "";
 
+    let componentDef = undefined;
+
     field.tag = formText && formText[field.field] && formText[field.field].tag ? formText[field.field].tag : null;
 
     $: {
@@ -72,6 +87,8 @@
             fieldHide = checkWatched(watchFields, field.listen);
         }
     }
+
+    $: componentDef = components[field.fieldType];
 
     //* Functions that mutate local variables
     function prepareField(fieldIn){
@@ -193,7 +210,7 @@
 
 
 
-{#if !fieldHide}
+{#if !fieldHide && componentDef}
     {#if helpText}
 
         <div class="has-help-text">
@@ -202,7 +219,7 @@
             </span>
 
             <svelte:component
-                    this="{components[field.fieldType]}"
+                    this="{componentDef}"
                     class="{className}"
                     {field}
                     error="{fieldOpt}"
@@ -218,7 +235,7 @@
     {:else}
 
         <svelte:component
-                this="{components[field.fieldType]}"
+                this="{componentDef}"
                 class="{className}"
                 {field}
                 error="{fieldOpt}"

@@ -1,4 +1,3 @@
-// @ts-ignore
 import {Meteor} from "meteor/meteor";
 import {sortBy} from "../../Functions/utilities/sortBy.js";
 import {groupBy} from "../../Functions/utilities/groupBy";

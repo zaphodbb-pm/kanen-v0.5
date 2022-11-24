@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 
     /**
      * CSS driven charts from a standard table element.

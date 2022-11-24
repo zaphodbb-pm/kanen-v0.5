@@ -1,6 +1,4 @@
 <script>
-    import {Meteor} from "meteor/meteor";
-
     /**
      * Top level component that holds a document list.
      *
@@ -60,6 +58,7 @@
     export let submitted = false;
 
     //* support Functions
+    import {Meteor} from "meteor/meteor";
     import {sysConfig} from '/imports/client/systemStores'
     import {onMount, setContext} from 'svelte'
     import {createEventDispatcher} from 'svelte';

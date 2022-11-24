@@ -1,5 +1,5 @@
 /**
- * @summary  Common routine to calculate MongoDB filters to streamline search.
+ * Common routine to calculate MongoDB filters to streamline search.
  *
  * @function buildFilter
  * @memberOf Components:list

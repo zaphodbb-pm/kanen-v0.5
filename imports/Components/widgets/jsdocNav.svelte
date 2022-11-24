@@ -1,15 +1,13 @@
-<script>
+<script lang="ts">
 
     /**
      * Accordion content widget for jsdoc documentation.
      *
-     * @function jsdocNav
+     * @module jsdocNav
      * @memberOf Components:widgets
      * @locus Client
      *
      * @param {String} tabSettings - controls button settings
-     * @param {Object} eventMain - event name for clicked label of main list
-     * @param {Object} eventSub - event name for clicked sublabel of  list
      *
      * @param {Object} content - input array of objects from parent
      * @param {String} content:icon - tab label icon positioned at left of tab
@@ -17,10 +15,9 @@
      * @param {String} content:text - optional content to display in body of tab
      * @param {Array}  content:list - optional content as a list of content objects
      *
-     * @return nothing
      *
-     * @emit eventMain - {string}
-     * @emit eventSub - {string}
+     * @fires doc_maintopic
+     * @fires doc_subtopic
      *
      * @notes
      * 1. Standalone component that gets a configuration object from its parent
@@ -30,10 +27,8 @@
 
 
     //* external props
-    export let text = [];
     export let tabSettings = "";
-    export let eventMain = "";
-    export let eventSub = "";
+    export let text = [];
 
     //** event handlers
     import {createEventDispatcher} from 'svelte';
@@ -63,11 +58,19 @@
 
     function changetab(tab) {
         currTab = tab;
-        dispatch(eventMain, tab);
+        /**
+         * @event doc_maintopic
+         * @type {String}
+         */
+        dispatch('doc_maintopic', tab);
     }
 
     function setContent(sub) {
-        dispatch(eventSub, sub);
+        /**
+         * @event doc_subtopic
+         * @type {String}
+         */
+        dispatch("doc_subtopic", sub);
     }
 
 

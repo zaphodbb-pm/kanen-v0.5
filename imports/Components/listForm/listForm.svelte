@@ -1,11 +1,17 @@
 <script>
-
-/**
+    /**
      * Component insert combination for list and form Components.
      *
      * @module listForm
      * @memberOf Components:listForm:
      * @locus Client
+     *
+     * @param {Object} confList
+     * @param {Object} confForm
+     * @param {Array} schema
+     * @param {Array} listArray
+     * @param {Object} formText
+     * @param {Object} listText
      *
      */
 

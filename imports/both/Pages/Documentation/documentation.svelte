@@ -50,9 +50,6 @@
 
     let result = [];
     let content = [];
-    let tabSettings = "is-light is-fullwidth justify-content-start";
-    let eventMain = "doc-main-topic";
-    let eventSub = "doc-subtopic";
     let newCategory = "Getting_Started";
     let newTopic = "";
 
@@ -84,14 +81,17 @@
     //* switch categories and topics
     let  currTab = content && content.length > 0 ? content[0].label : "";
 
+    /*
     function changetab(tab) {
         currTab = tab;
-        dispatch(eventMain, tab);
+        dispatch("doc_maintopic", tab);
     }
 
     function setContent(sub) {
-        dispatch(eventSub, sub);
+        dispatch("doc_maintopic", sub);
     }
+
+     */
 
 
     function changeBody(msg) {
@@ -154,7 +154,7 @@
 
     <div class="row has-2x-minwidth">
         <div class="column is-span-1">
-            <DocNav text="{content}" {eventMain} {eventSub} on:doc-main-topic="{changeBody}" on:doc-subtopic="{changeSub}"/>
+            <DocNav text="{content}"  on:doc_maintopic="{changeBody}" on:doc_subtopic="{changeSub}"/>
         </div>
 
         <div class="column is-span-2">
