@@ -59,7 +59,10 @@
     {#if text.footer}
         <footer>
             {#each text.footer as foot, idx}
-                <button type="button" class="{foot.class}" on:click={ () => footEvent(id, idx, foot.text) }>
+                <button type="button"
+                        class="{foot.class}"
+                        on:click={ () => footEvent(id, idx, foot.text) }>
+
                     {foot.text}
                 </button>
             {/each}

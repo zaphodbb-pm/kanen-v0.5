@@ -6,6 +6,7 @@
      * @memberOf Components:elements
      * @locus Client
      *
+     * @param {Object} text
      */
 
     export let text;

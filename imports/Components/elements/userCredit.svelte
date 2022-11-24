@@ -7,6 +7,7 @@
      * @memberOf Components:
      * @locus Client
      *
+     * @param {Object} text
      */
 
     //* props

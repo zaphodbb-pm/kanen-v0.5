@@ -8,10 +8,14 @@
      *
      * @param {String}   btnEdit
      * @param {String}   btnCreate
+     * @param {String}   btnBack
+     * @param {Object}   btnInvText
+     *
+     * @param {Boolean}  btnBackShow
      * @param {Boolean}  btnState
      * @param {Boolean}  btnInvalid
-     * @param {Object}   btnInvText
      * @param {Number}   btnCount
+     * @param {Array}    invalidFields
      *
      * @fires back-btn
      * @fires submit-btn

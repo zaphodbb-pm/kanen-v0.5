@@ -1,8 +1,8 @@
 /**
  * Collects form inputs and submits to database upsert.
  *
- * @memberOf Components:Form
  * @function submitForm
+ * @memberOf Components:Form
  * @locus Client
  *
  * @param {Array} doc - document to submit [ {field: value} ]

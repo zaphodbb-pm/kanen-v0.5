@@ -6,13 +6,14 @@
      * @memberOf Components:elements
      * @locus Client
      *
+     * @param {Object} text
      */
 
     //* props
     export let text;
 
     //** event handlers
-    import { getContext, onMount } from 'svelte';
+    import { onMount } from 'svelte';
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 
