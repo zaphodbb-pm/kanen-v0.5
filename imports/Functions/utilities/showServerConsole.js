@@ -20,7 +20,6 @@
  */
 
 
-
 if (Meteor.isServer) {
     let sharedConsole = new Mongo.Collection('_console', {connection: null});
 
@@ -59,7 +58,7 @@ if (Meteor.isServer) {
 
 
 if (Meteor.isClient) {
-    const serverConsole = {};
+    global.serverConsole = {};
     let sharedConsole = new Mongo.Collection('_clientConsole');
 
     sharedConsole.find().observe({

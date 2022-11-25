@@ -13,9 +13,11 @@
 
 //** main top level modules
 import {Meteor} from 'meteor/meteor';
-import {Accounts} from 'meteor/accounts-base'
-import {DDPRateLimiter} from 'meteor/ddp-rate-limiter'
-import _ from 'underscore'
+import {Accounts} from 'meteor/accounts-base';
+import {DDPRateLimiter} from 'meteor/ddp-rate-limiter';
+import _ from 'underscore';
+
+import '/imports/server/indexCollections';
 
 
 //** isomorphic routines
@@ -34,7 +36,6 @@ import '/imports/server/Methods/pubSubFixtures'
 
 //** special Publish collections
 import '/imports/server/Publish/realTime'
-
 
 
 //** main configuration set up
@@ -93,6 +94,7 @@ if (Meteor.isServer) {
             number: 42
         };
 
+        //console.log("LogsSystem", msg, true);
         showServerLogs("LogsSystem", msg, true);
     }, 5000);
     //****** end of example

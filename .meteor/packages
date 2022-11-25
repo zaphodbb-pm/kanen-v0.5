@@ -25,5 +25,3 @@ mdg:meteor-apm-agent
 zodern:melte
 fetch@0.1.2
 
-lai:collection-extensions
-dburles:mongo-collection-instances

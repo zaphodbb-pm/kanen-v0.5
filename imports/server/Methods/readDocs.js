@@ -46,11 +46,9 @@ Meteor.methods({
                         //*** adjust certain mappings to real collection
                         let access = myDocuments(q, Meteor.user(), acl.roles);
 
-                        if(access){
+                        if(access && collection){
                             q = Object.assign( query, access );
                             out = collection.find(q).count();
-
-                            //out = Mongo.Collection.get(acl.coll).find(q).count();
                         }
                 }
             }
@@ -102,14 +100,13 @@ Meteor.methods({
         let acl = accessControl[coll];
         const collection = allCollections[acl.coll];
 
-        if(acl){
+        if(acl && collection){
             let projection = type.replace("_one", "");
             projection = type.replace("_count", "");
             let fields = acl[projection] ? {fields: acl[projection] } : {};
 
             //* build query object
             let access = myDocuments(filter, Meteor.user(), acl.roles);
-            //let access = true;
 
             //* if access is blocked, return empty set
             if (!access) { return returnEmpty(type); }
@@ -120,18 +117,20 @@ Meteor.methods({
             switch(true){
                 case type.includes("_one"):
                     docs = collection.findOne( query, opts );
-                    //docs = Mongo.Collection.get(acl.coll).findOne( query, opts );
                     break;
 
                 case type.includes("_count"):
                     docs = collection.find( query, opts ).count();
-                    //docs = Mongo.Collection.get(acl.coll).find( query, opts ).count();
                     break;
 
                 default:
                     docs = collection.find( query, opts ).fetch();
-                    //docs = Mongo.Collection.get(acl.coll).find( query, opts ).fetch();
             }
+        }else{
+            // @ts-ignore
+            global.showServerLogs("LogsSystem", msg, true);
+
+            //console.log("")
         }
 
         return docs;

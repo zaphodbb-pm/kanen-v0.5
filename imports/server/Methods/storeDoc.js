@@ -58,8 +58,6 @@ Meteor.methods({
 
             const id = collection ?? collection.insert(doc);
 
-            //id = Mongo.Collection.get(acl.coll).insert(doc);
-
             if(id){
                 return {status: 200, _id: id, text: `${id} has been added on ${coll} by insertDoc`};
             }else{
@@ -99,8 +97,6 @@ Meteor.methods({
         if( verifyRole(me, acl.roles) && collection ) {
             if(ownsDocument(me, doc)){     // check if user is doc owner before update
                 doc.updatedAt = Date.now();
-                //Mongo.Collection.get(acl.coll).update({_id: id}, {$set: doc});
-
                 collection.update({_id: id}, {$set: doc});
                 return {status: 200, text:  `${id} has been updated on ${coll} by updateDoc`};
             }
@@ -141,7 +137,6 @@ Meteor.methods({
             if(ownsDocument(me, doc)){     // check if user is doc owner before delete
                 collection.remove(doc._id);
 
-                //Mongo.Collection.get(acl.coll).remove(doc._id);
                 return {status: 200, _id: docId, text:  `${docId} has been removed from ${coll} by removeDoc`};
             }
             return {status: 404, _id: docId, text:  `User does not have permission to remove document.`};
@@ -187,8 +182,6 @@ Meteor.methods({
 
             collection.update({_id: docId}, {$set: setter });
 
-
-            //Mongo.Collection.get(acl.coll).update({_id: docId}, {$set: setter });
             return {status: 200, _id: docId, text: `${docId} has been updated on ${coll} by updateDocField`};
         }else{
             return {status: 400, _id: "", text: "Invalid user; does not have store privileges."};
@@ -297,8 +290,6 @@ Meteor.methods({
             }
 
             if(ops){
-                //let test = Mongo.Collection.get(acl.coll).update({_id: docId}, ops);
-
                 const test = collection.update({_id: docId}, ops);
 
                 if(test){

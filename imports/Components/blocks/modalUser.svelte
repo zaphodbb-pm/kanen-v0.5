@@ -43,8 +43,6 @@
         if(showModal && docId){
             loadInfo(docId);
         }
-
-        console.log("showModal", showModal, docId, openModal);
     }
 
 
@@ -85,7 +83,7 @@
 
     //** load key information based on props change
     async function loadInfo(id){
-        let testInfo = await getDocs("authors", "listLong_one", {_id:  id}, {});
+        let testInfo = await getDocs("users", "listLong_one", {_id:  id}, {});
 
         if(testInfo){
             info = Object.keys(testInfo).length > 0 ? testInfo : {};
