@@ -1,10 +1,10 @@
-<script lang="ts">
+<script>
 
     /**
      * Circular gauge meter.
      *
      * @module gauge
-     * @memberOf Components:widgets
+     * @memberOf Components:widgets:
      * @locus Client
      *
      * @param {Object} text - widget text strings

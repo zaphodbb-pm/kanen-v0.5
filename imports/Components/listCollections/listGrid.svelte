@@ -3,7 +3,7 @@
      * Grid to list documents and fields for docs.
      *
      * @module listGrid
-     * @memberOf Components:list
+     * @memberOf Components:listCollections:
      * @locus Client
      *
      * @param  {Object} config - decoration for table

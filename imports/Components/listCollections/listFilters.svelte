@@ -3,7 +3,7 @@
      * Builds filter component for list.
      *
      * @module listFilters
-     * @memberOf Components:list
+     * @memberOf Components:listCollections:
      * @locus Client
      *
      * @param  {Array} filters - array of filter objects

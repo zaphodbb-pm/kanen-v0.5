@@ -3,7 +3,7 @@
      * My Profile icon and activator for User Profile Page.
      *
      * @module userProfile
-     * @memberOf Components:elements
+     * @memberOf Components:elements:
      * @locus Client
      *
      * @param {Object} text

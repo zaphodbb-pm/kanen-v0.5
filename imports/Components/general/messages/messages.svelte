@@ -1,10 +1,10 @@
 <script>
 
     /**
-     * @summary Messages component to handle system wide notifications.
+     * Messages component to handle system wide notifications.
      *
      * @module messages
-     * @memberOf Components:general:messages
+     * @memberOf Components:general:
      * @locus Client
      *
      * @see Based on work by {@link https://buefy.org/documentation/notification|Buefy}

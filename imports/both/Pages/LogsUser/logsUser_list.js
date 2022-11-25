@@ -1,9 +1,9 @@
 /**
- * Configuration list block for LogsUsers page listing.
+ * Configuration list block for LogsUser page listing.
  *
  * @name logsUsers_list
  * @constant {Object}
- * @memberOf Pages:logsUsers
+ * @memberOf Pages:logsUser
  * @locus Client
  *
  * @returns {Object} - default = {sort: object, fields: array}

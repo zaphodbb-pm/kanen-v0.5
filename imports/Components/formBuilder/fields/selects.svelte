@@ -3,7 +3,7 @@
      * Static and dynamic select field.
      *
      * @module selects
-     * @memberOf Components:Form
+     * @memberOf Components:formBuilder:
      * @locus Client
      *
      * @param {Object} field

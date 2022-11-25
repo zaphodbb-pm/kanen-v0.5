@@ -3,7 +3,7 @@
      * Shows document count as range / total of search (total docs).
      *
      * @module docCount
-     * @memberOf Components:list
+     * @memberOf Components:listCollections:
      * @locus Client
      *
      * @param  {String} docCountLabel

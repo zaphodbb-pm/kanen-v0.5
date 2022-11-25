@@ -3,7 +3,7 @@
      * Submit button for form.
      *
      * @module formSubmit
-     * @memberOf Components:form
+     * @memberOf Components:formBuilder:
      * @locus Client
      *
      * @param {String}   btnEdit

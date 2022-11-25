@@ -2,7 +2,7 @@ import {Meteor} from "meteor/meteor";
 import {Mongo} from "meteor/mongo";
 import { check } from 'meteor/check';
 
-
+import {allCollections} from "../../both/collectionDefs";
 import {accessControl} from '../setupACL'
 import {verifyRole} from '../Functions/verifyRole'
 import {ownsDocument} from '../Functions/ownsDocument'
@@ -14,18 +14,15 @@ Meteor.methods({
     /**
      * General insert document into collection.
      *
-     * @memberOf methods
      * @function insertDoc
+     * @memberOf ServerMain:Methods:
      * @isMethod true
      * @locus Server
      *
      * @param {String} coll
      * @param {Object} doc
      * @param {String} doc.tenantId
-     * @param {String} doc.updated
-     *
-     * @property {Object} Meteor
-     * @property {String} Meteor.user().tenantId
+     * @param {Number} doc.updatedAt
      *
      *
      * @return {Object}
@@ -33,23 +30,35 @@ Meteor.methods({
     insertDoc: function (coll, doc) {
         check(coll, String);
         check(doc, Object);
-        let id;
 
-        let acl = accessControl[coll];
+        const me = Meteor.user();
+        const acl = accessControl[coll];
+        const collection = allCollections[acl.coll];
 
-        if( verifyRole(Meteor.user(), acl.roles) ) {
-            let user = Meteor.user();
-            doc.tenantId = user && user.tenantId ? Meteor.user().tenantId : "general";
+        if( verifyRole(me, acl.roles) && collection ) {
+            /**
+             * @type {Object} me
+             * @property {String} me.admin
+             */
+            const me = Meteor.user();
+            doc.tenantId = me && me.tenantId ? me.tenantId : "general";
             doc.updatedAt = Date.now();
 
             //* inject group name server side for security
-            if( Meteor.user() && Meteor.user().profile && Meteor.user().profile.group ){
-                doc["group"] = Meteor.user().profile.group;
+            /**
+             * @type {Object} me
+             * @property {String} me.admin
+             */
+
+            if( me && me.profile && me.profile.group ){
+                doc["group"] = me.profile.group;
             }else{
                 doc["group"] = "";
             }
 
-            id = Mongo.Collection.get(acl.coll).insert(doc);
+            const id = collection ?? collection.insert(doc);
+
+            //id = Mongo.Collection.get(acl.coll).insert(doc);
 
             if(id){
                 return {status: 200, _id: id, text: `${id} has been added on ${coll} by insertDoc`};
@@ -65,14 +74,16 @@ Meteor.methods({
     /**
      * General document update into a collection.
      *
-     * @memberOf methods
      * @function updateDoc
+     * @memberOf ServerMain:Methods:
      * @isMethod true
      * @locus Server
      *
      * @param {String} coll
      * @param {String} id
      * @param {Object} doc
+     * @param {String} doc.tenantId
+     * @param {Number} doc.updatedAt
      *
      * @return {Object}
      */
@@ -81,12 +92,16 @@ Meteor.methods({
         check(id, String);
         check(doc, Object);
 
-        let acl = accessControl[coll];
+        const me = Meteor.user();
+        const acl = accessControl[coll];
+        const collection = allCollections[acl.coll];
 
-        if( verifyRole(Meteor.user(), acl.roles) ) {
-            if(ownsDocument(Meteor.user(), doc)){     // check if user is doc owner before update
+        if( verifyRole(me, acl.roles) && collection ) {
+            if(ownsDocument(me, doc)){     // check if user is doc owner before update
                 doc.updatedAt = Date.now();
-                Mongo.Collection.get(acl.coll).update({_id: id}, {$set: doc});
+                //Mongo.Collection.get(acl.coll).update({_id: id}, {$set: doc});
+
+                collection.update({_id: id}, {$set: doc});
                 return {status: 200, text:  `${id} has been updated on ${coll} by updateDoc`};
             }
 
@@ -100,8 +115,8 @@ Meteor.methods({
     /**
      * General document remover from a collection.
      *
-     * @memberOf methods
      * @function removeDoc
+     * @memberOf ServerMain:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -114,13 +129,19 @@ Meteor.methods({
         check(coll, String);
         check(docId, String);
 
-        let acl = accessControl[coll];
+        const me = Meteor.user();
+        const acl = accessControl[coll];
+        const collection = allCollections[acl.coll];
 
-        if( verifyRole(Meteor.user(), acl.roles) ) {
-            let doc = Mongo.Collection.get(acl.coll).findOne({_id: docId});
+        if( verifyRole(me, acl.roles) && collection ) {
+            //let doc = Mongo.Collection.get(acl.coll).findOne({_id: docId});
 
-            if(ownsDocument(Meteor.user(), doc)){     // check if user is doc owner before delete
-                Mongo.Collection.get(acl.coll).remove(doc._id);
+            const doc = collection.findOne({_id: docId});
+
+            if(ownsDocument(me, doc)){     // check if user is doc owner before delete
+                collection.remove(doc._id);
+
+                //Mongo.Collection.get(acl.coll).remove(doc._id);
                 return {status: 200, _id: docId, text:  `${docId} has been removed from ${coll} by removeDoc`};
             }
             return {status: 404, _id: docId, text:  `User does not have permission to remove document.`};
@@ -132,8 +153,8 @@ Meteor.methods({
     /**
      * General document update a document field item.
      *
-     * @memberOf methods
      * @function inputterUpdateItem
+     * @memberOf ServerMain:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -156,14 +177,18 @@ Meteor.methods({
         check(field, String);
         check(value, Match.OneOf(String, Number, Boolean, Object, Array) );
 
-        let acl = accessControl[coll];
+        const me = Meteor.user();
+        const acl = accessControl[coll];
+        const collection = allCollections[acl.coll];
 
-        if( verifyRole(Meteor.user(), acl.roles) ) {
+        if( verifyRole(me, acl.roles) && collection) {
+            const updatedAt = Date.now();
+            const setter = Object.assign({updatedAt: updatedAt}, objectify(field, value));
 
-            let updatedAt = Date.now();
-            let setter = Object.assign({updatedAt: updatedAt}, objectify(field, value));
+            collection.update({_id: docId}, {$set: setter });
 
-            Mongo.Collection.get(acl.coll).update({_id: docId}, {$set: setter });
+
+            //Mongo.Collection.get(acl.coll).update({_id: docId}, {$set: setter });
             return {status: 200, _id: docId, text: `${docId} has been updated on ${coll} by updateDocField`};
         }else{
             return {status: 400, _id: "", text: "Invalid user; does not have store privileges."};
@@ -173,8 +198,8 @@ Meteor.methods({
     /**
      * General document item as array updates.
      *
-     * @memberOf methods
      * @function updateDocArray
+     * @memberOf ServerMain:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -202,9 +227,11 @@ Meteor.methods({
         check(field, String);
         check(value, Match.OneOf(String, Array) );
 
-        let acl = accessControl[coll];
+        const me = Meteor.user();
+        const acl = accessControl[coll];
+        const collection = allCollections[acl.coll];
 
-        if( verifyRole(Meteor.user(), acl.roles) ) {
+        if( verifyRole(me, acl.roles) ) {
             let updatedAt = Date.now();
             let ops = null;
 
@@ -270,7 +297,9 @@ Meteor.methods({
             }
 
             if(ops){
-                let test = Mongo.Collection.get(acl.coll).update({_id: docId}, ops);
+                //let test = Mongo.Collection.get(acl.coll).update({_id: docId}, ops);
+
+                const test = collection.update({_id: docId}, ops);
 
                 if(test){
                     return {

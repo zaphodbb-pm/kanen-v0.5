@@ -5,8 +5,8 @@
  * Optionally, a warning or error message can be sent to the console to help with debugging.
  *
  *
- * @memberOf Functions:formatters
  * @function validate
+ * @memberOf Functions:formatters:
  * @locus Anywhere
  *
  * @typedef {function} Validate

@@ -3,7 +3,7 @@
      * Draggable item list.
      *
      * @module itemList
-     * @memberOf Components:form
+     * @memberOf Components:formBuilder:
      * @locus Client
      *
      * @param {Object} field

@@ -1,7 +1,7 @@
 <script>
 
     /**
-     * @summary GDPR notice popup widget.
+     * GDPR notice popup widget.
      *
      * @module gdprNotice
      * @memberOf Components:general:

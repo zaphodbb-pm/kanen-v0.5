@@ -3,7 +3,7 @@
      * Field component for html input tags.
      *
      * @module inputs
-     * @memberOf Components:form
+     * @memberOf Components:formBuilder:
      * @locus Client
      *
      * @param {Object} field

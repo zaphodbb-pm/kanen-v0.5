@@ -1,14 +1,10 @@
 // import app main routines
-// @ts-ignore
 import {Meteor} from "meteor/meteor";
-// @ts-ignore
-import {Mongo} from "meteor/mongo";
-// @ts-ignore
 import {Match} from 'meteor/check'
-// @ts-ignore
 import {check} from 'meteor/check'
 
 import {accessControl} from '../setupACL'
+import {allCollections} from "../../both/collectionDefs";
 import {myDocuments} from '../Functions/myDocuments'
 import {documents} from '../../both/systemGlobals'
 
@@ -19,7 +15,7 @@ Meteor.methods({
      * For list search bar, gets count of total number of user documents.
      *
      * @function countDocs
-     * @memberOf methods
+     * @memberOf ServerMain:Methods:
      * @locus Server
      * @isMethod true
      *
@@ -38,6 +34,7 @@ Meteor.methods({
 
         if (Meteor.userId()) {                            // check if user is logged in
             let acl = accessControl[coll];
+            const collection = allCollections[acl.coll];
 
             if(acl){
                 switch (true) {
@@ -51,7 +48,9 @@ Meteor.methods({
 
                         if(access){
                             q = Object.assign( query, access );
-                            out = Mongo.Collection.get(acl.coll).find(q).count();
+                            out = collection.find(q).count();
+
+                            //out = Mongo.Collection.get(acl.coll).find(q).count();
                         }
                 }
             }
@@ -66,8 +65,7 @@ Meteor.methods({
      * Meteor method to retrieve document from MongoDB.
      *
      * @function getCollData
-     * @memberOf methods
-     *
+     * @memberOf ServerMain:methods:
      * @isMethod true
      * @locus Server
      *
@@ -102,6 +100,7 @@ Meteor.methods({
 
         //* get access control and roles information
         let acl = accessControl[coll];
+        const collection = allCollections[acl.coll];
 
         if(acl){
             let projection = type.replace("_one", "");
@@ -109,8 +108,8 @@ Meteor.methods({
             let fields = acl[projection] ? {fields: acl[projection] } : {};
 
             //* build query object
-            //let access = myDocuments(filter, Meteor.user(), acl.roles);
-            let access = true;
+            let access = myDocuments(filter, Meteor.user(), acl.roles);
+            //let access = true;
 
             //* if access is blocked, return empty set
             if (!access) { return returnEmpty(type); }
@@ -120,15 +119,18 @@ Meteor.methods({
 
             switch(true){
                 case type.includes("_one"):
-                    docs = Mongo.Collection.get(acl.coll).findOne( query, opts );
+                    docs = collection.findOne( query, opts );
+                    //docs = Mongo.Collection.get(acl.coll).findOne( query, opts );
                     break;
 
                 case type.includes("_count"):
-                    docs = Mongo.Collection.get(acl.coll).find( query, opts ).count();
+                    docs = collection.find( query, opts ).count();
+                    //docs = Mongo.Collection.get(acl.coll).find( query, opts ).count();
                     break;
 
                 default:
-                    docs = Mongo.Collection.get(acl.coll).find( query, opts ).fetch();
+                    docs = collection.find( query, opts ).fetch();
+                    //docs = Mongo.Collection.get(acl.coll).find( query, opts ).fetch();
             }
         }
 

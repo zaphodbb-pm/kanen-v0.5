@@ -1,18 +1,21 @@
 /**
  * Server side setup of Access Control List for pages that try to store documents.
  *
- * @memberOf Structure:Server
  * @function setupACL
+ * @memberOf ServerMain
  * @locus Server
  *
- * @param {Object} starter_access_control
- * @param {Object} buildContent_access_control
- * @param {Object} learn_access_control
- * @param {Object} pubSub_access_control
- * @param {Object} users_access_control
- * @param {Object} logsSystem_access_control
- * @param {Object} logsUsers_access_control
- * @param {Object} notifications_acl
+ * @property {Object} accessControl
+ * @property {Object} accessControl.starter
+ * @property {Object} accessControl.buildContent
+ * @property {Object} accessControl.learn
+ * @property {Object} accessControl.pubSub
+ * @property {Object} accessControl.myProfile
+ * @property {Object} accessControl.users
+ * @property {Object} accessControl.logsSystem
+ * @property {Object} accessControl.logsUser
+ * @property {Object} accessControl.notifications
+ * @property {Object} accessControl.authors
  *
  * @returns {Object} accessControl
  */
@@ -32,9 +35,9 @@ acl = Object.assign(acl, starter, content, learn, pubSub, myProfile);
 import users from '../both/Pages/Users/users_access_control'
 import sysConfig from '../both/Pages/SysConfig/sysConfig_access_control'
 import logsSystem from '../both/Pages/LogsSystem/logsSystem_access_control'
-import logsUsers from '../both/Pages/LogsUsers/logsUsers_access_control'
+import logsUser from '../both/Pages/LogsUser/logsUser_access_control'
 
-acl = Object.assign(acl, users, sysConfig,  logsSystem, logsUsers);
+acl = Object.assign(acl, users, sysConfig,  logsSystem, logsUser);
 
 
 //* load special collections

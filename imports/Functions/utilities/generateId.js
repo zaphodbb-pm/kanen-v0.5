@@ -1,8 +1,8 @@
 /**
  * Own version of a character selector in order to build a variable length api key.
  *
- * @memberOf Functions:utilities:
  * @function generateId
+ * @memberOf Functions:utilities:
  * @locus Anywhere
  *
  * @param {Number} length - length / number of characters for api key

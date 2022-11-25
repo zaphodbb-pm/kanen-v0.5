@@ -3,7 +3,7 @@
      * Field component for colour picker.
      *
      * @module colourPicker
-     * @memberOf Components:form
+     * @memberOf Components:formBuilder:
      * @locus Client
      *
      * @param {Object} field

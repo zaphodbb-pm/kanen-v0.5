@@ -1,8 +1,8 @@
 /**
  * Functional composition of pure Functions.
  *
- * @memberOf Functions:utilities:
  * @function pipe
+ * @memberOf Functions:utilities:
  * @locus Anywhere
  *
  * @param {Array.<Function>} fns

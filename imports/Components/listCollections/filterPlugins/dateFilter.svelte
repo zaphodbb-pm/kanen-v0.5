@@ -3,7 +3,7 @@
      * Date filter plugin for List Holder Filters.
      *
      * @module dateFilter
-     * @memberOf Components:list
+     * @memberOf Components:listCollections:
      * @locus client
      *
      * @param  {Object} field - field info that also configures the filter
@@ -16,7 +16,7 @@
     export let field = {};
 
     //* support Functions
-    import {onMount, onDestroy, createEventDispatcher, getContext} from 'svelte';
+    import {createEventDispatcher, getContext} from 'svelte';
     const dispatch = createEventDispatcher();
     const listText = getContext("listText");
     const label = listText[field.field]?.label ?? "";

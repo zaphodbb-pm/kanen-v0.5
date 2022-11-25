@@ -3,7 +3,7 @@
      * Typeahead select component.
      *
      * @module typeahead
-     * @memberOf Components:form
+     * @memberOf Components:formBuilder:
      * @locus Client
      *
      * @param {String} error

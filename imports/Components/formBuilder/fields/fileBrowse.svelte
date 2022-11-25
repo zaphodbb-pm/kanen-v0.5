@@ -3,7 +3,7 @@
      * File input component for text or image types.
      *
      * @module fileBrowse
-     * @memberOf Components:form
+     * @memberOf Components:formBuilder:
      * @locus Client
      *
      * @param {String} error - class to show a field in error

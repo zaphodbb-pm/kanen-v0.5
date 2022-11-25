@@ -1,8 +1,8 @@
 /**
- * @summary Gets an object and finds text string based on user language preference.
+ * Gets an object and finds text string based on user language preference.
  *
- * @memberOf Functions:utilities:
  * @function i18n
+ * @memberOf Functions:utilities:
  * @locus Client
  *
  * @param {Object} allText - imported text object

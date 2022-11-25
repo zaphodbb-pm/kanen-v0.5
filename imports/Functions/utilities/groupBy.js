@@ -1,8 +1,8 @@
 /**
  * Group an array of objects by key.
  *
- * @memberOf Functions:utilities:
  * @function groupBy
+ * @memberOf Functions:utilities:
  * @locus Anywhere
  *
  * @param {Array} list - array or array of objects

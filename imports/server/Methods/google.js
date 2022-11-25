@@ -5,16 +5,16 @@ Meteor.methods({
 
 
     /**
-     * @summary Meteor method to get address details from Google Geocode REST endpoint.
+     * Meteor method to get address details from Google Geocode REST endpoint.
      *
-     * @memberOf Methods
      * @function geoAddress
+     * @memberOf ServerMain:Methods:
      * @isMethod true
      * @locus Server
      *
      * @param {String} address - address from Places selection
      *
-     * @returns {Array} - Google Places predictions
+     * @returns {Object} - Google Places predictions {status,  info, infoStatus};
      */
 
     geoAddress: function (address) {
@@ -80,16 +80,16 @@ Meteor.methods({
     },
 
     /**
-     * @summary Meteor method to get suggested addresses from Google Places REST endpoint.
+     * Meteor method to get suggested addresses from Google Places REST endpoint.
      *
-     * @memberOf Methods
      * @function getPredictions
+     * @memberOf ServerMain:Methods:
      * @isMethod true
      * @locus Server
      *
      * @param {String} address - cleaned address to use
      *
-     * @returns {Array} - Google Places predictions
+     * @returns {Object} - Google Places predictions {status, info[], infoStatus};
      */
 
     getPredictions: function (address) {

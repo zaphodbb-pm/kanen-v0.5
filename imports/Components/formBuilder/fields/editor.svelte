@@ -3,7 +3,7 @@
      * Field component for Quill editor.
      *
      * @module editor
-     * @memberOf Components:form
+     * @memberOf Components:formBuilder:
      * @locus Client
      *
      * @param {Object} field
@@ -77,6 +77,7 @@
 
         return;
 
+        /*
         switch(type){
             case "insert-table":
                 table.insertTable(3, 3);
@@ -119,6 +120,8 @@
                 table.deleteColumn();
                 break;
         }
+
+         */
     }
 
     //* Functions that mutate local variables

@@ -12,8 +12,7 @@
  *
  */
 
-// @ts-ignore
-import {getMeteorSettings} from "../../../functions_bypass/getMeteorSettings.mjs";
+import {Meteor} from "meteor/meteor";
 
 export const nav = {en: "Change Password"};
 
@@ -23,7 +22,8 @@ export const icon = "icon-bg-settings";
 
 // roles that can see this link in Navbar and be routed to
 // roles are also used by database write / read checking
-let demoMode = getMeteorSettings("demo_mode");
+
+let demoMode = Meteor.settings.public.demo_mode;
 
 const normal = {
     read: ["basic", "standard", "pro", "siteAdmin", "administrator"],

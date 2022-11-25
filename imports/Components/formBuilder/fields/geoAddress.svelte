@@ -3,7 +3,7 @@
      * Field component for using Google Places api to get address predictions.
      *
      * @module geoAddress
-     * @memberOf Components:form
+     * @memberOf Components:formBuilder:
      * @locus Client
      *
      * @param {Object} field

@@ -3,7 +3,7 @@
      * Basic checkboxes.
      *
      * @module checkboxes
-     * @memberOf Components:form
+     * @memberOf Components:formBuilder:
      * @locus Client
      *
      * @param {Object} field

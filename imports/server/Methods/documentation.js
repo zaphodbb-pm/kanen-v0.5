@@ -8,11 +8,12 @@ Meteor.methods({
      * Meteor method to scan for svelte files and build documentation.
      *
      * @function buildSvelteJsdoc
-     * @memberOf Methods:
+     * @memberOf ServerMain:Methods:
      * @isMethod true
      * @locus Server
      *
      * @returns nothing
+     *
      */
 
     buildSvelteJsdoc: function () {
@@ -62,6 +63,7 @@ Meteor.methods({
             try {
                 // @ts-ignore
                 documentation = Assets.getText("documentation.json");
+                // @ts-ignore
                 documentation = JSON.parse(documentation);
                 documentation = reformatDoc(documentation);
             } catch (err) {
@@ -76,8 +78,8 @@ Meteor.methods({
     /**
      * Meteor method to scan for svelte generated jsdoc file and remove them.
      *
-     * @memberOf Methods:
      * @function removeSvelteJsdoc
+     * @memberOf ServerMain:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -105,10 +107,10 @@ Meteor.methods({
 
 
     /**
-     * @summary Uses Meteor-jsdoc data file to display project documentation in the project itself.
+     * Uses Meteor-jsdoc data file to display project documentation in the project itself.
      *
      * @function buildDocumentation
-     * @memberOf Methods:
+     * @memberOf ServerMain:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -163,7 +165,6 @@ Meteor.methods({
         let documentation = [];
 
         if (Meteor.settings.require_documentation) {
-            // @ts-ignore
             let rawDoc = Assets.getText("raw-documentation.json");
             let getDoc = JSON.parse(rawDoc);
 

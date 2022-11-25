@@ -2,7 +2,7 @@
  * Common routine to calculate MongoDB filters to streamline search.
  *
  * @function buildFilter
- * @memberOf Components:list
+ * @memberOf Components:listCollections:
  * @locus Client
  *
  * @param {Number} numItems - Integer: from rows/page selector to set number documents to fetch

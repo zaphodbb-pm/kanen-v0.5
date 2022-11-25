@@ -3,7 +3,7 @@
      * Table to list documents and fields for docs.
      *
      * @module listTable
-     * @memberOf Components:List
+     * @memberOf Components:listCollections:
      * @locus Client
      *
      * @param  {Object} config - decoration for table

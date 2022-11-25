@@ -1,8 +1,8 @@
 /**
  * Format time as 'ago' format from now; used by document listing table.
  *
- * @memberOf Functions:formatters
  * @function timeAgo
+ * @memberOf Functions:formatters:
  * @locus Anywhere
  *
  * @param {Date} timeIn - Date object

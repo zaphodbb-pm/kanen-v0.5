@@ -3,7 +3,7 @@
      * Horizontal divider component.
      *
      * @module hr
-     * @memberOf Components:form
+     * @memberOf Components:formBuilder:
      * @locus Client
      *
      * @param {Object} field

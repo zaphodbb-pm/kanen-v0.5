@@ -3,7 +3,7 @@
      * Date picker component based on input date.
      *
      * @module datePicker
-     * @memberOf Components:form
+     * @memberOf Components:formBuilder:
      * @locus Client
      *
      * @param {Object} field

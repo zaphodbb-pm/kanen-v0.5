@@ -4,7 +4,7 @@
      * User Credit element
      *
      * @module userCredit
-     * @memberOf Components:
+     * @memberOf Components:elements:
      * @locus Client
      *
      * @param {Object} text

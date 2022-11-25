@@ -2,7 +2,7 @@
  * Builds decoration parameters for a system message.
  *
  * @function msgDecoration
- * @memberOf Components:general:messages
+ * @memberOf Components:general:
  * @locus client
  *
  * @param {String} state

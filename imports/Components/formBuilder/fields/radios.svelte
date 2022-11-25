@@ -3,7 +3,7 @@
      * Basic radio group.
      *
      * @module radios
-     * @memberOf Components:form
+     * @memberOf Components:formBuilder:
      * @locus Client
      *
      * @param {String} error

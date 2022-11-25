@@ -1,16 +1,16 @@
-<script lang="ts">
+<script>
 
     /**
      * CSS driven charts from a standard table element.
      *
      * @module charts
-     * @memberOf Components:widgets
+     * @memberOf Components:widgets:
      * @locus Client
      *
      * @param {Object} text - widget text strings
      * @param {String} text.caption - box title
      * @param {Array}  text.labelsColumn - array of column text labels
-     * @param {Array}  text.labelsRow - array of row text labels
+     * @param {String[]}  text.labelsRow - array of row text labels
      *
      * @param {Object}  config - widget setup information
      * @param {String}  config.type - chart type: "column", "line", "pie", "donut"

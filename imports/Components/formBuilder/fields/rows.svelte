@@ -3,7 +3,7 @@
      * Complex row container that can contain other form field types.
      *
      * @module rows
-     * @memberOf Components:form
+     * @memberOf Components:formBuilder:
      * @locus Client
      *
      * @param {Object} field

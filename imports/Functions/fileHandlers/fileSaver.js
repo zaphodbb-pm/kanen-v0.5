@@ -1,11 +1,15 @@
 /**
- * @summary Meteor friendly file saver.
+ * Meteor friendly file saver.
  *
- * @memberOf Functions
  * @function fileSaver
+ * @memberOf Functions:fileHandlers:
+ *
  * @locus Client
  *
- * @param {Array} blob - prepared data
+ * @param {Object} blob - prepared data
+ * @param {String} blob.name
+ * @param {String} blob.type
+ *
  * @param {String} name - file name to send data to
  * @param {Object} opts = options to apply
  * @param {Object} popup - page wondow object
@@ -33,12 +37,14 @@ export function fileSaver(blob, name, opts, popup) {
                 // Support regular links
                 a.href = blob;
                 if (a.origin !== location.origin) {
+                    // @ts-ignore
                     corsEnabled(a.href) ? download(blob, name, opts) : click(a, a.target = '_blank');
                 } else {
                     click(a)
                 }
             } else {
                 // Support blobs
+                // @ts-ignore
                 a.href = URL.createObjectURL(blob);
                 Meteor.setTimeout(function () {
                     URL.revokeObjectURL(a.href)
@@ -64,6 +70,7 @@ export function fileSaver(blob, name, opts, popup) {
                     });
                 }
             } else {
+                // @ts-ignore
                 navigator.msSaveOrOpenBlob(bom(blob, opts), name);
             }
             break;
@@ -80,11 +87,13 @@ export function fileSaver(blob, name, opts, popup) {
             if (typeof blob === 'string') return download(blob, name, opts);
 
             let force = blob.type === 'application/octet-stream';
+            // @ts-ignore
             let isSafari = /constructor/i.test(_global.HTMLElement) || _global.safari;
             let isChromeIOS = /CriOS\/[\d]+/.test(navigator.userAgent);
 
             if ((isChromeIOS || (force && isSafari)) && typeof FileReader === 'object') {
                 // Safari doesn't allow downloading of blob URLs
+                // @ts-ignore
                 let reader = new FileReader();
                 reader.onloadend = function () {
                     let url = reader.result;
@@ -98,6 +107,7 @@ export function fileSaver(blob, name, opts, popup) {
                 };
                 reader.readAsDataURL(blob)
             } else {
+                // @ts-ignore
                 let URL = _global.URL || _global.webkitURL;
                 let url = URL.createObjectURL(blob);
                 if (popup) {
@@ -134,6 +144,7 @@ function download(url, name, opts) {
     xhr.open('GET', url);
     xhr.responseType = 'blob';
     xhr.onload = function () {
+        // @ts-ignore
         saveAs(xhr.response, name, opts)
     };
 

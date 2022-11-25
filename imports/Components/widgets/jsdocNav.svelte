@@ -1,10 +1,10 @@
-<script lang="ts">
+<script>
 
     /**
      * Accordion content widget for jsdoc documentation.
      *
      * @module jsdocNav
-     * @memberOf Components:widgets
+     * @memberOf Components:widgets:
      * @locus Client
      *
      * @param {String} tabSettings - controls button settings
@@ -38,9 +38,6 @@
     import { getContext } from 'svelte';
     import {lang} from '/imports/client/systemStores'
     import {i18n} from '/imports/Functions/utilities/i18n';
-    //* get accessory components
-    //import {methodReturn} from "../../functions/func-methodReturn";
-    //import Icon from '/imports/components/elements/icon.svelte'
 
     //* component controls
     let content = getContext("pageText").components;

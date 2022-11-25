@@ -1,8 +1,8 @@
 /**
  * Deep clones an object or array.
  *
- * @memberOf Functions:utilities:
  * @function deepClone
+ * @memberOf Functions:utilities:
  * @locus Client
  *
  * @param {Object|Array} inObject

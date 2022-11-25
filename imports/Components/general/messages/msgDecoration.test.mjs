@@ -3,7 +3,7 @@
  *
  * @name msgDecoration.test
  * @private
- * @memberOf Components:general:messages
+ * @memberOf Components:general:
  * @locus test
  *
  */

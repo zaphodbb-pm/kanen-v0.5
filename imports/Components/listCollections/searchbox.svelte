@@ -3,7 +3,7 @@
      * Builds a string to be used by various search mechanisms.
      *
      * @module searchbox
-     * @memberOf Components:list
+     * @memberOf Components:listCollections:
      * @locus Client
      *
      * @fires 'search-changed'

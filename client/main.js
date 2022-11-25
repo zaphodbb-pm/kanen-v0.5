@@ -16,7 +16,7 @@
 
 
 //* load Meteor specific files
-import '../imports/both/collections';
+import '../imports/both/collectionDefs';
 
 //* prepare to add PWA through service worker
 import { Meteor } from 'meteor/meteor';
@@ -46,7 +46,7 @@ Meteor.startup(() => {
 
 
 //* for dev / debug work: show server logs in client browser
-//import '../imports/both/AddOn_Packages/showServerConsole';
+import '../imports/Functions/utilities/showServerConsole';
 //serverConsole.subscribe();
 
 

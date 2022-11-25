@@ -1,16 +1,15 @@
-// @ts-nocheck
-// @ts-ignore
 import {Meteor} from "meteor/meteor";
-// @ts-ignore
-import {check} from 'meteor/check'
+import {check} from 'meteor/check';
+
+import {SysConfig, allCollections} from "../../both/collectionDefs";
 
 Meteor.methods({
 
     /**
-     * @summary Meteor method to query server directly tfor system wide information.
+     * Meteor method to query server directly tfor system wide information.
      *
      * @function getSysInfo
-     * @memberOf methods
+     * @memberOf ServerMain:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -22,10 +21,10 @@ Meteor.methods({
     },
 
     /**
-     * @summary General client side system config info from database.
+     * General client side system config info from database.
      *
      * @function clientSysConfig
-     * @memberOf methods
+     * @memberOf ServerMain:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -53,93 +52,38 @@ Meteor.methods({
 
 
     /**
-     * @summary Meteor method to bulk remove documents by admin users.
+     * Meteor method to bulk remove documents by admin users.
      *
      * @function removeDocuments
-     * @memberOf methods
+     * @memberOf ServerMain:Methods:
      * @isMethod true
      * @locus Server
      *
      * @param {String} coll - collection to query
      * @param {Object} query - delete date range
      *
-     * @returns {String} - document Id
+     * @returns {Object} - {status, text}
      */
 
     removeDocuments: function (coll, query) {
         check(coll, String);
         check(query, Object);
 
+        const collection = allCollections[coll];
+
+        /**
+         * @type {Object} me
+         * @property {String} me.admin
+         */
+        const me = Meteor.user();
+
         let number = 0;
-        if (Meteor.user() && Meteor.user().admin) {              // check if admin user is logged in
-            number = Mongo.Collection.get(coll).remove(query);
+        if (collection && me && me.admin) {              // check if admin user is logged in
+            number = collection.remove(query);
 
             return {status: 200, count: number, text: `${number} documents have been removed on ${coll} by removeDocuments`};
         }else{
             return {status: 400, count: 0, text: "Invalid user"};
         }
-    },
-
-
-    /**
-     * @summary Builds client side icon set from icon sets from line awesome files in public directory.
-     *
-     * @function lineAwesomeIcons
-     * @memberOf methods
-     * @isMethod true
-     * @locus Server
-     *
-     * @param {String} from - folder containg .svg files
-     * @param {String} to = folder to receive converted files
-     *
-     * @returns nothing
-     *
-     * @notes
-     *  1. "from" folder contains .svg files  (typically line awesome files)
-     *  2. "to" folder receives .svg files converted into javascript array
-     *      compatible with Fontawesome 5 Icons.
-     *
-     */
-
-    buildLineAwesomeIcons: function (from, to) {
-        let fs = require('fs');
-
-        //* get file list from "from" directory
-        let rpath = fs.realpathSync("./");              // get full path to active meteor directory
-        rpath = rpath.split(".meteor")[0];
-        let fileDir = fs.readdirSync(rpath + from);
-
-        //fileDir =fileDir.slice(0, 1);     // for dev only
-
-        //* convert files and write to "to" directory
-        fileDir.forEach( (fd) => {
-            let name = fd;
-            name = name.replace(".svg", "");
-            let file = fs.readFileSync(rpath + from + "/" + fd, "utf8");
-
-            if(file){
-                let regex = new RegExp(/\<path(.*?)d="/);
-                let out1 = file.split(regex);
-
-                if(out1[1]){
-                    let path = out1.slice(-1)[0].split('"');
-                    let viewBox = out1[0].split('viewBox="');
-                    viewBox = viewBox[1].replace('">', '').split(' ');
-
-                    let out = JSON.stringify( {
-                        prefix: "far",
-                        iconName: name,
-                        icon: [ parseInt(viewBox[2]), parseInt(viewBox[3]), [], "", path[0] ]
-                    } );
-
-                    fs.writeFileSync(rpath + to + "/" + name + ".json", out);
-                }else{
-                    console.log("no split", name, out1);
-                }
-
-            }else{
-                console.log("no file", name, file);
-            }
-        });
     }
 });

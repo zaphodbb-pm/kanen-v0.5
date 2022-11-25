@@ -1,8 +1,8 @@
 /**
  * Gets local os/machine information.
  *
- * @memberOf Functions:Server
  * @function getOSinfo
+ * @memberOf server:Functions:
  * @locus Server
  *
  * @return {Object} - os info

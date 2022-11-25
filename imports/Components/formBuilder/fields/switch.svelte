@@ -3,7 +3,7 @@
      * @summary Checkbox with switch css.
      *
      * @module switch
-     * @memberOf Components:Form
+     * @memberOf Components:formBuilder:
      * @locus Client
      *
      * @param {Object} field with field.params.isCheck ? true = checkbox : else = toggle

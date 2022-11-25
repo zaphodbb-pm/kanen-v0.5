@@ -4,7 +4,7 @@
      * @summary Modal display for user schema information information from a list item.
      *
      * @module modalUser
-     * @memberOf Components:blocks
+     * @memberOf Components:blocks:
      * @locus Client
      *
      * @param {Boolean} showModal - turns modal on or off

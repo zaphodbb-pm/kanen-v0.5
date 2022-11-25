@@ -1,9 +1,9 @@
 /**
- * Configuration for LogsUsers page Components.
+ * Configuration for LogsUser page Components.
  *
  * @name logsUsers_config
  * @constant {Object}
- * @memberOf Pages:logsUsers
+ * @memberOf Pages:logsUser
  * @locus Client
  *
  * @property {Object} pageConfig - {list}

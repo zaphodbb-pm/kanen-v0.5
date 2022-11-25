@@ -3,7 +3,7 @@
      * Time picker component based on input time.
      *
      * @module timePicker
-     * @memberOf Components:form
+     * @memberOf Components:formBuilder:
      * @locus Client
      *
      * @param {Object} field

@@ -3,7 +3,7 @@
      * Builds row selector and documents count.
      *
      * @module rowSize
-     * @memberOf Components:list
+     * @memberOf Components:listCollections:
      * @locus client
      *
      * @param  {Object} config - decoration for row selector
@@ -14,7 +14,6 @@
      */
 
     //** support Functions
-    import {getContext} from 'svelte';
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 

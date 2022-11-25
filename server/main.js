@@ -3,8 +3,7 @@
  *
  * @namespace ServerMain
  * @module
- * @locus Client
- * @locus Server
+ * @locus Any
  *
  * @notes
  *  1.  Common routines are imported here
@@ -20,9 +19,8 @@ import _ from 'underscore'
 
 
 //** isomorphic routines
-import '/imports/both/collections'
-import '/imports/server/indexing'
-import Version from '/imports/both/version'
+import {LogsUser} from "/imports/both/collectionDefs";
+import Version from '/imports/both/version';
 
 
 //** load method modules
@@ -43,7 +41,8 @@ import '/imports/server/Publish/realTime'
 import {writeLog} from '/imports/server/Functions/writeLog'
 
 //** debug routines
-//import '/imports/both/AddOn_Packages/showServerConsole'
+import '/imports/Functions/utilities/showServerConsole';
+
 
 
 Meteor.startup(() => {
@@ -92,11 +91,9 @@ if (Meteor.isServer) {
             array: [1, 2, 3, 4],
             text: "this is some text",
             number: 42
-
-
         };
 
-        //showServerLogs("LogsSystem", msg, true);
+        showServerLogs("LogsSystem", msg, true);
     }, 5000);
     //****** end of example
 
@@ -111,7 +108,7 @@ if (Meteor.isServer) {
 
         if(user){
             let doc = buildUserDoc("login", data, user);
-            LogsUsers.insert(doc);
+            LogsUser.insert(doc);
         }
     });
 
@@ -121,7 +118,7 @@ if (Meteor.isServer) {
 
             if(user){
                 let doc = buildUserDoc("logout", data, user);
-                LogsUsers.insert(doc);
+                LogsUser.insert(doc);
             }
         }
     });

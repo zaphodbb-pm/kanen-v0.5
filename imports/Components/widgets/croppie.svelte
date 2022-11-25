@@ -3,7 +3,7 @@
      * Croppie image controller.
      *
      * @module croppie
-     * @memberOf Components:widgets
+     * @memberOf Components:widgets:
      * @locus Client
      *
      * @param {Object} doc - document object that can be shown

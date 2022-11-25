@@ -1,9 +1,9 @@
 /**
- * Route config information for LogsUsers page.
+ * Route config information for LogsUser page.
  *
  * @name logsUsers_route
  * @constant {Object}
- * @memberOf Pages:logsUsers
+ * @memberOf Pages:logsUser
  * @locus Client
  *
  * @property {Object}  route
@@ -23,8 +23,8 @@
 
 import {getLang} from '../../../Functions/supportApplication/getLang';
 import {i18n} from '../../../Functions/utilities/i18n';
-import {nav, link, icon, roles} from './logsUsers_nav';
-import Page from './logsUsers_loader.svelte';
+import {nav, link, icon, roles} from './logsUser_nav';
+import Page from './logsUser_loader.svelte';
 
 
 let lang = getLang("en");

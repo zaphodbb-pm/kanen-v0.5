@@ -2,13 +2,13 @@
  * When finding docs, restrict to user documents from collection also include documents from user's group members.
  * Optional tenentId filtered.
  *
- * @memberOf Functions:Server
  * @function myDocuments
+ * @memberOf server:Functions:
  * @locus Server
  *
  * @param {Object} obj - MongoDb query object
- * @param {String} user - current logged in user id
- * @param {Array} rolesIn - list of roles that can access docs
+ * @param {Object} user - current logged in user object
+ * @param {Array|Object} rolesIn - list of roles that can access docs
  *
  * @return {Object} - modified MongoDb query object
  *
@@ -71,12 +71,12 @@ function checkGroups(user, key, addIt){
         });
 
         let members = Meteor.users.find({groups: {$in: groups}}, {fields: {_id: 1}}).fetch();
-        members = members.map( function(item){
+        let memberIds = members.map( function(item){
             return item._id;
         });
 
         //*** extend the main query object with the id's of all group members
-        addQuery[key] = {$in: members};
+        addQuery[key] = {$in: memberIds};
     }
 
     return addQuery;

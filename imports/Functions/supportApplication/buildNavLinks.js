@@ -1,8 +1,8 @@
 /**
  * Builds navigation links object from routes info.
  *
- * @memberOf Functions:supportApplication:
  * @function buildNavLinks
+ * @memberOf Functions:supportApplication:
  * @locus Anywhere
  *
  * @param {Object} user - user extras object

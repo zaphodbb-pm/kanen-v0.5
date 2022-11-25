@@ -4,7 +4,7 @@
      * Typically used to help manage the records in logs collection.
      *
      * @module getRelativeDates
-     * @memberOf Components:elements
+     * @memberOf Components:elements:
      * @locus Client
      *
      * @fires 'new-range'

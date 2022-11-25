@@ -1,23 +1,23 @@
 import {Meteor} from "meteor/meteor";
 import {check} from 'meteor/check';
-import {Mongo} from 'meteor/mongo'
 
+import {allCollections} from "../../both/collectionDefs";
 import {verifyRole} from "../Functions/verifyRole";
 
 
 Meteor.methods({
 
     /**
-     * @summary Sends documents as JSON from a collection.
+     * Sends documents as JSON from a collection.
      *
-     * @memberOf Methods:
      * @function exportJSON
+     * @memberOf SerMain:Methods:
      * @isMethod true
      * @locus Server
      *
      * @param {String} coll
      * @param {Object} query
-     * @return {{records: number, size: number, data: string}}
+     * @return {Object} - {{records: number, size: number, data: string}}
      */
 
 
@@ -32,13 +32,15 @@ Meteor.methods({
         }
 
         if(Meteor.userId()){                            // check if user is logged in
+            const collection = allCollections[coll];
             let docs = [];
 
             if( coll === 'users' ){
                 docs = Meteor.users.find( query ).fetch();
             }else{
-                // @ts-ignore
-                docs = Mongo.Collection.get(coll).find( query ).fetch();
+                docs = collection.find( query ).fetch();
+
+                //docs = Mongo.Collection.get(coll).find( query ).fetch();
             }
 
             let jsonDocs = JSON.stringify( docs );
@@ -47,15 +49,16 @@ Meteor.methods({
     },
 
     /**
-     * @summary Imports documents as JSON from a browser.
+     * Imports documents as JSON from a browser.
      *
      * @function importJSON
-     * @memberOf Methods:
+     * @memberOf ServerMain:Methods:
      * @isMethod true
      * @locus Server
      *
      * @param {String} coll
-     * @param {Array} doc
+     * @param {Object[]} doc
+     * @param {String} doc[]._id
      * @return {string}
      */
 
@@ -64,19 +67,20 @@ Meteor.methods({
         check(doc, Array);
 
         if(Meteor.userId()){                            // check if user is logged in
+            const collection = allCollections[coll];
+
             let exists = true;                          // default value to stop insertion
 
-
             doc.forEach( (el) => {
-                // @ts-ignore
-                exists = !!Mongo.Collection.get(coll).findOne( {_id: el._id} );
+                exists = !!collection.findOne( {_id: el._id} );
+                //exists = !!Mongo.Collection.get(coll).findOne( {_id: el._id} );
 
                 if( !exists ){
                     if( coll === 'users' ){
                         Meteor.users.insert(el);
                     }else{
-                        // @ts-ignore
-                        Mongo.Collection.get(coll).insert(el);
+                        collection.insert(el);
+                        //Mongo.Collection.get(coll).insert(el);
                     }
                 }
             });
@@ -87,7 +91,7 @@ Meteor.methods({
 
 
     /**
-     * @summary Removes all documents from a collection.
+     * Removes all documents from a collection.
      *
      * @function importBulkDataRemove
      * @memberOf Methods:
@@ -95,15 +99,19 @@ Meteor.methods({
      * @locus Server
      *
      * @param {String} coll
-     * @return {Object}
+     *
+     * @return {Object} - {status, message, coll, method}
      */
     importBulkDataRemove: function (coll ) {
         check(coll, String);
 
         //* make sure only authorized people can flush out a collection
         if(Meteor.userId() && verifyRole(Meteor.userId(), "administrator") ){                            // check if user is logged in
-            // @ts-ignore
-            Mongo.Collection.get(coll).remove({});      // flush collection before loading new docs
+
+            const collection = allCollections[coll];
+            collection.remove({});      // flush collection before loading new docs
+
+            //Mongo.Collection.get(coll).remove({});      // flush collection before loading new docs
             return {
                 status: 200,
                 message: "Removed all docs",
@@ -122,7 +130,7 @@ Meteor.methods({
 
 
     /**
-     * @summary Inserts all documents from a file into a collection.
+     * Inserts all documents from a file into a collection.
      *
      * @function importBulkData
      * @memberOf Methods:
@@ -132,25 +140,28 @@ Meteor.methods({
      * @param {String} coll
      * @param {Object} doc
      *
-     * @return {Object}
+     * @return {Object} - {status, message, coll, method}
      */
     importBulkData: function (coll, doc) {
         check(coll, String);
         check(doc, Object);
 
         if(Meteor.userId() && verifyRole(Meteor.userId(), "administrator") ){                            // check if user is logged in
+            const collection = allCollections[coll];
+
             let count = 0;
 
             if (Array.isArray(doc)) {
                 count = doc.length;
                 doc.forEach(function (item) {
-                    // @ts-ignore
-                    Mongo.Collection.get(coll).insert(item);
+                    collection.insert(item);
+
+                    //Mongo.Collection.get(coll).insert(item);
                 })
             } else {
                 count = 1;
-                // @ts-ignore
-                Mongo.Collection.get(coll).insert(doc);
+                collection.insert(doc);
+                //Mongo.Collection.get(coll).insert(doc);
             }
 
             return {

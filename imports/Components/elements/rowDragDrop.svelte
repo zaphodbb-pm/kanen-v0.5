@@ -3,7 +3,7 @@
      * Row drag and drop component.
      *
      * @module rowDragDrop
-     * @memberOf Components:elements
+     * @memberOf Components:elements:
      * @locus Client
      *
      * @param {Array} list - array of objects to sort

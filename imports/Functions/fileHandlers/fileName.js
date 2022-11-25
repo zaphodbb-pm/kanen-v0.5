@@ -1,8 +1,8 @@
 /**
- * @summary Creates file names with date and time stamp.
+ * Creates file names with date and time stamp.
  *
- * @memberOf Functions
  * @function fileName
+ * @memberOf Functions:fileHandlers:
  * @locus Client
  *
  * @param {String} name - becomes prefix fragment of file name

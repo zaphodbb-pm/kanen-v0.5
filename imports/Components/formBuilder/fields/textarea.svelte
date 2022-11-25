@@ -3,7 +3,7 @@
      * Basic textarea box.
      *
      * @module textarea
-     * @memberOf Components:form
+     * @memberOf Components:formBuilder:
      * @locus Client
      *
      * @param {Object} field

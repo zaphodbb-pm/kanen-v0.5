@@ -3,7 +3,7 @@
      * Top level component that holds a document edit form.
      *
      * @module formHolder
-     * @memberOf Components:form
+     * @memberOf Components:formBuilder:
      * @locus Client
      *
      * @param {Object} config - see example

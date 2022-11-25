@@ -4,7 +4,7 @@
      * Component block: card.  Uses a slot to allow for a body to be set by parent.
      *
      * @module card
-     * @memberOf Components:blocks
+     * @memberOf Components:blocks:
      * @locus Client
      *
      * @fires footEvent

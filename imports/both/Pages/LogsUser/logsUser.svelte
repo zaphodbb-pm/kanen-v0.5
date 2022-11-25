@@ -1,11 +1,11 @@
 <script>
 
     /**
-     * LogsUsers page list user login / logout activity and includes ip addresses.
+     * LogsUser page list user login / logout activity and includes ip addresses.
      *
      * @name logsUser
      * @module
-     * @memberOf Pages:logsUsers
+     * @memberOf Pages:logsUser
      * @locus Client
      *
      * @param {String} currentRoute - page path name
@@ -23,8 +23,8 @@
         export let query = {};
 
         //** page specific text and configuration
-        import {header, page} from './logsUsers_text'
-        import {pageConfig} from './logsUsers_config'
+        import {header, page} from './logsUser_text'
+        import {pageConfig} from './logsUser_config'
 
         //** app support files
         import { setContext } from 'svelte';
@@ -40,7 +40,7 @@
 
     import DeleteRecords from '../../../Components/elements/getRelativeDates.svelte';
     import List_Holder from '../../../Components/listCollections/listHolder.svelte';
-    import listArray from './logsUsers_list';
+    import listArray from './logsUser_list';
 
     const pageHeader = i18n(header, "", $lang);
 

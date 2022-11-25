@@ -3,7 +3,7 @@
      * Notifications widget for Navbar.
      *
      * @module notifications
-     * @memberOf Components:elements
+     * @memberOf Components:elements:
      * @locus Client
      *
      * @param {Object} text

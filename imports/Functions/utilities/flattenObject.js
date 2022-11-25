@@ -1,8 +1,8 @@
 /**
  * @summary Flattens a deeply nested object.
  *
- * @memberOf Functions:utilities:
  * @function flattenObject
+ * @memberOf Functions:utilities:
  * @locus Anywhere
  *
  * @param {Object} obj - deeply nested

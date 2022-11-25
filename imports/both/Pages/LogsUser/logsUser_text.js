@@ -1,9 +1,9 @@
 /**
- * @summary Labels for LogsUsers page.
+ * @summary Labels for LogsUser page.
  *
  * @name logsUsers_text
  * @constant {Object}
- * @memberOf Pages:logsUsers
+ * @memberOf Pages:logsUser
  * @locus Client
  *
  * @property {Object} header - i18n of {title, lead, body}
@@ -14,7 +14,7 @@
 //** page header; set to null to not display header or a specific item
 export const header = {
     en: {
-        title:  "LogsUsers Page",
+        title:  "LogsUser Page",
         lead:   "Adjust certain system parameters on the fly.",
         body:   "",
     }

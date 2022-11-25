@@ -62,7 +62,7 @@ import Users from "./Pages/Users/users_route";
 import SysConfig from './Pages/SysConfig/sysConfig_route';
 import ExportImport from './Pages/ExportImport/exportImport_route';
 import LogsSystem from './Pages/LogsSystem/logsSystem_route';
-import LogsUsers from './Pages/LogsUsers/logsUsers_route';
+import LogsUsers from './Pages/LogsUser/logsUser_route';
 
 
 

@@ -1,16 +1,20 @@
 /**
  * Writes a log to a collection.
  *
- * @memberOf Functions:Server
  * @function writeLog
+ * @memberOf server:Functions:
  * @locus Server
  *
  * @param {String} logName
  * @param {Object} data
  *
+ *
+ *
  * @return nothing - writes log to collection
  *
  */
+
+import {LogsUser, LogsSystem, LogsSensor} from "../../both/collectionDefs";
 
 export function writeLog(logName, data) {
     let status = null;
@@ -29,23 +33,22 @@ export function writeLog(logName, data) {
         createdAt: now,
         timeStamp: now.getTime(),
         date: dateParts,
-
         data: data
     };
 
-    switch (true) {
+    switch (logName) {
 
-        case logName === "LogsUser":
+        case "LogsUser":
             status = {status: 200, msg: "Successful log write", log: logName};
             LogsUser.insert(doc);
             break;
 
-        case  logName === "LogsSystem":
+        case "LogsSystem":
             status = {status: 200, msg: "Successful log write", log: logName};
             LogsSystem.insert(doc);
             break;
 
-        case logName === "LogsSensor":
+        case "LogsSensor":
             status = {status: 200, msg: "Successful log write", log: logName};
             LogsSensor.insert(doc);
             break;

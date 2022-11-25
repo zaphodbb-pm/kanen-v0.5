@@ -1,8 +1,8 @@
 /**
  * Flattens a two level deep array.
  *
- * @memberOf Functions:utilities:
  * @function flattenArray
+ * @memberOf Functions:utilities:
  * @locus Anywhere
  *
  * @param {Array} arr -array of arrays to flatten into single level

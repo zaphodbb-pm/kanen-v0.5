@@ -1,10 +1,22 @@
-// @ts-ignore
+/**
+ * Publish / subscribe block for Real Time data.
+ *
+ * @function realTime
+ * @memberOf ServerMain:Publish:
+ * @locus Server
+ *
+ * @returns {Object} - fieldAddons: {updatedAt, author, authorName, authorFullName, group, tenantId}
+ */
+
+
 import {Meteor} from "meteor/meteor"
-// @ts-ignore
 import {check} from "meteor/check";
 
-import {ChangeStreams} from '../Functions/ChangeStreams'
+import {ChangeStreams} from '../Functions/ChangeStreams';
+import {RealTime} from "../../both/collectionDefs";
 
+
+// @ts-ignore
 Meteor.publish("testRealTime", function (pipeline, options){
     if (pipeline) {
         check(pipeline, Array);
@@ -18,13 +30,11 @@ Meteor.publish("testRealTime", function (pipeline, options){
         options = {};
     }
 
-    // @ts-ignore
     return new ChangeStreams(RealTime, pipeline, options);
 });
 
 
 //* stop users from bypassing normal Methods
-// @ts-ignore
 RealTime.deny({
     update: function () {
         return true;

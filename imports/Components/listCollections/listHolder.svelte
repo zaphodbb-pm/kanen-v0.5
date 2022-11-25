@@ -3,7 +3,7 @@
      * Top level component that holds a document list.
      *
      * @module listHolder
-     * @memberOf Components:list
+     * @memberOf Components:listCollections:
      * @locus Client
      *
      * @param {Object} config - see example

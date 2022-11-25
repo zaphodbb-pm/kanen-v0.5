@@ -3,7 +3,7 @@
      * Builds pagination bar.
      *
      * @module pagination
-     * @memberOf Components:list
+     * @memberOf Components:listCollections:
      * @locus Client
      *
      * @param  {Number} rows

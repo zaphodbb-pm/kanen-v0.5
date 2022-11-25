@@ -1,8 +1,8 @@
 /**
  * Control the output of debug messages to the browser console.
  *
- * @memberOf Functions:utilities:
  * @function debugConsole
+ * @memberOf Functions:utilities:
  * @locus Anywhere
  *
  * @param {String} level - see below

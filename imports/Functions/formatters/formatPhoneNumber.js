@@ -1,8 +1,8 @@
 /**
- * @summary Formats a string of digits into a North American formatted phone number.
+ * Formats a string of digits into a North American formatted phone number.
  *
- * @memberOf Functions:formatters
  * @function formatPhoneNumber
+ * @memberOf Functions:formatters:
  * @locus Client
  *
  * @param {String} str - phone digits

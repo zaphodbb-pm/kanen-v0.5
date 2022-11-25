@@ -4,7 +4,7 @@
      * Report box with optional image and optional progress bar.
      *
      * @module reportbox
-     * @memberOf Components:widgets
+     * @memberOf Components:widgets:
      * @locus Client
      *
      * @param {Object} text - widget text strings

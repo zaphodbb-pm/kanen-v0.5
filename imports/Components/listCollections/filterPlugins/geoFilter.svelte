@@ -3,7 +3,7 @@
      * Geolocation filter plugin for List Holder Filters.
      *
      * @module geoFilter
-     * @memberOf Components:List
+     * @memberOf Components:listCollections:
      * @locus client
      *
      *

@@ -1,9 +1,6 @@
 //** user accounts are implicit in Meteor and are handled differently than collections
-// @ts-ignore
 import {Meteor} from "meteor/meteor";
-// @ts-ignore
 import {Accounts} from 'meteor/accounts-base';
-// @ts-ignore
 import {check, Match} from 'meteor/check'
 
 import {objectify} from '../Functions/objectify'
@@ -16,8 +13,8 @@ Meteor.methods({
     /**
      * External Login service support.
      *
-     * @memberOf Methods:
      * @function getServiceConfiguration
+     * @memberOf ServerMain:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -33,14 +30,27 @@ Meteor.methods({
     /**
      * Insert a new user object.
      *
-     * @memberOf Methods:
      * @function userMgmtInsert
+     * @memberOf ServerMain:Methods:
      * @isMethod true
      * @locus Server
      *
      * @param {Object} doc
+     * @param {String} doc.username
+     * @param {String} doc.emailMain
+     * @param {String} doc.pwdMain
+     * @param {String} doc.sortName
+     * @param {String} doc.tenantId
+     * @param {String} doc.active
+     * @param {String} doc.credits
+     * @param {String} doc.role
+     * @param {Boolean} doc.admin
+     * @param {String} doc.apiKey
+     * @param {String} doc.groups
+     * @param {Boolean} doc.groupMaster
      *
-     * @return {Object} - status
+     *
+     * @return {Object} - {status, text}
      */
     userMgmtInsert: function (doc) {
         check(doc, Object);
@@ -76,6 +86,7 @@ Meteor.methods({
                 updatedAt: Date.now()
             };
 
+            // @ts-ignore
             Meteor.users.update(test, {$set: addins}, function (err, res) {
                 console.log("umi", err, res);
             });
@@ -87,15 +98,29 @@ Meteor.methods({
     /**
      * Update a user's main info.
      *
-     * @memberOf Methods:
      * @function userMgmtUpdate
+     * @memberOf ServerMain:Methods:
      * @isMethod true
      * @locus Server
      *
      * @param {string} userId
      * @param {Object} doc
+     * @param {Object} doc.profile
+     * @param {String} doc._id
+     * @param {String} doc.username
+     * @param {String} doc.pwdMain
+     * @param {String} doc.emailMain
+     * @param {String} doc.sortName
+     * @param {String} doc.tenantId
+     * @param {String} doc.active
+     * @param {String} doc.credits
+     * @param {String} doc.role
+     * @param {Boolean} doc.admin
+     * @param {String} doc.apiKey
+     * @param {String} doc.groups
+     * @param {Boolean} doc.groupMaster
      *
-     * @return {Object} - status
+     * @return {Object} - {status, _id, text}
      */
     userMgmtUpdate: function (userId, doc) {
         check(userId, String);
@@ -153,14 +178,14 @@ Meteor.methods({
     /**
      * Update a user's profile field value.
      *
-     * @memberOf Methods:
      * @function userMgmtUpdateItem
+     * @memberOf ServerMain:Methods:
      * @isMethod true
      * @locus Server
      *
      * @param {String} item
      * @param {*} val
-     * @return {Object}
+     * @return {Object} - {status, _id, text}
      */
     userMgmtUpdateItem: function (item, val) {
         check(item, String);
@@ -177,16 +202,16 @@ Meteor.methods({
     },
 
     /**
-     * @summary Remove an existing user object.
+     * Remove an existing user object.
      *
-     * @memberOf Methods:
      * @function userMgmtRemove
+     * @memberOf ServeMain:Methods:
      * @isMethod true
      * @locus Server
      *
      * @param {String} docId
      *
-     * @return {Object} - status
+     * @return {Object} - {status, _id, text}
      */
     userMgmtRemove: function (docId) {
         check(docId, String);
@@ -199,22 +224,26 @@ Meteor.methods({
     },
 
     /**
-     * @summary Update a user's credit value
+     * Update a user's credit value
      *
-     * @memberOf Methods:
      * @function userUpdateCredit
+     * @memberOf ServerMain:Methods:
      * @isMethod true
      * @locus Server
      *
      * @param {Number} price
      *
-     * @return {Object}
+     * @return {Object} - {status, _id, text}
      */
     userUpdateCredit: function ( price) {
         check(price, Number);
 
         if(this.userId){
-            let doc = Meteor.users.findOne({_id: this.userId});     // get user info
+
+            /**
+             * @type {Object} doc
+             */
+            const doc = Meteor.users.findOne({_id: this.userId});     // get user info
             if (doc && doc.credit) {
                 let credit = doc.credit - Math.abs(price);                  // adjust and ensure that users cannot game the credits
                 credit = credit > 0 ? credit : 0;
@@ -228,20 +257,28 @@ Meteor.methods({
     },
 
     /**
-     * @summary Find a user's group members.
+     * Find a user's group members.
      *
-     * @memberOf Methods:
      * @function getGroupMembers
+     * @memberOf ServerMain:Methods:
      * @isMethod true
      * @locus Server
      *
-     * @return {Array}
+     * @return {Array} - [_id]
      */
     getGroupMembers: function(){
         if( !this.userId ){return [];}
 
+        /**
+         * @type {Array} out
+         */
         let out = [ this.userId ];
-        let mine = Meteor.users.findOne({_id: this.userId});
+
+        /**
+         *
+         * @type {Object} mine
+         */
+        const mine = Meteor.users.findOne({_id: this.userId});
 
         //*** modify query to include include documents from my group members
         if (mine.groups && (typeof mine.groups === "string") && mine.groups !== "") {
@@ -263,12 +300,12 @@ Meteor.methods({
     /**
      * Get extra user fields based on user id.
      *
-     * @memberOf Methods:
      * @function loadExtraFields
+     * @memberOf ServerMain:Methods:
      * @isMethod true
      * @locus Server
      *
-     * @return {Object} - extra user fields
+     * @return {Object} - {tenantId, sortName, admin, active, apiKey, role, groups, groupMaster, credits, status}
      */
     loadExtraFields: function () {
         if (this.userId) {

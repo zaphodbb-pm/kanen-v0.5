@@ -1,8 +1,8 @@
 /**
  * Build MongoDb query object from search.
  *
- * @memberOf Components:list
  * @function buildQuery
+ * @memberOf Components:listCollections:
  * @locus Client
  *
  * @param {String} str

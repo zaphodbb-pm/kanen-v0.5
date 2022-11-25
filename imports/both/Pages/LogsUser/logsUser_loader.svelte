@@ -4,7 +4,7 @@
      *
      * @name logsUsers_loader
      * @module
-     * @memberOf Pages:logsUsers
+     * @memberOf Pages:logsUser
      * @locus Client
      *
      * @param {String} currentRoute - page path name
@@ -25,4 +25,4 @@
 
 </script>
 
-<Loadable loader={() => import('./logsUsers.svelte')} {currentRoute} {params} {query}/>
+<Loadable loader={() => import('./logsUser.svelte')} {currentRoute} {params} {query}/>

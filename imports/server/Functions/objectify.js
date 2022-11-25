@@ -1,8 +1,8 @@
 /**
  * Builds object from key/value pair.
  *
- * @memberOf Functions:Server
  * @function objectify
+ * @memberOf server:Functions:
  * @locus Server
  *
  * @param {String} field - name of object key

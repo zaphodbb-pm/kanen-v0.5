@@ -1,8 +1,8 @@
 /**
  * Validate a user entered phone number.
  *
- * @memberOf Functions:formatters
  * @function validatePhone
+ * @memberOf Functions:formatters:
  * @locus Anywhere
  *
  * @param {String} phone - string of phone number to check

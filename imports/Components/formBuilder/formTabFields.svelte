@@ -3,7 +3,7 @@
      * Form wrapper for tabbing fields.
      *
      * @module formTabFields
-     * @memberOf Components:form
+     * @memberOf Components:formBuilder:
      * @locus Client
      *
      * @param {Array}   tabLabels - optional array of tab labels

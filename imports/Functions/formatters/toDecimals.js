@@ -1,8 +1,8 @@
 /**
  * Round number to specified number of digits; if digits is '0', return an integer.
  *
- * @memberOf Functions:formatters
  * @function toDecimals
+ * @memberOf Functions:formatters:
  * @locus Anywhere
  *
  * @param  {Number} number

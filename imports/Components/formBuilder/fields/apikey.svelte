@@ -3,7 +3,7 @@
      * Api key builder.
      *
      * @module apikey
-     * @memberOf Components:form
+     * @memberOf Components:formBuilder:
      * @locus Client
      *
      * @param {Object} field

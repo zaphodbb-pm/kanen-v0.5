@@ -1,8 +1,8 @@
 /**
  * Takes a number and scale factor, uses absolute value, scales number and returns a formatted string.
  *
- * @memberOf Functions:formatters
  * @function formatNumber
+ * @memberOf Functions:formatters:
  * @locus Anywhere
  *
  * @param {number} num

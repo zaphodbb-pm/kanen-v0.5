@@ -2,7 +2,7 @@
  * Import and register form field Components.
  *
  * @function registerForm
- * @memberOf Components:form
+ * @memberOf Components:formBuilder:
  * @locus Client
  *
  * @returns {Object} - Svelte Components
@@ -36,25 +36,6 @@ import Swatches from './colourPicker.svelte'
 import Editor from './editor.svelte'
 import ItemList from './itemList.svelte'
 import RowList from './rows.svelte'
-
-const componentDefs = {
-    input: Inputs,
-    switch: Switch,
-    textarea: TextArea,
-    checkboxes: CheckBoxes,
-    radios: Radios,
-    colours: Swatches,
-    hr: HR,
-    select: Selects,
-    typeahead: TypeAhead,
-    apiKey: ApiKey,
-    fileInput: FileBrowse,
-    timePicker: TimePicker,
-    datePicker: DatePicker,
-    editor: Editor,
-    itemList: ItemList,
-    rows: RowList,
-}
 
 export const components = {
     input: Inputs,

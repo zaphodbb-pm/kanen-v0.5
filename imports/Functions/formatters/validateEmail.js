@@ -1,8 +1,8 @@
 /**
  * Validate a user entered email address.
  *
- * @memberOf Functions:formatters
  * @function validateEmail
+ * @memberOf Functions:formatters:
  * @locus Anywhere
  *
  * @param {String} email - email string to check

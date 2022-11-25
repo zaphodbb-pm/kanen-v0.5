@@ -3,7 +3,7 @@
      * Selection box filter plugin for List Holder Filters.
      *
      * @module selectFilter
-     * @memberOf Components:list
+     * @memberOf Components:listCollections:
      *
      * @param  {Object} field - field info that also configures the filter
      *

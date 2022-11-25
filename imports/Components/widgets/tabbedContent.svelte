@@ -4,7 +4,7 @@
      * Tabbed content widget.
      *
      * @module tabbedContent
-     * @memberOf Components:widgets
+     * @memberOf Components:widgets:
      * @locus Client
      *
      * @param {Object[]} content - input array of objects from parent

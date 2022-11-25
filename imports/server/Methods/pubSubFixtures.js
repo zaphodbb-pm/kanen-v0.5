@@ -1,10 +1,9 @@
-// @ts-nocheck
 import {Meteor} from "meteor/meteor";
 import {check} from "meteor/check";
 
-import {accessControl} from '../setupACL'
-import {verifyRole} from '../Functions/verifyRole'
-import {ownsDocument} from '../Functions/ownsDocument'
+import {accessControl} from '../setupACL';
+import {allCollections} from "../../both/collectionDefs";
+import {verifyRole} from '../Functions/verifyRole';
 
 
 Meteor.methods({
@@ -12,15 +11,19 @@ Meteor.methods({
     /**
      * Special Pub Sub fixture to upload an initial array of documents.
      *
-     * @memberOf methods
      * @function bulkLoadDocs
+     * @memberOf ServerMain:Methods:
      * @isMethod true
      * @locus Server
      *
      * @param {String} coll
-     * @param {Array} arr
+     * @param {Object[]} arr
+     * @param {String} arr[]._id
+     * @param {String} arr[].author
+     * @param {String} arr[].tenantId
+     * @param {Number} arr[].updatedAt
      *
-     * @return {Object} - status
+     * @return {Object} - {status, text}
      */
 
 
@@ -29,20 +32,39 @@ Meteor.methods({
         check(arr, Array);
 
         let acl = accessControl[coll];
+        const collection = allCollections[acl.coll];
 
-        if( verifyRole(Meteor.user(), acl.roles) ) {
+        /**
+         *
+         * @type {Object} me
+         * @property {String} me._id
+         * @property {String} me.tenantId
+         */
+        const me = Meteor.user();
+
+        if( verifyRole(me, acl.roles) ) {
             let len = arr.length;
 
             if(len > 0){
-                Mongo.Collection.get(acl.coll).remove({author: Meteor.user()._id});      // flush existing records
+                collection.remove({author: me._id});      // flush existing records
+
+                //Mongo.Collection.get(acl.coll).remove({author: Meteor.user()._id});      // flush existing records
+
 
                 arr.forEach( (doc) => {
+                    /**
+                     * @type {Object} doc
+                     * @property {String} doc._id
+                     * @property {String} doc.author
+                     */
                     delete doc._id;
-                    doc.author = Meteor.user()._id;
-                    doc.tenantId = Meteor.user() && Meteor.user().tenantId ? Meteor.user().tenantId : "general";
+
+                    doc.author = me._id;
+                    doc.tenantId = me && me.tenantId ? me.tenantId : "general";
                     doc.updatedAt = Date.now();
 
-                    Mongo.Collection.get(acl.coll).insert(doc);
+                    collection.insert(doc);
+                    //Mongo.Collection.get(acl.coll).insert(doc);
                 });
 
                 return {status: 200,  len: len, text: `${len} documents have been added on ${coll} by bulkLoadDocs`};
@@ -61,13 +83,16 @@ Meteor.methods({
     /**
      * Special Pub Sub fixture to update an array of documents.
      *
-     * @memberOf methods
      * @function updateRealTimeDoc
+     * @memberOf ServerMain:Methods:
+     *
      * @isMethod true
      * @locus Server
      *
      * @param {String} coll
-     * @param {Array} docs
+     * @param {Object[]} docs
+     * @param {*} docs[].value
+     * @param {String} docs[].name
      *
      * @return {Object} - status
      */
@@ -77,19 +102,29 @@ Meteor.methods({
         check(coll, String);
         check(docs, Array);
 
-        let acl = accessControl[coll];
+        /**
+         *
+         * @type {Object} me
+         * @property {String} me._id
+         * @property {String} me.tenantId
+         */
+        const me = Meteor.user();
+        const acl = accessControl[coll];
+        const collection = allCollections[acl.coll];
 
-        if( verifyRole(Meteor.user(), acl.roles) ) {
+        if( verifyRole(me, acl.roles) ) {
             let len = docs.length;
 
             docs.forEach( (doc) => {
                 let update = {
-                    tenantId: Meteor.user() && Meteor.user().tenantId ? Meteor.user().tenantId : "general",
+                    tenantId: me && me.tenantId ? me.tenantId : "general",
                     updatedAt: Date.now(),
                     value: doc.value
                 }
 
-                Mongo.Collection.get(acl.coll).update({author: Meteor.user()._id, name: doc.name}, {$set: update});
+                collection.update({author: Meteor.user()._id, name: doc.name}, {$set: update});
+
+                //Mongo.Collection.get(acl.coll).update({author: Meteor.user()._id, name: doc.name}, {$set: update});
             });
 
             return {status: 200,  len: len, text: `${len} documents have been updated on ${coll} by updateRealTimeDoc`};

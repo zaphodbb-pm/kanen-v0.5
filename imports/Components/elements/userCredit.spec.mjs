@@ -3,7 +3,7 @@
  *
  * @name userCredit.spec
  * @private
- * @memberOf Components:elements
+ * @memberOf Components:elements:
  * @locus test
  *
  * @notes
@@ -41,9 +41,8 @@ const cut = fileAbsolutePath(`${directory}/${component}.svelte`);
 //* set up component's incoming props and compile component ***************************
 import {fileLoad} from "../../../tests/functions/fileLoad.mjs";
 //import {setContext, getContext} from "svelte";
-import {writable} from 'svelte/store'
-
-const iconCredits = fileLoad("/public/svg_to_js/coins-solid.json", true);
+//import {writable} from 'svelte/store'
+//const iconCredits = fileLoad("/public/svg_to_js/coins-solid.json", true);
 
 
 const opts = {

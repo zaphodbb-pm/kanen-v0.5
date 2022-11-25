@@ -1,8 +1,8 @@
 /**
  * Sort an array of objects by key and direction.
  *
- * @memberOf Functions:utilities:
  * @function sortBy
+ * @memberOf Functions:utilities:
  * @locus Anywhere
  *
  * @param {Array} inList - list of objects

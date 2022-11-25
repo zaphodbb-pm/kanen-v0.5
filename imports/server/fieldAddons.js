@@ -1,11 +1,11 @@
 /**
  * Extends the MongoDb projection objects for various read requests.
  *
- * @memberof Structure:Server
  * @function fieldAddons
+ * @memberOf ServerMain
  * @locus Server
  *
- * @returns {Object} - fieldAddons: extra fields to be added to a projection
+ * @returns {Object} - fieldAddons: {updatedAt, author, authorName, authorFullName, group, tenantId}
  */
 
 export const fieldAddons =  {

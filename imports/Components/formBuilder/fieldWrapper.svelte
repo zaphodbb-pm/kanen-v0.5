@@ -3,7 +3,7 @@
      * Form wrapper around individual input fields.
      *
      * @module fieldWrapper
-     * @memberOf Components:form
+     * @memberOf Components:formBuilder:
      *
      * @locus Client
      *

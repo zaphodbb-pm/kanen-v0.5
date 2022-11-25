@@ -1,8 +1,8 @@
 /**
  * Takes a number and returns a string with added commas where required
  *
- * @memberOf functions:formatters
  * @function numString
+ * @memberOf functions:formatters:
  * @locus Anywhere
  *
  * @param {number} num

@@ -2,7 +2,7 @@
  * Prepares the form fields object for tabbed / grouped display.
  *
  * @function orgFields
- * @memberOf Components:form
+ * @memberOf Components:formBuilder:
  * @locus Client
  *
  * @param {Object} org - {hasTabs, tabLen, hasGroups}
