@@ -42,12 +42,10 @@
     }
 
     function updateList(newList){
-        let updated = newList.map( (nl, idx) =>  {
+        list = newList.map( (nl, idx) =>  {
             nl.id = idx + 1;
             return nl;
         });
-
-        list = updated;
 
         /**
          * @event on-inputentry
@@ -100,10 +98,10 @@
     </button>
 
     <Sortable
-        bind:list={list}
-        key={field.params.key}
-        on:sort={sortList}
-        let:item={item}>
+            bind:list={list}
+            key={field.params.key}
+            on:sort={sortList}
+            let:item={item}>
 
         <div class="level">
             <div class="row-id">{item.id}</div>
@@ -138,18 +136,19 @@
 
 <style>
 
-    .item-list {
+    .field--item-list {
         padding-top: 5rem;
     }
 
-    .item-list .level {
+    .field--item-list .level {
         flex-direction: row;
         align-items: center;
         padding: 0;
     }
 
-    .item-list textarea {
+    .field--item-list textarea {
         flex: auto;
+        /*flex-grow: 2;*/
         padding: var(--padding);
     }
 

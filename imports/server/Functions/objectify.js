@@ -2,7 +2,7 @@
  * Builds object from key/value pair.
  *
  * @function objectify
- * @memberOf server:Functions:
+ * @memberOf ServerMain:Functions:
  * @locus Server
  *
  * @param {String} field - name of object key

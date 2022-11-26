@@ -69,7 +69,7 @@ Meteor.methods({
      * Meteor method to retrieve document from MongoDB.
      *
      * @function getCollData
-     * @memberOf ServerMain:methods:
+     * @memberOf ServerMain:Methods:
      * @isMethod true
      * @locus Server
      *

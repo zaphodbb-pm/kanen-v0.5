@@ -26,7 +26,7 @@
         import {header, page} from './documentation_text'
 
         //** app support files
-        import { setContext, onMount } from 'svelte';
+        import { onMount } from 'svelte';
         import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
@@ -38,15 +38,18 @@
     import {lang} from '/imports/client/systemStores';
 
     const pageHeader = i18n(header, "", $lang);
-    setContext("pageText", page);
+    const pageText = i18n(page, "page", $lang);
+    //const tabbed = i18n(page.components, "tabbed", $lang);
+
+
 
     //** event handlers
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 
     //import Accordion from '/imports/Components/widgets/accordion.svelte';
-    import DocNav from '/imports/Components/widgets/jsdocNav.svelte'
-    import Paged from '/imports/Components/widgets/pagedContent.svelte';
+    import DocNav from './jsdocNav.svelte'
+    import Paged from './pagedContent.svelte';
 
     let result = [];
     let content = [];
@@ -54,6 +57,8 @@
     let newTopic = "";
 
     //* set up initial introductory information
+
+    /*
     let preamble = [
         {
             icon: null,
@@ -67,13 +72,15 @@
         }
     ];
 
+     */
+
 
     //* lifecycle
     onMount( async () => {
-        let results = await Meteor.callAsync("fetchDocumentation");
-        content = preamble.concat(results);
+        //let results = await Meteor.callAsync("fetchDocumentation");
+        //content = preamble.concat(results);
 
-
+        content = await Meteor.callAsync("fetchDocumentation");
         console.log("content", content);
     });
 
@@ -132,21 +139,40 @@
     <div class="row">
 
         <div class="column">
-            <div class="">
-                {@html i18n(page.page, "howToUse", $lang)}
-            </div>
+            {@html pageText.setup}
+        </div>
 
-            <div class="space-vert-medium">
-                <div class="level">
-                    <button type="button" class="is-primary-outlined" on:click={getSvelte}>
-                        {i18n(page.components, "btnJsdoc", $lang)}
-                    </button>
+        <div class="column">
+            <ol>
+                <li>
+                    <div class="level">
+                        <div style="flex-basis: 10rem; flex-grow: 2;">
+                            {@html pageText.step1}
+                        </div>
 
-                    <button type="button" class="is-primary-outlined" on:click={buildDocumentation}>
-                        {i18n(page.components, "btnGetDocs", $lang)}
-                    </button>
-                </div>
-            </div>
+                        <button type="button" class="is-primary-outlined" on:click={getSvelte}>
+                            {pageText.btnJsdoc}
+                        </button>
+                    </div>
+                </li>
+
+                <li>
+                    {@html pageText.step2}
+                </li>
+
+                <li>
+                    <div class="level">
+                        <div style="flex-basis: 10rem; flex-grow: 2;">
+                            {@html pageText.step3}
+                        </div>
+
+                        <button type="button" class="is-primary-outlined" on:click={buildDocumentation}>
+                            {pageText.btnGetDocs}
+                        </button>
+                    </div>
+                </li>
+
+            </ol>
 
         </div>
     </div>

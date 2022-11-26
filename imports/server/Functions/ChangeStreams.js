@@ -2,7 +2,7 @@
  * Accesses MongoDb change stream functionality to replace oplog method.
  *
  * @function ChangeStreams
- * @memberOf server:Functions:
+ * @memberOf ServerMain:Functions:
  * @locus Server
  *
  * @param {Object} collection - Meteor collection object

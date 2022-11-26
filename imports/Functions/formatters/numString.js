@@ -2,7 +2,7 @@
  * Takes a number and returns a string with added commas where required
  *
  * @function numString
- * @memberOf functions:formatters:
+ * @memberOf Functions:formatters:
  * @locus Anywhere
  *
  * @param {number} num

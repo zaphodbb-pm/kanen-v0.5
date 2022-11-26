@@ -47,7 +47,7 @@ Meteor.methods({
     /**
      * Meteor method to get formatted documentation.
      *
-     * @memberOf Methods:
+     * @memberOf ServerMain:Methods:
      * @function fetchDocumentation
      * @isMethod true
      * @locus Server

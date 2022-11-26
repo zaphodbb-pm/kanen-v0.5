@@ -277,7 +277,7 @@ use https://www.colorhexa.com/ or https://paletton.com/ to build complimentary c
     --danger-text-invert: hsl( 348, 100%, 100%);
     --grey-light: hsl(0, 0%, 75%);
     --grey-lighter: hsl(0, 0%, 85%);
-    /** invert colours for elements and Components **/
+    /** invert colours for elements and components **/
     --border-main: var(--grey);
     --border-main-darker: var(--grey-light);
     --bg-main: var(--black);
@@ -490,7 +490,7 @@ pre
     margin: 0;
     padding: 0;
 
-    border-left: var(--pad-vert) solid var(--tertiary);
+    border-left: .25rem solid var(--tertiary);
     background-color: var(--white-bis);
 }
 
@@ -518,7 +518,7 @@ pre > code
     overflow-x: scroll;
 
     max-width: 100%;
-    padding: 0 1em;
+    padding: var(--padding);
 
     white-space: pre;
 
@@ -2253,7 +2253,7 @@ button.delete.is-small
     font-size: var(--size-6);
 
     position: relative;
-    z-index: 999;
+    z-index: 9;
 
     display: flex;
 
@@ -5014,7 +5014,7 @@ details.accordion.is-expander-danger summary
     font-size: var(--size-6);
 
     position: relative;
-    z-index: 999;
+    z-index: 9;
 
     display: flex;
 
@@ -9997,7 +9997,7 @@ progress:indeterminate::-ms-fill
     background-color: var(--grey-light);
 }
 
-/* fixed heights for elements / Components */
+/* fixed heights for elements / components */
 .has-height-5rem
 {
     height: 5rem;

@@ -11,7 +11,7 @@ Meteor.methods({
      * Sends documents as JSON from a collection.
      *
      * @function exportJSON
-     * @memberOf SerMain:Methods:
+     * @memberOf ServerMain:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -39,8 +39,6 @@ Meteor.methods({
                 docs = Meteor.users.find( query ).fetch();
             }else{
                 docs = collection.find( query ).fetch();
-
-                //docs = Mongo.Collection.get(coll).find( query ).fetch();
             }
 
             let jsonDocs = JSON.stringify( docs );
@@ -94,7 +92,7 @@ Meteor.methods({
      * Removes all documents from a collection.
      *
      * @function importBulkDataRemove
-     * @memberOf Methods:
+     * @memberOf ServerMain:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -133,7 +131,7 @@ Meteor.methods({
      * Inserts all documents from a file into a collection.
      *
      * @function importBulkData
-     * @memberOf Methods:
+     * @memberOf ServerMain:Methods:
      * @isMethod true
      * @locus Server
      *

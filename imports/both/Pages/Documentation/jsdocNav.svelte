@@ -4,7 +4,7 @@
      * Accordion content widget for jsdoc documentation.
      *
      * @module jsdocNav
-     * @memberOf Components:widgets:
+     * @memberOf Pages:documentation:
      * @locus Client
      *
      * @param {String} tabSettings - controls button settings
@@ -34,23 +34,7 @@
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 
-    //* get the user language preference from store and text from context
-    import { getContext } from 'svelte';
-    import {lang} from '/imports/client/systemStores'
-    import {i18n} from '/imports/Functions/utilities/i18n';
-
-    //* component controls
-    let content = getContext("pageText").components;
-
-    $: {
-        if(typeof text === "string"){
-            content = i18n(content, text, $lang);
-        }else{
-            content = text;
-        }
-    }
-
-    let  currTab = content && content.length > 0 ? content[0].label : "";
+    let  currTab = text && text.length > 0 ? text[0].label : "";
 
 
     function changetab(tab) {
@@ -79,7 +63,7 @@
 
 
 <div class="accordions">
-    {#each content as item, idx}
+    {#each text as item, idx}
         <div class="accordion">
 
             <a class="button accordion-header {tabSettings}" on:click|stopPropagation={ () => changetab(item.label) }>
@@ -123,12 +107,6 @@
         justify-content: left !important;
     }
 
-    .accordian-list {
-        position: relative;
-        margin-top: 0.75rem;
-        margin-bottom: 0.25rem;
-    }
-
     .accordion-body {
         overflow-y: hidden;
 
@@ -138,11 +116,6 @@
         border-top-left-radius: 0;
         border-top-right-radius: 0;
         border-top: none;
-    }
-
-    .accordion-content {
-        padding: .75rem;
-        max-height: 70rem;
     }
 
     .accordion-content p {

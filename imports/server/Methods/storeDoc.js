@@ -1,5 +1,4 @@
 import {Meteor} from "meteor/meteor";
-import {Mongo} from "meteor/mongo";
 import { check } from 'meteor/check';
 
 import {allCollections} from "../../both/collectionDefs";
@@ -37,8 +36,8 @@ Meteor.methods({
 
         if( verifyRole(me, acl.roles) && collection ) {
             /**
-             * @type {Object} me
-             * @property {String} me.admin
+             * @type {Object}
+             * @property {String} me.tenantId
              */
             const me = Meteor.user();
             doc.tenantId = me && me.tenantId ? me.tenantId : "general";
@@ -46,7 +45,7 @@ Meteor.methods({
 
             //* inject group name server side for security
             /**
-             * @type {Object} me
+             * @type {Object}
              * @property {String} me.admin
              */
 
@@ -144,8 +143,6 @@ Meteor.methods({
         const collection = acl?.coll ? allCollections[acl.coll] : undefined;
 
         if( verifyRole(me, acl.roles) && collection ) {
-            //let doc = Mongo.Collection.get(acl.coll).findOne({_id: docId});
-
             const doc = collection.findOne({_id: docId});
 
             if(ownsDocument(me, doc)){     // check if user is doc owner before delete
@@ -173,11 +170,6 @@ Meteor.methods({
      * @memberOf ServerMain:Methods:
      * @isMethod true
      * @locus Server
-     *
-     * @typedef Mongo.Collection
-     * @property {Function} get
-     *
-     * @requires {objectify}_from_'/imports/functionsBoth/func-objectify'
      *
      * @param {String} coll
      * @param {String} docId

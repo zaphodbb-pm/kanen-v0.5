@@ -241,7 +241,7 @@ Meteor.methods({
         if(this.userId){
 
             /**
-             * @type {Object} doc
+             * @type {Object}
              */
             const doc = Meteor.users.findOne({_id: this.userId});     // get user info
             if (doc && doc.credit) {
@@ -270,13 +270,13 @@ Meteor.methods({
         if( !this.userId ){return [];}
 
         /**
-         * @type {Array} out
+         * @type {Array}
          */
         let out = [ this.userId ];
 
         /**
          *
-         * @type {Object} mine
+         * @type {Object}
          */
         const mine = Meteor.users.findOne({_id: this.userId});
 

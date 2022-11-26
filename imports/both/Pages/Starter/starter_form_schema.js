@@ -100,7 +100,7 @@ export default [
         optional: true,
 
         tab: 0,
-        group: {section: 0, class: "is-two-thirds"},
+        group: {section: 0, class: "is-span-1"},
 
         attributes: {type: "number", min: 9.5, max: 100.5, step: 0.1},
         params: {},
@@ -113,7 +113,7 @@ export default [
         optional: true,
 
         tab: 0,
-        group: {section: 0, class: "is-one-third"},
+        group: {section: 0, class: "is-span-2"},
 
         attributes: {type: "number", step: 1},
         params: {},
@@ -427,7 +427,7 @@ export default [
             config: fieldsetRows,
         },
 
-        css: "has-max-width-8rem",
+        css: "",
         optional: true,
         defaultValue: [],
     }

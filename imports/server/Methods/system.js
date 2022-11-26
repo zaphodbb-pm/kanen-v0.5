@@ -72,7 +72,7 @@ Meteor.methods({
         const collection = allCollections[coll];
 
         /**
-         * @type {Object} me
+         * @type {Object}
          * @property {String} me.admin
          */
         const me = Meteor.user();

@@ -2,7 +2,7 @@
  * Writes a log to a collection.
  *
  * @function writeLog
- * @memberOf server:Functions:
+ * @memberOf ServerMain:Functions:
  * @locus Server
  *
  * @param {String} logName
@@ -17,10 +17,8 @@
 import {LogsUser, LogsSystem, LogsSensor} from "../../both/collectionDefs";
 
 export function writeLog(logName, data) {
-    let status = null;
-
-    let now = new Date();
-    let dateParts = {
+    const now = new Date();
+    const dateParts = {
         year: now.getFullYear(),
         month: now.getMonth(),
         date: now.getDate(),
@@ -35,6 +33,8 @@ export function writeLog(logName, data) {
         date: dateParts,
         data: data
     };
+
+    let status;
 
     switch (logName) {
 

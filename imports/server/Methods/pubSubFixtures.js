@@ -36,7 +36,7 @@ Meteor.methods({
 
         /**
          *
-         * @type {Object} me
+         * @type {Object}
          * @property {String} me._id
          * @property {String} me.tenantId
          */
@@ -48,12 +48,9 @@ Meteor.methods({
             if(len > 0){
                 collection.remove({author: me._id});      // flush existing records
 
-                //Mongo.Collection.get(acl.coll).remove({author: Meteor.user()._id});      // flush existing records
-
-
                 arr.forEach( (doc) => {
                     /**
-                     * @type {Object} doc
+                     * @type {Object}
                      * @property {String} doc._id
                      * @property {String} doc.author
                      */
@@ -104,7 +101,7 @@ Meteor.methods({
 
         /**
          *
-         * @type {Object} me
+         * @type {Object}
          * @property {String} me._id
          * @property {String} me.tenantId
          */
@@ -123,8 +120,6 @@ Meteor.methods({
                 }
 
                 collection.update({author: Meteor.user()._id, name: doc.name}, {$set: update});
-
-                //Mongo.Collection.get(acl.coll).update({author: Meteor.user()._id, name: doc.name}, {$set: update});
             });
 
             return {status: 200,  len: len, text: `${len} documents have been updated on ${coll} by updateRealTimeDoc`};

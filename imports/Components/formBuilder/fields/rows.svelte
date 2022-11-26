@@ -79,12 +79,10 @@
     }
 
     function updateList(newList){
-        let updated = newList.map( (nl, idx) =>  {
+        list = newList.map( (nl, idx) =>  {
             nl.row = idx + 1;
             return nl;
         });
-
-        list = updated;
 
         let out = newList.map( (nl) => {
             let values = {};
@@ -193,11 +191,11 @@
 
 <style>
 
-    .row-list {
+    .field--row-list {
         padding-top: 5rem;
     }
 
-    .row-list .level {
+    .field--row-list .level {
         flex-direction: row;
         align-items: center;
         column-gap: 0;
@@ -205,11 +203,11 @@
         padding: var(--padding) 0;
     }
 
-    .row-list .level label {
+    .field--row-list .level label {
         min-width: 5rem;
     }
 
-    .row-list textarea {
+    .field--row-list textarea {
         flex: auto;
         padding: var(--padding);
     }

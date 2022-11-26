@@ -1,8 +1,8 @@
 /**
  * Example file that abstracts logic from a svelte component.
  *
- * @memberOf Functions
  * @function injectText
+ * @memberOf Pages:template
  * @locus client
  *
  * @return {object} - {bold, normal, without, with}

@@ -3,7 +3,7 @@
  * Optional tenentId filtered.
  *
  * @function myDocuments
- * @memberOf server:Functions:
+ * @memberOf ServerMain:Functions:
  * @locus Server
  *
  * @param {Object} obj - MongoDb query object
@@ -17,7 +17,7 @@
 
 export function myDocuments(obj, user, rolesIn) {
     //* get roles information
-    let out = null;
+    let out;
     let roles = rolesIn ? rolesIn : [];
     if( !Array.isArray(roles) ){ roles = roles.read; }
 
