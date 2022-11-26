@@ -2,7 +2,7 @@
  * @summary Can be used to calculate the next prime number, a possible way to calculate when to next prompt.
  *
  * @function nextPrime
- * @memberOf ClientMain
+ * @memberOf ClientMain:
  * @locus Client
  *
  * @param {Number} value

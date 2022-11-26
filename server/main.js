@@ -3,7 +3,8 @@
  *
  * @namespace ServerMain
  * @module
- * @locus Any
+ * @memberOf ServerMain:
+ * @locus Server
  *
  * @notes
  *  1.  Common routines are imported here

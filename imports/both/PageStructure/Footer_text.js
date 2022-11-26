@@ -2,7 +2,7 @@
  * Labels for bottom footer.
  *
  * @function Footer_text
- * @memberOf Footer
+ * @memberOf App
  * @locus Client
  *
  * @returns {Object}

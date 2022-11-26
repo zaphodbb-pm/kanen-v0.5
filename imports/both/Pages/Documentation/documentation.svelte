@@ -39,16 +39,13 @@
 
     const pageHeader = i18n(header, "", $lang);
     const pageText = i18n(page, "page", $lang);
-    //const tabbed = i18n(page.components, "tabbed", $lang);
-
 
 
     //** event handlers
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 
-    //import Accordion from '/imports/Components/widgets/accordion.svelte';
-    import DocNav from './jsdocNav.svelte'
+    import DocNav from './docNav.svelte'
     import Paged from './pagedContent.svelte';
 
     let result = [];
@@ -56,30 +53,8 @@
     let newCategory = "Getting_Started";
     let newTopic = "";
 
-    //* set up initial introductory information
-
-    /*
-    let preamble = [
-        {
-            icon: null,
-            label: "Getting_Started",
-            text: null,
-            dbContent: null,
-            list: [
-                {name: "Set-Up", info: i18n(page.components, "documentation", $lang).setup},
-                {name: "Considerations", info: i18n(page.components, "documentation", $lang).consider},
-            ]
-        }
-    ];
-
-     */
-
-
     //* lifecycle
     onMount( async () => {
-        //let results = await Meteor.callAsync("fetchDocumentation");
-        //content = preamble.concat(results);
-
         content = await Meteor.callAsync("fetchDocumentation");
         console.log("content", content);
     });
@@ -103,13 +78,18 @@
 
     function changeBody(msg) {
         newCategory = msg.detail;
+
+        console.log("changeBody", newCategory, msg.detail);
     }
 
     function changeSub(msg) {
         let el = document.getElementById(msg.detail);
+
         if(el){
             el.scrollIntoView({behavior: "smooth", block: "center", inline: "start"});
         }
+
+        console.log("changeSub", msg.detail, el);
     }
 
     function getSvelte(){
@@ -156,9 +136,7 @@
                     </div>
                 </li>
 
-                <li>
-                    {@html pageText.step2}
-                </li>
+                <li>{@html pageText.step2}</li>
 
                 <li>
                     <div class="level">
@@ -171,16 +149,17 @@
                         </button>
                     </div>
                 </li>
-
             </ol>
 
         </div>
     </div>
 
 
+    <div class="space-component-medium"></div>
+
     <div class="row has-2x-minwidth">
         <div class="column is-span-1">
-            <DocNav text="{content}"  on:doc_maintopic="{changeBody}" on:doc_subtopic="{changeSub}"/>
+            <DocNav text="{content}"  on:doc-maintopic="{changeBody}" on:doc-subtopic="{changeSub}"/>
         </div>
 
         <div class="column is-span-2">

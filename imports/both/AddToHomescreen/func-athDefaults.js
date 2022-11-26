@@ -2,7 +2,7 @@
  * @summary Default options list.
  *
  * @function athDefaults
- * @memberOf ClientMain
+ * @memberOf ClientMain:
  * @locus Client
  *
  * @param {String} appID

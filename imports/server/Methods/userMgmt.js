@@ -205,7 +205,7 @@ Meteor.methods({
      * Remove an existing user object.
      *
      * @function userMgmtRemove
-     * @memberOf ServeMain:Methods:
+     * @memberOf ServerMain:Methods:
      * @isMethod true
      * @locus Server
      *

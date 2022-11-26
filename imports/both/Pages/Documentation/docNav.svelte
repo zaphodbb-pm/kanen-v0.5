@@ -16,8 +16,8 @@
      * @param {Array}  content:list - optional content as a list of content objects
      *
      *
-     * @fires doc_maintopic
-     * @fires doc_subtopic
+     * @fires doc-maintopic
+     * @fires doc-subtopic
      *
      * @notes
      * 1. Standalone component that gets a configuration object from its parent
@@ -40,20 +40,19 @@
     function changetab(tab) {
         currTab = tab;
         /**
-         * @event doc_maintopic
+         * @event doc-maintopic
          * @type {String}
          */
-        dispatch('doc_maintopic', tab);
+        dispatch('doc-maintopic', tab);
     }
 
     function setContent(sub) {
         /**
-         * @event doc_subtopic
+         * @event doc-subtopic
          * @type {String}
          */
-        dispatch("doc_subtopic", sub);
+        dispatch("doc-subtopic", sub);
     }
-
 
 </script>
 
@@ -111,10 +110,7 @@
         overflow-y: hidden;
 
         border: 1px solid #dbdbdb;
-        border-radius: 4px;
-
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
+        border-radius: 0 0 4px 4px;
         border-top: none;
     }
 

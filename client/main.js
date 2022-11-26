@@ -4,6 +4,7 @@
  *
  * @namespace ClientMain
  * @module
+ * @memberOf ClientMain:
  * @locus Client
  *
  * @notes

@@ -37,165 +37,133 @@
 
                     {#if newCategory === item.label}
 
-                        {#if subtopic.info}
-                            <div class="card">
-                                <header class="is-tertiary"><h3>{subtopic.name}</h3></header>
-
-                                <div class="card-content">
-                                    <div class="content">{@html subtopic.info} </div>
+                        <div class="card" id="{subtopic.name}">
+                            <header class="is-grey">
+                                <div class="level">
+                                    <h3 style="margin: 0;">{subtopic.name}</h3>
+                                    <span>{subtopic.locus}</span>
                                 </div>
-                            </div>
 
-                        {:else}
-
-                            <div class="card">
-                                <header class="is-warning-light">
-                                    <div class="level">
-                                        <h3 style="margin: 0;">{subtopic.name}</h3>
-                                        <span>{subtopic.locus}</span>
-                                    </div>
-
-                                    <div>
-                                        <span class="">{subtopic.import}</span>
-                                        <span class="">(line {subtopic.lineno})</span>
-                                    </div>
-                                </header>
-
-
-                                <!--
-                                <div style="background-color: #eee; padding: 0.75rem;">
-                                    <div id="{subtopic.name}">
-                                        <span class="" style="font-size: 1.25em; font-weight: bold">{subtopic.name}</span>
-                                        <span class="" style="float: right; font-style: italic">{subtopic.locus}</span>
-                                    </div>
-
-                                    <div>
-                                        <span class="">{subtopic.import}</span>
-                                        <span class="">(line {subtopic.lineno})</span>
-                                    </div>
+                                <div>
+                                    <span class="">{subtopic.import}</span>
+                                    <span class="">(line {subtopic.lineno})</span>
                                 </div>
-                                -->
+                            </header>
 
-                                <div class="card-content">
+                            <div class="card-content">
+                                <div class="space-vert">{subtopic.description}</div>
 
-                                    <div class="lead">{subtopic.description}</div>
+                                {#if subtopic.params && subtopic.params.length > 0}
+                                    <div class="space-vert-medium">
+                                        <p class="is-size-5 is-text-semibold">Input Parameters</p>
 
-                                    {#if subtopic.augments}
-                                        <div><i>Augments: {subtopic.augments}</i></div>
-                                    {/if}
+                                        {#each subtopic.params as param}
+                                            <p style="margin-bottom: 0.25rem;">
+                                                <span><b>{param.name}</b></span>
+                                                <span> - {`{${param.typeString} }`}</span>
+                                                <span>{@html param.description}</span>
+                                            </p>
+                                        {/each}
+                                    </div>
+                                {/if}
 
-                                    {#if subtopic.params && subtopic.params.length > 0}
-                                        <div class="mt-4 mb-1">
-                                            <p class="text-1dot1em text-secondary">Input Parameters</p>
+                                {#if subtopic.returns && subtopic.returns.length > 0}
+                                    <div class="space-vert-medium">
+                                        <p class="is-size-5 is-text-semibold">Returned Value</p>
 
-                                            {#each subtopic.params as param}
-                                                <p class="ml-3">
-                                                    <span><b>{param.name}</b></span>
-                                                    <span> - {`{${param.typeString} }`}</span>
-                                                    <span>{@html param.description}</span>
-                                                </p>
+                                        {#each subtopic.returns as returns}
+                                            <p style="margin-bottom: 0.25rem;">
+                                                <span>{`{${returns.typeString} }`}</span>
+                                                <span>{returns.description}</span>
+                                            </p>
+                                        {/each}
+                                    </div>
+                                {/if}
+
+                                {#if subtopic.eventActivity}
+                                    <div class="space-vert-medium">
+                                        <p class="is-size-5 is-text-semibold">Event Activity</p>
+
+                                        {#if subtopic.fires}
+                                            {#each subtopic.fires as fires}
+                                                <div class="ml-3">Emits: {fires.replace('event:', '')}</div>
                                             {/each}
-                                        </div>
-                                    {/if}
+                                        {/if}
 
-                                    {#if subtopic.returns && subtopic.returns.length > 0}
-                                        <div class="mt-4 mb-1">
-                                            <p class="text-1dot1em text-secondary">Returned Value</p>
-
-                                            {#each subtopic.returns as returns}
-                                                <p class="ml-3">
-                                                    <span>{`{${returns.typeString} }`}</span>
-                                                    <span>{returns.description}</span>
-                                                </p>
+                                        {#if subtopic.listens}
+                                            {#each subtopic.listens as listens}
+                                                <div class="ml-3">Listens: {listens}</div>
                                             {/each}
-                                        </div>
-                                    {/if}
+                                        {/if}
+                                    </div>
+                                {/if}
 
-                                    {#if subtopic.eventActivity}
-                                        <div class="mt-4 mb-1">
-                                            <p class="text-1dot1em text-secondary">Event Activity</p>
+                                {#if subtopic.requires  && subtopic.requires.length > 0}
+                                    <div class="space-vert-medium">
+                                        <p class="is-size-5 is-text-semibold">Required Support Files</p>
 
-                                            {#if subtopic.fires}
-                                                {#each subtopic.fires as fires}
-                                                    <div class="ml-3">Emits: {fires.replace('event:', '')}</div>
-                                                {/each}
-                                            {/if}
+                                        {#each subtopic.requires as require}
+                                            <div class="ml-3">{require}</div>
+                                        {/each}
+                                    </div>
+                                {/if}
 
-                                            {#if subtopic.listens}
-                                                {#each subtopic.listens as listens}
-                                                    <div class="ml-3">Listens: {listens}</div>
-                                                {/each}
-                                            {/if}
-                                        </div>
-                                    {/if}
+                                {#if subtopic.todo  && subtopic.todo.length > 0}
+                                    <div class="space-vert-medium">
+                                        <p class="is-size-5 is-text-semibold">To Do</p>
 
-                                    {#if subtopic.requires  && subtopic.requires.length > 0}
-                                        <div class="mt-4 mb-1">
-                                            <p class="text-1dot1em text-secondary">Required Support Files</p>
+                                        {#each subtopic.todo as td}
+                                            <div class="ml-3">{td}</div>
+                                        {/each}
+                                    </div>
+                                {/if}
 
-                                            {#each subtopic.requires as require}
-                                                <div class="ml-3">{require}</div>
-                                            {/each}
-                                        </div>
-                                    {/if}
+                                {#if subtopic.see  && subtopic.see.length > 0}
+                                    <div class="space-vert-medium">
+                                        <p class="is-size-5 is-text-semibold">Other Documentation</p>
 
-                                    {#if subtopic.todo  && subtopic.todo.length > 0}
-                                        <div class="mt-4 mb-1">
-                                            <p class="text-1dot1em text-secondary">To Do</p>
-
-                                            {#each subtopic.todo as td}
-                                                <div class="ml-3">{td}</div>
-                                            {/each}
-                                        </div>
-                                    {/if}
-
-                                    {#if subtopic.see  && subtopic.see.length > 0}
-                                        <div class="mt-4 mb-1">
-                                            <p class="text-1dot1em text-secondary">Other Documentation</p>
-
-                                            {#each subtopic.seeString as see}
-                                                <div class="ml-3">
-                                                    {#if see.link}
-                                                        <div>
-                                                            <span>{see.prefix} </span>
-                                                            <span><a href="{see.link}">{see.linkName}</a></span>
-                                                            <span> {see.suffix}</span>
-                                                        </div>
-                                                    {:else}
-                                                        <div>
-                                                            {see.linkName}
-                                                        </div>
-                                                    {/if}
-                                                </div>
-                                            {/each}
-                                        </div>
-                                    {/if}
-
-                                    {#if subtopic.notes}
-                                        <div class="mt-4 mb-1">
-                                            <p class="text-1dot1em text-secondary">Notes</p>
-                                            <div class="ml-3 p-0">
-                                                <pre class="m-0 text-1dot0em" style="font-family: sans-serif;">
-                                                    {@html subtopic.notes}
-                                                </pre>
+                                        {#each subtopic.seeString as see}
+                                            <div class="ml-3">
+                                                {#if see.link}
+                                                    <div>
+                                                        <span>{see.prefix} </span>
+                                                        <span><a href="{see.link}">{see.linkName}</a></span>
+                                                        <span> {see.suffix}</span>
+                                                    </div>
+                                                {:else}
+                                                    <div>
+                                                        {see.linkName}
+                                                    </div>
+                                                {/if}
                                             </div>
-                                        </div>
-                                    {/if}
+                                        {/each}
+                                    </div>
+                                {/if}
 
-                                    {#if subtopic.examples && subtopic.examples.length > 0}
-                                        <div class="mt-4 mb-1">
-                                            <p class="text-1dot1em text-secondary">Examples</p>
-
-                                            {#each subtopic.examples as example}
-                                                <div class="bg-light ml-3 p-3">
-                                                    <pre>{@html example}</pre>
-                                                </div>
-                                            {/each}
+                                {#if subtopic.notes}
+                                    <div class="space-vert-medium">
+                                        <p class="is-size-5 is-text-semibold">Notes</p>
+                                        <div class="">
+                                            <pre class="m-0 text-1dot0em" style="font-family: sans-serif;">
+                                                <code>{@html subtopic.notes}</code>
+                                            </pre>
                                         </div>
-                                    {/if}
-                                </div>
+                                    </div>
+                                {/if}
+
+                                {#if subtopic.examples && subtopic.examples.length > 0}
+                                    <div class="space-vert-medium">
+                                        <p class="is-size-5 is-text-semibold">Examples</p>
+
+                                        {#each subtopic.examples as example}
+                                            <div class="">
+                                                <pre><code>{@html example}</code></pre>
+                                            </div>
+                                        {/each}
+                                    </div>
+                                {/if}
                             </div>
-                        {/if}
+                        </div>
                     {/if}
 
                 {/each}
@@ -209,6 +177,14 @@
 
     .pagedContent .card {
         margin-bottom: 2rem;
+    }
+
+    .card > header {
+        padding: var(--pad-vert) var(--pad-horz);
+    }
+
+    .card .card-content {
+        padding-top: 0.5rem;
     }
 
 </style>

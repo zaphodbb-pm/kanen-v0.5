@@ -71,14 +71,12 @@ Meteor.methods({
 
             doc.forEach( (el) => {
                 exists = !!collection.findOne( {_id: el._id} );
-                //exists = !!Mongo.Collection.get(coll).findOne( {_id: el._id} );
 
                 if( !exists ){
                     if( coll === 'users' ){
                         Meteor.users.insert(el);
                     }else{
                         collection.insert(el);
-                        //Mongo.Collection.get(coll).insert(el);
                     }
                 }
             });
@@ -108,8 +106,6 @@ Meteor.methods({
 
             const collection = allCollections[coll];
             collection.remove({});      // flush collection before loading new docs
-
-            //Mongo.Collection.get(coll).remove({});      // flush collection before loading new docs
             return {
                 status: 200,
                 message: "Removed all docs",
@@ -153,13 +149,10 @@ Meteor.methods({
                 count = doc.length;
                 doc.forEach(function (item) {
                     collection.insert(item);
-
-                    //Mongo.Collection.get(coll).insert(item);
                 })
             } else {
                 count = 1;
                 collection.insert(doc);
-                //Mongo.Collection.get(coll).insert(doc);
             }
 
             return {

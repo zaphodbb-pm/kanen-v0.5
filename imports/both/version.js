@@ -2,7 +2,7 @@
  * System wide version constants.
  *
  * @function version
- * @memberOf ClientMain
+ * @memberOf ClientMain:
  * @locus Client
  *
  *
