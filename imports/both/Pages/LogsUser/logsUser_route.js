@@ -1,7 +1,7 @@
 /**
  * Route config information for LogsUser page.
  *
- * @name logsUsers_route
+ * @name logsUser_route
  * @constant {Object}
  * @memberOf Pages:logsUser
  * @locus Client

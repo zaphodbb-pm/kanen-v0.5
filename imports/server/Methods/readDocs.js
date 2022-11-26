@@ -33,10 +33,10 @@ Meteor.methods({
         let out = 0;
 
         if (Meteor.userId()) {                            // check if user is logged in
-            let acl = accessControl[coll];
-            const collection = allCollections[acl.coll];
+            const acl = accessControl[coll];
+            const collection = acl?.coll ? allCollections[acl.coll] : undefined;
 
-            if(acl){
+            if(acl && collection){
                 switch (true) {
                     case coll === 'users':
                         out = Meteor.users.find(q).count();
@@ -51,6 +51,12 @@ Meteor.methods({
                             out = collection.find(q).count();
                         }
                 }
+            } else {
+                // @ts-ignore
+                global.showServerLogs(coll, {
+                        acl: acl?.coll,
+                        text:"No access or collection does not exist."
+                    }, true);
             }
         }
 
@@ -97,8 +103,8 @@ Meteor.methods({
         let opts = {};
 
         //* get access control and roles information
-        let acl = accessControl[coll];
-        const collection = allCollections[acl.coll];
+        const acl = accessControl[coll];
+        const collection = acl?.coll ? allCollections[acl.coll] : undefined;
 
         if(acl && collection){
             let projection = type.replace("_one", "");
@@ -128,9 +134,10 @@ Meteor.methods({
             }
         }else{
             // @ts-ignore
-            global.showServerLogs("LogsSystem", msg, true);
-
-            //console.log("")
+            global.showServerLogs(coll, {
+                acl: acl?.coll,
+                text:"No access or collection does not exist."
+            }, true);
         }
 
         return docs;

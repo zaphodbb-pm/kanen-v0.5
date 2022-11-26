@@ -28,20 +28,19 @@
 </script>
 
 
-<script>
-    /**
-     * Layout for PubSub page.
-     *
-     * @name pubSub
-     * @module
-     * @memberOf Pages:pubSub
-     * @locus Client
-     *
-     * @param {String} currentRoute - page path name
-     * @param {Object} params - any parameters from path url
-     * @param {Object} query - any query fragment from path url
-     *
-     */
+<script>/**
+ * Layout for PubSub page.
+ *
+ * @name pubSub
+ * @module
+ * @memberOf Pages:pubSub
+ * @locus Client
+ *
+ * @param {String} currentRoute - page path name
+ * @param {Object} params - any parameters from path url
+ * @param {Object} query - any query fragment from path url
+ *
+ */
 
 
     //* page set-up boilerplate *************************************
@@ -53,7 +52,6 @@
 
         //** page specific text and configuration
         import {header, page} from './pubSub_text'
-        //import {pageConfig} from './pubSub_config'
 
         //** app support files
         import { onMount, onDestroy } from 'svelte';
@@ -64,13 +62,14 @@
 
 
     //* page-body support **************************
+    import {RealTime} from "../../collectionDefs";
     import {i18n} from '/imports/Functions/utilities/i18n'
     import {lang} from '/imports/client/systemStores'
 
     const pageHeader = i18n(header, "", $lang);
 
     let text = i18n(page, "page", $lang);
-    let values = new Array(len).fill({name: "init", value: 0});
+    let values;
     let intervalId = null;
     let timings = {min: 0, max: 0, avg: 0};
 
@@ -103,7 +102,7 @@
 
         //** update all documents at once with random values with direct write method
         intervalId = setInterval( function(){
-            Meteor.call("updateRealTimeDoc", "pubSub", generateValues(len), function(err, res){
+            Meteor.call("updateRealTimeDoc", "pubSub", generateValues(len), function(err){
                 if(err){console.log("Update Real Time failed: ", err);}
             });
 

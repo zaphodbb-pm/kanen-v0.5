@@ -1,7 +1,7 @@
 /**
  * @summary Labels for LogsUser page.
  *
- * @name logsUsers_text
+ * @name logsUser_text
  * @constant {Object}
  * @memberOf Pages:logsUser
  * @locus Client

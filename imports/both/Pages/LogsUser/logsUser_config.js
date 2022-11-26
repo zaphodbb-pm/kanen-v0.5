@@ -1,7 +1,7 @@
 /**
  * Configuration for LogsUser page Components.
  *
- * @name logsUsers_config
+ * @name logsUser_config
  * @constant {Object}
  * @memberOf Pages:logsUser
  * @locus Client
@@ -14,7 +14,7 @@
 export const pageConfig =  {
 
     list: {
-        coll:       "logsUsers",        // collection name to list
+        coll:       "logsUser",        // collection name to list
         showHdr:    true,               // show card header and title if true
         bgTitle:    "is-secondary",     // sets card title background and text color
 

@@ -61,7 +61,7 @@
         releaseEdit = false;
         let out = {updatedAt: msg.detail};
 
-        Meteor.call("removeDocuments", "logsUsers", out, function (err, res) {
+        Meteor.call("removeDocuments", "logsUser", out, function (err, res) {
             if (err) {
                 console.log("removeDocuments error", err)
             }

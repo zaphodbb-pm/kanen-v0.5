@@ -83,6 +83,12 @@ Meteor.methods({
 
             return {status: 200, count: number, text: `${number} documents have been removed on ${coll} by removeDocuments`};
         }else{
+            // @ts-ignore
+            global.showServerLogs("system.js:removeDocuments", {
+                coll: coll,
+                text:"No access or collection does not exist."
+            }, true);
+
             return {status: 400, count: 0, text: "Invalid user"};
         }
     }

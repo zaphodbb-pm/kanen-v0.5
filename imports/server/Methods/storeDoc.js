@@ -33,7 +33,7 @@ Meteor.methods({
 
         const me = Meteor.user();
         const acl = accessControl[coll];
-        const collection = allCollections[acl.coll];
+        const collection = acl?.coll ? allCollections[acl.coll] : undefined;
 
         if( verifyRole(me, acl.roles) && collection ) {
             /**
@@ -65,6 +65,13 @@ Meteor.methods({
             }
 
         }else{
+            // @ts-ignore
+            global.showServerLogs("insertDoc", {
+                coll: coll,
+                acl: acl?.coll,
+                text:"No access or collection does not exist."
+            }, true);
+
             return {status: 400, _id: "", text: "Invalid user; does not have store privileges."};
         }
     },
@@ -92,7 +99,7 @@ Meteor.methods({
 
         const me = Meteor.user();
         const acl = accessControl[coll];
-        const collection = allCollections[acl.coll];
+        const collection = acl?.coll ? allCollections[acl.coll] : undefined;
 
         if( verifyRole(me, acl.roles) && collection ) {
             if(ownsDocument(me, doc)){     // check if user is doc owner before update
@@ -103,6 +110,13 @@ Meteor.methods({
 
             return {status: 404, text:  `Has not been updated on ${coll} by updateDoc.  User does not own document.`};
         }else{
+            // @ts-ignore
+            global.showServerLogs("updateDoc", {
+                coll: coll,
+                acl: acl?.coll,
+                text:"No access or collection does not exist."
+            }, true);
+
             return {status: 400, text: "Invalid user; does not have store privileges."};
         }
     },
@@ -127,7 +141,7 @@ Meteor.methods({
 
         const me = Meteor.user();
         const acl = accessControl[coll];
-        const collection = allCollections[acl.coll];
+        const collection = acl?.coll ? allCollections[acl.coll] : undefined;
 
         if( verifyRole(me, acl.roles) && collection ) {
             //let doc = Mongo.Collection.get(acl.coll).findOne({_id: docId});
@@ -141,6 +155,13 @@ Meteor.methods({
             }
             return {status: 404, _id: docId, text:  `User does not have permission to remove document.`};
         }else{
+            // @ts-ignore
+            global.showServerLogs("removeDoc", {
+                coll: coll,
+                acl: acl?.coll,
+                text:"No access or collection does not exist."
+            }, true);
+
             return {status: 400, _id: "", text: "Invalid user; does not have store privileges."};
         }
     },
@@ -174,7 +195,7 @@ Meteor.methods({
 
         const me = Meteor.user();
         const acl = accessControl[coll];
-        const collection = allCollections[acl.coll];
+        const collection = acl?.coll ? allCollections[acl.coll] : undefined;
 
         if( verifyRole(me, acl.roles) && collection) {
             const updatedAt = Date.now();
@@ -184,6 +205,13 @@ Meteor.methods({
 
             return {status: 200, _id: docId, text: `${docId} has been updated on ${coll} by updateDocField`};
         }else{
+            // @ts-ignore
+            global.showServerLogs("updateDocField", {
+                coll: coll,
+                acl: acl?.coll,
+                text:"No access or collection does not exist."
+            }, true);
+
             return {status: 400, _id: "", text: "Invalid user; does not have store privileges."};
         }
     },
@@ -222,9 +250,9 @@ Meteor.methods({
 
         const me = Meteor.user();
         const acl = accessControl[coll];
-        const collection = allCollections[acl.coll];
+        const collection = acl?.coll ? allCollections[acl.coll] : undefined;
 
-        if( verifyRole(me, acl.roles) ) {
+        if( verifyRole(me, acl.roles) && collection) {
             let updatedAt = Date.now();
             let ops = null;
 
@@ -316,6 +344,15 @@ Meteor.methods({
                     value: value
                 }
             }
+        } else {
+            // @ts-ignore
+            global.showServerLogs("updateDocArray", {
+                coll: coll,
+                acl: acl?.coll,
+                text:"No access or collection does not exist."
+            }, true);
+
+            return {status: 400, id: docId, text: "Invalid value or field", value: value}
         }
     }
 

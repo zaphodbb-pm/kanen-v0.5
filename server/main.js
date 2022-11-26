@@ -94,7 +94,6 @@ if (Meteor.isServer) {
             number: 42
         };
 
-        //console.log("LogsSystem", msg, true);
         showServerLogs("LogsSystem", msg, true);
     }, 5000);
     //****** end of example

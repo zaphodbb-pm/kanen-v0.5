@@ -2,7 +2,7 @@
     /**
      * Generic insert loader for pages.
      *
-     * @name logsUsers_loader
+     * @name logsUser_loader
      * @module
      * @memberOf Pages:logsUser
      * @locus Client

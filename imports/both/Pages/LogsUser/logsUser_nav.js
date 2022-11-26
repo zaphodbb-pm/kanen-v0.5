@@ -1,7 +1,7 @@
 /**
  * Nav label for LogsUser page.
  *
- * @name logsUsers_nav
+ * @name logsUser_nav
  * @memberOf Pages:logsUser
  * @locus Anywhere
  *
@@ -13,9 +13,9 @@
  */
 
 
-export const nav = {en: "Users Logs"};
+export const nav = {en: "User Logs"};
 
-export const link = "/logsUsers";
+export const link = "/logsUser";
 
 export const icon = "icon-bg-logs";
 

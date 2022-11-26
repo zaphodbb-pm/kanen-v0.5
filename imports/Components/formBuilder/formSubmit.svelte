@@ -58,8 +58,6 @@
          * @type {Boolean}
          */
 
-        console.log("func submit");
-
         dispatch('submit-btn', true);
     }
 

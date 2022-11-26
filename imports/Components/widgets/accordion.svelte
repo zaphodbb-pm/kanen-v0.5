@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 
     /**
      * Accordion content widget.
@@ -27,7 +27,6 @@
     let className = ''
     // noinspection ReservedWordAsName
     export { className as class }
-
 
 </script>
 
