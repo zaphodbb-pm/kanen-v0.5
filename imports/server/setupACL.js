@@ -2,7 +2,7 @@
  * Server side setup of Access Control List for pages that try to store documents.
  *
  * @function setupACL
- * @memberOf ServerMain:
+ * @memberOf Server:
  * @locus Server
  *
  * @property {Object} accessControl

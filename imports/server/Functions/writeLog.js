@@ -2,7 +2,7 @@
  * Writes a log to a collection.
  *
  * @function writeLog
- * @memberOf ServerMain:Functions:
+ * @memberOf Server:Functions:
  * @locus Server
  *
  * @param {String} logName

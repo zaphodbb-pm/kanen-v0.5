@@ -5,7 +5,7 @@
  * This is also helpful on a staging server to help with any debugging work.
  *
  * @function showServerConsole
- * @memberOf ServerMain:Functions:
+ * @memberOf Server:Functions:
  * @locus Anywhere
  *
  * @param {string} label - is used as the title of this log

@@ -34,7 +34,7 @@ import list from './starter_list'
 import {roles} from './starter_nav'
 
 import {fieldAddons} from '../../../server/fieldAddons';
-import {buildAllFields} from '../../../Functions/supportApplication/buildAllFields';
+import {buildAllFields} from '../../../Functions/application/buildAllFields';
 
 export default {
     starter: {

@@ -2,7 +2,7 @@
  * Gets local os/machine information.
  *
  * @function getOSinfo
- * @memberOf ServerMain:Functions:
+ * @memberOf Server:Functions:
  * @locus Server
  *
  * @return {Object} - os info

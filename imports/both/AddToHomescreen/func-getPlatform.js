@@ -2,7 +2,7 @@
  * @summary Returns a browser name.
  *
  * @function getPlatform
- * @memberOf ClientMain:
+ * @memberOf Client:
  * @locus Client
  *
  * @param {Object} platform - browser types

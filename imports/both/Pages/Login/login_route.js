@@ -21,7 +21,7 @@
  */
 
 
-import {getLang} from '../../../Functions/supportApplication/getLang';
+import {getLang} from '../../../Functions/application/getLang';
 import {i18n} from '../../../Functions/utilities/i18n';
 import {nav, link, icon, roles}  from './login_nav'
 import Page from './login_loader.svelte'

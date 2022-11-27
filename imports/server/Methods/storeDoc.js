@@ -14,7 +14,7 @@ Meteor.methods({
      * General insert document into collection.
      *
      * @function insertDoc
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -38,6 +38,7 @@ Meteor.methods({
             /**
              * @type {Object}
              * @property {String} me.tenantId
+             * @typescriptOnly
              */
             const me = Meteor.user();
             doc.tenantId = me && me.tenantId ? me.tenantId : "general";
@@ -47,6 +48,7 @@ Meteor.methods({
             /**
              * @type {Object}
              * @property {String} me.admin
+             * @typescriptOnly
              */
 
             if( me && me.profile && me.profile.group ){
@@ -79,7 +81,7 @@ Meteor.methods({
      * General document update into a collection.
      *
      * @function updateDoc
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -125,7 +127,7 @@ Meteor.methods({
      * General document remover from a collection.
      *
      * @function removeDoc
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -167,7 +169,7 @@ Meteor.methods({
      * General document update a document field item.
      *
      * @function inputterUpdateItem
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -212,7 +214,7 @@ Meteor.methods({
      * General document item as array updates.
      *
      * @function updateDocArray
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @isMethod true
      * @locus Server
      *

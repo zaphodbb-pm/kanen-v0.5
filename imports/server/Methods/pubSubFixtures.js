@@ -12,7 +12,7 @@ Meteor.methods({
      * Special Pub Sub fixture to upload an initial array of documents.
      *
      * @function bulkLoadDocs
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -39,6 +39,7 @@ Meteor.methods({
          * @type {Object}
          * @property {String} me._id
          * @property {String} me.tenantId
+         * @typescriptOnly
          */
         const me = Meteor.user();
 
@@ -53,6 +54,7 @@ Meteor.methods({
                      * @type {Object}
                      * @property {String} doc._id
                      * @property {String} doc.author
+                     * @typescriptOnly
                      */
                     delete doc._id;
 
@@ -81,7 +83,7 @@ Meteor.methods({
      * Special Pub Sub fixture to update an array of documents.
      *
      * @function updateRealTimeDoc
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      *
      * @isMethod true
      * @locus Server
@@ -104,6 +106,7 @@ Meteor.methods({
          * @type {Object}
          * @property {String} me._id
          * @property {String} me.tenantId
+         * @typescriptOnly
          */
         const me = Meteor.user();
         const acl = accessControl[coll];

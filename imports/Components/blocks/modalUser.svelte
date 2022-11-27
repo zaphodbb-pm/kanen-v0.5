@@ -26,7 +26,7 @@
     import { getContext } from 'svelte';
     import {lang} from '/imports/client/systemStores'
     import {i18n} from '/imports/Functions/utilities/i18n'
-    import {getDocs} from '/imports/Functions/supportApplication/getDocs'
+    import {getDocs} from '/imports/Functions/application/getDocs'
     import {timeAgo} from '/imports/Functions/formatters/timeAgo'
     import {formatPhoneNumber} from '/imports/Functions/formatters/formatPhoneNumber'
 

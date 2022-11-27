@@ -9,7 +9,7 @@ Meteor.methods({
      * Meteor method to query server directly tfor system wide information.
      *
      * @function getSysInfo
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -24,7 +24,7 @@ Meteor.methods({
      * General client side system config info from database.
      *
      * @function clientSysConfig
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -55,7 +55,7 @@ Meteor.methods({
      * Meteor method to bulk remove documents by admin users.
      *
      * @function removeDocuments
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -74,6 +74,7 @@ Meteor.methods({
         /**
          * @type {Object}
          * @property {String} me.admin
+         * @typescriptOnly
          */
         const me = Meteor.user();
 

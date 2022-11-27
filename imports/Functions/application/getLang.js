@@ -2,7 +2,7 @@
  * Finds a user's language preference
  *
  * @function getLang
- * @memberOf Functions:supportApplication:
+ * @memberOf Functions:application:
  * @locus Client
  *
  * @param {string} choice - two letter suggested language key

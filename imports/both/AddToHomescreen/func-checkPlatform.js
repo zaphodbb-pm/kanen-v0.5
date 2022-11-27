@@ -2,7 +2,7 @@
  * @summary Returns a browser name.
  *
  * @function checkPlatform
- * @memberOf ClientMain:
+ * @memberOf Client:
  * @locus Client
  *
  * @param {Object} _ua -user agent from browser

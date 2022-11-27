@@ -72,7 +72,7 @@
     setContext("debugOptions", $sysConfig.sysDebug);
 
     //* get application specific support libraries
-    import {getDocs} from '/imports/Functions/supportApplication/getDocs'
+    import {getDocs} from '/imports/Functions/application/getDocs'
     import {submitForm} from './func-submitForm'
     import {orgFields} from "./func-orgFields";
 

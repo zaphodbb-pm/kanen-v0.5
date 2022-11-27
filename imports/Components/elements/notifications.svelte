@@ -19,7 +19,7 @@
 
 
     //* support files
-    import {getDocs} from '/imports/Functions/supportApplication/getDocs'
+    import {getDocs} from '/imports/Functions/application/getDocs'
     import {timeAgo} from '/imports/Functions/formatters/timeAgo'
 
     //* local reactive variables

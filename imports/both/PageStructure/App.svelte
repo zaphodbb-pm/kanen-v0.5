@@ -34,7 +34,7 @@
 
 
     //* set up user extra items
-    import {buildNavLinks} from '/imports/Functions/supportApplication/buildNavLinks';
+    import {buildNavLinks} from '/imports/Functions/application/buildNavLinks';
     import {userLoggedIn, userExtras} from '/imports/client/systemStores';
 
 

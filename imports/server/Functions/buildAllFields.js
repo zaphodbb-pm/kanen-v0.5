@@ -2,7 +2,7 @@
  * Builds a projection object from a schema object.
  *
  * @function buildAllFields
- * @memberOf ServerMain:Functions:
+ * @memberOf Server:Functions:
  * @locus Server
  *
  * @param {Array} schema - form schema array of field objects from a page

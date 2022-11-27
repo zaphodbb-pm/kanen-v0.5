@@ -2,7 +2,7 @@
  * Helper to build a projection object from a schema or list object.
  *
  * @function buildAllFields
- * @memberOf Functions:supportApplication:
+ * @memberOf Functions:application:
  * @locus Anywhere
  *
  * @param {Array} schema - form schema array of field objects from a page

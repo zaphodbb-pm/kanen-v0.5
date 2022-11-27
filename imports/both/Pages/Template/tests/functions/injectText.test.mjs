@@ -1,8 +1,8 @@
 /**
  * Test plan
  *
- * @memberOf Tests
- * @augments injectText
+ * @name injectText.test
+ * @memberOf tests
  * @locus Client
  *
  * @notes

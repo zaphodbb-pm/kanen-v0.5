@@ -8,7 +8,7 @@ Meteor.methods({
      * Meteor method to get address details from Google Geocode REST endpoint.
      *
      * @function geoAddress
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -83,7 +83,7 @@ Meteor.methods({
      * Meteor method to get suggested addresses from Google Places REST endpoint.
      *
      * @function getPredictions
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @isMethod true
      * @locus Server
      *

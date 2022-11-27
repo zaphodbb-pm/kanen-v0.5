@@ -2,7 +2,7 @@
  * Server side setup of Access Control List for special collections: notifications and authors.
  *
  * @function specialACL
- * @memberOf ServerMain:
+ * @memberOf Server:
  * @locus Server
  *
  * @property {Object} notifications_acl

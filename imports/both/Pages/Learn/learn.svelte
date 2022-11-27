@@ -37,7 +37,7 @@
     import {lang} from '/imports/client/systemStores'
     import {messages} from '/imports/client/systemStores'
 
-    import {getDocs} from '/imports/Functions/supportApplication/getDocs'
+    import {getDocs} from '/imports/Functions/application/getDocs'
     import {sortBy} from '/imports/Functions/utilities/sortBy'
     import {generateId} from '/imports/Functions/utilities/generateId'
 

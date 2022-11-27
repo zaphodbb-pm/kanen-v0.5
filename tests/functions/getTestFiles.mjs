@@ -1,8 +1,8 @@
 /**
  * Executes assertion tests based on node.js assertion module.
  *
- * @memberOf Tests
  * @function getTestFiles
+ * @memberOf tests
  * @locus Server
  *
  * @param {string} dirTop - file path from project top to start looking for files

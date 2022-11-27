@@ -34,7 +34,7 @@ import list from './sysConfig_list'
 import {roles} from'./sysConfig_nav'
 
 import {fieldAddons} from '../../../server/fieldAddons'
-import {buildAllFields} from '../../../Functions/supportApplication/buildAllFields'
+import {buildAllFields} from '../../../Functions/application/buildAllFields'
 
 export default {
     sysConfig: {

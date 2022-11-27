@@ -2,7 +2,7 @@
  * Checks if user has a certain role.
  *
  * @function verifyRole
- * @memberOf ServerMain:Functions:
+ * @memberOf Server:Functions:
  * @locus Server
  *
  * @param {Object} user - logged in user id

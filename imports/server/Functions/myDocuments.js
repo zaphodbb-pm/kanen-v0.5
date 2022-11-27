@@ -3,7 +3,7 @@
  * Optional tenentId filtered.
  *
  * @function myDocuments
- * @memberOf ServerMain:Functions:
+ * @memberOf Server:Functions:
  * @locus Server
  *
  * @param {Object} obj - MongoDb query object

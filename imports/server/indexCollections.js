@@ -2,7 +2,7 @@
  * Creates db indexes for MongoDb collections.
  *
  * @module indexCollections
- * @memberOf ServerMain:
+ * @memberOf Server:
  * @locus Server
  *
  */

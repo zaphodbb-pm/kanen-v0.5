@@ -31,7 +31,7 @@
     export { className as class };
 
     //* support Functions
-    import {getDocs} from '/imports/Functions/supportApplication/getDocs'
+    import {getDocs} from '/imports/Functions/application/getDocs'
     import {getContext, createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
     const formText = getContext("formText");

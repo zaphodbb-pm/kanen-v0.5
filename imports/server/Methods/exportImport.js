@@ -11,7 +11,7 @@ Meteor.methods({
      * Sends documents as JSON from a collection.
      *
      * @function exportJSON
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -50,7 +50,7 @@ Meteor.methods({
      * Imports documents as JSON from a browser.
      *
      * @function importJSON
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -90,7 +90,7 @@ Meteor.methods({
      * Removes all documents from a collection.
      *
      * @function importBulkDataRemove
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -127,7 +127,7 @@ Meteor.methods({
      * Inserts all documents from a file into a collection.
      *
      * @function importBulkData
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @isMethod true
      * @locus Server
      *

@@ -26,7 +26,7 @@
     //* support files
     import { createEventDispatcher } from 'svelte';
     const dispatch = createEventDispatcher();
-    import {getDocs} from '/imports/Functions/supportApplication/getDocs'
+    import {getDocs} from '/imports/Functions/application/getDocs'
     import {timeAgo} from '/imports/Functions/formatters/timeAgo'
     import {numString} from '/imports/Functions/formatters/numString'
 

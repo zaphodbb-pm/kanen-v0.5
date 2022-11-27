@@ -2,9 +2,9 @@
  * Main entry point for client code.
  * All common routines are imported here.
  *
- * @namespace ClientMain
+ * @namespace Client
  * @module
- * @memberOf ClientMain:
+ * @memberOf Client:
  * @locus Client
  *
  * @notes

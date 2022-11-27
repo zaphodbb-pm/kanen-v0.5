@@ -2,7 +2,7 @@
  * Extends the MongoDb projection objects for various read requests.
  *
  * @function fieldAddons
- * @memberOf ServerMain:
+ * @memberOf Server:
  * @locus Server
  *
  * @returns {Object} - fieldAddons: {updatedAt, author, authorName, authorFullName, group, tenantId}

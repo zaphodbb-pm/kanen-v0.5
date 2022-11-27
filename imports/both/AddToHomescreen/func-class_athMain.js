@@ -2,7 +2,7 @@
  * @summary Returns a browser name.
  *
  * @function class_athMain
- * @memberOf ClientMain:
+ * @memberOf Client:
  * @locus Client
  *
  * @param {Object} opts

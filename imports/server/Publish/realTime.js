@@ -2,7 +2,7 @@
  * Publish / subscribe block for Real Time data.
  *
  * @function realTime
- * @memberOf ServerMain:Publish:
+ * @memberOf Server:Publish:
  * @locus Server
  *
  * @returns {Object} - fieldAddons: {updatedAt, author, authorName, authorFullName, group, tenantId}

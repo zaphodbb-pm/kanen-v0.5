@@ -66,7 +66,7 @@
 
     import {methodReturn} from '/imports/Functions/utilities/methodReturn'
     import {buildFilter} from './func-buildFilter'
-    import {getDocs} from '/imports/Functions/supportApplication/getDocs'
+    import {getDocs} from '/imports/Functions/application/getDocs'
 
     //* make form text available to all children Components
     setContext("listText", listText);

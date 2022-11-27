@@ -1,9 +1,9 @@
 /**
  * Main entry point for server code
  *
- * @namespace ServerMain
+ * @namespace Server
  * @module
- * @memberOf ServerMain:
+ * @memberOf Server:
  * @locus Server
  *
  * @notes

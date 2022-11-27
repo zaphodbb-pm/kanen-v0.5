@@ -15,7 +15,7 @@ Meteor.methods({
      * For list search bar, gets count of total number of user documents.
      *
      * @function countDocs
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @locus Server
      * @isMethod true
      *
@@ -69,7 +69,7 @@ Meteor.methods({
      * Meteor method to retrieve document from MongoDB.
      *
      * @function getCollData
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @isMethod true
      * @locus Server
      *

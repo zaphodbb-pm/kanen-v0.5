@@ -3,8 +3,8 @@
  *
  * @name collectionDefs
  * @module
- * @memberOf ClientMain:
- * @memberOf ServerMain:
+ * @memberOf Client:
+ * @memberOf Server:
  * @locus Anywhere
  *
  * @property {Object} SysConfig

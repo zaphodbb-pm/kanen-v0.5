@@ -1,6 +1,8 @@
 /**
  * Template Page test using Cypress.io.
  *
+ * @memberOf tests
+ *
  * @notes
  *  1. Install cypress at project root:  meteor npm install cypress --save-dev
  *  2. Config cypress.json to start at "tests" directory

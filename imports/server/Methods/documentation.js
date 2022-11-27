@@ -8,7 +8,7 @@ Meteor.methods({
      * Meteor method to scan for svelte files and build documentation.
      *
      * @function buildSvelteJsdoc
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -47,7 +47,7 @@ Meteor.methods({
     /**
      * Meteor method to get formatted documentation.
      *
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @function fetchDocumentation
      * @isMethod true
      * @locus Server
@@ -79,7 +79,7 @@ Meteor.methods({
      * Meteor method to scan for svelte generated jsdoc file and remove them.
      *
      * @function removeSvelteJsdoc
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -110,7 +110,7 @@ Meteor.methods({
      * Uses Meteor-jsdoc data file to display project documentation in the project itself.
      *
      * @function buildDocumentation
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -118,8 +118,8 @@ Meteor.methods({
      *
      * @example
      *  description: 'Main entry point for client code.\nAll common routines are imported here.',
-     *  memberof: 'Structure',
-     *  kind: 'function',
+     *  memberof: 'Client',
+     *  kind: 'module',
      *  name: 'main',
      *  fires: [ 'onSelect with {id ,event: name}' ],
      *  listens: [ 'event:onSelect' ],
@@ -366,10 +366,7 @@ function reformatDoc(res){
         //** prepare documentation for insertion into an accordion component
         let out = list.map(function (li) {
             return {
-                icon: null,
                 label: li && li[0] ? li[0] : "n/a",
-                text: null,
-                dbContent: null,
                 list: li && li[1] ? li[1] : []
             }
         });

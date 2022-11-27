@@ -14,7 +14,7 @@ Meteor.methods({
      * External Login service support.
      *
      * @function getServiceConfiguration
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -31,7 +31,7 @@ Meteor.methods({
      * Insert a new user object.
      *
      * @function userMgmtInsert
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -99,7 +99,7 @@ Meteor.methods({
      * Update a user's main info.
      *
      * @function userMgmtUpdate
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -179,7 +179,7 @@ Meteor.methods({
      * Update a user's profile field value.
      *
      * @function userMgmtUpdateItem
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -205,7 +205,7 @@ Meteor.methods({
      * Remove an existing user object.
      *
      * @function userMgmtRemove
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -227,7 +227,7 @@ Meteor.methods({
      * Update a user's credit value
      *
      * @function userUpdateCredit
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -242,6 +242,7 @@ Meteor.methods({
 
             /**
              * @type {Object}
+             * @typescriptOnly
              */
             const doc = Meteor.users.findOne({_id: this.userId});     // get user info
             if (doc && doc.credit) {
@@ -260,7 +261,7 @@ Meteor.methods({
      * Find a user's group members.
      *
      * @function getGroupMembers
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @isMethod true
      * @locus Server
      *
@@ -271,12 +272,14 @@ Meteor.methods({
 
         /**
          * @type {Array}
+         * @typescriptOnly
          */
         let out = [ this.userId ];
 
         /**
          *
          * @type {Object}
+         * @typescriptOnly
          */
         const mine = Meteor.users.findOne({_id: this.userId});
 
@@ -301,7 +304,7 @@ Meteor.methods({
      * Get extra user fields based on user id.
      *
      * @function loadExtraFields
-     * @memberOf ServerMain:Methods:
+     * @memberOf Server:Methods:
      * @isMethod true
      * @locus Server
      *

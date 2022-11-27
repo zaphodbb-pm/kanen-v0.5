@@ -2,7 +2,7 @@
  * Abstracts the database get of documents.
  *
  * @function getDocs
- * @memberOf Functions:supportApplication:
+ * @memberOf Functions:application:
  * @locus Client
  *
  * @param {String} coll - name of collection to get data from
