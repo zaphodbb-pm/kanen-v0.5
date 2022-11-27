@@ -16,7 +16,6 @@
 import {Meteor} from 'meteor/meteor';
 import {Accounts} from 'meteor/accounts-base';
 import {DDPRateLimiter} from 'meteor/ddp-rate-limiter';
-import _ from 'underscore';
 
 import '/imports/server/indexCollections';
 
@@ -58,14 +57,13 @@ Meteor.startup(() => {
     configAccountsPackage();
     registerExternalLogin();
 
-    const THROTTLE_METHODS = _.chain(Meteor.server.method_handlers)
-        .keys()
-        .reject(function(meth){ return meth.includes("/") || meth.includes("__"); })
-        .value();
+    //* use rate limiting for key methods
+    const THROTTLE_METHODS = Object.keys(Meteor.server.method_handlers)
+        .filter( meth => !(meth.includes("/") || meth.includes("__")));
 
     DDPRateLimiter.addRule({
         name(name) {
-            return _.contains(THROTTLE_METHODS, name);
+            return THROTTLE_METHODS.includes(name);
         },
         // Rate limit per connection ID
         connectionId() { return true; },

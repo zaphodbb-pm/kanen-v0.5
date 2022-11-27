@@ -16,8 +16,8 @@
     }
   },
   "dependencies": {
-    "@babel/runtime": "^7.18.3",
-    "bcrypt": "^5.0.1",
+    "@babel/runtime": "^7.20.1",
+    "bcrypt": "^5.1.0",
     "croppie": "^2.6.5",
     "date-fns": "^2.29.3",
     "meteor-node-stubs": "^1.2.3",
@@ -25,8 +25,7 @@
     "svelte": "^3.53.1",
     "svelte-loadable": "^2.0.1",
     "svelte-pathfinder": "^3.4.0",
-    "tiny-cookie": "^2.3.2",
-    "underscore": "^1.13.6"
+    "tiny-cookie": "^2.3.2"
   },
   "devDependencies": {
     "@testing-library/dom": "^8.13.0",
