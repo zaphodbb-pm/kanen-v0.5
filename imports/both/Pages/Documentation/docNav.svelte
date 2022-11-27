@@ -3,8 +3,8 @@
     /**
      * Accordion content widget for jsdoc documentation.
      *
-     * @module jsdocNav
-     * @memberOf Pages:documentation:
+     * @module docNav
+     * @memberOf Pages:documentation
      * @locus Client
      *
      * @param {String} tabSettings - controls button settings
@@ -65,7 +65,7 @@
     {#each text as item, idx}
         <div class="accordion">
 
-            <a class="button accordion-header {tabSettings}" on:click|stopPropagation={ () => changetab(item.label) }>
+            <a class="button accordion-header is-primary-light {tabSettings}" on:click|stopPropagation={ () => changetab(item.label) }>
                 <div class="level-start">
                     <b>{item.label}</b>
                     <span class="badge badge-primary" style="transform: none">

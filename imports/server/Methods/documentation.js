@@ -33,7 +33,7 @@ Meteor.methods({
             let test = readFile.match(pattern);
 
 
-            console.log("test", typeof test, sv );
+            //console.log("test", typeof test, sv );
 
             if(test){
                 fs.writeFileSync(sv.replace("svelte", "jsdoc"), test[0]);
@@ -56,22 +56,16 @@ Meteor.methods({
      */
 
     fetchDocumentation: function () {
-        let documentation = [];
 
         if (Meteor.settings.require_documentation) {
 
             try {
-                // @ts-ignore
-                documentation = Assets.getText("documentation.json");
-                // @ts-ignore
-                documentation = JSON.parse(documentation);
-                documentation = reformatDoc(documentation);
+                let documentation =  JSON.parse( Assets.getText("documentation.json") ?? "[]" );
+                return reformatDoc(documentation);
             } catch (err) {
                 console.log("err", err);
             }
         }
-
-        return documentation;
     },
 
 
@@ -162,32 +156,34 @@ Meteor.methods({
 
 
     buildDocumentation: function () {
-        let documentation = [];
-
         if (Meteor.settings.require_documentation) {
-            let rawDoc = Assets.getText("raw-documentation.json");
-            let getDoc = JSON.parse(rawDoc);
+            let getDoc = JSON.parse( Assets.getText("raw-documentation.json") ?? "[]");
 
-            let filteredDocs = getDoc.filter(function (rd) {
-                if (!rd["undocumented"]) {
-                    let temp = rd;
+            let prunedDocs = getDoc.filter( (rd) => !rd["undocumented"] );
 
-                    if (rd["tags"]) {
-                        rd["tags"].forEach(function (item) {
-                            temp[item.title] = item.value;
-                        });
-                    }
+            let filteredDocs = prunedDocs.map( (rd) => {
+                let temp = JSON.parse( JSON.stringify(rd));
 
-                    delete temp.tags;
-                    delete temp.comment;
+                if (rd["tags"]) {
+                    rd["tags"].forEach(function (item) {
 
-                    return temp;
+                        if(item.title === "typescriptonly"){
+                            item.value = true;
+                        }
+
+                        temp[item.title] = item.value ?? item.text ?? "";
+                    });
                 }
+
+                delete temp["tags"];
+                delete temp["comment"];
+
+                return temp;
             });
 
-            documentation = formatDocumentation(filteredDocs);
+            filteredDocs = filteredDocs.filter( fd => !fd["typescriptonly"] );
 
-            let formattedDoc = JSON.stringify(documentation);
+            let formattedDoc = JSON.stringify( formatDocumentation(filteredDocs) );
 
             // @ts-ignore
             let fs = Npm.require('fs');
@@ -290,6 +286,37 @@ function formatDocumentation(documentationFile) {
                 parm.typeString = parm.type.length > 0 ? parm.type.join(" | ") : "";
 
                 return parm;
+            });
+        }
+
+        /*
+            "properties": [
+      {
+        "type": {
+          "names": [
+            "*"
+          ]
+        },
+        "description": "<p>(required) item to validate</p>",
+        "name": "variable"
+      },
+         */
+
+        if (item && item.properties && Array.isArray(item.properties) && item.properties.length > 0) {
+            temp.properties = item.properties.map(function (prop) {
+
+                prop.name = prop.name ? prop.name : "unknown";
+
+                if (prop.description) {
+                    prop.description = prop.description.replace(/<[^>]+>/g, '').replace(/\n/g, "").trim();
+                } else {
+                    prop.description = "";
+                }
+
+                prop.type = prop.type && prop.type.names ? JSON.parse( JSON.stringify(prop.type.names) ) : [];
+                prop.typeString = prop.type.length > 0 ? prop.type.join(" | ") : "";
+
+                return prop;
             });
         }
 

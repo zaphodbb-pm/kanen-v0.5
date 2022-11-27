@@ -5,13 +5,11 @@
  * @memberOf Client:
  * @locus Client
  *
- *
- * @property {Object}
- * @property {Object} default:
- * @property {String} APP_NAME
- * @property {String} VERSION
- * @property {String} LAST_UPDATE
- * @property {String} COPYRIGHT
+ * @property {Object} default
+ * @property {String} default.APP_NAME
+ * @property {String} default.VERSION
+ * @property {String} default.LAST_UPDATE
+ * @property {String} default.COPYRIGHT
  *
  * @exports {Object}
  *

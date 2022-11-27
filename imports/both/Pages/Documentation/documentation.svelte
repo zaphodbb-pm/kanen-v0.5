@@ -23,7 +23,9 @@
 
 
         //** page specific text and configuration
-        import {header, page} from './documentation_text'
+        import {i18n} from '/imports/Functions/utilities/i18n';
+        import {lang} from '/imports/client/systemStores';
+        import {header, page} from './documentation_text';
 
         //** app support files
         import { onMount } from 'svelte';
@@ -34,8 +36,6 @@
 
     //* page-body support **************************
     import {Meteor} from 'meteor/meteor';
-    import {i18n} from '/imports/Functions/utilities/i18n';
-    import {lang} from '/imports/client/systemStores';
 
     const pageHeader = i18n(header, "", $lang);
     const pageText = i18n(page, "page", $lang);
@@ -56,30 +56,12 @@
     //* lifecycle
     onMount( async () => {
         content = await Meteor.callAsync("fetchDocumentation");
-        console.log("content", content);
     });
 
 
     //* switch categories and topics
-    let  currTab = content && content.length > 0 ? content[0].label : "";
-
-    /*
-    function changetab(tab) {
-        currTab = tab;
-        dispatch("doc_maintopic", tab);
-    }
-
-    function setContent(sub) {
-        dispatch("doc_maintopic", sub);
-    }
-
-     */
-
-
     function changeBody(msg) {
         newCategory = msg.detail;
-
-        console.log("changeBody", newCategory, msg.detail);
     }
 
     function changeSub(msg) {
@@ -88,8 +70,6 @@
         if(el){
             el.scrollIntoView({behavior: "smooth", block: "center", inline: "start"});
         }
-
-        console.log("changeSub", msg.detail, el);
     }
 
     function getSvelte(){
@@ -99,11 +79,9 @@
 
     function buildDocumentation(){
         console.log("buildDocumentation")
-
         Meteor.call("buildDocumentation");
 
         console.log("removeSvelteJsdoc")
-
         Meteor.call("removeSvelteJsdoc");
     }
 

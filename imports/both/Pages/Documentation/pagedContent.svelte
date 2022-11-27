@@ -38,9 +38,11 @@
                     {#if newCategory === item.label}
 
                         <div class="card" id="{subtopic.name}">
-                            <header class="is-grey">
+                            <header class="is-secondary-light">
                                 <div class="level">
-                                    <h3 style="margin: 0;">{subtopic.name}</h3>
+                                    <h2 style="margin: 0; font-size: 1.2rem;">
+                                        {subtopic.name} <i style="font-size: 0.8em;">{subtopic.kind} - {subtopic.scope}</i>
+                                    </h2>
                                     <span>{subtopic.locus}</span>
                                 </div>
 
@@ -67,13 +69,27 @@
                                     </div>
                                 {/if}
 
+                                {#if subtopic.properties && subtopic.properties.length > 0}
+                                    <div class="space-vert-medium">
+                                        <p class="is-size-5 is-text-semibold">Properties</p>
+
+                                        {#each subtopic.properties as props}
+                                            <p style="margin-bottom: 0.25rem;">
+                                                <span><b>{props.name}</b></span>
+                                                <span> - {`{${props.typeString} }`}</span>
+                                                <span>{@html props.description}</span>
+                                            </p>
+                                        {/each}
+                                    </div>
+                                {/if}
+
                                 {#if subtopic.returns && subtopic.returns.length > 0}
                                     <div class="space-vert-medium">
                                         <p class="is-size-5 is-text-semibold">Returned Value</p>
 
                                         {#each subtopic.returns as returns}
                                             <p style="margin-bottom: 0.25rem;">
-                                                <span>{`{${returns.typeString} }`}</span>
+                                                <span>{`{${returns.type} }`}</span>
                                                 <span>{returns.description}</span>
                                             </p>
                                         {/each}
