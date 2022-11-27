@@ -41,6 +41,9 @@
     const pageText = i18n(page, "page", $lang);
 
 
+    console.log("setting", Meteor.settings.public)
+
+
     //** event handlers
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
@@ -94,46 +97,48 @@
 
 <main class="main-content">
 
-    <div class="row">
+    {#if  Meteor.settings.public.allow_documentation_build}
+        <div class="row">
 
-        <div class="column">
-            {@html pageText.setup}
+            <div class="column">
+                {@html pageText.setup}
+            </div>
+
+            <div class="column">
+                <ol>
+                    <li>
+                        <div class="level">
+                            <div style="flex-basis: 10rem; flex-grow: 2;">
+                                {@html pageText.step1}
+                            </div>
+
+                            <button type="button" class="is-primary-outlined" on:click={getSvelte}>
+                                {pageText.btnJsdoc}
+                            </button>
+                        </div>
+                    </li>
+
+                    <li>{@html pageText.step2}</li>
+
+                    <li>
+                        <div class="level">
+                            <div style="flex-basis: 10rem; flex-grow: 2;">
+                                {@html pageText.step3}
+                            </div>
+
+                            <button type="button" class="is-primary-outlined" on:click={buildDocumentation}>
+                                {pageText.btnGetDocs}
+                            </button>
+                        </div>
+                    </li>
+                </ol>
+
+            </div>
         </div>
 
-        <div class="column">
-            <ol>
-                <li>
-                    <div class="level">
-                        <div style="flex-basis: 10rem; flex-grow: 2;">
-                            {@html pageText.step1}
-                        </div>
+        <div class="space-component-medium"></div>
+    {/if}
 
-                        <button type="button" class="is-primary-outlined" on:click={getSvelte}>
-                            {pageText.btnJsdoc}
-                        </button>
-                    </div>
-                </li>
-
-                <li>{@html pageText.step2}</li>
-
-                <li>
-                    <div class="level">
-                        <div style="flex-basis: 10rem; flex-grow: 2;">
-                            {@html pageText.step3}
-                        </div>
-
-                        <button type="button" class="is-primary-outlined" on:click={buildDocumentation}>
-                            {pageText.btnGetDocs}
-                        </button>
-                    </div>
-                </li>
-            </ol>
-
-        </div>
-    </div>
-
-
-    <div class="space-component-medium"></div>
 
     <div class="row has-2x-minwidth">
         <div class="column is-span-1">
