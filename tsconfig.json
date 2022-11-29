@@ -16,6 +16,6 @@
     "node_modules",
     "*.test.js",
     "*.spec.js",
-    "imports/**/tests/cypress/*"
+    "imports/**/tests/*"
   ]
 }

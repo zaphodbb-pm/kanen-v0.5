@@ -6,14 +6,20 @@
     "cypress:ui": "cypress open",
     "cypress:headless": "cypress run"
   },
+
   "meteor": {
+    "mainModule": {
+      "client": "client/main.js",
+      "server": "server/main.js"
+    },
     "nodeModules": {
       "recompile": {
         "svelte": [
           "legacy"
         ]
       }
-    }
+    },
+    "testModule": "tests/main.js"
   },
   "dependencies": {
     "@babel/runtime": "^7.20.1",
@@ -29,7 +35,7 @@
   },
   "devDependencies": {
     "@types/meteor": "^2.8.1",
-    "cypress": "^11.2.0",
+    "chai": "^4.3.7",
     "jsdoc": "^4.0.0",
     "svelte-preprocess": "^4.10.7",
     "sveltedoc-parser": "^4.2.1",

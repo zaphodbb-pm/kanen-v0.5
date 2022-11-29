@@ -1,3 +1,32 @@
 .croppie-container img {
     height: auto;
 }
+
+div#mocha {
+    position: fixed;
+    width: 10vh;
+    height: 50vw;
+    left: 16px;
+    bottom: 16px;
+    resize: horizontal;
+    z-index: 1000;
+
+    margin: 0;
+    padding: 1rem;
+    overflow: auto;
+    color: #555;
+    background: white;
+    border: 2px solid black;
+}
+
+div#mocha:before {
+    content: "Mocha Test Area";
+}
+
+div#mocha ul {
+    position: unset;
+    font-size: 18px;
+    margin: 0;
+    color: #555;
+    z-index: 1;
+}

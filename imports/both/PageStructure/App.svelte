@@ -108,7 +108,6 @@
 <!-- intercept 'a' tag default operation and use 'href' to load appropriate main page component -->
 <svelte:window on:click={click} />
 
-
 <!-- full page scaffolding with insertable content area -->
 <div class="page-wrapper has-slidebar" id="page-layout-top">
 
@@ -122,5 +121,4 @@
     {/if}
 
     <Footer />
-
 </div>
