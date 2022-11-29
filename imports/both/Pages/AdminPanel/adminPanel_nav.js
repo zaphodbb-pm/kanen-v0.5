@@ -13,7 +13,7 @@
  */
 
 
-export const nav = {en: "Admin"};
+export const nav = {en: "Admin Panel"};
 
 export const link = "/admin-panel";
 

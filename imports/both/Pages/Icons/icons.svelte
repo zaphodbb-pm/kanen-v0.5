@@ -67,6 +67,10 @@
         <code>&lt;span class="{allIcons[sample]} is-large has-text-primary"&gt;&lt;/span&gt;</code>
     </p>
 
+    <p><span class="{allIcons[sample]} is-extra-large has-text-danger"></span>
+        <code>&lt;span class="{allIcons[sample]} is-extra-large has-text-danger"&gt;&lt;/span&gt;</code>
+    </p>
+
 
 
     <div class="space-component-medium"></div>

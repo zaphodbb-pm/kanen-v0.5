@@ -112,7 +112,7 @@
     <div class="dropdown-trigger" tabindex="0">
         <div class="button is-primary no-chevron" aria-haspopup="true" aria-controls="navbar-dropdown-menu2">
             <figure>
-                <span class="icon-bg-bell"></span>
+                <span class="icon-bg-bell is-large"></span>
                 <span class="badge badge-danger no-border" role="status" aria-label="New notifications">
                     {itemsLen}
                 </span>
