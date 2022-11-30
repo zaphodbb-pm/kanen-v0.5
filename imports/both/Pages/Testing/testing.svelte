@@ -74,19 +74,25 @@
 
 <main class="main-content">
 
-    <!-- actual page content or Components -->
-    <h2>{text.examples}</h2>
+    {@html text.preamble}
 
     <div class="row">
         <div class="column">
-            <div>{message} {textWithout}</div>
-            <div>{@html message} {textWith}</div>
+            <h2>{text.heading1}</h2>
+            <ul>
+                {#each text.items1 as item}
+                    <li style="margin-bottom: 2rem;">{@html item}</li>
+                {/each}
+            </ul>
         </div>
 
         <div class="column">
-            <div class="box-shadow">
-                {@html i18n(page.components, "box", $lang).msg}
-            </div>
+            <h2>{text.heading2}</h2>
+            <ul>
+                {#each text.items2 as item}
+                    <li style="margin-bottom: 2rem;">{@html item}</li>
+                {/each}
+            </ul>
         </div>
     </div>
 
