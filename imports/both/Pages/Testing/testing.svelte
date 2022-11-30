@@ -1,10 +1,10 @@
 <script>
     /**
-     * Template page provides a simple starting point for adding and customizing your own pages.
+     * Testing page provides a simple starting point for adding and customizing your own pages.
      *
-     * @name template
+     * @name testing
      * @module
-     * @memberOf Pages:template
+     * @memberOf Pages:testing
      * @locus Client
      *
      * @param {String} currentRoute - page path name
@@ -29,7 +29,7 @@
         //** page specific text and configuration
         import {lang} from '/imports/client/systemStores';
         import {i18n} from '/imports/Functions/utilities/i18n';
-        import {header, page} from './template_text';
+        import {header, page} from './testing_text';
         const pageHeader = i18n(header, "", $lang);
         const text = i18n( page, "page", $lang);
 
@@ -44,7 +44,6 @@
     //* page-body support **************************
 
     //** page-body Functions *************************
-    import TemplateInfo from "./template_info.svelte"
     import {injectText} from "./functions/injectText";
 
 
@@ -63,7 +62,7 @@
     });
 
     onDestroy(() => {
-        console.log("template page destroyed");
+        console.log("testing page destroyed");
     });
 
 </script>
@@ -91,8 +90,4 @@
         </div>
     </div>
 
-
-
-    <!-- Instructional information only - can be deleted -->
-    <TemplateInfo {currentRoute} {params} {query} {text} />
 </main>

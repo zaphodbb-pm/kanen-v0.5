@@ -2,9 +2,9 @@
     /**
      * Generic svelte component loader as a shim to insert page controller.
      *
-     * @name template_loader
+     * @name testing_loader
      * @module
-     * @memberOf Pages:template
+     * @memberOf Pages:testing
      * @locus Client
      *
      * @param {String} currentRoute - page path name
@@ -34,4 +34,4 @@
     import Loadable from 'svelte-loadable';
 </script>
 
-<Loadable loader={() => import('./template.svelte')} {currentRoute} {params} {query}/>
+<Loadable loader={() => import('./testing.svelte')} {currentRoute} {params} {query}/>

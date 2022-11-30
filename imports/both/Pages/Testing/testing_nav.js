@@ -1,8 +1,8 @@
 /**
- * Nav label, link, icon and access control for Template page.
+ * Nav label, link, icon and access control for Testing page.
  *
- * @name template_nav
- * @memberOf Pages:template
+ * @name testing_nav
+ * @memberOf Pages:testing
  * @locus Anywhere
  *
  * @property {Object} nav - i18n link label text
@@ -16,13 +16,13 @@
  */
 
 
-export const nav = {en: "Template"};
+export const nav = {en: "Testing"};
 
-export const link = "/template";
+export const link = "/testing";
 
-export let query = "?desire=42";
+export let query = "";
 
-export const icon = "icon-bg-layout";
+export const icon = "icon-bg-alert-warning";
 
 // roles that can see this link in Navbar and be routed to
 // roles are also used by database write / read checking

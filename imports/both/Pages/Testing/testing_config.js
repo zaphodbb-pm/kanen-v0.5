@@ -1,9 +1,9 @@
 /**
- * Configuration for Template Components (optional).
+ * Configuration for Testing Components (optional).
  *
- * @name template_config
+ * @name testing_config
  * @constant {Object}
- * @memberOf Pages:template
+ * @memberOf Pages:testing
  * @locus Client
  *
  * @property {Object} pageConfig - {components widgets}

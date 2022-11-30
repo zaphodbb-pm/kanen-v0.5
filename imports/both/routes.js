@@ -49,11 +49,12 @@ import Cards from './Pages/Cards/cards_route';
 import Tabs from './Pages/WidgetsContent/widgetsContent_route';
 import AdminPanel from './Pages/AdminPanel/adminPanel_route';
 import Starter from './Pages/Starter/starter_route';
-import Login from './Pages/Login/login_route'
+import PubSub from './Pages/PubSub/pubSub_route';
+import Testing from './Pages/Testing/testing_route';
 
+import Login from './Pages/Login/login_route';
 import MyProfile from './Pages/MyProfile/myProfile_route';
 import ChangePassword from './Pages/ChangePassword/changePassword_route';
-import PubSub from './Pages/PubSub/pubSub_route';
 
 import BuildContent from './Pages/BuildContent/buildContent_route';
 import Documentation from './Pages/Documentation/documentation_route';
@@ -80,11 +81,12 @@ const allRoutes = [
     Tabs,
     AdminPanel,
     Starter,
-    Login,
+    PubSub,
+    Testing,
 
+    Login,
     MyProfile,
     ChangePassword,
-    PubSub,
 
     BuildContent,
     Documentation,
