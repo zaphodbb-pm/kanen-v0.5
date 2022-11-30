@@ -13,8 +13,11 @@
       ".git",
       ".gitignore",
       "node_modules",
-      "out"
+      "out",
+      "*.spec.*",
+      "*.test.*"
     ],
-    "includePattern": "\\.(js|jsdoc)$"
+    "includePattern": "\\.(js|jsdoc)$",
+    "excludePattern": "(^|\\/|\\\\)_"
   }
 }
