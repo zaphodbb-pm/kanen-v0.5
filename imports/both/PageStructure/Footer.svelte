@@ -23,9 +23,6 @@
     let gdprNotice = i18n(gdpr, "", $lang);
     let pwaText = i18n(pwa, "", $lang);
 
-
-    console.log("footer version", version);
-
     let loc;
 
     //** user stuff
