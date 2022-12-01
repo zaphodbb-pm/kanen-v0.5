@@ -1,19 +1,20 @@
-<script>/**
- * Main Navbar component fixed at top of page.
- *
- * @name Navbar
- * @module
- * @memberOf App
- * @locus Client
- *
- */
+<script>
+    /**
+     * Main Navbar component fixed at top of page.
+     *
+     * @name Navbar
+     * @module
+     * @memberOf App
+     * @locus Client
+     *
+     */
 
     //* props
     export let currentRoute;
 
     //* support files
     import {layout} from '/imports/both/systemGlobals'
-    import {createEventDispatcher, setContext} from 'svelte'
+    import {createEventDispatcher} from 'svelte'
     const dispatch = createEventDispatcher();
 
     //* get the user language preference from store
@@ -22,22 +23,13 @@
 
 
     //* get page text information and set contexts for children Components
-    import {navbar, gdpr, pwa} from './Navbar_text'
+    import {navbar} from './Navbar_text'
     let navText = i18n(navbar, "", $lang);
-    let gdprNotice = i18n(gdpr, "", $lang);
-    let pwaText = i18n(pwa, "", $lang);
 
-    //setContext("navbar", i18n(navbar, "", $lang) );
-    //setContext("gdprNotice", i18n(gdpr, "", $lang) );
-    setContext("pwaText", i18n(pwa, "", $lang) );
 
     //* Components
     import NavShortcuts from "./NavCondensedMenu.svelte";
     import SlideNavMenu from "./SlideNavMenu.svelte";
-
-    //import Messages from '/imports/Components/general/messages/messages.svelte'
-    //import GDPR from '/imports/Components/general/gdprNotice.svelte'
-    //import PWA from '/imports/both/AddToHomescreen/PWA-requester.svelte'
 
     import Notifications from '/imports/Components/elements/notifications.svelte'
     import UserProfile from '/imports/Components/elements/userProfile.svelte'
@@ -97,26 +89,3 @@
         </div>
     </nav>
 </div>
-
-
-
-
-
-<!--
-<AsideNav bind:open {theme} {side}>
-    <SideNav {currentRoute} {theme} on:side-link-selected={() => open = false} />
-</AsideNav>
-
-
-<aside>
-    <Messages />
-</aside>
-
-
-<aside>
-    <GDPR text="{gdprNotice}" />
-</aside>
-
-
-<PWA />
--->

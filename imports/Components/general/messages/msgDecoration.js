@@ -21,33 +21,33 @@ export function msgDecoration(state, closable = true, duration = 0) {
 
     let states = {
         success: {
-            colour: "is-success is-light",
-            hasIcon: "iconMsgSuccess",
+            colour: "is-success-light",
+            hasIcon: "icon-bg-alert-success",
         },
 
         warning: {
-            colour: "is-warning is-light",
-            hasIcon: "iconMsgWarning",
+            colour: "is-warning-light",
+            hasIcon: "icon-bg-alert-warning",
         },
 
         fail: {
-            colour: "is-danger is-light",
-            hasIcon: "iconMsgFail",
+            colour: "is-danger-light",
+            hasIcon: "icon-bg-alert-danger",
         },
 
         add: {
-            colour: "is-info is-light",
-            hasIcon: "iconMsgAdd",
+            colour: "is-secondary-light",
+            hasIcon: "icon-bg-circle-plus",
         },
 
         remove: {
-            colour: "is-link is-light",
-            hasIcon: "iconMsgRemove",
+            colour: "is-link-light",
+            hasIcon: "icon-bg-circle-minus",
         },
 
         uncertain: {
             colour: "",
-            hasIcon: "iconMsgUncertain",
+            hasIcon: "icon-bg-help",
         }
     };
 

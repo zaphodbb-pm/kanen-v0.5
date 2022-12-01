@@ -105,7 +105,6 @@
 
             <List_Holder
                     config="{conf.list}"
-                    class="has-width-15rem"
                     {listText}
                     {fields}
                     {sort}

@@ -19,7 +19,7 @@
      *  5. Page-body contains specific code and html for this page's functionality.
      */
 
-     //* page set-up boilerplate *************************************
+    //* page set-up boilerplate *************************************
 
         //** setup props to receive route data (optional)
         export let currentRoute = "";
@@ -54,7 +54,6 @@
     let textWithout = "";
 
 
-
     onMount(() => {
         const text = injectText();
         textWith = text.with;
@@ -65,6 +64,64 @@
     onDestroy(() => {
         console.log("template page destroyed");
     });
+
+
+
+    /* sample system messages to show on right of viewport */
+    import {messages} from "/imports/client/systemStores";
+
+    Meteor.setTimeout(function(){
+
+        let message1 = {
+            id: "123456",
+            state: "fail",
+            text: "Test 'fail' from template."
+        }
+
+        let message2 = {
+            id: "234567",
+            state: "success",
+            text: "Test 'success' from template.",
+            closable: false,
+            duration: 10000
+        }
+
+        let message3 = {
+            id: "34568",
+            state: "warning",
+            text: "Test 'warning' from template."
+        }
+
+        $messages = [... $messages, message1, message2, message3];
+
+    }, 2000);
+
+
+
+    Meteor.setTimeout(function(){
+
+        let message1 = {
+            id: "567890",
+            state: "add",
+            text: "Test 'add' from template.",
+            duration: 9000
+        }
+
+        let message2 = {
+            id: "678901",
+            state: "remove",
+            text: "Test 'remove' from template."
+        }
+
+        let message3 = {
+            id: "789012",
+            state: "uncertain",
+            text: "Test 'uncertain' six from template."
+        }
+
+        $messages = [... $messages, message1, message2, message3];
+
+    }, 3000);
 
 </script>
 

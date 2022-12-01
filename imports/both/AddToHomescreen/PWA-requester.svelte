@@ -6,17 +6,17 @@
      * @memberOf Client:
      * @locus Client
      *
+     * @param {Object} text - modal text (language adjusted) from parent
      * @see based on work by {@link https://github.com/docluv/add-to-homescreen|Chris Love}
      */
 
-    import {getContext} from 'svelte'
+    export let text = {};
+
     import {defaultSession, athDefaults} from "./func-athDefaults";
     import {getPlatform} from "./func-getPlatform";
     import {checkPlatform} from "./func-checkPlatform";
     import {nextPrime} from "./func-nextPrime";
     import {athMainClass} from "./func-class_athMain";
-
-    let text = getContext("pwaText");
 
     //* prepare common variables
     let appID = athDefaults.appID;
@@ -296,6 +296,13 @@
 
 
 
+
+
+
+
+
+<!--
+
 <div class="modal" class:is-active="{modalOpen}">
     <div class="modal-background"></div>
     <div class="modal-card">
@@ -324,3 +331,73 @@
     </div>
     <button class="modal-close is-large dismiss-pwa" aria-label="close" on:click={btnClose}></button>
 </div>
+-->
+
+
+
+
+
+
+<div id="modal_pwa'" class="modal-overlay {modalOpen}">
+    <div class="modal">
+        <article class="modal-card">
+            <header>
+                <h2>{text.title}</h2>
+
+                <button type="button" class="delete" on:click="{btnClose}"></button>
+            </header>
+
+            <div class="level-start">
+                <button class="button is-success" on:click={btnInstall}>{text.install}</button>
+                <img src="pwa/pwa-logo-50x50.png" alt="PWA">
+                <button class="button is-outlined is-link" on:click={btnNotNow}>{text.notNow}</button>
+            </div>
+
+            {#if instructions}
+                <p class="">{text.instructions}</p>
+                {#each instructions as instruction}
+                    <div class="has-text-centered">
+                        <img src="{instruction.src}" alt="{instruction.alt}" class="">
+                    </div>
+                {/each}
+            {/if}
+
+        </article>
+    </div>
+</div>
+
+
+<style>
+
+    .modal-card .table td {
+        border: none;
+    }
+
+    .modal-card .table td:nth-of-type(1) {
+        font-weight: var(--weight-semibold);
+    }
+
+    .show-modal {
+        visibility: visible;
+        opacity: 1;
+        position: fixed;
+        z-index: 1000;
+        height:auto;
+    }
+
+    .hide-modal {
+        visibility: hidden;
+        opacity: 0;
+        position: relative;
+        z-index: unset;
+        height: 0;
+    }
+
+    .user-image {
+        height: 6rem;
+        width: 6rem;
+        border-radius: 50%;
+    }
+
+</style>
+

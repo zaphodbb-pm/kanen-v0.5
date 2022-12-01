@@ -146,30 +146,22 @@
 {#if isOpen}
     <div class="cookie" id="{text.elementId}" transition:fade="{{ duration: 1000 }}">
 
-        <article class="message is-dark">
-
-            <div class="message-header">
-                <p>{text.title}
-                    {#if text.debug}
-                        <span class="is-size-7">debug: {text.debug}</span>
-                    {/if}
-                </p>
-
+        <aside class="message">
+            <header>
+                <h2>{text.title}</h2>
                 <button class="delete" aria-label="delete" on:click="{postpone}"></button>
-            </div>
-
+            </header>
             <div class="message-body">
-                <div class="level">
+                <div class="level" style="flex-wrap: nowrap">
                     <p>{@html text.msg}</p>
 
-                    <div class="level">
+                    <div class="level" style="flex-wrap: nowrap; margin-left: 2rem;">
                         <button class="button is-warning mx-5" on:click="{decline}">{text.btnDecline}</button>
                         <button class="button is-primary" on:click="{accept}">{text.btnAccept}</button>
                     </div>
                 </div>
             </div>
-
-        </article>
+        </aside>
 
     </div>
 {/if}

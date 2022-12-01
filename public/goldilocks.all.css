@@ -162,10 +162,10 @@ use https://www.colorhexa.com/ or https://paletton.com/ to build complimentary c
     --link-dark: hsl(217, 71%, 30%);
     --link-text: hsl( 217, 100%, 30%);
     --link-text-invert: hsl( 217, 100%, 95%);
-    --success: hsl(150, 65%, 53%);
+    --success: hsl(150, 75%, 53%);
     --success-light: hsl(141, 70%, 96%);
     --success-dark: hsl(141, 70%, 31%);
-    --success-text: hsl( 141, 75%, 20%);
+    --success-text: hsl( 141, 65%, 20%);
     --success-text-invert: hsl( 141, 100%, 95%);
     --warning: hsl(48, 100%, 48%);
     --warning-light: hsl(48, 100%, 95%);
@@ -8407,8 +8407,6 @@ a.tag:hover
 
     margin: 0;
 
-    pointer-events: none;
-
     border-radius: var(--radius);
 }
 
@@ -8472,8 +8470,6 @@ a.tag:hover
 .message > .message-body
 {
     padding: 1.25em 1.5em;
-
-    pointer-events: none;
 
     border-bottom-right-radius: var(--radius);
     border-bottom-left-radius: var(--radius);
@@ -9912,8 +9908,8 @@ progress:indeterminate::-ms-fill
 
 .is-success-outlined
 {
-    color: var(--success);
-    border: 1px solid var(--success);
+    color: var(--success-dark);
+    border: 1px solid var(--success-dark);
     background-color: var(--bg-main);
 }
 

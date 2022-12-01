@@ -1,6 +1,6 @@
 <script>
     /**
-     * Testing page provides a simple starting point for adding and customizing your own pages.
+     * Testing page provides an overview of the structure and methods to test this project.
      *
      * @name testing
      * @module
