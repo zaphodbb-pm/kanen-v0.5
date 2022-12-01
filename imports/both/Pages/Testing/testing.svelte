@@ -74,26 +74,35 @@
 
 <main class="main-content">
 
+    <h2>{text.heading1}</h2>
+
     {@html text.preamble}
 
-    <div class="row">
-        <div class="column">
-            <h2>{text.heading1}</h2>
-            <ul>
-                {#each text.items1 as item}
-                    <li style="margin-bottom: 2rem;">{@html item}</li>
-                {/each}
-            </ul>
-        </div>
+    <div class="space-vert-medium">
+        <div class="row">
+            <div class="column">
+                <h3>{text.heading11}</h3>
+                <ul>
+                    {#each text.items1 as item}
+                        <li style="margin-bottom: 2rem;">{@html item}</li>
+                    {/each}
+                </ul>
+            </div>
 
-        <div class="column">
-            <h2>{text.heading2}</h2>
-            <ul>
-                {#each text.items2 as item}
-                    <li style="margin-bottom: 2rem;">{@html item}</li>
-                {/each}
-            </ul>
+            <div class="column">
+                <h3>{text.heading12}</h3>
+                <ul>
+                    {#each text.items2 as item}
+                        <li style="margin-bottom: 2rem;">{@html item}</li>
+                    {/each}
+                </ul>
+            </div>
         </div>
     </div>
+
+
+    <div class="space-vert-medium"></div>
+
+    <h2>{text.heading2}</h2>
 
 </main>
