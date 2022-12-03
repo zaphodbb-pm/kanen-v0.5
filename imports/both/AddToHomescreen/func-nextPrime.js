@@ -1,8 +1,8 @@
 /**
- * @summary Can be used to calculate the next prime number, a possible way to calculate when to next prompt.
+ * Can be used to calculate the next prime number, a possible way to calculate when to next prompt.
  *
  * @function nextPrime
- * @memberOf Client:
+ * @memberOf Footer
  * @locus Client
  *
  * @param {Number} value

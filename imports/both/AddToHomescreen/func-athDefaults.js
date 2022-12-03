@@ -1,13 +1,12 @@
 /**
- * @summary Default options list.
+ * Default options list.
  *
  * @function athDefaults
- * @memberOf Client:
+ * @memberOf Footer
  * @locus Client
  *
- * @param {String} appID
- *
- * @return {Object} - ath defaults
+ * @property {Object} defaultSession
+ * @property {Object} athDefaults
  *
  */
 
@@ -53,8 +52,8 @@ export const athDefaults = {
     athWrapper: ".ath-container",
     athGuidance: "ath-guidance",
     showClasses: [ "animated", "d-flex" ],
-    showClass: "d-flex",
-    hideClass: "d-none",
+    showClass: "show-modal",
+    hideClass: "hide-modal",
     promptDlg: {
         title: ".ath-banner-title",
         body: ".ath-banner",
@@ -88,9 +87,15 @@ export const athDefaults = {
         "iphone": {
             imgs: [
                 {
-                    src: "/pwa/MakeSafariBookmark.jpg",
+                    src: "/pwa/safari-iphone-ath1.png",
                     alt: "Tap the Share Icon"
-                }]
+                },
+
+                {
+                    src: "/pwa/safari-iphone-ath2.png",
+                    alt: "Tap the Share Icon"
+                }
+            ]
 
             /*
             imgs: [
@@ -116,10 +121,17 @@ export const athDefaults = {
              */
         },
         "ipad": {
-            imgs: [ {
-                src: "/pwa/safari-ipad-share-a2hs-right.jpg",
+            imgs: [
+                {
+                src: "/pwa/safari-ipad-ath1.png",
                 alt: "Tap the Add to Homescreen Icon"
-            } ]
+                },
+
+                {
+                    src: "/pwa/safari-ipad-ath2.png",
+                    alt: "Tap the Add to complete install"
+                }
+            ]
         },
         "firefox": {
             imgs: [ {

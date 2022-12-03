@@ -32,13 +32,15 @@ export const gdpr = {
 
                 btnDecline: "Decline",
 
-                debug: true
+                debug: false
         }
 }
 
 export const pwa = {
         en: {
-                title: "Install this application to your home screen?",
+                title: "Progressive Web App Install",
+
+                description: "Install this application to your home screen?",
 
                 install: "Install",
 

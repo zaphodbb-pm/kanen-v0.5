@@ -1,14 +1,15 @@
 /**
- * @summary Returns a browser name.
+ * Returns add-to-home (ath) class object.
  *
  * @function class_athMain
- * @memberOf Client:
+ * @memberOf Footer
  * @locus Client
  *
  * @param {Object} opts
  * @param {Object} platform
+ * @param {Object} session
  *
- * @return {Object} - ath class
+ * @return {Object} - ath main class
  *
  */
 

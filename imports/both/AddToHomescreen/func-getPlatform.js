@@ -1,13 +1,13 @@
 /**
- * @summary Returns a browser name.
+ * Returns a browser type name.
  *
  * @function getPlatform
- * @memberOf Client:
+ * @memberOf Footer
  * @locus Client
  *
  * @param {Object} platform - browser types
- * @param {Boolean} native - pwa is native to browser
  * @param {String} debug - use browser type from options
+ * @param {Boolean} native - pwa is native to browser
  *
  * @return {string} - browser type
  *

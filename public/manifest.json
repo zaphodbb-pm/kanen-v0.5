@@ -5,14 +5,16 @@
   "display": "standalone",
   "icons": [
     {
+      "src": "/logo-pwa-svg.svg",
+      "sizes": "48x48 72x72 96x96 128x128 150x150 256x256",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+
+    {
       "src": "/pwa/pwa-image-192.png",
       "type": "image/png",
       "sizes": "192x192"
-    },
-    {
-      "src": "/pwa/pwa-image-512.png",
-      "type": "image/png",
-      "sizes": "512x512"
     }
   ],
 

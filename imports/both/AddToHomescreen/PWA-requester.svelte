@@ -1,12 +1,13 @@
 <script>
     /**
-     * Progressive Web App requester.
+     * Progressive Web App requester that typically resides in the footer component.
      *
      * @module PWA-requester
-     * @memberOf Client:
+     * @memberOf Footer
      * @locus Client
      *
      * @param {Object} text - modal text (language adjusted) from parent
+     *
      * @see based on work by {@link https://github.com/docluv/add-to-homescreen|Chris Love}
      */
 
@@ -23,8 +24,9 @@
     let nativePrompt = false;
     let platform = {};
     let _beforeInstallPrompt;
-    let modalOpen = false;
+    let openModal = false;
     let instructions = null;
+
 
     //* load session
     let session = localStorage.getItem( appID );
@@ -38,10 +40,10 @@
     //* initialize component
     let initOpts = {
         onShow: function () {
-            modalOpen = true;
+            openModal = true;
         },
         onInit: function (ath) {
-            console.log( "ath: initializing");
+            console.log( "ath: initializing", ath);
         },
         onAdd: function () {
             console.log( "ath: adding" );
@@ -53,16 +55,20 @@
             console.log( "ath: cancelling" );
         },
 
-        //displayPace: 0,
-        //debug: "iphone",
-        logging: true
+        /*
+        //* for dev work only
+        displayPace: 0,
+        debug: "iphone",
+        logging: true,
+        lifespan: 0
+         */
     };
 
 
 
     //* event handlers
     function btnClose(){
-        modalOpen = false;
+        openModal = false;
     }
 
     function btnNotNow(){
@@ -113,14 +119,21 @@
     let ath =  new athMainClass( initOpts, platform, session, );
 
 
-    //* for dev work only
+
+
     /*
+
+    //* for dev work only
+    console.log("ath", ath);
+    
     ath.removeSession();
     session.added = false;
     session.optedout = false;
     ath.updateSession();
     console.log("update session", session);
+
      */
+    
 
 
 
@@ -295,92 +308,49 @@
 </script>
 
 
-
-
-
-
-
-
-<!--
-
-<div class="modal" class:is-active="{modalOpen}">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-        <div class="modal-card-body">
-
-            <div class="is-size-5 has-text-weight-semibold has-text-centered mb-3">
-                {text.title}
-            </div>
-
-            <div class="d-flex justify-content-around align-items-center">
-                <button class="button is-success" on:click={btnInstall}>{text.install}</button>
-                <img src="pwa/pwa-logo-50x50.png" alt="PWA">
-                <button class="button is-outlined is-link" on:click={btnNotNow}>{text.notNow}</button>
-            </div>
-
-            {#if instructions}
-            <p class="has-text-centered mt-5 mb-3">{text.instructions}</p>
-                {#each instructions as instruction}
-                    <div class="has-text-centered">
-                        <img src="{instruction.src}" alt="{instruction.alt}" class="">
-                    </div>
-                {/each}
-            {/if}
-
-        </div>
-    </div>
-    <button class="modal-close is-large dismiss-pwa" aria-label="close" on:click={btnClose}></button>
-</div>
--->
-
-
-
-
-
-
-<div id="modal_pwa'" class="modal-overlay {modalOpen}">
+<div id="modal_pwa" class="modal-overlay {openModal ? 'show-modal' : 'hide-modal'}">
     <div class="modal">
-        <article class="modal-card">
-            <header>
-                <h2>{text.title}</h2>
+        <aside class="modal-card">
 
-                <button type="button" class="delete" on:click="{btnClose}"></button>
+            <header class="is-primary-light">
+                <h2>{text.title}</h2>
+                <img class="pwa-image" src="pwa/pwa-logo.svg" alt="PWA logo">
             </header>
 
-            <div class="level-start">
-                <button class="button is-success" on:click={btnInstall}>{text.install}</button>
-                <img src="pwa/pwa-logo-50x50.png" alt="PWA">
-                <button class="button is-outlined is-link" on:click={btnNotNow}>{text.notNow}</button>
+            <div>
+
+                <div class="level">
+                    <p style="margin: 0;">{text.description}</p>
+
+                    <button type="button" class="is-primary has-hover" on:click={btnInstall}>{text.install}</button>
+                    <button type="button" class="is-secondary-outlined has-hover" on:click={btnNotNow}>{text.notNow}</button>
+                </div>
+
+                {#if instructions}
+                    <p class="space-vert">{text.instructions}</p>
+
+                    <div class="row has-3x-minwidth">
+                        {#each instructions || [] as instruction}
+                            <div class="col">
+                                <img src="{instruction.src}" alt="{instruction.alt}" style="height: auto;">
+                            </div>
+                        {/each}
+                    </div>
+                {/if}
+
             </div>
 
-            {#if instructions}
-                <p class="">{text.instructions}</p>
-                {#each instructions as instruction}
-                    <div class="has-text-centered">
-                        <img src="{instruction.src}" alt="{instruction.alt}" class="">
-                    </div>
-                {/each}
-            {/if}
-
-        </article>
+        </aside>
     </div>
 </div>
 
 
 <style>
 
-    .modal-card .table td {
-        border: none;
-    }
-
-    .modal-card .table td:nth-of-type(1) {
-        font-weight: var(--weight-semibold);
-    }
-
     .show-modal {
         visibility: visible;
         opacity: 1;
-        position: fixed;
+
         z-index: 1000;
         height:auto;
     }
@@ -388,15 +358,14 @@
     .hide-modal {
         visibility: hidden;
         opacity: 0;
-        position: relative;
+
         z-index: unset;
         height: 0;
     }
 
-    .user-image {
-        height: 6rem;
-        width: 6rem;
-        border-radius: 50%;
+    .pwa-image {
+        height: auto;
+        width: 4rem;
     }
 
 </style>

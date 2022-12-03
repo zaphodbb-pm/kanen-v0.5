@@ -1,13 +1,13 @@
 /**
- * @summary Returns a browser name.
+ * Returns a browser platform name.
  *
  * @function checkPlatform
- * @memberOf Client:
+ * @memberOf Footer
  * @locus Client
  *
  * @param {Object} _ua -user agent from browser
  *
- * @return {Object} - active browser
+ * @return {Object} - active browser details
  *
  */
 

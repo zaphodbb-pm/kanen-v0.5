@@ -35,10 +35,6 @@
     import UserProfile from '/imports/Components/elements/userProfile.svelte'
     //import UserCredit from '/imports/Components/elements/userCredit.svelte'
 
-    //** simple nav configuration options for aside navs
-    let theme = "light";        // "light" or "dark" background
-    let side = "left";          // "left" or "right" entry
-    let open = false;           // hamburger state true = "open"; false = "closed"
 
 </script>
 
