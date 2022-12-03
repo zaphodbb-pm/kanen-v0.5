@@ -149,6 +149,11 @@
         <aside class="message">
             <header>
                 <h2>{text.title}</h2>
+
+                {#if text.debug}
+                    <span class="is-size-7">debug: {text.debug}</span>
+                {/if}
+
                 <button class="delete" aria-label="delete" on:click="{postpone}"></button>
             </header>
             <div class="message-body">
