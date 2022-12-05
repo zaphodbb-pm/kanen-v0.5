@@ -43,6 +43,7 @@ import Home from './Pages/Home/home_route';
 import Template from './Pages/Template/template_route';
 import Icons from './Pages/Icons/icons_route';
 import Colours from './Pages/Colours/colours_route';
+import FooterExtras from './Pages/FooterExtras/footerExtras_route';
 import MiniWiki from './Pages/Learn/learn_route';
 
 import Cards from './Pages/Cards/cards_route';
@@ -75,6 +76,7 @@ const allRoutes = [
     Template,
     Icons,
     Colours,
+    FooterExtras,
     MiniWiki,
 
     Cards,

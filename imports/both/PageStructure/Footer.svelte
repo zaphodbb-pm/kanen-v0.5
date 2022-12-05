@@ -34,6 +34,12 @@
     import GDPR from '/imports/Components/general/gdprNotice.svelte'
     import PWA from '/imports/both/AddToHomescreen/PWA-requester.svelte'
 
+
+    //** optional gdpr event intercept
+    function gdprEvent(ev){
+        console.log("gdpr-event", ev.type, ev.detail);
+    }
+
 </script>
 
 
@@ -57,5 +63,5 @@
 
 <!-- extra component based functionality -->
 <Messages />
-<GDPR text="{gdprNotice}" />
+<GDPR text="{gdprNotice}" on:cookie-status="{gdprEvent}" on:gdpr-cookie="{gdprEvent}"/>
 <PWA text="{pwaText}" />

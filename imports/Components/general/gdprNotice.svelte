@@ -27,18 +27,19 @@
     import * as tinyCookie from 'tiny-cookie'
 
     //* local reactive variables
+    const acceptableValues = ["accept", "decline", "postpone"];
+
     let status = null;
     let supportsLocalStorage = true;
     let isOpen = false;
+    let elementId = text?.elementId ?? "gdpr-component";
 
-    function init() {
-        let visitedType = getCookieStatus();
-        if (visitedType && (visitedType === 'accept' || visitedType === 'decline' || visitedType === 'postpone')) {
-            isOpen = false;
-        }
-        if (!visitedType) {
-            isOpen = true;
-        }
+    //* functions that mutate component variables
+    function init(acceptableValues, supportsLocalStorage, id) {
+        let visitedType = getCookieStatus(supportsLocalStorage,  id);
+        let visited = acceptableValues.includes(visitedType);
+
+        isOpen =  text["debug"] ? true : visited;
         status = visitedType;
 
         /**
@@ -49,96 +50,72 @@
     }
 
     function checkLocalStorageFunctionality() {
-        //* Check for availability of localStorage
         try {
             const test = '__gdpr-cookie-accept-decline-check-localStorage';
             window.localStorage.setItem(test, test);
             window.localStorage.removeItem(test);
+            return true;
         } catch (e) {
             console.error('Local storage is not supported, falling back to cookie use');
-            supportsLocalStorage = false;
+            return false;
         }
     }
 
-    function setCookieStatus(type) {
+    function setCookieStatus(type, id) {
+        if (acceptableValues.includes(type, id) ) {
+            if (supportsLocalStorage) {
+                localStorage.setItem(`gdpr-accept-decline-${id}`, type)
+            } else {
+                tinyCookie.set(`gdpr-accept-decline-${id}`, type)
+            }
+        }
+    }
+
+    function getCookieStatus(supportsLocalStorage, id) {
         if (supportsLocalStorage) {
-            if (type === 'accept') {
-                localStorage.setItem(`gdpr-accept-decline-${text.elementId}`, 'accept')
-            }
-            if (type === 'decline') {
-                localStorage.setItem(`gdpr-accept-decline-${text.elementId}`, 'decline')
-            }
-            if (type === 'postpone') {
-                localStorage.setItem(`gdpr-accept-decline-${text.elementId}`, 'postpone')
-            }
+            return localStorage.getItem(`gdpr-accept-decline-${id}`)
         } else {
-            if (type === 'accept') {
-                tinyCookie.set(`gdpr-accept-decline-${text.elementId}`, 'accept')
+            return tinyCookie.get(`gdpr-accept-decline-${id}`)
+        }
+    }
+
+    function setState(type, id){
+        if (acceptableValues.includes(type)) {
+            if (!text.debug) {
+                setCookieStatus(type, id);
             }
-            if (type === 'decline') {
-                tinyCookie.set(`gdpr-accept-decline-${text.elementId}`, 'decline')
-            }
-            if (type === 'postpone') {
-                tinyCookie.set(`gdpr-accept-decline-${text.elementId}`, 'postpone')
-            }
+            status = type;
+            isOpen = false;
+
+            /**
+             * @event gdpr-cookie
+             * @type {String}
+             */
+            dispatch('gdpr-cookie', type);
+
+        }else{
+            dispatch('gdpr-cookie', 'unknown');
         }
     }
 
-    function getCookieStatus() {
-        if (supportsLocalStorage) {
-            return localStorage.getItem(`gdpr-accept-decline-${text.elementId}`)
-        } else {
-            return tinyCookie.get(`gdpr-accept-decline-${text.elementId}`)
-        }
-    }
-
-    function accept() {
-        if (!text.debug) {
-            setCookieStatus('accept')
-        }
-        status = 'accept';
-        isOpen = false;
-
-        /**
-         * @event gdpr-cookie
-         * @type {String}
-         */
-        dispatch('gdpr-cookie', 'accepted');
-    }
-
-    function decline() {
-        if (!text.debug) {
-            setCookieStatus('decline')
-        }
-        status = 'decline';
-        isOpen = false;
-        dispatch('gdpr-cookie', 'declined');
-    }
-
-    function postpone() {
-        if (!text.debug) {
-            setCookieStatus('postpone')
-        }
-        status = 'postpone';
-        isOpen = false;
-        dispatch('gdpr-cookie', "postponed");
-    }
-
-    function removeCookie() {
-        localStorage.removeItem(`gdpr-accept-decline-${this.elementId}`);
+    function removeCookie(id) {
+        localStorage.removeItem(`gdpr-accept-decline-${id}`);
         status = null;
         dispatch('gdpr-cookie', "removed");
     }
 
 
-    onMount( () => {
-        checkLocalStorageFunctionality();
-        init();
+    onMount(() => {
+        let elementId = text?.elementId ?? "gdpr-component";
+
+        supportsLocalStorage = checkLocalStorageFunctionality();
+
+        init(acceptableValues, supportsLocalStorage, elementId);
 
         if (text.debug) {
-            removeCookie();
+            removeCookie(elementId);
         }
-    })
+    });
 
 </script>
 
@@ -154,15 +131,21 @@
                     <span class="is-size-7">debug: {text.debug}</span>
                 {/if}
 
-                <button class="delete" aria-label="delete" on:click="{postpone}"></button>
+                <button class="delete" aria-label="delete" on:click="{() => setState('postpone', elementId)}"></button>
             </header>
+
             <div class="message-body">
-                <div class="level" style="flex-wrap: nowrap">
+                <div class="level has-nowrap">
                     <p>{@html text.msg}</p>
 
-                    <div class="level" style="flex-wrap: nowrap; margin-left: 2rem;">
-                        <button class="button is-warning mx-5" on:click="{decline}">{text.btnDecline}</button>
-                        <button class="button is-primary" on:click="{accept}">{text.btnAccept}</button>
+                    <div class="level has-nowrap" style="margin-left: 2rem;">
+                        <button type="button" class="is-warning" on:click="{() => setState('decline', elementId)}">
+                            {text.btnDecline}
+                        </button>
+
+                        <button type="button" class="is-primary" on:click="{() => setState('accept', elementId)}">
+                            {text.btnAccept}
+                        </button>
                     </div>
                 </div>
             </div>

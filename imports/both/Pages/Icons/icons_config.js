@@ -43,6 +43,7 @@ export const pageConfig =  {
             "icon-bg-github",
             "icon-bg-google",
             "icon-bg-grid",
+            "icon-bg-group",
             "icon-bg-help",
             "icon-bg-home",
             "icon-bg-icons",

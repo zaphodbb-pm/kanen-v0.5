@@ -1,22 +1,24 @@
-<script>/**
- * Template page provides a simple starting point for adding and customizing your own pages.
- *
- * @name template
- * @module
- * @memberOf Pages:template
- * @locus Client
- *
- * @param {String} currentRoute - page path name
- * @param {Object} params - any parameters from path url
- * @param {Object} query - any query fragment from path url
- *
- * @notes
- *  1. Main code for page control: page boilerplate and page body sections.
- *  2. Common page boilerplate has two props: currentRoute and params from spa-router for rendering.
- *  3. Common page boilerplate imports common PageHeader component.
- *  4. Common page boilerplate injects language responsive text into "header" and "page".
- *  5. Page-body contains specific code and html for this page's functionality.
- */
+<script>
+
+    /**
+     * Template page provides a simple starting point for adding and customizing your own pages.
+     *
+     * @name template
+     * @module
+     * @memberOf Pages:template
+     * @locus Client
+     *
+     * @param {String} currentRoute - page path name
+     * @param {Object} params - any parameters from path url
+     * @param {Object} query - any query fragment from path url
+     *
+     * @notes
+     *  1. Main code for page control: page boilerplate and page body sections.
+     *  2. Common page boilerplate has two props: currentRoute and params from spa-router for rendering.
+     *  3. Common page boilerplate imports common PageHeader component.
+     *  4. Common page boilerplate injects language responsive text into "header" and "page".
+     *  5. Page-body contains specific code and html for this page's functionality.
+     */
 
     //* page set-up boilerplate *************************************
 
@@ -66,63 +68,6 @@
 
 
 
-    /* sample system messages to show on right of viewport */
-    import {messages} from "/imports/client/systemStores";
-    import {generateId} from "../../../Functions/utilities/generateId";
-
-
-    Meteor.setTimeout(function(){
-
-        let message1 = {
-            id: generateId(6),
-            state: "fail",
-            text: "Test 'fail' from template."
-        }
-
-        let message2 = {
-            id: generateId(6),
-            state: "success",
-            text: "Test 'success' from template.",
-            closable: false,
-            duration: 10000
-        }
-
-        let message3 = {
-            id: generateId(6),
-            state: "warning",
-            text: "Test 'warning' from template."
-        }
-
-        $messages = [... $messages, message1, message2, message3];
-
-    }, 2000);
-
-
-
-    Meteor.setTimeout(function(){
-
-        let message1 = {
-            id: generateId(6),
-            state: "add",
-            text: "Test 'add' from template.",
-            duration: 9000
-        }
-
-        let message2 = {
-            id: generateId(6),
-            state: "remove",
-            text: "Test 'remove' from template."
-        }
-
-        let message3 = {
-            id: generateId(6),
-            state: "uncertain",
-            text: "Test 'uncertain' six from template."
-        }
-
-        $messages = [... $messages, message1, message2, message3];
-
-    }, 3000);
 
 </script>
 
