@@ -155,7 +155,7 @@
 
 
     //* for dev work only
-    //ath.removeSession();
+    //ath.removeSession("add-to-home-screen");
     //session.added = false;
     //session.optedout = false;
     //ath.updateSession();
