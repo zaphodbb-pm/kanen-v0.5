@@ -188,16 +188,17 @@
         showModal = "hide-modal";
     }
 
+
 </script>
 
 
 
 <div class="field--file-browse has-field-addons {className}  {field.css || ''}" id="{field.field}">
 
-    <button type="button"  class="is-primary is-height-browse">
+    <button type="button"  class="is-primary is-height-browse" title="{field.field}">
         <span class="icon-bg-folder is-medium"></span>
 
-        <input type="file" class="input file-input" on:input="{setfile}">
+        <input type="file" class="input file-input" on:input="{setfile}" aria-label="load file">
     </button>
 
     <label class="is-height-browse is-file-name">
@@ -228,7 +229,7 @@
     </label>
 
     {#if hasCroppie}
-        <button type="button" class="is-primary is-height-browse" on:click="{cropImage}">
+        <button type="button" class="is-primary is-height-browse" on:click="{cropImage}" title="crop image">
             <span class="icon-bg-crop is-medium"></span>
         </button>
     {/if}

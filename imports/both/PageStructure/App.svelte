@@ -97,6 +97,7 @@
 
 
     //* build out static Components
+    import WidgetBar from '../Navbar/WidgetBar.svelte'
     import Navbar from '../Navbar/Navbar.svelte';
     import SideNav from '../Navbar/NavSideMenu.svelte';
     import Footer from './Footer.svelte';
@@ -109,7 +110,9 @@
 <svelte:window on:click={click} />
 
 <!-- full page scaffolding with insertable content area -->
-<div class="page-wrapper has-slidebar" id="page-layout-top">
+<div class="page-wrapper-widgets has-slidebar" id="page-layout-top">
+
+    <WidgetBar />
 
     <Navbar currentRoute="{currentPath}" />
 

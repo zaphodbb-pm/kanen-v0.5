@@ -93,7 +93,7 @@
 <fieldset class="field--item-list {error} {className} {field.css || ''}">
     <legend>{label}</legend>
 
-    <button type="button" class="add-rows is-rounded is-primary" on:click="{addRow}">
+    <button type="button" class="add-rows is-rounded is-primary" on:click="{addRow}" title="add row">
         <span class="icon-bg-circle-plus is-medium"></span>
     </button>
 
@@ -110,7 +110,7 @@
                 <label>
                     <input type="checkbox"
                            class="is-checkradio is-info has-background-color"
-                           title=""
+                           title="simple check box"
                            id="{'checkbox_' + uniqueId + '_' + item.id}"
                            checked="{item.check}"
                            on:change="{e => updateElement(item, 'check', e.target.checked)}">
@@ -165,8 +165,9 @@
 
     .row-id {
         padding: 0.25rem 0.75rem;
-        background-color: #EEE;
+        background-color: var(--bg-component);
         border-radius: 50%;
+        color: var(--text);
     }
 
 </style>

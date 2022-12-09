@@ -62,7 +62,7 @@
 
 
 
-<div class="field-group" style="flex-wrap: nowrap;">
+<div class="field-group has-nowrap">
     {#each filters as field (field.field)}
         <div class="filter-items">
 

@@ -156,7 +156,7 @@
 <fieldset class="field--row-list {error} {className} {field.css || ''}">
     <legend>{label}</legend>
 
-    <button type="button" class="add-rows is-rounded is-primary" on:click="{addRow}">
+    <button type="button" class="add-rows is-rounded is-primary" on:click="{addRow}" title="add row">
         <span class="icon-bg-circle-plus is-medium"></span>
     </button>
 
@@ -225,8 +225,9 @@
 
     .row-id {
         padding: 0.25rem 0.75rem;
-        background-color: #EEE;
+        background-color: var(--bg-component);
         border-radius: 50%;
+        color: var(--text);
     }
 
 </style>

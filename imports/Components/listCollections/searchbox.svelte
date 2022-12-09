@@ -55,7 +55,7 @@
 <div style="flex-wrap: nowrap; max-width: 75%;">
 
     <div class="has-field-addons">
-        <button type="button" class="is-secondary-outlined" aria-label="icon only">
+        <button type="button" class="is-primary-outlined" aria-label="icon only">
             <span class="icon-bg-search is-medium"></span>
         </button>
 
@@ -70,9 +70,9 @@
         </label>
 
         {#if showIcon}
-            <a class="button is-info is-outlined" on:click="{() => {showHelp = !showHelp;} }">
-                <span class="icon-bg-help"></span>
-            </a>
+            <button type="button" class="is-secondary-outlined" on:click="{() => {showHelp = !showHelp;} }" aria-label="search a collection">
+                <span class="icon-bg-help is-medium"></span>
+            </button>
         {/if}
     </div>
 

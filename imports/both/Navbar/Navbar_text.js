@@ -5,7 +5,7 @@
  * @memberOf Navbar
  * @locus Client
  *
- * @exports {Object} - navbar text language encoded
+ * @exports {Object} - navbar - text language encoded
  *
  */
 

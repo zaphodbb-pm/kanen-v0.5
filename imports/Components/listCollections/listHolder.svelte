@@ -394,7 +394,7 @@
                 {/if}
 
                 {#if !!config.hasFilters}
-                    <button type="button" class="{filterState} has-hover" on:click="{setFilter}">
+                    <button type="button" class="{filterState} has-hover" on:click="{setFilter}" title="Filter">
                         <span class="icon-bg-filter is-medium"></span>
                     </button>
                 {/if}

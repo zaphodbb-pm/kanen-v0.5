@@ -71,7 +71,7 @@
                         <li><a href="/my-profile">{userName} {text.toProfile}</a></li>
                         <li><a href="/changePassword">{text.changePassword}</a></li>
                         <li><hr></li>
-                        <li><a on:click="{logout}">{text.logOut}</a></li>
+                        <li><a href="#home" on:click="{logout}">{text.logOut}</a></li>
                     </ul>
                 </nav>
             </div>

@@ -83,7 +83,7 @@
     --navbar-offset: 0;
     --navbar-z: 30;                 /* z-index to ensure that navbar gets priority */
     /* Widgetbar settings */
-    --widgetbar-height: calc( 2 * var(--base-font-size) );
+    --widgetbar-height: calc( 2 * var(--base-font-size) + .25rem);
     --widget-z: 30;                 /* z-index to ensure that navbar gets priority */
     /* Breadcrumb setting */
     /* other options are: arrow-separator = ">", bullet-separator = "\02022" or quote-separator = "\BB" */
@@ -233,8 +233,8 @@ use https://www.colorhexa.com/ or https://paletton.com/ to build complimentary c
     */
     --main-color: 140;                  /** primary hue value **/
     --main-color-offset: 30;            /** +,- degree offset from main + 180° **/
-    --main-color-sl-light: 100%, 96%;   /** color lightening saturation and lightness **/
-    --main-color-sl-dark: 90%, 27%;     /** color lightening saturation and lightness **/
+    --main-color-sl-light: 100%, 92%;   /** color lightening saturation and lightness **/
+    --main-color-sl-dark: 90%, 37%;     /** color lightening saturation and lightness **/
     --main-color-complement-low: calc( var(--main-color) + 180 - var(--main-color-offset) );
     --main-color-complement-high: calc( var(--main-color) + 180 + var(--main-color-offset) );
     /* build main theme colours */
@@ -255,7 +255,7 @@ use https://www.colorhexa.com/ or https://paletton.com/ to build complimentary c
     --primary-dark: hsl( var(--main-color), var(--main-color-sl-dark) );
     --secondary-dark: hsl( var(--main-color-complement-low), var(--main-color-sl-dark) );
     --tertiary-dark: hsl( var(--main-color-complement-high), var(--main-color-sl-dark) );
-    --link: hsl(217, 75%, 65%);
+    --link: hsl(217, 75%, 75%);
     --link-light: hsl(217, 70%, 90%);
     --link-dark: hsl(217, 75%, 40%);
     --link-text: hsl( 217, 100%, 55%);
@@ -491,7 +491,7 @@ pre
     padding: 0;
 
     border-left: .25rem solid var(--tertiary);
-    background-color: var(--white-bis);
+    background-color: var(--bg-main-code);
 }
 
 code
@@ -2185,7 +2185,7 @@ button.delete.is-small
     left: 2.75rem;
 }
 
-/* adds a help icon to top left part of field */
+/* adds a help icon to top right part of field */
 .has-help-text
 {
     position: relative;
@@ -2205,7 +2205,7 @@ button.delete.is-small
 
     color: var(--secondary);
     border-radius: 50%;
-    background-color: var(--bg-main);
+    background-color: var(--bg-element);
 }
 
 .has-help-text > span > span:not(.icon-nav)
@@ -2654,6 +2654,7 @@ img
     padding: var(--padding);
 
     border-radius: var(--radius-comp);
+    background-color: var(--bg-main-elem);
     box-shadow: var(--shadow);
 }
 
@@ -7756,7 +7757,7 @@ a.tag:hover
 {
     padding: var(--padding-normal);
 
-    background-color: var(--bg-main-comp);
+    background-color: var(--bg-main-elem);
 }
 
 .divider-box-horz

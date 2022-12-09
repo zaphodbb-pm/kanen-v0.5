@@ -124,7 +124,7 @@
 
         </label>
 
-        <button type="button" on:click={checkShow}>
+        <button type="button" on:click={checkShow} title="show / hide">
             {#if isText}
                     <span title="{showTitles.show}">
                         <span class="icon-bg-eye is-medium"></span>
