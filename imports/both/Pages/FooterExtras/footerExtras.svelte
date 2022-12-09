@@ -69,7 +69,7 @@
 <main class="main-content">
 
 
-    <div class="row">
+    <div class="row is-centered-vert">
         <div class="column">
             <section>
                 <h2>{text["systemMessages"]}</h2>

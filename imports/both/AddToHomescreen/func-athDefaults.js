@@ -10,6 +10,8 @@
  *
  */
 
+import {athPrompts} from "./func-athPrompts";
+
 export const defaultSession = {
     lastDisplayTime: 0, // last time we displayed the message
     returningVisitor: false, // is this the first time you visit
@@ -22,8 +24,8 @@ export const defaultSession = {
 
 
 export const athDefaults = {
-    appID: "com.love2dev.addtohome", // local storage name (no need to change)
-    appName: "Progressive Web App",
+    appID: "add-to-home-screen", // local storage name (no need to change)
+    appName: "Svelte-Starter Progressive Web App",
     debug: false, // override browser checks
     logging: false, // log reasons for showing or not showing to js console; defaults to true when debug is true
     modal: false, // prevent further actions until the message is closed
@@ -33,10 +35,7 @@ export const athDefaults = {
     minSessions: 0, //show only after minimum number of page views
     startDelay: 1, // display the message after that many seconds from page load
     lifespan: 15, // life of the message in seconds
-
     displayPace: 1440, // minutes before the message is shown again (0: display every time, default 24 hours)
-    //displayPace: 0, // used for testing;  shows addtohome modal every page reload
-
     displayNextPrime: false,
     mustShowCustomPrompt: false,
     maxDisplayCount: 0, // absolute maximum number of times the message will be shown to the user (0: no limit)
@@ -65,6 +64,11 @@ export const athDefaults = {
             "cancel": "Not Now"
         }
     },
+
+    prompt: athPrompts
+
+
+    /*
     prompt: {
         "native": {
             action: {
@@ -97,7 +101,7 @@ export const athDefaults = {
                 }
             ]
 
-            /*
+            / *
             imgs: [
                 {
                     src: "/pwa/ios-safari-share-button-highlight.jpg",
@@ -118,7 +122,7 @@ export const athDefaults = {
                     alt: "Tap the Add to Homescreen Icon"
                 }
             ]
-             */
+             * /
         },
         "ipad": {
             imgs: [
@@ -152,4 +156,6 @@ export const athDefaults = {
             } ]
         }
     }
+
+     */
 }

@@ -17,8 +17,9 @@
 import {athDefaults, defaultSession} from "./func-athDefaults";
 
 
+
 export class athMainClass{
-    constructor(opts, platform, session, _beforeInstallPrompt){
+    constructor(opts, platform, session){
         //** merge default options with user config
         this.options = Object.assign( {}, athDefaults, opts );
         this._canPrompt = undefined;
@@ -64,6 +65,7 @@ export class athMainClass{
 
     //* performs various checks to see if we are cleared for prompting
     canPrompt() {
+
         //** already evaluated the situation, so don't do it again
         if ( this._canPrompt !== undefined ) {
             return this._canPrompt;
@@ -72,7 +74,7 @@ export class athMainClass{
         this._canPrompt = false;
 
         if ( this.options.customCriteria ) {
-            let passCustom = false;
+            let passCustom;
 
             if ( typeof this.options.customCriteria === "function" ) {
                 passCustom = this.options.customCriteria();
@@ -186,7 +188,7 @@ export class athMainClass{
         return true;
     };
 
-    show( force ) {
+    show() {
         //** message already on screen
         if ( this.shown ) {
             this.doLog( "Add to homescreen: not displaying callout because already shown on screen" );

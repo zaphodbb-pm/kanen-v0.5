@@ -24,22 +24,23 @@
     import { onMount, createEventDispatcher } from 'svelte';
     const dispatch = createEventDispatcher();
     import {fade} from 'svelte/transition';
-    import * as tinyCookie from 'tiny-cookie'
+    import {setCookie, getCookie, removeCookie} from 'tiny-cookie';
+
+    //* file scoped constants
+    const acceptableValues = ["accept", "decline", "postpone"];
+    const elementId = text?.elementId ?? "gdpr-component";
+    const supportsLocalStorage = checkLocalStorageFunctionality();
 
     //* local reactive variables
-    const acceptableValues = ["accept", "decline", "postpone"];
-
     let status = null;
-    let supportsLocalStorage = true;
     let isOpen = false;
-    let elementId = text?.elementId ?? "gdpr-component";
 
     //* functions that mutate component variables
-    function init(acceptableValues, supportsLocalStorage, id) {
-        let visitedType = getCookieStatus(supportsLocalStorage,  id);
+    function init(id) {
+        let visitedType = getCookieStatus(id);
         let visited = acceptableValues.includes(visitedType);
 
-        isOpen =  text["debug"] ? true : visited;
+        isOpen = !visited || text["debug"];
         status = visitedType;
 
         /**
@@ -66,24 +67,23 @@
             if (supportsLocalStorage) {
                 localStorage.setItem(`gdpr-accept-decline-${id}`, type)
             } else {
-                tinyCookie.set(`gdpr-accept-decline-${id}`, type)
+                setCookie(`gdpr-accept-decline-${id}`, type)
             }
         }
     }
 
-    function getCookieStatus(supportsLocalStorage, id) {
+    function getCookieStatus(id) {
         if (supportsLocalStorage) {
-            return localStorage.getItem(`gdpr-accept-decline-${id}`)
+            return localStorage.getItem(`gdpr-accept-decline-${id}`);
         } else {
-            return tinyCookie.get(`gdpr-accept-decline-${id}`)
+            return getCookie(`gdpr-accept-decline-${id}`);
         }
     }
 
     function setState(type, id){
         if (acceptableValues.includes(type)) {
-            if (!text.debug) {
-                setCookieStatus(type, id);
-            }
+            setCookieStatus(type, id);
+
             status = type;
             isOpen = false;
 
@@ -98,23 +98,21 @@
         }
     }
 
-    function removeCookie(id) {
+    function removeState(id) {
         localStorage.removeItem(`gdpr-accept-decline-${id}`);
+        removeCookie(`gdpr-accept-decline-${id}`)
+
         status = null;
         dispatch('gdpr-cookie', "removed");
     }
 
 
     onMount(() => {
-        let elementId = text?.elementId ?? "gdpr-component";
-
-        supportsLocalStorage = checkLocalStorageFunctionality();
-
-        init(acceptableValues, supportsLocalStorage, elementId);
-
         if (text.debug) {
-            removeCookie(elementId);
+            removeState(elementId);
         }
+
+        init(elementId);
     });
 
 </script>

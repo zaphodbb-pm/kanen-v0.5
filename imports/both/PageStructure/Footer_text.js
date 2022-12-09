@@ -32,7 +32,7 @@ export const gdpr = {
 
                 btnDecline: "Decline",
 
-                debug: true
+                debug: false
         }
 }
 

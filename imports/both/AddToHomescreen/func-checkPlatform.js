@@ -48,6 +48,8 @@ export function checkPlatform(_ua) {
 
     platform.isChromium = !platform.isMobileSafari;
 
+    //platform.beforeInstallPrompt = "BeforeInstallPromptEvent" in window;
+
     // console.log( "platform.isiPhone: " + platform.isiPhone );
     // console.log( "platform.isMobileSafari: " + platform.isMobileSafari );
     // console.log( "platform.isInWebAppiOS: " + platform.isInWebAppiOS );

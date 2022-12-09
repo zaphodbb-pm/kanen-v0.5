@@ -1,4 +1,5 @@
 <script>
+
     /**
      * Progressive Web App requester that typically resides in the footer component.
      *
@@ -26,6 +27,7 @@
     let _beforeInstallPrompt;
     let openModal = false;
     let instructions = null;
+    let optOut = false;
 
 
     //* load session
@@ -37,9 +39,43 @@
     }
 
 
+
+    //* event handlers for native PWA session
+    if ( "onbeforeinstallprompt" in window ) {
+        window.addEventListener( "beforeinstallprompt", beforeInstallPrompt );
+        nativePrompt = true;
+    }
+
+    function beforeInstallPrompt( evt ) {
+        evt.preventDefault();
+        console.log( "ath: capturing the native A2HS prompt");
+
+        if(optOut){
+            _beforeInstallPrompt = undefined;
+        }else{
+            _beforeInstallPrompt = evt;
+            _delayedShow(ath);
+        }
+    }
+
+    if ( "onappinstalled" in window ) {
+        window.addEventListener( "appinstalled", function ( ) {
+            ath.doLog( "a2hs", "installed" );
+            session.added = true;
+            ath.updateSession();
+
+            if ( ath.options.onInstall ) {
+                ath.options.onInstall.call( this );
+            }
+        } );
+    }
+
+
+
     //* initialize component
     let initOpts = {
         onShow: function () {
+            console.log( "ath: showing" );
             openModal = true;
         },
         onInit: function (ath) {
@@ -53,29 +89,28 @@
         },
         onCancel: function () {
             console.log( "ath: cancelling" );
+            openModal = false;
+            optOut = true;
+            ath.optOut();
+            ath.clearSession();
         },
 
-        /*
+
         //* for dev work only
         displayPace: 0,
         debug: "iphone",
-        logging: true,
-        lifespan: 0
-         */
+        //logging: true,
+        //lifespan: 0
     };
 
 
 
     //* event handlers
-    function btnClose(){
-        openModal = false;
-    }
-
     function btnNotNow(){
         if ( ath.options.onCancel ) {
             ath.options.onCancel();
         }
-        btnClose();
+        openModal = false;
     }
 
     function btnInstall(){
@@ -86,8 +121,8 @@
         let checkPlatform = getPlatform(platform, ath.options.debug);
         let isNative = checkPlatform === "native" || ath.options.debug === "native";
 
-        if ( _beforeInstallPrompt && isNative ) {
-            btnClose();
+        if (  _beforeInstallPrompt && isNative ) {
+            openModal = false;
             triggerNativePrompt();
         } else {
             if ( ath.autoHideTimer ) {
@@ -116,43 +151,32 @@
         afterSWCheck( {} );
     }
 
-    let ath =  new athMainClass( initOpts, platform, session, );
+    let ath = new athMainClass( initOpts, platform, session);
 
-
-
-
-    /*
 
     //* for dev work only
-    console.log("ath", ath);
-    
     ath.removeSession();
     session.added = false;
     session.optedout = false;
-    ath.updateSession();
-    console.log("update session", session);
-
-     */
-    
 
 
+    //ath.updateSession();
+    //console.log("update session", session);
 
-    function autoHide() {
-        btnNotNow();
-    }
+
 
     function _delayedShow(ath) {
-        setTimeout( _show(ath, platform, _beforeInstallPrompt), ath.options.startDelay * 1000 + 500 );
+        setTimeout( _show(ath, _beforeInstallPrompt), ath.options.startDelay * 1000 + 500 );
     }
 
-    function _show(ath, platform, _beforeInstallPrompt){
+    function _show(ath, _beforeInstallPrompt){
         if ( ath.canPrompt() ) {
+
             if ( _beforeInstallPrompt && !ath.options.mustShowCustomPrompt ) {
                 triggerNativePrompt();
-
             } else {
                 if ( ath.options.lifespan && ath.options.lifespan > 0 ) {
-                    ath.autoHideTimer = setTimeout( autoHide, ath.options.lifespan * 1000 );
+                    ath.autoHideTimer = setTimeout( btnNotNow, ath.options.lifespan * 1000 );
                 }
             }
 
@@ -171,54 +195,56 @@
 
             ath.updateSession();
         }
+
+        return true;
     }
 
 
     //* displays native A2HS prompt & stores results
     function triggerNativePrompt() {
         return _beforeInstallPrompt.prompt()
-                .then( function ( evt ) {
-                    return _beforeInstallPrompt.userChoice;     // Wait for the user to respond to the prompt
-                } )
-                .then( function ( choiceResult ) {
-                    session.added = ( choiceResult.outcome === "accepted" );
+            .then( function ( ) {
+                return _beforeInstallPrompt.userChoice;     // Wait for the user to respond to the prompt
+            } )
+            .then( function ( choiceResult ) {
+                session.added = ( choiceResult.outcome === "accepted" );
 
-                    if ( session.added ) {
-                        ath.doLog( "ath: User accepted the A2HS prompt" );
+                if ( session.added ) {
+                    ath.doLog( "ath: User accepted the A2HS prompt" );
 
-                        if ( ath.options.onAdd ) {
-                            ath.options.onAdd();
-                        }
-
-                    } else {
-                        if ( ath.options.onCancel ) {
-                            ath.options.onCancel();
-                        }
-
-                        session.optedout = true;
-                        ath.doLog( "ath: User dismissed the A2HS prompt" );
+                    if ( ath.options.onAdd ) {
+                        ath.options.onAdd();
                     }
 
+                } else {
+                    if ( ath.options.onCancel ) {
+                        ath.options.onCancel();
+                    }
+
+                    session.optedout = true;
+                    ath.doLog( "ath: User dismissed the A2HS prompt" );
+                }
+
+                ath.updateSession();
+                _beforeInstallPrompt = null;
+            } )
+            .catch( function ( err ) {
+                ath.doLog( err.message );
+
+                if ( err.message.indexOf( "user gesture" ) > -1 ) {
+                    ath.options.mustShowCustomPrompt = true;
+                    _delayedShow(ath);
+                } else if ( err.message.indexOf( "ath: The app is already installed" ) > -1 ) {
+
+                    console.log( err.message );
+                    session.added = true;
                     ath.updateSession();
-                    _beforeInstallPrompt = null;
-                } )
-                .catch( function ( err ) {
-                    ath.doLog( err.message );
 
-                    if ( err.message.indexOf( "user gesture" ) > -1 ) {
-                        ath.options.mustShowCustomPrompt = true;
-                        _delayedShow(ath);
-                    } else if ( err.message.indexOf( "ath: The app is already installed" ) > -1 ) {
-
-                        console.log( err.message );
-                        session.added = true;
-                        ath.updateSession();
-
-                    } else {
-                        console.log( err );
-                        return err;
-                    }
-                } );
+                } else {
+                    console.log( err );
+                    return err;
+                }
+            } );
     }
 
     function afterSWCheck( sw ) {
@@ -239,7 +265,7 @@
 
         // normalize some options
         ath.options.mandatory = ath.options.mandatory && ( 'standalone' in window.navigator ||
-                ath.options.debug );
+            ath.options.debug );
 
         //this is forcing the user to add to homescreen before anything can be done
         //the ideal scenario for this would be an enterprise business application
@@ -268,32 +294,6 @@
         }
     }
 
-    function beforeInstallPrompt( evt ) {
-        console.log( "ath: capturing the native A2HS prompt");
-
-        evt.preventDefault();
-        _beforeInstallPrompt = evt;
-        _delayedShow(ath);
-    }
-
-
-    //* event handlers
-    if ( "onbeforeinstallprompt" in window ) {
-        window.addEventListener( "beforeinstallprompt", beforeInstallPrompt );
-        nativePrompt = true;
-    }
-
-    if ( "onappinstalled" in window ) {
-        window.addEventListener( "appinstalled", function ( evt ) {
-            ath.doLog( "a2hs", "installed" );
-            session.added = true;
-            ath.updateSession();
-
-            if ( ath.options.onInstall ) {
-                ath.options.onInstall.call( this );
-            }
-        } );
-    }
 
     if ( document.readyState === "interactive" || document.readyState === "complete" ) {
         _delayedShow(ath);
@@ -321,6 +321,7 @@
 
                 <div class="level">
                     <p style="margin: 0;">{text.description}</p>
+                    <!--<button type="button" id="install-to-home-screen"  class="is-primary has-hover">{text.install}</button>-->
 
                     <button type="button" class="is-primary has-hover" on:click={btnInstall}>{text.install}</button>
                     <button type="button" class="is-secondary-outlined has-hover" on:click={btnNotNow}>{text.notNow}</button>

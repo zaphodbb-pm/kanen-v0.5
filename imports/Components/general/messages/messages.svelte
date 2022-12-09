@@ -82,7 +82,7 @@
                     <button class="delete" type="button" on:click="{() => messageEnd(message) }"></button>
                 {/if}
 
-                <div class="level-start" style="flex-wrap: nowrap">
+                <div class="level-start has-nowrap">
                     {#if message.hasIcon}
                         <span><span class="{message.hasIcon} is-large" style="margin: 0;"></span></span>
                     {/if}
