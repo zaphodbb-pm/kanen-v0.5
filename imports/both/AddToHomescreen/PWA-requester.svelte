@@ -97,8 +97,8 @@
 
 
         //* for dev work only
-        displayPace: 0,
-        debug: "iphone",
+        //displayPace: 0,
+        //debug: "iphone",
         //logging: true,
         //lifespan: 0
     };
@@ -155,11 +155,9 @@
 
 
     //* for dev work only
-    ath.removeSession();
-    session.added = false;
-    session.optedout = false;
-
-
+    //ath.removeSession();
+    //session.added = false;
+    //session.optedout = false;
     //ath.updateSession();
     //console.log("update session", session);
 
@@ -321,7 +319,6 @@
 
                 <div class="level">
                     <p style="margin: 0;">{text.description}</p>
-                    <!--<button type="button" id="install-to-home-screen"  class="is-primary has-hover">{text.install}</button>-->
 
                     <button type="button" class="is-primary has-hover" on:click={btnInstall}>{text.install}</button>
                     <button type="button" class="is-secondary-outlined has-hover" on:click={btnNotNow}>{text.notNow}</button>
