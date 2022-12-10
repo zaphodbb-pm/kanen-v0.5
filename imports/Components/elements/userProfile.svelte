@@ -17,23 +17,15 @@
     import {goto} from  'svelte-pathfinder';
     const dispatch = createEventDispatcher();
 
-    //* component controls
-    //let text = getContext("navbar").userProfile;
-
     //* local reactive variables
-    let showImg = false;
     let user = {};
     let userName = "";
 
     $: {
         user = $userLoggedIn;
 
-        console.log("userProfile", user);
-
-        showImg = !!user;
-
-        if(showImg){
-            userName = user.profile?.name ?? user.username ?? "n/a";
+        if(!!user){
+            userName = user?.profile?.name ?? user?.username ?? "n/a";
         }
     }
 

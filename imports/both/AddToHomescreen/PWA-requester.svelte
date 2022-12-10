@@ -12,13 +12,17 @@
      * @see based on work by {@link https://github.com/docluv/add-to-homescreen|Chris Love}
      */
 
+    //* text strings are the only properties required
     export let text = {};
 
+
+    //* load support functions
     import {defaultSession, athDefaults} from "./func-athDefaults";
     import {getPlatform} from "./func-getPlatform";
     import {checkPlatform} from "./func-checkPlatform";
     import {nextPrime} from "./func-nextPrime";
     import {athMainClass} from "./func-class_athMain";
+
 
     //* prepare common variables
     let appID = athDefaults.appID;
@@ -30,32 +34,86 @@
     let optOut = false;
 
 
-    //* load session
+    //* setup browser platform detection object
+    platform = checkPlatform(window.navigator.userAgent);
+
+
+    //* load stored session information
     let session = localStorage.getItem( appID );
     session = session ? JSON.parse( session ) : defaultSession;
 
-    if ( session && session.added ) {
-        console.log("ath: session exists", session);
-    }
+
+    //* initialize options for add-to-home (ath) class
+    let initOpts = {
+        onShow: function () {
+            ath.doLog( "ath: showing" );
+            openModal = true;
+        },
+        onInit: function () {
+            ath.doLog( "ath: initializing", ath);
+
+            if ( session && session.added ) {
+                ath.doLog("ath: session exists", session);
+            }
+        },
+        onAdd: function () {
+            ath.doLog( "ath: adding" );
+        },
+        onInstall: function () {
+            ath.doLog( "ath: installing" );
+        },
+        onCancel: function () {
+            ath.doLog( "ath: cancelling" );
+            openModal = false;
+            optOut = true;
+            ath.optOut();
+            ath.clearSession();
+        },
+
+        //* for dev work only
+        //displayPace: 0,
+        //debug: "ipad",
+        //logging: true,
+        //lifespan: 0
+    };
+
+
+    //* create add-to-home class with context data
+    let ath = new athMainClass( initOpts, platform, session);
+
+
+
+    //**** for dev work only
+    //ath.removeSession("add-to-home-screen");
+    //session.added = false;
+    //session.optedout = false;
+    //ath.updateSession();
+    //console.log("update session", session);
+
+
 
 
 
     //* event handlers for native PWA session
     if ( "onbeforeinstallprompt" in window ) {
-        window.addEventListener( "beforeinstallprompt", beforeInstallPrompt );
+        window.addEventListener( "beforeinstallprompt", function(evt){
+            evt.preventDefault();
+            ath.doLog( "ath: capturing the native A2HS prompt");
+
+            if(optOut){
+                _beforeInstallPrompt = undefined;
+            }else{
+                _beforeInstallPrompt = evt;
+
+                if( ath.canPrompt() ){
+                    Meteor.setTimeout(function(){
+                        openModal = true;
+                    }, ath.options.startDelay * 1000 + 500);
+                }
+            }
+        } );
+
         nativePrompt = true;
-    }
-
-    function beforeInstallPrompt( evt ) {
-        evt.preventDefault();
-        console.log( "ath: capturing the native A2HS prompt");
-
-        if(optOut){
-            _beforeInstallPrompt = undefined;
-        }else{
-            _beforeInstallPrompt = evt;
-            _delayedShow(ath);
-        }
     }
 
     if ( "onappinstalled" in window ) {
@@ -71,41 +129,7 @@
     }
 
 
-
-    //* initialize component
-    let initOpts = {
-        onShow: function () {
-            console.log( "ath: showing" );
-            openModal = true;
-        },
-        onInit: function (ath) {
-            console.log( "ath: initializing", ath);
-        },
-        onAdd: function () {
-            console.log( "ath: adding" );
-        },
-        onInstall: function () {
-            console.log( "ath: installing" );
-        },
-        onCancel: function () {
-            console.log( "ath: cancelling" );
-            openModal = false;
-            optOut = true;
-            ath.optOut();
-            ath.clearSession();
-        },
-
-
-        //* for dev work only
-        //displayPace: 0,
-        //debug: "iphone",
-        //logging: true,
-        //lifespan: 0
-    };
-
-
-
-    //* event handlers
+    //* button event handlers - mutates local variables
     function btnNotNow(){
         if ( ath.options.onCancel ) {
             ath.options.onCancel();
@@ -135,14 +159,11 @@
     }
 
 
-    //* setup browser platform object
-    platform = checkPlatform(window.navigator.userAgent);
-
     //* service worker check
     if ( "serviceWorker" in navigator ) {
         let manifestEle = document.querySelector( "[rel='manifest']" );
         if ( !manifestEle ) {
-            console.log( "pwa: no manifest file" );
+            ath.doLog( "pwa: no manifest file" );
             platform.isCompatible = false;
         }
 
@@ -151,23 +172,12 @@
         afterSWCheck( {} );
     }
 
-    let ath = new athMainClass( initOpts, platform, session);
 
+    //* construct display routines
+    function _delayedShow() {
+        setTimeout( _show(), ath.options.startDelay * 1000 + 500 );}
 
-    //* for dev work only
-    //ath.removeSession("add-to-home-screen");
-    //session.added = false;
-    //session.optedout = false;
-    //ath.updateSession();
-    //console.log("update session", session);
-
-
-
-    function _delayedShow(ath) {
-        setTimeout( _show(ath, _beforeInstallPrompt), ath.options.startDelay * 1000 + 500 );
-    }
-
-    function _show(ath, _beforeInstallPrompt){
+    function _show(){
         if ( ath.canPrompt() ) {
 
             if ( _beforeInstallPrompt && !ath.options.mustShowCustomPrompt ) {
@@ -245,21 +255,22 @@
             } );
     }
 
+    //* if service worker exists, update add-to-home class and control modal display
     function afterSWCheck( sw ) {
+        // override defaults that are dependent on each other
+        if ( ath.options && ath.options.debug && ( typeof ath.options.logging === "undefined" ) ) {
+            ath.options.logging = true;
+        }
+
         ath.sw = sw;
 
         if ( !ath.sw ) {
-            console.log( "pwa: no service worker" );
+            ath.doLog( "pwa: no service worker" );
             platform.isCompatible = false;
         }
 
         session.sessions += 1;
         ath.updateSession();
-
-        // override defaults that are dependent on each other
-        if ( ath.options && ath.options.debug && ( typeof ath.options.logging === "undefined" ) ) {
-            ath.options.logging = true;
-        }
 
         // normalize some options
         ath.options.mandatory = ath.options.mandatory && ( 'standalone' in window.navigator ||
@@ -291,19 +302,8 @@
             ath.show();
         }
     }
-
-
-    if ( document.readyState === "interactive" || document.readyState === "complete" ) {
-        _delayedShow(ath);
-    } else {
-        document.onreadystatechange = function () {
-            if ( document.readyState === 'complete' ) {
-                _delayedShow(ath);
-            }
-        };
-    }
-
 </script>
+
 
 
 <div id="modal_pwa" class="modal-overlay {openModal ? 'show-modal' : 'hide-modal'}">
@@ -330,6 +330,7 @@
                     <div class="row has-3x-minwidth">
                         {#each instructions || [] as instruction}
                             <div class="col">
+                                <p>{instruction.alt}</p>
                                 <img src="{instruction.src}" alt="{instruction.alt}" style="height: auto;">
                             </div>
                         {/each}
@@ -343,22 +344,21 @@
 </div>
 
 
+
 <style>
 
     .show-modal {
         visibility: visible;
         opacity: 1;
-
-        z-index: 1000;
         height:auto;
+        z-index: 1000;
     }
 
     .hide-modal {
         visibility: hidden;
         opacity: 0;
-
-        z-index: unset;
         height: 0;
+        z-index: unset;
     }
 
     .pwa-image {
@@ -367,4 +367,3 @@
     }
 
 </style>
-

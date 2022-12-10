@@ -1,6 +1,6 @@
 {
   "short_name": "Kanen",
-  "name": "Meteor-Svelte Starter",
+  "name": "Kanen",
   "start_url": "/home",
   "display": "standalone",
   "icons": [
@@ -19,5 +19,5 @@
   ],
 
   "background_color": "#0a941a",
-  "theme_color": "#0a941a"
+  "theme_color": "#e8e8e8"
 }
