@@ -104,12 +104,7 @@
                 _beforeInstallPrompt = undefined;
             }else{
                 _beforeInstallPrompt = evt;
-
-                if( ath.canPrompt() ){
-                    Meteor.setTimeout(function(){
-                        openModal = true;
-                    }, ath.options.startDelay * 1000 + 500);
-                }
+                _delayedShow(ath);
             }
         } );
 

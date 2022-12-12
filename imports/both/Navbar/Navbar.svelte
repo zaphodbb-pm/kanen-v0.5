@@ -30,11 +30,8 @@
     //* Components
     import NavShortcuts from "./NavCondensedMenu.svelte";
     import SlideNavMenu from "./SlideNavMenu.svelte";
-
     import Notifications from '/imports/Components/elements/notifications.svelte'
     import UserProfile from '/imports/Components/elements/userProfile.svelte'
-    //import UserCredit from '/imports/Components/elements/userCredit.svelte'
-
 
 </script>
 
@@ -61,7 +58,7 @@
 
 
             <a href="/home">
-                <img src="logo-svg.svg" height="128" width="128" alt="Project Logo">
+                <img src="logo-seedling.svg" height="128" width="128" alt="Project Logo">
             </a>
         </div>
 
@@ -75,13 +72,20 @@
         <div class="navbar-right">
             <nav aria-label="Secondary Actions">
                 <ul>
-                    <!--<li><UserCredit text="{navText.userCredit}"/></li>-->
-
                     <li><Notifications text="{navText.notifications}" /></li>
-
                     <li><UserProfile text="{navText.userProfile}" /></li>
                 </ul>
             </nav>
         </div>
     </nav>
 </div>
+
+
+
+<style>
+
+    img svg path {
+        fill: white;
+    }
+
+</style>
