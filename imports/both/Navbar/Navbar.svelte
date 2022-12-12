@@ -58,7 +58,7 @@
 
 
             <a href="/home">
-                <img src="logo-seedling.svg" height="128" width="128" alt="Project Logo">
+                <img src="logo-seedling-light.svg" height="128" width="128" alt="Project Logo">
             </a>
         </div>
 
