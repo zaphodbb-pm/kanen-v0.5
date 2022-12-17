@@ -79,13 +79,3 @@
         </div>
     </nav>
 </div>
-
-
-
-<style>
-
-    img svg path {
-        fill: white;
-    }
-
-</style>

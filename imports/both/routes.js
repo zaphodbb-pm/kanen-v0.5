@@ -64,7 +64,6 @@ import Users from "./Pages/Users/users_route";
 import SysConfig from './Pages/SysConfig/sysConfig_route';
 import ExportImport from './Pages/ExportImport/exportImport_route';
 import LogsSystem from './Pages/LogsSystem/logsSystem_route';
-import LogsUsers from './Pages/LogsUser/logsUser_route';
 
 
 
@@ -97,7 +96,6 @@ const allRoutes = [
     SysConfig,
     ExportImport,
     LogsSystem,
-    LogsUsers,
 
     //* not found or 404 page is redirected to home page
     {

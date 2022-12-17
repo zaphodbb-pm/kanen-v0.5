@@ -13,7 +13,6 @@
  * @property {Object} accessControl.myProfile
  * @property {Object} accessControl.users
  * @property {Object} accessControl.logsSystem
- * @property {Object} accessControl.logsUser
  * @property {Object} accessControl.notifications
  * @property {Object} accessControl.authors
  *
@@ -35,9 +34,8 @@ acl = Object.assign(acl, starter, content, learn, pubSub, myProfile);
 import users from '../both/Pages/Users/users_access_control'
 import sysConfig from '../both/Pages/SysConfig/sysConfig_access_control'
 import logsSystem from '../both/Pages/LogsSystem/logsSystem_access_control'
-import logsUser from '../both/Pages/LogsUser/logsUser_access_control'
 
-acl = Object.assign(acl, users, sysConfig,  logsSystem, logsUser);
+acl = Object.assign(acl, users, sysConfig,  logsSystem);
 
 
 //* load special collections

@@ -82,13 +82,13 @@ export const page = {
                     "Includes a variety of widgets / Components for content display or dashboard indicators.",
                     "Includes a mini-wiki to provide user learning resources.",
                     "Built-in form builder with 16 configurable field types. Supports tabbed sections and horizontal grouped fields.",
-                    "Built-in document lister with filter plugins and compound search. Supports table or grid layouts."
+                    "Built-in documents lister with filter plugins and compound search. Supports table or grid layouts."
                         ],
 
                     [
                     "Supports built-in user roles and groups for access control.",
                     "Includes System Config file for dynamic application control and debug reporting.",
-                    "Logs system and user activity."
+                    "Logs system activity."
                         ]
                 ]
             },
@@ -97,16 +97,17 @@ export const page = {
                 title: "Main Packages",
 
                 body: [
-                    "Meteor 2.8.1",
+                    "Meteor 2.9.0",
                     "MongoDB 5.0.5",
-                    "<a href='https://zaphodbb-pm.github.io/goldilocks-css/pages/home.html' target='_blank'>Goldilocks-CSS 0.2.0</a>",
-                    "Svelte 3.53.1",
+                    "<a href='https://zaphodbb-pm.github.io/goldilocks-css/pages/home.html' target='_blank'>Goldilocks-CSS 0.4.0</a>",
+                    "Svelte 3.55.0",
                     "Svelte-loadable 2.0.1 to reduce initial bundle size.",
                     "svelte-pathfinder 3.4.0 router",
                     "Uses selected Feathers svg icons in CSS background to minimize bundle size",
                     "Supports Lineawesome formatted svg files in CSS background.",
-                    "Compressed Javascript size is 129 KB on initial page load.",
-                    "Compressed CSS (with icons) is 28 KB."
+                    "Compressed CSS (with icons) is 35.8 KB.",
+                    "Compressed Javascript size is 140 KB on initial page load.",
+                    "App is 21.9% and Svelte programs are 10.89% of bundle."
                 ]
             },
 
@@ -132,7 +133,11 @@ export const page = {
 
                         "<a href='/colours'>Colours</a> - display of all system colour constants.",
 
+                        "<a href='/footerExtras'>Footer Extras</a> - GDPR, PWA and other components in footer.",
+
                         "<a href='/learn'>Learn</a> - mini-wiki that provides content to help a client to use your application.",
+
+                        "<a href='/testing'>Testing</a> - describes set-up for unit and integration tests.",
                     ]
                 },
 
@@ -150,8 +155,8 @@ export const page = {
                         "<a href='/starter-list-form'>Starter ListForm</a> - list display and form builder example. " +
                         "Form includes all of the various field types and configurations.",
 
-                        "<a href='/login'>Login</a> - for a user that wants to login with an email / password or " +
-                        "any third party service.",
+                        "<a href='/pubSub'>Pub Sub</a> - example of connecting to MongoDB and using <em>Change Streams</em> " +
+                        "to reactively respond to chnages in a collection.",
                     ]
 
                 },
@@ -163,14 +168,16 @@ export const page = {
                         "Use email: 'test-user@example.com' with password: 'test-user-kanen' to see these pages. ",
 
                     text: [
+                        "<a href='/login'>Login</a> - for a user that wants to login with an email / password or " +
+                        "any third party service.",
+
                         "<a href='/my-profile'>My Profile</a> - only seen by a logged in user.  " +
                         "Allows for the addition of extra user information into a 'profile' field.",
 
                         "<a href='/changePassword'>Change Password</a> - only available to a logged in user. " +
                         "Typical change password form",
 
-                        "<a href='/pubSub'>Pub Sub</a> - example of connecting to MongoDB and using <em>Change Streams</em> " +
-                        "to reactively respond to chnages in a collection.",
+
                     ]
                 },
 
@@ -200,8 +207,6 @@ export const page = {
                         "computer.  User can also upload a JSON file to a collection.",
 
                         "<a href='/logsSystem'>System Logs</a> - tracks system level activity.",
-
-                        "<a href='/logsUsers'>User Logs</a> - tracks user logins.",
                     ]
                 },
             ]
