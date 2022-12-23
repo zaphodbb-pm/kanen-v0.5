@@ -62,6 +62,8 @@
     /* Elements Controls */
     --pad-horz: var(--base-font-size);
     --pad-vert: calc( .5 * var(--base-font-size) );
+    --pad-horz-small: calc( .5 * var(--base-font-size) );
+    --pad-vert-small: calc( .25 * var(--base-font-size) );
     --padding: calc(.75 * var(--base-font-size));
     --padding-normal: var(--base-font-size);
     --padding-medium: calc( 1.5 * var(--base-font-size) );
@@ -578,7 +580,6 @@ pre
 
     width: calc( 100% - 2 * var(--padding-normal) );
     height: auto;
-    margin: 0;
     padding: var(--padding-normal);
 
     color: var(--text);
@@ -757,9 +758,6 @@ pre
 .level-end
 {
     display: flex;
-
-    margin: 0;
-    padding: 0;
 
     align-items: center;
     flex-wrap: wrap;
@@ -1232,8 +1230,6 @@ pre
     flex-direction: column;
 
     width: 100%;
-    margin: 0;
-    padding: 0;
 
     flex-wrap: wrap;
     column-gap: var(--gap-col);
@@ -1376,6 +1372,10 @@ button.is-small,
 {
     font-size: var(--size-7);
     font-weight: var(--weight-medium);
+    line-height: 1.2;
+
+    height: auto;
+    padding: var(--pad-vert-small) var(--pad-horz-small);
 }
 
 button.is-small:not(.is-rounded),

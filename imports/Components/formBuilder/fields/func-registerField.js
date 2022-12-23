@@ -33,7 +33,7 @@ import ApiKey from './apikey.svelte'
 import FileBrowse from './fileBrowse.svelte'
 import Swatches from './colourPicker.svelte'
 
-import Editor from './editor.svelte'
+import Editor from './editor/editor.svelte'
 import ItemList from './itemList.svelte'
 import RowList from './rows.svelte'
 
