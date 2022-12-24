@@ -7,6 +7,14 @@
     padding-top: 1.5rem;
 }
 
+.trumbowyg-editor ul > li {
+    margin: 0 0 0.75rem 1rem !important;
+    list-style: disc !important;
+    text-decoration: unset !important;
+    text-indent: unset !important;
+}
+
+
 div#mocha {
     position: fixed;
     width: 10vh;

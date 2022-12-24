@@ -46,16 +46,14 @@
 
     //* load Trumbowyg support files
     import "trumbowyg/dist/ui/trumbowyg.min.css";
+    import "./editor-my-table.css";
+    import {configs} from "./editorConfig";
+    import {editorFiles} from "./editorPlugins";
+
 
     onMount(async () => {
-        await import("trumbowyg/dist/trumbowyg");
-
-        let editor = jQuery("#" + editorTag).trumbowyg({
-            svgPath: '/icons.svg'
-        });
-
-        console.log("editor", editor);
-
+        await editorFiles();
+        jQuery("#" + editorTag).trumbowyg(configs);
     })
 
     onDestroy(() => {
@@ -102,14 +100,11 @@
 
     }
 
-
 </script>
 
 
 <label class="field--editor {className} {field.css || ''}">
     <span>{label} two</span>
-
-
 </label>
 
 <div id="{editorTag}"></div>
