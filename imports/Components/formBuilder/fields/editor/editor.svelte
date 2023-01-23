@@ -40,8 +40,14 @@
     const formText = getContext("formText");
     const label = formText[field.field]?.label ?? "";
     const editorTag = field.field + "-editor";
+    const editorTagId = "#" + field.field + "-editor";
+
     let element;
     let editor;
+    let inVal = "";
+
+    //* local reactive variable
+    $: setValue(field.value);
 
 
     //* load Trumbowyg support files
@@ -53,38 +59,33 @@
 
     onMount(async () => {
         await editorFiles();
-        jQuery("#" + editorTag).trumbowyg(configs);
+        jQuery(editorTagId).trumbowyg(configs);
+
+        console.log("onMount", inVal);
+        jQuery(editorTagId).trumbowyg('html', inVal);
+
+        //*** respond to editing changes
+        jQuery(editorTagId).trumbowyg().on('tbwfocus', function(){
+            console.log('Focus!');
+        });
+
+        jQuery(editorTagId).trumbowyg().on('tbwblur', function(){
+            console.log('Blur!');
+            checkInput();
+        });
     })
 
     onDestroy(() => {
-
-        /*
+        jQuery(editorTagId).trumbowyg('destroy');
         delete window.jQuery;
-
-        if (editor) {
-            //editor.destroy();
-
-            delete window.jQuery;
-        }
-
-         */
     })
-
-
-    //* local reactive variable
-    let inValue = "";
-
-
-    $: setValue(field.value);
-
-
-    //* editor toolbar configuration
-
 
 
     //* event handlers
     function checkInput(){
-        let value = "";
+        let value = jQuery(editorTagId).trumbowyg('html');
+
+        console.log("checkInput", value);
 
         /**
          * @event on-inputentry
@@ -96,8 +97,9 @@
 
     //* Functions that mutate local variables
     function setValue(val){
-        inValue = val;
+        inVal = val;
 
+        console.log("setValue", inVal);
     }
 
 </script>
