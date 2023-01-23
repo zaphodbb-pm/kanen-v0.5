@@ -62,6 +62,6 @@
 </script>
 
 
-<form class="form space-vert-medium">
+<form class="form space-block-vert">
     <Field_Wrapper class="" {field} {watchFields} on:field-changed="{fieldChanged}"/>
 </form>

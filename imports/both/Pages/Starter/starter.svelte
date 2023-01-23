@@ -69,7 +69,7 @@
 
 <main class="main-content">
 
-    <div class="level-end space-vert-medium">
+    <div class="level-end space-block-vert">
         <form class="form has-width-15rem">
             <Field_Wrapper
                     class=""

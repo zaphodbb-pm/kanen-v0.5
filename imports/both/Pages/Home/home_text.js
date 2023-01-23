@@ -97,10 +97,10 @@ export const page = {
                 title: "Main Packages",
 
                 body: [
-                    "Meteor 2.9.0",
+                    "Meteor 2.10.0",
                     "MongoDB 5.0.5",
                     "<a href='https://zaphodbb-pm.github.io/goldilocks-css/pages/home.html' target='_blank'>Goldilocks-CSS 0.4.0</a>",
-                    "Svelte 3.55.0",
+                    "Svelte 3.55.1",
                     "Svelte-loadable 2.0.1 to reduce initial bundle size.",
                     "svelte-pathfinder 3.4.0 router",
                     "Uses selected Feathers svg icons in CSS background to minimize bundle size",

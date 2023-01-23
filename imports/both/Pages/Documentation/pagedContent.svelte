@@ -56,7 +56,7 @@
                                 <div class="space-vert">{subtopic.description}</div>
 
                                 {#if subtopic.params && subtopic.params.length > 0}
-                                    <div class="space-vert-medium">
+                                    <div class="space-block-vert">
                                         <p class="is-size-5 is-text-semibold">Input Parameters</p>
 
                                         {#each subtopic.params as param}
@@ -70,7 +70,7 @@
                                 {/if}
 
                                 {#if subtopic.properties && subtopic.properties.length > 0}
-                                    <div class="space-vert-medium">
+                                    <div class="space-block-vert">
                                         <p class="is-size-5 is-text-semibold">Properties</p>
 
                                         {#each subtopic.properties as props}
@@ -84,7 +84,7 @@
                                 {/if}
 
                                 {#if subtopic.returns && subtopic.returns.length > 0}
-                                    <div class="space-vert-medium">
+                                    <div class="space-block-vert">
                                         <p class="is-size-5 is-text-semibold">Returned Value</p>
 
                                         {#each subtopic.returns as returns}
@@ -97,7 +97,7 @@
                                 {/if}
 
                                 {#if subtopic.eventActivity}
-                                    <div class="space-vert-medium">
+                                    <div class="space-block-vert">
                                         <p class="is-size-5 is-text-semibold">Event Activity</p>
 
                                         {#if subtopic.fires}
@@ -115,7 +115,7 @@
                                 {/if}
 
                                 {#if subtopic.requires  && subtopic.requires.length > 0}
-                                    <div class="space-vert-medium">
+                                    <div class="space-block-vert">
                                         <p class="is-size-5 is-text-semibold">Required Support Files</p>
 
                                         {#each subtopic.requires as require}
@@ -125,7 +125,7 @@
                                 {/if}
 
                                 {#if subtopic.todo  && subtopic.todo.length > 0}
-                                    <div class="space-vert-medium">
+                                    <div class="space-block-vert">
                                         <p class="is-size-5 is-text-semibold">To Do</p>
 
                                         {#each subtopic.todo as td}
@@ -135,7 +135,7 @@
                                 {/if}
 
                                 {#if subtopic.see  && subtopic.see.length > 0}
-                                    <div class="space-vert-medium">
+                                    <div class="space-block-vert">
                                         <p class="is-size-5 is-text-semibold">Other Documentation</p>
 
                                         {#each subtopic.seeString as see}
@@ -157,7 +157,7 @@
                                 {/if}
 
                                 {#if subtopic.notes}
-                                    <div class="space-vert-medium">
+                                    <div class="space-block-vert">
                                         <p class="is-size-5 is-text-semibold">Notes</p>
                                         <div class="">
                                             <pre class="m-0 text-1dot0em" style="font-family: sans-serif;">
@@ -168,7 +168,7 @@
                                 {/if}
 
                                 {#if subtopic.examples && subtopic.examples.length > 0}
-                                    <div class="space-vert-medium">
+                                    <div class="space-block-vert">
                                         <p class="is-size-5 is-text-semibold">Examples</p>
 
                                         {#each subtopic.examples as example}

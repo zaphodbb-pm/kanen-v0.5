@@ -209,7 +209,7 @@
 
 <main class="main-content">
 
-    <div class="space-vert-medium">
+    <div class="space-block-vert">
         <form class="form has-form-shadow">
             <div class="field-group" style="margin: 0;">
                 <Field_Wrapper

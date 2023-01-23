@@ -78,7 +78,7 @@
 
     {@html text.preamble}
 
-    <div class="space-vert-medium">
+    <div class="space-block-vert">
         <div class="row">
             <div class="column">
                 <h3>{text.heading11}</h3>
@@ -101,7 +101,7 @@
     </div>
 
 
-    <div class="space-vert-medium"></div>
+    <div class="space-block-vert"></div>
 
     <h2>{text.heading2}</h2>
 

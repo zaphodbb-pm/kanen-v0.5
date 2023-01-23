@@ -148,7 +148,7 @@
         {#if showList}
 
             {#each listDocs() as doc (doc._id)}
-                <div class="space-vert-medium">
+                <div class="space-block-vert">
 
                     <a class="is-size-5 is-text-semibold add-cursor"
                        id="{doc._id}"
@@ -228,12 +228,12 @@
 
             {#if mode}
                 {#each sliceParagraphs(document.contentPage) as page}
-                    <div class="magazine is-narrow space-vert-medium" style="border-bottom: 1px solid var(--border-main)">
+                    <div class="magazine is-narrow space-block-vert" style="border-bottom: 1px solid var(--border-main)">
                         {@html page}
                     </div>
                 {/each}
             {:else}
-                <div class="space-vert-medium">
+                <div class="space-block-vert">
                     {@html document.contentPage}
                 </div>
             {/if}

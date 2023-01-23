@@ -102,7 +102,7 @@
                 <h3 class="has-text-tertiary has-text-centered">{pageText.features.title}</h3>
 
                 {#each pageText.features.body as block}
-                    <ul class="space-vert-medium">
+                    <ul class="space-block-vert">
                         {#each block as item}
                             <li>{item}</li>
                         {/each}

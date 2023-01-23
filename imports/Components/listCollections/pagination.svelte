@@ -86,7 +86,7 @@
 </script>
 
 
-<div class="space-vert-medium">
+<div class="space-block-vert">
     <nav class="pagination is-centered is-small" aria-label="pagination">
         {#if showPages}
 
