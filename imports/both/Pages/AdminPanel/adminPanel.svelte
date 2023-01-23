@@ -158,7 +158,7 @@
     </section>
 
 
-    <section id="admin-info-box" class="space-vert-large">
+    <section id="admin-info-box" class="space-container-vert">
         <h2>{pageText.infoTitle}</h2>
 
         <div class="row has-3x-minwidth">
@@ -212,7 +212,7 @@
     </section>
 
 
-    <section class="space-vert-large">
+    <section class="space-container-vert">
         <h2>{pageText.gaugesTitle}</h2>
 
         <div class="row has-2x-minwidth">
@@ -287,7 +287,7 @@
     </section>
 
 
-    <section class="space-vert-large">
+    <section class="space-container-vert">
         <h2>{@html pageText.chartsTitle}</h2>
 
         <div class="row has-2x-minwidth">

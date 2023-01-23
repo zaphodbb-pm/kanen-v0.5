@@ -88,7 +88,7 @@
     </div>
 
 
-    <section class="space-vert-large">
+    <section class="space-container-vert">
         <h2>{text["gdpr"]}</h2>
 
         {#if text["gdprBody"]}
@@ -99,7 +99,7 @@
     </section>
 
 
-    <section class="space-vert-large">
+    <section class="space-container-vert">
         <h2>{text["pwa"]}</h2>
 
         {#if text["pwaBody"]}
@@ -110,7 +110,7 @@
     </section>
 
 
-    <section class="space-vert-large">
+    <section class="space-container-vert">
         <h2>{text["other"]}</h2>
 
         {#if text["otherBody"]}

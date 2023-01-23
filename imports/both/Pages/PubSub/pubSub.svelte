@@ -133,7 +133,7 @@
     </p>
 
 
-    <table class="space-medium">
+    <table class="space-element">
         <thead>
             <tr>
                 <th>{text.labels.name}</th>

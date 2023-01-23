@@ -50,7 +50,7 @@
         {#if $showWidget}
             <p class="space-vert">
                 <span>lat: {loc.lat}</span>
-                <span class="space-horz">lng: {loc.lng}</span>
+                <span class="space-element-horz">lng: {loc.lng}</span>
             </p>
         {/if}
     </div>

@@ -61,7 +61,7 @@
         </div>
     </div>
 
-    <figure class="blockquote space-vert-large">
+    <figure class="blockquote space-container-vert">
         <blockquote>
             <p>{@html pageText.quote}</p>
         </blockquote>
@@ -112,7 +112,7 @@
         </div>
     </div>
 
-    <section class="space-vert-large">
+    <section class="space-container-vert">
         <h3 class="has-text-tertiary">{pageText.explore}</h3>
         <TabContent class="is-fullwidth" content="{tabbed}"/>
     </section>

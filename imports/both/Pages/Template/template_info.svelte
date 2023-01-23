@@ -29,7 +29,7 @@
 
 
 <!-- Instructional information only - can be deleted -->
-<hr class="space-vert-large" />
+<hr class="space-container-vert" />
 
 <h2>{text.files}</h2>
 
@@ -107,7 +107,7 @@
 </div>
 
 
-<hr class="space-vert-large" />
+<hr class="space-container-vert" />
 
 <h2>{text.props}</h2>
 

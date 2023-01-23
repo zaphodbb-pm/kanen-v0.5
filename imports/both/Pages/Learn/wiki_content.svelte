@@ -221,7 +221,7 @@
             </div>
 
             {#if document.contentSummary}
-                <p class="is-size-5 space-medium">
+                <p class="is-size-5 space-element">
                     {document.contentSummary}
                 </p>
             {/if}

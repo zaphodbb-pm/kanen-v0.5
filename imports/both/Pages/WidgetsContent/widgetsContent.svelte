@@ -60,7 +60,7 @@
     </section>
 
 
-    <section class="space-vert-large">
+    <section class="space-container-vert">
         <h2>{pageText.headingAccordions}</h2>
 
         <p>{@html pageText.bodyAccordions}</p>
