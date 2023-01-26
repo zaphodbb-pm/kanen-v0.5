@@ -1,4 +1,5 @@
 <script>
+
     /**
      * Field component for html input tags.
      *
@@ -34,21 +35,32 @@
     //* local reactive variable
     let inValue = "";
     let checkValue = error;
+
     let attributes = field.attributes;
     let hasShow = field.attributes && field.attributes.type && field.attributes.type === "password";
     let isText = true;
     let showTitles = field?.tag ?? {};
-
+    let timer;
 
     $: setValue(field.value);
 
 
     //* Functions that mutate local variables
     function setValue(val){
+        checkValue = error ? "field-error" : "";
         inValue = val;
     }
 
+
     //* event handlers
+    const debounce = v => {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            inValue = v;
+            checkInput();
+        }, 750);
+    }
+
     function checkInput(){
         let test = formatField(inValue, field.attributes);
 
@@ -62,6 +74,8 @@
              */
             dispatch('on-inputentry', test );
         }
+
+        return true;
     }
 
     function checkShow(){
@@ -71,12 +85,17 @@
         }
     }
 
+
     //* pure Functions
     function formatField(val, attr){
         let value = val;
         let errorVal = false;
 
         switch (true) {
+            case attr && attr.type && (attr.type === "text"):
+                errorVal = !(value.length > 0);
+                break;
+
             case (attr && attr.type === "email"):
                 errorVal = value.length > 0 && !validateEmail(value);
                 break;
@@ -92,6 +111,7 @@
                     //** check if user input is within range bounds; note that a value of zero is consider as false
                     value = attr.min && value < attr.min ? attr.min : value;
                     value = attr.max && value >= attr.max ? attr.max : value;
+
                 } else {
                     value = "";
                 }
@@ -114,7 +134,7 @@
 
 {#if hasShow}
 
-    <div class="inputs has-field-addons {className} {field.css || ''}">
+    <div class="field--inputs has-field-addons {className} {field.css || ''}">
         <label class="width-full">
             <span>{label}</span>
             <input class="input {checkValue}"
@@ -141,10 +161,11 @@
 
     <label class="field--inputs {className} {field.css || ''}">
         <span>{label}</span>
+
         <input class="input {checkValue}"
                {...attributes}
                bind:value={inValue}
-               on:keyup="{checkInput}">
+               on:keyup={({ target: { value } }) => debounce(value)} />
     </label>
 
 {/if}

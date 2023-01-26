@@ -61,7 +61,7 @@
         await editorFiles();
         jQuery(editorTagId).trumbowyg(configs);
 
-        console.log("onMount", inVal);
+        //console.log("onMount", inVal);
         jQuery(editorTagId).trumbowyg('html', inVal);
 
         //*** respond to editing changes
@@ -85,7 +85,7 @@
     function checkInput(){
         let value = jQuery(editorTagId).trumbowyg('html');
 
-        console.log("checkInput", value);
+        //console.log("checkInput", value);
 
         /**
          * @event on-inputentry
@@ -99,7 +99,7 @@
     function setValue(val){
         inVal = val;
 
-        console.log("setValue", inVal);
+        //console.log("setValue", inVal);
     }
 
 </script>

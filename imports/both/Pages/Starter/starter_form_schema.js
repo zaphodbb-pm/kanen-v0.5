@@ -115,9 +115,9 @@ export default [
         tab: 0,
         group: {section: 0, class: "is-span-2"},
 
-        attributes: {type: "number", step: 1},
+        attributes: {type: "number", step: 1, min: 5},
         params: {},
-        defaultValue: 0,
+        defaultValue: 7,
     },
 
     {

@@ -65,7 +65,10 @@
 
 
     //* local reactive variables
-    let fieldOpt = field.optional ? "" : "field-error";
+    //let fieldOpt = field.optional ? "" : "field-error";
+
+    let fieldOpt = "";
+
     let fieldHelpShow = false;
     let fieldHide = false;
     let formText = getContext("formText");
