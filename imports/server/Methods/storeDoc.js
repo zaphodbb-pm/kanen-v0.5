@@ -58,9 +58,10 @@ Meteor.methods({
             }
 
             const id = collection ?? collection.insert(doc);
+            const name = doc["name"] ? `Doc: ${doc["name"]} - ` : "";
 
             if(id){
-                return {status: 200, _id: id, text: `${id} has been added on ${coll} by insertDoc`};
+                return {status: 200, _id: id, text: `${name} ${id} has been added on ${coll} by insertDoc`};
             }else{
                 return {status: 500, _id: id, text: `insertDoc at Server did not get a returned id value.`};
             }
@@ -101,12 +102,13 @@ Meteor.methods({
         const me = Meteor.user();
         const acl = accessControl[coll];
         const collection = acl?.coll ? allCollections[acl.coll] : undefined;
+        const name = doc["name"] ? `Doc: ${doc["name"]} - ` : "";
 
         if( verifyRole(me, acl.roles) && collection ) {
             if(ownsDocument(me, doc)){     // check if user is doc owner before update
                 doc.updatedAt = Date.now();
                 collection.update({_id: id}, {$set: doc});
-                return {status: 200, text:  `${id} has been updated on ${coll} by updateDoc`};
+                return {status: 200, text:  `${name} ${id} has been updated on ${coll} by updateDoc`};
             }
 
             return {status: 404, text:  `Has not been updated on ${coll} by updateDoc.  User does not own document.`};
@@ -146,11 +148,12 @@ Meteor.methods({
 
         if( verifyRole(me, acl.roles) && collection ) {
             const doc = collection.findOne({_id: docId});
+            const name = doc["name"] ? `Doc: ${doc["name"]} - ` : "";
 
             if(ownsDocument(me, doc)){     // check if user is doc owner before delete
                 collection.remove(doc._id);
 
-                return {status: 200, _id: docId, text:  `${docId} has been removed from ${coll} by removeDoc`};
+                return {status: 200, _id: docId, text:  `${name} ${docId} has been removed from ${coll} by removeDoc`};
             }
             return {status: 404, _id: docId, text:  `User does not have permission to remove document.`};
         }else{

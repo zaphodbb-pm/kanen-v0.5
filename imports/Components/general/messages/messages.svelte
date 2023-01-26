@@ -1,7 +1,7 @@
 <script>
 
     /**
-     * Messages component to handle system wide notifications.
+     * Messages component to handle system-wide notifications.
      *
      * @module messages
      * @memberOf Components:general:

@@ -29,7 +29,7 @@
     // noinspection ReservedWordAsName
     export { className as class };
 
-    //* add jQuery library and attach to window
+    //* add jQuery library and attach to window only for this component
     import jQuery from "jquery";
     window.jQuery = jQuery;
     window.jQuery.noConflict();
