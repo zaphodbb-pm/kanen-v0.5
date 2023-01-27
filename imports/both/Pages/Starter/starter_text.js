@@ -197,8 +197,8 @@ export const page = {
 
             startDynamicTypeahead: {
                 label: "Dynamic Typeahead",
-                helpText: "Uses a collection to get a list of values that can then be searched through for " +
-                        "characters typed into input box.",
+                helpText: "Uses a collection (Learn in this case) to get a list of values that can then be searched through for " +
+                        "characters typed into input box.  Will search through the titles of Learn content.",
             },
 
             startApiKey: {

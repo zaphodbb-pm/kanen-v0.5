@@ -292,7 +292,7 @@ export default [
         params: {
             type: "dynamicSelect",
             rows: 3,
-            coll: "starter",
+            coll: "learn",
             filter: {fields: {_id: 1, name: 1}},
             options: {sort: {name: 1}}
         },
@@ -384,7 +384,7 @@ export default [
         tab: 2,
         attributes: {},
         params: {},
-        defaultValue: "",
+        defaultValue: "#000000",
     },
 
 
