@@ -36,6 +36,8 @@
 
     //* support Functions
     import {onMount, onDestroy, getContext, createEventDispatcher} from 'svelte';
+
+    //* local variables
     const dispatch = createEventDispatcher();
     const formText = getContext("formText");
     const label = formText[field.field]?.label ?? "";
@@ -45,6 +47,7 @@
     let element;
     let editor;
     let inVal = "";
+    let isMounted = false;
 
     //* local reactive variable
     $: setValue(field.value);
@@ -60,17 +63,20 @@
     onMount(async () => {
         await editorFiles();
         jQuery(editorTagId).trumbowyg(configs);
-
-        //console.log("onMount", inVal);
         jQuery(editorTagId).trumbowyg('html', inVal);
+
+        isMounted = true;
 
         //*** respond to editing changes
         jQuery(editorTagId).trumbowyg().on('tbwfocus', function(){
-            console.log('Focus!');
+            //console.log('Focus!');
         });
 
         jQuery(editorTagId).trumbowyg().on('tbwblur', function(){
-            console.log('Blur!');
+            checkInput();
+        });
+
+        jQuery(editorTagId).trumbowyg().on('tbwchange', function(){
             checkInput();
         });
     })
@@ -85,8 +91,6 @@
     function checkInput(){
         let value = jQuery(editorTagId).trumbowyg('html');
 
-        //console.log("checkInput", value);
-
         /**
          * @event on-inputentry
          * @type {object} - {value: value, error: false}
@@ -95,11 +99,14 @@
     }
 
 
+
     //* Functions that mutate local variables
     function setValue(val){
         inVal = val;
 
-        //console.log("setValue", inVal);
+        if(isMounted){
+            jQuery(editorTagId).trumbowyg('html', val);
+        }
     }
 
 </script>
