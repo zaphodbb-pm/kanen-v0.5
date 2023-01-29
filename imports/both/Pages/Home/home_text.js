@@ -106,8 +106,8 @@ export const page = {
                     "Uses selected Feathers svg icons in CSS background to minimize bundle size",
                     "Supports Lineawesome formatted svg files in CSS background.",
                     "Compressed CSS (with icons) is 35.8 KB.",
-                    "Compressed Javascript size is 140 KB on initial page load.",
-                    "App is 21.9% and Svelte programs are 10.89% of bundle."
+                    "Compressed Javascript size is 141 KB on initial page load.",
+                    "App is 22% and Svelte programs are 11% of bundle."
                 ]
             },
 
