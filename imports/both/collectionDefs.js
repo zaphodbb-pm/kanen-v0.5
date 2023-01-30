@@ -26,8 +26,8 @@ import {Mongo} from "meteor/mongo";
 //** system info
 export const SysConfig = new Mongo.Collection("sysConfig");              // contains one document for configuring rating parameters
 export const LogsSystem = new Mongo.Collection("logsSystem");            // Systems events such as heartbeat
-export const LogsUser = new Mongo.Collection("logsUsers");              // Tracks user actions such as login / logout
-export const LogsSensor = new Mongo.Collection("logsSensors");          // Tracks any real time sensor inputs
+export const LogsUsers = new Mongo.Collection("logsUsers");              // Tracks user actions such as login / logout
+export const LogsSensors = new Mongo.Collection("logsSensors");          // Tracks any real time sensor inputs
 
 
 //** client accessible data
@@ -47,15 +47,15 @@ export const allUserCollections = {
 export const allSystemCollections = {
     "sysConfig": SysConfig,
     "logsSystem": LogsSystem,
-    "logsUser": LogsUser,
-    "logsSensor": LogsSensor
+    "logsUsers": LogsUsers,
+    "logsSensors": LogsSensors
 }
 
 export const allCollections = {
     "sysConfig": SysConfig,
     "logsSystem": LogsSystem,
-    "logsUser": LogsUser,
-    "logsSensor": LogsSensor,
+    "logsUsers": LogsUsers,
+    "logsSensors": LogsSensors,
 
     "starter": Starter,
     "learn": Learn,

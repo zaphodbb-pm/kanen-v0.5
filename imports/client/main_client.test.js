@@ -1,13 +1,10 @@
-// @ts-nocheck
-import assert from "assert";
+console.log("in main client test");
 
-console.log("in main client test", Meteor.isServer, Meteor.isClient, Meteor.isTest, Meteor.isAppTest);
-
-
-describe("svelte-meteor server", function () {
-
-    it("server is client", function () {
-      assert.strictEqual(Meteor.isClient, true);
-    });
-});
+/* check for common file existence */
+import '../both/tests/client.test';
+import '../both/tests/version.test';
+import '../both/tests/systemGlobals.test';
+import '../both/tests/systemStores.test';
+import '../both/tests/text_common.test';
+import '../both/tests/text_search.test';
 

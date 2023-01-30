@@ -14,7 +14,7 @@
  *
  */
 
-import {LogsUser, LogsSystem, LogsSensor} from "../../both/collectionDefs";
+import {LogsUsers, LogsSystem, LogsSensors} from "../../both/collectionDefs";
 
 export function writeLog(logName, data) {
     const now = new Date();
@@ -38,9 +38,9 @@ export function writeLog(logName, data) {
 
     switch (logName) {
 
-        case "LogsUser":
+        case "LogsUsers":
             status = {status: 200, msg: "Successful log write", log: logName};
-            LogsUser.insert(doc);
+            LogsUsers.insert(doc);
             break;
 
         case "LogsSystem":
@@ -48,9 +48,9 @@ export function writeLog(logName, data) {
             LogsSystem.insert(doc);
             break;
 
-        case "LogsSensor":
+        case "LogsSensors":
             status = {status: 200, msg: "Successful log write", log: logName};
-            LogsSensor.insert(doc);
+            LogsSensors.insert(doc);
             break;
 
         default:

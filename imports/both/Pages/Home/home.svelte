@@ -32,7 +32,7 @@
 
     //* page body support **************************
     import {i18n} from "../../../Functions/utilities/i18n.js";
-    import {lang} from "../../../client/systemStores.mjs";
+    import {lang} from "../../../client/systemStores.js";
 
     const pageHeader = i18n(header, "", $lang);
     const pageText = i18n(page, "page", $lang);

@@ -7,13 +7,21 @@
  *
  */
 
-import {Learn, LogsSensor, LogsSystem, LogsUser, Notifications, RealTime, Starter} from "../both/collectionDefs";
+import {
+    Learn,
+    LogsSensors,
+    LogsSystem,
+    LogsUsers,
+    Notifications,
+    RealTime,
+    Starter
+} from "../both/collectionDefs";
 
 //** create any indexes for larger collections to speed up searching
     //*** system collections
     LogsSystem.createIndex({updatedAt: 1});
-    LogsUser.createIndex({author: 1, updatedAt: 1});
-    LogsSensor.createIndex({updatedAt: 1});
+    LogsUsers.createIndex({author: 1, updatedAt: 1});
+    LogsSensors.createIndex({updatedAt: 1});
 
     //*** user collections
     Learn.createIndex({author: 1});

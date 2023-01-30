@@ -14,7 +14,7 @@
     export let text = {};
 
     //* support files
-    import {userExtras} from "../../client/systemStores.mjs";
+    import {userExtras} from "../../client/systemStores.js";
 
     //* local reactive variables
     let credit = 0;
