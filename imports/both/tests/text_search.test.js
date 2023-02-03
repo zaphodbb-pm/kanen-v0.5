@@ -1,7 +1,7 @@
 import assert from "assert";
 import fields from '../../client/text_search';
 
-describe("Text_Common check", function () {
+describe("Text_Search check", function () {
     let count = Object.keys(fields);
 
     it("check for 2 fields", function() {

@@ -7,4 +7,14 @@ import '../both/tests/systemGlobals.test';
 import '../both/tests/systemStores.test';
 import '../both/tests/text_common.test';
 import '../both/tests/text_search.test';
+import '../both/tests/routes.test';
 
+/* test client side functions */
+import '../Functions/application/tests/buildAllFields.test';
+import '../Functions/application/tests/buildNavLinks.test';
+import '../Functions/application/tests/getLang.test';
+
+
+/* component tests */
+import '../Components/tests/infobox.test';
+import '../Components/tests/reportbox.test';

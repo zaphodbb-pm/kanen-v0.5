@@ -30,11 +30,11 @@
 
 
     //* props
-    export let text = {};
-    export let config = {};
-    export let payload = {};
+    export let text = {title: "Title", srCaption: "Caption"};
+    export let config = {icon: "", image: "", alt: "alt", type: "primary"};
+    export let payload = {value: 0};
 
-    let className;
+    let className = "";
     // noinspection ReservedWordAsName
     export { className as class };
 
