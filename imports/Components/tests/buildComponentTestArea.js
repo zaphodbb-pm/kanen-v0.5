@@ -17,6 +17,10 @@ export function buildComponentTestArea(component, doc){
 
     const testArea = doc.createElement('div');
     testArea.setAttribute("id", testName);
+    testArea.style.position = "absolute";
+    testArea.style.top = "0";
+    testArea.style.left = "2000px";
+
     doc.body.appendChild(testArea);
 
     return testName;

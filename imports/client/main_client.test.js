@@ -18,3 +18,4 @@ import '../Functions/application/tests/getLang.test';
 /* component tests */
 import '../Components/tests/infobox.test';
 import '../Components/tests/reportbox.test';
+import '../Components/tests/gauge.test';

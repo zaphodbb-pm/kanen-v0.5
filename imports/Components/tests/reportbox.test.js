@@ -2,7 +2,7 @@ import assert from "assert";
 import HTMLParser from 'html-to-json-parser'; // see https://github.com/yousufkalim/html-to-json for documentation
 
 
-/* component key parts */
+/* component key parts and test data */
 const compName = "reportbox";
 const parent = "figure";
 const parentClasses = "reportbox report-warning test-class";
@@ -11,7 +11,6 @@ const firstChildName = "figcaption";
 const firstChildClasses = "sr-only";
 
 const lastChildName = "label";
-
 
 const props = {
   text: {
@@ -37,16 +36,15 @@ const props = {
 }
 
 
-/* boilerplate: add component test area to body */
+/* boilerplate activities */
+/** add component test area to body **/
 import {buildComponentTestArea} from './buildComponentTestArea';
 const testId = buildComponentTestArea(compName, document);
 
-
-
-/* import Component Under Test (CUT) */
+/** import Component Under Test (CUT) **/
 import CUT from '../widgets/reportbox.svelte';
 
-/* boilerplate: render component with appropriate props */
+/** render component with appropriate props **/
 new CUT({
   target: document.getElementById(testId),
   props: props
@@ -54,9 +52,8 @@ new CUT({
 
 
 
-
 /* finally, perform tests */
-describe(`component ${compName}`, async function () {
+describe(`component ${compName}.svelte`, async function () {
   let component, body, result;
 
   /* get rendered component and parse to JSON object */
