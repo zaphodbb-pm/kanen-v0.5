@@ -2,7 +2,7 @@ import assert from "assert";
 import HTMLParser from 'html-to-json-parser'; // see https://github.com/yousufkalim/html-to-json for documentation
 
 
-/* component key parts and test data */
+/* component key parts */
 const compName = "reportbox";
 const parent = "figure";
 const parentClasses = "reportbox report-warning test-class";
@@ -12,6 +12,8 @@ const firstChildClasses = "sr-only";
 
 const lastChildName = "label";
 
+
+/* test data */
 const props = {
   text: {
     title: "CUT",

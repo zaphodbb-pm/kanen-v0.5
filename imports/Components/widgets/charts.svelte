@@ -48,7 +48,6 @@
 
 
     $: {
-
         values = [...payload.value];
         startValues = [...payload.value];
         maxValue = payload?.max || 10;

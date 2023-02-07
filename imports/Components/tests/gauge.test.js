@@ -2,13 +2,15 @@ import assert from "assert";
 import HTMLParser from 'html-to-json-parser'; // see https://github.com/yousufkalim/html-to-json for documentation
 
 
-/* component key parts and test data */
+/* component key parts */
 const compName = "gauge";
 const parent = "figure";
 const parentClasses = "gauge-ring gauge-secondary gauge-warning test-class";
 const firstChildName = "data";
 const secondChildName = "figcaption";
 
+
+/* test data */
 const props = {
   text: {
     title: "CUT",
