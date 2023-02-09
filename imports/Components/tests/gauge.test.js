@@ -1,16 +1,12 @@
-import assert from "assert";
-import HTMLParser from 'html-to-json-parser'; // see https://github.com/yousufkalim/html-to-json for documentation
-
-
-/* component key parts */
+/* step 1: define component key parts */
 const compName = "gauge";
 const parent = "figure";
-const parentClasses = "gauge-ring gauge-secondary gauge-warning test-class";
+const parentClasses = ["gauge-ring", "gauge-secondary", "gauge-warning", "test-class"];
 const firstChildName = "data";
 const secondChildName = "figcaption";
 
 
-/* test data */
+/* step 2: construct test data */
 const props = {
   text: {
     title: "CUT",
@@ -31,7 +27,7 @@ const props = {
 }
 
 
-/* boilerplate activities */
+/* step 3: run boilerplate activities */
 /** add component test area to body **/
 import {buildComponentTestArea} from './buildComponentTestArea';
 const testId = buildComponentTestArea(compName, document);
@@ -47,62 +43,47 @@ new CUT({
 
 
 
-/* finally, perform tests */
-describe(`component ${compName}.svelte`, async function () {
-  let component, body, result;
+/* step 4: perform tests */
+import assert from "assert";
 
-  /* get rendered component and parse to JSON object */
-  before(async function () {
-    component = document.getElementById(testId);
-    result = await HTMLParser(component.innerHTML, false);
-  });
+describe(`component ${compName}.svelte`, function () {
+  let component;
 
   it(`${compName} exists`, function () {
-    const isParent = (result.type === parent);
-    assert.ok( isParent, `parent should be "${parent}" tag`);
+    component = document.querySelector(`#${testId} > ${parent}`);
+    assert.ok(component, `parent should be "${parent}" tag`);
+  });
 
-    const hasClasses = result.attributes?.class.trim().includes(parentClasses);
-    assert.ok( hasClasses, `parent classes should be "${parentClasses}"`);
+  it(`${compName} parent classes`, function () {
+    parentClasses.forEach( item => {
+      assert.ok( component.classList.contains(item), `parent classes should include "${item}"`);
+    });
 
-    const content = result.content;
-    assert.ok(Array.isArray(content), `parent should have an array of children`);
-
-    body = content.filter( item => typeof item === "object");
+    assert.ok( component.classList.contains(props.class), `parent classes should include "${props.class}"`);
   });
 
   it(`${compName} firstChild / payload`, function () {
-    const firstChild = body[0];
-    const content = firstChild.content.filter( item => typeof item === "object");
+    const payload = component.querySelector(firstChildName);
+    assert.ok(payload, `payload should be "${firstChildName}" tag`);
 
-    /* firstChild is the data area for a gauge */
-    const isFirstChild = (firstChild.type === firstChildName);
-    assert.ok( isFirstChild, `firstChild should be "${firstChildName}" tag`);
+    /** firstChild is the data area for a gauge **/
+    const attr = payload.getAttribute("value");
+    assert.ok( attr === props.payload.value.toString(), `firstChild value attribute should be "${props.payload.value}"`);
 
+    const styles = payload.getAttribute("style");
     const styleValue = `--gauge-value:${props.payload.value}; --gauge-max:${props.payload.max};`;
-    const attributeStyle = firstChild.attributes.style === styleValue;
-    const attributeValue = firstChild.attributes.value === props.payload.value.toString();
-    const attributes = attributeValue && attributeStyle;
-    assert.ok( attributes, `firstChild attributes should be {"value":"${props.payload.value}","style":${styleValue}}`);
+    assert.ok( styles === styleValue, `firstChild style should be "${styleValue}`);
 
-    /* check label area */
-    const value = content[0].content[0];
-    assert.ok(value === props.payload.value.toString(), `label value should be "${props.payload.value}"`);
-
-    /* check label formation */
-    const suffix = content[0].content[1].content[0];
-    assert.ok(suffix === props.text.suffix, `label suffix should be "${props.text.suffix}"`);
+    const number = payload.querySelector("span");
+    const label = number.innerText.includes(payload.value);
+    const suffix = number.innerText.includes(props.text.suffix);
+    assert.ok(label && suffix, `label should include "${props.payload.value}${props.text.suffix}"`);
   });
 
-
-  it(`${compName} secondChild`, function () {
-    const secondChild = body.pop();
-
-    const isSecondChild = (secondChild.type === secondChildName);
-    assert.ok( isSecondChild, `secondChild should be "${secondChildName}" tag`);
-
-    const content = secondChild.content;
-    assert.ok(Array.isArray(content) && content[0] === props.text.title,
-        `secondChild should have props value "${props.text.title}"`);
+  it(`${compName} secondChild / caption`, function () {
+    const caption = component.querySelector(secondChildName);
+    assert.ok(caption, `caption should be "${secondChildName}" tag`);
+    assert.ok(caption.innerText === props.text.title, `secondChild should wrap text "${props.text.title}"`)
   });
 
 });

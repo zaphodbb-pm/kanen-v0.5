@@ -43,7 +43,7 @@ new CUT({
 import assert from "assert";
 
 describe(`component ${compName}.svelte`, function () {
-  let component, body, result;
+  let component;
 
   it(`${compName} exists`, function () {
     component = document.querySelector(`#${testId} > ${parent}`);

@@ -1,8 +1,4 @@
-import assert from "assert";
-import HTMLParser from 'html-to-json-parser'; // see https://github.com/yousufkalim/html-to-json for documentation
-
-
-/* expected component key parts */
+/* step 1: define component key parts */
 const compName = "charts";
 const parent = "div";
 const parentClasses = "charts-wrapper";
@@ -56,6 +52,8 @@ new CUT({
 
 
 /* finally, perform tests */
+import assert from "assert";
+
 describe(`component ${compName}.svelte`, async function () {
   let component, body, result, content;
 
