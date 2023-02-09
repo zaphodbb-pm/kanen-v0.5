@@ -1,14 +1,15 @@
 /* step 1: define component key parts */
 const compName = "charts";
 const parent = "div";
-const parentClasses = "charts-wrapper";
+const parentClasses = ["charts-wrapper"];
 
 const firstChildName = "table";
 const firstChild0 = "caption";
 const firstChild1 = "thead";
 const firstChild2 = "tbody";
 
-/* test data */
+
+/* step 2: construct test data */
 const props = {
   text: {
     caption: "CUT",
@@ -32,10 +33,7 @@ const props = {
 }
 
 
-
-
-
-/* boilerplate activities */
+/* step 3: run boilerplate activities */
 /** add component test area to body **/
 import {buildComponentTestArea} from './buildComponentTestArea';
 const testId = buildComponentTestArea(compName, document);
@@ -51,107 +49,89 @@ new CUT({
 
 
 
-/* finally, perform tests */
+/* step 4: perform tests */
 import assert from "assert";
 
 describe(`component ${compName}.svelte`, async function () {
-  let component, body, result, content;
-
-  /* get rendered component and parse to JSON object */
-  before(async function () {
-    component = document.getElementById(testId);
-    result = await HTMLParser(component.innerHTML, false);
-  });
+  let component;
 
   it(`${compName} exists`, function () {
-    const isParent = (result.type === parent);
-    assert.ok( isParent, `parent should be "${parent}" tag`);
-
-    const hasClasses = result.attributes?.class.trim().includes(`${parentClasses} ${props.class}`);
-    assert.ok( hasClasses, `parent classes should be "${parentClasses}"`);
-
-    const content = result.content;
-    assert.ok(Array.isArray(content), `parent should have an array of children`);
-
-    body = content.filter( item => typeof item === "object");
+    component = document.querySelector(`#${testId} > ${parent}`);
+    assert.ok(component, `parent should be "${parent}" tag`);
   });
 
-  it(`${compName} firstChild is a table`, function () {
-    const firstChild = body[0];
-    content = firstChild.content.filter( item => typeof item === "object");
+  it(`${compName} parent classes`, function () {
+    parentClasses.forEach( item => {
+      assert.ok( component.classList.contains(item), `parent classes should include "${item}"`);
+    });
 
-    const isFirstChild = (firstChild.type === firstChildName);
-    assert.ok( isFirstChild, `firstChild should be "${firstChildName}" tag`);
-
-    const firstChildClasses = props.config.modifiers;
-    const hasClasses = firstChild.attributes?.class.trim().includes(firstChildClasses);
-    assert.ok( hasClasses, `firstChild classes should be "${firstChildClasses}"`);
-
-    const hasStyles = firstChild.attributes?.style.trim();
-    const hasMax = `--chart-max:${ (props.payload.max).toString()}`;
-    const hasColumns = `--column-count:${ (props.payload.value[0].length - 1 ).toString()}`;
-    assert.ok(hasStyles.includes(hasMax), `"${firstChildName}" should include "${hasMax}"`);
-    assert.ok(hasStyles.includes(hasColumns), `"${firstChildName}" should include "${hasColumns}"`);
+    assert.ok( component.classList.contains(props.class), `parent classes should include "${props.class}"`);
   });
 
+  it(`${compName} firstChild is a ${firstChildName} with classes`, function () {
+    const firstChild = component.querySelector(firstChildName);
+    assert.ok( firstChild, `firstChild should be "${firstChildName}" tag`);
 
-  it(`${compName} firstChild has caption`, function () {
-    assert.ok( content[0].type === firstChild0, `firstChild child[0] should be "${firstChild0}"`);
+    let modifiers = props.config.modifiers.split(" ");
+    modifiers = [...modifiers, `${compName}-${props.config.type}`]
 
-    const hasCaptionText = content[0].content[0] === props.text.caption;
-    assert.ok( hasCaptionText, `firstChild child[0] caption should be "${props.text.caption}"`);
+    modifiers.forEach( item => {
+      assert.ok( firstChild.classList.contains(item), `firstChild classes should include "${item}"`);
+    });
+
+    const styles = firstChild.getAttribute("style");
+    const style1 = `--chart-max:${props.payload.max}`;
+    const style2 = `--column-count:${props.payload.value[0].length - 1 }`;
+    assert.ok( styles.includes(style1) && styles.includes(style2), `firstChild style should include "${style1}" and "${style2}"`);
   });
 
-
-  it(`${compName} firstChild has thead`, function () {
-    assert.ok( content[1].type === firstChild1, `firstChild child[1] should be "${firstChild1}"`);
-
-    const theadContent = content[1].content.filter( item => typeof item === "object");
-    const tr = theadContent[0];
-    assert.ok( tr.type === "tr", `thead child should be "tr"`);
-
-    const trContent = tr.content.filter( item => typeof item === "object");
-    const th = trContent.map( item => item.type);
-    assert.ok( th.every( item => item === "th"), `thead every child should be "th"`);
-
-    const thCell = trContent.map( item => item.content[0]);
-    assert.deepStrictEqual(thCell, props.text.labelsColumn, `thead th labels should be "${props.text.labelsColumn}"`);
-
-    const thScope = trContent.map( item => item.attributes?.scope);
-    assert.ok( thScope.every( item => item === "col"), `thead every child scope should be "col"`);
+  it(`${compName} firstChild has ${firstChild0}`, function () {
+    const caption = component.querySelector(firstChild0);
+    assert.ok( caption, `${firstChildName} should have child "${firstChild0}" tag`);
+    assert.ok(caption.innerHTML === props.text.caption, `${firstChild0} text should be "${props.text.caption}"`)
   });
 
+  it(`${compName} firstChild has ${firstChild1}`, function () {
+    const thead = component.querySelector(firstChild1);
+    assert.ok( thead, `${firstChildName} should have child "${firstChild1}" tag`);
 
-  it(`${compName} firstChild has tbody`, function () {
-    assert.ok( content[2].type === firstChild2, `firstChild child[2] should be "${firstChild2}"`);
+    const tr = thead.querySelectorAll("tr");
+    assert.ok( tr && tr.length === 1, `${firstChild1} child should be "tr"`);
 
-    const tbodyContent = content[2].content.filter( item => typeof item === "object");
+    const th = thead.querySelectorAll("th");
+    const labels = props.text.labelsColumn;
+    th.forEach( (item, idx) => {
+      assert.ok( item.innerHTML === labels[idx], `thead th label should be "${labels[idx]}"`);
+      assert.ok(item.getAttribute("scope") === "col", `thead every th scope should be "col"`);
+    });
+  });
 
-    const tr = tbodyContent.map( item => item.type);
+  it(`${compName} firstChild has ${firstChild2}`, function () {
+    const tbody = component.querySelector(firstChild2);
+    assert.ok( tbody, `${firstChildName} should have child "${firstChild2}" tag`);
+
+    const tr = tbody.querySelectorAll("tr");
     const trLength = props.payload.value.length;
-    assert.ok( tr.every( item => item === "tr") && tr.length === trLength, `thead tr should be ${trLength} items`);
-
-    const rows = tbodyContent.map( item => item.content);
-    const trRows = rows.filter( item => typeof item === "object");
-
+    assert.ok( tr && tr.length === trLength, `${firstChild1} child should be ${trLength} rows`);
 
     /* walk through payload matrix */
-    for( let i = 0; i < trRows.length; i++){
-      const cols = trRows[i].filter( item => typeof item === "object");
+    for( let i = 0; i < trLength; i++){
+      const th = tr[i].querySelector("th");
+      assert.ok(th, `tbody tr first cell should be "th"`);
+      assert.ok(th.innerHTML === props.text.labelsRow[i], `tbody tr th text should be "${props.text.labelsRow[0]}"`);
+      assert.ok(th.getAttribute("scope") === "row", `tbody tr th should be "row" scoped`);
 
-      const first = cols.shift();
-      assert.ok(first.type === "th", `thead tr first cell should be "th"`);
-      assert.ok(first.content[0] === props.text.labelsRow[i], `thead tr first cell should be "th"`);
-      assert.ok(first.attributes.scope === "row", `thead tr first cell should be "row" scoped`);
+      const td = tr[i].querySelectorAll("td");
+      assert.ok(td.length === props.payload.value[i].length, `tbody tr should have ${props.payload.value[i].length} "td"s`);
 
       for( let k = 0; k < props.payload.value[i].length; k++){
-        assert.ok( cols[k].type === "td", `thead tr child should be "td"`);
-
-        const tdAttr = cols[k].attributes.style;
+        const tdAttr = td[k].getAttribute("style");
         const payload = props.payload.value[i][k].toString();
+        const inner = td[k].innerText;
 
         assert.ok(tdAttr.includes("--td-start"), `Row ${i} Column ${k} td style should include "--td-start" value`);
         assert.ok(tdAttr.includes(`--td-value:${payload}`), `Row ${i} Column ${k} td style should include "--td-value" with value ${payload}`);
+        assert.ok(inner === payload, `Row ${i} Column ${k} td text should be "${payload}"`)
       }
     }
   });
