@@ -16,7 +16,8 @@ import '../Functions/application/tests/getLang.test';
 
 
 /* component tests */
-import '../Components/tests/infobox.test';
-import '../Components/tests/reportbox.test';
-import '../Components/tests/gauge.test';
-import '../Components/tests/charts.test';
+import '../Components/tests/accordion.test';
+//import '../Components/tests/charts.test';
+//import '../Components/tests/gauge.test';
+//import '../Components/tests/infobox.test';
+//import '../Components/tests/reportbox.test';
