@@ -9,10 +9,14 @@ import '../both/tests/text_common.test';
 import '../both/tests/text_search.test';
 import '../both/tests/routes.test';
 
-/* test client side functions */
+/* test client side application functions */
 import '../Functions/application/tests/buildAllFields.test';
 import '../Functions/application/tests/buildNavLinks.test';
 import '../Functions/application/tests/getLang.test';
+
+/* test client side formatter functions */
+import '../Functions/formatters/tests/formatNumber.test';
+import '../Functions/formatters/tests/formatPhoneNumber.test';
 
 
 /* component tests */

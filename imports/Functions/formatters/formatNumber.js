@@ -1,5 +1,6 @@
 /**
  * Takes a number and scale factor, uses absolute value, scales number and returns a formatted string.
+ * Maintains a minimum of 3 significant digits.
  *
  * @function formatNumber
  * @memberOf Functions:formatters:
