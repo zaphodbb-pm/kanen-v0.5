@@ -136,4 +136,19 @@ describe(`component ${compName}.svelte`, async function () {
     }
   });
 
+  it(`${compName} has legend`, function () {
+    const ul = component.querySelector("ul");
+    assert.ok(ul, `legend should be "ul" tag`);
+
+    const label = ul.getAttribute("aria-label");
+    assert.ok(label === "Chart Legend", `Aria legend should be "Chart Legend"`);
+
+    const li = ul.querySelectorAll("li");
+
+    li.forEach( (item, idx) => {
+      const label = props.text.labelsRow[idx];
+      assert.ok( item.innerHTML === label, `Legend item ${idx} should have label "${label}"`);
+    });
+  });
+
 });

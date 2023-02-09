@@ -13,6 +13,8 @@
      * @param {String} content[]:lead - tab subtitle
      * @param {String} content[]:text - optional content to display in body of tab
      *
+     * @param {String} className - optional top level css controls
+     *
      * @see Goldilocks-CSS documentation for {@link https://zaphodbb-pm.github.io/goldilocks-css/pages/extend-components/tabs.html|tabs}
      *
      * @notes

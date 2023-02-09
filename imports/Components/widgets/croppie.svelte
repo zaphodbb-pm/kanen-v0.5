@@ -6,7 +6,8 @@
      * @memberOf Components:widgets:
      * @locus Client
      *
-     * @param {Object} doc - document object that can be shown
+     * @param {String} url - image url
+     * @param {Object} options - croppie set-up options as per third party library
      *
      * @fires 'croppie-result'
      *
