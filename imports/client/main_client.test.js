@@ -21,6 +21,7 @@ import '../Functions/formatters/tests/fractionalNumber.test';
 import '../Functions/formatters/tests/numString.test';
 import '../Functions/formatters/tests/parseJSONString.test';
 import '../Functions/formatters/tests/timeAgo.test';
+import '../Functions/formatters/tests/toDecimals.test';
 
 
 /* component tests */
