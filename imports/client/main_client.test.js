@@ -17,6 +17,10 @@ import '../Functions/application/tests/getLang.test';
 /* test client side formatter functions */
 import '../Functions/formatters/tests/formatNumber.test';
 import '../Functions/formatters/tests/formatPhoneNumber.test';
+import '../Functions/formatters/tests/fractionalNumber.test';
+import '../Functions/formatters/tests/numString.test';
+import '../Functions/formatters/tests/parseJSONString.test';
+import '../Functions/formatters/tests/timeAgo.test';
 
 
 /* component tests */
