@@ -24,7 +24,9 @@
  *  1. Supported types (Type) : boolean, string, number, float, array, object,
  *                      function, regexp, date, symbol
  *
- *  2. format isType(variable, options) checks for correctness and returns a boolean - ie isString(item)
+ *  2. Usage:  validate.isString(item) or validate.shapeString(item, opts)
+ *
+ *  3. format isType(variable, options) checks for correctness and returns a boolean
  *      options = {keys: ["field1", "field2"]} for checking object for keys present
  *
  *  3. format shapeType returns the original value if correct or the default value if available else undefined
