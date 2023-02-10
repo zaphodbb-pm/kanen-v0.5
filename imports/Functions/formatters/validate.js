@@ -75,9 +75,14 @@ const Validate = () => {
     const isNumber = (variable) => typeof variable === "number" && isFinite(variable);
 
     const shapeNumber = (variable, opts = {}) => {
-        return isNumber(variable)
-            ? Math.max(opts?.min ?? variable, Math.min( opts.max ?? variable, variable) )
-            : _logs(opts, "number", variable);
+        if( isNumber(variable) ){
+            const minValue = Math.max(variable, opts.min ?? variable);
+            const maxValue = Math.min(variable, opts.max ?? variable);
+            return maxValue >= variable ? (minValue < variable ? variable : minValue) : maxValue;
+        }else{
+            _logs(opts, "number", variable);
+            return opts.default ?? undefined;
+        }
     };
 
 
