@@ -14,7 +14,7 @@
 
 export function validatePhone(phone){
     //* clean input string
-    if(phone){
+    if(phone && typeof phone === "string"){
         let tel = phone.toLowerCase().replace(/[^\+\d\s\-\.\(\)\#\x\ext]+/g, "");
 
         //* test string for valid phone numbner

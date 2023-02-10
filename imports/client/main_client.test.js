@@ -22,6 +22,8 @@ import '../Functions/formatters/tests/numString.test';
 import '../Functions/formatters/tests/parseJSONString.test';
 import '../Functions/formatters/tests/timeAgo.test';
 import '../Functions/formatters/tests/toDecimals.test';
+import '../Functions/formatters/tests/validateEmail.test';
+import '../Functions/formatters/tests/validatePhone.test';
 
 
 /* component tests */
