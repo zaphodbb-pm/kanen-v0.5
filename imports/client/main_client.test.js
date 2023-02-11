@@ -1,5 +1,13 @@
 console.log("in main client test");
 
+/* adjust css for Mocha report */
+window.addEventListener("DOMContentLoaded", function(){
+    const report = document.getElementById("mocha-report");
+    report.style.columns = "auto 25rem";
+});
+
+
+
 /* check for common file existence */
 import '../both/tests/client.test';
 import '../both/tests/version.test';
@@ -14,6 +22,9 @@ import '../Functions/application/tests/buildAllFields.test';
 import '../Functions/application/tests/buildNavLinks.test';
 import '../Functions/application/tests/getLang.test';
 
+/* test client side file handler functions */
+import '../Functions/fileHandlers/tests/fileName.test';
+
 /* test client side formatter functions */
 import '../Functions/formatters/tests/formatNumber.test';
 import '../Functions/formatters/tests/formatPhoneNumber.test';
@@ -26,6 +37,8 @@ import '../Functions/formatters/tests/validate.test';
 import '../Functions/formatters/tests/validateEmail.test';
 import '../Functions/formatters/tests/validatePhone.test';
 
+/* test client side utility functions */
+import '../Functions/utilities/tests/deepClone.test';
 
 /* component tests */
 import '../Components/tests/accordion.test';

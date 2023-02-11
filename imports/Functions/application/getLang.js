@@ -15,5 +15,5 @@
 export function getLang(choice){
     const navigator = window?.navigator ?? {};
     let lang = navigator?.languages ? navigator.languages[0] : navigator?.language ?? "en";
-    return lang ? lang.substr(0, 2) : (choice ?? "en");
+    return lang ? lang.substring(0, 2) : (choice ?? "en");
 }

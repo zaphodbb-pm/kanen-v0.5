@@ -21,6 +21,6 @@ export function fileName(name, ext) {
     const minutes = now.getHours();
     const strMinutes = minutes < 10 ? "0" + minutes.toString() : minutes;
 
-    const stamp = `${now.getFullYear()}-${strMonth}-${now.getDate()}-${strHours}_${strMinutes}`;
+    const stamp = `${now.getFullYear()}-${strMonth}-${now.getDate()}#${strHours}_${strMinutes}`;
     return name + "_" + stamp + "." + ext;
 }
