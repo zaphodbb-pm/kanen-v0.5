@@ -1,18 +1,11 @@
 /* test data */
-const data = [
-  {object: "string", result: "string"},
-  {object: 1234, result: 1234},
-  {object: {field: 111}, result: {field: 111}},
-  {object: [{field: 111}], result: [{field: 111}] },
-]
+const name = "Test of debugConsole";
+const debugOptions = "ocefmprs";
 
-/*
-@param {String} level - see below
-@param {String} name - label to help identify / tag the console message
-@param {Array} vrbl - list of in program variable to report on
-@param {Array} label - labels to prefix variables for identification
-@param {String} debugOptions - a string of options that have been turned on by system
- */
+const data = [
+  {level: "k", label: ["One"], vrbl: [111], result: false},
+  {level: "o", label: ["One"], vrbl: [111], result: "string"},
+]
 
 
 import assert from "assert";
@@ -21,19 +14,22 @@ import {debugConsole} from "../debugConsole";
 describe("function debugConsole", function () {
   data.forEach( (test, idx) => {
 
-    it(`test ${idx + 1}: ${ JSON.stringify(test.object) }`, function(){
-      const result = debugConsole(test.object);
+    it(`test ${idx + 1}: ${ test.level } and result ${test.result}`, function(){
+      const result = debugConsole(test.level, name, test.vrbl, test.label, debugOptions);
+      let hasResult;
 
-      /* mutate original object */
-      if(typeof  test.object === "object"){
-        if(Array.isArray(test.object)){
-          test.object[0]["field"] = 222;
-        }else{
-          test.object["field"] = 222;
-        }
+      if(typeof result === "string"){
+        const hasHeader = result.includes("debug");
+        const hasName = result.includes(name);
+        const hasLabel = result.includes(test.label[0]);
+        const hasValue = result.includes(test.vrbl[0]);
+        hasResult = hasHeader && hasName && hasLabel && hasValue
+      }else{
+        const isBoolean = typeof result === "boolean";
+        hasResult = isBoolean && result === test.result;
       }
 
-      assert.deepStrictEqual(result, test.result, `Result was not "${JSON.stringify(result)}"`);
+      assert.ok(hasResult, `Result was not a ${test.result} as "${JSON.stringify(result)}"`);
     });
   });
 

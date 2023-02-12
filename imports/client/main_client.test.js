@@ -38,6 +38,7 @@ import '../Functions/formatters/tests/validateEmail.test';
 import '../Functions/formatters/tests/validatePhone.test';
 
 /* test client side utility functions */
+import '../Functions/utilities/tests/debugConsole.test';
 import '../Functions/utilities/tests/deepClone.test';
 
 /* component tests */
