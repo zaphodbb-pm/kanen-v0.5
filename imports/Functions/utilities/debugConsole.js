@@ -41,9 +41,9 @@ export function debugConsole(level, name, vrbl, label, debugOptions) {
         vrbl.forEach( (v, idx) => {
             let labelOut = label && label[idx] ? label[idx] : "out";
             let out = JSON.parse( JSON.stringify(v) );
-            console.log(`debug ${name}: ${labelOut}= `, out);
+            console.log(`debug ${name}: ${labelOut}=`, out);
 
-            outReturn = `debug ${name}: ${labelOut}= ` + JSON.stringify(out);
+            outReturn = `debug ${name}: ${labelOut}=`+ JSON.stringify(out);
         });
         return outReturn;
     }

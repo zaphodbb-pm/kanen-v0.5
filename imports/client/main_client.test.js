@@ -41,6 +41,7 @@ import '../Functions/formatters/tests/validatePhone.test';
 import '../Functions/utilities/tests/debugConsole.test';
 import '../Functions/utilities/tests/deepClone.test';
 import '../Functions/utilities/tests/dotNotation.test';
+import '../Functions/utilities/tests/generateId.test';
 
 /* component tests */
 import '../Components/tests/accordion.test';
