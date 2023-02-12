@@ -22,10 +22,9 @@
  */
 
 export function dotNotation(obj, string){
-
     let out = null;
 
-    if( obj && string ){
+    if( string && obj && typeof obj === "object" && !Array.isArray(obj) ){
 
         if( string.includes('.') ){
             out = obj;

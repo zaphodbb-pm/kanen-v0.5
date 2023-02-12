@@ -40,6 +40,7 @@ import '../Functions/formatters/tests/validatePhone.test';
 /* test client side utility functions */
 import '../Functions/utilities/tests/debugConsole.test';
 import '../Functions/utilities/tests/deepClone.test';
+import '../Functions/utilities/tests/dotNotation.test';
 
 /* component tests */
 import '../Components/tests/accordion.test';
