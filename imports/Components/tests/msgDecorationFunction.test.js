@@ -22,7 +22,7 @@ import assert from "assert";
 
 import {msgDecoration} from "../general/messages/msgDecoration";
 
-describe("function msgDecoration", function () {
+describe("function msgDecoration for component message", function () {
 
   data.forEach( (test, idx) => {
 

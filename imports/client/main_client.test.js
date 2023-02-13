@@ -47,9 +47,7 @@ import '../Functions/utilities/tests/i18n.test';
 
 import '../Functions/utilities/tests/sortBy.test';
 
-/* component tests */
-import '../Components/tests/msgDecoration.test';
-
+/* component widget tests */
 import '../Components/tests/accordion.test';
 import '../Components/tests/charts.test';
 import '../Components/tests/croppie.test';
@@ -57,3 +55,6 @@ import '../Components/tests/gauge.test';
 import '../Components/tests/infobox.test';
 import '../Components/tests/reportbox.test';
 import '../Components/tests/tabbedContent.test';
+
+/* component messages tests */
+import '../Components/tests/msgDecorationFunction.test';
