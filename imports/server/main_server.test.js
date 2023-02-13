@@ -8,4 +8,5 @@ import './tests/setupACL.test';
 import './tests/specialACL.test';
 
 /* server support functions */
- import './Functions/tests/buildAllFields.test'
+ import './Functions/tests/buildAllFields.test';
+import './Functions/tests/getOSinfo.test'
