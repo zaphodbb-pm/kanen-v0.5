@@ -14,7 +14,7 @@
 
 
 export function  groupBy(list, key){
-    if(!list){return {};}
+    if(!list || !Array.isArray(list)){return {};}
 
     return list.reduce(function(rv, x) {
         (rv[x[key]] = rv[x[key]] || []).push(x);
