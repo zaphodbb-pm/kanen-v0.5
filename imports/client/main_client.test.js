@@ -43,6 +43,7 @@ import '../Functions/utilities/tests/deepClone.test';
 import '../Functions/utilities/tests/dotNotation.test';
 import '../Functions/utilities/tests/generateId.test';
 import '../Functions/utilities/tests/groupBy.test';
+import '../Functions/utilities/tests/i18n.test';
 
 /* component tests */
 import '../Components/tests/accordion.test';
