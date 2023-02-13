@@ -1,6 +1,6 @@
 /**
  * When finding docs, restrict to user documents from collection also include documents from user's group members.
- * Optional tenentId filtered.
+ * Optional tenantId filtered.
  *
  * @function myDocuments
  * @memberOf Server:Functions:
