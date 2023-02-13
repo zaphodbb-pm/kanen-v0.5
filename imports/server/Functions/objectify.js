@@ -15,7 +15,10 @@
 
 export function objectify(field, val) {
     let object = {};
-    object[field] = val;
-    if(val === 0) {object[field] = {$exists: true};}
+
+    if(typeof field === "string"){
+        object[field] = val ?? {$exists: true};
+    }
+
     return object;
 }

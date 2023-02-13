@@ -11,3 +11,4 @@ import './tests/specialACL.test';
 import './Functions/tests/buildAllFields.test';
 import './Functions/tests/getOSinfo.test';
 import './Functions/tests/myDocuments.test';
+import './Functions/tests/objectify.test';
