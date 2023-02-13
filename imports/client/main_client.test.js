@@ -48,6 +48,8 @@ import '../Functions/utilities/tests/i18n.test';
 import '../Functions/utilities/tests/sortBy.test';
 
 /* component tests */
+import '../Components/tests/msgDecoration.test';
+
 import '../Components/tests/accordion.test';
 import '../Components/tests/charts.test';
 import '../Components/tests/croppie.test';
