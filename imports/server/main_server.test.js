@@ -13,3 +13,4 @@ import './Functions/tests/getOSinfo.test';
 import './Functions/tests/myDocuments.test';
 import './Functions/tests/objectify.test';
 import './Functions/tests/ownsDocument.test';
+import './Functions/tests/verifyRole.test';
