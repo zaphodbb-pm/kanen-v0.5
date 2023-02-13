@@ -29,11 +29,11 @@ const props = {
 
 /* step 3: run boilerplate activities */
 /** add component test area to body **/
-import {buildComponentTestArea} from './buildComponentTestArea';
+import {buildComponentTestArea} from '../../tests/buildComponentTestArea';
 const testId = buildComponentTestArea(compName, document);
 
 /** import Component Under Test (CUT) **/
-import CUT from '../widgets/gauge.svelte';
+import CUT from '../gauge.svelte';
 
 /** render component with appropriate props **/
 new CUT({

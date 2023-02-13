@@ -44,17 +44,18 @@ import '../Functions/utilities/tests/dotNotation.test';
 import '../Functions/utilities/tests/generateId.test';
 import '../Functions/utilities/tests/groupBy.test';
 import '../Functions/utilities/tests/i18n.test';
-
 import '../Functions/utilities/tests/sortBy.test';
 
-/* component widget tests */
-import '../Components/tests/accordion.test';
-import '../Components/tests/charts.test';
-import '../Components/tests/croppie.test';
-import '../Components/tests/gauge.test';
-import '../Components/tests/infobox.test';
-import '../Components/tests/reportbox.test';
-import '../Components/tests/tabbedContent.test';
+/* component associated function tests */
+import '../Components/general/tests/msgDecorationFunction.test';
 
-/* component messages tests */
-import '../Components/tests/msgDecorationFunction.test';
+/* component widget tests */
+import '../Components/widgets/tests/accordion.test';
+import '../Components/widgets/tests/charts.test';
+import '../Components/widgets/tests/croppie.test';
+import '../Components/widgets/tests/gauge.test';
+import '../Components/widgets/tests/infobox.test';
+import '../Components/widgets/tests/reportbox.test';
+import '../Components/widgets/tests/tabbedContent.test';
+
+

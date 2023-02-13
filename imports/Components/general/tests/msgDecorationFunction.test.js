@@ -20,7 +20,7 @@ const iconFrags = {
 
 import assert from "assert";
 
-import {msgDecoration} from "../general/messages/msgDecoration";
+import {msgDecoration} from "../messages/msgDecoration";
 
 describe("function msgDecoration for component message", function () {
 

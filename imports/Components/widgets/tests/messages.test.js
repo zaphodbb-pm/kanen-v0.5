@@ -1,35 +1,54 @@
-/* step 1: define component key parts */
-const compName = "accordion";
-const parent = "div";
-const parentClasses = "accordions";
+/* must be run by app-test */
 
+
+
+/* step 1: define component key parts */
+const compName = "messages";
+const parent = "aside";
+const parentClasses = "system-messages";
+
+
+
+/*
 const firstChildName = "details";
 const firstChildClasses = "accordion";
 
 const ChildName0 = "summary";
 const ChildName1 = "div";
 
+ */
 
-/* step 2: construct test data */
+
+/* step 2a: construct test data */
+import {generateId} from "../../../Functions/utilities/generateId";
 const props = {
+  testMsg: {
+      id: generateId(8),
+      state: "success",
+      text: "success message"
+  }
 
+  /*
   content: [
     {icon: "label_icon1", label: "Item One", text: "text for tab one.", style: "is-expander-primary"},
     {icon: "label_icon2", label: "Item Two", text: "text for tab two.", style: "is-expander-secondary"},
     {icon: "label_icon3", label: "Item Three", text: "text for tab three.", style: "is-expander-tertiary"},
   ],
 
-  class: "test-class"
+   */
 }
+
+
 
 
 /* step 3: run boilerplate activities */
 /** add component test area to body **/
-import {buildComponentTestArea} from './buildComponentTestArea';
+import {messages} from '/imports/client/systemStores';
+import {buildComponentTestArea} from '../../tests/buildComponentTestArea';
 const testId = buildComponentTestArea(compName, document);
 
 /** import Component Under Test (CUT) **/
-import CUT from '../widgets/accordion.svelte';
+import CUT from '../../general/messages/messages.svelte';
 
 /** render component with appropriate props **/
 new CUT({
@@ -37,7 +56,7 @@ new CUT({
   props: props
 });
 
-
+console.log("messages before", messages);
 
 /* step 4: perform tests */
 import assert from "assert";
@@ -50,10 +69,22 @@ describe(`component ${compName}.svelte`, function () {
     assert.ok(component, `parent should be "${parent}" tag`);
 
     const hasCompClass = component.classList.contains(parentClasses);
-    const hasModifier = component.classList.contains(props.class);
-    assert.ok( hasCompClass && hasModifier, `parent classes should be "${parentClasses} ${props.class}"`);
+    assert.ok( hasCompClass, `parent classes should be "${parentClasses}"`);
   });
 
+  it(`${compName} test message`, function () {
+    component = document.querySelector(`#${testId} > ${parent}`);
+    assert.ok(component, `parent should be "${parent}" tag`);
+
+    const hasCompClass = component.classList.contains(parentClasses);
+    assert.ok( hasCompClass, `parent classes should be "${parentClasses}"`);
+  });
+
+
+
+
+
+  /*
   it(`${compName} children of ${firstChildName}`, function () {
     const body = component.querySelectorAll(firstChildName);
     assert.ok( body.length === props.content.length, `Should have ${props.content.length} "${firstChildName}" children`);
@@ -75,5 +106,7 @@ describe(`component ${compName}.svelte`, function () {
       assert.ok(div.innerHTML === props.content[i].text, `text should be "${props.content[i].text}"`);
     }
   });
+
+   */
 
 });
