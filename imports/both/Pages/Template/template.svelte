@@ -79,9 +79,9 @@
 <main class="main-content">
 
     <!-- actual page content or Components -->
-    <h2>{text.examples}</h2>
+    <h2 data-tp_heading>{text.examples}</h2>
 
-    <div class="row">
+    <div class="row" data-tp_block1>
         <div class="column">
             <div>{message} {textWithout}</div>
             <div>{@html message} {textWith}</div>
@@ -97,5 +97,7 @@
 
 
     <!-- Instructional information only - can be deleted -->
-    <TemplateInfo {currentRoute} {params} {query} {text} />
+    <div data-tp_block2>
+        <TemplateInfo  {currentRoute} {params} {query} {text} />
+    </div>
 </main>

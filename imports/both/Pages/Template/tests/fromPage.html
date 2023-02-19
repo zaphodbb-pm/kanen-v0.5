@@ -1,0 +1,126 @@
+<main class="main-content"><h2>Examples</h2>
+    <div class="row">
+        <div class="column">
+            <div>&lt;b&gt;template page&lt;/b&gt; mounted without @html</div>
+            <div><b>template page</b> mounted with @html</div>
+        </div>
+        <div class="column">
+            <div class="box-shadow">The <em>time</em> has come to <u>speak</u> of many things ...</div>
+        </div>
+    </div>
+    <hr class="space-container-vert">
+    <h2>Structural Page Files</h2>
+    <p>
+    <p>Each unique page has its own directory and can be added or removed as needed. Each Page is stand-alone and is
+        controlled by 5 main files and one optional one.</p>
+    <p>A Functions directory is also provided. Generally, all logic should be abstracted to Functions outside the Page.
+        This allows for more rigorous testing of these Functions and makes the Page simpler. Page testing is performed
+        by Cypress based test files. Both Functions and page testing files are in the associated 'test' directory that
+        is unique to each page.</p></p>
+    <div class="table-scroll">
+        <table class="table is-striped scrollbreak-col-4">
+            <thead>
+            <tr>
+                <th>File Name</th>
+                <th>Locus</th>
+                <th>Exports</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>template_nav.js</td>
+                <td>Client, Server</td>
+                <td>nav:object, <br>link:string, <br>icon: string, <br>roles: object</td>
+                <td>Per Page navigation and text information. Roles are used by server to control access to collections.
+                    Roles are also used on the client to allow or suppress Page navigation link and Page rendering.
+                </td>
+            </tr>
+            <tr>
+                <td>template_text.js</td>
+                <td>Client</td>
+                <td>header:object, <br>page:object</td>
+                <td>All text should be abstracted from Components. This then supports language switching based on user
+                    preferences.
+                </td>
+            </tr>
+            <tr>
+                <td>template_loader.svelte</td>
+                <td>Client</td>
+                <td>function: extends SvelteComponent</td>
+                <td>Used by router to dynamically load svelte page into the main Page wrapper. Note that only static
+                    file names are supported by 'import', hence each Page needs its own unique loader.
+                </td>
+            </tr>
+            <tr>
+                <td>template_route.js</td>
+                <td>Client</td>
+                <td>default:object</td>
+                <td>Configuration object for 'svelte-pathfinder' npm module. Builds unique Page to be rendered into the
+                    parent 'App'. Uses output from 'template_loader.svelte' and 'template_nav.js'.
+                </td>
+            </tr>
+            <tr>
+                <td>template.svelte</td>
+                <td>Client</td>
+                <td></td>
+                <td>Page layout that will be rendered by the router. This is the place that all the interesting things
+                    (that you can dream up) will happen. Uses 'template_text.js' and optional 'template_config.js' files
+                    to hydrate the Page and Components with static language controlled information.
+                </td>
+            </tr>
+            <tr>
+                <td>template_config.js</td>
+                <td>Client</td>
+                <td>pageConfig:object</td>
+                <td>Optional configuration file for Components embedded in a Page. These would typically be widgets such
+                    accordions, progress bars, info boxes, etc. CSS classes, data points and other items would be set
+                    here. Note that any text would be contained in the 'template_text.js' file
+                </td>
+            </tr>
+            <tr>
+                <td>/Functions/*</td>
+                <td>Client</td>
+                <td></td>
+                <td>These Functions are Page specific only. General Functions are handled in different directories.</td>
+            </tr>
+            <tr>
+                <td>/tests/cypress/* <br> /tests/Functions/*</td>
+                <td>Client</td>
+                <td></td>
+                <td>Function testing is handled by Mocha. Page testing is handled by Cypress. Component testing is
+                    handled by a special Mocha jig and uses 'jsdom'.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr class="space-container-vert">
+    <h2>Component Properties</h2>
+    <p>Each rendered Page gets passed 'currentRoute' and 'params', from the router. 'currentRoute' contains information
+        about the current route and the child routes. 'params' allows you to send any additional params to the rendered
+        component. This is useful if you add any logic in your template, to check user's permission for instance, and
+        want to send extra info to the rendered component. The config file provides static set-up information for some
+        Components. </p>
+    <div class="row has-4x-minwidth">
+        <article class="column"><h3>currentRoute</h3>
+            <pre><code>"/template"</code></pre>
+        </article>
+        <article class="column"><h3>params</h3>
+            <pre><code>{
+    "specials": "extra values"
+}</code></pre>
+        </article>
+        <article class="column"><h3>query</h3>
+            <pre><code>{
+    "desire": 42
+}</code></pre>
+        </article>
+        <article class="column"><h3>Config File</h3>
+            <pre><code>{
+    "components": {},
+    "widgets": {}
+}</code></pre>
+        </article>
+    </div>
+</main>

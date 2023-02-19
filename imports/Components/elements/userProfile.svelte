@@ -7,6 +7,10 @@
      * @locus Client
      *
      * @param {Object} text
+     * @param {String} text.toProfile
+     * @param {String} text.changePassword
+     * @param {String} text.logOut
+     * @param {String} text.signIn
      */
 
     export let text;
@@ -41,7 +45,7 @@
 
 
     {#if user && user._id }
-        <div class="dropdown is-right">
+        <div class="user-profile dropdown is-right">
 
             <div class="dropdown-trigger" tabindex="0">
                 <div class="dropdown-trigger" tabindex="0">
@@ -69,7 +73,7 @@
             </div>
         </div>
     {:else}
-        <a href="/login" class="icon-nav" title="Login">
+        <a href="/login" class="user-profile icon-nav" title="Login">
             <span class="icon-bg-login"></span>
             <span>{text.signIn}</span>
         </a>

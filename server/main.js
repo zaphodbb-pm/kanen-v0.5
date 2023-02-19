@@ -21,7 +21,7 @@ import '/imports/server/indexCollections';
 
 
 //** isomorphic routines
-import {LogsUser} from "/imports/both/collectionDefs";
+import {LogsUsers} from "/imports/both/collectionDefs";
 import Version from '/imports/both/version';
 
 
@@ -108,7 +108,7 @@ if (Meteor.isServer) {
 
         if(user){
             let doc = buildUserDoc("login", data, user);
-            LogsUser.insert(doc);
+            LogsUsers.insert(doc);
         }
     });
 
@@ -118,7 +118,7 @@ if (Meteor.isServer) {
 
             if(user){
                 let doc = buildUserDoc("logout", data, user);
-                LogsUser.insert(doc);
+                LogsUsers.insert(doc);
             }
         }
     });
