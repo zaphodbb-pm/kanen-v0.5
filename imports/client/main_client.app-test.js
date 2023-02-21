@@ -7,28 +7,10 @@ window.addEventListener("DOMContentLoaded", function(){
     report.style.columns = "auto 20rem";
 });
 
+/* import required support files */
 import {Meteor} from "meteor/meteor";
 import {goto} from  'svelte-pathfinder';
-
 import assert from "assert";
-
-/*
-let observer;
-
-function DOMchange(target, config){
-    return new Promise(resolve => {
-        observer = new MutationObserver(function(muts){
-            console.log("in observer", muts);
-            let result = target.innerHTML;
-            resolve(result);
-        });
-
-        observer.observe(target, config);
-    });
-}
- */
-
-
 
 
 describe("run tests", function () {
@@ -47,15 +29,15 @@ describe("run tests", function () {
 
         if(user){
             await goto("/home");
+            await import("../both/Pages/Home/tests/homePage.test");
 
-            console.log("home page");
 
             await goto("/template");
-            console.log("template page");
             await import("../both/Pages/Template/tests/templatePage.test");
 
             await goto("/icons");
             console.log("icons page");
+
         }
 
     });

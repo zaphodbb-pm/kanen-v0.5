@@ -47,21 +47,21 @@
 
 <main class="main-content">
 
-    <div class="row is-centered-vert has-5x-minwidth">
+    <div class="row is-centered-vert has-5x-minwidth" data-tp_main>
         <section class="column">
             <h2>{pageText.overview}</h2>
 
-            <div class="">{@html pageText.intro}</div>
+            <div>{@html pageText.intro}</div>
         </section>
 
         <div class="column">
             <figure>
-                <img src="/home-page.jpg" class="" alt="Two puppies with shoe">
+                <img src="/home-page.jpg" alt="Two puppies with shoe">
             </figure>
         </div>
     </div>
 
-    <figure class="blockquote space-container-vert">
+    <figure class="blockquote space-container-vert" data-tp1_figure>
         <blockquote>
             <p>{@html pageText.quote}</p>
         </blockquote>
@@ -72,7 +72,7 @@
 
     <h2>{pageText.details}</h2>
 
-    <div class="row">
+    <div class="row" data-tp_notes>
         <div class="column">
             <section class="box-shadow">
                 <h3 class="has-text-tertiary has-text-centered">{pageText.philosophy.title}</h3>
@@ -112,7 +112,7 @@
         </div>
     </div>
 
-    <section class="space-container-vert">
+    <section class="space-container-vert" data-tp_tabs>
         <h3 class="has-text-tertiary">{pageText.explore}</h3>
         <TabContent class="is-fullwidth" content="{tabbed}"/>
     </section>
