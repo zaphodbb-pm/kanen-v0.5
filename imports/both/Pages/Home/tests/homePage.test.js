@@ -6,9 +6,9 @@ const hasHdrSubTitle = false;
 const hasHdrBody = false;
 
 const tp_main_columns = 2;
-const tp_headings = 2;
-const tp_rows = 8;
-const tp_articles = 4;
+const tp_notes_columns = 3;
+const tp_tabs = 5;
+
 
 
 
@@ -21,6 +21,7 @@ import loader from "../home_loader.svelte";
 
 /* perform page tests */
 import assert from "assert";
+
 
 describe(`page: ${pageName}`, function () {
 
@@ -110,39 +111,32 @@ describe(`page: ${pageName}`, function () {
 
             assert.ok(figCheck, `Figure not structured properly.`);
         });
+
+
+        it("has notes sections", function () {
+            const notes = main.querySelector("[data-tp_notes]");
+            assert.ok(notes, `Missing "notes" region.`);
+
+            const notesColumns = notes.querySelectorAll("section");
+            assert.strictEqual(notesColumns.length, tp_notes_columns, `Expected ${tp_notes_columns} columns but found ${notesColumns.length}.`);
+        });
+
+
+        it("has tabbed region", function () {
+            const tabs = main.querySelector("[data-tp_tabs]");
+
+            const h3 = tabs.querySelector("h3");
+            assert.ok(h3 && h3.innerHTML.length > 3, `Missing "h3" or heading text.`);
+
+            const labels = tabs.querySelectorAll(".tabs input");
+            assert.ok(labels && labels.length === tp_tabs, `Expected ${tp_tabs} tabs but found ${labels.length}.`);
+
+            const labelsLi = tabs.querySelectorAll(".tabs > ul > li");
+            assert.ok(labelsLi && labelsLi.length === tp_tabs, `Expected ${tp_tabs} tabs ul li but found ${labelsLi.length}.`);
+
+            const sections = tabs.querySelectorAll(".tabs .tab-content section");
+            assert.ok(sections && sections.length === tp_tabs, `Expected ${tp_tabs} tab-content sections but found ${sections.length}.`);
+        });
     });
-
-
-
-
-    /* optional page files / page specific requirements */
-/*
-import _info from "../../Template/template_info.svelte";
-
-describe("optional file checks", function(){
-
-    it(`has optional file '${pageName}_info'`, function () {
-        assert.ok(_info && typeof _info === "function", `Missing optional file "${pageName}_info"`);
-    });
-
-    const opt1 = document.querySelector("[data-tp_block2]");
-
-    it(`has optional file '${pageName}_info' loaded`, function () {
-        assert.ok(opt1 && typeof opt1 === "object", `Optional file not in DOM`);
-    });
-
-    const h2 = opt1.querySelectorAll("h2");
-
-    it(`has h2 elements`, function () {
-        assert.strictEqual(h2.length, 2, `Should have only 2 h2's.`);
-    });
-
-   h2.forEach( item => {
-       const check = item && typeof item.innerHTML === "string" && item.innerHTML.length > 2;
-       assert.ok( check, `Should have text of sufficient length.`, )
-   })
-});
-
- */
 
 });

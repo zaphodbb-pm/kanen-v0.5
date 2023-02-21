@@ -13,6 +13,9 @@ import {goto} from  'svelte-pathfinder';
 import assert from "assert";
 
 
+//const waitFor = delay => new Promise(resolve => setTimeout(resolve, delay));
+
+
 describe("run tests", function () {
     let user;
 
@@ -31,12 +34,15 @@ describe("run tests", function () {
             await goto("/home");
             await import("../both/Pages/Home/tests/homePage.test");
 
-
             await goto("/template");
             await import("../both/Pages/Template/tests/templatePage.test");
 
+            /*
+
             await goto("/icons");
             console.log("icons page");
+
+             */
 
         }
 
