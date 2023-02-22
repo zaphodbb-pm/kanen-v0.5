@@ -38,6 +38,24 @@ describe("run tests", function () {
             await import("../both/Pages/FooterExtras/tests/footerExtrasPage.test");
 
             await import("../both/Pages/Learn/tests/learnPage.test");
+
+            await import("../both/Pages/Testing/tests/testingPage.test");
+
+            await import("../both/Pages/Cards/tests/cardsPage.test");
+
+            await import("../both/Pages/WidgetsContent/tests/widgetsContent.test");
+
+            await import("../both/Pages/AdminPanel/tests/adminPanelPage.test");
+
+            await import("../both/Pages/Starter/tests/starterPage.test");
+
+            await import("../both/Pages/PubSub/tests/pubSubPage.test");
+
+            await import("../both/Pages/Login/tests/loginPage.test");
+
+            await import("../both/Pages/MyProfile/tests/myProfilePage.test");
+
+            await import("../both/Pages/ChangePassword/tests/changePasswordPage.test");
         }
 
     });

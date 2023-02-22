@@ -152,7 +152,7 @@ export const page = {
 
                         "<a href='/admin-panel'>AdminPanel</a> - a variety of dashboard like display widgets.",
 
-                        "<a href='/starter-list-form'>Starter ListForm</a> - list display and form builder example. " +
+                        "<a href='/starter'>Starter ListForm</a> - list display and form builder example. " +
                         "Form includes all of the various field types and configurations.",
 
                         "<a href='/pubSub'>Pub Sub</a> - example of connecting to MongoDB and using <em>Change Streams</em> " +

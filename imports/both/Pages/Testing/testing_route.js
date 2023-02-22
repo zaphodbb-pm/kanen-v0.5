@@ -10,6 +10,7 @@
  * @property {String}  route.name - link that router will use
  * @property {Object}  route.roles - {read: [String], write [String]}
  * @property {Object}  route.component - svelte module
+ * @property {Object}  route.query - optional query string to add
  * @property {String}  route.icon - Navbar icon to show
  * @property {String}  route.label - Navbar text to show
  * @property {Number}  route.group - for side navigation; group routes into a block
