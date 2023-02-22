@@ -11,6 +11,14 @@ const tp_rows = 8;
 const tp_articles = 4;
 
 
+/* support functions */
+const waitFor = delay => new Promise(resolve => setTimeout(resolve, delay));
+
+let main;
+let heading;
+
+import {goto} from  'svelte-pathfinder';
+
 
 /* import support files for existence check */
 import {pageConfig} from "../template_config";
@@ -24,6 +32,15 @@ import loader from "../template_loader.svelte";
 import assert from "assert";
 
 describe(`page: ${pageName}`, function () {
+
+    /* load page, wait for svelte to finish building the page and then extract regions to investigate */
+    before( async function(){
+        await goto("/" + pageName);
+        await waitFor(50);
+
+        heading = document.querySelector(".page-header");
+        main = document.querySelector(".main-content");
+    });
 
     describe("page support files", function(){
         it(`has "${pageName}_config`, function () {
@@ -55,21 +72,19 @@ describe(`page: ${pageName}`, function () {
     });
 
     describe("header check", function(){
-        const header = document.querySelector(".page-header");
-
         it("has header", function () {
-            assert.ok(header, `Missing page header region`);
+            assert.ok(heading, `Missing page header region`);
         });
 
         it("header", function () {
-            const h1 = header.querySelector("h1");
+            const h1 = heading.querySelector("h1");
             const hasH1 = h1 && typeof h1.innerHTML === "string" && h1.innerHTML.length > 2;
             assert.ok(hasH1, `Incorrect h1: "${h1.innerHTML}"`);
         });
 
         if(hasHdrSubTitle) {
             it("sub-title", function () {
-                const pST = header.querySelector("p.sub-title");
+                const pST = heading.querySelector("p.sub-title");
                 let hasST = true;
 
                 if (pST) {
@@ -82,7 +97,7 @@ describe(`page: ${pageName}`, function () {
 
         if(hasHdrBody) {
             it("heading body", function(){
-                const body = header.querySelector("p:not(.sub-title)");
+                const body = heading.querySelector("p:not(.sub-title)");
                 let hasBody = true;
 
                 if(body){
@@ -95,19 +110,15 @@ describe(`page: ${pageName}`, function () {
     });
 
     describe("main-content check", function(){
-        const main = document.querySelector(".main-content");
-
         it("has main", function () {
             assert.ok(main, `Missing ".main-content" region`);
         });
 
-        const columns = main.querySelectorAll("[data-tp_main] .column");
         it("has column regions", function () {
+            const columns = main.querySelectorAll("[data-tp_main] .column");
             assert.strictEqual(columns.length, tp_main_columns, `Expected ${tp_main_columns} columns but found ${columns.length}.`);
         });
     });
-
-
 
 
 
@@ -115,30 +126,27 @@ describe(`page: ${pageName}`, function () {
     import _info from "../template_info.svelte";
 
     describe("additional component checks", function(){
-
         it(`has optional file '${pageName}_info'`, function () {
             assert.ok(_info && typeof _info === "function", `Missing optional file "${pageName}_info"`);
         });
 
-        const opt1 = document.querySelector("[data-tp_info]");
-
         it(`has optional file '${pageName}_info' loaded`, function () {
+            const opt1 = main.querySelector("[data-tp_info]");
             assert.ok(opt1 && typeof opt1 === "object", `Optional file not in DOM`);
         });
 
-        const h2 = opt1.querySelectorAll("h2");
-
         it(`has h2 elements`, function () {
+            const h2 = main.querySelectorAll("[data-tp_info] h2");
             assert.strictEqual(h2.length, tp_headings, `Should have only ${tp_headings} h2's.`);
+
+            h2.forEach( item => {
+                const check = item && typeof item.innerHTML === "string" && item.innerHTML.length > 2;
+                assert.ok( check, `Should have text of sufficient length.`, )
+            })
         });
 
-       h2.forEach( item => {
-           const check = item && typeof item.innerHTML === "string" && item.innerHTML.length > 2;
-           assert.ok( check, `Should have text of sufficient length.`, )
-       })
-
         it(`has table, thead and tbody elements`, function () {
-            const table = opt1.querySelector("table");
+            const table = main.querySelector("[data-tp_info] table");
             assert.ok(table, `Should have a table element.`);
 
             const thead = table.querySelector("thead");
@@ -151,13 +159,13 @@ describe(`page: ${pageName}`, function () {
             assert.strictEqual(tr.length, tp_rows, `Should have ${tp_rows} rows in tbody, found ${tr.length} rows.`);
         });
 
-
-        const regions = opt1.querySelectorAll("article");
         it(`has region of articles`, function () {
+            const regions = main.querySelectorAll("[data-tp_info] article");
             assert.strictEqual(regions.length, tp_articles, `Should have ${tp_articles} "article" tags, found ${regions.length} "article"s.`);
         });
 
         it(`has structured articles`, function () {
+            const regions = main.querySelectorAll("[data-tp_info] article");
             regions.forEach( item => {
                 const heading = item.querySelector("h3");
                 assert.ok(heading, `"article" should have an "h3" element.`);

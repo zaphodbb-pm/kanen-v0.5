@@ -79,7 +79,7 @@
 
     <h2>{i18n(page.page, "count", $lang) + allIcons.length}</h2>
 
-    <div class="row has-3x-minwidth">
+    <div class="row has-3x-minwidth" data-tp_icons>
         {#each allIcons as icon}
 
             <div class="column">

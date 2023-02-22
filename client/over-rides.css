@@ -18,9 +18,9 @@
 
 div#mocha {
     position: fixed;
-    width: 10vh;
+    width: 25vh;
     height: 50vw;
-    left: 16px;
+    right: 32px;
     bottom: 16px;
     resize: horizontal;
     z-index: 1000;

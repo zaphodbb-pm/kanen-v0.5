@@ -1,17 +1,17 @@
 <script>
-    /**
-     * Site home page with project commentary
-     *
-     * @name home
-     * @module
-     * @memberOf Pages:home
-     * @locus Client
-     *
-     * @param {String} currentRoute - page path name
-     * @param {Object} params - any parameters from path url
-     * @param {Object} query - any query fragment from path url
-     *
-     */
+/**
+ * Site home page with project commentary
+ *
+ * @name home
+ * @module
+ * @memberOf Pages:home
+ * @locus Client
+ *
+ * @param {String} currentRoute - page path name
+ * @param {Object} params - any parameters from path url
+ * @param {Object} query - any query fragment from path url
+ *
+ */
 
 
     //* page set-up boilerplate *************************************
@@ -38,13 +38,7 @@
     const pageText = i18n(page, "page", $lang);
     const tabbed = i18n(page.components, "tabbed", $lang);
 
-    import TabContent from "../../../Components/widgets/tabbedContent.svelte";
-
-import { onMount } from 'svelte';
-
-onMount(() => {
-    console.log('the component has mounted');
-});
+    import TabContent from "../../../Components/widgets/tabbedContent.svelte"
 
 </script>
 

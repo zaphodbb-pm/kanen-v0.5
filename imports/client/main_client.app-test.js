@@ -9,11 +9,7 @@ window.addEventListener("DOMContentLoaded", function(){
 
 /* import required support files */
 import {Meteor} from "meteor/meteor";
-import {goto} from  'svelte-pathfinder';
 import assert from "assert";
-
-
-//const waitFor = delay => new Promise(resolve => setTimeout(resolve, delay));
 
 
 describe("run tests", function () {
@@ -31,19 +27,17 @@ describe("run tests", function () {
     after(async function () {
 
         if(user){
-            await goto("/home");
             await import("../both/Pages/Home/tests/homePage.test");
 
-            await goto("/template");
             await import("../both/Pages/Template/tests/templatePage.test");
 
-            /*
+            await import("../both/Pages/Icons/tests/iconsPage.test");
 
-            await goto("/icons");
-            console.log("icons page");
+            await import("../both/Pages/Colours/tests/coloursPage.test");
 
-             */
+            await import("../both/Pages/FooterExtras/tests/footerExtrasPage.test");
 
+            await import("../both/Pages/Learn/tests/learnPage.test");
         }
 
     });

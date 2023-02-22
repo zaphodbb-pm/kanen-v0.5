@@ -29,7 +29,6 @@
     {/if}
 
     {#if header.body}
-        {#if !header.subtitle}<p></p>{/if}
-        <p>{@html header.body}</p>
+        <p class:space-block-vert={!header.subtitle}>{@html header.body}</p>
     {/if}
 </header>
