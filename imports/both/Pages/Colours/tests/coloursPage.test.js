@@ -5,6 +5,9 @@ const navLinks = 7;
 const hasHdrSubTitle = false;
 const hasHdrBody = true;
 
+const tp_main_columns = 3;
+const tp_rows = 7;
+
 let main;
 let heading;
 
@@ -100,6 +103,30 @@ describe(`page: ${pageName}`, function () {
     describe("main-content check", function(){
         it("has main", function () {
             assert.ok(main, `Missing ".main-content" region`);
+        });
+
+        it(`has h2 elements`, function () {
+            const h2 = main.querySelector("h2");
+            assert.ok(h2 && h2.innerHTML.length > 2,  `Should have an "h2" element.`);
+        });
+
+        it(`has columns of colours`, function () {
+            const columns = main.querySelectorAll(".column");
+            const check = columns && columns.length === tp_main_columns;
+            assert.ok(check,  `Should have ${tp_main_columns} columns, found ${columns.length}.`);
+
+            columns.forEach(item => {
+                const h3 = item.querySelector("h3");
+                assert.ok(h3 && h3.innerHTML.length > 2,  `Should have an "h3" element.`);
+
+                const div = item.querySelectorAll("div");
+                const checkDiv = div && div.length === tp_rows;
+                assert.ok(checkDiv,  `Should have ${tp_rows} rows, found ${div?.length ?? 0}.`);
+
+                const label = item.querySelectorAll("p");
+                const checkLabels = label && label.length === tp_rows;
+                assert.ok(checkLabels,  `Should have ${tp_rows} labels, found ${label?.length ?? 0}.`);
+            });
         });
     });
 

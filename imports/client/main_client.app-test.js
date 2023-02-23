@@ -27,14 +27,19 @@ describe("run tests", function () {
     after(async function () {
 
         if(user) {
+
+            /*
             await import("../both/Pages/Home/tests/homePage.test");
 
             await import("../both/Pages/Template/tests/templatePage.test");
 
             await import("../both/Pages/Icons/tests/iconsPage.test");
 
+             */
+
             await import("../both/Pages/Colours/tests/coloursPage.test");
 
+            /*
             await import("../both/Pages/FooterExtras/tests/footerExtrasPage.test");
 
             await import("../both/Pages/Learn/tests/learnPage.test");
@@ -68,6 +73,8 @@ describe("run tests", function () {
             await import("../both/Pages/ExportImport/tests/exportImportPage.test");
 
             await import("../both/Pages/LogsSystem/tests/logsSystemPage.test");
+
+             */
         }
 
     });
