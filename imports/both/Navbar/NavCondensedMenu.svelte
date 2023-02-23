@@ -22,21 +22,10 @@
 
     $: shortcuts = $showRoutes.filter( (route) => route.isNavMobile );
 
-    //* event handler
-
-    /*
-    function navigate(event, path) {
-        event.preventDefault()
-        event.stopPropagation()
-        navigateTo(path);
-    }
-
-     */
-
 </script>
 
 
-<nav aria-label="Main Shortcut Section">
+<nav class="condensed-navbar" aria-label="Main Shortcut Section">
     <ul>
         {#each shortcuts as link }
             <li>

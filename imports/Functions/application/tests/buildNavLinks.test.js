@@ -13,14 +13,7 @@ const user = {
 }
 
 /* expected routes by user type */
-const allUsers = ["/home", "/template", "/icons", "/colours", "/footerExtras", "/learn", "/cards", "/content-widgets", "/admin-panel", "/testing", "/login", "404"];
-const subscriber = ["/pubSub","/my-profile","/changePassword", "/starter-list-form",];
-const siteAdmin = ["/buildContent", "/documentation", "/logsSystem"];
-const admin =  [ "/users","/sysConfig","/exportImport"];
-
-const allSubscriber = [...allUsers, ...subscriber].sort();
-const allSiteAdmin = [...allUsers, ...subscriber, ...siteAdmin].sort();
-const allAdmin = [...allUsers, ...subscriber, ...siteAdmin, ...admin].sort();
+import {allUsers, allSubscriber, allAdmin, allSiteAdmin} from "../../../Components/tests/linkRoles";
 
 
 describe("function buildNavLinks", function () {

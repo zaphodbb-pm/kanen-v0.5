@@ -28,19 +28,24 @@ describe("run tests", function () {
 
         if(user) {
 
+            await import("../both/PageStructure/tests/appStructure.test");
+
             /*
+
             await import("../both/Pages/Home/tests/homePage.test");
 
             await import("../both/Pages/Template/tests/templatePage.test");
 
             await import("../both/Pages/Icons/tests/iconsPage.test");
 
-             */
-
             await import("../both/Pages/Colours/tests/coloursPage.test");
 
-            /*
+             */
+
             await import("../both/Pages/FooterExtras/tests/footerExtrasPage.test");
+
+            /*
+
 
             await import("../both/Pages/Learn/tests/learnPage.test");
 
