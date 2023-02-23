@@ -26,7 +26,7 @@ describe("run tests", function () {
 
     after(async function () {
 
-        if(user){
+        if(user) {
             await import("../both/Pages/Home/tests/homePage.test");
 
             await import("../both/Pages/Template/tests/templatePage.test");
@@ -56,6 +56,18 @@ describe("run tests", function () {
             await import("../both/Pages/MyProfile/tests/myProfilePage.test");
 
             await import("../both/Pages/ChangePassword/tests/changePasswordPage.test");
+
+            await import("../both/Pages/BuildContent/tests/buildContentPage.test");
+
+            await import("../both/Pages/Documentation/tests/documentationPage.test");
+
+            await import("../both/Pages/Users/tests/usersPage.test");
+
+            await import("../both/Pages/SysConfig/tests/sysConfigPage.test");
+
+            await import("../both/Pages/ExportImport/tests/exportImportPage.test");
+
+            await import("../both/Pages/LogsSystem/tests/logsSystemPage.test");
         }
 
     });
