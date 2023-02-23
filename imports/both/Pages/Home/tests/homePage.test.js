@@ -9,13 +9,12 @@ const tp_main_columns = 2;
 const tp_notes_columns = 3;
 const tp_tabs = 5;
 
-/* support functions */
-const waitFor = delay => new Promise(resolve => setTimeout(resolve, delay));
-
 let main;
 let heading;
 
+/* support functions */
 import {goto} from  'svelte-pathfinder';
+import {waitFor} from "../../../../Components/tests/waitFor";
 
 
 /* import support files for existence check */
