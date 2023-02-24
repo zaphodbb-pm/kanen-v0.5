@@ -32,7 +32,9 @@ export const page = {
                 "<p>Keeping this in mind, we follow the standard Meteor way to test an application.  Considering the many recent changes to Meteor, " +
                 "this documentation has been slow to keep up to date.  In particular, the information on testing seems to be in need of a major " +
                 "clean-up as it does not accurately reflect how to use the testing tools build into Meteor.  We have had to use trial and error " +
-                "to get testing set-up.  Below are our notes and observations. </p>",
+                "to get testing set-up.  Below are our notes and observations. </p>" +
+                "<p>We use <a href='https://www.jetbrains.com/webstorm/'>Webstorm</a> as our IDE.  This allows us to set up all test " +
+                "scenarios with server test results displayed in the IDE console widget.</p>",
 
             heading11: "Structure",
 
@@ -43,33 +45,33 @@ export const page = {
 
                 "Unit test is done using basic meteor test set-up.  This can be run in the console by using: <br><br>" +
                 "<pre><code>meteor test --driver-package meteortesting:mocha --settings settings-dev.json</code></pre>  <br>" +
-                "Note that the client test results can be seen in the browser.",
+                "Note that the client test results can be seen in the browser and the server results appear in the IDE console.  " +
+                "Unit tests cover functions and basic static svelte components.",
 
-                "Integration test using test set-up with <code>--full-app</code> and can be run in the console by using: <br><br>" +
+                "Integration test uses set-up with <code>--full-app</code> and can be run in the console by using: <br><br>" +
                 "<pre><code>meteor test --full-app --driver-package meteortesting:mocha --settings settings-dev.json</code></pre>  <br>" +
-                "Note that the client test results can be seen in the browser.",
+                "Note that the client test results can be seen in the browser with the test area overlaying the actual web page. " +
+                "The server results are again displayed in the IDE console.  Inegration tests cover web pages, dynamic svelte components " +
+                "and Meteor method calls.",
 
-                "The <code>chai</code> assertion library is added to <code>node_modules</code> and can be used to provide a variety " +
-                "of approaches to test structures."
+                "Currently, all tests rely on the assertion library found in node.js.  Optionally, the <code>chai</code> assertion library " +
+                "can be added to <code>node_modules</code> and can be used to provide a variety of approaches to test structures.  "
             ],
 
             heading12: "Lessons Learned",
 
             items2: [
                 "In <code>package.json</code> file, remove <code>testModule: \"tests/main.js\"</code>.  This forces the test version of Meteor to use " +
-                "our own main test files that are eagerly loaded during start up.",
+                "our own main test files that are eagerly loaded during start up.  <strong>Any</strong> files in <strong>any</strong> " +
+                "<code>tests</code> directory will <strong>not</strong> be loaded by the test runner and will need to be imported into the " +
+                "main entry point test files.",
 
-                "<strong>Any</strong> files in <strong>any</strong> <code>tests</code> directory will <strong>not</strong> be loaded by the test runner.  " +
-                "These files must be imported into the main test files.",
+                "In the <code>/imports/client</code> directory, <code>main_client.test.js</code> runs the client side unit tests and " +
+                "<code>main_client.app-test.js</code> runs the client integration tests.",
 
-                "Any <code>*.test.js</code> outside of the <code>tests</code> directory will be eagerly loaded for the basic unit tests.  " +
-                "There should only be one for server testing and one for client testing.  These files should then import the individual " +
-                "test files from their associated <code>tests</code> directories.",
-
-                "For full application testing, any <code>*.app-test.js</code> outside of the <code>tests</code> directory will be eagerly " +
-                "loaded for the integration tests.  " +
-                "There should only be one for server testing and one for client testing.  These files should then import the individual " +
-                "integration test files from their associated <code>tests</code> directories.",
+                "Similary, in directory <code>/imports/server</code>, " +
+                "<code>main_server.test.js</code> runs the server side unit tests and <code>main_server.app-test.js</code> runs the " +
+                "server integration tests."
             ],
 
             heading2: "Examples"

@@ -5,6 +5,8 @@ const navLinks = 8;
 const hasHdrSubTitle = true;
 const hasHdrBody = false;
 
+const colContent = 2;
+
 let main;
 let heading;
 
@@ -100,6 +102,24 @@ describe(`page: ${pageName}`, function () {
     describe("main-content check", function(){
         it("has main", function () {
             assert.ok(main, `Missing ".main-content" region`);
+        });
+
+        it("has content heading", function () {
+            const h2 = main.querySelector("h2");
+            assert.ok(h2 && h2.innerHTML.length > 3, `Missing "h2" heading.`);
+        });
+
+        it("has content", function () {
+            const columns = main.querySelectorAll(".column");
+            assert.strictEqual(columns.length, colContent, `Expected ${colContent} columns found ${columns.length}.`);
+
+            columns.forEach((item, idx) => {
+                const h3 = item.querySelector("h3");
+                assert.ok( h3 && h3.innerHTML.length > 3, `Tab-content ${idx} missing heading.`);
+
+                const ul = item.querySelector("ul");
+                assert.ok( ul && ul.innerHTML.length > 3, `Tab-content ${idx} missing list text.`);
+            })
         });
     });
 

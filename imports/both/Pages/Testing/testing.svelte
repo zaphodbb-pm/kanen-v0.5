@@ -100,9 +100,4 @@
         </div>
     </div>
 
-
-    <div class="space-block-vert"></div>
-
-    <h2>{text.heading2}</h2>
-
 </main>
