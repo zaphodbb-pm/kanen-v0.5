@@ -28,7 +28,7 @@
 
 
 
-<article class="card">
+<article class="card" data-tp_wiki_toc>
     <header class="is-secondary">
         <h2 >{tocHeader}</h2>
     </header>

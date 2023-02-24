@@ -143,7 +143,7 @@
 
 
 <div class="card">
-    <div class="">
+    <div data-tp_wiki_content>
 
         {#if showList}
 

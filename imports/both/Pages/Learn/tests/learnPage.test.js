@@ -7,6 +7,10 @@ const hasHdrBody = false;
 
 let main;
 let heading;
+let queryBar;
+let toc;
+let content;
+let modal;
 
 /* support functions */
 import {goto} from  'svelte-pathfinder';
@@ -33,6 +37,10 @@ describe(`page: ${pageName}`, function () {
 
         heading = document.querySelector(".page-header");
         main = document.querySelector(".main-content");
+        queryBar = document.querySelector(".main-content");
+        toc = document.querySelector(".main-content [data-tp_wiki_toc]");
+        content = document.querySelector(".main-content [data-tp_wiki_content]");
+        modal = document.querySelector(".main-content [data-tp_modal_user]");
     });
 
     describe("page support files", function(){
@@ -100,6 +108,43 @@ describe(`page: ${pageName}`, function () {
     describe("main-content check", function(){
         it("has main", function () {
             assert.ok(main, `Missing ".main-content" region`);
+        });
+
+        it("has query bar", function () {
+            assert.ok(queryBar, `Missing "query bar" region.`);
+
+            const labels = queryBar.querySelectorAll("form label");
+            assert.strictEqual(labels.length, 3, `Expected 3 inputs but found ${labels.length}.`);
+        });
+
+        it("has table of contents", function () {
+            assert.ok(toc, `Missing "table of contents" region.`);
+
+            const tocHdr = toc.querySelector("header");
+            assert.ok(tocHdr, `Missing "toc header" region.`);
+
+            const tocList = toc.querySelector(".toc-content ul");
+            assert.ok(tocList, `Missing "toc header" region.`);
+        });
+
+        it("has content display", function () {
+            assert.ok(content, `Missing "content display" region.`);
+
+            const contentHdr = content.querySelector("h2");
+            assert.ok(contentHdr, `Missing "content header" region.`);
+
+            const contentInfo = content.querySelector(".level .level-end");
+            assert.ok(contentInfo, `Missing "content info" bar.`);
+        });
+
+        it("has user modal", function () {
+            assert.ok(modal, `Missing "modal user" component.`);
+
+            const contentHdr = modal.querySelector("h2");
+            assert.ok(contentHdr, `Missing "content header" region.`);
+
+            const contentInfo = modal.querySelector(".level-start");
+            assert.ok(contentInfo, `Missing "user info" region.`);
         });
     });
 

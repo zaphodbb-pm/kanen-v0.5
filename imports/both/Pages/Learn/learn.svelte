@@ -148,6 +148,9 @@
         if (query && Object.keys(query).length > 0) {
             let found = await getDocs("learn", "schemaLong", compound, sort);
 
+            console.log("query", compound, sort);
+            console.log("found", found);
+
             if (found.length > 0) {
                 info.showList = true;
                 info.list = found;

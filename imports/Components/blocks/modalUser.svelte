@@ -96,7 +96,7 @@
 
 
 
-<div id="{'modal_' + docId}" class="modal-overlay {openModal}">
+<div id="{'modal_' + docId}" class="modal-overlay {openModal}" data-tp_modal_user>
     <div class="modal">
         <article class="modal-card">
             <header>

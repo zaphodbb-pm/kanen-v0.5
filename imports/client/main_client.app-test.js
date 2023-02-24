@@ -31,8 +31,6 @@ describe("run tests", function () {
             /*
             await import("../both/PageStructure/tests/appStructure.test");
 
-
-
             await import("../both/Pages/Home/tests/homePage.test");
 
             await import("../both/Pages/Template/tests/templatePage.test");
@@ -43,17 +41,14 @@ describe("run tests", function () {
 
             await import("../both/Pages/FooterExtras/tests/footerExtrasPage.test");
 
-             */
-
             await import("../both/Pages/Learn/tests/learnPage.test");
 
-            /*
-
-
-
+             */
 
             await import("../both/Pages/Testing/tests/testingPage.test");
 
+
+            /*
             await import("../both/Pages/Cards/tests/cardsPage.test");
 
             await import("../both/Pages/WidgetsContent/tests/widgetsContent.test");
