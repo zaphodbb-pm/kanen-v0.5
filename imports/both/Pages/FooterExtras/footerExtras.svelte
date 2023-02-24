@@ -46,17 +46,26 @@
         text: "Test 'success' from footerExtras.",
         closable: false,
         duration: 10000
-    }
+    };
+
+    let msgSent1 = false;
+    let msgSent2 = false;
 
     //** sample system messages to show on right of viewport
     import {messages} from "/imports/client/systemStores";
 
     Meteor.setTimeout(function(){
-        $messages = [... $messages, ...testMessages["messages1"]];
+        if(!msgSent1){
+            $messages = [...testMessages["messages1"]];
+            msgSent1 = true;
+        }
     }, 2000);
 
     Meteor.setTimeout(function(){
-        $messages = [... $messages, ...testMessages["messages2"]];
+        if(!msgSent2){
+            $messages = [... $messages, ...testMessages["messages2"]];
+            msgSent2 = true;
+        }
     }, 3000);
 
 </script>

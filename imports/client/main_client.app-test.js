@@ -28,9 +28,10 @@ describe("run tests", function () {
 
         if(user) {
 
+            /*
             await import("../both/PageStructure/tests/appStructure.test");
 
-            /*
+
 
             await import("../both/Pages/Home/tests/homePage.test");
 
@@ -40,14 +41,16 @@ describe("run tests", function () {
 
             await import("../both/Pages/Colours/tests/coloursPage.test");
 
+            await import("../both/Pages/FooterExtras/tests/footerExtrasPage.test");
+
              */
 
-            await import("../both/Pages/FooterExtras/tests/footerExtrasPage.test");
+            await import("../both/Pages/Learn/tests/learnPage.test");
 
             /*
 
 
-            await import("../both/Pages/Learn/tests/learnPage.test");
+
 
             await import("../both/Pages/Testing/tests/testingPage.test");
 

@@ -75,7 +75,7 @@
 <aside class="system-messages">
     {#each msg as message (message.id)}
 
-        <div class="space-vert" use:setAutoClose={message}>
+        <div class="space-element-vert" use:setAutoClose={message}>
 
             <aside class="notification {message.colour}" transition:slide="{{delay: 100, duration: 300, easing: quintOut }}">
                 {#if message.closable}
@@ -87,6 +87,7 @@
                         <span><span class="{message.hasIcon} is-large" style="margin: 0;"></span></span>
                     {/if}
 
+                    <p>{message.id}</p>
                     <p>{message.text}</p>
                 </div>
             </aside>
