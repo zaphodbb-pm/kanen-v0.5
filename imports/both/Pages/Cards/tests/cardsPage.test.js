@@ -101,6 +101,56 @@ describe(`page: ${pageName}`, function () {
         it("has main", function () {
             assert.ok(main, `Missing ".main-content" region`);
         });
+
+        it("has card one", function(){
+            const card = main.querySelector("#cardOne");
+            assert.ok(card, `Missing card one`);
+            assert.ok(card.tagName === "ARTICLE", `Missing "article" tag`);
+
+            const figure = card.querySelector("figure img");
+            assert.ok(figure, `Missing figure`);
+
+            const imgClass = figure.classList.contains("has-aspect-3x1");
+            const imgSrc = figure.getAttribute("src").includes(".jpg");
+            const imgAlt = figure.getAttribute("alt").length > 3;
+            assert.ok(imgClass && imgSrc && imgAlt, `Missing "img" attributes`);
+
+            const icon = card.querySelector(".level-start");
+            assert.ok(icon.innerHTML.includes("icon-bg"), `Missing "icon" attributes`);
+        });
+
+        it("has card two", function(){
+            const card2 = main.querySelector("#cardTwo");
+
+            assert.ok(card2, `Missing card two`);
+            assert.ok(card2.tagName === "ARTICLE", `Missing "article" tag`);
+
+            const h3 = card2.querySelector("header > h3");
+            assert.ok(h3 && h3.innerHTML.length > 3, `Missing header`);
+
+            const subTitle = card2.querySelector("header > p");
+            assert.ok(subTitle && subTitle.innerHTML.length > 3, `Missing sub-title`);
+
+            const body = card2.querySelectorAll(".level-start span");
+            const hasIcon = body[0].classList[0];
+            assert.ok(hasIcon.includes("icon-bg"), "Missing icon in body.");
+
+            const hasText = body && body[1] ? body[1].innerHTML.length > 3 : false;
+            assert.ok(hasText, "Missing text body.");
+        })
+    });
+
+    describe("card two footer check", function() {
+        it("card two has footer", function(){
+            const footer = main.querySelector("#cardTwo footer");
+            assert.ok(footer, "Missing card footer.");
+        });
+
+        it("card two has footer buttons", function(){
+            const buttons = main.querySelectorAll("#cardTwo footer button");
+            const hasButtons = buttons && buttons.length === 2;
+            assert.ok(hasButtons, "Missing card footer buttons.");
+        });
     });
 
 });

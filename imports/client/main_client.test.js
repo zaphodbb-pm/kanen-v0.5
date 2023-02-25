@@ -58,4 +58,5 @@ import '../Components/widgets/tests/infobox.test';
 import '../Components/widgets/tests/reportbox.test';
 import '../Components/widgets/tests/tabbedContent.test';
 
-
+/* component block tests */
+import '../Components/blocks/tests/card.test';

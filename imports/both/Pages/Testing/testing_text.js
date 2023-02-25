@@ -71,7 +71,12 @@ export const page = {
 
                 "Similary, in directory <code>/imports/server</code>, " +
                 "<code>main_server.test.js</code> runs the server side unit tests and <code>main_server.app-test.js</code> runs the " +
-                "server integration tests."
+                "server integration tests.",
+
+                "We use integration tests to evaluate a web page that includes many components and nodes.  This makes targetting specific " +
+                "HTML structures challenging.  Taking a page from hardware design, the <code>data</code> attribute is used to define unique " +
+                "test points to use query selection on.  Typically, a test point is <code>data-tp_unique_tag</code> where 'unique_tag' is a " +
+                "unique identifier on a page under test.  Multiple test points may be required for complex pages."
             ],
 
             heading2: "Examples"

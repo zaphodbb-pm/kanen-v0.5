@@ -63,7 +63,7 @@
     </Card>
 
 
-    <div class="space-component-large"></div>
+    <div class="space-container-vert"></div>
 
 
     <h2>{pageHeadings.heading2}</h2>
