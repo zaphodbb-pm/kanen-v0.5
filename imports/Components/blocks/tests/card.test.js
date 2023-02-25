@@ -1,25 +1,26 @@
 /* step 1: define component key parts */
-const compName = "accordion";
-const parent = "div";
-const parentClasses = "accordions";
-
-const firstChildName = "details";
-const firstChildClasses = "accordion";
-
-const ChildName0 = "summary";
-const ChildName1 = "div";
+const compName = "card";
+const parent = "article";
+const imgClass = "has-aspect-3x1";
 
 
 /* step 2: construct test data */
 const props = {
+  text:{
+    title: "Card Title",
+    subtitle: "Card Sub-Title",
+    body: "Hello World",
+    image: "/default-test-image.jpg",
+    altImage: "Soulful looking puppy",
+    footer: [
+      {class: "is-primary has-hover", text: "Save"},
+      {class: "is-danger-outlined has-hover", text: "Delete"},
+    ]
+  },
 
-  content: [
-    {icon: "label_icon1", label: "Item One", text: "text for tab one.", style: "is-expander-primary"},
-    {icon: "label_icon2", label: "Item Two", text: "text for tab two.", style: "is-expander-secondary"},
-    {icon: "label_icon3", label: "Item Three", text: "text for tab three.", style: "is-expander-tertiary"},
-  ],
+  id: "card-test",
 
-  class: "test-class"
+  class: "test-card"
 }
 
 
@@ -49,11 +50,51 @@ describe(`component ${compName}.svelte`, function () {
     component = document.querySelector(`#${testId} > ${parent}`);
     assert.ok(component, `parent should be "${parent}" tag`);
 
-    const hasCompClass = component.classList.contains(parentClasses);
     const hasModifier = component.classList.contains(props.class);
-    assert.ok( hasCompClass && hasModifier, `parent classes should be "${parentClasses} ${props.class}"`);
+    assert.ok( hasModifier, `parent classes should be "${props.class}"`);
   });
 
+  it(`${compName} structure`, function () {
+    component = document.querySelector(`#${testId} > ${parent}`);
+    const figure = component.querySelector("figure");
+    assert.ok( figure, `CUT is missing "figure"`);
+
+    const img = component.querySelector("figure > img");
+    assert.ok( img, `CUT is missing "figure > img"`);
+
+    const src = img.getAttribute("src");
+    assert.ok( src === props.text.image, `CUT has malformed "img.src"`);
+
+    const alt = img.getAttribute("alt");
+    assert.ok( alt === props.text.altImage, `CUT has malformed "img.alt"`);
+
+    const aspect = img.classList;
+    assert.ok( aspect.contains(imgClass), `CUT is missing class`);
+
+    const hdr = component.querySelector("header");
+    assert.ok( hdr, `CUT is missing "header"`);
+
+    const h3 = hdr.querySelector("h3");
+    assert.ok( h3 && h3.innerHTML.length > 3, `CUT is missing "h3"`);
+
+    const subTitle = hdr.querySelector("p");
+    assert.ok( subTitle && subTitle.innerHTML.length > 3, `CUT is missing sub-title`);
+  });
+
+  it(`${compName} slot`, function () {
+    component = document.querySelector(`#${testId} > ${parent}`);
+    const slot = component.querySelector("div");
+    assert.ok( slot, `CUT is missing slot "div"`);
+  });
+
+  it(`${compName} footer`, function () {
+    component = document.querySelector(`#${testId} > ${parent}`);
+    const footer = component.querySelector("footer");
+    assert.ok( footer, `CUT is missing "footer"`);
+  });
+
+
+  /*
   it(`${compName} children of ${firstChildName}`, function () {
     const body = component.querySelectorAll(firstChildName);
     assert.ok( body.length === props.content.length, `Should have ${props.content.length} "${firstChildName}" children`);
@@ -76,4 +117,27 @@ describe(`component ${compName}.svelte`, function () {
     }
   });
 
+
+   */
 });
+
+
+
+/*
+<article class="card test-card" id="card-test">
+  <figure>
+    <img class="has-aspect-3x1" src="/default-test-image.jpg" alt="Soulful looking puppy">
+  </figure>
+
+  <header>
+    <h3>Card Title</h3>
+    <p>Card Sub-Title</p>
+  </header>
+
+  <div></div>
+  <footer>
+    <button type="button" class="is-primary has-hover">Save </button>
+    <button type="button" class="is-danger-outlined has-hover">Delete </button>
+  </footer>
+</article>
+ */
