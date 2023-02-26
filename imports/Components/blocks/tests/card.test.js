@@ -2,6 +2,7 @@
 const compName = "card";
 const parent = "article";
 const imgClass = "has-aspect-3x1";
+const eventName = "footEvent";
 
 
 /* step 2: construct test data */
@@ -104,11 +105,11 @@ describe(`component ${compName}.svelte`, function () {
     assert.ok(buttons && buttons.length === 2, `CUT is missing "footer buttons"`);
   });
 
-  it(`${compName} footer button clicks`, async function () {
+  it(`${compName} footer button clicks on "${eventName}"`, async function () {
     const buttons = component.querySelectorAll("footer button");
     let testResult= [];
 
-    instance.$on(`footEvent`, function (ev) {
+    instance.$on(eventName, function (ev) {
       testResult.push(ev.detail);
     });
 
