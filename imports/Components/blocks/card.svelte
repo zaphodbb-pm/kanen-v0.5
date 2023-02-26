@@ -53,7 +53,11 @@
     {/if}
 
     <div>
-        <slot> </slot>
+        {#if text.slot}
+            <p>{text.slot}</p>
+        {:else }
+            <slot> </slot>
+        {/if}
     </div>
 
     {#if text.footer}

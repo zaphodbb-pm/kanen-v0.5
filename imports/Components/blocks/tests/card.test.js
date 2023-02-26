@@ -12,6 +12,7 @@ const props = {
     body: "Hello World",
     image: "/default-test-image.jpg",
     altImage: "Soulful looking puppy",
+    slot: "Some body text",
     footer: [
       {class: "is-primary has-hover", text: "Save"},
       {class: "is-danger-outlined has-hover", text: "Delete"},
@@ -23,6 +24,11 @@ const props = {
   class: "test-card"
 }
 
+const checkClick = [
+  {item: props.id, key: 0, label: props.text.footer[0].text},
+  {item: props.id, key: 1, label: props.text.footer[1].text},
+]
+
 
 /* step 3: run boilerplate activities */
 /** add component test area to body **/
@@ -32,22 +38,21 @@ const testId = buildComponentTestArea(compName, document);
 /** import Component Under Test (CUT) **/
 import CUT from '../card.svelte';
 
+
+
 /** render component with appropriate props **/
-new CUT({
+const instance = new CUT({
   target: document.getElementById(testId),
   props: props
 });
-
-
 
 /* step 4: perform tests */
 import assert from "assert";
 
 describe(`component ${compName}.svelte`, function () {
-  let component;
+  const component = document.querySelector(`#${testId} > ${parent}`);
 
   it(`${compName} exists`, function () {
-    component = document.querySelector(`#${testId} > ${parent}`);
     assert.ok(component, `parent should be "${parent}" tag`);
 
     const hasModifier = component.classList.contains(props.class);
@@ -55,7 +60,6 @@ describe(`component ${compName}.svelte`, function () {
   });
 
   it(`${compName} structure`, function () {
-    component = document.querySelector(`#${testId} > ${parent}`);
     const figure = component.querySelector("figure");
     assert.ok( figure, `CUT is missing "figure"`);
 
@@ -82,62 +86,38 @@ describe(`component ${compName}.svelte`, function () {
   });
 
   it(`${compName} slot`, function () {
-    component = document.querySelector(`#${testId} > ${parent}`);
     const slot = component.querySelector("div");
     assert.ok( slot, `CUT is missing slot "div"`);
+
+    const body = slot.querySelector("p");
+    assert.ok( body && body.innerHTML === props.text.slot, `CUT is missing slot "p" tag and text.`);
   });
 
   it(`${compName} footer`, function () {
-    component = document.querySelector(`#${testId} > ${parent}`);
+
     const footer = component.querySelector("footer");
     assert.ok( footer, `CUT is missing "footer"`);
   });
 
-
-  /*
-  it(`${compName} children of ${firstChildName}`, function () {
-    const body = component.querySelectorAll(firstChildName);
-    assert.ok( body.length === props.content.length, `Should have ${props.content.length} "${firstChildName}" children`);
-
-    for( let i = 0; i < body.length; i++){
-      const child = body[i];
-      assert.ok(child.classList.contains(firstChildClasses), `firstChild classes should include "${firstChildClasses}"`);
-      assert.ok(child.classList.contains(props.content[i].style), `firstChild classes should include "${props.content[i].style}"`);
-
-      const summary = child.querySelector(ChildName0);
-      assert.ok(summary, `summary should be "${ChildName0}" tag`);
-
-      const spans = summary.querySelectorAll(":scope > span");
-      assert.ok(spans[0].classList.contains(props.content[i].icon), `label icon should be "${props.content[i].icon}"`);
-      assert.ok(spans[1].innerHTML === props.content[i].label, `label text should be "${props.content[i].label}"`);
-
-      const div = child.querySelector(ChildName1);
-      assert.ok(div, `text should be "${ChildName1}" tag`);
-      assert.ok(div.innerHTML === props.content[i].text, `text should be "${props.content[i].text}"`);
-    }
+  it(`${compName} footer buttons`, async function () {
+    const buttons = component.querySelectorAll("footer button");
+    assert.ok(buttons && buttons.length === 2, `CUT is missing "footer buttons"`);
   });
 
+  it(`${compName} footer button clicks`, async function () {
+    const buttons = component.querySelectorAll("footer button");
+    let testResult= [];
 
-   */
+    instance.$on(`footEvent`, function (ev) {
+      testResult.push(ev.detail);
+    });
+
+    buttons[0].click();
+    buttons[1].click();
+
+    testResult.forEach( item => {
+      const checkValue = checkClick[item.key];
+      assert.deepStrictEqual(item, checkValue, `instance event is ${JSON.stringify(item)} but should be ${JSON.stringify(checkValue)}`);
+    });
+  });
 });
-
-
-
-/*
-<article class="card test-card" id="card-test">
-  <figure>
-    <img class="has-aspect-3x1" src="/default-test-image.jpg" alt="Soulful looking puppy">
-  </figure>
-
-  <header>
-    <h3>Card Title</h3>
-    <p>Card Sub-Title</p>
-  </header>
-
-  <div></div>
-  <footer>
-    <button type="button" class="is-primary has-hover">Save </button>
-    <button type="button" class="is-danger-outlined has-hover">Delete </button>
-  </footer>
-</article>
- */
