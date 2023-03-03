@@ -11,6 +11,8 @@ const waitFor = delay => new Promise(resolve => setTimeout(resolve, delay));
 
 let main;
 let heading;
+let tabs;
+let accordions;
 
 import {goto} from  'svelte-pathfinder';
 
@@ -35,6 +37,8 @@ describe(`page: ${pageName}`, function () {
 
         heading = document.querySelector(".page-header");
         main = document.querySelector(".main-content");
+        tabs = document.querySelector("[data-tp_tabbed_content]");
+        accordions = document.querySelector("[data-tp_accordion_content]");
     });
 
     describe("page support files", function(){
@@ -102,6 +106,30 @@ describe(`page: ${pageName}`, function () {
     describe("main-content check", function(){
         it("has main", function () {
             assert.ok(main, `Missing ".main-content" region`);
+        });
+
+        it("has tabbed content", function(){
+            const hasH2 = tabs.querySelector("h2");
+            assert.ok(hasH2 && hasH2.innerHTML.length > 3, `Missing "h2" header.`);
+
+            const hasPara = tabs.querySelector("p");
+            assert.ok(hasPara && hasPara.innerHTML.length > 3, `Missing descriptive paragraph.`);
+
+            const hasTabs = tabs.querySelectorAll(".tabs input");
+            const tabItems = page?.components?.en?.tabbed ?? [];
+            assert.ok(hasTabs && hasTabs.length === tabItems.length, `Found ${hasTabs.length}, should have ${tabItems.length} tabs.`);
+        });
+
+        it("has accordion content", function(){
+            const hasH2 = accordions.querySelector("h2");
+            assert.ok(hasH2 && hasH2.innerHTML.length > 3, `Missing "h2" header.`);
+
+            const hasPara = accordions.querySelector("p");
+            assert.ok(hasPara && hasPara.innerHTML.length > 3, `Missing descriptive paragraph.`);
+
+            const hasAccordions = accordions.querySelectorAll(".accordions details");
+            const accordionItems = page?.components?.en?.tabbed ?? [];
+            assert.ok(hasAccordions && hasAccordions.length === accordionItems.length, `Found ${hasAccordions.length}, should have ${accordionItems.length} items.`);
         });
     });
 

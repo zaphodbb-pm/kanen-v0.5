@@ -45,15 +45,17 @@ describe("run tests", function () {
 
             await import("../both/Pages/Testing/tests/testingPage.test");
 
+            await import("../both/Pages/Cards/tests/cardsPage.test");
+
              */
 
+            await import("../both/Pages/WidgetsContent/tests/widgetsContent.test");
 
-            await import("../both/Pages/Cards/tests/cardsPage.test");
 
             /*
 
 
-            await import("../both/Pages/WidgetsContent/tests/widgetsContent.test");
+
 
             await import("../both/Pages/AdminPanel/tests/adminPanelPage.test");
 

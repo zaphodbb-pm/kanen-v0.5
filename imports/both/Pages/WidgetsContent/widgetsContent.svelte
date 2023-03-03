@@ -51,7 +51,7 @@
 
 <main class="main-content">
 
-    <section>
+    <section data-tp_tabbed_content>
         <h2>{pageText.headingTabs}</h2>
 
         <p>{@html pageText.bodyTabs}</p>
@@ -60,7 +60,7 @@
     </section>
 
 
-    <section class="space-container-vert">
+    <section class="space-container-vert" data-tp_accordion_content>
         <h2>{pageText.headingAccordions}</h2>
 
         <p>{@html pageText.bodyAccordions}</p>
