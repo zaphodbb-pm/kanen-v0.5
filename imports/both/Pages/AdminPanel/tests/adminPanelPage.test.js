@@ -8,6 +8,10 @@ const hasHdrBody = false;
 
 let main;
 let heading;
+let reportbox;
+let infobox;
+let gauge;
+let charts;
 
 /* support functions */
 import {goto} from  'svelte-pathfinder';
@@ -34,6 +38,11 @@ describe(`page: ${pageName}`, function () {
 
         heading = document.querySelector(".page-header");
         main = document.querySelector(".main-content");
+
+        reportbox = document.querySelector("[data-tp_reportbox]");
+        infobox = document.querySelector("[data-tp_infobox]");
+        gauge = document.querySelector("[data-tp_gauge]");
+        charts = document.querySelector("[data-tp_charts]");
     });
 
     describe("page support files", function(){
@@ -101,6 +110,129 @@ describe(`page: ${pageName}`, function () {
     describe("main-content check", function(){
         it("has main", function () {
             assert.ok(main, `Missing ".main-content" region`);
+        });
+
+        it("has report boxes heading", function () {
+            const hasH2 = reportbox.querySelector("h2");
+            assert.ok(hasH2 && hasH2.innerHTML.length > 3, `Missing "h2" header.`);
+        });
+
+        it("has report boxes sections", function () {
+            const sections = reportbox.querySelectorAll(".column");
+
+            const hasPara = sections[0].querySelector("p");
+            assert.ok(hasPara && hasPara.innerHTML.length > 3, `Missing "p" paragraph.`);
+
+            const hasBox = sections[1].querySelector(".reportbox");
+            assert.ok(hasBox, `Missing "reportbox" component.`);
+
+            const hasAccordions = sections[1].querySelectorAll(".accordion");
+            assert.ok(hasAccordions && hasAccordions.length === 3, `Missing "accordion" components.`);
+
+            const hasBox2 = sections[2].querySelector(".reportbox");
+            assert.ok(hasBox2, `Missing "reportbox 2" component.`);
+
+            const hasAccordions2 = sections[2].querySelectorAll(".accordion");
+            assert.ok(hasAccordions2 && hasAccordions2.length === 3, `Missing "accordion 2" components.`);
+        });
+
+        it("has info boxes sections", function () {
+            const sections = infobox.querySelectorAll(".column");
+
+            const hasPara = sections[0].querySelector("p");
+            assert.ok(hasPara && hasPara.innerHTML.length > 3, `Missing "p" paragraph.`);
+
+            const hasBox = sections[1].querySelector(".infobox");
+            assert.ok(hasBox, `Missing "reportbox" component.`);
+
+            const hasAccordions = sections[1].querySelectorAll(".accordion");
+            assert.ok(hasAccordions && hasAccordions.length === 3, `Missing "accordion" components.`);
+
+            const hasBox2 = sections[2].querySelector(".infobox");
+            assert.ok(hasBox2, `Missing "reportbox 2" component.`);
+
+            const hasAccordions2 = sections[2].querySelectorAll(".accordion");
+            assert.ok(hasAccordions2 && hasAccordions2.length === 3, `Missing "accordion 2" components.`);
+        });
+
+        it("has gauge sections", function () {
+            const sections = gauge.querySelectorAll(".column");
+
+            const hasPara = sections[0].querySelector("p");
+            assert.ok(hasPara && hasPara.innerHTML.length > 3, `Missing "p" paragraph.`);
+
+            const hasBox = sections[1].querySelector(".gauge-donut");
+            assert.ok(hasBox, `Missing "gauge" component.`);
+
+            const hasAccordions = sections[1].querySelectorAll(".accordion");
+            assert.ok(hasAccordions && hasAccordions.length === 3, `Missing "accordion" components.`);
+
+            const hasBox2 = sections[2].querySelector(".gauge-ring");
+            assert.ok(hasBox2, `Missing "gauge 2" component.`);
+
+            const hasAccordions2 = sections[2].querySelectorAll(".accordion");
+            assert.ok(hasAccordions2 && hasAccordions2.length === 3, `Missing "accordion 2" components.`);
+
+            const hasBox3 = sections[3].querySelector(".gauge-meter");
+            assert.ok(hasBox3, `Missing "gauge 3" component.`);
+
+            const hasAccordions3 = sections[3].querySelectorAll(".accordion");
+            assert.ok(hasAccordions3 && hasAccordions3.length === 3, `Missing "accordion 3" components.`);
+        });
+
+        it("has charts sections", function () {
+            const section0 = charts.querySelector(".column");
+
+            const hasPara = section0.querySelector("p");
+            assert.ok(hasPara && hasPara.innerHTML.length > 3, `Missing "p" paragraph.`);
+        });
+
+        let chartItem = "first";
+        it(`has ${chartItem} chart`, function () {
+            const hasChart = charts.querySelector("[data-tp_chart1]");
+            assert.ok(hasChart, `Missing ${chartItem} "chart" component.`);
+
+            const chart = hasChart.querySelector(".charts-wrapper table");
+            assert.ok(chart, `Missing ${chartItem} "chart" table.`);
+
+            const details = hasChart.querySelectorAll(".column details");
+            assert.ok(details && details.length === 3, `Missing ${chartItem} "chart" details.`);
+        });
+
+        chartItem = "second";
+        it(`has ${chartItem} chart`, function () {
+            const hasChart = charts.querySelector("[data-tp_chart2]");
+            assert.ok(hasChart, `Missing ${chartItem} "chart" component.`);
+
+            const chart = hasChart.querySelector(".charts-wrapper table");
+            assert.ok(chart, `Missing ${chartItem} "chart" table.`);
+
+            const details = hasChart.querySelectorAll(".column details");
+            assert.ok(details && details.length === 3, `Missing ${chartItem} "chart" details.`);
+        });
+
+        chartItem = "third";
+        it(`has ${chartItem} chart`, function () {
+            const hasChart = charts.querySelector("[data-tp_chart3]");
+            assert.ok(hasChart, `Missing ${chartItem} "chart" component.`);
+
+            const chart = hasChart.querySelector(".charts-wrapper table");
+            assert.ok(chart, `Missing ${chartItem} "chart" table.`);
+
+            const details = hasChart.querySelectorAll(".column details");
+            assert.ok(details && details.length === 3, `Missing ${chartItem} "chart" details.`);
+        });
+
+        chartItem = "fourth";
+        it(`has ${chartItem} chart`, function () {
+            const hasChart = charts.querySelector("[data-tp_chart4]");
+            assert.ok(hasChart, `Missing ${chartItem} "chart" component.`);
+
+            const chart = hasChart.querySelector(".charts-wrapper table");
+            assert.ok(chart, `Missing ${chartItem} "chart" table.`);
+
+            const details = hasChart.querySelectorAll(".column details");
+            assert.ok(details && details.length === 3, `Missing ${chartItem} "chart" details.`);
         });
     });
 

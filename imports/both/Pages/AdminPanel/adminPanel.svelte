@@ -103,7 +103,7 @@
 
 <main class="main-content">
 
-    <section>
+    <section data-tp_reportbox>
         <h2>{pageText.reportsTitle}</h2>
 
         <div class="row has-3x-minwidth">
@@ -158,7 +158,7 @@
     </section>
 
 
-    <section id="admin-info-box" class="space-container-vert">
+    <section id="admin-info-box" class="space-container-vert" data-tp_infobox>
         <h2>{pageText.infoTitle}</h2>
 
         <div class="row has-3x-minwidth">
@@ -187,7 +187,7 @@
                 </details>
             </div>
 
-            <div class="column">
+            <div class="column" data-tp_infobox>
                 <div class="has-height-15rem">
                     <InfoBox class="" text="{widgetText.infobox2}" config="{configs.infobox2}" payload="{payLoadInfobox2}" />
                 </div>
@@ -212,7 +212,7 @@
     </section>
 
 
-    <section class="space-container-vert">
+    <section class="space-container-vert" data-tp_gauge>
         <h2>{pageText.gaugesTitle}</h2>
 
         <div class="row has-2x-minwidth">
@@ -287,7 +287,7 @@
     </section>
 
 
-    <section class="space-container-vert">
+    <section class="space-container-vert" data-tp_charts>
         <h2>{@html pageText.chartsTitle}</h2>
 
         <div class="row has-2x-minwidth">
@@ -297,7 +297,7 @@
 
             <div class="column is-span-3">
 
-                <div class="row has-1x-minwidth">
+                <div class="row has-1x-minwidth" data-tp_chart1>
                     <div class="column is-span-3">
                         <Charts class="has-height-15rem" text="{widgetText.charts1}" config="{configs.charts1}" payload="{payLoadCharts1}" />
                     </div>
@@ -320,9 +320,9 @@
                     </div>
                 </div>
 
-                <div class="space-component-medium"></div>
+                <div class="space-collection-vert"></div>
 
-                <div class="row has-1x-minwidth">
+                <div class="row has-1x-minwidth" data-tp_chart2>
                     <div class="column is-span-3">
                         <Charts class="has-height-15rem" text="{widgetText.charts2}" config="{configs.charts2}" payload="{payLoadCharts2}" />
                     </div>
@@ -345,9 +345,9 @@
                     </div>
                 </div>
 
-                <div class="space-component-medium"></div>
+                <div class="space-collection-vert"></div>
 
-                <div class="row has-1x-minwidth">
+                <div class="row has-1x-minwidth" data-tp_chart3>
                     <div class="column is-span-3">
                         <Charts class="has-height-20rem" text="{widgetText.charts3}" config="{configs.charts3}" payload="{payLoadCharts3}" />
                     </div>
@@ -370,9 +370,9 @@
                     </div>
                 </div>
 
-                <div class="space-component-medium"></div>
+                <div class="space-collection-vert"></div>
 
-                <div class="row has-1x-minwidth">
+                <div class="row has-1x-minwidth" data-tp_chart4>
                     <div class="column is-span-3">
                         <Charts class="has-height-30rem" text="{widgetText.charts4}" config="{configs.charts4}" payload="{payLoadCharts4}" />
                     </div>
