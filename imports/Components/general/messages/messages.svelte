@@ -87,7 +87,6 @@
                         <span><span class="{message.hasIcon} is-large" style="margin: 0;"></span></span>
                     {/if}
 
-                    <p>{message.id}</p>
                     <p>{message.text}</p>
                 </div>
             </aside>

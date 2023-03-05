@@ -39,7 +39,7 @@ describe(`page: ${pageName}`, function () {
     /* load page, wait for svelte to finish building the page and then extract regions to investigate */
     before( async function(){
         await goto("/" + pageName);
-        await waitFor(50);
+        await waitFor(300);
 
         heading = document.querySelector(".page-header");
         main = document.querySelector(".main-content");
