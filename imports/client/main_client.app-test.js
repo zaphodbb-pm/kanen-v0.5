@@ -65,14 +65,16 @@ describe("run tests", function () {
 
             await import("../both/Pages/Documentation/tests/documentationPage.test");
 
+            await import("../both/Pages/Users/tests/usersPage.test");
+
              */
 
-            await import("../both/Pages/Users/tests/usersPage.test");
+            await import("../both/Pages/SysConfig/tests/sysConfigPage.test");
 
             /*
 
 
-            await import("../both/Pages/SysConfig/tests/sysConfigPage.test");
+
 
             await import("../both/Pages/ExportImport/tests/exportImportPage.test");
 

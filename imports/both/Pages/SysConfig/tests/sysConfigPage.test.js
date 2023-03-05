@@ -19,6 +19,10 @@ import {nav, link, icon, roles} from "../sysConfig_nav";
 import route from "../sysConfig_route";
 import loader from "../sysConfig_loader.svelte";
 
+import {pageConfig} from "../sysConfig_config";
+import schema from "../sysConfig_form_schema";
+import list from "../sysConfig_list";
+
 
 /* perform page tests */
 import assert from "assert";
@@ -56,6 +60,18 @@ describe(`page: ${pageName}`, function () {
 
         it(`has "${pageName}_loader"`, function () {
             assert.ok(loader && typeof loader === "function", `Missing svelte page loader file`);
+        });
+
+        it(`has "${pageName}_config"`, function () {
+            assert.ok(pageConfig && typeof pageConfig === "object", `Missing component config file`);
+        });
+
+        it(`has "${pageName}_schema"`, function () {
+            assert.ok(schema && typeof schema === "object", `Missing form schema file`);
+        });
+
+        it(`has "${pageName}_list"`, function () {
+            assert.ok(list && typeof list === "object", `Missing list file`);
         });
     });
 
@@ -100,6 +116,38 @@ describe(`page: ${pageName}`, function () {
     describe("main-content check", function(){
         it("has main", function () {
             assert.ok(main, `Missing ".main-content" region`);
+        });
+
+        it("has list holder", function () {
+            const hasList = main.querySelector("[data-tp_list_holder]");
+            assert.ok(hasList, `Missing "listHolder" region`);
+        });
+
+        it("has form holder", function () {
+            const hasForm = main.querySelector("[data-tp_form_holder]");
+            assert.ok(hasForm, `Missing "formHolder" region`);
+        });
+
+        it("has all required form fields", function () {
+            const fields = main.querySelector("[data-tp_form_holder] .form-group-container");
+
+            schema.forEach( item => {
+                const hasField = fields.querySelector(`.fieldname--${item.field}`);
+
+                if(!item.listen){
+                    assert.ok(hasField, `Missing field ${item.field}.`);
+                }
+            });
+        });
+
+        it("has form footer", function () {
+            const hasFormFooter = main.querySelector(".form-footer");
+            assert.ok(hasFormFooter, `Missing "formHolder footer" region.`);
+        });
+
+        it("has form footer submit", function () {
+            const hasFormFooterSubmit = main.querySelector(".form-footer .submit-buttons");
+            assert.ok(hasFormFooterSubmit, `Missing "formHolder footer submit buttons" region.`);
         });
     });
 
