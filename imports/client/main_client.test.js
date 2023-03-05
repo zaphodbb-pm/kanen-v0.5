@@ -60,3 +60,6 @@ import '../Components/widgets/tests/tabbedContent.test';
 
 /* component block tests */
 import '../Components/blocks/tests/card.test';
+
+/* component formBuilder - fields tests */
+import '../Components/formBuilder/fields/tests/inputs.test';
