@@ -18,6 +18,7 @@ import {header, page} from "../exportImport_text";
 import {nav, link, icon, roles} from "../exportImport_nav";
 import route from "../exportImport_route";
 import loader from "../exportImport_loader.svelte";
+import {pageConfig} from "../exportImport_config";
 
 
 /* perform page tests */
@@ -56,6 +57,10 @@ describe(`page: ${pageName}`, function () {
 
         it(`has "${pageName}_loader"`, function () {
             assert.ok(loader && typeof loader === "function", `Missing svelte page loader file`);
+        });
+
+        it(`has "${pageName}_config"`, function () {
+            assert.ok(pageConfig && typeof pageConfig === "object", `Missing component config file`);
         });
     });
 
@@ -100,6 +105,27 @@ describe(`page: ${pageName}`, function () {
     describe("main-content check", function(){
         it("has main", function () {
             assert.ok(main, `Missing ".main-content" region`);
+        });
+
+        it("has form", function () {
+            const hasForm = main.querySelector("form");
+            assert.ok(hasForm, `Missing "form" region.`);
+        });
+
+        it("has all required form fields", function () {
+            const fields = main.querySelector("form.has-form-shadow");
+
+            const schema = [pageConfig.components.collections, pageConfig.components.fileInput];
+
+            schema.forEach( item => {
+                const hasField = fields.querySelector(`.fieldname--${item.field}`);
+                assert.ok(hasField, `Missing field ${item.field}.`);
+            });
+        });
+
+        it("has form submit button", function () {
+            const hasForm = main.querySelector("form button");
+            assert.ok(hasForm, `Missing "submit" button.`);
         });
     });
 
