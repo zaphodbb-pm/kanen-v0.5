@@ -69,7 +69,6 @@ describe(`page: ${pageName}`, function () {
             assert.ok(loader && typeof loader === "function", `Missing svelte page loader file`);
         });
 
-
         it(`has "${pageName}_config`, function () {
             assert.ok(pageConfig && typeof pageConfig === "object", `Missing component config file`);
         });
