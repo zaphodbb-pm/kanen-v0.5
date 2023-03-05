@@ -19,6 +19,9 @@ import {nav, link, icon, roles} from "../logsSystem_nav";
 import route from "../logsSystem_route";
 import loader from "../logsSystem_loader.svelte";
 
+import {pageConfig} from "../logsSystem_config";
+import list from "../logsSystem_list";
+
 
 /* perform page tests */
 import assert from "assert";
@@ -56,6 +59,14 @@ describe(`page: ${pageName}`, function () {
 
         it(`has "${pageName}_loader"`, function () {
             assert.ok(loader && typeof loader === "function", `Missing svelte page loader file`);
+        });
+
+        it(`has "${pageName}_config"`, function () {
+            assert.ok(pageConfig && typeof pageConfig === "object", `Missing component config file`);
+        });
+
+        it(`has "${pageName}_list"`, function () {
+            assert.ok(list && typeof list === "object", `Missing list file`);
         });
     });
 
@@ -100,6 +111,16 @@ describe(`page: ${pageName}`, function () {
     describe("main-content check", function(){
         it("has main", function () {
             assert.ok(main, `Missing ".main-content" region`);
+        });
+
+        it("has form selector", function () {
+            const hasForm = main.querySelector("form");
+            assert.ok(hasForm, `Missing "form range select" region`);
+        });
+
+        it("has list holder", function () {
+            const hasList = main.querySelector("[data-tp_list_holder]");
+            assert.ok(hasList, `Missing "listHolder" region`);
         });
     });
 

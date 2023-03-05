@@ -69,20 +69,12 @@ describe("run tests", function () {
 
             await import("../both/Pages/SysConfig/tests/sysConfigPage.test");
 
-             */
-
             await import("../both/Pages/ExportImport/tests/exportImportPage.test");
 
-            /*
-
-
-
-
-
+             */
 
             await import("../both/Pages/LogsSystem/tests/logsSystemPage.test");
 
-             */
         }
 
     });
