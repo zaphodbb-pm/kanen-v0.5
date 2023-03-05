@@ -47,12 +47,12 @@ describe(`page: ${pageName}`, function () {
     });
 
     describe("page support files", function(){
-        it(`has "${pageName}_text`, function () {
+        it(`has "${pageName}_text"`, function () {
             assert.ok(header && typeof header === "object", `Missing "header text"`);
             assert.ok(page && typeof page === "object", `Missing "page text"`);
         });
 
-        it(`has "${pageName}_nav`, function () {
+        it(`has "${pageName}_nav"`, function () {
             assert.ok(nav && typeof nav.en === "string", `Missing "nav" text`);
             assert.ok(link && typeof link === "string", `Missing "link" text`);
             assert.ok(icon && typeof icon === "string", `Missing "icon" name`);
@@ -60,28 +60,28 @@ describe(`page: ${pageName}`, function () {
             assert.ok(roles && Array.isArray(roles.write), `Missing "roles.write" array`);
         });
 
-        it(`has "${pageName}_route`, function () {
+        it(`has "${pageName}_route"`, function () {
             const keys = route && typeof route === "object" ? Object.keys(route) : [];
             assert.ok(keys && keys.length === navLinks, `Missing "route" fields, length should be ${keys.length}`);
         });
 
-        it(`has "${pageName}_loader`, function () {
+        it(`has "${pageName}_loader"`, function () {
             assert.ok(loader && typeof loader === "function", `Missing svelte page loader file`);
         });
 
-        it(`has "${pageName}_config`, function () {
+        it(`has "${pageName}_config"`, function () {
             assert.ok(pageConfig && typeof pageConfig === "object", `Missing component config file`);
         });
 
-        it(`has "${pageName}_schema`, function () {
+        it(`has "${pageName}_schema"`, function () {
             assert.ok(schema && typeof schema === "object", `Missing form schema file`);
         });
 
-        it(`has "${pageName}_form_config_rows`, function () {
+        it(`has "${pageName}_form_config_rows"`, function () {
             assert.ok(rows && typeof rows === "object", `Missing form rows file`);
         });
 
-        it(`has "${pageName}_list`, function () {
+        it(`has "${pageName}_list"`, function () {
             assert.ok(list && typeof list === "object", `Missing list file`);
         });
     });
