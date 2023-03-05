@@ -67,7 +67,7 @@ describe(`page: ${pageName}`, function () {
         it("header", function () {
             const h1 = heading.querySelector("h1");
             const hasH1 = h1 && typeof h1.innerHTML === "string" && h1.innerHTML.length > 2;
-            assert.ok(hasH1, `Incorrect h1: "${h1.innerHTML}"`);
+            assert.ok(hasH1, `Incorrect h1: "${h1.innerHTML}."`);
         });
 
         if(hasHdrSubTitle) {
@@ -79,7 +79,7 @@ describe(`page: ${pageName}`, function () {
                     hasST = typeof pST.innerHTML === "string" && pST.innerHTML.length > 2;
                 }
 
-                assert.ok(hasST, `Mis-formed sub-title: "${pST.innerHTML}"`);
+                assert.ok(hasST, `Mis-formed sub-title: "${pST.innerHTML}."`);
             });
         }
 
@@ -92,14 +92,59 @@ describe(`page: ${pageName}`, function () {
                     hasBody = typeof body.innerHTML === "string" && body.innerHTML.length > 2;
                 }
 
-                assert.ok(hasBody, `Mis-formed heading body: "${body.innerHTML}"`);
+                assert.ok(hasBody, `Mis-formed heading body: "${body.innerHTML}."`);
             })
         }
     });
 
     describe("main-content check", function(){
         it("has main", function () {
-            assert.ok(main, `Missing ".main-content" region`);
+            assert.ok(main, `Missing ".main-content" region.`);
+        });
+
+        it("has commentary region", function () {
+            const commentary = main.querySelector("[data-tp_commentary]")
+            assert.ok(commentary, `Missing commentary region.`);
+        });
+
+        it("has paragraphs", function () {
+            const paragraphs = main.querySelectorAll("[data-tp_commentary] p")
+            assert.ok(paragraphs && paragraphs.length === 2, `Missing paragraphs.`);
+        });
+
+        it("has commentary list", function () {
+            const list = main.querySelector("[data-tp_list]")
+            assert.ok(list, `Missing list region`);
+        });
+
+        it("has bullets", function () {
+            const bullets = main.querySelectorAll("[data-tp_list] li")
+            assert.ok(bullets && bullets.length === 3, `Missing list bullet items.`);
+        });
+
+        it("has doc nav", function () {
+            const nav = main.querySelector("[data-tp_docnav] .accordions")
+            assert.ok(nav, `Missing doc navigation region.`);
+        });
+
+        it("has doc nav blocks", function () {
+            const blocks = main.querySelectorAll("[data-tp_docnav] .accordion");
+            assert.ok(blocks && blocks.length > 3, `Missing doc nav links.`);
+        });
+
+        it("has doc nav", function () {
+            const nav = main.querySelector("[data-tp_docnav] .accordions")
+            assert.ok(nav, `Missing doc navigation region.`);
+        });
+
+        it("has paged content", function () {
+            const content = main.querySelector("[data-tp_paged_content]");
+            assert.ok(content, `Missing "pagged content" region.`);
+        });
+
+        it("has paged content blocks", function () {
+            const blocks = main.querySelectorAll("[data-tp_paged_content] .pagedContent");
+            assert.ok(blocks && blocks.length > 3, `Missing paged content blocks.`);
         });
     });
 

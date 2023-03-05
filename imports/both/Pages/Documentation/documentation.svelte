@@ -100,11 +100,11 @@
     {#if  Meteor.settings.public.allow_documentation_build}
         <div class="row">
 
-            <div class="column">
+            <div class="column" data-tp_commentary>
                 {@html pageText.setup}
             </div>
 
-            <div class="column">
+            <div class="column" data-tp_list>
                 <ol>
                     <li>
                         <div class="level">
@@ -141,11 +141,11 @@
 
 
     <div class="row has-2x-minwidth">
-        <div class="column is-span-1">
+        <div class="column is-span-1" data-tp_docnav>
             <DocNav text="{content}"  on:doc-maintopic="{changeBody}" on:doc-subtopic="{changeSub}"/>
         </div>
 
-        <div class="column is-span-2">
+        <div class="column is-span-2" data-tp_paged_content>
             <Paged {content} {newCategory} {newTopic} />
         </div>
     </div>
