@@ -33,9 +33,9 @@
 
 <h2>{text.files}</h2>
 
-<p>{@html text.preamble}</p>
+<div>{@html text.preamble}</div>
 
-<div class="table-scroll">
+<div class="table-scroll space-collection-vert">
     <table class="table is-striped scrollbreak-col-4">
         <thead>
         <tr>

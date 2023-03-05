@@ -56,7 +56,7 @@
 
         <div class="column">
             <figure>
-                <img src="/home-page.jpg" alt="Two puppies with shoe">
+                <img src="/home-page.jpg" alt="Two puppies with shoe" height="199" width="335">
             </figure>
         </div>
     </div>
