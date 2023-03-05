@@ -28,19 +28,21 @@
 </script>
 
 
-<script>/**
- * Layout for PubSub page.
- *
- * @name pubSub
- * @module
- * @memberOf Pages:pubSub
- * @locus Client
- *
- * @param {String} currentRoute - page path name
- * @param {Object} params - any parameters from path url
- * @param {Object} query - any query fragment from path url
- *
- */
+<script>
+
+    /**
+     * Layout for PubSub page.
+     *
+     * @name pubSub
+     * @module
+     * @memberOf Pages:pubSub
+     * @locus Client
+     *
+     * @param {String} currentRoute - page path name
+     * @param {Object} params - any parameters from path url
+     * @param {Object} query - any query fragment from path url
+     *
+     */
 
 
     //* page set-up boilerplate *************************************

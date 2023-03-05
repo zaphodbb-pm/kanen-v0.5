@@ -4,6 +4,8 @@ const pageName = "pubSub";
 const navLinks = 7;
 const hasHdrSubTitle = false;
 const hasHdrBody = true;
+const paragraphs = 2;
+const values = 15;
 
 let main;
 let heading;
@@ -29,7 +31,7 @@ describe(`page: ${pageName}`, function () {
     /* load page, wait for svelte to finish building the page and then extract regions to investigate */
     before( async function(){
         await goto("/" + pageName);
-        await waitFor(50);
+        await waitFor(1000);        // need more time for database updates
 
         heading = document.querySelector(".page-header");
         main = document.querySelector(".main-content");
@@ -100,6 +102,16 @@ describe(`page: ${pageName}`, function () {
     describe("main-content check", function(){
         it("has main", function () {
             assert.ok(main, `Missing ".main-content" region`);
+        });
+
+        it("has main paragraphs", function () {
+            const para = main.querySelectorAll("p");
+            assert.ok(para && para.length === paragraphs, `Missing paragraphs.`);
+        });
+
+        it("has progress bars", function () {
+            const bars = main.querySelectorAll("progress");
+            assert.ok(bars && bars.length === values, `Found ${bars.length} progress bars, expecting ${values} progress bars.`);
         });
     });
 
