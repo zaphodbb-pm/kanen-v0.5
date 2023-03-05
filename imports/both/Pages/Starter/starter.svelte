@@ -69,8 +69,8 @@
 
 <main class="main-content">
 
-    <div class="level-end space-block-vert">
-        <form class="form has-width-15rem">
+    <div class="level-end space-block-vert" data-tp_grid_select>
+        <form class="form has-width-15rem" >
             <Field_Wrapper
                     class=""
                     field="{pageConfig.components.gridMode}"

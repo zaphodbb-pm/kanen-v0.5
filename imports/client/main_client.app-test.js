@@ -49,19 +49,15 @@ describe("run tests", function () {
 
             await import("../both/Pages/WidgetsContent/tests/widgetsContent.test");
 
-             */
-
             await import("../both/Pages/AdminPanel/tests/adminPanelPage.test");
 
+             */
+
+            await import("../both/Pages/Starter/tests/starterPage.test");
 
             /*
 
 
-
-
-            await import("../both/Pages/AdminPanel/tests/adminPanelPage.test");
-
-            await import("../both/Pages/Starter/tests/starterPage.test");
 
             await import("../both/Pages/PubSub/tests/pubSubPage.test");
 

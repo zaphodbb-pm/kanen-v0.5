@@ -303,7 +303,7 @@
 </script>
 
 
-<form id="test-form" class="form {config.formType}" method="post">
+<form id="test-form" class="form {config.formType}" method="post" data-tp_form_holder>
 
     {#if config.showHdr}
         <header class="{config.bgTitle}">

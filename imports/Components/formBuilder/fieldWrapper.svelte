@@ -70,13 +70,13 @@
     let fieldOpt = "";
 
     let fieldHelpShow = false;
-    let fieldHide = false;
+    let fieldHide;
     let formText = getContext("formText");
     let label = formText && formText[field.field] && formText[field.field].label ? formText[field.field].label : "";
     let helpText = formText && formText[field.field] && formText[field.field].helpText ? formText[field.field].helpText : "";
     let adjustLabel = field.adjustLabel ? "adjust-label" : "";
 
-    let componentDef = undefined;
+    let componentDef;
 
     field.tag = formText && formText[field.field] && formText[field.field].tag ? formText[field.field].tag : null;
 
@@ -148,7 +148,7 @@
     }
 
     function checkWatched(watched, listen){
-        let hide = false;
+        let hide;
         let key = listen.key;
         let val = listen.value;
 
@@ -223,7 +223,7 @@
 
             <svelte:component
                     this="{componentDef}"
-                    class="{className}"
+                    class="{className + ' fieldname--' + field.field}"
                     {field}
                     error="{fieldOpt}"
                     on:on-inputentry="{fieldUpdate}"/>
@@ -239,7 +239,7 @@
 
         <svelte:component
                 this="{componentDef}"
-                class="{className}"
+                class="{className + ' fieldname--' + field.field}"
                 {field}
                 error="{fieldOpt}"
                 on:on-inputentry="{fieldUpdate}"/>

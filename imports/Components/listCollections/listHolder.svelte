@@ -359,7 +359,7 @@
 
 
 
-<div class="table-boxed">
+<div class="table-boxed" data-tp_list_holder>
     {#if config.showHdr}
         <header class="{config.bgTitle}">
             {listText.labels.hdr}

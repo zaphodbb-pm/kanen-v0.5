@@ -44,7 +44,7 @@
     }
 
     function checkInput(){
-        let out = "";
+        let out;
         if(typeof field.value === 'object'){
             try{
                 out =  JSON.parse(inValue);
@@ -62,7 +62,7 @@
 </script>
 
 
-<label>
+<label class="{className}">
     <span>{label}</span>
 
     <textarea class="textarea"
