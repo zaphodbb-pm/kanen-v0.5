@@ -307,7 +307,7 @@
 
             <header class="is-primary-light">
                 <h2>{text.title}</h2>
-                <img class="pwa-image" src="pwa/pwa-logo.svg" alt="PWA logo">
+                <img class="pwa-image" src="pwa/pwa-logo.svg" alt="PWA logo" width="64" height="24">
             </header>
 
             <div>
