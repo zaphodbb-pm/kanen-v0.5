@@ -117,6 +117,38 @@ describe(`page: ${pageName}`, function () {
         it("has main", function () {
             assert.ok(main, `Missing ".main-content" region`);
         });
+
+        it("has list holder", function () {
+            const hasList = main.querySelector("[data-tp_list_holder]");
+            assert.ok(hasList, `Missing "listHolder" region`);
+        });
+
+        it("has form holder", function () {
+            const hasForm = main.querySelector("[data-tp_form_holder]");
+            assert.ok(hasForm, `Missing "formHolder" region`);
+        });
+
+       it("has all required form fields", function () {
+           const fields = main.querySelector("[data-tp_form_holder]");
+
+           schema.forEach( item => {
+               const hasField = fields.querySelector(`.fieldname--${item.field}`);
+
+               if(!item.listen){
+                   assert.ok(hasField, `Missing field ${item.field}.`);
+               }
+           });
+       });
+
+       it("has form footer", function () {
+           const hasFormFooter = main.querySelector(".form-footer");
+           assert.ok(hasFormFooter, `Missing "formHolder footer" region.`);
+       });
+
+       it("has form footer submit", function () {
+           const hasFormFooterSubmit = main.querySelector(".form-footer .submit-buttons");
+           assert.ok(hasFormFooterSubmit, `Missing "formHolder footer submit buttons" region.`);
+       });
     });
 
 });
