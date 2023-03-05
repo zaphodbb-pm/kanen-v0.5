@@ -18,6 +18,7 @@ import {header, page} from "../login_text";
 import {nav, link, icon, roles} from "../login_nav";
 import route from "../login_route";
 import loader from "../login_loader.svelte";
+import {pageConfig} from "../login_config";
 
 
 /* perform page tests */
@@ -56,6 +57,10 @@ describe(`page: ${pageName}`, function () {
 
         it(`has "${pageName}_loader`, function () {
             assert.ok(loader && typeof loader === "function", `Missing svelte page loader file`);
+        });
+
+        it(`has "${pageName}_config`, function () {
+            assert.ok(pageConfig && typeof pageConfig === "object", `Missing component config file`);
         });
     });
 
@@ -100,6 +105,35 @@ describe(`page: ${pageName}`, function () {
     describe("main-content check", function(){
         it("has main", function () {
             assert.ok(main, `Missing ".main-content" region`);
+        });
+
+        it("has form", function () {
+            const hasForm = main.querySelector("form");
+            assert.ok(hasForm, `Missing "form" region.`);
+        });
+
+        it("has all required form fields", function () {
+            const fields = main.querySelector("form.has-form-shadow");
+
+            pageConfig.form.forEach( item => {
+                const hasField = fields.querySelector(`.fieldname--${item.field}`);
+                assert.ok(hasField, `Missing field ${item.field}.`);
+            });
+        });
+
+        it("has form submit button", function () {
+            const hasForm = main.querySelector("form button");
+            assert.ok(hasForm, `Missing "submit" button.`);
+        });
+
+        it("has service divider", function () {
+            const dividerBox = main.querySelector(".divider-box");
+            assert.ok(dividerBox, `Missing "divider" region`);
+        });
+
+        it("has Google service", function () {
+            const service = main.querySelector("[title=Google]");
+            assert.ok(service, `Missing "Google service" button.`);
         });
     });
 
