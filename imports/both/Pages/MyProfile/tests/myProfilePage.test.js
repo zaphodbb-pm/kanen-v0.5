@@ -19,6 +19,8 @@ import {nav, link, icon, roles} from "../myProfile_nav";
 import route from "../myProfile_route";
 import loader from "../myProfile_loader.svelte";
 
+import schema from "../myProfile_form_schema";
+
 
 /* perform page tests */
 import assert from "assert";
@@ -56,6 +58,10 @@ describe(`page: ${pageName}`, function () {
 
         it(`has "${pageName}_loader`, function () {
             assert.ok(loader && typeof loader === "function", `Missing svelte page loader file`);
+        });
+
+        it(`has "${pageName}_schema`, function () {
+            assert.ok(schema && typeof schema === "object", `Missing form schema file`);
         });
     });
 
@@ -100,6 +106,33 @@ describe(`page: ${pageName}`, function () {
     describe("main-content check", function(){
         it("has main", function () {
             assert.ok(main, `Missing ".main-content" region`);
+        });
+
+        it("has form holder", function () {
+            const hasForm = main.querySelector("[data-tp_form_holder]");
+            assert.ok(hasForm, `Missing "formHolder" region`);
+        });
+
+        it("has all required form fields", function () {
+            const fields = main.querySelector("[data-tp_form_holder] .form-group-container");
+
+            schema.forEach( item => {
+                const hasField = fields.querySelector(`.fieldname--${item.field}`);
+
+                if(!item.listen){
+                    assert.ok(hasField, `Missing field ${item.field}.`);
+                }
+            });
+        });
+
+        it("has form footer", function () {
+            const hasFormFooter = main.querySelector(".form-footer");
+            assert.ok(hasFormFooter, `Missing "formHolder footer" region.`);
+        });
+
+        it("has form footer submit", function () {
+            const hasFormFooterSubmit = main.querySelector(".form-footer .submit-buttons");
+            assert.ok(hasFormFooterSubmit, `Missing "formHolder footer submit buttons" region.`);
         });
     });
 

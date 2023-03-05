@@ -55,9 +55,11 @@ describe("run tests", function () {
 
             await import("../both/Pages/PubSub/tests/pubSubPage.test");
 
+            await import("../both/Pages/Login/tests/loginPage.test");
+
              */
 
-            await import("../both/Pages/Login/tests/loginPage.test");
+            await import("../both/Pages/MyProfile/tests/myProfilePage.test");
 
             /*
 
@@ -67,7 +69,7 @@ describe("run tests", function () {
 
 
 
-            await import("../both/Pages/MyProfile/tests/myProfilePage.test");
+
 
             await import("../both/Pages/ChangePassword/tests/changePasswordPage.test");
 
