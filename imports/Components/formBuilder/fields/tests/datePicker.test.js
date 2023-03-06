@@ -1,5 +1,5 @@
 /* step 1: define component key parts */
-const compName = "colourPicker";
+const compName = "datePicker";
 const parent = "label";
 const eventName = "on-inputentry";
 
@@ -7,14 +7,15 @@ const eventName = "on-inputentry";
 /* step 2: construct test data */
 const props = {
   field:     {
-    field: "coloursTest",
-    fieldType: "colours",
+    field: "datePickerTest",
+    fieldType: "datePicker",
     optional: true,
 
-    attributes: {},
-    params: {},
-    defaultValue: "#000000",
-    value: "#000000"
+
+    attributes: {maxlength: 10},
+    params: {dateFormat: 'Y-m-d', mode: 'single'},
+    defaultValue: "",
+    value: "2022-05-12",
   },
 
   error: "",
@@ -24,7 +25,7 @@ const props = {
 
 
 /* expected event object */
-const checkValue = "#ffffff";
+const checkValue = "2023-06-20";
 
 
 /* step 3: run boilerplate activities */
@@ -34,7 +35,7 @@ const testId = buildComponentTestArea(compName, document);
 
 
 /** import Component Under Test (CUT) **/
-import CUT from '../colourPicker.svelte';
+import CUT from '../datePicker.svelte';
 
 
 /** render component with appropriate props **/
@@ -65,7 +66,7 @@ describe(`component ${compName}.svelte`, function () {
     assert.ok( input, `CUT is missing "input" element`);
 
     const type = input.getAttribute("type");
-    assert.ok( type && type === "color", `CUT is missing "type=color".`);
+    assert.ok( type && type === "date", `CUT is missing "type=color".`);
   });
 
   it(`${compName} input fires "${eventName}"`, async function () {

@@ -59,7 +59,7 @@
     <input type="date"
            {...attributes}
            bind:value={inValue}
-           on:change="{checkInput}">
+           on:input="{checkInput}">
 </label>
 
 
