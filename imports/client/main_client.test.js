@@ -63,3 +63,4 @@ import '../Components/blocks/tests/card.test';
 
 /* component formBuilder - fields tests */
 import '../Components/formBuilder/fields/tests/inputs.test';
+import '../Components/formBuilder/fields/tests/inputs-password.test';

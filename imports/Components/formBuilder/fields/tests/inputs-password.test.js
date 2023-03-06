@@ -1,6 +1,6 @@
 /* step 1: define component key parts */
-const compName = "inputs";
-const parent = "label";
+const compName = "inputs-password";
+const parent = "div";
 const eventName = "on-inputentry";
 
 
@@ -12,7 +12,7 @@ const props = {
     fieldType: "input",
     value: "some text",
 
-    attributes: {type: "text", maxlength: 64},
+    attributes: {type: "password", maxlength: 64},
     params: {},
     defaultValue: "",
   },
@@ -60,17 +60,23 @@ describe(`component ${compName}.svelte`, function () {
   });
 
   it(`${compName} structure`, function () {
-    const label = component.querySelector(`${parent} > span`);
+    const label = component.querySelector(`${parent} > label > span`);
     assert.ok( label && label.innerHTML.length > 3, `CUT is missing "span" label`);
 
-    const input = component.querySelector(`${parent} > input`);
+    const input = component.querySelector(`${parent} > label > input`);
     assert.ok( input, `CUT is missing "input" element`);
 
     const className = input.classList.contains("input");
     assert.ok( className, `CUT is missing "class=input".`);
 
     const type = input.getAttribute("type");
-    assert.ok( type && type === "text", `CUT is missing "type=text".`);
+    assert.ok( type && type === "password", `CUT is missing "type=password".`);
+
+    const button = component.querySelector(`${parent} > button`);
+    assert.ok( button, `CUT is missing "button" element`);
+
+    const icon = component.querySelector(`${parent} > button > span`);
+    assert.ok( icon.innerHTML.includes("icon-bg"), `CUT is missing "icon" class`);
   });
 
   it(`${compName} input fires "${eventName}"`, async function () {
@@ -91,3 +97,18 @@ describe(`component ${compName}.svelte`, function () {
   });
 
 });
+
+/*
+<div class="field--inputs has-field-addons test-form-field ">
+  <label class="width-full">
+    <span>Undefined Field Label</span>
+    <input class="input " type="password" maxlength="64">
+  </label>
+
+  <button type="button" title="show / hide">
+    <span>
+      <span class="icon-bg-eye is-medium"></span>
+    </span>
+  </button>
+</div>
+ */
