@@ -62,5 +62,10 @@ import '../Components/widgets/tests/tabbedContent.test';
 import '../Components/blocks/tests/card.test';
 
 /* component formBuilder - fields tests */
+import '../Components/formBuilder/fields/tests/apiKey.test';
+
+/*
 import '../Components/formBuilder/fields/tests/inputs.test';
 import '../Components/formBuilder/fields/tests/inputs-password.test';
+
+ */

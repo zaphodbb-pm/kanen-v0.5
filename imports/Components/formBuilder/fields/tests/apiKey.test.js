@@ -1,5 +1,5 @@
 /* step 1: define component key parts */
-const compName = "inputs-password";
+const compName = "apiKey";
 const parent = "div";
 const eventName = "on-inputentry";
 
@@ -7,13 +7,12 @@ const eventName = "on-inputentry";
 /* step 2: construct test data */
 const props = {
   field:     {
-    // control and decoration for fields in a form
-    field: "testInput",
-    fieldType: "input",
-    value: "some text",
+    field: "apiKeyTest",
+    fieldType: "apiKey",
+    optional: true,
 
-    attributes: {type: "password", maxlength: 64},
-    params: {},
+    attributes: {},
+    params: {length: 24},
     defaultValue: "",
   },
 
@@ -23,10 +22,6 @@ const props = {
 }
 
 
-/* expected event object */
-const checkClick = {value: props.field.value, error: !!props.error};
-
-
 /* step 3: run boilerplate activities */
 /** add component test area to body **/
 import {buildComponentTestArea} from '../../../tests/buildComponentTestArea';
@@ -34,9 +29,7 @@ const testId = buildComponentTestArea(compName, document);
 
 
 /** import Component Under Test (CUT) **/
-import {waitFor} from "../../../tests/waitFor";
-import CUT from '../inputs.svelte';
-
+import CUT from '../apikey.svelte';
 
 
 /** render component with appropriate props **/
@@ -60,40 +53,36 @@ describe(`component ${compName}.svelte`, function () {
   });
 
   it(`${compName} structure`, function () {
-    const label = component.querySelector(`${parent} > label > span`);
+    const button = component.querySelector(`button`);
+    assert.ok( button, `CUT is missing "button" element`);
+    assert.ok( button.innerHTML.includes("icon-bg"), `CUT is missing "icon" class`);
+
+    const label = component.querySelector(`label > span`);
     assert.ok( label && label.innerHTML.length > 3, `CUT is missing "span" label`);
 
-    const input = component.querySelector(`${parent} > label > input`);
+    const input = component.querySelector(`label > input`);
     assert.ok( input, `CUT is missing "input" element`);
 
     const className = input.classList.contains("input");
     assert.ok( className, `CUT is missing "class=input".`);
 
     const type = input.getAttribute("type");
-    assert.ok( type && type === "password", `CUT is missing "type=password".`);
-
-    const button = component.querySelector(`${parent} > button`);
-    assert.ok( button, `CUT is missing "button" element`);
-
-    const icon = component.querySelector(`${parent} > button > span`);
-    assert.ok( icon.innerHTML.includes("icon-bg"), `CUT is missing "icon" class`);
+    assert.ok( type && type === "text", `CUT is missing "type=text".`);
   });
 
   it(`${compName} input fires "${eventName}"`, async function () {
-    const input = component.querySelector("input");
+    const button = component.querySelector("button");
     let testResult;
 
     instance.$on(eventName, function (ev) {
       testResult = ev.detail;
     });
 
-    /** simulate keyboard event and wait for debounce propagation **/
-    const evt = new KeyboardEvent('keyup', { key: "a" });
-    input.dispatchEvent(evt);
-    await waitFor(800);
+    button.click();
 
-    const msg = `instance event is ${JSON.stringify(testResult)} but should be ${JSON.stringify(checkClick)}`;
-    assert.deepStrictEqual(testResult, checkClick, msg);
+    const checkId = testResult.value;
+    const alphaNumeric = new RegExp(/^(?=.*[a-zA-Z])(?=.*[0-9])[A-Za-z0-9]+$/);
+    assert.ok(checkId && checkId.length === props.field.params.length && alphaNumeric.test(checkId), `instance event is ${checkId}`);
   });
 
 });
