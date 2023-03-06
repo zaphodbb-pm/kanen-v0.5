@@ -55,7 +55,7 @@
 
     //** set new formText context for embedded formWrapper
     let formText = getContext("formText");
-    const label = formText[field.field]?.label ?? "";
+    const label = formText ? formText[field.field]?.label ?? "" : "Undefined Field Label";
     let rowText = formText[field.field]?.rowText ?? null;
 
     if(rowText){

@@ -26,7 +26,7 @@
     import {createEventDispatcher, getContext} from 'svelte';
     const dispatch = createEventDispatcher();
     const formText = getContext("formText");
-    const label = formText[field.field]?.label ?? "";
+    const label = formText ? formText[field.field]?.label ?? "" : "Undefined Field Label";
 
 
     //* local reactive variable

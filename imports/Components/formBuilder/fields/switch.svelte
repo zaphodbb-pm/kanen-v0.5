@@ -30,8 +30,8 @@
 
     //* local reactive variable
     let inValue = false;
-    const tag = formText[field.field] && formText[field.field].tag ? formText[field.field].tag : "";
-    const label = formText[field.field] && formText[field.field].label ? formText[field.field].label : "";
+    const tag = formText ? formText[field.field]?.tag ?? "" : "Undefined Tag";
+    const label = formText ? formText[field.field]?.label ?? "" : "Undefined Field Label";
 
     $: setValue(field.value);
 

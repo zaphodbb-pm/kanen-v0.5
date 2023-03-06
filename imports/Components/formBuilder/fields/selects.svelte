@@ -45,7 +45,7 @@
 
     const dispatch = createEventDispatcher();
     const formText = getContext("formText");
-    const label = formText[field.field]?.label ?? "";
+    const label = formText ? formText[field.field]?.label ?? "" : "Undefined Field Label";
     const firstOption = formText[field.field]?.tag ?? "";
 
     let source = formText[field.field]?.selects ?? [];
@@ -131,16 +131,18 @@
     }
 
     async function getSelectsField(coll, query, filter, type) {
-        let field = field.params && field.params.field ? field.params.field : null;
+        //let paramsField = field.params && field.params.field ? field.params.field : null;
+
+        const paramsField = field?.params?.field ?? null;
         let docs = await getDocs(coll, "oneAllFields", query, filter);
 
-        if (field) {
+        if (paramsField) {
             if (type && type === "array") {
-                source = docs[field];
+                source = docs[paramsField];
             }
 
             if (type && type === "row") {
-                source = docs[field].map((r) => {
+                source = docs[paramsField].map((r) => {
                     return {_id: r.id, name: r.td0}
                 });
             }

@@ -22,8 +22,8 @@
 
     //* support Functions
     import {getContext} from 'svelte'
-    let formText = getContext("formText");
-    let tag = formText[field.field] && formText[field.field].tag ? formText[field.field].tag : "";
+    const formText = getContext("formText");
+    const tag = formText ? formText[field.field]?.tag ?? "" : "Undefined Tag";
 
 </script>
 

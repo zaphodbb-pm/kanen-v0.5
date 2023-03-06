@@ -30,7 +30,7 @@
 
     const formText = getContext("formText");
     const source = formText[field.field]?.selects ?? [];
-    const label = formText[field.field]?.label ?? "";
+    const label = formText ? formText[field.field]?.label ?? "" : "Undefined Field Label";
 
     //* local reactive variable
     let radValue = "";
