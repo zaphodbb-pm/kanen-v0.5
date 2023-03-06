@@ -1,5 +1,5 @@
 /* step 1: define component key parts */
-const compName = "datePicker";
+const compName = "timePicker";
 const parent = "label";
 const eventName = "on-inputentry";
 
@@ -7,15 +7,20 @@ const eventName = "on-inputentry";
 /* step 2: construct test data */
 const props = {
   field:     {
-    field: "datePickerTest",
-    fieldType: "datePicker",
+    field: "timePickerTest",
+    fieldType: "timePicker",
     optional: true,
 
-
-    attributes: {maxlength: 10},
-    params: {dateFormat: 'Y-m-d', mode: 'single'},
+    attributes: {},
+    params: {
+      hr12: true,
+      timeStart: 6,
+      timeEnd: 23,
+      minuteIncrement: 15
+    },
     defaultValue: "",
-    value: "2022-05-12",
+    value: "8:16:32"
+
   },
 
   error: "",
@@ -25,7 +30,7 @@ const props = {
 
 
 /* expected event object */
-const checkValue = "2023-06-20";
+const checkValue = "10:20:30";
 
 
 /* step 3: run boilerplate activities */
@@ -35,7 +40,7 @@ const testId = buildComponentTestArea(compName, document);
 
 
 /** import Component Under Test (CUT) **/
-import CUT from '../datePicker.svelte';
+import CUT from '../timePicker.svelte';
 
 
 /** render component with appropriate props **/
@@ -66,7 +71,7 @@ describe(`component ${compName}.svelte`, function () {
     assert.ok( input, `CUT is missing "input" element`);
 
     const type = input.getAttribute("type");
-    assert.ok( type && type === "date", `CUT is missing "type=date".`);
+    assert.ok( type && type === "time", `CUT is missing "type=time".`);
   });
 
   it(`${compName} input fires "${eventName}"`, async function () {

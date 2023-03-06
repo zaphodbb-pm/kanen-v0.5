@@ -59,7 +59,7 @@
     <input type="time"
            {...attributes}
            bind:value={inValue}
-           on:change="{checkInput}">
+           on:input="{checkInput}">
 </label>
 
 
