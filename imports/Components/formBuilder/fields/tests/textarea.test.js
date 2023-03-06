@@ -1,5 +1,5 @@
 /* step 1: define component key parts */
-const compName = "inputs";
+const compName = "textarea";
 const parent = "label";
 const eventName = "on-inputentry";
 
@@ -7,13 +7,15 @@ const eventName = "on-inputentry";
 /* step 2: construct test data */
 const props = {
   field:     {
-    field: "testInput",
-    fieldType: "input",
-    value: "some text",
-
-    attributes: {type: "text", maxlength: 64},
+    field: "textAreaTest",
+    fieldType: "textarea",
+    optional: true,
+    tab: 0,
+    attributes: {maxlength: 5000, rows: 3},
     params: {},
     defaultValue: "",
+
+    value: "some text",
   },
 
   error: "",
@@ -33,9 +35,7 @@ const testId = buildComponentTestArea(compName, document);
 
 
 /** import Component Under Test (CUT) **/
-import {waitFor} from "../../../tests/waitFor";
-import CUT from '../inputs.svelte';
-
+import CUT from '../textarea.svelte';
 
 
 /** render component with appropriate props **/
@@ -62,18 +62,15 @@ describe(`component ${compName}.svelte`, function () {
     const label = component.querySelector(`${parent} > span`);
     assert.ok( label && label.innerHTML.length > 3, `CUT is missing "span" label`);
 
-    const input = component.querySelector(`${parent} > input`);
-    assert.ok( input, `CUT is missing "input" element`);
+    const textarea = component.querySelector(`${parent} > textarea`);
+    assert.ok( textarea, `CUT is missing "textarea" element.`);
 
-    const className = input.classList.contains("input");
-    assert.ok( className, `CUT is missing "class=input".`);
-
-    const type = input.getAttribute("type");
-    assert.ok( type && type === "text", `CUT is missing "type=text".`);
+    const className = textarea.classList.contains("textarea");
+    assert.ok( className, `CUT is missing "class=textarea".`);
   });
 
   it(`${compName} input fires "${eventName}"`, async function () {
-    const input = component.querySelector("input");
+    const textarea = component.querySelector("textarea");
     let testResult;
 
     instance.$on(eventName, function (ev) {
@@ -82,8 +79,7 @@ describe(`component ${compName}.svelte`, function () {
 
     /** simulate keyboard event and wait for debounce propagation **/
     const evt = new KeyboardEvent('keyup', { key: "a" });
-    input.dispatchEvent(evt);
-    await waitFor(800);
+    textarea.dispatchEvent(evt);
 
     const msg = `instance event is ${JSON.stringify(testResult)} but should be ${JSON.stringify(checkClick)}`;
     assert.deepStrictEqual(testResult, checkClick, msg);

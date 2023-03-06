@@ -1,5 +1,5 @@
 /* step 1: define component key parts */
-const compName = "inputs";
+const compName = "switch";
 const parent = "label";
 const eventName = "on-inputentry";
 
@@ -7,13 +7,14 @@ const eventName = "on-inputentry";
 /* step 2: construct test data */
 const props = {
   field:     {
-    field: "testInput",
-    fieldType: "input",
-    value: "some text",
+    field: "switchTest",
+    fieldType: "switch",
+    optional: true,
 
-    attributes: {type: "text", maxlength: 64},
+    attributes: {},
     params: {},
-    defaultValue: "",
+    defaultValue: false,
+    value: false,
   },
 
   error: "",
@@ -23,7 +24,7 @@ const props = {
 
 
 /* expected event object */
-const checkClick = {value: props.field.value, error: !!props.error};
+const checkClick = {value: true, error: !!props.error};
 
 
 /* step 3: run boilerplate activities */
@@ -33,9 +34,7 @@ const testId = buildComponentTestArea(compName, document);
 
 
 /** import Component Under Test (CUT) **/
-import {waitFor} from "../../../tests/waitFor";
-import CUT from '../inputs.svelte';
-
+import CUT from '../switch.svelte';
 
 
 /** render component with appropriate props **/
@@ -62,14 +61,14 @@ describe(`component ${compName}.svelte`, function () {
     const label = component.querySelector(`${parent} > span`);
     assert.ok( label && label.innerHTML.length > 3, `CUT is missing "span" label`);
 
-    const input = component.querySelector(`${parent} > input`);
-    assert.ok( input, `CUT is missing "input" element`);
+    const input = component.querySelector(`${parent} input`);
+    assert.ok( input, `CUT is missing "input" element.`);
 
-    const className = input.classList.contains("input");
-    assert.ok( className, `CUT is missing "class=input".`);
+    const span = component.querySelector(`${parent} .switch`);
+    assert.ok( span, `CUT is missing "class=switch".`);
 
     const type = input.getAttribute("type");
-    assert.ok( type && type === "text", `CUT is missing "type=text".`);
+    assert.ok( type && type === "checkbox", `CUT is missing "type=checkbox".`);
   });
 
   it(`${compName} input fires "${eventName}"`, async function () {
@@ -80,10 +79,7 @@ describe(`component ${compName}.svelte`, function () {
       testResult = ev.detail;
     });
 
-    /** simulate keyboard event and wait for debounce propagation **/
-    const evt = new KeyboardEvent('keyup', { key: "a" });
-    input.dispatchEvent(evt);
-    await waitFor(800);
+    input.click();
 
     const msg = `instance event is ${JSON.stringify(testResult)} but should be ${JSON.stringify(checkClick)}`;
     assert.deepStrictEqual(testResult, checkClick, msg);

@@ -7,7 +7,6 @@ const eventName = "on-inputentry";
 /* step 2: construct test data */
 const props = {
   field:     {
-    // control and decoration for fields in a form
     field: "testInput",
     fieldType: "input",
     value: "some text",

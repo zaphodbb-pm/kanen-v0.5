@@ -29,7 +29,7 @@
     import {getContext} from 'svelte';
 
     const formText = getContext("formText");
-    const source = formText[field.field]?.selects ?? [];
+    const source = formText ? formText[field.field]?.selects ?? [] : field?.selects ?? [];
     const label = formText ? formText[field.field]?.label ?? "" : "Undefined Field Label";
 
     //* local reactive variable
