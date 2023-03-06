@@ -1,13 +1,13 @@
 /* step 1: define component key parts */
-const compName = "inputs";
-const parent = "label";
+const compName = "checkboxes";
+const parent = "fieldset";
 const eventName = "on-inputentry";
 
 
 /* step 2: construct test data */
 const props = {
   field:     {
-    field: "startCheckbox",
+    field: "checkboxTest",
     fieldType: "checkboxes",
     optional: true,
 
@@ -16,16 +16,19 @@ const props = {
     params: {cols: 2, buttons: true},
     css: "is-vertical",
     defaultValue: [],
+    value: [],
+
+    selects: [
+      {_id: "light", name: "a little rusty"},
+      {_id: "moderate", name: "a regular"},
+      {_id: "active", name: "ready for anything"},
+    ]
   },
 
   error: "",
 
   class: "test-form-field"
 }
-
-
-/* expected event object */
-const checkClick = {value: props.field.value, error: !!props.error};
 
 
 /* step 3: run boilerplate activities */
@@ -35,8 +38,7 @@ const testId = buildComponentTestArea(compName, document);
 
 
 /** import Component Under Test (CUT) **/
-import {waitFor} from "../../../tests/waitFor";
-import CUT from '../inputs.svelte';
+import CUT from '../checkboxes.svelte';
 
 
 
@@ -61,34 +63,39 @@ describe(`component ${compName}.svelte`, function () {
   });
 
   it(`${compName} structure`, function () {
-    const label = component.querySelector(`${parent} > span`);
-    assert.ok( label && label.innerHTML.length > 3, `CUT is missing "span" label`);
+    const legend = component.querySelector(`${parent} > legend`);
+    assert.ok( legend && legend.innerHTML.length > 3, `CUT is missing "legend" label`);
 
-    const input = component.querySelector(`${parent} > input`);
-    assert.ok( input, `CUT is missing "input" element`);
+    const checkboxes = component.querySelectorAll(`${parent} > label`);
+    const expectedChecks = props.field.selects;
+    assert.ok( checkboxes && checkboxes.length === expectedChecks.length, `CUT should have ${expectedChecks.length} boxes, but found ${checkboxes.length} boxes`);
 
-    const className = input.classList.contains("input");
-    assert.ok( className, `CUT is missing "class=input".`);
+    checkboxes.forEach( item => {
+      const input = item.querySelector("input");
+      assert.ok( input, `CUT checkbox is missing "input" element`);
 
-    const type = input.getAttribute("type");
-    assert.ok( type && type === "text", `CUT is missing "type=text".`);
+      const type = input.getAttribute("type");
+      assert.ok( type && type === "checkbox", `CUT is missing "type=checkbox".`);
+
+      const text = item.querySelector("span");
+      assert.ok( text && text.innerHTML.length > 3, `CUT is missing "span" with text.`);
+    });
   });
 
   it(`${compName} input fires "${eventName}"`, async function () {
-    const input = component.querySelector("input");
+    const boxIdx = 2;
+    const input = component.querySelectorAll("input");
     let testResult;
 
     instance.$on(eventName, function (ev) {
       testResult = ev.detail;
     });
 
-    /** simulate keyboard event and wait for debounce propagation **/
-    const evt = new KeyboardEvent('keyup', { key: "a" });
-    input.dispatchEvent(evt);
-    await waitFor(800);
+    input[boxIdx].click();
 
-    const msg = `instance event is ${JSON.stringify(testResult)} but should be ${JSON.stringify(checkClick)}`;
-    assert.deepStrictEqual(testResult, checkClick, msg);
+    const checkClick = [ props.field.selects[boxIdx] ];
+    const msg = `instance event is ${JSON.stringify(testResult.value)} but should be ${JSON.stringify(checkClick)}`;
+    assert.deepStrictEqual(testResult.value, checkClick, msg);
   });
 
 });

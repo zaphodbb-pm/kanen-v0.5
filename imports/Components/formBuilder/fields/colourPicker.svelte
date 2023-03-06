@@ -63,5 +63,5 @@
            name="color_field"
            {...attributes}
            bind:value={inValue}
-           on:change="{checkInput}">
+           on:input="{checkInput}">
 </label>
