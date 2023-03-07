@@ -72,13 +72,14 @@ import '../Components/formBuilder/fields/tests/typeahead.test';
 import '../Components/formBuilder/fields/tests/editor.test';
  */
 
-import '../Components/formBuilder/fields/tests/fileBrowse.test';
+import '../Components/formBuilder/fields/tests/geoAddress.test';
 
 /*
 import '../Components/formBuilder/fields/tests/apiKey.test';
 import '../Components/formBuilder/fields/tests/checkboxes.test';
 import '../Components/formBuilder/fields/tests/colourPicker.test';
 import '../Components/formBuilder/fields/tests/datePicker.test';
+import '../Components/formBuilder/fields/tests/fileBrowse.test';
 import '../Components/formBuilder/fields/tests/hr.test';
 import '../Components/formBuilder/fields/tests/inputs.test';
 import '../Components/formBuilder/fields/tests/inputs-password.test';
