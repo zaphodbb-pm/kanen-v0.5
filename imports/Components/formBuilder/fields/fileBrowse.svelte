@@ -32,7 +32,6 @@
     //* language common text
     import {i18n} from '/imports/Functions/utilities/i18n';
     import {lang} from '/imports/client/systemStores';
-    let fileReader = i18n( getContext("commonText"), "fileReader", $lang);
 
     //* support Functions
     import {documents} from '/imports/both/systemGlobals';
@@ -41,6 +40,7 @@
     const dispatch = createEventDispatcher();
     const formText = getContext("formText");
     const label = formText ? formText[field.field]?.label ?? "" : "Undefined Field Label";
+    let fileReader = i18n( getContext("commonText") ?? field.fileReader ?? {}, "fileReader", $lang);
 
 
     //* local reactive variable
@@ -61,12 +61,11 @@
     let format = "none";
 
     let errmsg = {
-        file_too_long:   fileReader.file_too_long.replace("getImageSize", Math.round( documents.MAX_IMAGE_SIZE / 1024) ),
-        file_wrong_type: fileReader.file_wrong_type,
+        file_too_long:   fileReader?.file_too_long ? fileReader.file_too_long.replace("getImageSize", Math.round( documents.MAX_IMAGE_SIZE / 1024) ) : "n/a",
+        file_wrong_type: fileReader?.file_wrong_type ? fileReader.file_wrong_type : "n/a",
     }
 
     $: setValue(field.value);
-
 
 
     //* Functions that mutate local variables
