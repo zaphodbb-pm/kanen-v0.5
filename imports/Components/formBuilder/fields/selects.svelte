@@ -46,9 +46,10 @@
     const dispatch = createEventDispatcher();
     const formText = getContext("formText");
     const label = formText ? formText[field.field]?.label ?? "" : "Undefined Field Label";
-    const firstOption = formText[field.field]?.tag ?? "";
+    const firstOption = formText ? formText[field.field]?.tag ?? {}: field?.selectText.tag ?? {};
 
-    let source = formText[field.field]?.selects ?? [];
+    let source = formText ? formText[field.field]?.selects ?? [] : field?.selectText.select ?? [];
+
 
 
     //* local reactive variable

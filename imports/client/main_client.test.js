@@ -65,14 +65,14 @@ import '../Components/blocks/tests/card.test';
 
 /*
 
-import '../Components/formBuilder/fields/tests/rows.test';
-import '../Components/formBuilder/fields/tests/selects.test';
+
+
 
 import '../Components/formBuilder/fields/tests/typeahead.test';
 import '../Components/formBuilder/fields/tests/editor.test';
  */
 
-import '../Components/formBuilder/fields/tests/rows.test';
+import '../Components/formBuilder/fields/tests/selects.test';
 
 /*
 import '../Components/formBuilder/fields/tests/apiKey.test';
@@ -86,6 +86,7 @@ import '../Components/formBuilder/fields/tests/inputs.test';
 import '../Components/formBuilder/fields/tests/inputs-password.test';
 import '../Components/formBuilder/fields/tests/itemList.test';
 import '../Components/formBuilder/fields/tests/radios.test';
+import '../Components/formBuilder/fields/tests/rows.test';
 
 import '../Components/formBuilder/fields/tests/switch.test';
 import '../Components/formBuilder/fields/tests/textarea.test';
