@@ -17,7 +17,7 @@ const props = {
 
     optional: true,
     defaultValue: [{id: 1, text: '...'}],
-    value: [{id: 1, text: '...'}],
+    value: [{id: 1, check: "", text: "initial"}],
   },
 
   error: "",
@@ -27,7 +27,7 @@ const props = {
 
 
 /* expected event object */
-const checkClick = {value: props.field.value, error: !!props.error};
+const checkClick = {id: 2, check: "", text: ""};
 
 
 /* step 3: run boilerplate activities */
@@ -37,7 +37,6 @@ const testId = buildComponentTestArea(compName, document);
 
 
 /** import Component Under Test (CUT) **/
-import {waitFor} from "../../../tests/waitFor";
 import CUT from '../itemList.svelte';
 
 
@@ -94,49 +93,19 @@ describe(`component ${compName}.svelte`, function () {
     assert.ok( del && del.innerHTML.includes("icon-bg"), `Missing "delete" icon.`);
   });
 
-  /*
-  <fieldset class="field--item-list  test-form-field  svelte-1nwhqo1">
-    <legend>Undefined Field Label</legend>
-    <button type="button" class="add-rows is-rounded is-primary svelte-1nwhqo1" title="add row">
-      <span class="icon-bg-circle-plus is-medium svelte-1nwhqo1"></span>
-    </button>
+  it(`${compName} "add row" button fires "${eventName}"`, async function () {
+    const button = component.querySelector(`${parent} > button`);
 
-    <ul class="svelte-1gqits8">
-      <li data-index="0" data-id="1" draggable="true" class="svelte-1gqits8">
-        <div class="level svelte-1nwhqo1">
-          <div class="row-id svelte-1nwhqo1">1</div>
-          <label>
-            <input type="checkbox" class="is-checkradio is-info has-background-color" title="simple check box" id="checkbox_0.16644304701204327_1">
-          </label>
-
-          <textarea class="textarea svelte-1nwhqo1" rows="2"></textarea>
-
-          <div class="has-text-centered">
-            <span class="icon-bg-circle-minus is-medium has-text-danger"></span>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </fieldset>
-   */
-
-  it(`${compName} input fires "${eventName}"`, async function () {
-    const input = component.querySelector("input");
     let testResult;
 
     instance.$on(eventName, function (ev) {
       testResult = ev.detail;
     });
 
-    /** simulate keyboard event and wait for debounce propagation **/
-    const evt = new KeyboardEvent('keyup', { key: "a" });
-    input.dispatchEvent(evt);
-    await waitFor(800);
+    button.click();
 
-    const msg = `instance event is ${JSON.stringify(testResult)} but should be ${JSON.stringify(checkClick)}`;
-    assert.deepStrictEqual(testResult, checkClick, msg);
+    const msg = `instance event is ${JSON.stringify(testResult.value[1])} but should be ${JSON.stringify(checkClick)}`;
+    assert.deepStrictEqual(testResult.value[1], checkClick, msg);
   });
-
-
 
 });
