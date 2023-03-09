@@ -39,8 +39,20 @@ const props = {
 }
 
 
-/* expected event object */
-const checkClick = {value: props.field.value, error: !!props.error};
+/* expected written select element */
+const checkHTML = [
+  {_id: "all", name: "All Options"},
+  {_id: "sun", name: "Sunday"},
+  {_id: "mon", name: "Monday"},
+  {_id: "tue", name: "Tuesday"},
+  {_id: "wed", name: "Wednesday"},
+  {_id: "thu", name: "Thursday"},
+  {_id: "fri", name: "Friday"},
+  {_id: "sat", name: "Saturday"},
+];
+
+const selectOption = 1;
+const checkSelect = {"_id":"sun","name":"Sunday","colour":"#000000"};
 
 
 /* step 3: run boilerplate activities */
@@ -50,7 +62,6 @@ const testId = buildComponentTestArea(compName, document);
 
 
 /** import Component Under Test (CUT) **/
-import {waitFor} from "../../../tests/waitFor";
 import CUT from '../selects.svelte';
 
 
@@ -79,18 +90,25 @@ describe(`component ${compName}.svelte`, function () {
     const label = component.querySelector(`${parent} > span`);
     assert.ok( label && label.innerHTML.length > 3, `CUT is missing "span" label`);
 
-    const input = component.querySelector(`${parent} > input`);
-    assert.ok( input, `CUT is missing "input" element`);
+    const status = component.querySelector(`${parent} > div.status-item`);
+    assert.ok( status, `CUT is missing "div" status label`);
 
-    const className = input.classList.contains("input");
-    assert.ok( className, `CUT is missing "class=input".`);
+    const select = component.querySelector(`${parent} > select`);
+    assert.ok( select, `CUT is missing "select" element`);
 
-    const type = input.getAttribute("type");
-    assert.ok( type && type === "text", `CUT is missing "type=text".`);
+    /** extract option value and text and compare to test **/
+    let options = select.querySelectorAll(`option`);
+    let optionsValues = [];
+
+    options.forEach( item => {
+      optionsValues.push({_id: item.getAttribute("value"), name: item.innerHTML.trim()});
+    });
+
+    assert.deepStrictEqual( optionsValues, checkHTML, `CUT select options mis-structured, found ${JSON.stringify(optionsValues)}`);
   });
 
   it(`${compName} input fires "${eventName}"`, async function () {
-    const input = component.querySelector("input");
+    const select = component.querySelector("select");
     let testResult;
 
     instance.$on(eventName, function (ev) {
@@ -98,12 +116,11 @@ describe(`component ${compName}.svelte`, function () {
     });
 
     /** simulate keyboard event and wait for debounce propagation **/
-    const evt = new KeyboardEvent('keyup', { key: "a" });
-    input.dispatchEvent(evt);
-    await waitFor(800);
+    select.selectedIndex = selectOption;
+    select.dispatchEvent(new Event('change'));
 
-    const msg = `instance event is ${JSON.stringify(testResult)} but should be ${JSON.stringify(checkClick)}`;
-    assert.deepStrictEqual(testResult, checkClick, msg);
+    const msg = `instance event is ${JSON.stringify(testResult.value)} but should be ${JSON.stringify(checkSelect)}`;
+    assert.deepStrictEqual(testResult.value, checkSelect, msg);
   });
 
 });
