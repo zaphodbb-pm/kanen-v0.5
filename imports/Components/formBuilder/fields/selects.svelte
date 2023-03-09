@@ -48,7 +48,7 @@
     const label = formText ? formText[field.field]?.label ?? "" : "Undefined Field Label";
     const firstOption = formText ? formText[field.field]?.tag ?? {}: field?.selectText.tag ?? {};
 
-    let source = formText ? formText[field.field]?.selects ?? [] : field?.selectText.selects ?? [];
+    let source = formText ? formText[field.field]?.selects ?? [] : field?.selectText?.selects ?? [];
 
     //* local reactive variable
     let selValue = "";

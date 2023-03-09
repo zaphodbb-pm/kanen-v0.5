@@ -68,5 +68,5 @@
     <textarea class="textarea"
               bind:value={inValue}
               {...field.attributes}
-              on:keyup="{checkInput}"></textarea>
+              on:input="{checkInput}"></textarea>
 </label>

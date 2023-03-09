@@ -63,22 +63,17 @@ import '../Components/blocks/tests/card.test';
 
 /* component formBuilder - fields tests */
 
-/*
-
 
 
 
 import '../Components/formBuilder/fields/tests/typeahead.test';
-import '../Components/formBuilder/fields/tests/editor.test';
- */
-
-import '../Components/formBuilder/fields/tests/selects.test';
 
 /*
 import '../Components/formBuilder/fields/tests/apiKey.test';
 import '../Components/formBuilder/fields/tests/checkboxes.test';
 import '../Components/formBuilder/fields/tests/colourPicker.test';
 import '../Components/formBuilder/fields/tests/datePicker.test';
+import '../Components/formBuilder/fields/tests/editor.test';
 import '../Components/formBuilder/fields/tests/fileBrowse.test';
 import '../Components/formBuilder/fields/tests/geoAddress.test';
 import '../Components/formBuilder/fields/tests/hr.test';
@@ -88,6 +83,7 @@ import '../Components/formBuilder/fields/tests/itemList.test';
 import '../Components/formBuilder/fields/tests/radios.test';
 import '../Components/formBuilder/fields/tests/rows.test';
 
+import '../Components/formBuilder/fields/tests/selects.test';
 import '../Components/formBuilder/fields/tests/switch.test';
 import '../Components/formBuilder/fields/tests/textarea.test';
 import '../Components/formBuilder/fields/tests/timePicker.test';

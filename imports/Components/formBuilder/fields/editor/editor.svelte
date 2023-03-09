@@ -40,7 +40,7 @@
     //* local variables
     const dispatch = createEventDispatcher();
     const formText = getContext("formText");
-    const label = formText[field.field]?.label ?? "";
+    const label = formText ? formText[field.field]?.label ?? "" : "Undefined Field Label";
     const editorTag = field.field + "-editor";
     const editorTagId = "#" + field.field + "-editor";
 

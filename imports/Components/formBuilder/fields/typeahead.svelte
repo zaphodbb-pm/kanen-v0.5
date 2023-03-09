@@ -37,8 +37,7 @@
     const formText = getContext("formText");
     const label = formText ? formText[field.field]?.label ?? "" : "Undefined Field Label";
 
-    let source = formText ? formText[field.field]?.selects ?? [] : [];
-
+    let source = formText ? formText[field.field]?.selects ?? [] : field?.selectText.selects ?? [];
     let rows = field?.params?.rows ?? 5;
     let selValue = typeof field.value === "object" ? field.value : {_id: "", name: ""};
 

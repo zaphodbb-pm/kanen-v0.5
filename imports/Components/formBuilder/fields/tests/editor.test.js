@@ -1,21 +1,21 @@
 /* step 1: define component key parts */
-const compName = "textarea";
+const compName = "editor";
 const parent = "label";
+const addon = "div";
 const eventName = "on-inputentry";
 
 
 /* step 2: construct test data */
 const props = {
   field:     {
-    field: "textAreaTest",
-    fieldType: "textarea",
-    optional: true,
-    tab: 0,
-    attributes: {maxlength: 5000, rows: 3},
+    field: "editorTest",
+    fieldType: "editor",
+    attributes: {maxlength: 50000},
     params: {},
-    defaultValue: "",
 
-    value: "some text",
+    optional: true,
+    defaultValue: "",
+    value: "editor start"
   },
 
   error: "",
@@ -23,10 +23,8 @@ const props = {
   class: "test-form-field"
 }
 
-
 /* expected event object */
-const checkText = "Check Text";
-const checkClick = {value: checkText, error: !!props.error};
+const checkClick = {value: props.field.value, error: !!props.error};
 
 
 /* step 3: run boilerplate activities */
@@ -36,7 +34,8 @@ const testId = buildComponentTestArea(compName, document);
 
 
 /** import Component Under Test (CUT) **/
-import CUT from '../textarea.svelte';
+import {waitFor} from "../../../tests/waitFor";
+import CUT from '../editor/editor.svelte';
 
 
 /** render component with appropriate props **/
@@ -51,28 +50,28 @@ import assert from "assert";
 
 describe(`component ${compName}.svelte`, function () {
   const component = document.querySelector(`#${testId} > ${parent}`);
+  const editor = document.querySelector(`#${testId} > ${addon}`);
 
   it(`${compName} exists`, function () {
     assert.ok(component, `parent should be "${parent}" tag`);
 
     const hasModifier = component.classList.contains(props.class);
     assert.ok( hasModifier, `parent classes should be "${props.class}"`);
+
+    assert.ok(editor, `editor should be "${addon}" tag`);
   });
 
-  it(`${compName} structure`, function () {
-    const label = component.querySelector(`${parent} > span`);
-    assert.ok( label && label.innerHTML.length > 3, `CUT is missing "span" label`);
+  it(`${compName} structure`, async function () {
+    const label = component.querySelector(`label > span`);
+    assert.ok(label && label.innerHTML.length > 3, `CUT is missing "span" label`);
 
-    const textarea = component.querySelector(`${parent} > textarea`);
-    assert.ok( textarea, `CUT is missing "textarea" element.`);
-
-    const className = textarea.classList.contains("textarea");
-    assert.ok( className, `CUT is missing "class=textarea".`);
+    await waitFor(200);
+    const editorAfter = document.querySelector(`.trumbowyg-box`);
+    assert.ok(editorAfter, `CUT is missing "class=trumbowyg-box".`);
   });
 
   it(`${compName} input fires "${eventName}"`, async function () {
-    const textarea = component.querySelector("textarea");
-    textarea.value = checkText;
+    const textarea = document.querySelector(".trumbowyg-editor")
 
     let testResult;
 
@@ -81,11 +80,9 @@ describe(`component ${compName}.svelte`, function () {
     });
 
     /** simulate keyboard event and wait for debounce propagation **/
-    const evt = new KeyboardEvent('input');
+    const evt = new Event('tbwchange');
     textarea.dispatchEvent(evt);
 
     const msg = `instance event is ${JSON.stringify(testResult)} but should be ${JSON.stringify(checkClick)}`;
-    assert.deepStrictEqual(testResult, checkClick, msg);
-  });
-
+    assert.deepStrictEqual(testResult, checkClick, msg);  });
 });
