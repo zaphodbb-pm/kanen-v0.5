@@ -318,7 +318,7 @@
         </header>
     {/if}
 
-    <Form_Tabs fields="{tabFields.fields}" {config} on:field-changed="{fieldChanged}" />
+    <Form_Tabs fields="{tabFields.fields}" {formText} {config} on:field-changed="{fieldChanged}" />
 
     <div class="form-footer" >
         <Form_Submit {...submit} on:submit-btn="{submitDoc}" on:back-btn="{backToCaller}" />

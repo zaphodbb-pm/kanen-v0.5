@@ -7,18 +7,18 @@
 meteor-base@1.5.1             # Packages every Meteor app needs to have
 static-html@1.3.2             # Define static page content in .html files
 reactive-var@1.0.12            # Reactive variable for tracker
-tracker@1.3.0                 # Meteor's client-side reactive programming library
+tracker@1.3.1                 # Meteor's client-side reactive programming library
 check@1.3.2
 
-standard-minifier-css@1.8.3   # CSS minifier run for production mode
+standard-minifier-css@1.9.0   # CSS minifier run for production mode
 standard-minifier-js@2.8.1    # JS minifier run for production mode
 es5-shim@4.8.0                # ECMAScript 5 compatibility for older browsers
-ecmascript@0.16.5              # Enable ECMAScript2015+ syntax in app code
-typescript@4.7.4              # Enable TypeScript syntax in .ts and .tsx modules
+ecmascript@0.16.6              # Enable ECMAScript2015+ syntax in app code
+typescript@4.9.4              # Enable TypeScript syntax in .ts and .tsx modules
 shell-server@0.5.0            # Server-side component of the `meteor shell` command
 
-mongo@1.16.4
-accounts-password@2.3.3
+mongo@1.16.5
+accounts-password@2.3.4
 accounts-google@1.4.0
 service-configuration@1.3.1
 mdg:meteor-apm-agent

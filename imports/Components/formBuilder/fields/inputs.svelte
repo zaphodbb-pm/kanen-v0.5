@@ -30,7 +30,14 @@
 
     const dispatch = createEventDispatcher();
     const formText = getContext("formText");
+
+    console.log("input formText", formText);
+
     const label = formText ? formText[field.field]?.label ?? "" : "Undefined Field Label";
+
+
+
+    //const label = formText ? formText[field.field]?.label ?? "Undefined Field Label" : field?.formText.label ?? "Undefined Field Label";
 
     //* local reactive variable
     let inValue = "";

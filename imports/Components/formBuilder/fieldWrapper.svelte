@@ -45,7 +45,9 @@
             value: undefined,
             tag: undefined,
             optional: true,
-            fieldType: undefined
+            fieldType: undefined,
+
+            formText: undefined
         };
     export let watchFields = {
         field: undefined
@@ -56,7 +58,7 @@
     export { className as class };
 
     //* support Functions
-    import {getContext} from 'svelte';
+    import {getContext, setContext} from 'svelte';
     import {components} from './fields/func-registerField';
     import {slide} from 'svelte/transition';
     import {quintOut} from 'svelte/easing';
@@ -65,17 +67,33 @@
 
 
     //* local reactive variables
-    //let fieldOpt = field.optional ? "" : "field-error";
+    let formText = getContext("formText");
+    let formTextDirect = field.formText;
+    let text = formText ? formText[field.field] ?? {} : (formTextDirect ?? {} );
+    let label = text?.label ?? "";
+    let helpText = text?.helpText ?? "";
 
-    let fieldOpt = "";
+    if(!formText && formTextDirect){
+        let name = {};
+        name[field.field] = formTextDirect;
+        setContext("formText", name);
+    }
+
+
+    console.log("text", formText, formTextDirect, text, label, helpText);
+
+    console.log("getContext", getContext("formText") );
+
+
+    //let label = formText && formText[field.field] && formText[field.field].label ? formText[field.field].label : "";
+
+    //let helpText = formText && formText[field.field] && formText[field.field].helpText ? formText[field.field].helpText : "";
+
+    //let adjustLabel = field.adjustLabel ? "adjust-label" : "";
 
     let fieldHelpShow = false;
     let fieldHide;
-    let formText = getContext("formText");
-    let label = formText && formText[field.field] && formText[field.field].label ? formText[field.field].label : "";
-    let helpText = formText && formText[field.field] && formText[field.field].helpText ? formText[field.field].helpText : "";
-    let adjustLabel = field.adjustLabel ? "adjust-label" : "";
-
+    let fieldOpt = "";
     let componentDef;
 
     field.tag = formText && formText[field.field] && formText[field.field].tag ? formText[field.field].tag : null;
