@@ -31,45 +31,42 @@ export const form = {
 
 
     //** Form field text ********************************************
-    inputTest: {
+    nameTest: {
         label: "Text (Name)",
-        //helpText: "String input type",
+        helpText: "String input type",
     },
 
-
-
-
-    startNumber: {
+    numberTest: {
         label: "Number Input",
         helpText: "Float with min / max and step size. ",
     },
 
-    startInteger: {
+    integerTest: {
         label: "Integer Input",
         helpText: "Integer defined by step size = 1. ",
     },
 
-    startEmail: {
+    emailTest: {
         label: "Email Input",
         helpText: "Checks for valid email before saving.  This field is 'watched' by startPhone at right.",
     },
 
-    startPhone: {
+    phoneTest: {
         label: "Telephone Input",
         helpText: "Supports '+' country code, 7 or 10 digit formatters, brackets and extension as 'x', 'ext'.",
     },
 
-    startPassword: {
+    passwordTest: {
         label: "Password Input",
         helpText: "TBD check strength",
     },
 
-    startTextArea: {
+    textAreaTest: {
         label: "Text Area",
         helpText: "Expandable text area.",
     },
 
-    address: {
+    addressTest: {
         label: "Address",
         helpText: "This address will generate a geolocation object on submit.",
     },
@@ -80,19 +77,19 @@ export const form = {
     },
 
 
-    startSwitch: {
+    switchTest: {
         label: "Boolean Switch",
         tag: "Cancel Weekends",
         helpText: "Fancy check box for single item on or off.",
     },
 
-    startCheckItem: {
+    checkItemTest: {
         label: "Check Item",
         tag: "Make Active",
         helpText: "Alternative to a switch item.",
     },
 
-    startCheckbox: {
+    checkboxTest: {
         label: "Checkbox",
         helpText: "Check box for single item on or off.",
         selects: [
@@ -102,16 +99,16 @@ export const form = {
         ]
     },
 
-    startRadios: {
+    radiosTest: {
         label: "Radios",
         selects: [{_id: "yes", name: "Yes"}, {_id: "no", name: "No"}, {_id: "maybe", name: "Maybe"}]
     },
 
-    startColours: {
+    coloursTest: {
         label: "Colours",
     },
 
-    startTimePicker: {
+    timePickerTest: {
         label: "Time Picker",
         helpText: "Select time value from buttons.",
         tag: {
@@ -125,12 +122,12 @@ export const form = {
         }
     },
 
-    startDateTime: {
+    dateTimeTest: {
         label: "Date Picker (with optional time)",
         helpText: "Can select date or time input type",
     },
 
-    startStaticSelect: {
+    staticSelectTest: {
         label: "Static Select",
         helpText: "Select from a fixed list",
         tag: {_id: "all", name: "All Options", colour: "#000000"},
@@ -145,13 +142,13 @@ export const form = {
         ]
     },
 
-    startDynamicSelect: {
+    dynamicSelectTest: {
         label: "Dynamic Select",
         helpText: "Uses a collection name to find a list of selection options.",
         tag: {_id: "all", name: "All Options"},
     },
 
-    startStaticTypeahead: {
+    staticTypeaheadTest: {
         label: "Static Typeahead",
         helpText: "Uses a static list to search through for characters typed into input box.",
         selects: [
@@ -165,46 +162,44 @@ export const form = {
         ]
     },
 
-    startDynamicTypeahead: {
+    dynamicTypeaheadTest: {
         label: "Dynamic Typeahead",
         helpText: "Uses a collection (Learn in this case) to get a list of values that can then be searched through for " +
                 "characters typed into input box.  Will search through the titles of Learn content.",
     },
 
-    startApiKey: {
+    apiKeyTest: {
         label: "API Key",
         helpText: "Generate api key to allow user programs to access select collections via REST.",
         fieldText: "Generate new api key"
     },
 
-    startFile: {
+    fileTest: {
         label: "Get File",
         helpText: "Browse local device for files.  Reads text and json file types.  " +
                 "The file size is limited to 500KB.",
     },
 
-    startImage: {
+    imageTest: {
         label: "Get Image",
         helpText: "Browse local device for files.  Reads image file types such as jpeg, jpg, png, gif, etc..  " +
                 "The file size is limited to 500KB.",
     },
 
 
-    startEditor: {
+    editorTest: {
         label: "Editor",
         helpText: "Classic text editor on textarea.",
         tag: "Be creative, add your content..."
     },
 
-    startList: {
+    listTest: {
         label: "List of Items",
         helpText: "This is a combination box that contains rows of columns of input fields and returns an " +
             "array of arrays of objects",
     },
 
-
-
-    startRows: {
+    rowsTest: {
         label: "Row of Inputs",
         helpText: "This is a combination box that contains rows of columns of input fields and returns an " +
                 "array of arrays of objects",
@@ -228,22 +223,5 @@ export const form = {
 
             field4: {label: "", tag: "Active"},
         }
-    },
-
-    startFieldset: {
-        label: "Fieldset of Inputs",
-        helpText: "This is a fieldset that contains a variety of input fields and returns an object of values",
-    },
-
-    startKanban: {
-        label: "Kanban Plan",
-        helpText: "",
-        selects: [
-            {_id: "todo", name: "To Do"},
-            {_id: "doing", name: "Doing"},
-            {_id: "done", name: "Done"},
-            {_id: "waiting", name: "Waiting"},
-        ]
     }
-
 };

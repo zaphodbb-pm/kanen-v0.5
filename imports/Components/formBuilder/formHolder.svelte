@@ -68,7 +68,6 @@
     const dispatch = createEventDispatcher();
 
     //* make form text available to all children Components
-    //setContext("formText", formText);
     setContext("debugOptions", $sysConfig.sysDebug);
 
     //* get application specific support libraries
