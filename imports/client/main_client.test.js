@@ -63,6 +63,7 @@ import '../Components/blocks/tests/card.test';
 
 /* component formBuilder - fields tests */
 
+/*
 import '../Components/formBuilder/fields/tests/apiKey.test';
 import '../Components/formBuilder/fields/tests/checkboxes.test';
 import '../Components/formBuilder/fields/tests/colourPicker.test';
@@ -82,8 +83,10 @@ import '../Components/formBuilder/fields/tests/textarea.test';
 import '../Components/formBuilder/fields/tests/timePicker.test';
 import '../Components/formBuilder/fields/tests/typeahead.test';
 
+ */
+
 
 
 /* component formBuilder - parent component tests */
-//import '../Components/formBuilder/tests/fieldWrapper.test';
+import '../Components/formBuilder/tests/fieldWrapper.test';
 

@@ -74,7 +74,6 @@
     let fieldOpt = "";
     let componentDef;
 
-
     field.tag = fieldText?.tag ?? null;
 
     $: {

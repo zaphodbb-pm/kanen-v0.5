@@ -7,25 +7,18 @@ const eventName = "field-changed";
 /* step 2: construct test data */
 const props = {
   field:     {
-    field: "inputTest",
-    fieldType: "input",
+    field: "apiKeyTest",
+    fieldType: "apiKey",
     optional: true,
 
     attributes: {},
     params: {length: 24},
-    defaultValue: "Some text",
-    value: "Some text",
-    tag: undefined,
+    defaultValue: "",
+  },
 
-    listen: {
-      src: undefined
-    },
-    adjustLabel: false,
-
-    formText: {
-      label: "Input Field",
-      helpText: "String input type",
-    }
+  fieldText: {
+    label: `${compName}`,
+    helpText: "String input type",
   },
 
   class: "test-form-field"
@@ -51,21 +44,6 @@ const instance = new CUT({
 
 /* step 4: perform tests */
 import assert from "assert";
-
-
-/*
-<div class="has-help-text">
-  <span>
-    <span class="icon-bg-help"></span>
-  </span>
-
-  <label class="field--inputs test-form-field fieldname--inputTest ">
-    <span>Input Field</span>
-    <input class="input ">
-  </label>
-</div>
-
- */
 
 describe(`component ${compName}.svelte`, function () {
   const component = document.querySelector(`#${testId} > ${parent}`);
@@ -104,6 +82,11 @@ describe(`component ${compName}.svelte`, function () {
     });
 
     button.click();
+
+    assert.ok( testResult.field === props.field.field, `instance field found ${testResult.field}`);
+    assert.ok( testResult.fieldType === props.field.fieldType, `instance fieldType found ${testResult.fieldType}`);
+    assert.ok( testResult.defaultValue === props.field.defaultValue, `instance defaultValue found ${testResult.defaultValue}`);
+    assert.ok( testResult.valid, `instance valid found ${testResult.valid}`);
 
     const checkId = testResult.value;
     const alphaNumeric = new RegExp(/^(?=.*[a-zA-Z])(?=.*[0-9])[A-Za-z0-9]+$/);
