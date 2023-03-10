@@ -9,10 +9,14 @@ const props = {
   field:     {
     field: "hrTest",
     fieldType: "hr",
-    tag: "some text",
   },
 
   error: "",
+
+  fieldText: {
+    label: `${compName}`,
+    tag: "some text",
+  },
 
   class: "test-form-field"
 }
@@ -53,7 +57,7 @@ describe(`component ${compName}.svelte`, function () {
     assert.ok( label, `CUT is missing "div" element`);
 
     const tag = label.getAttribute("data-content");
-    assert.ok( tag && tag === props.field.tag, `CUT is missing "data-content" tag.`);
+    assert.ok( tag && tag === props.fieldText.tag, `CUT is missing "data-content" tag.`);
 
     const className = label.classList.contains("divider");
     assert.ok( className, `CUT is missing "class=divider".`);

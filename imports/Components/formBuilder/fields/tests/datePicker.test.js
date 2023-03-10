@@ -18,6 +18,10 @@ const props = {
     value: "2022-05-12",
   },
 
+  fieldText: {
+    label: `${compName}`,
+  },
+
   error: "",
 
   class: "test-form-field"

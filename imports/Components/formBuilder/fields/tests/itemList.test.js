@@ -20,6 +20,10 @@ const props = {
     value: [{id: 1, check: "", text: "initial"}],
   },
 
+  fieldText: {
+    label: `${compName}`,
+  },
+
   error: "",
 
   class: "test-form-field"

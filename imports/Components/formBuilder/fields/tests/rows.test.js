@@ -30,7 +30,10 @@ const props = {
     optional: true,
     defaultValue: [],
     value: [],
+  },
 
+  fieldText: {
+    label: `${compName}`,
     rowText: {
       field1: {label: "Text"},
     }

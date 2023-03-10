@@ -18,6 +18,10 @@ const props = {
     value: "some text",
   },
 
+  fieldText: {
+    label: `${compName}`,
+  },
+
   error: "",
 
   class: "test-form-field"

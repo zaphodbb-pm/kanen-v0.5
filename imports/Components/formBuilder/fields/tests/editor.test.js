@@ -18,6 +18,10 @@ const props = {
     value: "editor start"
   },
 
+  fieldText: {
+    label: `${compName}`,
+  },
+
   error: "",
 
   class: "test-form-field"

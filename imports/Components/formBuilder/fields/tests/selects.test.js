@@ -16,21 +16,21 @@ const props = {
     params: {type: "staticSelect", colours: true},
     defaultValue: {_id: "all", name: "All Options"},
     value: {_id: "all", name: "All Options"},
+  },
 
-    selectText: {
-      label: "Static Select",
-      helpText: "Select from a fixed list",
-      tag: {_id: "all", name: "All Options", colour: "#000000"},
-      selects: [
-        {_id: "sun", name: "Sunday", colour: "#000000"},
-        {_id: "mon", name: "Monday", colour: "#6666ff"},
-        {_id: "tue", name: "Tuesday", colour: "#bb22bb"},
-        {_id: "wed", name: "Wednesday", colour: "#33aa33"},
-        {_id: "thu", name: "Thursday", colour: "#ff8822"},
-        {_id: "fri", name: "Friday", colour: "#aaaaaa"},
-        {_id: "sat", name: "Saturday", colour: "#ff0000"},
-      ]
-    },
+  fieldText: {
+    label: `${compName}`,
+    helpText: "Select from a fixed list",
+    tag: {_id: "all", name: "All Options", colour: "#000000"},
+    selects: [
+      {_id: "sun", name: "Sunday", colour: "#000000"},
+      {_id: "mon", name: "Monday", colour: "#6666ff"},
+      {_id: "tue", name: "Tuesday", colour: "#bb22bb"},
+      {_id: "wed", name: "Wednesday", colour: "#33aa33"},
+      {_id: "thu", name: "Thursday", colour: "#ff8822"},
+      {_id: "fri", name: "Friday", colour: "#aaaaaa"},
+      {_id: "sat", name: "Saturday", colour: "#ff0000"},
+    ]
   },
 
   error: "",

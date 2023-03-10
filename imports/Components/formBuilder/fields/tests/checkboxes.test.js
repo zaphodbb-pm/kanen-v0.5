@@ -17,6 +17,10 @@ const props = {
     css: "is-vertical",
     defaultValue: [],
     value: [],
+  },
+
+  fieldText: {
+    label: `${compName}`,
 
     selects: [
       {_id: "light", name: "a little rusty"},
@@ -67,7 +71,7 @@ describe(`component ${compName}.svelte`, function () {
     assert.ok( legend && legend.innerHTML.length > 3, `CUT is missing "legend" label`);
 
     const checkboxes = component.querySelectorAll(`${parent} > label`);
-    const expectedChecks = props.field.selects;
+    const expectedChecks = props.fieldText.selects;
     assert.ok( checkboxes && checkboxes.length === expectedChecks.length, `CUT should have ${expectedChecks.length} boxes, but found ${checkboxes.length} boxes`);
 
     checkboxes.forEach( item => {
@@ -93,7 +97,7 @@ describe(`component ${compName}.svelte`, function () {
 
     input[boxIdx].click();
 
-    const checkClick = [ props.field.selects[boxIdx] ];
+    const checkClick = [ props.fieldText.selects[boxIdx] ];
     const msg = `instance event is ${JSON.stringify(testResult.value)} but should be ${JSON.stringify(checkClick)}`;
     assert.deepStrictEqual(testResult.value, checkClick, msg);
   });

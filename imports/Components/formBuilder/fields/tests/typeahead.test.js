@@ -17,21 +17,20 @@ const props = {
     params: {type: "staticSelect", rows: 3},
     defaultValue: {_id: "", name: ""},
     value: {_id: "sun", name: "Sunday"},
+  },
 
-    selectText: {
-      label: "Static Typeahead",
-      helpText: "Uses a static list to search through for characters typed into input box.",
-      selects: [
-        {_id: "sun", name: "Sunday"},
-        {_id: "mon", name: "Monday"},
-        {_id: "tue", name: "Tuesday"},
-        {_id: "wed", name: "Wednesday"},
-        {_id: "thu", name: "Thursday"},
-        {_id: "fri", name: "Friday"},
-        {_id: "sat", name: "Saturday"},
-      ]
-    },
-
+  fieldText: {
+    label: `${compName}`,
+    helpText: "Uses a static list to search through for characters typed into input box.",
+    selects: [
+      {_id: "sun", name: "Sunday"},
+      {_id: "mon", name: "Monday"},
+      {_id: "tue", name: "Tuesday"},
+      {_id: "wed", name: "Wednesday"},
+      {_id: "thu", name: "Thursday"},
+      {_id: "fri", name: "Friday"},
+      {_id: "sat", name: "Saturday"},
+    ]
   },
 
   error: "",
@@ -41,7 +40,7 @@ const props = {
 
 
 /* expected event object */
-const checkClick = {value: props.field.selectText.selects[0], error: !!props.error};
+const checkClick = {value: props.fieldText.selects[0], error: !!props.error};
 
 
 /* step 3: run boilerplate activities */

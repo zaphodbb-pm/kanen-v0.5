@@ -17,13 +17,15 @@ const props = {
     css: "is-vertical",
     defaultValue: {_id: "", name: ""},
     value: {_id: "", name: ""},
+  },
 
+  fieldText: {
+    label: `${compName}`,
     selects: [
       {_id: "yes", name: "Yes"},
       {_id: "no", name: "No"},
       {_id: "maybe", name: "Maybe"}
     ]
-
   },
 
   error: "",
@@ -68,7 +70,7 @@ describe(`component ${compName}.svelte`, function () {
     assert.ok( legend && legend.innerHTML.length > 3, `CUT is missing "legend" label`);
 
     const radios = component.querySelectorAll(`${parent} > label`);
-    const expectedChecks = props.field.selects;
+    const expectedChecks = props.fieldText.selects;
     assert.ok( radios && radios.length === expectedChecks.length, `CUT should have ${expectedChecks.length} boxes, but found ${radios.length} boxes`);
 
     radios.forEach( item => {
@@ -94,7 +96,7 @@ describe(`component ${compName}.svelte`, function () {
 
     input[boxIdx].click();
 
-    const checkClick = props.field.selects[boxIdx];
+    const checkClick = props.fieldText.selects[boxIdx];
     const msg = `instance event is ${JSON.stringify(testResult.value)} but should be ${JSON.stringify(checkClick)}`;
     assert.deepStrictEqual(testResult.value, checkClick, msg);
   });
