@@ -9,6 +9,7 @@
      * @param {Object} field with field.params.isCheck ? true = checkbox : else = toggle
      * @param {String} error
      * @param {String} className
+     * @param fieldText {Object}
      *
      * @fires on-inputentry
      *
@@ -17,6 +18,7 @@
     //* common props from parent
     export let field = {};
     export let error = "";
+    export let fieldText;
 
     let className;
     // noinspection ReservedWordAsName
@@ -25,13 +27,11 @@
     //* support Functions
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
-    import {getContext} from 'svelte'
-    let formText = getContext("formText");
+    const label = fieldText?.label ?? "n/a";
+    const tag = fieldText?.tag ?? "n/a";
 
     //* local reactive variable
     let inValue = false;
-    const tag = formText ? formText[field.field]?.tag ?? "" : "Undefined Tag";
-    const label = formText ? formText[field.field]?.label ?? "" : "Undefined Field Label";
 
     $: setValue(field.value);
 

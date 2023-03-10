@@ -11,6 +11,7 @@
      * @param {Object} field
      * @param {String} error - class to show a field in error
      * @param {String} className
+     * @param fieldText {Object}
      *
      * @fires on-inputentry
      *
@@ -24,6 +25,7 @@
     //* common props from parent
     export let field = {};
     export let error = "";
+    export let fieldText;
 
     let className;
     // noinspection ReservedWordAsName
@@ -35,12 +37,11 @@
     window.jQuery.noConflict();
 
     //* support Functions
-    import {onMount, onDestroy, getContext, createEventDispatcher} from 'svelte';
+    import {onMount, onDestroy, createEventDispatcher} from 'svelte';
 
     //* local variables
     const dispatch = createEventDispatcher();
-    const formText = getContext("formText");
-    const label = formText ? formText[field.field]?.label ?? "" : "Undefined Field Label";
+    const label = fieldText?.label ?? "n/a";
     const editorTag = field.field + "-editor";
     const editorTagId = "#" + field.field + "-editor";
 

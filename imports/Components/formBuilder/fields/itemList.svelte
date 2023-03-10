@@ -9,6 +9,7 @@
      * @param {Object} field
      * @param {String} error - class to show a field in error
      * @param {String} className
+     * @param fieldText {Object}
      *
      * @fires on-inputentry
      *
@@ -17,6 +18,7 @@
     //* common props from parent
     export let field = {};
     export let error = "";
+    export let fieldText;
 
     let className;
     // noinspection ReservedWordAsName
@@ -24,10 +26,9 @@
 
     //* support Functions
     import Sortable from '/imports/Components/elements/rowDragDrop.svelte'
-    import {getContext, createEventDispatcher} from 'svelte';
+    import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
-    const formText = getContext("formText");
-    const label = formText ? formText[field.field]?.label ?? "" : "Undefined Field Label";
+    const label = fieldText?.label ?? "n/a";
 
     //* local reactive variable
     let list = [];

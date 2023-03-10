@@ -10,6 +10,7 @@
      * @param {String} className
      * @param {Object} field
      * @param {Object} field.params - {col: number}
+     * @param fieldText {Object}
      *
      * @fires on-inputentry
      *
@@ -18,6 +19,7 @@
     //* common props from parent
     export let field = {};
     export let error = "";
+    export let fieldText;
 
     let className;
     // noinspection ReservedWordAsName
@@ -26,11 +28,9 @@
     //* support Functions
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
-    import {getContext} from 'svelte';
+    const label = fieldText?.label ?? "n/a";
+    const source = fieldText?.selects ?? [];
 
-    const formText = getContext("formText");
-    const source = formText ? formText[field.field]?.selects ?? [] : field?.selects ?? [];
-    const label = formText ? formText[field.field]?.label ?? "" : "Undefined Field Label";
 
     //* local reactive variable
     let radValue = "";

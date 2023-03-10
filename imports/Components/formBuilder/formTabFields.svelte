@@ -20,8 +20,10 @@
     export let config;
     export let fields = [];
 
+    export let formText;
+
     //* support Functions
-    import {createEventDispatcher, getContext} from 'svelte';
+    import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 
     //* children Components
@@ -29,7 +31,8 @@
 
 
     //* local reactive variables
-    let tabLabels = getContext("formText").formTabs;
+    const tabLabels = formText.formTabs;
+
     let watchFields = {};
 
     //* event handlers
@@ -70,17 +73,17 @@
                             {#if groups.length > 1}
                                 <div class="field-group">
                                     {#each groups as field}
-                                        <Field_Wrapper class="" {field} {watchFields}  on:field-changed="{fieldChanged}"/>
+                                        <Field_Wrapper class="" {field} {watchFields} fieldText="{formText[field.field]}"  on:field-changed="{fieldChanged}"/>
                                     {/each}
                                 </div>
                             {:else}
-                                <Field_Wrapper class="" field="{groups[0]}" {watchFields}  on:field-changed="{fieldChanged}"/>
+                                <Field_Wrapper class="" field="{groups[0]}" {watchFields} fieldText="{formText[groups[0].field]}"  on:field-changed="{fieldChanged}"/>
                             {/if}
                         {/each}
                     {:else}
 
                         {#each tab as field}
-                            <Field_Wrapper class="" {field} {watchFields}  on:field-changed="{fieldChanged}"/>
+                            <Field_Wrapper class="" {field} {watchFields} fieldText="{formText[field.field]}"  on:field-changed="{fieldChanged}"/>
                         {/each}
 
                     {/if}
@@ -100,19 +103,19 @@
 
                 <div class="field-group">
                     {#each groups as field}
-                        <Field_Wrapper class="" {field} {watchFields}  on:field-changed="{fieldChanged}"/>
+                        <Field_Wrapper class="" {field} {watchFields} fieldText="{formText[field.field]}"  on:field-changed="{fieldChanged}"/>
                     {/each}
                 </div>
 
             {:else}
-                <Field_Wrapper class="" field="{groups[0]}" {watchFields}  on:field-changed="{fieldChanged}"/>
+                <Field_Wrapper class="" field="{groups[0]}" {watchFields} fieldText="{formText[groups[0].field]}"  on:field-changed="{fieldChanged}"/>
             {/if}
         {/each}
 
     {:else}
 
         {#each fields as field}
-            <Field_Wrapper class="" {field} {watchFields} on:field-changed="{fieldChanged}"/>
+            <Field_Wrapper class="" {field} {watchFields} fieldText="{formText[field.field]}" on:field-changed="{fieldChanged}"/>
         {/each}
 
     {/if}

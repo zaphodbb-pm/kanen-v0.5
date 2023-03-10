@@ -20,11 +20,12 @@
      * @param {Array}   field.role - list of user role strings that can see this field
      * @param {String}  field.css - certain field inserts can be further modified with css
      *
+     * @param {Object} fieldText = labels, helpText etc for an individual field
      * @param {Object} watchFields
      * @param {String} className
      *
      * @notes
-     *  Support text is set by 'formHolder' into context 'formText':
+     *  Support text is set by 'formHolder' into 'formText' object:
      *      label - field label
      *      helpText - (optional) help text to explain the input field meaning; ditto
      *      tag - (optional) extra text for some Components such as 'switch'
@@ -46,19 +47,18 @@
             tag: undefined,
             optional: true,
             fieldType: undefined,
-
-            formText: undefined
         };
     export let watchFields = {
         field: undefined
     };
+
+    export let fieldText;
 
     let className;
     // noinspection ReservedWordAsName
     export { className as class };
 
     //* support Functions
-    import {getContext, setContext} from 'svelte';
     import {components} from './fields/func-registerField';
     import {slide} from 'svelte/transition';
     import {quintOut} from 'svelte/easing';
@@ -67,36 +67,15 @@
 
 
     //* local reactive variables
-    let formText = getContext("formText");
-    let formTextDirect = field.formText;
-    let text = formText ? formText[field.field] ?? {} : (formTextDirect ?? {} );
-    let label = text?.label ?? "";
-    let helpText = text?.helpText ?? "";
-
-    if(!formText && formTextDirect){
-        let name = {};
-        name[field.field] = formTextDirect;
-        setContext("formText", name);
-    }
-
-
-    console.log("text", formText, formTextDirect, text, label, helpText);
-
-    console.log("getContext", getContext("formText") );
-
-
-    //let label = formText && formText[field.field] && formText[field.field].label ? formText[field.field].label : "";
-
-    //let helpText = formText && formText[field.field] && formText[field.field].helpText ? formText[field.field].helpText : "";
-
-    //let adjustLabel = field.adjustLabel ? "adjust-label" : "";
-
+    let label = fieldText?.label ?? "n/a";
+    let helpText = fieldText?.helpText ?? "";
     let fieldHelpShow = false;
     let fieldHide;
     let fieldOpt = "";
     let componentDef;
 
-    field.tag = formText && formText[field.field] && formText[field.field].tag ? formText[field.field].tag : null;
+
+    field.tag = fieldText?.tag ?? null;
 
     $: {
         field = prepareField(field);
@@ -243,6 +222,7 @@
                     this="{componentDef}"
                     class="{className + ' fieldname--' + field.field}"
                     {field}
+                    {fieldText}
                     error="{fieldOpt}"
                     on:on-inputentry="{fieldUpdate}"/>
 
@@ -259,6 +239,7 @@
                 this="{componentDef}"
                 class="{className + ' fieldname--' + field.field}"
                 {field}
+                {fieldText}
                 error="{fieldOpt}"
                 on:on-inputentry="{fieldUpdate}"/>
 

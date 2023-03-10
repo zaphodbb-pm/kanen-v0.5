@@ -8,6 +8,7 @@
      *
      * @param {String} error
      * @param {String} className
+     * @param fieldText {Object}
      * @param {Object} field
      * @param {Object} field.params (static) - {type: "staticSelect", rows: 10}
      * @param {Object} field.params (dynamic) - {type: "dynamicSelect", rows: 10, coll: "circuits", filter: {fields: {_id: 1, name: 1}}, options: {sort: {name: 1}}}
@@ -25,6 +26,7 @@
     //* common props from parent
     export let field = {};
     export let error = "";
+    export let fieldText;
 
     let className;
     // noinspection ReservedWordAsName
@@ -32,12 +34,10 @@
 
     //* support Functions
     import {getDocs} from '/imports/Functions/application/getDocs'
-    import {getContext, createEventDispatcher} from 'svelte';
+    import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
-    const formText = getContext("formText");
-    const label = formText ? formText[field.field]?.label ?? "" : "Undefined Field Label";
-
-    let source = formText ? formText[field.field]?.selects ?? [] : field?.selectText.selects ?? [];
+    const label = fieldText?.label ?? "n/a";
+    let source = fieldText?.selects ?? [];
     let rows = field?.params?.rows ?? 5;
     let selValue = typeof field.value === "object" ? field.value : {_id: "", name: ""};
 

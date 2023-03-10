@@ -42,14 +42,11 @@
     import List_Form from '/imports/Components/listForm/listForm.svelte';
 
     const pageHeader = i18n(header, "", $lang);
+    let component = i18n(page, "components", $lang);
     let formText = i18n(page, "form", $lang);
     let listText = i18n(page, "list", $lang);
     let conf = deepClone(pageConfig);
 
-    //** for external form fields only; drives text for independent Field_Wrapper component
-    import {setContext} from 'svelte';
-    setContext("formText", formText);
-    //**
 
     function gridMode(msg){
         let mode = msg?.detail?.value ?? false;
@@ -74,6 +71,7 @@
             <Field_Wrapper
                     class=""
                     field="{pageConfig.components.gridMode}"
+                    fieldText="{component.gridMode}"
                     watchFields="{ {} }"
                     on:field-changed="{gridMode}"/>
         </form>

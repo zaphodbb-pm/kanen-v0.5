@@ -9,6 +9,7 @@
      * @param {Object} field
      * @param {String} error - class to show a field in error
      * @param {String} className
+     * @param fieldText {Object}
      *
      * @fires on-inputentry
      *
@@ -17,20 +18,19 @@
     //* common props from parent
     export let field = {};
     export let error = "";
+    export let fieldText;
 
     let className;
     // noinspection ReservedWordAsName
     export { className as class };
 
     //* support Functions
-    import {createEventDispatcher, getContext} from 'svelte';
+    import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
-    const formText = getContext("formText");
-    const label = formText ? formText[field.field]?.label ?? "" : "Undefined Field Label";
+    const label = fieldText?.label ?? "n/a";
 
     //* local reactive variable
     let inValue = "";
-    let checkValue = "";
     let attributes = field.attributes;
 
     let predictions = [];

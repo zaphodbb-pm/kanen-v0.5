@@ -15,15 +15,15 @@
     //* common props from parent
     export let field = {};
     export let error = "";
+    export let fieldText;
 
     let className;
     // noinspection ReservedWordAsName
     export { className as class };
 
     //* support Functions
-    import {getContext} from 'svelte'
-    const formText = getContext("formText");
-    const tag = formText ? formText[field.field]?.tag ?? "" : field?.tag ?? "";
+    const tag = fieldText?.tag ?? "n/a";
+
 
 </script>
 

@@ -9,6 +9,7 @@
      * @param {Object} field
      * @param {String} error - class to show a field in error
      * @param {String} className
+     * @param fieldText {Object}
      *
      * @fires on-inputentry
      *
@@ -34,6 +35,7 @@
     //* common props from parent
     export let field = {};
     export let error = "";
+    export let fieldText;
 
     let className;
     // noinspection ReservedWordAsName
@@ -43,7 +45,7 @@
     import {deepClone} from '/imports/Functions/utilities/deepClone'
     import Field_Wrapper from '/imports/Components/formBuilder/fieldWrapper.svelte'
     import Sortable from '/imports/Components/elements/rowDragDrop.svelte'
-    import {getContext,  setContext, createEventDispatcher} from 'svelte';
+    import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 
     //* local reactive variable
@@ -52,15 +54,9 @@
 
     //** get field set-up and prepare out going object that contains first default values and user entry values
     const fieldsArray = field.params && field.params.config ? field.params.config : {};
+    const label = fieldText?.label ?? "n/a";
+    const rowText = fieldText?.rowText ?? {};
 
-    //** set new formText context for embedded formWrapper
-    let formText = getContext("formText");
-    const label = formText ? formText[field.field]?.label ?? "" : "Undefined Field Label";
-    const rowText = formText ? formText[field.field]?.rowText ?? {} : field?.rowText ?? {};
-
-    if(rowText){
-        setContext("formText", rowText);
-    }
 
     //** reset input row section to default
     list = initialRow(1, fieldsArray);
@@ -174,6 +170,7 @@
                 <Field_Wrapper
                         class="{className}"
                         {field}
+                        fieldText="{rowText[field.field]}"
                         on:field-changed="{e => fieldsUpdate(item.row, e.detail) }"/>
             {/each}
 

@@ -13,6 +13,7 @@
      * @param {Object} field.params (image) -   { format: "image", type: ["image.*"],
      *                                            croppie: {viewport: {width: 450, height: 150, type: 'square'} }
      *                                          }
+     * @param fieldText {Object}
      *
      * @fires on-inputentry
      *
@@ -21,6 +22,7 @@
     //* common props from parent
     export let field = {};
     export let error = {};
+    export let fieldText;
 
     let className;
     // noinspection ReservedWordAsName
@@ -38,8 +40,7 @@
     import Crop_Image from '/imports/Components/widgets/croppie.svelte';
     import {getContext, createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
-    const formText = getContext("formText");
-    const label = formText ? formText[field.field]?.label ?? "" : "Undefined Field Label";
+    const label = fieldText?.label ?? "n/a";
     let fileReader = i18n( getContext("commonText") ?? field.fileReader ?? {}, "fileReader", $lang);
 
 

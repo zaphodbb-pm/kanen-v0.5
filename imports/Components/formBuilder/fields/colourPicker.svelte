@@ -9,6 +9,7 @@
      * @param {Object} field
      * @param {String} error
      * @param {String} className
+     * @param fieldText {Object}
      *
      * @fires on-inputentry
      *
@@ -18,17 +19,16 @@
     export let field = {};
     export let error = "";
 
+    export let fieldText;
+
     let className;
     // noinspection ReservedWordAsName
     export { className as class };
 
     //* support Functions
-    import {createEventDispatcher, getContext} from 'svelte';
-
+    import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
-    const formText = getContext("formText");
-    const label = formText ? formText[field.field]?.label ?? "" : "Undefined Field Label";
-
+    const label = fieldText?.label ?? "n/a";
 
     //* local reactive variable
     let inValue = "";

@@ -10,6 +10,7 @@
      * @param {Object} field.params1 - {type: "staticSelect", colours: true}
      * @param {Object} field.params2 - {type: "dynamicSelect", coll: "starter", filter: {fields: {name: 1}}, options: {sort: {name: 1}} }
      * @param {String} className
+     * @param fieldText {Object}
      *
      * @fires on-inputentry
      *
@@ -34,6 +35,7 @@
     //* common props from parent
     export let field = {};
     export let error = "";
+    export let fieldText;
 
     let className;
     // noinspection ReservedWordAsName
@@ -41,14 +43,13 @@
 
     //* support Functions
     import {getDocs} from '/imports/Functions/application/getDocs'
-    import {getContext, createEventDispatcher} from 'svelte';
+    import {createEventDispatcher} from 'svelte';
 
     const dispatch = createEventDispatcher();
-    const formText = getContext("formText");
-    const label = formText ? formText[field.field]?.label ?? "" : "Undefined Field Label";
-    const firstOption = formText ? formText[field.field]?.tag ?? {}: field?.selectText.tag ?? {};
+    const label = fieldText?.label ?? "n/a";
+    const firstOption = fieldText?.tag ?? {};
+    let source = fieldText?.selects ?? [];
 
-    let source = formText ? formText[field.field]?.selects ?? [] : field?.selectText?.selects ?? [];
 
     //* local reactive variable
     let selValue = "";

@@ -23,14 +23,11 @@
     export let listText = {};
 
 
-    import {setContext} from 'svelte';
     import {generateId} from '/imports/Functions/utilities/generateId'
     import {messages} from '/imports/client/systemStores'
 
     import Form_Holder from '/imports/Components/formBuilder/formHolder.svelte'
     import List_Holder from '/imports/Components/listCollections/listHolder.svelte'
-
-    setContext("formText", formText);
 
     let mode = "list";
     let role = "";
