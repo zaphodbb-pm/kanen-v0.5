@@ -52,7 +52,7 @@ describe(`component ${compName}.svelte`, function () {
     assert.ok(component, `parent should be "${parent}" tag`);
 
     const hasModifier = component.classList.contains("has-help-text");
-    assert.ok( hasModifier, `parent classes should be "${props.class}"`);
+    assert.ok( hasModifier, `parent class should be "has-help-text"`);
   });
 
   it(`${compName} structure`, function () {

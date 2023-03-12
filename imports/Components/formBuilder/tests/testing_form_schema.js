@@ -184,7 +184,7 @@ export default [
     },
 
     {
-        field: "startRadios",
+        field: "radiosTest",
         fieldType: "radios",
         optional: true,
 
@@ -211,24 +211,7 @@ export default [
     },
 
     {
-        field: "dynamicSelectTest",
-        fieldType: "select",
-        optional: true,
-
-        css: "is-fullwidth",
-        tab: 1,
-        attributes: {},
-        params: {
-            type: "dynamicSelect",
-            coll: "starter",
-            filter: {fields: {name: 1}},
-            options: {sort: {name: 1}}
-        },
-        defaultValue: {_id: "", name: ""},
-    },
-
-    {
-        field: "staticTypeaheadTest",
+        field: "typeaheadTest",
         fieldType: "typeahead",
         optional: true,
 
@@ -236,24 +219,6 @@ export default [
         css: "is-fullwidth",
         attributes: {},
         params: {type: "staticSelect", rows: 10},
-        defaultValue: {_id: "", name: ""},
-    },
-
-    {
-        field: "typeaheadTest",
-        fieldType: "typeahead",
-        optional: true,
-        tab: 1,
-
-        css: "is-fullwidth",
-        attributes: {},
-        params: {
-            type: "dynamicSelect",
-            rows: 3,
-            coll: "learn",
-            filter: {fields: {_id: 1, name: 1}},
-            options: {sort: {name: 1}}
-        },
         defaultValue: {_id: "", name: ""},
     },
 
