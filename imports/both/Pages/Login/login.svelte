@@ -26,7 +26,6 @@
         import {pageConfig} from './login_config'
 
         //** app support files
-        import { setContext } from 'svelte';
         import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
@@ -48,7 +47,6 @@
     let services = pageConfig.services;
     let formFields = pageConfig.form;
     let formText = i18n(page, "form", $lang);
-    setContext("formText", formText);
 
     //* local reactive variables
     let text = i18n(page, "page", $lang);
@@ -107,7 +105,7 @@
             <header class="is-secondary">{text.labelTitle}</header>
 
             {#each formFields as field}
-                <Field_Wrapper class="" {field} {watchFields} on:field-changed="{fieldChanged}"/>
+                <Field_Wrapper class="" {field} {watchFields} fieldText={formText[field.field]} on:field-changed="{fieldChanged}"/>
             {/each}
 
             <button type="button" class="is-primary" on:click="{authPassword}">

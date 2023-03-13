@@ -26,7 +26,6 @@
     import {pageConfig} from './changePassword_config';
 
     //** app support files
-    import { setContext } from 'svelte';
     import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
@@ -46,7 +45,6 @@
     let text = i18n(page, "page", $lang);
     let errMsg = i18n(page, "errMsg", $lang);
     let formText = i18n(page, "form", $lang);
-    setContext("formText", formText);
 
     let formOldPassword = "";
     let formNewPassword = "";
@@ -106,7 +104,7 @@
             <header class="is-secondary">{text.labelTitle}</header>
 
             {#each formFields as field}
-                <Field_Wrapper class="" {field} {watchFields} on:field-changed="{fieldChanged}"/>
+                <Field_Wrapper class="" {field} {watchFields} fieldText={formText[field.field]} on:field-changed="{fieldChanged}"/>
             {/each}
 
             <button type="button" class="is-primary" on:click="{changePassword}">

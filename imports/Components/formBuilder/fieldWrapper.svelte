@@ -89,6 +89,8 @@
 
     $: componentDef = components[field.fieldType];
 
+
+
     //* Functions that mutate local variables
     function prepareField(fieldIn){
         let field = fieldIn;
