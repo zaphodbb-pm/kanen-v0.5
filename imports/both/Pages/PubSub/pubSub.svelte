@@ -79,10 +79,11 @@
         "is-progress-success", "is-progress-warning", "is-progress-danger"];
 
 
+    let allDocs = [];
 
     /* react to any changes in the collection and update the progress bar values */
     $m: {
-        let allDocs = RealTime.find({author: Meteor.userId()}, {limit: len}).fetch();
+        allDocs = RealTime.find({author: Meteor.userId()}, {limit: len}).fetch();
 
         allDocs = allDocs.map( (rt) => {
             let timeStart = rt && rt.updatedAt ? rt.updatedAt : Date.now();
