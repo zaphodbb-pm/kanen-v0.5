@@ -10,16 +10,15 @@
      * @fires 'new-range'
      */
 
+    export let text;
+
     //* support files
     import Field_Wrapper from '/imports/Components/formBuilder/fieldWrapper.svelte'
-    import { createEventDispatcher, getContext, setContext } from 'svelte';
+    import { createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 
     //* component controls
-    let text = getContext("formText");
     let watchFields = {};
-
-    setContext("formText", {relativeDates: text});
 
     //* local reactive variables
     let field =     {
@@ -63,5 +62,5 @@
 
 
 <form class="form space-block-vert">
-    <Field_Wrapper class="" {field} {watchFields} on:field-changed="{fieldChanged}"/>
+    <Field_Wrapper class="" {field} {watchFields} fieldText="{text}" on:field-changed="{fieldChanged}"/>
 </form>

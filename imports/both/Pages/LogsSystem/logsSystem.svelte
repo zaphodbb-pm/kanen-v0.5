@@ -26,7 +26,6 @@
         import {pageConfig} from './logsSystem_config'
 
         //** app support files
-        import { setContext } from 'svelte';
         import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
@@ -43,9 +42,7 @@
 
     const pageHeader = i18n(header, "", $lang);
     let listText = i18n(page, "list", $lang);
-    let element = i18n(page, "element", $lang);
-
-    setContext("formText", element);
+    let recordsText = i18n(page, "element", $lang);
 
     let conf = pageConfig;
     let sort = listArray.sort;
@@ -77,7 +74,7 @@
 
 <main class="main-content">
 
-    <DeleteRecords on:new-range={deleteRange}/>
+    <DeleteRecords text="{recordsText}" on:new-range={deleteRange}/>
 
     <div class="columns">
         <div class="column">
