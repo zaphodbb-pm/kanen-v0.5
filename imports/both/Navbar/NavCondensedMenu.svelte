@@ -17,7 +17,7 @@
     //* component support files
     import {showRoutes} from '/imports/client/systemStores'
 
-    //** build short cut links for top or bottom nav
+    //** build shortcut links for top or bottom nav
     let shortcuts = [];
 
     $: shortcuts = $showRoutes.filter( (route) => route.isNavMobile );

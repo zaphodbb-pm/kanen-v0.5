@@ -20,7 +20,7 @@
      */
 
 
-    //* set up system wide text context and get system wide variables
+    //* set up system-wide text context and get system wide variables
     import { setContext } from 'svelte';
 
     import version from '/imports/both/version';
@@ -38,7 +38,6 @@
     import {userLoggedIn, userExtras} from '/imports/client/systemStores';
 
 
-
     //* load client-side system parameters
     Meteor.call("clientSysConfig", function(err, res){
         if(err){ console.log("clientSysConfig error", err); }
@@ -53,16 +52,16 @@
 
     //* respond to user login / logout / page refresh actions from parent Meteor instance
     $m: {
-        let userMeteor = Meteor.user();
-        $userLoggedIn = userMeteor;
+        $userLoggedIn = Meteor.user();
 
-        if(userMeteor){
+        if($userLoggedIn){
             Meteor.call("loadExtraFields", function(err, res){
                 if(err){ console.log("loadExtraFields error", err); }
 
                 if(res){
                     let result = res ? res : null;
                     let navs = buildNavLinks(result, allRoutes);
+
                     $userExtras = result;
                     $showRoutes = navs;
                 }

@@ -1,17 +1,39 @@
 /* test data */
-const config = {
-  coll:       "starter",          // target collection to send submit to
-  hasGroups:  true,               // allows fields to be grouped onto the same row
-  hasTabs:    true,               // has tabbed fields in form
-  tabLen:     4,
-}
+const doc = {
+  _id:    "doc-id",
+  name:   "Test User",
+};
 
-const tabLengths = [10,6, 4, 3 ];
+const coll = "TestCollection";
 
-import {orgFields} from "../func-orgFields";
-import schema from "./testing_form_schema";
+const extras = {
+  tenantId: "Some Tenant"
+};
+
+const emit = function(type, state){
+  console.log("emit", type, state);
+};
+
+
+//const tabLengths = [10,6, 4, 3 ];
+
+import {submitForm} from "../func-submitForm";
+//import schema from "./testing_form_schema";
+
+
 import assert from "assert";
-describe("component formHolder - function orgFields", function () {
+describe("component formHolder - function submitForm", function () {
+
+  it("returns result", function(){
+    const output = submitForm(doc, coll, false, true, emit, extras);
+
+    console.log("output", output);
+
+  })
+
+
+
+  /*
   let defaults = {};
 
   schema.forEach(function (f) {
@@ -27,5 +49,7 @@ describe("component formHolder - function orgFields", function () {
     });
 
   });
+
+   */
 
 });

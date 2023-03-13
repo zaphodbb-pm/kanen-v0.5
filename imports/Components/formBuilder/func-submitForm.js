@@ -30,6 +30,7 @@ export async function submitForm(doc, coll, clone, test, emit, extras = {}) {
 
     //** don't over-write original author in edit mode; create mode needs to add an author
     let me = Meteor.user();
+
     doc.author = doc.author ? doc.author : (Meteor.userId() ? Meteor.userId() : "unknown");
     doc.authorName = doc.authorName ? doc.authorName : (me && me.username ? me.username : "username");
 
@@ -38,9 +39,11 @@ export async function submitForm(doc, coll, clone, test, emit, extras = {}) {
 
     doc.tenantId = doc.tenantId ? doc.tenantId : extras && extras.tenantId ? extras.tenantId : "general";
 
-    //** provide a case insensitive form of the name for sorted listing
+    //** provide a case-insensitive form of the name for sorted listing
     doc.sortName = doc.name ? doc.name.toLowerCase() : doc.username ? doc.username.toLowerCase() : "undefined";
 
+
+    let out = true;
 
     switch (true) {
 
@@ -48,6 +51,9 @@ export async function submitForm(doc, coll, clone, test, emit, extras = {}) {
             console.log("submitForm-function", coll, doc._id, doc);
 
             emit("doc-submitted", true);
+
+            // @ts-ignore
+            out = "test area";
             break;
 
         case coll === "myProfile":
@@ -80,7 +86,7 @@ export async function submitForm(doc, coll, clone, test, emit, extras = {}) {
             break;
 
         default:
-            //** check if this document includes a reference to an address; get geo location if true
+            //** check if this document includes a reference to an address; get geolocation if true
             if(doc.address){
 
                 console.log("need to update to fetch");
@@ -90,7 +96,7 @@ export async function submitForm(doc, coll, clone, test, emit, extras = {}) {
 
             generalSubmit(coll, doc, emit);
     }
-    return true;
+    return out;
 }
 
 

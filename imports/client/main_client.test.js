@@ -93,10 +93,11 @@ import '../Components/formBuilder/tests/orgFields.test';
 import '../Components/formBuilder/tests/fieldWrapper.test';
 import '../Components/formBuilder/tests/formTabFields.test';
 import '../Components/formBuilder/tests/formSubmit.test';
+import '../Components/formBuilder/tests/formHolder.test';
  */
 
+import '../Components/formBuilder/tests/submitForm.test';
 
 
-import '../Components/formBuilder/tests/formHolder.test';
 
 

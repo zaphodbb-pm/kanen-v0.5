@@ -20,23 +20,23 @@
     }
   },
   "dependencies": {
-    "@babel/runtime": "^7.20.13",
+    "@babel/runtime": "^7.21.0",
     "bcrypt": "^5.1.0",
     "croppie": "^2.6.5",
-    "date-fns": "^2.29.3",
-    "jquery": "^3.6.3",
+    "jquery": "^3.6.4",
     "meteor-node-stubs": "^1.2.5",
-    "svelte": "^3.55.1",
+    "svelte": "^3.56.0",
     "svelte-loadable": "^2.0.1",
-    "svelte-pathfinder": "^3.4.0",
-    "tiny-cookie": "^2.3.2",
-    "trumbowyg": "^2.26.0"
+    "svelte-pathfinder": "^4.5.0",
+    "tiny-cookie": "^2.4.1",
+    "trumbowyg": "^2.27.3"
   },
   "devDependencies": {
-    "@types/meteor": "^2.8.1",
-    "jsdoc": "^4.0.0",
-    "svelte-preprocess": "^5.0.0",
+    "@types/meteor": "^2.9.1",
+    "jsdoc": "^4.0.2",
+    "sinon": "^15.0.2",
+    "svelte-preprocess": "^5.0.1",
     "sveltedoc-parser": "^4.2.1",
-    "typescript": "^4.9.4"
+    "typescript": "^4.9.5"
   }
 }
