@@ -54,12 +54,12 @@
      */
 
     //* incoming props from page
-    export let config;
-    export let formText;
-    export let schema;
+    export let config = {};
+    export let formText = {};
+    export let schema = [];
     export let role;
-    export let editdoc;
-    export let directdoc;
+    export let editdoc = {};
+    export let directdoc = {};
 
     //** svelte handlers
     import {userExtras, sysConfig} from '/imports/client/systemStores'
