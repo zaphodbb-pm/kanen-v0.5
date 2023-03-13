@@ -1,55 +1,66 @@
 /* test data */
 const doc = {
   _id:    "doc-id",
-  name:   "Test User",
+  name:   "Document Under Test",
 };
 
 const coll = "TestCollection";
+
+const userInfo = {
+  _id: "12345678",
+  username: "Test User",
+  profile: {name: "Test Jingle User"}
+}
 
 const extras = {
   tenantId: "Some Tenant"
 };
 
-const emit = function(type, state){
-  console.log("emit", type, state);
+let emitted;
+
+const emit = function(type, state, doc){
+  emitted = {
+    type: type,
+    state: state,
+    doc: doc
+  }
+
+  return emitted;
 };
 
+const checkValue = {
+  "type":"doc-submitted",
+  "state":true,
+  "doc":{
+    _id: doc._id,
+    name: doc.name,
+    author: userInfo._id,
+    authorName: userInfo.username,
+    authorFullName: userInfo.profile.name,
+    tenantId: extras.tenantId,
+    sortName: doc.name.toLowerCase()
+  }
+}
 
-//const tabLengths = [10,6, 4, 3 ];
+
+import {Meteor} from "meteor/meteor";
+import sinon from "sinon";
+import assert from "assert";
 
 import {submitForm} from "../func-submitForm";
-//import schema from "./testing_form_schema";
 
-
-import assert from "assert";
 describe("component formHolder - function submitForm", function () {
 
   it("returns result", function(){
-    const output = submitForm(doc, coll, false, true, emit, extras);
+    const user = sinon.stub(Meteor, 'user').returns(userInfo);
+    const uid = sinon.stub(Meteor, 'userId').returns(userInfo._id);
 
-    console.log("output", output);
+    submitForm(doc, coll, false, true, emit, extras);
 
+    assert.deepStrictEqual(emitted, checkValue, `Expected ${JSON.stringify(checkValue)}, found ${JSON.stringify(emitted)}`);
+
+    user.restore();
+    uid.restore();
   })
-
-
-
-  /*
-  let defaults = {};
-
-  schema.forEach(function (f) {
-    defaults[f.field] = f.defaultValue;
-  });
-
-  it("array of grouped and tabbed fields", function(){
-    const structure = orgFields(config, schema, defaults, "all");
-    assert.strictEqual(structure.length, config.tabLen , `Result was "${structure.length}", but should be "${config.tabLen}"`);
-
-    structure.forEach( (item,idx) => {
-      assert.strictEqual(item.length, tabLengths[idx], `Tab ${idx} length was "${item.length}", but should be "${tabLengths[idx]}"`)
-    });
-
-  });
-
-   */
 
 });

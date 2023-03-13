@@ -50,10 +50,7 @@ export async function submitForm(doc, coll, clone, test, emit, extras = {}) {
         case test:                          //** for testing only
             console.log("submitForm-function", coll, doc._id, doc);
 
-            emit("doc-submitted", true);
-
-            // @ts-ignore
-            out = "test area";
+            emit("doc-submitted", true, doc);
             break;
 
         case coll === "myProfile":
@@ -96,6 +93,7 @@ export async function submitForm(doc, coll, clone, test, emit, extras = {}) {
 
             generalSubmit(coll, doc, emit);
     }
+
     return out;
 }
 

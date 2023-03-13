@@ -6,7 +6,7 @@ const config = {
   tabLen:     4,
 }
 
-const tabLengths = [10,6, 4, 3 ];
+const tabLengths = [10, 4, 4, 1 ];
 
 import {orgFields} from "../func-orgFields";
 import schema from "./testing_form_schema";

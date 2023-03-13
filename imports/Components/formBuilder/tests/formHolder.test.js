@@ -11,7 +11,7 @@ const config = {
   tabLen:     4,
 };
 
-const fieldSingle = [10, 2, 3, 3];
+const fieldSingle = [10, 2, 3, 1];
 const fieldGroups = [3, 0, 0, 0];
 const fieldHR = [1, 0, 0, 0];
 

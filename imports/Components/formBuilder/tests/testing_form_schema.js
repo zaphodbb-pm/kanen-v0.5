@@ -316,17 +316,6 @@ export default [
 
     //** fourth tabbed set of fields
     {
-        field: "editorTest",
-        fieldType: "editor",
-        tab: 3,
-        attributes: {maxlength: 50000},
-        params: {},
-
-        optional: true,
-        defaultValue: "",
-    },
-
-    {
         field: "listTest",
         fieldType: "itemList",
         tab: 3,
@@ -338,31 +327,5 @@ export default [
 
         optional: true,
         defaultValue: [{id: 1, text: '...'}],
-    },
-
-    {
-        field: "rowsTest",
-        fieldType: "rows",
-        tab: 3,
-        attributes: {},
-        params: {
-            key: "row",
-            config: {
-                field1: {
-                    field: "field1",
-                    fieldType: "input",
-
-                    css: "has-max-width-6rem",
-                    attributes: {type: "text"},
-                    params: {},
-                    optional: true,
-                    defaultValue: "",
-                },
-            },
-        },
-
-        css: "",
-        optional: true,
-        defaultValue: [],
     }
 ];
