@@ -26,7 +26,6 @@
         import {pageConfig} from './exportImport_config';
 
         //** app support files
-        import { setContext } from 'svelte';
         import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
@@ -43,7 +42,6 @@
     const pageHeader = i18n(header, "", $lang);
     let text = i18n(page, "components", $lang).card;
     let formText = i18n(page, "form", $lang);
-    setContext("formText", formText);
 
     import Field_Wrapper from '/imports/Components/formBuilder/fieldWrapper.svelte';
 
@@ -171,6 +169,7 @@
                     <Field_Wrapper
                             class="has-width-20rem"
                             field="{pageConfig.components.collections}"
+                            fieldText="{formText.collections}"
                             watchFields="{ {} }"
                             on:field-changed="{updateCollection}"/>
 
@@ -186,6 +185,7 @@
                     <Field_Wrapper
                             class="has-width-20rem"
                             field="{pageConfig.components.fileInput}"
+                            fieldText="{formText.fileInput}"
                             watchFields="{ {} }"
                             on:field-changed="{updateFile}"/>
 
