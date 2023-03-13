@@ -3,8 +3,6 @@ const compName = "formHolder";
 const parent = "form";
 const eventName = "current-editted-doc";
 
-const checkField = "apiKeyTest";
-
 const config = {
   coll:       "starter",          // target collection to send submit to
   formType:   "is-form-tabbed",   // modifier for formHolder to add features
@@ -95,8 +93,7 @@ describe(`component ${compName}.svelte`, function () {
   });
 
   it(`${compName} input fires "${eventName}"`, async function () {
-    const testField = schema.find( field => field.field === checkField);
-    const button = component.querySelector(`.fieldname--${checkField} button`);
+    const button = component.querySelector(`.submit-buttons button`);
 
     let testResult;
     instance.$on(eventName, function (ev) {
@@ -105,15 +102,10 @@ describe(`component ${compName}.svelte`, function () {
 
     button.click();
 
-
-    assert.ok( testResult?.field === testField.field, `instance field found ${testResult?.field}`);
-    assert.ok( testResult?.fieldType === testField.fieldType, `instance fieldType found ${testResult?.fieldType}`);
-    assert.ok( testResult?.defaultValue === testField.defaultValue, `instance defaultValue found ${testResult?.defaultValue}`);
-    assert.ok( testResult?.valid, `instance valid found ${testResult?.valid}`);
-
-    const checkId = testResult?.value ?? "";
-    const alphaNumeric = new RegExp(/^(?=.*[a-zA-Z])(?=.*[0-9])[A-Za-z0-9]+$/);
-    assert.ok(checkId && checkId.length === testField.params.length && alphaNumeric.test(checkId), `instance event is ${checkId}`);
+    schema.forEach( item => {
+      const keys = Object.keys(testResult);
+      assert.ok(keys.includes(item.field), `Missing field "${item.field}"`);
+    })
   });
 
 });

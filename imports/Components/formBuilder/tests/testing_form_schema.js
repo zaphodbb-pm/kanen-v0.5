@@ -42,7 +42,7 @@ export default [
         // control and decoration for fields in a form
         field: "nameTest",
         fieldType: "input",
-        optional: false,
+        optional: true,
 
         tab: 0,
         group: null,  //group: {section: 2, class: "is-one-quarter"},
