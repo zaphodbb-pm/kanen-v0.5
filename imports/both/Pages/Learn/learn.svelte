@@ -26,7 +26,7 @@
         import {pageConfig} from './learn_config'
 
         //** app support files
-        import { setContext, onMount } from 'svelte';
+        import { onMount } from 'svelte';
         import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
@@ -47,13 +47,11 @@
     import Field_Wrapper from '/imports/Components/formBuilder/fieldWrapper.svelte'
     import Modal_User from '/imports/Components/blocks/modalUser.svelte'
 
-    let formText = i18n(page, "form", $lang);
-    setContext("formText", formText);
-    setContext("pageText", page);
-
     const pageHeader = i18n(header, "", $lang);
-    let toc = i18n(page, "components", $lang).toc;
-    let msgText = i18n(page, "components", $lang).messages;
+    const formText = i18n(page, "form", $lang);
+    const modalText = i18n(page, "components", $lang).modal;
+    const toc = i18n(page, "components", $lang).toc;
+    const msgText = i18n(page, "components", $lang).messages;
 
     //* local reactive variables
     let showModal = false;
@@ -218,6 +216,7 @@
                 <Field_Wrapper
                         class=""
                         field="{pageConfig.components.getLang}"
+                        fieldText="{formText.getLang}"
                         watchFields="{ {} }"
                         on:field-changed="{fieldChanged}"/>
 
@@ -226,11 +225,13 @@
                 <Field_Wrapper
                         class=""
                         field="{pageConfig.components.readMode}"
+                        fieldText="{formText.readMode}"
                         watchFields="{ {} }"
                         on:field-changed="{readMode}"/>
             </div>
         </form>
     </div>
+
 
 
 
@@ -261,13 +262,14 @@
     </div>
 
 
-    <Modal_User
-            text="modal"
-            {showModal}
-            {docId}
-            on:modal-addEvent={addEvent}
-            on:modal-removeEvent={removeEvent}
-            on:modalState={checkStateUser}/>
+       <Modal_User
+               {docId}
+               {showModal}
+               {modalText}
+               on:modal-addEvent={addEvent}
+               on:modal-removeEvent={removeEvent}
+               on:modalState={checkStateUser}/>
+
 
 
 </main>

@@ -20,19 +20,17 @@
     //* setup props to receive component data
     export let showModal = false;
     export let docId = "";
-    export let text = "";
+    //export let text = "";
+
+    export let modalText = {};
 
     //* get the user language preference from store; text from context and support Functions
-    import { getContext } from 'svelte';
-    import {lang} from '/imports/client/systemStores'
-    import {i18n} from '/imports/Functions/utilities/i18n'
     import {getDocs} from '/imports/Functions/application/getDocs'
     import {timeAgo} from '/imports/Functions/formatters/timeAgo'
     import {formatPhoneNumber} from '/imports/Functions/formatters/formatPhoneNumber'
 
 
     //* local reactive variable
-    let modalText = i18n(getContext("pageText"), "components", $lang)[text];
     let openModal = "hide-modal";
     let info = null;
 
