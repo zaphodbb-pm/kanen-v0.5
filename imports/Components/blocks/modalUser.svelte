@@ -20,8 +20,6 @@
     //* setup props to receive component data
     export let showModal = false;
     export let docId = "";
-    //export let text = "";
-
     export let modalText = {};
 
     //* get the user language preference from store; text from context and support Functions
@@ -171,13 +169,13 @@
             {#if info && (modalText.addEvent || modalText.removeEvent) }
                 <footer class="modal-card-foot">
                     {#if modalText.addEvent}
-                        <button class="button is-primary" on:click="{sendAddEvent}">
+                        <button type="button" class="button is-primary" on:click="{sendAddEvent}">
                             {modalText.addEvent}
                         </button>
                     {/if}
 
                     {#if modalText.removeEvent}
-                        <button class="button is-danger" on:click="{sendRemoveEvent}">
+                        <button type="button" class="button is-danger" on:click="{sendRemoveEvent}">
                             {modalText.removeEvent}
                         </button>
                     {/if}
