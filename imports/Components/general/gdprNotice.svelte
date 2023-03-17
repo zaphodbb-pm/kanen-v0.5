@@ -129,7 +129,7 @@
                     <span class="is-size-7">debug: {text.debug}</span>
                 {/if}
 
-                <button class="delete" aria-label="delete" on:click="{() => setState('postpone', elementId)}"></button>
+                <button type="button" class="delete" aria-label="delete" on:click="{() => setState('postpone', elementId)}"></button>
             </header>
 
             <div class="message-body">

@@ -57,6 +57,7 @@ import '../Components/elements/tests/userProfile.test';
 /* component general tests */
 import '../Components/general/tests/msgDecorationFunction.test';
 import '../Components/general/tests/messages.test';
+import '../Components/general/tests/gdprNotice.test';
 
 /* component widget tests */
 

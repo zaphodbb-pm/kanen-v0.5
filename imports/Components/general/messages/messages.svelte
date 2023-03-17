@@ -36,13 +36,7 @@
     //* local reactive variables
     let msg = [];
 
-
-    $: {
-        msg = $messages.map( (m) => Object.assign(msgDecoration(m.state, closable, duration), m ) );
-        console.log("msg", msg, $messages);
-    }
-
-    //$: msg = $messages.map( (m) => Object.assign(msgDecoration(m.state, closable, duration), m ) );
+    $: msg = $messages.map( (m) => Object.assign(msgDecoration(m.state, closable, duration), m ) );
 
 
     //* on start-up this is the "use" function
