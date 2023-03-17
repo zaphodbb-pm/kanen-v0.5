@@ -38,7 +38,6 @@
         let now = new Date();
         now = now.toISOString();
 
-
         //***** for dev only
         me = me ? me : {_id: "abc"};
         const initVal = [{
@@ -79,8 +78,8 @@
             limit: itemsToShow
         };
 
+
         let notifications = await getDocs("notifications", "schemaLong", query, options);
-        itemsLen = await getDocs("notifications", "schemaLong_count", query, {});
 
         items = notifications.map( (int) => {
             let out = int.msg;
@@ -91,8 +90,10 @@
             return out;
         });
 
-
         //*** for dev purposes only
+        //itemsLen = await getDocs("notifications", "schemaLong_count", query, {});
+        itemsLen = 0;
+
         if(itemsLen === 0){
             itemsLen = initVal.length;
             items = [...initVal];
