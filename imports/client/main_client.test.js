@@ -64,7 +64,7 @@ import '../Components/blocks/tests/modalUser.test';
 
 /* component element tests */
 import '../Components/elements/tests/notifications.test';
-//import '../Components/elements/tests/userProfile.test';
+import '../Components/elements/tests/userProfile.test';
 
 /* component formBuilder - fields tests */
 
