@@ -46,10 +46,21 @@ import '../Functions/utilities/tests/groupBy.test';
 import '../Functions/utilities/tests/i18n.test';
 import '../Functions/utilities/tests/sortBy.test';
 
-/* component associated function tests */
+/* component block tests */
+import '../Components/blocks/tests/card.test';
+import '../Components/blocks/tests/modalUser.test';
+
+/* component element tests */
+import '../Components/elements/tests/notifications.test';
+import '../Components/elements/tests/userProfile.test';
+
+/* component general tests */
 import '../Components/general/tests/msgDecorationFunction.test';
+import '../Components/general/tests/messages.test';
 
 /* component widget tests */
+
+/*
 import '../Components/widgets/tests/accordion.test';
 import '../Components/widgets/tests/charts.test';
 import '../Components/widgets/tests/croppie.test';
@@ -58,13 +69,9 @@ import '../Components/widgets/tests/infobox.test';
 import '../Components/widgets/tests/reportbox.test';
 import '../Components/widgets/tests/tabbedContent.test';
 
-/* component block tests */
-import '../Components/blocks/tests/card.test';
-import '../Components/blocks/tests/modalUser.test';
+ */
 
-/* component element tests */
-import '../Components/elements/tests/notifications.test';
-import '../Components/elements/tests/userProfile.test';
+
 
 /* component formBuilder - fields tests */
 

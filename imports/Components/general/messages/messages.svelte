@@ -26,8 +26,8 @@
     export let duration = 5000;
 
     //* support Functions
-    import {msgDecoration} from "./msgDecoration.js"
-    import {messages} from '/imports/client/systemStores'
+    import {msgDecoration} from "./msgDecoration.js";
+    import {messages} from '/imports/client/systemStores';
     import { createEventDispatcher } from 'svelte';
     const dispatch = createEventDispatcher();
     import {slide} from 'svelte/transition';
@@ -36,7 +36,13 @@
     //* local reactive variables
     let msg = [];
 
-    $: msg = $messages.map( (m) => Object.assign(msgDecoration(m.state, closable, duration), m ) );
+
+    $: {
+        msg = $messages.map( (m) => Object.assign(msgDecoration(m.state, closable, duration), m ) );
+        console.log("msg", msg, $messages);
+    }
+
+    //$: msg = $messages.map( (m) => Object.assign(msgDecoration(m.state, closable, duration), m ) );
 
 
     //* on start-up this is the "use" function
