@@ -16,7 +16,7 @@ const checkQuery = [
 
 import assert from "assert";
 import {buildFilter} from "../func-buildFilter";
-describe("function buildFilter", function () {
+describe("component ListCollections - function buildFilter", function () {
 
   it("function buildFilter", function () {
 
