@@ -109,3 +109,9 @@ import '../Components/formBuilder/tests/formHolder.test';
 
  */
 
+
+/* component listCollections - functions tests */
+import '../Components/listCollections/tests/buildFilter.test';
+
+/* component listCollections - plugin tests */
+

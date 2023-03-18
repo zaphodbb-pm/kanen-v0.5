@@ -14,7 +14,7 @@
  *
  * @example
  *  Output =            Object:
- *      start =         Integer: calulated positin in document list
+ *      start =         Integer: calculated position in document list
  *      end =           Integer: number documents to display
  *      filterSubscribe = Object: used to limit the subscription size
  *      filterSearch =  Object: MongoDb option object
