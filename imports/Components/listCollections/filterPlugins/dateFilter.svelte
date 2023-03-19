@@ -1,17 +1,18 @@
 <script>
 
-/**
- * Date filter plugin for List Holder Filters.
- *
- * @module dateFilter
- * @memberOf Components:listCollections:
- * @locus client
- *
- * @param  {Object} field - field info that also configures the filter
- *
- * @fires filter-changed
- *
- */
+    /**
+     * Date filter plugin for List Holder Filters.
+     *
+     * @module dateFilter
+     * @memberOf Components:listCollections:
+     * @locus client
+     *
+     * @param  {Object} field - field info that also configures the filter
+     *
+     * @fires filter-changed
+     *
+     */
+
 
     //* props
     export let field = {};
@@ -19,6 +20,7 @@
 
     //* support Functions
     import {buildDate} from "./func-buildDate";
+    import {buildRelativeDate} from "./func-buildRelativeDate";
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
     const label = listText[field.field]?.label ?? "";
@@ -35,24 +37,10 @@
     //* event handlers
     function emitFilter(sel) {
 
-        console.log("emitFilter", inValue1, inValue2);
-
         if (sel === "none" || sel === "all" ) {
             outFilter[field.field] = null;
         } else {
-            const now = Date.now();
-
-            const parts = sel.split("_");
-
-            const offset = parseInt( parts[2] ) * 1000 * 3600 * 24;   // time expressed in milliseconds / day
-
-            const dir = parts[1] === "p" ? -1 : 1;
-
-            const past = ( new Date(now - offset) ).toISOString();
-            const today = ( new Date(now) ).toISOString();
-            const future = ( new Date(now + offset) ).toISOString();
-
-            outFilter[field.field] = dir < 0 ? {$gte: past, $lte: today} : {$gte: today, $lte: future};
+            outFilter[field.field] = buildRelativeDate(sel);
         }
 
         /**
