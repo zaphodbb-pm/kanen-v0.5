@@ -74,7 +74,7 @@ export default {
             filter: {mode: "range"}
         },
 
-        /*
+
         {
             field:  "geoLocation",
             key:    "geoLocation",
@@ -84,7 +84,7 @@ export default {
             search: true,
             filter: {_id: "none", name: "World Wide"}
         },
-         */
+
 
         {
             field:  "_id",

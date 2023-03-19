@@ -35,7 +35,23 @@
 
     //* set up user extra items
     import {buildNavLinks} from '/imports/Functions/application/buildNavLinks';
-    import {userLoggedIn, userExtras} from '/imports/client/systemStores';
+    import {userLoggedIn, userExtras, userPosition} from '/imports/client/systemStores';
+
+
+    //* get user current position
+    navigator.geolocation.getCurrentPosition(function (position) {
+        $userPosition = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+
+            accuracy: position.coords.accuracy,
+            altitude: position.coords.altitude,
+            altitudeAccuracy: position.coords.altitudeAccuracy,
+            heading: position.coords.heading,
+            speed: position.coords.speed,
+        };
+
+    }, function(error){ console.log("nav geo error", error)});
 
 
     //* load client-side system parameters

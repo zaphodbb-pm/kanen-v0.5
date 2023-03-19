@@ -312,6 +312,7 @@
             res = await Meteor.callAsync("countDocs", coll, query);
         } catch (error) {
             console.warn("countDocs", error);
+            res = 0;
         }
 
         return res;
