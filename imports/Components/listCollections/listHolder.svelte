@@ -71,7 +71,6 @@
     import {getDocs} from '/imports/Functions/application/getDocs'
 
     //* make form text available to all children Components
-    setContext("listText", listText);
     setContext("debugOptions", $sysConfig.sysDebug);
 
     fields = loadText( fields, listText);   // insert text into fields object
@@ -402,7 +401,7 @@
         {/if}
 
         {#if config.hasFilters && showFilters}
-            <List_Filters filters="{getFilters}" on:filters-changed="{filterList}" />
+            <List_Filters filters="{getFilters}" {listText} on:filters-changed="{filterList}" />
         {/if}
     </form>
 

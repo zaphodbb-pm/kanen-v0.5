@@ -20,6 +20,7 @@
 
     //* props
     export let filters = [];
+    export let listText = {};
 
     //* support Functions
     import {createEventDispatcher} from 'svelte';
@@ -69,6 +70,7 @@
             <svelte:component
                     this="{filterInserts[field.type]}"
                     {field}
+                    {listText}
                     on:filter-changed="{filterUpdate}"/>
 
         </div>

@@ -13,11 +13,11 @@
 
     //* props
     export let field = {};
+    export let listText = {};
 
     //* support Functions
-    import {createEventDispatcher, getContext} from 'svelte';
+    import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
-    const listText = getContext("listText");
     const label = listText[field.field]?.label ?? "";
 
     //* local reactive variables

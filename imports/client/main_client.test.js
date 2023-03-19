@@ -118,7 +118,7 @@ import '../Components/formBuilder/tests/formHolder.test';
 
 /* family ListCollections */
 /** component listCollections - functions tests **/
-//import '../Components/listCollections/tests/buildFilter.test';
+import '../Components/listCollections/tests/buildFilter.test';
 import '../Components/listCollections/tests/buildQuery.test';
 
 /** component listCollections - plugin tests **/

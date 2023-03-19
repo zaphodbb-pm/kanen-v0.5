@@ -173,13 +173,15 @@
 
     //* pure Functions
     function formatDate(isoDate ,cal) {
-        let date = new Date();
+        let out = "n/a";
+
         if (isoDate) {
-            date = new Date(isoDate);
+            //** get common calendar text and adjust for language preference
+            const date = new Date(isoDate);
+            out = `${cal.months[date.getUTCMonth()].name} ${date.getUTCDate()}, ${date.getUTCFullYear()}`;
         }
 
-        //** get common calendar text and adjust for language preference
-        return `${cal.months[date.getMonth()].name} ${date.getDate()}, ${date.getFullYear()}`;
+        return out;
     }
 
     function formatPhoneNumber(str) {

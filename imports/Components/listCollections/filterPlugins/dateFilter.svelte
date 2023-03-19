@@ -1,74 +1,56 @@
 <script>
-    /**
-     * Date filter plugin for List Holder Filters.
-     *
-     * @module dateFilter
-     * @memberOf Components:listCollections:
-     * @locus client
-     *
-     * @param  {Object} field - field info that also configures the filter
-     *
-     * @fires filter-changed
-     *
-     */
+
+/**
+ * Date filter plugin for List Holder Filters.
+ *
+ * @module dateFilter
+ * @memberOf Components:listCollections:
+ * @locus client
+ *
+ * @param  {Object} field - field info that also configures the filter
+ *
+ * @fires filter-changed
+ *
+ */
 
     //* props
     export let field = {};
+    export let listText = {};
 
     //* support Functions
-    import {createEventDispatcher, getContext} from 'svelte';
+    import {buildDate} from "./func-buildDate";
+    import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
-    const listText = getContext("listText");
     const label = listText[field.field]?.label ?? "";
 
     //* local reactive variable
     let outFilter = {};
     let hasRange = false;
-    let inValue = "";
-    let fp;
+    let inValue1 = "";
+    let inValue2 = "";
 
     let relativeDates = field.filterText && field.filterText.relativeDates && Array.isArray(field.filterText.relativeDates);
     let selected;
 
-    //* lifecycle states
-
-    /*
-    onMount( () => {
-        //** if using absolute date range, then mount "filepickr" component
-        if(!relativeDates){
-            let target = document.getElementById("fp_" + field.field);
-            fp = flatpickr(target, field.filter);
-            fp.config.onChange.push(dateUpdate );
-            fp.jumpToDate(inValue);
-        }
-    });
-
-     */
-
-    /*
-    onDestroy( () => {
-        if(!relativeDates){
-            fp.destroy();
-        }
-    });
-
-     */
-
-
     //* event handlers
     function emitFilter(sel) {
+
+        console.log("emitFilter", inValue1, inValue2);
 
         if (sel === "none" || sel === "all" ) {
             outFilter[field.field] = null;
         } else {
-            let now = Date.now();
-            let parts = sel.split("_");
-            let offset = parseInt( parts[2] ) * 1000 * 3600 * 24;   // time expressed in milliseconds / day
-            let dir = parts[1] === "p" ? -1 : 1;
+            const now = Date.now();
 
-            let past = ( new Date(now - offset) ).toISOString();
-            let today = ( new Date(now) ).toISOString();
-            let future = ( new Date(now + offset) ).toISOString();
+            const parts = sel.split("_");
+
+            const offset = parseInt( parts[2] ) * 1000 * 3600 * 24;   // time expressed in milliseconds / day
+
+            const dir = parts[1] === "p" ? -1 : 1;
+
+            const past = ( new Date(now - offset) ).toISOString();
+            const today = ( new Date(now) ).toISOString();
+            const future = ( new Date(now + offset) ).toISOString();
 
             outFilter[field.field] = dir < 0 ? {$gte: past, $lte: today} : {$gte: today, $lte: future};
         }
@@ -80,30 +62,53 @@
         dispatch("filter-changed", outFilter);
     }
 
+
     function clearDateRange() {
-        inValue = "";
+        inValue1 = "";
+        inValue2 = "";
         outFilter[field.field] = null;
         hasRange = false;
-        //fp.clear();
-
 
         dispatch("filter-changed", outFilter);
     }
 
-    function dateUpdate(ev) {
-        if (Array.isArray(ev) && ev.length === 2) {
-            let start = new Date(ev[0]);
-            let end = new Date(ev[1]);
+    function dateUpdate() {
+        let start = "";
+        let end = "";
 
-            if(field.type === "timeStamp"){
-                outFilter[field.field] = {$gte: start.getTime(), $lte: end.getTime()};
-            }else{
-                outFilter[field.field] = {$gte: start.toISOString(), $lte: end.toISOString()};
-            }
+        switch(true){
+            case !!inValue1 && !inValue2:
+                start = inValue1;
+                inValue2 = buildDate(start, 1);
+                end = inValue2;
+                break;
 
-            hasRange = true;
-            dispatch("filter-changed", outFilter);
+            case !inValue1 && !!inValue2:
+                end = inValue2;
+                inValue1 = buildDate(end, -1);
+                start = inValue1;
+                break;
+
+            case !!inValue1 && !!inValue2:
+
+                if(inValue1 < inValue2){
+                    start = inValue1;
+                    end = inValue2;
+                }else{
+                    start = inValue2;
+                    end = inValue1;
+
+                    let temp = inValue1;
+                    inValue1 = inValue2;
+                    inValue2 = temp;
+                }
+                break;
         }
+
+        hasRange = true;
+        outFilter[field.field] = {$gte: start, $lte: end};
+
+        dispatch("filter-changed", outFilter);
     }
 
 </script>
@@ -137,16 +142,18 @@
                 <input type="date"
                        id="fp1_{field.field}"
                        style="width: 9rem;"
-                       bind:value="{inValue}"
-                       placeholder={field.filterText.placeholder}>
+                       bind:value="{inValue1}"
+                       placeholder={field.filterText.placeholder}
+                       on:input="{dateUpdate}">
             </label>
 
             <label>
                 <input type="date"
                        id="fp2_{field.field}"
                        style="width: 9rem;"
-                       bind:value="{inValue}"
-                       placeholder={field.filterText.placeholder}>
+                       bind:value="{inValue2}"
+                       placeholder={field.filterText.placeholder}
+                       on:input="{dateUpdate}">
             </label>
 
             {#if hasRange}
@@ -157,31 +164,5 @@
 
         </div>
     </div>
-
-
-
-
-
-    <!--
-    <div class="field has-addons">
-        <div class="control">
-            <label>
-                <input type="date"
-                       id="fp_{field.field}"
-                       style="width: 8rem;"
-                       bind:value="{inValue}"
-                       placeholder={field.filterText.placeholder}>
-            </label>
-        </div>
-
-        {#if hasRange}
-            <div class="control">
-                <button type="button" class="is-warning" on:click="{clearDateRange}">
-                    <span class="delete"></span>
-                </button>
-            </div>
-        {/if}
-    </div>
-    -->
 
 {/if}
