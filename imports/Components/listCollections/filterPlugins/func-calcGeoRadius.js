@@ -26,6 +26,7 @@ export function calcGeoRadius(sel, me, field){
     const lng = me?.lng ?? -75;
     const hasCoord = !!me?.lat && !!me?.lng;
 
+
     let out;
 
     switch (true) {
