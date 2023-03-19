@@ -314,7 +314,7 @@ export const page = {
                     //** then build a start date from now using days derived from _id value;
                     //** else use absolute date range
 
-
+                    /*
                     relativeDates: [
                         {_id: "none", name: "All Times"},
                         {_id: "days_p_1", name: "Today"},
@@ -327,7 +327,7 @@ export const page = {
                         {_id: "days_f_90", name: "This Quarter"}
                     ]
 
-
+                     */
                 },
             },
 

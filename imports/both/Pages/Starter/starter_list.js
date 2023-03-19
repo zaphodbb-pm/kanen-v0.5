@@ -71,10 +71,7 @@ export default {
             label:  "tbd",
             sort:   1,
             search: true,
-            filter: {
-                dateFormat: "d-m-Y",
-                mode: "range"
-            }
+            filter: {mode: "range"}
         },
 
         /*
