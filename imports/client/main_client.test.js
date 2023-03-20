@@ -75,8 +75,6 @@ import '../Components/widgets/tests/tabbedContent.test';
 
 /* family formBuilder */
 /** component formBuilder - fields tests **/
-
-/*
 import '../Components/formBuilder/fields/tests/apiKey.test';
 import '../Components/formBuilder/fields/tests/checkboxes.test';
 import '../Components/formBuilder/fields/tests/colourPicker.test';
@@ -95,8 +93,6 @@ import '../Components/formBuilder/fields/tests/switch.test';
 import '../Components/formBuilder/fields/tests/textarea.test';
 import '../Components/formBuilder/fields/tests/timePicker.test';
 import '../Components/formBuilder/fields/tests/typeahead.test';
-
- */
 
 /** component formBuilder - functions tests **/
 /*

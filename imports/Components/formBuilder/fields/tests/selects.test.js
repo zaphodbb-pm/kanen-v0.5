@@ -76,7 +76,7 @@ const instance = new CUT({
 /* step 4: perform tests */
 import assert from "assert";
 
-describe(`component ${compName}.svelte`, function () {
+describe(`FormBuilder > fields component ${compName}.svelte`, function () {
   const component = document.querySelector(`#${testId} > ${parent}`);
 
   it(`${compName} exists`, function () {

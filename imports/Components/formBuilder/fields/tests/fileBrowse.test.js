@@ -65,7 +65,7 @@ const instance = new CUT({
 /* step 4: perform tests */
 import assert from "assert";
 
-describe(`component ${compName}.svelte`, function () {
+describe(`FormBuilder > fields component ${compName}.svelte`, function () {
   /** teher are 2 divs here, one for input and one for modal **/
   const sections = document.querySelectorAll(`#${testId} > ${parent}`);
   const component = sections[0];
