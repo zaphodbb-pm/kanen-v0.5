@@ -125,6 +125,8 @@ import '../Components/listCollections/filterPlugins/tests/buildRelativeDate.test
 /** component listCollections > filterPlugins - component tests **/
 import '../Components/listCollections/filterPlugins/tests/selectFilter.test';
 import '../Components/listCollections/filterPlugins/tests/geoFilter.test';
+import '../Components/listCollections/filterPlugins/tests/dateRelativeFilter.test';
+import '../Components/listCollections/filterPlugins/tests/dateFilter.test';
 
 
 /** component listCollections - functions tests **/

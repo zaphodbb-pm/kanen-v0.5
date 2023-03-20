@@ -116,7 +116,7 @@
                 <option value="{filt._id}">
                     {filt.name}
                 </option>
-            {/each}}
+            {/each}
         </select>
     </label>
 
