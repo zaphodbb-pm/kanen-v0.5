@@ -43,6 +43,7 @@
 
     //* event handlers
     function filterUpdate(msg){
+
         Object.entries(msg.detail).forEach( (m) => {
             if (m[1] ){
                 outFilter[ m[0] ] = m[1];
@@ -55,6 +56,7 @@
          * @event filters-changed
          * @type {Object} - outFilter, a valid MongoDb selector object across all filter Components
          */
+
         dispatch("filters-changed", outFilter);
     }
 
