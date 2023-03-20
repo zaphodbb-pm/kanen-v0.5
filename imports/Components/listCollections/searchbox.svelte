@@ -64,7 +64,7 @@
             <input type="text"
                    class="input"
                    bind:value="{searchchars}"
-                   on:keyup="{changesearch}"
+                   on:input="{changesearch}"
                    aria-label="search field"
                    title="search">
         </label>

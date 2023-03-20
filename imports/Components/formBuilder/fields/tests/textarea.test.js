@@ -25,7 +25,7 @@ const props = {
   error: "",
 
   class: "test-form-field"
-}
+};
 
 
 /* expected event object */

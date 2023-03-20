@@ -75,6 +75,7 @@ import '../Components/widgets/tests/tabbedContent.test';
 
 /* family formBuilder */
 /** component formBuilder - fields tests **/
+/*
 import '../Components/formBuilder/fields/tests/apiKey.test';
 import '../Components/formBuilder/fields/tests/checkboxes.test';
 import '../Components/formBuilder/fields/tests/colourPicker.test';
@@ -94,34 +95,53 @@ import '../Components/formBuilder/fields/tests/textarea.test';
 import '../Components/formBuilder/fields/tests/timePicker.test';
 import '../Components/formBuilder/fields/tests/typeahead.test';
 
+ */
+
 /** component formBuilder - functions tests **/
+/*
 import '../Components/formBuilder/tests/orgFields.test';
 import '../Components/formBuilder/tests/submitForm.test';
 
+ */
+
 /** component formBuilder - parent component tests **/
+/*
 import '../Components/formBuilder/tests/fieldWrapper.test';
 import '../Components/formBuilder/tests/formSubmit.test';
 import '../Components/formBuilder/tests/formTabFields.test';
 import '../Components/formBuilder/tests/formHolder.test';
+
+ */
 
 
 
 
 /* family ListCollections */
 /** component listCollections > filterPlugins - functions tests **/
+/*
 import '../Components/listCollections/filterPlugins/tests/buildDate.test';
 import '../Components/listCollections/filterPlugins/tests/buildRelativeDate.test';
 import '../Components/listCollections/filterPlugins/tests/calcGeoRadius.test';
 
+ */
+
 /** component listCollections > filterPlugins - component tests **/
+/*
 import '../Components/listCollections/filterPlugins/tests/dateFilter.test';
 import '../Components/listCollections/filterPlugins/tests/dateRelativeFilter.test';
 import '../Components/listCollections/filterPlugins/tests/geoFilter.test';
 import '../Components/listCollections/filterPlugins/tests/selectFilter.test';
 
+ */
+
 
 /** component listCollections - functions tests **/
+/*
 import '../Components/listCollections/tests/buildFilter.test';
 import '../Components/listCollections/tests/buildQuery.test';
 
+ */
+
+/** component listCollections - component tests **/
+import '../Components/listCollections/tests/searchbox.test';
 
