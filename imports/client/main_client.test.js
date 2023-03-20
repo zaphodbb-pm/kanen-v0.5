@@ -149,8 +149,9 @@ import '../Components/listCollections/tests/docCount.test';
 
  */
 
-import '../Components/listCollections/tests/pagination.test';
+import '../Components/listCollections/tests/listFilters.test';
 /*
+import '../Components/listCollections/tests/pagination.test';
 import '../Components/listCollections/tests/rowSize.test';
 import '../Components/listCollections/tests/searchbox.test';
  */
