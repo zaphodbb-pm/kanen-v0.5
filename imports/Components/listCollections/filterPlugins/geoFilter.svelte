@@ -22,7 +22,7 @@
     import {userPosition} from '/imports/client/systemStores';
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
-    const label = listText[field.field]?.label ?? "";
+    const label = listText?.label ?? "";
 
 
     //* local reactive variable
@@ -40,7 +40,7 @@
 
         /**
          * @event filter-changed
-         * @type {Object} - {outFilter: <fieldName>: {$gte: isodate, $lte: isodate } }
+         * @type {Object} - {outFilter: <fieldName>: {geoLocation:{$nearSphere:{$geometry:{type:"Point",coordinates:[-75,45]},$maxDistance:1000000}}}}
          */
 
         dispatch("filter-changed", outFilter);
@@ -60,6 +60,6 @@
             <option value="{filt._id}">
                 {filt.name}
             </option>
-        {/each}}
+        {/each}
     </select>
 </label>

@@ -70,7 +70,7 @@
             <svelte:component
                     this="{filterInserts[field.type]}"
                     {field}
-                    {listText}
+                    listText="{listText[field.field]}"
                     on:filter-changed="{filterUpdate}"/>
 
         </div>

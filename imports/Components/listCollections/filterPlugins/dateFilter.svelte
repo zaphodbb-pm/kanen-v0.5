@@ -23,7 +23,7 @@
     import {buildRelativeDate} from "./func-buildRelativeDate";
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
-    const label = listText[field.field]?.label ?? "";
+    const label = listText?.label ?? "";
 
     //* local reactive variable
     let outFilter = {};
