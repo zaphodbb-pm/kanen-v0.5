@@ -49,7 +49,7 @@ import assert from "assert";
 
 import {submitForm} from "../func-submitForm";
 
-describe("component formHolder - function submitForm", function () {
+describe("FormBuilder > formHolder - function submitForm", function () {
 
   it("returns result", function(){
     const user = sinon.stub(Meteor, 'user').returns(userInfo);

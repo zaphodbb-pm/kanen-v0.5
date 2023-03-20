@@ -11,7 +11,7 @@ const tabLengths = [10, 4, 4, 1 ];
 import {orgFields} from "../func-orgFields";
 import schema from "./testing_form_schema";
 import assert from "assert";
-describe("component formHolder - function orgFields", function () {
+describe("FormBuilder > formHolder - function orgFields", function () {
   let defaults = {};
 
   schema.forEach(function (f) {

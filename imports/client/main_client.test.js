@@ -95,19 +95,14 @@ import '../Components/formBuilder/fields/tests/timePicker.test';
 import '../Components/formBuilder/fields/tests/typeahead.test';
 
 /** component formBuilder - functions tests **/
-/*
 import '../Components/formBuilder/tests/orgFields.test';
 import '../Components/formBuilder/tests/submitForm.test';
 
- */
-
 /** component formBuilder - parent component tests **/
-/*
 import '../Components/formBuilder/tests/fieldWrapper.test';
 import '../Components/formBuilder/tests/formSubmit.test';
 import '../Components/formBuilder/tests/formTabFields.test';
 import '../Components/formBuilder/tests/formHolder.test';
- */
 
 
 
