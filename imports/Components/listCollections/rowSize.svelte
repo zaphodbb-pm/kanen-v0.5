@@ -18,7 +18,7 @@
     const dispatch = createEventDispatcher();
 
     //* local reactive variables
-    let opts = [10, 15, 20, 30, 50, 100];           // sets the row length per page selection
+    const opts = [10, 15, 20, 30, 50, 100];         // sets the row length per page selection
     let initval = 10;                               // set initial rows / page
 
 
@@ -50,29 +50,3 @@
         </select>
     </label>
 </div>
-
-
-
-
-
-
-
-<!--
-<div class="field has-addons">
-    <div class="control">
-        <a class="button is-static">
-            <span><span class="icon-bg-list is-medium"></span></span>
-        </a>
-    </div>
-
-    <div class="control">
-        <span class="select">
-            <select bind:value="{initval}" on:change="{changerow}">
-                {#each opts as option}
-                    <option>{option}</option>
-                {/each}
-            </select>
-        </span>
-    </div>
-</div>
--->

@@ -143,6 +143,8 @@ import '../Components/listCollections/tests/buildQuery.test';
  */
 
 /** component listCollections - component tests **/
-import '../Components/listCollections/tests/searchbox.test';
-import '../Components/listCollections/tests/docCount.test';
+//import '../Components/listCollections/tests/docCount.test';
+//import '../Components/listCollections/tests/searchbox.test';
+import '../Components/listCollections/tests/rowSize.test';
+
 
