@@ -60,7 +60,7 @@ const instance = new CUT({
 /* step 4: perform tests */
 import assert from "assert";
 
-describe(`FormBuilder > fields component ${compName}.svelte`, function () {
+describe(`ListCollections > component ${compName}.svelte`, function () {
   const component = document.querySelector(`#${testId} > ${parent} .has-field-addons`);
 
   it(`${compName} exists`, function () {
