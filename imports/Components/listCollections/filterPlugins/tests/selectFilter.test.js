@@ -7,19 +7,15 @@ const eventName = "filter-changed";
 /* step 2: construct test data */
 const props = {
   field:             {
-    field:  "startStaticSelect",
-    key:    "startStaticSelect.name",
+    field:  "staticSelectTest",
+    key:    "staticSelectTest.name",
     type:   "select",
     label:  "tbd",
     sort:   1,
     search: true,
-    filter: {_id: "none", name: "None"}
-  },
+    filter: {_id: "none", name: "None"},
 
-  fieldText: {
-    label: "Day",
-
-    filter: [
+    filterText: [
       {_id: "all", name: "All", colour: "#000000"},
       {_id: "sun", name: "Sunday", colour: "#000000"},
       {_id: "mon", name: "Monday", colour: "#6666ff"},
@@ -29,13 +25,17 @@ const props = {
       {_id: "fri", name: "Friday", colour: "#aaaaaa"},
       {_id: "sat", name: "Saturday", colour: "#ff0000"},
     ]
+  },
+
+  listText: {
+    label: "Day",
   }
 }
 
 
 /* expected written select element */
 const checkHTML = [
-  {_id: "all", name: "All Options"},
+  {_id: "all", name: "All"},
   {_id: "sun", name: "Sunday"},
   {_id: "mon", name: "Monday"},
   {_id: "tue", name: "Tuesday"},
@@ -46,7 +46,7 @@ const checkHTML = [
 ];
 
 const selectOption = 1;
-const checkSelect = {"_id":"sun","name":"Sunday","colour":"#000000"};
+const checkSelect = {"staticSelectTest._id":"sun"};
 
 
 /* step 3: run boilerplate activities */
@@ -69,23 +69,17 @@ const instance = new CUT({
 
 /* step 4: perform tests */
 import assert from "assert";
-
-describe(`component ${compName}.svelte`, function () {
+//component ListCollections > filterPlugins - function calcGeoRadius
+describe(`component ListCollections > filterPlugins - ${compName}.svelte`, function () {
   const component = document.querySelector(`#${testId} > ${parent}`);
 
   it(`${compName} exists`, function () {
     assert.ok(component, `parent should be "${parent}" tag`);
-
-    const hasModifier = component.classList.contains(props.class);
-    assert.ok( hasModifier, `parent classes should be "${props.class}"`);
   });
 
   it(`${compName} structure`, function () {
     const label = component.querySelector(`${parent} > span`);
-    assert.ok( label && label.innerHTML.length > 3, `CUT is missing "span" label`);
-
-    const status = component.querySelector(`${parent} > div.status-item`);
-    assert.ok( status, `CUT is missing "div" status label`);
+    assert.ok( label && label.innerHTML.length > 2, `CUT is missing "span" label`);
 
     const select = component.querySelector(`${parent} > select`);
     assert.ok( select, `CUT is missing "select" element`);
@@ -113,8 +107,8 @@ describe(`component ${compName}.svelte`, function () {
     select.selectedIndex = selectOption;
     select.dispatchEvent(new Event('change'));
 
-    const msg = `instance event is ${JSON.stringify(testResult.value)} but should be ${JSON.stringify(checkSelect)}`;
-    assert.deepStrictEqual(testResult.value, checkSelect, msg);
+    const msg = `instance event is ${JSON.stringify(testResult)} but should be ${JSON.stringify(checkSelect)}`;
+    assert.deepStrictEqual(testResult, checkSelect, msg);
   });
 
 });

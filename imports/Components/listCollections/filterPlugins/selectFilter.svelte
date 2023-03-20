@@ -18,7 +18,7 @@
     //* support Functions
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
-    const label = listText[field.field]?.label ?? "";
+    const label = listText?.label ?? "";
 
     //* local reactive variables
     let selected;
@@ -37,7 +37,7 @@
 
         /**
          * @event filter-changed
-         * @type {Object} - {outFilter: <fieldName>: {$gte: isodate, $lte: isodate } }
+         * @type {Object} - {outFilter: <fieldName>._id: "idValue" }
          */
 
         dispatch("filter-changed", outFilter);
@@ -58,6 +58,6 @@
             <option value="{filt._id}">
                 {filt.name}
             </option>
-        {/each}}
+        {/each}
     </select>
 </label>
