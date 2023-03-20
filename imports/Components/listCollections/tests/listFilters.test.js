@@ -2,7 +2,9 @@
 const compName = "listFilters";
 const parent = "div";
 const parentClass = "field-group";
-const eventName = "filterUpdate";
+const eventName = "filters-changed";
+
+const eventTarget = "fp1_dateTest";
 
 
 /* step 2: construct test data */
@@ -38,6 +40,10 @@ const props = {
   }
 };
 
+/** check values **/
+const initDate = "2023-01-01";
+const secondDate = "2023-01-02";
+
 
 /* step 3: run boilerplate activities */
 /** add component test area to body **/
@@ -69,28 +75,6 @@ describe(`ListCollections >  component ${compName}.svelte`, function () {
     assert.ok( hasModifier, `parent classes should be "${parentClass}"`);
   });
 
-  /*
-  <div class="field-group has-nowrap">
-    <div class="filter-items">
-
-      <div style="flex-wrap: nowrap; width: 75%;">
-        <div class="has-field-addons">
-          <label>
-            <span>Day</span>
-            <input type="date" id="fp1_dateTest" placeholder="Date Range" style="width: 9rem;">
-          </label>
-        <label>
-          <input type="date" id="fp2_dateTest" placeholder="Date Range" style="width: 9rem;">
-          </label>
-        </div>
-      </div>
-
-    </div>
-  </div>
-   */
-
-
-
   it(`${compName} structure`, function () {
     const filterWrapper = component.querySelector(`.filter-items`);
     assert.ok( filterWrapper, `CUT is missing ".filter-items" element.`);
@@ -100,35 +84,21 @@ describe(`ListCollections >  component ${compName}.svelte`, function () {
     assert.ok( filters && filters.length === props.filters.length, msg);
   });
 
-
-
   it(`${compName} input fires "${eventName}"`, async function () {
+    const target = component.querySelector(`#${eventTarget}`);
+    target.value = initDate;
 
-
-    const li = component.querySelectorAll(`ul > li > a`);
     let testResult;
 
     instance.$on(eventName, function (ev) {
       testResult = ev.detail;
+      testResult = testResult[props.filters[0].field];
     });
 
-    /** pick a page and check event **/
-    let page = 3;
-    li[page].click();
-    let msg = `Expected ${JSON.stringify({page: page} )}, but found ${JSON.stringify(testResult)}`;
-    assert.deepStrictEqual(testResult, {page: page}, msg);
+    target.dispatchEvent(new Event('input'));
 
-    /** go to a previous page **/
-    page = 2;
-    li[0].click();
-    msg = `Expected ${JSON.stringify({page: page} )}, but found ${JSON.stringify(testResult)}`;
-    assert.deepStrictEqual(testResult, {page: page}, msg);
-
-    /** go to a next page **/
-    page = 3;
-    li[listLength - 1].click();
-    msg = `Expected ${JSON.stringify({page: page} )}, but found ${JSON.stringify(testResult)}`;
-    assert.deepStrictEqual(testResult, {page: page}, msg);
+    assert.deepStrictEqual(testResult?.$gte, initDate, `Initial date not returned, found ${testResult?.$gte}.`)
+    assert.deepStrictEqual(testResult?.$lte, secondDate, `Second date not returned, found ${testResult?.$lte}.`)
   });
 
 });
