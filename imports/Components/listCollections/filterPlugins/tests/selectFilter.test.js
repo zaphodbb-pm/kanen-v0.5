@@ -70,7 +70,7 @@ const instance = new CUT({
 /* step 4: perform tests */
 import assert from "assert";
 //component ListCollections > filterPlugins - function calcGeoRadius
-describe(`component ListCollections > filterPlugins - ${compName}.svelte`, function () {
+describe(`ListCollections > filterPlugins - ${compName}.svelte`, function () {
   const component = document.querySelector(`#${testId} > ${parent}`);
 
   it(`${compName} exists`, function () {

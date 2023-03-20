@@ -15,7 +15,7 @@ const checkQuery = [1, 7, 30, 90, 1, 7, 30, 90];
 
 import assert from "assert";
 import {buildRelativeDate} from "../func-buildRelativeDate";
-describe("component ListCollections > filterPlugins - function buildRelativeDate", function () {
+describe("ListCollections > filterPlugins - function buildRelativeDate", function () {
   data.forEach( (test, idx) => {
     const day = 1000 * 3600 * 24;
 

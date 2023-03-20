@@ -18,7 +18,7 @@ const checkQuery = [
 
 import assert from "assert";
 import {calcGeoRadius} from "../func-calcGeoRadius";
-describe("component ListCollections > filterPlugins - function calcGeoRadius", function () {
+describe("ListCollections > filterPlugins - function calcGeoRadius", function () {
   data.forEach( (test, idx) => {
 
     it(`test ${idx + 1}: ${test.sel}`, function(){

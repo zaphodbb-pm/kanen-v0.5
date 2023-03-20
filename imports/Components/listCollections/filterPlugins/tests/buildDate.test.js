@@ -12,7 +12,7 @@ const checkQuery = [
 
 import assert from "assert";
 import {buildDate} from "../func-buildDate";
-describe("component ListCollections > filterPlugins - function buildDate", function () {
+describe("ListCollections > filterPlugins - function buildDate", function () {
   data.forEach( (test, idx) => {
 
     it(`test ${idx + 1}: ${test.val} / offset=${test.offset}`, function(){

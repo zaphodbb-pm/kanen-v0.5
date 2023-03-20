@@ -118,22 +118,19 @@ import '../Components/formBuilder/tests/formHolder.test';
 
 /* family ListCollections */
 /** component listCollections > filterPlugins - functions tests **/
-import '../Components/listCollections/filterPlugins/tests/calcGeoRadius.test';
 import '../Components/listCollections/filterPlugins/tests/buildDate.test';
 import '../Components/listCollections/filterPlugins/tests/buildRelativeDate.test';
+import '../Components/listCollections/filterPlugins/tests/calcGeoRadius.test';
 
 /** component listCollections > filterPlugins - component tests **/
-import '../Components/listCollections/filterPlugins/tests/selectFilter.test';
-import '../Components/listCollections/filterPlugins/tests/geoFilter.test';
-import '../Components/listCollections/filterPlugins/tests/dateRelativeFilter.test';
 import '../Components/listCollections/filterPlugins/tests/dateFilter.test';
+import '../Components/listCollections/filterPlugins/tests/dateRelativeFilter.test';
+import '../Components/listCollections/filterPlugins/tests/geoFilter.test';
+import '../Components/listCollections/filterPlugins/tests/selectFilter.test';
 
 
 /** component listCollections - functions tests **/
-/*
 import '../Components/listCollections/tests/buildFilter.test';
 import '../Components/listCollections/tests/buildQuery.test';
-
- */
 
 

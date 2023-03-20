@@ -71,7 +71,7 @@ const checkQuery = [
 
 import assert from "assert";
 import {buildQuery} from "../func-buildQuery";
-describe("component ListCollections - function buildFilter", function () {
+describe("ListCollections - function buildFilter", function () {
 
   it("function buildQuery", function () {
     query.forEach( (item, idx) => {
