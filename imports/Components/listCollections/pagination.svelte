@@ -92,7 +92,7 @@
 
             <ul>
                 {#if more}
-                    <li class="prev"><a href="#extend-comp_pagination">&lt;</a></li>
+                    <li class="prev"><a on:click="{() => prev() }">&lt;</a></li>
                 {/if}
 
                 {#each items as item}
@@ -104,7 +104,7 @@
                 {/each}
 
                 {#if more}
-                    <li class="next"><a href="#extend-comp_pagination" >&gt;</a></li>
+                    <li class="next"><a on:click="{() => next() }">&gt;</a></li>
                 {/if}
             </ul>
 
