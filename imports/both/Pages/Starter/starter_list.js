@@ -28,6 +28,9 @@
  *      sort:       {Number}  - ascending (1) or descending (-1) or none (0)
  *      search:     {Boolean} - search bar can use this field for any search
  *
+ *      prefix:     {String}  - adds a prefix to the field value in a table
+ *      suffix:     {String}  - adds a suffix to the field value in a table
+ *
  */
 
 

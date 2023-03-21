@@ -1,4 +1,5 @@
 <script>
+
     /**
      * Table to list documents and fields for docs.
      *
@@ -48,30 +49,24 @@
     export let submitted = false;
 
     // get the user language preference from store
-    import {lang} from '/imports/client/systemStores'
+    import {lang} from '/imports/client/systemStores';
+    import {i18n} from '/imports/Functions/utilities/i18n';
 
     //** support Functions
+    import {transformDocInfo} from "./func-transformDocInfo";
     import {sysConfig} from '/imports/client/systemStores'
     import {getContext} from 'svelte';
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 
-    import {i18n} from '/imports/Functions/utilities/i18n'
-    import {dotNotation} from '/imports/Functions/utilities/dotNotation'
-    import {timeAgo} from '/imports/Functions/formatters/timeAgo'
 
-
-    //* local reactive variables
+//* local reactive variables
     let calendar = i18n( getContext("commonText"), "calendar", $lang);
     let deleteText = i18n( getContext("commonText"), "confirmDelete", $lang);
-
-    let tagColour = "is-link";                          // default tag colour
     let inEdit = false;
-    let bgEdit = "is-warning-light";
     let currRow = "";
     let actRow = "";
     let submit = submitted;
-
     let confirmDelete = !!$sysConfig.confirmDelete;
     let confirm = null;
 
@@ -186,7 +181,7 @@
 
     function formatPhoneNumber(str) {
         let cleaned = ('' + str).replace(/\D/g, '');                // Filter only formatters from the input
-        let match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/);  // Check if the input is of correct
+        let match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/);  // Check if the input is of correct layout
         let out = "";
 
         if (match) {
@@ -197,14 +192,6 @@
         return out;
     }
 
-    function createInitials(name) {
-        let parts = name.trim().split(" ");
-        let part1a = parts[0] ? parts[0].charAt(0).toUpperCase() : "";
-        let part1b = parts[0] ? parts[0].charAt(1) : "";
-        let part2 = parts[1] ? parts[1].charAt(0).toUpperCase() : "";
-
-        return part1a + (part2 ? part2 : part1b);
-    }
 
     function tableLabels(start) {
         let labels = [];
@@ -216,64 +203,21 @@
             }
         });
 
+        console.log("tableLabels", start, labels);
+
         return labels;
     }
 
-    //* build array of array of display objects
+
+    //* build an array of arrays of display objects
     function tableItems(coll, fields, docs) {
         let out = [];
 
+        console.log("tableItems", coll, fields, docs);
+
         //** prepare document for display listing and get info for each field to display
-        docs.forEach(function (els) {
-            let tr = [];
-            let values = els;
-            values.updatedAt = els.updatedAt;
-
-            //*** create a set of initials if a "name" field exists
-            let name = "az";
-            if (els.name) {
-                name = createInitials(els.name);
-            }
-
-            fields.forEach(function (el) {
-                let val = dotNotation(values, el.key);
-
-                switch(true){
-
-                    //*** "users" is a special case
-                    case coll === "users" && el.key === "emails":
-                        val = val && val[0] ? val[0].address : "ex@example.com";
-                        break;
-
-                    case el.key === "tag":
-                        val = values.data && values.data.event ? values.data.event : val;
-                        break;
-
-                    case ["updatedAt", "createdAt", "data.time", "timeStamp"].includes(el.key):
-                        val = timeAgo(val);
-                        break;
-
-                    case el.type === "object":
-                        val = val ? JSON.stringify(val).replace(/,/g, ", ") : "";
-                        break;
-                }
-
-                let base = el.base ? el.base : "";
-
-                tr.push({
-                    id: values._id,
-                    type: el.type,
-                    value: val,
-                    base: base,
-                    url: base + val,
-                    prefix: el.prefix ? el.prefix : "",
-                    suffix: el.suffix ? el.suffix : "",
-                    name: name,
-                });
-
-            });
-
-            out.push(tr);
+        docs.forEach(function (doc) {
+            out.push( transformDocInfo(coll, doc, fields) );
         });
         return out;
     }

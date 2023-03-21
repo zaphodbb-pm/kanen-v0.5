@@ -85,11 +85,6 @@
         if (err) {
             messages.push(err.message);
         } else {
-
-            console.log("$userLoggedIn", $userLoggedIn);
-
-            console.log("$userExtras", $userExtras);
-
             goto("/my-profile")
         }
     }

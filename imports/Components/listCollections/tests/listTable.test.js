@@ -14,12 +14,40 @@ const event2 = "item-delete";
 
 /* step 2: construct test data */
 const props = {
-  config: {},
-  labels: [],
+  config: {target: "/home"},
+  labels: [
+    {label: "Name"},
+    {label: "Image"},
+    {label: "Day"},
+    {label: "Date"},
+    {label: "Del"},
+
+  ],
   documents: [],
   collection: "test",
   submitted: false
 };
+
+/*
+0
+:
+{field: 'name', key: 'name', type: 'edit', label: 'Name', sort: 1, …}
+1
+:
+{field: 'startImage', key: 'startImage', type: 'cardImage', label: '', sort: 1, …}
+2
+:
+{field: 'startStaticSelect', key: 'startStaticSelect.name', type: 'select', label: 'Day', sort: 1, …}
+3
+:
+{field: 'startDateTime', key: 'startDateTime', type: 'date', label: 'Date', sort: 1, …}
+4
+:
+{field: '_id', key: '_id', type: 'del', label: 'Del', sort: false, …}
+length
+:
+5
+ */
 
 
 

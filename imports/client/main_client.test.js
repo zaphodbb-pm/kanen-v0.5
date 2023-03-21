@@ -142,6 +142,8 @@ import '../Components/listCollections/tests/buildQuery.test';
 
  */
 
+import '../Components/listCollections/tests/transformDocInfo.test';
+
 /** component listCollections - component tests **/
 
 /*
