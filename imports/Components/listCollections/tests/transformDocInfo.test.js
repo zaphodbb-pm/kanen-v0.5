@@ -25,7 +25,7 @@ const fields = [
     label:  "tbd",
     sort:   1,
     search: true,
-    filter: {_id: "none", name: "None"}
+    filter: {_id: "none", name: "None"},
   },
 
   {
@@ -37,21 +37,6 @@ const fields = [
     search: true,
     filter: {mode: "range"}
   },
-
-
-  /*
-  {
-      field:  "geoLocation",
-      key:    "geoLocation",
-      type:   "address",
-      label:  "tbd",
-      sort:   false,
-      search: true,
-      filter: {_id: "none", name: "World Wide"}
-  },
-
-   */
-
 
   {
     field:  "_id",
@@ -65,28 +50,57 @@ const fields = [
 
 const query = [
   {coll : "starter", doc: {}  },
+  {coll : "starter", doc: {name: "test_doc"}  },
+
+  {coll : "starter",
+    doc: {
+      name: "test_doc",
+      startImage: "image.jpg",
+      startStaticSelect: {_id: "sun", name: "Sunday"},
+      startDateTime: "2023-01-01",
+      _id: "testId"
+    }
+  },
 
 ];
 
 /* expected result object */
 const checkQuery = [
-  {start:1,  end:0,  filterSubscribe:{sort:{test:-1},limit:10}, filterSearch:{sort:{test:-1},skip:0,limit:10}},
-  {start:23, end:33, filterSubscribe:{sort:{test:-1},limit:11}, filterSearch:{sort:{test:-1},skip:22,limit:11}},
-  {start:1,  end:12, filterSubscribe:{sort:{test:-1},limit:12}, filterSearch:{sort:{test:-1},skip:0,limit:12}},
-  {start:14, end:16, filterSubscribe:{sort:{test:-1},limit:3},  filterSearch:{sort:{test:-1},skip:13,limit:3}},
+  [
+    {"type":"edit","value":null,"base":"","url":"","prefix":"","suffix":"","name":"az"},
+    {"type":"cardImage","value":null,"base":"","url":"","prefix":"","suffix":"","name":"az"},
+    {"type":"select","value":null,"base":"","url":"","prefix":"","suffix":"","name":"az"},
+    {"type":"date","value":null,"base":"","url":"","prefix":"","suffix":"","name":"az"},
+    {"type":"del","value":null,"base":"","url":"","prefix":"","suffix":"","name":"az"}
+  ],
+
+  [
+    {"type":"edit","value":"test_doc","base":"","url":"test_doc","prefix":"","suffix":"","name":"Te"},
+    {"type":"cardImage","value":null,"base":"","url":"","prefix":"","suffix":"","name":"Te"},
+    {"type":"select","value":null,"base":"","url":"","prefix":"","suffix":"","name":"Te"},
+    {"type":"date","value":null,"base":"","url":"","prefix":"","suffix":"","name":"Te"},
+    {"type":"del","value":null,"base":"","url":"","prefix":"","suffix":"","name":"Te"}
+  ],
+
+  [
+    {"id":"testId","type":"edit","value":"test_doc","base":"","url":"test_doc","prefix":"","suffix":"","name":"Te"},
+    {"id":"testId","type":"cardImage","value":"image.jpg","base":"","url":"image.jpg","prefix":"","suffix":"","name":"Te"},
+    {"id":"testId","type":"select","value":"Sunday","base":"","url":"Sunday","prefix":"","suffix":"","name":"Te"},
+    {"id":"testId","type":"date","value":"2023-01-01","base":"","url":"2023-01-01","prefix":"","suffix":"","name":"Te"},
+    {"id":"testId","type":"del","value":"testId","base":"","url":"testId","prefix":"","suffix":"","name":"Te"}
+  ]
 ];
 
 import assert from "assert";
 import {transformDocInfo} from "../func-transformDocInfo";
 describe("ListCollections - function transformDocInfo", function () {
 
-  it("function transformDocInfo", function () {
+  query.forEach( (item, idx) => {
+    it(`test ${idx + 1}:`, function(){
+      const out = transformDocInfo(item.coll, item.doc, fields);
 
-    query.forEach( (item, idx) => {
-      let out = transformDocInfo(item.coll, item.doc, fields);
-      assert.deepStrictEqual(out, checkQuery[idx], `Result at index ${idx} was ${JSON.stringify(out)}.`);
-    });
-
+      const msg = `Result at index ${idx} was ${JSON.stringify(out)}.`;
+      assert.strictEqual(JSON.stringify(out), JSON.stringify(checkQuery[idx]) , msg);    });
   });
 
 });

@@ -22,7 +22,8 @@ export function transformDocInfo(coll, doc, fields){
 
     //*** create a set of initials if a "name" field exists
     let name = "az";
-    if (doc.name) {
+
+    if (!!doc.name) {
         name = createInitials(doc.name);
     }
 
@@ -32,19 +33,19 @@ export function transformDocInfo(coll, doc, fields){
         switch(true){
 
             //*** "users" is a special case
-            case coll === "users" && field.key === "emails":
+            case !!val && coll === "users" && field.key === "emails":
                 val = val && val[0] ? val[0].address : "ex@example.com";
                 break;
 
-            case field.key === "tag":
+            case !!val && field.key === "tag":
                 val = values.data && values.data.event ? values.data.event : val;
                 break;
 
-            case ["updatedAt", "createdAt", "data.time", "timeStamp"].includes(field.key):
+            case !!val && ["updatedAt", "createdAt", "data.time", "timeStamp"].includes(field.key):
                 val = timeAgo(val);
                 break;
 
-            case field.type === "object":
+            case !!val && field.type === "object":
                 val = val ? JSON.stringify(val).replace(/,/g, ", ") : "";
                 break;
         }
@@ -56,7 +57,7 @@ export function transformDocInfo(coll, doc, fields){
             type: field.type,
             value: val,
             base: base,
-            url: base + val,
+            url: base + (val ?? ""),
             prefix: field?.prefix ?? "",
             suffix: field?.suffix ?? "",
             name: name,

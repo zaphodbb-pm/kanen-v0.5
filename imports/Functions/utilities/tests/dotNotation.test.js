@@ -1,6 +1,7 @@
 /* test data */
 const data = [
   {obj: { aa: 11, bb: { cc: 33, dd: {ee: 33}}  }, key: "", result: null},
+  {obj: { aa: 11, bb: { cc: 33, dd: {ee: 33}}  }, key: "xyz", result: null},
   {obj: { aa: 11, bb: { cc: 33, dd: {ee: 33}}  }, key: "aa", result: 11},
   {obj: { aa: 11, bb: { cc: 33, dd: {ee: 33}}  }, key: "bb", result: { cc: 33, dd: {ee: 33}}},
   {obj: { aa: 11, bb: { cc: 33, dd: {ee: 33}}  }, key: "bb.cc", result: 33},

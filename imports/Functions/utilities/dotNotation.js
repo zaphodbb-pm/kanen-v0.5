@@ -27,12 +27,15 @@ export function dotNotation(obj, string){
     if( string && obj && typeof obj === "object" && !Array.isArray(obj) ){
 
         if( string.includes('.') ){
-            out = obj;
+            let walkString = {...obj};
+
             ( string.split('.') ).forEach(function(field){
-                out = out[field] ?? null;
+                walkString = walkString ? walkString[field] ?? null : null;
             });
+
+            out = walkString;
         }else{
-            out = obj[ string ];
+            out = obj[ string ] ?? null;
         }
     }
 
