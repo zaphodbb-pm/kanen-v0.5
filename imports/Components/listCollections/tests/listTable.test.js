@@ -10,57 +10,28 @@ const event2 = "item-delete";
 //item-modal-user
 //item-modal
 
-
-/*
-field: "name"
-key: "name"
-label: "Name"
-type: "edit"
- */
+import {fields} from "./fields_list";
 
 
 /* step 2: construct test data */
 const props = {
   config: {target: "/home"},
-  labels: [
-    {label: "Name"},
-    {label: "Image"},
-    {label: "Day"},
-    {label: "Date"},
-    {label: "Del"},
-
-  ],
+  labels: fields,
   documents: [
     { name: "abcdef",
-      startDateTime: "2023-01-26",
-      startImage: {name: '6512608.jpg', src: 'data:image/png;base64,iVBORw0KGgoAAAAg'},
-      startStaticSelect: {_id: 'mon', name: 'Monday', colour: '#6666ff'},
+      testImage: {name: '6512608.jpg', src: 'data:image/png;base64,iVBORw0KGgoAAAAg'},
+      testSelect: {_id: 'mon', name: 'Monday', colour: '#6666ff'},
+      testDate: "2023-01-26",
+      testEmails: "abc@example.com",
+      testTags: "System",
+      testObject: {one: "One", two: 2},
+      updatedAt: "1234567890",
       _id: "i8iLxTLRK6Ch2d74T"}
   ],
   collection: "test",
   submitted: false
 };
 
-/*
-0
-:
-{field: 'name', key: 'name', type: 'edit', label: 'Name', sort: 1, …}
-1
-:
-{field: 'startImage', key: 'startImage', type: 'cardImage', label: '', sort: 1, …}
-2
-:
-{field: 'startStaticSelect', key: 'startStaticSelect.name', type: 'select', label: 'Day', sort: 1, …}
-3
-:
-{field: 'startDateTime', key: 'startDateTime', type: 'date', label: 'Date', sort: 1, …}
-4
-:
-{field: '_id', key: '_id', type: 'del', label: 'Del', sort: false, …}
-length
-:
-5
- */
 
 
 
@@ -98,17 +69,33 @@ describe(`ListCollections >  component ${compName}.svelte`, function () {
   /*
   <div class="table-container">
     <table class="table is-fullwidth">
+
       <thead>
         <tr>
           <th class=" svelte-13nu1au">Name</th>
-          <th class=" svelte-13nu1au">Image</th>
-          <th class=" svelte-13nu1au">Day</th>
+          <th class=" svelte-13nu1au">Card Image</th>
+          <th class=" svelte-13nu1au">Select Box</th>
           <th class=" svelte-13nu1au">Date</th>
-          <th class=" svelte-13nu1au">Del</th>
+          <th class=" svelte-13nu1au">Email</th>
+          <th class=" svelte-13nu1au">Item tag</th>
+          <th class=" svelte-13nu1au">Object</th>
+          <th class=" svelte-13nu1au">Updated At</th>
+          <th class="has-text-centered svelte-13nu1au">Del</th>
         </tr>
       </thead>
+
       <tbody>
+        <tr class="" style="position: relative;">
+          <td class="add-cursor is-text-semibold svelte-13nu1au" style="overflow-wrap: break-word; word-break: break-all; color: var(--link);">abcdef</td>
+          <td class="text_cell svelte-13nu1au" style="overflow-wrap: break-word; word-break: break-all;">Monday</td>
+          <td class=" svelte-13nu1au">Jan 26, 2023</td>
+          <td class=" svelte-13nu1au"><a href="'mailTo:' + abc@example.com">abc@example.com</a></td>
+          <td class="svelte-13nu1au"><span class="buffer-small"><span class="tag is-medium undefined svelte-13nu1au"><b>System</b></span></span></td>
+          <td class="svelte-13nu1au">{"one":"One", "two":2}</td>
+          <td class="table-delete-td svelte-13nu1au"><span class="icon-bg-trash has-text-danger table-delete-icon svelte-13nu1au"></span></td>
+        </tr>
       </tbody>
+
     </table>
   </div>
    */
@@ -117,12 +104,22 @@ describe(`ListCollections >  component ${compName}.svelte`, function () {
 
 
   it(`${compName} structure`, function () {
-    const filterWrapper = component.querySelector(`.filter-items`);
-    assert.ok( filterWrapper, `CUT is missing ".filter-items" element.`);
+    const fieldsLength = fields.length;
 
-    const filters = component.querySelectorAll(`.filter-items > *`);
-    const msg = `Found ${filters.length} filters, expected ${props.filters.length} filters.`
-    assert.ok( filters && filters.length === props.filters.length, msg);
+    const table = component.querySelector(`table`);
+    assert.ok( table, `CUT is missing "table" element.`);
+
+    const thead = table.querySelector(`thead`);
+    assert.ok( thead, `CUT is missing "thead" element.`);
+
+    const th = thead.querySelectorAll(`th`);
+    assert.ok( th.length === fieldsLength, `Found ${th.length} "th" elements, should have ${fieldsLength} "th" elements.`);
+
+    const tbody = table.querySelector(`tbody`);
+    assert.ok( tbody, `CUT is missing "tbody" element.`);
+
+    const td = tbody.querySelectorAll(`td`);
+    assert.ok( td.length === fieldsLength, `Found ${td.length} "td" elements, should have ${fieldsLength} "td" elements.`);
   });
 
   it(`${compName} input fires "${event1}"`, async function () {

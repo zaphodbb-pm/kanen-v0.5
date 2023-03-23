@@ -49,20 +49,20 @@
     export let submitted = false;
 
     // get the user language preference from store
+    import commonText from "../../client/text_common";
     import {lang} from '/imports/client/systemStores';
     import {i18n} from '/imports/Functions/utilities/i18n';
 
     //** support Functions
     import {transformDocInfo} from "./func-transformDocInfo";
     import {sysConfig} from '/imports/client/systemStores'
-    import {getContext} from 'svelte';
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 
 
 //* local reactive variables
-    let calendar = i18n( getContext("commonText"), "calendar", $lang);
-    let deleteText = i18n( getContext("commonText"), "confirmDelete", $lang);
+    let calendar = i18n( commonText, "calendar", $lang);
+    let deleteText = i18n( commonText, "confirmDelete", $lang);
     let inEdit = false;
     let currRow = "";
     let actRow = "";
@@ -176,6 +176,8 @@
             out = `${cal.months[date.getUTCMonth()].name} ${date.getUTCDate()}, ${date.getUTCFullYear()}`;
         }
 
+        console.log("formatDate", isoDate, out);
+
         return out;
     }
 
@@ -203,8 +205,6 @@
             }
         });
 
-        console.log("tableLabels", start, labels);
-
         return labels;
     }
 
@@ -213,9 +213,12 @@
     function tableItems(coll, fields, docs) {
         let out = [];
 
+        /*
         console.log("tableItems collection", coll);
         console.log("tableItems labels", fields);
         console.log("tableItems documents", docs);
+
+         */
 
         //** prepare document for display listing and get info for each field to display
         docs.forEach(function (doc) {

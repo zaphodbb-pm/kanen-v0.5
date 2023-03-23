@@ -139,10 +139,10 @@ import '../Components/listCollections/filterPlugins/tests/selectFilter.test';
 /*
 import '../Components/listCollections/tests/buildFilter.test';
 import '../Components/listCollections/tests/buildQuery.test';
-
+import '../Components/listCollections/tests/transformDocInfo.test';
  */
 
-import '../Components/listCollections/tests/transformDocInfo.test';
+
 
 /** component listCollections - component tests **/
 
@@ -151,7 +151,7 @@ import '../Components/listCollections/tests/docCount.test';
 import '../Components/listCollections/tests/listFilters.test';
  */
 
-//import '../Components/listCollections/tests/listTable.test';
+import '../Components/listCollections/tests/listTable.test';
 /*
 
 import '../Components/listCollections/tests/pagination.test';
