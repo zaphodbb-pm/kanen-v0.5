@@ -213,7 +213,9 @@
     function tableItems(coll, fields, docs) {
         let out = [];
 
-        console.log("tableItems", coll, fields, docs);
+        console.log("tableItems collection", coll);
+        console.log("tableItems labels", fields);
+        console.log("tableItems documents", docs);
 
         //** prepare document for display listing and get info for each field to display
         docs.forEach(function (doc) {

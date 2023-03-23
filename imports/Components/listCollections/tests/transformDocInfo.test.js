@@ -5,37 +5,55 @@ const fields = [
     key:    "name",
     type:   "edit",
     label:  "Name",
-    sort:   1,
-    search: true,
   },
 
   {
-    field:  "startImage",
-    key:    "startImage",
+    field:  "testImage",
+    key:    "testImage",
     type:   "cardImage",
     label:  "tbd",
-    sort:   1,
-    search: true,
   },
 
   {
-    field:  "startStaticSelect",
-    key:    "startStaticSelect.name",
+    field:  "testSelect",
+    key:    "testSelect.name",
     type:   "select",
     label:  "tbd",
-    sort:   1,
-    search: true,
-    filter: {_id: "none", name: "None"},
   },
 
   {
-    field:  "startDateTime",
-    key:    "startDateTime",
+    field:  "testDate",
+    key:    "testDate",
     type:   "date",
     label:  "tbd",
-    sort:   1,
-    search: true,
-    filter: {mode: "range"}
+  },
+
+  {
+    field:  "testEmails",
+    key:    "testEmails",
+    type:   "email",
+    label:  "tbd",
+  },
+
+  {
+    field:  "testTags",
+    key:    "testTags",
+    type:   "tag",
+    label:  "tbd",
+  },
+
+  {
+    field:  "testObject",
+    key:    "testObject",
+    type:   "object",
+    label:  "tbd",
+  },
+
+  {
+    field:  "updatedAt",
+    key:    "updatedAt",
+    type:   "updatedAt",
+    label:  "tbd",
   },
 
   {
@@ -43,22 +61,24 @@ const fields = [
     key:    "_id",
     type:   "del",
     label:  "tbd",
-    sort:   false,
-    search: false,
   },
 ]
 
 const query = [
-  {coll : "starter", doc: {}  },
-  {coll : "starter", doc: {name: "test_doc"}  },
+  {coll : "user", doc: {}  },
+  {coll : "user", doc: {name: "Test Doc"}  },
 
-  {coll : "starter",
+  {coll : "user",
     doc: {
-      name: "test_doc",
-      startImage: "image.jpg",
-      startStaticSelect: {_id: "sun", name: "Sunday"},
-      startDateTime: "2023-01-01",
-      _id: "testId"
+      _id: "testId",
+      name: "Test Doc",
+      testImage: "image.jpg",
+      testSelect: {_id: "sun", name: "Sunday"},
+      testDate: "2023-01-01",
+      testEmails: [{address: "abc@example.com"}],
+      testTags: {data: {event: "tagLabel"}},
+      testObject: {one: "one", two: 2},
+      updatedAt: 1234567890
     }
   },
 
@@ -71,23 +91,35 @@ const checkQuery = [
     {"type":"cardImage","value":null,"base":"","url":"","prefix":"","suffix":"","name":"az"},
     {"type":"select","value":null,"base":"","url":"","prefix":"","suffix":"","name":"az"},
     {"type":"date","value":null,"base":"","url":"","prefix":"","suffix":"","name":"az"},
+    {"type":"email","value":null,"base":"","url":"","prefix":"","suffix":"","name":"az"},
+    {"type":"tag","value":null,"base":"","url":"","prefix":"","suffix":"","name":"az"},
+    {"type":"object","value":null,"base":"","url":"","prefix":"","suffix":"","name":"az"},
+    {"type":"updatedAt","value":null,"base":"","url":"","prefix":"","suffix":"","name":"az"},
     {"type":"del","value":null,"base":"","url":"","prefix":"","suffix":"","name":"az"}
   ],
 
   [
-    {"type":"edit","value":"test_doc","base":"","url":"test_doc","prefix":"","suffix":"","name":"Te"},
-    {"type":"cardImage","value":null,"base":"","url":"","prefix":"","suffix":"","name":"Te"},
-    {"type":"select","value":null,"base":"","url":"","prefix":"","suffix":"","name":"Te"},
-    {"type":"date","value":null,"base":"","url":"","prefix":"","suffix":"","name":"Te"},
-    {"type":"del","value":null,"base":"","url":"","prefix":"","suffix":"","name":"Te"}
+    {"type":"edit","value":"Test Doc","base":"","url":"Test Doc","prefix":"","suffix":"","name":"TD"},
+    {"type":"cardImage","value":null,"base":"","url":"","prefix":"","suffix":"","name":"TD"},
+    {"type":"select","value":null,"base":"","url":"","prefix":"","suffix":"","name":"TD"},
+    {"type":"date","value":null,"base":"","url":"","prefix":"","suffix":"","name":"TD"},
+    {"type":"email","value":null,"base":"","url":"","prefix":"","suffix":"","name":"TD"},
+    {"type":"tag","value":null,"base":"","url":"","prefix":"","suffix":"","name":"TD"},
+    {"type":"object","value":null,"base":"","url":"","prefix":"","suffix":"","name":"TD"},
+    {"type":"updatedAt","value":null,"base":"","url":"","prefix":"","suffix":"","name":"TD"},
+    {"type":"del","value":null,"base":"","url":"","prefix":"","suffix":"","name":"TD"}
   ],
 
   [
-    {"id":"testId","type":"edit","value":"test_doc","base":"","url":"test_doc","prefix":"","suffix":"","name":"Te"},
-    {"id":"testId","type":"cardImage","value":"image.jpg","base":"","url":"image.jpg","prefix":"","suffix":"","name":"Te"},
-    {"id":"testId","type":"select","value":"Sunday","base":"","url":"Sunday","prefix":"","suffix":"","name":"Te"},
-    {"id":"testId","type":"date","value":"2023-01-01","base":"","url":"2023-01-01","prefix":"","suffix":"","name":"Te"},
-    {"id":"testId","type":"del","value":"testId","base":"","url":"testId","prefix":"","suffix":"","name":"Te"}
+    {"id":"testId","type":"edit","value":"Test Doc","base":"","url":"Test Doc","prefix":"","suffix":"","name":"TD"},
+    {"id":"testId","type":"cardImage","value":"image.jpg","base":"","url":"image.jpg","prefix":"","suffix":"","name":"TD"},
+    {"id":"testId","type":"select","value":"Sunday","base":"","url":"Sunday","prefix":"","suffix":"","name":"TD"},
+    {"id":"testId","type":"date","value":"2023-01-01","base":"","url":"2023-01-01","prefix":"","suffix":"","name":"TD"},
+    {"id":"testId","type":"email","value":[{"address":"abc@example.com"}],"base":"","url":"[object Object]","prefix":"","suffix":"","name":"TD"},
+    {"id":"testId","type":"tag","value":{"data":{"event":"tagLabel"}},"base":"","url":"[object Object]","prefix":"","suffix":"","name":"TD"},
+    {"id":"testId","type":"object","value":"{\"one\":\"one\", \"two\":2}","base":"","url":"{\"one\":\"one\", \"two\":2}","prefix":"","suffix":"","name":"TD"},
+    {"id":"testId","type":"updatedAt","value":"53 years ago","base":"","url":"53 years ago","prefix":"","suffix":"","name":"TD"},
+    {"id":"testId","type":"del","value":"testId","base":"","url":"testId","prefix":"","suffix":"","name":"TD"}
   ]
 ];
 

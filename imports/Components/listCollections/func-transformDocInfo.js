@@ -33,11 +33,16 @@ export function transformDocInfo(coll, doc, fields){
         switch(true){
 
             //*** "users" is a special case
-            case !!val && coll === "users" && field.key === "emails":
+            case !!val && coll === "users" && field.type === "emails":
+
+                console.log("emails", val);
+
                 val = val && val[0] ? val[0].address : "ex@example.com";
+
+                console.log("emails after", val);
                 break;
 
-            case !!val && field.key === "tag":
+            case !!val && field.type === "tag":
                 val = values.data && values.data.event ? values.data.event : val;
                 break;
 

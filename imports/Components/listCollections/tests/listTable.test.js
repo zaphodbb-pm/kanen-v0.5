@@ -11,6 +11,13 @@ const event2 = "item-delete";
 //item-modal
 
 
+/*
+field: "name"
+key: "name"
+label: "Name"
+type: "edit"
+ */
+
 
 /* step 2: construct test data */
 const props = {
@@ -23,7 +30,13 @@ const props = {
     {label: "Del"},
 
   ],
-  documents: [],
+  documents: [
+    { name: "abcdef",
+      startDateTime: "2023-01-26",
+      startImage: {name: '6512608.jpg', src: 'data:image/png;base64,iVBORw0KGgoAAAAg'},
+      startStaticSelect: {_id: 'mon', name: 'Monday', colour: '#6666ff'},
+      _id: "i8iLxTLRK6Ch2d74T"}
+  ],
   collection: "test",
   submitted: false
 };
@@ -80,6 +93,28 @@ describe(`ListCollections >  component ${compName}.svelte`, function () {
     const hasModifier = component.classList.contains(parentClass);
     assert.ok( hasModifier, `parent classes should be "${parentClass}"`);
   });
+
+
+  /*
+  <div class="table-container">
+    <table class="table is-fullwidth">
+      <thead>
+        <tr>
+          <th class=" svelte-13nu1au">Name</th>
+          <th class=" svelte-13nu1au">Image</th>
+          <th class=" svelte-13nu1au">Day</th>
+          <th class=" svelte-13nu1au">Date</th>
+          <th class=" svelte-13nu1au">Del</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+   */
+
+
+
 
   it(`${compName} structure`, function () {
     const filterWrapper = component.querySelector(`.filter-items`);
