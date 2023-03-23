@@ -34,12 +34,7 @@ export function transformDocInfo(coll, doc, fields){
 
             //*** "users" is a special case
             case !!val && coll === "users" && field.type === "emails":
-
-                console.log("emails", val);
-
                 val = val && val[0] ? val[0].address : "ex@example.com";
-
-                console.log("emails after", val);
                 break;
 
             case !!val && field.type === "tag":
@@ -59,6 +54,7 @@ export function transformDocInfo(coll, doc, fields){
 
         tr.push({
             id: values._id,
+            field: field.field,
             type: field.type,
             value: val,
             base: base,

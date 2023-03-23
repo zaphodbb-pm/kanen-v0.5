@@ -30,8 +30,26 @@
  *      prefix:     {String}  - adds a prefix to the field value in a table
  *      suffix:     {String}  - adds a suffix to the field value in a table
  *
+ * Possible field types are:
+ *              "check" - checkbox
+ *              "tag" - coloured box with label
+ *              "id" - has document id
+ *              "link" - active url to new page
+ *              "edit" - sends doc info to be edited
+ *              "modal" - sends doc info to modal for detailed display
+ *              "modalUser" - sends doc info to then fetch user info
+ *              "text" - plain text display
+ *              "select" - gets "name" field value
+ *              "date" - formatted date display text
+ *              "phone" - formatted phone number with link to phone application
+ *              "email" - formatted email with link to email application
+ *              "status" - dot and text status display
+ *              "newpage" - launch new page in new tab
+ *              "object" - stringified display of object
+ *              "boolean" - check character if true
+ *              "pict" - thumbnail picture
+ *              "del" - trash can and docid of document to delete
  */
-
 
 
 export const fields =  [
@@ -87,8 +105,8 @@ export const fields =  [
         key:    "testTags",
         type:   "tag",
         label:  "Item tag",
-        sort:   1,
-        search: true,
+        sort:   false,
+        search: false,
     },
 
     {
@@ -96,17 +114,98 @@ export const fields =  [
         key:    "testObject",
         type:   "object",
         label:  "Object",
-        sort:   1,
-        search: true,
+        sort:   false,
+        search: false,
     },
 
     {
         field:  "updatedAt",
         key:    "updatedAt",
-        type:   "updatedAt",
+        type:   "text",
         label:  "Updated At",
-        sort:   1,
-        search: true,
+        sort:   false,
+        search: false,
+    },
+
+    {
+        field:  "testCheck",
+        key:    "testCheck",
+        type:   "check",
+        label:  "Check",
+        sort:   false,
+        search: false,
+    },
+
+    {
+        field:  "testId",
+        key:    "testId",
+        type:   "id",
+        label:  "ID",
+        sort:   false,
+        search: false,
+    },
+
+    {
+        field:  "testLink",
+        key:    "testLink",
+        type:   "link",
+        label:  "Link",
+        sort:   false,
+        search: false,
+    },
+
+    {
+        field:  "testModal",
+        key:    "testModal",
+        type:   "modal",
+        label:  "Modal",
+        sort:   false,
+        search: false,
+    },
+
+    {
+        field:  "testModalUser",
+        key:    "testModalUser",
+        type:   "modalUser",
+        label:  "Modal User",
+        sort:   false,
+        search: false,
+    },
+
+    {
+        field:  "testPhone",
+        key:    "testPhone",
+        type:   "phone",
+        label:  "Phone",
+        sort:   false,
+        search: false,
+    },
+
+    {
+        field:  "testStatus",
+        key:    "testStatus",
+        type:   "status",
+        label:  "Status",
+        sort:   false,
+        search: false,
+    },
+
+    {
+        field:  "testNewPage",
+        key:    "testNewPage",
+        type:   "newpage",
+        label:  "New page",
+        sort:   false,
+        search: false,
+    },
+
+    {
+        field:  "testBoolean",
+        key:    "testBoolean",
+        type:   "boolean",
+        label:  "Boolean",
+        sort:   false,
+        search: false,
     },
 
     {
