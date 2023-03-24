@@ -11,7 +11,7 @@
  */
 
 
-import grid from './starter_grid.svelte'
+import grid from './starter_grid.svelte';
 
 export const pageConfig =  {
 

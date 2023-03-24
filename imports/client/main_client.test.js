@@ -150,9 +150,11 @@ import '../Components/listCollections/tests/transformDocInfo.test';
 import '../Components/listCollections/tests/docCount.test';
 import '../Components/listCollections/tests/listFilters.test';
 import '../Components/listCollections/tests/listTable.test';
+import '../Components/listCollections/tests/listGrid.test';
  */
 
-import '../Components/listCollections/tests/listGrid.test';
+import '../Components/listCollections/tests/listHolder.test';
+
 /*
 
 import '../Components/listCollections/tests/pagination.test';
