@@ -153,7 +153,9 @@ import '../Components/listCollections/tests/listTable.test';
 import '../Components/listCollections/tests/listGrid.test';
  */
 
-import '../Components/listCollections/tests/listHolder.test';
+//import '../Components/listCollections/tests/listHolder.test';
+
+
 
 /*
 
@@ -162,5 +164,6 @@ import '../Components/listCollections/tests/rowSize.test';
 import '../Components/listCollections/tests/searchbox.test';
  */
 
-
+/** component listCollections plus formHolder **/
+import '../Components/listForm/tests/listForm.test';
 
