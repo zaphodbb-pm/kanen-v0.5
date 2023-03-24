@@ -108,4 +108,8 @@ describe(`ListCollection > component ${compName}.svelte`, function () {
     const table = component.querySelector(`table.table`);
     assert.ok(table, `CUT is missing "list table" component.`);
   });
+
+  after(function(){
+    document.getElementById(testId).remove();
+  });
 });

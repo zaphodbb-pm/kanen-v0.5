@@ -187,4 +187,8 @@ describe(`ListCollections >  component ${compName}.svelte`, function () {
     assert.ok(testResult._id === props.documents[0]._id, `Found result ${JSON.stringify(testResult._id)}`);
   });
 
+  after(function(){
+    document.getElementById(testId).remove();
+  });
+
 });

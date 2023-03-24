@@ -43,4 +43,8 @@ describe(`ListCollections > component ${compName}.svelte`, function () {
     assert.ok( icons && icons[1] && icons[1].innerHTML.includes(props.docCountLabel), `CUT is missing document label.`);
   });
 
+  after(function(){
+    document.getElementById(testId).remove();
+  });
+
 });

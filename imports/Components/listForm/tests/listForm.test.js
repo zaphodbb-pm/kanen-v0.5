@@ -2,17 +2,6 @@
 const compName = "listForm";
 const parent = "div.row";
 
-/*
-const event1 = "send-doc";
-const event2 = "delete-doc";
-const event3 = "list-docs-ready";
-const event4 = "modal-doc";
-const event5 = "modal-doc-user";
- */
-
-
-
-
 import {fields} from "../../listCollections/tests/fields_list";
 import grid from "../../listCollections/listGrid.svelte";
 import schema from "../../formBuilder/tests/testing_form_schema";
@@ -68,14 +57,14 @@ const testId = buildComponentTestArea(compName, document);
 
 
 /** import Component Under Test (CUT) **/
-import { Meteor } from 'meteor/meteor';
-import sinon from "sinon";
+//import { Meteor } from 'meteor/meteor';
+//import sinon from "sinon";
+import assert from "assert";
 import CUT from '../listForm.svelte';
 
 let instance;
 let component;
-let stub;
-
+//let stub;
 
 
 /* step 4: perform tests */
@@ -83,12 +72,10 @@ const fieldSingle = [10, 2, 3, 1];
 const fieldGroups = [3, 0, 0, 0];
 const fieldHR = [1, 0, 0, 0];
 
-import assert from "assert";
-
 describe(`component ${compName}.svelte`, function () {
 
   before(function(){
-    stub = sinon.stub(Meteor, "callAsync").returns([]);
+    //stub = sinon.stub(Meteor, "callAsync").returns([]);
 
     /** render component with appropriate props **/
     instance = new CUT({

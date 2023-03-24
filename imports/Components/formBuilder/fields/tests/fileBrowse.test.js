@@ -113,4 +113,8 @@ describe(`FormBuilder > fields component ${compName}.svelte`, function () {
     assert.ok(img, `CUT is missing "img" element`);
   });
 
+  after(function(){
+    document.getElementById(testId).remove();
+  });
+
 });

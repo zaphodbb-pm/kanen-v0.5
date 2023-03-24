@@ -103,4 +103,8 @@ describe(`FormBuilder > component ${compName}.svelte`, function () {
     assert.ok( testResult, `instance field found ${testResult}`);
   });
 
+  after(function(){
+    document.getElementById(testId).remove();
+  });
+
 });

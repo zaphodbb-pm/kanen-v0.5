@@ -84,4 +84,8 @@ describe(`ListCollections >  component ${compName}.svelte`, function () {
     assert.deepStrictEqual(testResult, checkResult, msg);
   });
 
+  after(function(){
+    document.getElementById(testId).remove();
+  });
+
 });

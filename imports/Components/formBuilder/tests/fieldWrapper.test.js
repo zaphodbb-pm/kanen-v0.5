@@ -93,4 +93,8 @@ describe(`FormBuilder > component ${compName}.svelte`, function () {
     assert.ok(checkId && checkId.length === props.field.params.length && alphaNumeric.test(checkId), `instance event is ${checkId}`);
   });
 
+  after(function(){
+    document.getElementById(testId).remove();
+  });
+
 });

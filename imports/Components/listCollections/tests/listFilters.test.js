@@ -101,4 +101,8 @@ describe(`ListCollections >  component ${compName}.svelte`, function () {
     assert.deepStrictEqual(testResult?.$lte, secondDate, `Second date not returned, found ${testResult?.$lte}.`)
   });
 
+  after(function(){
+    document.getElementById(testId).remove();
+  });
+
 });

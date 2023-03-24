@@ -88,5 +88,10 @@ describe(`FormBuilder > fields component ${compName}.svelte`, function () {
     textarea.dispatchEvent(evt);
 
     const msg = `instance event is ${JSON.stringify(testResult)} but should be ${JSON.stringify(checkClick)}`;
-    assert.deepStrictEqual(testResult, checkClick, msg);  });
+    assert.deepStrictEqual(testResult, checkClick, msg);
+  });
+
+  after(function(){
+    document.getElementById(testId).remove();
+  });
 });

@@ -108,4 +108,8 @@ describe(`FormBuilder > component ${compName}.svelte`, function () {
     })
   });
 
+  after(function(){
+    document.getElementById(testId).remove();
+  });
+
 });
