@@ -211,13 +211,6 @@
     function tableItems(coll, fields, docs) {
         let out = [];
 
-        /*
-        console.log("tableItems collection", coll);
-        console.log("tableItems labels", fields);
-        console.log("tableItems documents", docs);
-
-         */
-
         //** prepare document for display listing and get info for each field to display
         docs.forEach(function (doc) {
             out.push( transformDocInfo(coll, doc, fields) );
@@ -247,12 +240,12 @@
                     {#each row as cell}
 
                         {#if cell.type === 'check'}
-                            <td class="fieldname_{cell.field}">
+                            <td data-fieldname="{cell.field}">
                                 <input type="checkbox" class="checkbox" title="{cell.value}">
                             </td>
 
                         {:else if cell.type === 'tag' }
-                            <td class="fieldname_{cell.field}">
+                            <td data-fieldname="{cell.field}">
                                 <span class="buffer-small">
                                     <span class="tag is-medium {TAGS[cell.value]}">
                                         <b>{cell.value}</b>
@@ -261,10 +254,10 @@
                             </td>
 
                         {:else if cell.type === 'id' }
-                            <td class="fieldname_{cell.field}" data-id="{cell.value}"></td>
+                            <td data-fieldname="{cell.field}" data-id="{cell.value}"></td>
 
                         {:else if cell.type === 'link' }
-                            <td class="fieldname_{cell.field} add-cursor">
+                            <td data-fieldname="{cell.field}" class="add-cursor">
                                 <a href="{cell.url}" target="_blank">
                                     <span>
                                         <span class="icon-bg-eye is-medium"></span>
@@ -274,8 +267,9 @@
 
                         {:else if cell.type === 'edit' }
                             <td on:click="{ () => editDoc(cell.id) }"
+                                data-fieldname="{cell.field}"
                                 style="word-wrap: break-word; word-break: break-all; color: var(--link)"
-                                class="fieldname_{cell.field} add-cursor is-text-semibold">
+                                class="add-cursor is-text-semibold">
 
                                 {cell.value}
                             </td>
@@ -283,7 +277,8 @@
                         {:else if cell.type === 'modal' }
                             <td on:click="{() => modalDoc(cell.id) }"
                                 style="word-wrap: break-word; word-break: break-all;"
-                                class="fieldname_{cell.field} add-cursor has-text-link is-text-semibold">
+                                data-fieldname="{cell.field}"
+                                class="add-cursor has-text-link is-text-semibold">
 
                                 {cell.value}
                             </td>
@@ -291,38 +286,39 @@
                         {:else if cell.type === 'modalUser' }
                             <td on:click="{ () => modalUserDoc(cell.id) }"
                                 style="word-wrap: break-word; word-break: break-all;"
-                                class="fieldname_{cell.field} add-cursor has-text-link has-text-weight-semibold text-left">
+                                data-fieldname="{cell.field}"
+                                class="add-cursor has-text-link has-text-weight-semibold text-left">
 
                                 {cell.value}
                             </td>
 
                         {:else if cell.type === 'text' || cell.type === 'select' || cell.type === 'timeStamp'}
-                            <td class="fieldname_{cell.field} text_cell" style="word-wrap: break-word; word-break: break-all;">
+                            <td data-fieldname="{cell.field}" class="text_cell" style="word-wrap: break-word; word-break: break-all;">
                                 {cell.prefix}{cell.value}{cell.suffix}
                             </td>
 
                         {:else if cell.type === 'currency' }
-                            <td class="fieldname_{cell.field} has-text-right">
+                            <td data-fieldname="{cell.field}" class="has-text-right">
                                 {cell.prefix}{cell.value.toFixed(2)}{cell.suffix}
                             </td>
 
                         {:else if cell.type === 'date' }
-                            <td class="fieldname_{cell.field}">
+                            <td data-fieldname="{cell.field}">
                                 {formatDate(cell.value, calendar)}
                             </td>
 
                         {:else if cell.type === 'phone' }
-                            <td class="fieldname_{cell.field}">
-                                <a href="'tel:' + {cell.value}">{formatPhoneNumber(cell.value)}</a>
+                            <td data-fieldname="{cell.field}">
+                                <a href="tel:{cell.value}">{formatPhoneNumber(cell.value)}</a>
                             </td>
 
                         {:else if cell.type === 'email' }
-                            <td class="fieldname_{cell.field}">
-                                <a href="'mailTo:' + {cell.value}">{cell.value}</a>
+                            <td data-fieldname="{cell.field}">
+                                <a href="mailto:{cell.value}">{cell.value}</a>
                             </td>
 
                         {:else if cell.type === 'status' }
-                            <td class="fieldname_{cell.field} has-text-left list-status">
+                            <td data-fieldname="{cell.field}" class="has-text-left list-status">
                                 <span style="{cell.value && cell.value.colour ? 'color: ' + cell.value.colour : ''}">
                                     <span class="icon-bg-cog is-medium"></span>
                                 </span>
@@ -333,16 +329,17 @@
                         {:else if cell.type === 'newpage' }
                             <td on:click="{() => launchPage(cell.id)}"
                                 style="word-wrap: break-word; word-break: break-all;"
-                                class="fieldname_{cell.field} add-cursor has-text-info has-text-weight-semibold text-left">
+                                data-fieldname="{cell.field}"
+                                class="add-cursor has-text-info has-text-weight-semibold text-left">
 
                                 {cell.value}
                             </td>
 
                         {:else if cell.type === 'object' }
-                            <td class="fieldname_{cell.field}">{cell.value}</td>
+                            <td data-fieldname="{cell.field}">{cell.value}</td>
 
                         {:else if cell.type === 'boolean' }
-                            <td class="fieldname_{cell.field} has-text-success text-center text-1dot4rem"
+                            <td data-fieldname="{cell.field}" class="has-text-success text-center text-1dot4rem"
                                 style="padding-bottom: 0; padding-top: 0">
                                 {#if cell.value}
                                     <span>&#9679;</span>
@@ -350,7 +347,7 @@
                             </td>
 
                         {:else if cell.type === 'pict' }
-                            <td class="fieldname_{cell.field} pict pictSmall">
+                            <td data-fieldname="{cell.field}" class="pict pictSmall">
                                 {#if cell.value && cell.value.src}
                                     <div>
                                         <img src="{cell.value.src}" class="list-thumbnail" alt="thumbnail"/>
@@ -365,7 +362,7 @@
                         {:else if cell.type === 'del' }
 
                             {#if confirmDelete}
-                                <td class="fieldname_{cell.field} table-delete-td" on:click="{() => confirmDel(cell.value)}">
+                                <td data-fieldname="{cell.field}" class="table-delete-td" on:click="{() => confirmDel(cell.value)}">
 
                                     {#if confirm === cell.value}
                                         <div class="confirm-delete depth-1 d-flex justify-content-between has-text-left align-items-center">
@@ -386,7 +383,7 @@
                                 </td>
 
                             {:else}
-                                <td class="fieldname_{cell.field} table-delete-td" on:click="{() => deleteDoc(cell.value)}">
+                                <td data-fieldname="{cell.field}" class="table-delete-td" on:click="{() => deleteDoc(cell.value)}">
                                     <span class="icon-bg-trash has-text-danger table-delete-icon"></span>
                                 </td>
                             {/if}

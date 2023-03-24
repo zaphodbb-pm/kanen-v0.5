@@ -3,17 +3,21 @@ const compName = "listTable";
 const parent = "div";
 const parentClass = "table-container";
 
-
+/** events and their trigger target **/
 const event1 = "item-edit";
 const event2 = "item-delete";
+const event3 = "item-modal";
+const event4 = "item-modal-user";
 
-//item-modal-user
-//item-modal
-
-import {fields} from "./fields_list";
+const eventTarget1 = '[data-fieldname="name"]';
+const eventTarget2 = '[data-fieldname="_id"]';
+const eventTarget3 = '[data-fieldname="testModal"]';
+const eventTarget4 = '[data-fieldname="testModalUser"]';
 
 
 /* step 2: construct test data */
+import {fields} from "./fields_list";
+
 const props = {
   config: {target: "/home"},
   labels: fields,
@@ -41,6 +45,28 @@ const props = {
   ],
   collection: "test",
   submitted: false
+};
+
+const checkResult =     {
+  name: "abcdef",
+  testImage: '<div><img src="data:image/png;base64,iVBORw0KGgoAAAAg" class="list-thumbnail svelte-13nu1au" alt="thumbnail"></div>',
+  testSelect: 'Monday',
+  testDate: "Jan 26, 2023",
+  testEmails: '<a href="mailto:abc@example.com">abc@example.com</a>',
+  testTags: '<span class="buffer-small"><span class="tag is-medium is-danger svelte-13nu1au"><b>system</b></span></span>',
+  testObject: '{"one":"One", "two":2}',
+  testCheck: '<input type="checkbox" class="checkbox" title="Checkbox Test">',
+  testTag: "System",
+  testId: "",
+  testLink: '<a href="https://testlink.org" target="_blank"><span><span class="icon-bg-eye is-medium"></span></span></a>',
+  testModal: "testModal",
+  testModalUser: "testModalUser",
+  testPhone: '<a href="tel:15142340987">+1 (514) 234-0987</a>',
+  testStatus: '<span style=""><span class="icon-bg-cog is-medium"></span></span> Success',
+  testNewPage: "https://newpage.org",
+  testBoolean: '<span>●</span>',
+  updatedAt: '53 years ago',
+  _id: '<span class="icon-bg-trash has-text-danger table-delete-icon svelte-13nu1au"></span>'
 };
 
 
@@ -75,70 +101,6 @@ describe(`ListCollections >  component ${compName}.svelte`, function () {
     assert.ok( hasModifier, `parent classes should be "${parentClass}"`);
   });
 
-
-  /*
-  <div class="table-container">
-    <table class="table is-fullwidth">
-
-      <thead>
-        <tr>
-          <th class=" svelte-13nu1au">Name</th>
-          <th class=" svelte-13nu1au">Card Image</th>
-          <th class=" svelte-13nu1au">Select Box</th>
-          <th class=" svelte-13nu1au">Date</th>
-          <th class=" svelte-13nu1au">Email</th>
-          <th class=" svelte-13nu1au">Item tag</th>
-          <th class=" svelte-13nu1au">Object</th>
-          <th class=" svelte-13nu1au">Updated At</th>
-          <th class=" svelte-13nu1au">Check</th>
-          <th class=" svelte-13nu1au">ID</th>
-          <th class=" svelte-13nu1au">Link</th>
-          <th class=" svelte-13nu1au">Modal</th>
-          <th class=" svelte-13nu1au">Modal User</th>
-          <th class=" svelte-13nu1au">Phone</th>
-          <th class=" svelte-13nu1au">Status</th>
-          <th class=" svelte-13nu1au">New page</th>
-          <th class=" svelte-13nu1au">Boolean</th>
-          <th class="has-text-centered svelte-13nu1au">Del</th>
-        </tr>
-      </thead>
-
-
-
-      <tbody>
-        <tr class="" style="position: relative;">
-          <td class="add-cursor is-text-semibold svelte-13nu1au" style="overflow-wrap: break-word; word-break: break-all; color: var(--link);">abcdef</td>
-          <td class="pict pictSmall svelte-13nu1au"><div><img src="data:image/png;base64,iVBORw0KGgoAAAAg" class="list-thumbnail svelte-13nu1au" alt="thumbnail"></div></td>
-          <td class="text_cell svelte-13nu1au" style="overflow-wrap: break-word; word-break: break-all;">Monday</td>
-          <td class=" svelte-13nu1au">Jan 26, 2023</td>
-          <td class=" svelte-13nu1au"><a href="'mailTo:' + abc@example.com">abc@example.com</a></td>
-          <td class="svelte-13nu1au"><span class="buffer-small"><span class="tag is-medium is-danger svelte-13nu1au"><b>system</b></span></span></td>
-          <td class="svelte-13nu1au">{"one":"One", "two":2}</td>
-          <td class="text_cell svelte-13nu1au" style="overflow-wrap: break-word; word-break: break-all;">53 years ago</td>
-          <td class="svelte-13nu1au"><input type="checkbox" class="checkbox" title="cell.value"></td>
-          <td data-id="testId" class="svelte-13nu1au"></td>
-          <td class="add-cursor svelte-13nu1au">
-            <a href="https://testlink.org" target="_blank"><span><span class="icon-bg-eye is-medium"></span></span></a>
-          </td>
-
-          <td class="add-cursor has-text-link is-text-semibold svelte-13nu1au" style="overflow-wrap: break-word; word-break: break-all;">[object Object]</td>
-
-          <td class="add-cursor has-text-link has-text-weight-semibold text-left svelte-13nu1au" style="overflow-wrap: break-word; word-break: break-all;">[object Object]</td>
-
-          <td class=" svelte-13nu1au"><a href="'tel:' + 15142340987">+1 (514) 234-0987</a></td>
-          <td class="has-text-left list-status svelte-13nu1au"><span style=""><span class="icon-bg-cog is-medium"></span></span> Success</td>
-          <td class="add-cursor has-text-info has-text-weight-semibold text-left svelte-13nu1au" style="overflow-wrap: break-word; word-break: break-all;">null</td>
-          <td class="has-text-success text-center text-1dot4rem svelte-13nu1au" style="padding-bottom: 0px; padding-top: 0px;"><span>●</span></td>
-          <td class="table-delete-td svelte-13nu1au"><span class="icon-bg-trash has-text-danger table-delete-icon svelte-13nu1au"></span></td>
-        </tr>
-      </tbody>
-
-
-    </table>
-  </div>
-   */
-
-
   it(`${compName} structure main`, function () {
     const table = component.querySelector(`table`);
     assert.ok( table, `CUT is missing "table" element.`);
@@ -169,32 +131,60 @@ describe(`ListCollections >  component ${compName}.svelte`, function () {
 
     const td = tbody.querySelectorAll(`td`);
     assert.ok( td.length === fieldsLength, `Found ${td.length} "td" elements, should have ${fieldsLength} "td" elements.`);
+
+    td.forEach( (item, idx) => {
+      const fieldname = item.dataset.fieldname;
+      const test = checkResult[fieldname];
+      assert.strictEqual(item.innerHTML, test, `Found "td${idx}" ${fieldname}.innerHtml: ${item.innerHTML}, expected ${test}.`)
+    });
   });
 
-
-
-
-
-
   it(`${compName} input fires "${event1}"`, async function () {
-
-    /*
-    const target = component.querySelector(`#${eventTarget}`);
-    target.value = initDate;
-
+    const target = component.querySelector(eventTarget1);
     let testResult;
 
-    instance.$on(eventName, function (ev) {
+    instance.$on(event1, function (ev) {
       testResult = ev.detail;
-      testResult = testResult[props.filters[0].field];
     });
 
-    target.dispatchEvent(new Event('input'));
+    target.click();
+    assert.ok(testResult.id === props.documents[0]._id && testResult.edit, `Found result ${JSON.stringify(testResult)}`);
+  });
 
-    assert.deepStrictEqual(testResult?.$gte, initDate, `Initial date not returned, found ${testResult?.$gte}.`)
-    assert.deepStrictEqual(testResult?.$lte, secondDate, `Second date not returned, found ${testResult?.$lte}.`)
+  it(`${compName} input fires "${event2}"`, async function () {
+    const target = component.querySelector(eventTarget2);
+    let testResult;
 
-     */
+    instance.$on(event2, function (ev) {
+      testResult = ev.detail;
+    });
+
+    target.click();
+    assert.ok(testResult.id === props.documents[0]._id, `Found result ${JSON.stringify(testResult)}`);
+  });
+
+  it(`${compName} input fires "${event3}"`, async function () {
+    const target = component.querySelector(eventTarget3);
+    let testResult;
+
+    instance.$on(event3, function (ev) {
+      testResult = ev.detail;
+    });
+
+    target.click();
+    assert.ok(testResult._id === props.documents[0]._id, `Found result ${JSON.stringify(testResult._id)}`);
+  });
+
+  it(`${compName} input fires "${event4}"`, async function () {
+    const target = component.querySelector(eventTarget4);
+    let testResult;
+
+    instance.$on(event4, function (ev) {
+      testResult = ev.detail;
+    });
+
+    target.click();
+    assert.ok(testResult._id === props.documents[0]._id, `Found result ${JSON.stringify(testResult._id)}`);
   });
 
 });
