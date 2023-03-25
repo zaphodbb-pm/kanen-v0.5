@@ -11,13 +11,34 @@ window.addEventListener("DOMContentLoaded", function(){
 import {Meteor} from "meteor/meteor";
 import assert from "assert";
 
+/* import method test */
 
-describe("run tests", function () {
+describe("run basic client tests", function () {
     let user;
 
     it("in client mode", function () {
         assert.strictEqual(Meteor.isClient, true);
     });
+
+    it("ensure tester is logged in", function () {
+        user = Meteor.userId();
+        assert.ok(user, `Tester should be logged in as "administrator".`)
+    });
+
+    after(async function () {
+        if (user) {
+            await import("./tests/readStoreDoc.test");
+        }
+    });
+
+
+});
+
+
+/*
+
+describe("run page tests", function () {
+    let user;
 
     it("ensure tester is logged in", function(){
         user = Meteor.userId();
@@ -76,3 +97,5 @@ describe("run tests", function () {
 });
 
 
+
+ */

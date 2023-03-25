@@ -41,6 +41,7 @@ Meteor.methods({
              * @typescriptOnly
              */
             const me = Meteor.user();
+
             doc.tenantId = me && me.tenantId ? me.tenantId : "general";
             doc.updatedAt = Date.now();
 
@@ -57,7 +58,7 @@ Meteor.methods({
                 doc["group"] = "";
             }
 
-            const id = collection ?? collection.insert(doc);
+            const id = collection ? collection.insert(doc) : "";
             const name = doc["name"] ? `Doc: ${doc["name"]} - ` : "";
 
             if(id){

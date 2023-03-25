@@ -4,12 +4,12 @@ import './tests/server.test';
 
 /** methods test **/
 
+//import "./Methods/tests/initDoc.test";
+//import "./Methods/tests/readDocs.test";
+
 /*
-    documentation.test
     exportImport.test
     readDocs.test
     storeDoc.test
-    system.test
     userMgmt.test
-
  */

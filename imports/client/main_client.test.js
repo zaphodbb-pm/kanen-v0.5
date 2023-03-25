@@ -9,12 +9,12 @@ window.addEventListener("DOMContentLoaded", function(){
 
 
 /* check for common file existence */
+import './tests/systemStores.test';
+import './tests/text_common.test';
+import './tests/text_search.test';
 import '../both/tests/client.test';
 import '../both/tests/version.test';
 import '../both/tests/systemGlobals.test';
-import '../both/tests/systemStores.test';
-import '../both/tests/text_common.test';
-import '../both/tests/text_search.test';
 import '../both/tests/routes.test';
 
 /* test client side application functions */

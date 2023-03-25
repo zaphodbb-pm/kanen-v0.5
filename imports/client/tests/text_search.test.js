@@ -1,11 +1,11 @@
 import assert from "assert";
-import fields from '../../client/text_common';
+import fields from '../text_search';
 
-describe("Text_Common check", function () {
+describe("Text_Search check", function () {
     let count = Object.keys(fields);
 
-    it("check for 5 fields", function() {
-        assert.strictEqual(count.length, 5);
+    it("check for 2 fields", function() {
+        assert.strictEqual(count.length, 2);
     });
 
     count.forEach( item => {

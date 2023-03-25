@@ -1,5 +1,5 @@
 import assert from "assert";
-import * as stores from '../../client/systemStores';
+import * as stores from '../systemStores';
 
 describe("Systems Stores check", function () {
     let count = Object.keys(stores);
