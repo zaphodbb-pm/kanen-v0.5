@@ -247,7 +247,7 @@ function initializeAdmin(){
             sortName: "administrator",
             groups: "administrator",
             groupMaster: false,
-            credit: 0,
+            credits: 0,
         };
 
         Meteor.users.update(test, {$set: addins});
