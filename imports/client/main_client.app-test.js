@@ -11,7 +11,6 @@ window.addEventListener("DOMContentLoaded", function(){
 import {Meteor} from "meteor/meteor";
 import assert from "assert";
 
-/* import method test */
 
 describe("run basic client tests", function () {
     let user;
@@ -28,14 +27,15 @@ describe("run basic client tests", function () {
     after(async function () {
         if (user) {
             await import("./tests/readStoreDoc.test");
+
+            await import("./tests/userMgmt.test");
         }
     });
-
 
 });
 
 
-/*
+
 
 describe("run page tests", function () {
     let user;
@@ -95,7 +95,3 @@ describe("run page tests", function () {
 
     });
 });
-
-
-
- */

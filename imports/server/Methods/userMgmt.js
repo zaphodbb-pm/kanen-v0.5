@@ -52,7 +52,7 @@ Meteor.methods({
      *
      * @return {Object} - {status, text}
      */
-    userMgmtInsert: function (doc) {
+    userMgmtInsert(doc) {
         check(doc, Object);
 
         //* updating user is administrator; then allow insert
@@ -60,7 +60,7 @@ Meteor.methods({
 
             let test = Accounts.createUser({
                 username: doc.username,
-                email: doc.emailMain !== "" ? doc.emailMain : doc.username + "@example.com",
+                email: doc.emailMain && doc.emailMain !== "" ? doc.emailMain : doc.username + "@example.com",
                 password: doc.pwdMain && doc.pwdMain !== "" ? doc.pwdMain : doc.username
             });
 
@@ -122,7 +122,7 @@ Meteor.methods({
      *
      * @return {Object} - {status, _id, text}
      */
-    userMgmtUpdate: function (userId, doc) {
+    userMgmtUpdate(userId, doc) {
         check(userId, String);
         check(doc, Object);
 
@@ -130,14 +130,16 @@ Meteor.methods({
         if (Meteor.user() && verifyRole(Meteor.user(), ["administrator"])) {     // check if updating user is administrator
             let user = Meteor.users.findOne({_id: userId});
 
-            Accounts.setUsername(userId, doc.username);
+            if (doc.username) {
+                Accounts.setUsername(userId, doc.username);
+            }
 
             if (doc.pwdMain) {
                 Accounts.setPassword(userId, doc.pwdMain);
             }
 
             if (user.emails && user.emails[0] && user.emails[0].address) {        // check if email field exists
-                if (doc.emailMain !== user.emails[0].address) {                   // skip if email has not been changed
+                if (doc.emailMain && doc.emailMain !== user.emails[0].address) {                   // skip if email has not been changed
                     Accounts.removeEmail(userId, user.emails[0].address);
                     Accounts.addEmail(userId, doc.emailMain, true);
                 }
@@ -147,8 +149,11 @@ Meteor.methods({
                 }
             }
 
+            // @ts-ignore
+            const sortName = user.sortName ?? "sortname";
+
             let addins = {
-                sortName: doc.sortName ? doc.sortName : doc.username.toLowerCase(),
+                sortName: doc.sortName ? doc.sortName : ( doc.username ? doc.username.toLowerCase() : sortName),
                 emailMain: doc.emailMain && doc.emailMain !== "" ? doc.emailMain : doc.username + "@example.com",
                 tenantId: doc.tenantId ? doc.tenantId : "general",
                 active: doc.active ? doc.active : false,
@@ -171,7 +176,7 @@ Meteor.methods({
             Meteor.users.update(userId, {$set: addins});
             return {status: 200, _id: user, text: `${doc.username} has been added to users`};
         } else {
-            return {status: 500, _id: userId, text: `${doc.username} was not updated`};
+            return {status: 400, _id: userId, text: `${doc.username} was not updated`};
         }
     },
 
@@ -187,9 +192,9 @@ Meteor.methods({
      * @param {*} val
      * @return {Object} - {status, _id, text}
      */
-    userMgmtUpdateItem: function (item, val) {
+    userMgmtUpdateItem(item, val) {
         check(item, String);
-        check(val, Match.OneOf(String, Object, Array) );
+        check(val, Match.OneOf(String, Number, Object, Array) );
 
         let acl = accessControl["users"];
 
@@ -213,7 +218,7 @@ Meteor.methods({
      *
      * @return {Object} - {status, _id, text}
      */
-    userMgmtRemove: function (docId) {
+    userMgmtRemove(docId) {
         check(docId, String);
 
         if (Meteor.user() && verifyRole(Meteor.user(), ["administrator"])) {    // check if updating user is administrator
@@ -235,7 +240,7 @@ Meteor.methods({
      *
      * @return {Object} - {status, _id, text}
      */
-    userUpdateCredit: function ( price) {
+    userUpdateCredit( price) {
         check(price, Number);
 
         if(this.userId){
@@ -245,15 +250,17 @@ Meteor.methods({
              * @typescriptOnly
              */
             const doc = Meteor.users.findOne({_id: this.userId});     // get user info
-            if (doc && doc.credit) {
-                let credit = doc.credit - Math.abs(price);                  // adjust and ensure that users cannot game the credits
+            if (doc && typeof doc.credits === "number") {
+                let credit = doc.credits - Math.abs(price);                  // adjust and ensure that users cannot game the credits
                 credit = credit > 0 ? credit : 0;
 
-                Meteor.users.update({_id: this.userId}, {$set: {credit: credit}});
-                return {status: 400, _id: null, text: `User does not have access privileges; ${doc.name} has NOT been updated`};
+                Meteor.users.update({_id: this.userId}, {$set: {credits: credit}});
+                return {status: 200, _id: this.userId, text: `User credits have been updated to ${credit}.`};
             } else {
-                return {status: 400, _id: this.userId, text: `User does not exist or has no credit`};
+                return {status: 400, _id: null, text: `User does not have access privileges; ${doc.name} has NOT been updated`};
             }
+        }else{
+            return {status: 400, _id: this.userId, text: `User does not exist or has no credit`};
         }
     },
 
@@ -267,7 +274,7 @@ Meteor.methods({
      *
      * @return {Array} - [_id]
      */
-    getGroupMembers: function(){
+    getGroupMembers(){
         if( !this.userId ){return [];}
 
         /**
@@ -310,7 +317,7 @@ Meteor.methods({
      *
      * @return {Object} - {tenantId, sortName, admin, active, apiKey, role, groups, groupMaster, credits, status}
      */
-    loadExtraFields: function () {
+    loadExtraFields() {
         if (this.userId) {
             let extras = {
                 tenantId: 1,

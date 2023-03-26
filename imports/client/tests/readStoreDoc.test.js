@@ -21,7 +21,7 @@ let docId;
 
 
 
-describe("methods tests", function () {
+describe("methods for docs store and read", function () {
   it(`ensure DB is empty`, async function () {
     const getResult = await Meteor.callAsync("getCollData", coll, "allFields");
 
