@@ -97,17 +97,17 @@ export const page = {
                 title: "Main Packages",
 
                 body: [
-                    "Meteor 2.10.0",
-                    "MongoDB 5.0.5",
+                    "Meteor 2.11.0",
+                    "MongoDB 6.0.3",
                     "<a href='https://zaphodbb-pm.github.io/goldilocks-css/pages/home.html' target='_blank'>Goldilocks-CSS 0.4.0</a>",
-                    "Svelte 3.55.1",
+                    "Svelte 3.56.0",
                     "Svelte-loadable 2.0.1 to reduce initial bundle size.",
-                    "svelte-pathfinder 3.4.0 router",
+                    "svelte-pathfinder 4.5.0 router",
                     "Uses selected Feathers svg icons in CSS background to minimize bundle size",
                     "Supports Lineawesome formatted svg files in CSS background.",
                     "Compressed CSS (with icons) is 35.8 KB.",
-                    "Compressed Javascript size is 141 KB on initial page load.",
-                    "App is 22% and Svelte programs are 11% of bundle."
+                    "Compressed Javascript size is 144 KB on initial page load.",
+                    "App is 21% and Svelte programs are 12% of bundle."
                 ]
             },
 
