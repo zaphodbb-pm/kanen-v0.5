@@ -51,6 +51,7 @@ import '../imports/Functions/utilities/showServerConsole';
 global.serverConsole.subscribe();
 
 
+
 //* load svelte framework
 import App from '../imports/both/PageStructure/App.svelte';
 
@@ -58,3 +59,5 @@ import App from '../imports/both/PageStructure/App.svelte';
 new App({
     target: document.getElementById("svelte-app-top"),
 });
+
+
