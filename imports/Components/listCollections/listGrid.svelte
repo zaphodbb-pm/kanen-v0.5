@@ -88,7 +88,6 @@
     }
 
     //* build array of array of display objects
-
     function tableItems(coll, fields, docs) {
         let out = [];
 

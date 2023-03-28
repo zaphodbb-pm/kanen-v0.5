@@ -53,8 +53,12 @@
 
         if(mode) {
             conf.list.display = "grid";
+            conf.list.hasOverlay = true;
+            conf.form.hasOverlay = true;
         }else{
             conf.list.display = "list";
+            conf.list.hasOverlay = false;
+            conf.form.hasOverlay = false;
         }
     }
 

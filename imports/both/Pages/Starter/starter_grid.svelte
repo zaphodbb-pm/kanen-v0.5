@@ -1,4 +1,5 @@
 <script>
+
     /**
      * Grid to list documents and fields for docs.
      *
@@ -24,10 +25,10 @@
     export let submitted = false
 
     // get the user language preference from store
-    import {lang} from '/imports/client/systemStores'
+    import {lang} from '/imports/client/systemStores';
+    import commonText from "../../../client/text_common"
 
     //* support Functions
-    import {onMount, onDestroy, getContext} from 'svelte'
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 
@@ -37,12 +38,11 @@
 
 
     //* local reactive variables
-    let calendar = i18n( getContext("commonText"), "calendar", $lang);
+    let calendar = i18n( commonText, "calendar", $lang);
     let width =  "has-3x-minwidth";
     let notice = "starter grid"
 
     let inEdit = false;
-    let bgEdit = "";
     let currRow = "";
     let actRow = "";
     let submit = submitted;
@@ -93,6 +93,7 @@
         return `${cal.months[date.getMonth()].name} ${date.getDate()}, ${date.getFullYear()}`;
     }
 
+
     //* build array of array of display objects
     function tableItems(coll, fields, docs) {
         let out = [];
@@ -129,7 +130,6 @@
                     case "object":
                         val = JSON.stringify(val).replace(/,/g, ", ");
                         break;
-
                 }
 
                 tr[el.key] = {
@@ -214,7 +214,7 @@
 
                         {:else if cell.type === 'boolean'}
                             <div class="has-text-tertiary has-text-centered">
-                                <strong>{cell.keyName}:</strong> <span>{cell.value ? "&#10004;" : ""}</span>
+                                <strong>{cell.keyName}:</strong> <span>{cell.value ? "&"+"#10004;" : ""}</span>
                             </div>
 
                         {:else if cell.type === 'del' }
@@ -223,6 +223,8 @@
 
                                 <span><span class="icon-bg-trash is-medium has-text-danger"></span></span>
                             </div>
+
+                        {:else if cell.type === 'cardImage' }
 
                         {:else}
                             <strong>{cell.keyName}:</strong> <span>n/a</span>
