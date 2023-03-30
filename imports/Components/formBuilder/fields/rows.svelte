@@ -42,7 +42,7 @@
     export { className as class };
 
     //* support Functions
-    import {basic} from "./func-registerField";
+    import {components} from "./func-registerBasicFields";
     import {deepClone} from '/imports/Functions/utilities/deepClone';
     import Field_Wrapper from '/imports/Components/formBuilder/fieldWrapper.svelte';
     import Sortable from '/imports/Components/elements/rowDragDrop.svelte';
@@ -171,7 +171,7 @@
                 <Field_Wrapper
                         class="{className}"
                         {field}
-                        components="{basic}"
+                        {components}
                         fieldText="{rowText[field.field]}"
                         on:field-changed="{e => fieldsUpdate(item.row, e.detail) }"/>
             {/each}

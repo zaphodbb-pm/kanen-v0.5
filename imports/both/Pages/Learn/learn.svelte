@@ -41,7 +41,7 @@
     import {sortBy} from '/imports/Functions/utilities/sortBy';
     import {generateId} from '/imports/Functions/utilities/generateId';
 
-    import {basic} from "../../../Components/formBuilder/fields/func-registerField";
+    import {components} from "../../../Components/formBuilder/fields/func-registerBasicFields";
     import Wiki_Toc from './wiki_toc.svelte';
     import Wiki_Content from './wiki_content.svelte';
     import Search_Box from '/imports/Components/listCollections/searchbox.svelte';
@@ -214,7 +214,7 @@
                 <Field_Wrapper
                         class=""
                         field="{pageConfig.components.getLang}"
-                        components="{basic}"
+                        {components}
                         fieldText="{formText.getLang}"
                         watchFields="{ {} }"
                         on:field-changed="{fieldChanged}"
@@ -225,7 +225,7 @@
                 <Field_Wrapper
                         class=""
                         field="{pageConfig.components.readMode}"
-                        components="{basic}"
+                        {components}
                         fieldText="{formText.readMode}"
                         watchFields="{ {} }"
                         on:field-changed="{readMode}"

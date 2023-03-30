@@ -42,7 +42,7 @@
     import schema from './users_form_schema'
     import listArray from './users_list'
 
-    import {files} from "../../../Components/formBuilder/fields/func-registerField";
+    import {components} from "../../../Components/formBuilder/fields/func-registerFileFields";
     import List_Form from '/imports/Components/listForm/listForm.svelte'
 
 
@@ -64,7 +64,7 @@
             listText="{listText}"
             confForm="{conf.form}"
             schema="{schema}"
-            components="{files}"
+            {components}
             formText="{formText}"
     />
 

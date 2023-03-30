@@ -36,7 +36,7 @@
     import {lang} from '/imports/client/systemStores';
     import {goto} from  'svelte-pathfinder';
 
-    import {basic} from "../../../Components/formBuilder/fields/func-registerField";
+    import {components} from "../../../Components/formBuilder/fields/func-registerBasicFields";
     import Field_Wrapper from '/imports/Components/formBuilder/fieldWrapper.svelte';
     import Auth_Service from './authService.svelte';
 
@@ -101,7 +101,7 @@
                 <Field_Wrapper
                         class=""
                         {field}
-                        components="{basic}"
+                        {components}
                         {watchFields}
                         fieldText={formText[field.field]}
                         on:field-changed="{fieldChanged}"/>

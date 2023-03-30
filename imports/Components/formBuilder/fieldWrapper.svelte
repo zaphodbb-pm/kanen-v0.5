@@ -61,7 +61,6 @@
     export { className as class };
 
     //* support Functions
-    //import {components} from './fields/func-registerField';
     import {slide} from 'svelte/transition';
     import {quintOut} from 'svelte/easing';
     import {createEventDispatcher} from 'svelte';

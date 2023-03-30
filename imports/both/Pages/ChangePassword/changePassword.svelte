@@ -36,7 +36,7 @@
     import {lang, userExtras} from '/imports/client/systemStores'
     import {roles} from './changePassword_nav'
 
-    import {basic} from "../../../Components/formBuilder/fields/func-registerField";
+    import {components} from "../../../Components/formBuilder/fields/func-registerBasicFields";
     import Field_Wrapper from '/imports/Components/formBuilder/fieldWrapper.svelte'
 
 
@@ -108,7 +108,7 @@
                 <Field_Wrapper
                         class=""
                         {field}
-                        components="{basic}"
+                        {components}
                         {watchFields}
                         fieldText={formText[field.field]}
                         on:field-changed="{fieldChanged}"/>

@@ -13,6 +13,9 @@
     export let text;
     export let components;
 
+
+    console.log("relativeDates", components);
+
     //* support files
     import Field_Wrapper from '/imports/Components/formBuilder/fieldWrapper.svelte'
     import { createEventDispatcher} from 'svelte';

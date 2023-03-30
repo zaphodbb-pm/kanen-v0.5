@@ -36,7 +36,7 @@
     import {i18n} from '/imports/Functions/utilities/i18n'
     import {lang} from '/imports/client/systemStores'
 
-    import {basic} from "../../../Components/formBuilder/fields/func-registerField";
+    import {components} from "../../../Components/formBuilder/fields/func-registerBasicFields";
     import DeleteRecords from '../../../Components/elements/getRelativeDates.svelte'
     import List_Holder from '../../../Components/listCollections/listHolder.svelte'
     import listArray from './logsSystem_list';
@@ -75,7 +75,7 @@
 
 <main class="main-content">
 
-    <DeleteRecords text="{recordsText}" components="{basic}" on:new-range={deleteRange}/>
+    <DeleteRecords text="{recordsText}" {components} on:new-range={deleteRange}/>
 
     <div class="columns">
         <div class="column">

@@ -37,7 +37,7 @@
     import schema from './starter_form_schema';
     import listArray from './starter_list';
 
-    import {components} from "../../../Components/formBuilder/fields/func-registerField";
+    import {components} from "../../../Components/formBuilder/fields/func-registerAllFields";
     import Field_Wrapper from '/imports/Components/formBuilder/fieldWrapper.svelte';
     import List_Form from '/imports/Components/listForm/listForm.svelte';
 

@@ -36,7 +36,7 @@
     import {i18n} from '/imports/Functions/utilities/i18n';
     import {lang} from '/imports/client/systemStores';
 
-    import {files} from "../../../Components/formBuilder/fields/func-registerField";
+    import {components} from "../../../Components/formBuilder/fields/func-registerFileFields";
     import Form_Holder from '/imports/Components/formBuilder/formHolder.svelte'
     import schema from './myProfile_form_schema'
 
@@ -103,7 +103,7 @@
                 config="{conf.form}"
                 {formText}
                 {schema}
-                components="{files}"
+                {components}
                 {role}
                 editdoc={currentDoc}
                 {directdoc}
