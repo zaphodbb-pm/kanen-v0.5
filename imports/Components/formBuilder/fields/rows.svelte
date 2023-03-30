@@ -42,9 +42,10 @@
     export { className as class };
 
     //* support Functions
-    import {deepClone} from '/imports/Functions/utilities/deepClone'
-    import Field_Wrapper from '/imports/Components/formBuilder/fieldWrapper.svelte'
-    import Sortable from '/imports/Components/elements/rowDragDrop.svelte'
+    import {basic} from "./func-registerField";
+    import {deepClone} from '/imports/Functions/utilities/deepClone';
+    import Field_Wrapper from '/imports/Components/formBuilder/fieldWrapper.svelte';
+    import Sortable from '/imports/Components/elements/rowDragDrop.svelte';
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
 
@@ -170,6 +171,7 @@
                 <Field_Wrapper
                         class="{className}"
                         {field}
+                        components="{basic}"
                         fieldText="{rowText[field.field]}"
                         on:field-changed="{e => fieldsUpdate(item.row, e.detail) }"/>
             {/each}

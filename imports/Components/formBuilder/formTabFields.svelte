@@ -20,7 +20,9 @@
     export let config;
     export let fields = [];
 
-    export let formText;
+    export let formText = {};
+
+    export let components;
 
     //* support Functions
     import {createEventDispatcher} from 'svelte';
@@ -72,17 +74,35 @@
                             {#if groups.length > 1}
                                 <div class="field-group">
                                     {#each groups as field}
-                                        <Field_Wrapper class="" {field} {watchFields} fieldText="{formText[field.field]}"  on:field-changed="{fieldChanged}"/>
+                                        <Field_Wrapper
+                                                class=""
+                                                {field}
+                                                {components}
+                                                {watchFields}
+                                                fieldText="{formText[field.field]}"
+                                                on:field-changed="{fieldChanged}"/>
                                     {/each}
                                 </div>
                             {:else}
-                                <Field_Wrapper class="" field="{groups[0]}" {watchFields} fieldText="{formText[groups[0].field]}"  on:field-changed="{fieldChanged}"/>
+                                <Field_Wrapper
+                                        class=""
+                                        field="{groups[0]}"
+                                        {components}
+                                        {watchFields}
+                                        fieldText="{formText[groups[0].field]}"
+                                        on:field-changed="{fieldChanged}"/>
                             {/if}
                         {/each}
                     {:else}
 
                         {#each tab as field}
-                            <Field_Wrapper class="" {field} {watchFields} fieldText="{formText[field.field]}"  on:field-changed="{fieldChanged}"/>
+                            <Field_Wrapper
+                                    class=""
+                                    {field}
+                                    {components}
+                                    {watchFields}
+                                    fieldText="{formText[field.field]}"
+                                    on:field-changed="{fieldChanged}"/>
                         {/each}
 
                     {/if}
@@ -102,19 +122,37 @@
 
                 <div class="field-group">
                     {#each groups as field}
-                        <Field_Wrapper class="" {field} {watchFields} fieldText="{formText[field.field]}"  on:field-changed="{fieldChanged}"/>
+                        <Field_Wrapper
+                                class=""
+                                {field}
+                                {components}
+                                {watchFields}
+                                fieldText="{formText[field.field]}"
+                                on:field-changed="{fieldChanged}"/>
                     {/each}
                 </div>
 
             {:else}
-                <Field_Wrapper class="" field="{groups[0]}" {watchFields} fieldText="{formText[groups[0].field]}"  on:field-changed="{fieldChanged}"/>
+                <Field_Wrapper
+                        class=""
+                        field="{groups[0]}"
+                        {components}
+                        {watchFields}
+                        fieldText="{formText[groups[0].field]}"
+                        on:field-changed="{fieldChanged}"/>
             {/if}
         {/each}
 
     {:else}
 
         {#each fields as field}
-            <Field_Wrapper class="" {field} {watchFields} fieldText="{formText[field.field]}" on:field-changed="{fieldChanged}"/>
+            <Field_Wrapper
+                    class=""
+                    {field}
+                    {components}
+                    {watchFields}
+                    fieldText="{formText[field.field]}"
+                    on:field-changed="{fieldChanged}"/>
         {/each}
 
     {/if}

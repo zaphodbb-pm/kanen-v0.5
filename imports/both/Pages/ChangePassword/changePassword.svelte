@@ -36,6 +36,7 @@
     import {lang, userExtras} from '/imports/client/systemStores'
     import {roles} from './changePassword_nav'
 
+    import {basic} from "../../../Components/formBuilder/fields/func-registerField";
     import Field_Wrapper from '/imports/Components/formBuilder/fieldWrapper.svelte'
 
 
@@ -104,7 +105,13 @@
             <header class="is-secondary">{text.labelTitle}</header>
 
             {#each formFields as field}
-                <Field_Wrapper class="" {field} {watchFields} fieldText={formText[field.field]} on:field-changed="{fieldChanged}"/>
+                <Field_Wrapper
+                        class=""
+                        {field}
+                        components="{basic}"
+                        {watchFields}
+                        fieldText={formText[field.field]}
+                        on:field-changed="{fieldChanged}"/>
             {/each}
 
             <button type="button" class="is-primary" on:click="{changePassword}">

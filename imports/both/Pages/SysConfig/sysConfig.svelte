@@ -37,6 +37,7 @@
     import {i18n} from '/imports/Functions/utilities/i18n';
     import {lang} from '/imports/client/systemStores';
 
+    import {basic} from "../../../Components/formBuilder/fields/func-registerField";
     import Form_Holder from '../../../Components/formBuilder/formHolder.svelte'
     import schema from './sysConfig_form_schema'
     import List_Holder from '../../../Components/listCollections/listHolder.svelte'
@@ -117,6 +118,7 @@
                     config="{conf.form}"
                     {formText}
                     {schema}
+                    components="{basic}"
                     {role}
                     {editdoc}
                     {directdoc}

@@ -26,7 +26,6 @@
         import {pageConfig} from './users_config';
 
         //** app support files
-        import { setContext } from 'svelte';
         import PageHeader from "../../PageStructure/PageHeader.svelte";
 
     //* end of page boilerplate *************************************
@@ -35,16 +34,7 @@
     //* page body support **************************
     import {i18n} from "../../../Functions/utilities/i18n.js";
     import {lang} from "../../../client/systemStores.js";
-
-    let pageText = i18n(page, "page", $lang);
-
     const pageHeader = i18n(header, "", $lang);
-
-    setContext("pageText", page);
-    //import TabContent from "../../../Components/widgets/tabbedContent.svelte";
-
-
-
 
 
     //* page-body support **************************
@@ -52,6 +42,7 @@
     import schema from './users_form_schema'
     import listArray from './users_list'
 
+    import {files} from "../../../Components/formBuilder/fields/func-registerField";
     import List_Form from '/imports/Components/listForm/listForm.svelte'
 
 
@@ -73,6 +64,7 @@
             listText="{listText}"
             confForm="{conf.form}"
             schema="{schema}"
+            components="{files}"
             formText="{formText}"
     />
 

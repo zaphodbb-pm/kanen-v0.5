@@ -33,19 +33,20 @@
 
 
     //* page-body support **************************
-    import {i18n} from '/imports/Functions/utilities/i18n'
-    import {lang} from '/imports/client/systemStores'
-    import {messages} from '/imports/client/systemStores'
+    import {i18n} from '/imports/Functions/utilities/i18n';
+    import {lang} from '/imports/client/systemStores';
+    import {messages} from '/imports/client/systemStores';
 
-    import {getDocs} from '/imports/Functions/application/getDocs'
-    import {sortBy} from '/imports/Functions/utilities/sortBy'
-    import {generateId} from '/imports/Functions/utilities/generateId'
+    import {getDocs} from '/imports/Functions/application/getDocs';
+    import {sortBy} from '/imports/Functions/utilities/sortBy';
+    import {generateId} from '/imports/Functions/utilities/generateId';
 
-    import Wiki_Toc from './wiki_toc.svelte'
-    import Wiki_Content from './wiki_content.svelte'
-    import Search_Box from '/imports/Components/listCollections/searchbox.svelte'
-    import Field_Wrapper from '/imports/Components/formBuilder/fieldWrapper.svelte'
-    import Modal_User from '/imports/Components/blocks/modalUser.svelte'
+    import {basic} from "../../../Components/formBuilder/fields/func-registerField";
+    import Wiki_Toc from './wiki_toc.svelte';
+    import Wiki_Content from './wiki_content.svelte';
+    import Search_Box from '/imports/Components/listCollections/searchbox.svelte';
+    import Field_Wrapper from '/imports/Components/formBuilder/fieldWrapper.svelte';
+    import Modal_User from '/imports/Components/blocks/modalUser.svelte';
 
     const pageHeader = i18n(header, "", $lang);
     const formText = i18n(page, "form", $lang);
@@ -213,6 +214,7 @@
                 <Field_Wrapper
                         class=""
                         field="{pageConfig.components.getLang}"
+                        components="{basic}"
                         fieldText="{formText.getLang}"
                         watchFields="{ {} }"
                         on:field-changed="{fieldChanged}"
@@ -223,6 +225,7 @@
                 <Field_Wrapper
                         class=""
                         field="{pageConfig.components.readMode}"
+                        components="{basic}"
                         fieldText="{formText.readMode}"
                         watchFields="{ {} }"
                         on:field-changed="{readMode}"

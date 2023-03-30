@@ -13,6 +13,10 @@
  *  3. Supports custom 'apiKey', 'editor'
  *  4. Supports decorator Components such as 'hr'
  *
+ *  5. Used by component "fieldWrapper" to inject various fields
+ *  6. "fieldWrapper" can be used outside a form for page controls
+ *  7. These field components flow down from listForm > formHolder > formTabFields > fieldWrapper
+ *
  */
 
 
@@ -54,4 +58,35 @@ export const components = {
     editor: Editor,
     itemList: ItemList,
     rows: RowList,
+};
+
+export const basic = {
+    input: Inputs,
+    switch: Switch,
+    checkboxes: CheckBoxes,
+    radios: Radios,
+    select: Selects,
+};
+
+export const files = {
+    fileInput: FileBrowse,
+
+    input: Inputs,
+    switch: Switch,
+    checkboxes: CheckBoxes,
+    radios: Radios,
+    select: Selects,
+    apiKey: ApiKey,
+    hr: HR,
+};
+
+export const editor = {
+    editor: Editor,
+
+    input: Inputs,
+    select: Selects,
+    textarea: TextArea,
+    radios: Radios,
+    switch: Switch,
+    checkboxes: CheckBoxes,
 }

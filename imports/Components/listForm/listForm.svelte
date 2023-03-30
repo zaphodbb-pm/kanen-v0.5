@@ -21,6 +21,7 @@
     export let listArray = [];
     export let formText = {};
     export let listText = {};
+    export let components = {};
 
 
     import {generateId} from '/imports/Functions/utilities/generateId'
@@ -131,6 +132,7 @@
                 config="{confForm}"
                 {formText}
                 {schema}
+                {components}
                 {role}
                 {editdoc}
                 {directdoc}

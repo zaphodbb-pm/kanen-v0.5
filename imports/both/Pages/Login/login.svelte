@@ -1,17 +1,16 @@
-<script>
-    /**
-     * Standard Login page.
-     *
-     * @name login
-     * @module
-     * @memberOf Pages:login
-     * @locus Client
-     *
-     * @param {String} currentRoute - page path name
-     * @param {Object} params - any parameters from path url
-     * @param {Object} query - any query fragment from path url
-     *
-     */
+<script>/**
+ * Standard Login page.
+ *
+ * @name login
+ * @module
+ * @memberOf Pages:login
+ * @locus Client
+ *
+ * @param {String} currentRoute - page path name
+ * @param {Object} params - any parameters from path url
+ * @param {Object} query - any query fragment from path url
+ *
+ */
 
 
     //* page set-up boilerplate *************************************
@@ -36,11 +35,10 @@
     import {i18n} from '/imports/Functions/utilities/i18n';
     import {lang} from '/imports/client/systemStores';
     import {goto} from  'svelte-pathfinder';
-    import {userLoggedIn, userExtras} from '/imports/client/systemStores';
 
-    //import {lastRoute} from '/imports/client/systemStores'
-    import Field_Wrapper from '/imports/Components/formBuilder/fieldWrapper.svelte'
-    import Auth_Service from './authService.svelte'
+    import {basic} from "../../../Components/formBuilder/fields/func-registerField";
+    import Field_Wrapper from '/imports/Components/formBuilder/fieldWrapper.svelte';
+    import Auth_Service from './authService.svelte';
 
     //* local static variables
     const pageHeader = i18n(header, "", $lang);
@@ -100,7 +98,13 @@
             <header class="is-secondary">{text.labelTitle}</header>
 
             {#each formFields as field}
-                <Field_Wrapper class="" {field} {watchFields} fieldText={formText[field.field]} on:field-changed="{fieldChanged}"/>
+                <Field_Wrapper
+                        class=""
+                        {field}
+                        components="{basic}"
+                        {watchFields}
+                        fieldText={formText[field.field]}
+                        on:field-changed="{fieldChanged}"/>
             {/each}
 
             <button type="button" class="is-primary" on:click="{authPassword}">

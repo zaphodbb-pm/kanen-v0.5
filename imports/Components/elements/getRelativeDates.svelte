@@ -11,6 +11,7 @@
      */
 
     export let text;
+    export let components;
 
     //* support files
     import Field_Wrapper from '/imports/Components/formBuilder/fieldWrapper.svelte'
@@ -62,5 +63,11 @@
 
 
 <form class="form space-block-vert">
-    <Field_Wrapper class="" {field} {watchFields} fieldText="{text}" on:field-changed="{fieldChanged}"/>
+    <Field_Wrapper
+            class=""
+            {field}
+            {components}
+            {watchFields}
+            fieldText="{text}"
+            on:field-changed="{fieldChanged}"/>
 </form>

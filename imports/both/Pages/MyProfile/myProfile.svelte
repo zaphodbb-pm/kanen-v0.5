@@ -1,17 +1,16 @@
-<script>
-    /**
-     * MyProfile page is a form to populate the profile field in the user object.
-     *
-     * @name myProfile
-     * @module
-     * @memberOf Pages:myProfile
-     * @locus Client
-     *
-     * @param {String} currentRoute - page path name
-     * @param {Object} params - any parameters from path url
-     * @param {Object} query - any query fragment from path url
-     *
-     */
+<script>/**
+ * MyProfile page is a form to populate the profile field in the user object.
+ *
+ * @name myProfile
+ * @module
+ * @memberOf Pages:myProfile
+ * @locus Client
+ *
+ * @param {String} currentRoute - page path name
+ * @param {Object} params - any parameters from path url
+ * @param {Object} query - any query fragment from path url
+ *
+ */
 
 
     //* page set-up boilerplate *************************************
@@ -37,6 +36,7 @@
     import {i18n} from '/imports/Functions/utilities/i18n';
     import {lang} from '/imports/client/systemStores';
 
+    import {files} from "../../../Components/formBuilder/fields/func-registerField";
     import Form_Holder from '/imports/Components/formBuilder/formHolder.svelte'
     import schema from './myProfile_form_schema'
 
@@ -103,6 +103,7 @@
                 config="{conf.form}"
                 {formText}
                 {schema}
+                components="{files}"
                 {role}
                 editdoc={currentDoc}
                 {directdoc}

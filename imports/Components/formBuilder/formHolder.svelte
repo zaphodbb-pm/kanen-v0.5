@@ -56,6 +56,7 @@
     //* incoming props from page
     export let config = {};
     export let formText = {};
+    export let components;
     export let schema = [];
     export let role;
     export let editdoc = {};
@@ -317,7 +318,13 @@
         </header>
     {/if}
 
-    <Form_Tabs fields="{tabFields.fields}" {formText} {config} on:field-changed="{fieldChanged}" />
+    <Form_Tabs
+            fields="{tabFields.fields}"
+            {components}
+            {formText}
+            {config}
+            on:field-changed="{fieldChanged}"
+    />
 
     <div class="form-footer" >
         <Form_Submit {...submit} on:submit-btn="{submitDoc}" on:back-btn="{backToCaller}" />

@@ -54,12 +54,14 @@
 
     export let fieldText;
 
+    export let components = {};
+
     let className;
     // noinspection ReservedWordAsName
     export { className as class };
 
     //* support Functions
-    import {components} from './fields/func-registerField';
+    //import {components} from './fields/func-registerField';
     import {slide} from 'svelte/transition';
     import {quintOut} from 'svelte/easing';
     import {createEventDispatcher} from 'svelte';
@@ -87,7 +89,7 @@
         }
     }
 
-    $: componentDef = components[field.fieldType];
+    $: componentDef = components[field.fieldType] ?? {};
 
 
 

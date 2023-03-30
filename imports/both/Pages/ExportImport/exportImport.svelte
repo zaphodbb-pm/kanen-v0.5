@@ -43,6 +43,7 @@
     let text = i18n(page, "components", $lang).card;
     let formText = i18n(page, "form", $lang);
 
+    import {files} from "../../../Components/formBuilder/fields/func-registerField";
     import Field_Wrapper from '/imports/Components/formBuilder/fieldWrapper.svelte';
 
     //* local reactive variables
@@ -169,6 +170,7 @@
                     <Field_Wrapper
                             class="has-width-20rem"
                             field="{pageConfig.components.collections}"
+                            components="{files}"
                             fieldText="{formText.collections}"
                             watchFields="{ {} }"
                             on:field-changed="{updateCollection}"/>
@@ -185,6 +187,7 @@
                     <Field_Wrapper
                             class="has-width-20rem"
                             field="{pageConfig.components.fileInput}"
+                            components="{files}"
                             fieldText="{formText.fileInput}"
                             watchFields="{ {} }"
                             on:field-changed="{updateFile}"/>

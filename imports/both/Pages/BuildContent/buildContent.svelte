@@ -36,6 +36,7 @@
     import schema from './buildContent_form_schema';
     import listArray from './buildContent_list';
 
+    import {editor} from "../../../Components/formBuilder/fields/func-registerField";
     import Form_Holder from '/imports/Components/formBuilder/formHolder.svelte'
     import List_Holder from '/imports/Components/listCollections/listHolder.svelte'
 
@@ -120,6 +121,7 @@
                     config="{conf.form}"
                     {formText}
                     {schema}
+                    components="{editor}"
                     {role}
                     {editdoc}
                     {directdoc}
