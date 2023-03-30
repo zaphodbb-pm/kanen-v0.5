@@ -41,9 +41,6 @@
     const pageText = i18n(page, "page", $lang);
 
 
-    console.log("setting", Meteor.settings.public)
-
-
     //** event handlers
     import {createEventDispatcher} from 'svelte';
     const dispatch = createEventDispatcher();
