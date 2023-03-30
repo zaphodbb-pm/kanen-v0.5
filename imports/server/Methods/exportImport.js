@@ -57,7 +57,11 @@ Meteor.methods({
      * @param {String} coll
      * @param {Object[]} doc
      * @param {String} doc[]._id
+     * @param {String} doc[].author
+     * @param {String} doc[].authorName
+     * @param {String} doc[].authorFullName
      * @return {string}
+     *
      */
 
     importJSON: function (coll, doc) {
@@ -68,6 +72,7 @@ Meteor.methods({
             const collection = allCollections[coll];
 
             let exists = true;                          // default value to stop insertion
+            const me = Meteor.user();
 
             doc.forEach( (el) => {
                 exists = !!collection.findOne( {_id: el._id} );
@@ -76,6 +81,10 @@ Meteor.methods({
                     if( coll === 'users' ){
                         Meteor.users.insert(el);
                     }else{
+                        el.author = me._id;
+                        el.authorName = me["authorName"] ?? me.username ?? "n/a";
+                        el.authorFullName = me["authorFullName"] ?? me.username ?? "n/a";
+
                         collection.insert(el);
                     }
                 }

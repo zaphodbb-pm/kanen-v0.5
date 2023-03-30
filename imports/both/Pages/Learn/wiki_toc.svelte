@@ -111,7 +111,7 @@
 
     .cleanList li a.active {
         color: var(--text-darker);
-        font-weight: 600;
+        font-weight: 550;
     }
 
 </style>

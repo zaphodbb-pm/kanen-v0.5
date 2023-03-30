@@ -19,7 +19,7 @@ describe("function fileName", function () {
       const dateLength =  fileLength === 16 || fileLength === 17;
 
       const testResult1 = result.startsWith(test.name);
-      const testResult2 = result.includes("#") && dateLength;
+      const testResult2 = result.includes("T") && dateLength;
       const testResult3 = result.endsWith("." + test.ext);
 
       assert.ok(testResult1 && testResult2 && testResult3, `Result was "${result}"`);
