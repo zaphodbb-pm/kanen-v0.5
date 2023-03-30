@@ -123,12 +123,12 @@
 
                         <tr>
                             <td>{modalText.name}:</td>
-                            <td>{info.profile && info.profile.name ? info.profile.name : ""}</td>
+                            <td>{info?.profile?.name ?? info?.authorFullName ?? ""}</td>
                         </tr>
 
                         <tr>
                             <td>{modalText.role}:</td>
-                            <td>{info.role && info.role.name ? info.role.name : ""}</td>
+                            <td>{info?.role?.name ?? ""}</td>
                         </tr>
 
                         <tr>
@@ -138,7 +138,7 @@
 
                         <tr>
                             <td>{modalText.secondaryEmail}:</td>
-                            <td>{info.profile && info.profile.email ? info.profile.email : ""}</td>
+                            <td>{info?.profile?.email ?? ""}</td>
                         </tr>
 
                         <tr>

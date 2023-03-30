@@ -1,8 +1,6 @@
 import {Meteor} from "meteor/meteor";
 import {check} from 'meteor/check';
-
 import {allCollections} from "../../both/collectionDefs";
-import {verifyRole} from "../Functions/verifyRole";
 
 
 Meteor.methods({
@@ -31,9 +29,12 @@ Meteor.methods({
             query = {};
         }
 
-        if(Meteor.userId()){                            // check if user is logged in
+        const me = Meteor.user();
+        const admin = me && ( me["admin"] || me["role"]._id === "administrator");
+
+        if(admin){       // check if administrator user is logged in
             const collection = allCollections[coll];
-            let docs = [];
+            let docs;
 
             if( coll === 'users' ){
                 docs = Meteor.users.find( query ).fetch();
@@ -68,12 +69,13 @@ Meteor.methods({
         check(coll, String);
         check(doc, Array);
 
-        if(Meteor.userId()){                            // check if user is logged in
+        const me = Meteor.user();
+        const admin = me && ( me["admin"] || me["role"]._id === "administrator");
+
+        if(admin){       // check if administrator user is logged in
             const collection = allCollections[coll];
 
-            let exists = true;                          // default value to stop insertion
-            const me = Meteor.user();
-
+            let exists = true;                              // default value to stop insertion
             doc.forEach( (el) => {
                 exists = !!collection.findOne( {_id: el._id} );
 
@@ -84,6 +86,7 @@ Meteor.methods({
                         el.author = me._id;
                         el.authorName = me["authorName"] ?? me.username ?? "n/a";
                         el.authorFullName = me["authorFullName"] ?? me.username ?? "n/a";
+                        el["updatedAt"] = Date.now();
 
                         collection.insert(el);
                     }
@@ -110,8 +113,11 @@ Meteor.methods({
     importBulkDataRemove: function (coll ) {
         check(coll, String);
 
+        const me = Meteor.user();
+        const admin = me && ( me["admin"] || me["role"]._id === "administrator");
+
         //* make sure only authorized people can flush out a collection
-        if(Meteor.userId() && verifyRole(Meteor.userId(), "administrator") ){                            // check if user is logged in
+        if(admin){
 
             const collection = allCollections[coll];
             collection.remove({});      // flush collection before loading new docs
@@ -149,10 +155,13 @@ Meteor.methods({
         check(coll, String);
         check(doc, Object);
 
-        if(Meteor.userId() && verifyRole(Meteor.userId(), "administrator") ){                            // check if user is logged in
+        const me = Meteor.user();
+        const admin = me && ( me["admin"] || me["role"]._id === "administrator");
+
+        if(admin ){
             const collection = allCollections[coll];
 
-            let count = 0;
+            let count;
 
             if (Array.isArray(doc)) {
                 count = doc.length;
