@@ -14,8 +14,9 @@
 export const header = {
     en: {
         title:  "Learn Page",
-        lead:   "Set of learn pages",
-        body:   "",
+        subtitle:   "Mini-wiki containing learning content.",
+        body:   "This mini-wiki can be used to augment the application with instructional material to educate and aid the " +
+            "customer.",
     }
 };
 

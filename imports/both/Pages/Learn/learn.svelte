@@ -139,15 +139,12 @@
 
     //* support Functions
     async function findDocs(query) {
-        const sort = {sort: {name: 1}, limit: 100};
+        const sort = {sort: {name: 1}, limit: 50};
         let lang = langComp && (langComp === "all") ? {} : {"contentLang._id": {$in: [langComp, "all"]} };
         let compound = Object.assign({}, query, lang);
 
         if (query && Object.keys(query).length > 0) {
             let found = await getDocs("learn", "schemaLong", compound, sort);
-
-            console.log("query", compound, sort);
-            console.log("found", found);
 
             if (found.length > 0) {
                 info.showList = true;
@@ -172,7 +169,7 @@
         info.tocTitles = structureToc(pages);
 
         //** check if a page of content is targeted from url parameter
-        let target = item && item.queryParams && item.queryParams.item ? item.queryParams.item : null;
+        let target = item?.queryParams?.item ?? null;
 
         if (Array.isArray(info.tocTitles) && info.tocTitles.length > 0) {
             if(target){
@@ -218,7 +215,8 @@
                         field="{pageConfig.components.getLang}"
                         fieldText="{formText.getLang}"
                         watchFields="{ {} }"
-                        on:field-changed="{fieldChanged}"/>
+                        on:field-changed="{fieldChanged}"
+                />
 
                 <Search_Box fields="{info.fields}" on:search-changed="{newSearch}" />
 
@@ -227,49 +225,44 @@
                         field="{pageConfig.components.readMode}"
                         fieldText="{formText.readMode}"
                         watchFields="{ {} }"
-                        on:field-changed="{readMode}"/>
+                        on:field-changed="{readMode}"
+                />
             </div>
         </form>
     </div>
 
-
-
-
-
     <div class="row">
         <div class="column is-span-1">
-
             <Wiki_Toc
                     pageid="{info.pageid}"
                     tocHeader="{toc.title}"
                     tocTitles="{info.tocTitles}"
-                    on:getpage="{selectPage}"/>
-
+                    on:getpage="{selectPage}"
+            />
         </div>
 
         <div class="column is-span-3">
-
             <Wiki_Content
                     pageid="{info.pageid}"
                     showList="{info.showList}"
                     list="{info.list}"
                     {mode}
                     on:push-author="{showAuthor}"
-                    on:getpage="{selectPage}" />
-
+                    on:getpage="{selectPage}"
+            />
         </div>
 
     </div>
 
-
-       <Modal_User
+    {#if showModal}
+        <Modal_User
                {docId}
                {showModal}
                {modalText}
                on:modal-addEvent={addEvent}
                on:modal-removeEvent={removeEvent}
-               on:modalState={checkStateUser}/>
-
-
+               on:modalState={checkStateUser}
+        />
+    {/if}
 
 </main>
