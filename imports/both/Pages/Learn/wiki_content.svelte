@@ -228,7 +228,7 @@
 
             {#if mode}
                 {#each sliceParagraphs(document.contentPage) as page}
-                    <div class="magazine is-narrow space-block-vert" style="border-bottom: 1px solid var(--border-main)">
+                    <div class="magazine space-block-vert" style="border-bottom: 1px solid var(--border-main)">
                         {@html page}
                     </div>
                 {/each}
