@@ -32,9 +32,6 @@ Meteor.methods({
             let pattern = /\/\*\*\s*\n([^\*]|(\*(?!\/)))*\*\//g;
             let test = readFile.match(pattern);
 
-
-            //console.log("test", typeof test, sv );
-
             if(test){
                 fs.writeFileSync(sv.replace("svelte", "jsdoc"), test[0]);
             }
@@ -161,6 +158,7 @@ Meteor.methods({
 
             let prunedDocs = getDoc.filter( (rd) => !rd["undocumented"] );
 
+
             let filteredDocs = prunedDocs.map( (rd) => {
                 let temp = JSON.parse( JSON.stringify(rd));
 
@@ -235,12 +233,12 @@ function formatDocumentation(documentationFile) {
         let temp = item;
 
         //** ignore items that do not have a file name
-        if (!(item.meta && item.meta.filename)) {
+        if (!(item.meta && item.meta.filename && !(item.meta.filename.toLowerCase().includes("test") || item.meta.filename.toLowerCase().includes("spec")) ) ) {
             return
         }
 
         //** add in meta data
-        temp.filename = item.meta && item.meta.filename ? item.meta.filename : "no filename";
+        temp.filename = item.meta?.filename ?? "no filename";
         temp.filename = temp.filename.replace(".jsdoc", ".svelte");
         temp.lineno = item.meta && item.meta.lineno ? item.meta.lineno : "no line number";
         temp.path = item.meta && item.meta.path ? item.meta.path.replace(path, "") : "";

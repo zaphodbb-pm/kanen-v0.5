@@ -14,8 +14,8 @@
       ".gitignore",
       "node_modules",
       "out",
-      "*.spec.*",
-      "*.test.*"
+      "public",
+      "private"
     ],
     "includePattern": "\\.(js|jsdoc)$",
     "excludePattern": "(^|\\/|\\\\)_"
