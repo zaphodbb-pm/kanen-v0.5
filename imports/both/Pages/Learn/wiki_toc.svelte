@@ -30,7 +30,7 @@
 
 <article class="card" data-tp_wiki_toc>
     <header class="is-secondary">
-        <h2 >{tocHeader}</h2>
+        <h2 class="toc-header">{tocHeader}</h2>
     </header>
 
     <div class="toc-content">
@@ -89,6 +89,7 @@
 
 
 <style>
+
     .toc-content {
         margin-left: -0.75rem;
     }
@@ -98,7 +99,7 @@
     }
 
     .cleanList ul {
-        margin: 0;
+        margin: 1rem 0;
     }
 
     .cleanList li {

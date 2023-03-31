@@ -15,6 +15,10 @@
     text-indent: unset !important;
 }
 
+.trumbowyg-table-resize-vertical-handle {
+    display: none;
+}
+
 
 div#mocha {
     position: fixed;

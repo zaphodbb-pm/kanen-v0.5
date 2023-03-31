@@ -26,6 +26,9 @@ export const configs = {
     tagsToRemove: ['script', 'link'],
     imageWidthModalEdit: true,
     linkTargets: ['_blank', '_self'],
+    semantic: {
+        div: 'div'
+    },
 
     //** group certain plugins into a dropdown
     btnsDef: {
