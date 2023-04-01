@@ -103,7 +103,6 @@ export const page = {
                     "Svelte 3.56.0",
                     "Svelte-loadable 2.0.1 to reduce initial bundle size.",
                     "svelte-pathfinder 4.5.0 router",
-                    "Uses selected Feathers svg icons in CSS background to minimize bundle size",
                     "Supports Lineawesome formatted svg files in CSS background.",
                     "Compressed CSS (with icons) is 35.8 KB.",
                     "Compressed Javascript size is 144 KB on initial page load.",

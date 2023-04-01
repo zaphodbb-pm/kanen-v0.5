@@ -72,6 +72,12 @@
         <div class="navbar-right">
             <nav aria-label="Secondary Actions">
                 <ul>
+                    <li>
+                        <a class="icon-nav" href="https://github.com/zaphodbb-pm/kanen-v0.5" target="_blank" rel="nofollow" aria-label="link to github">
+                            <span class="icon-bg-github"></span>
+                            <span>Github</span>
+                        </a>
+                    </li>
                     <li><Notifications text="{navText.notifications}" /></li>
                     <li><UserProfile text="{navText.userProfile}" /></li>
                 </ul>
