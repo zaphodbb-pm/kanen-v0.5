@@ -37,6 +37,12 @@ import '/imports/server/Methods/pubSubFixtures'
 //** special Publish collections
 import '/imports/server/Publish/realTime'
 
+//** control browser security policy
+import {BrowserPolicy} from "meteor/browser-policy-common";
+BrowserPolicy.content.allowInlineScripts();
+BrowserPolicy.content.allowScriptOrigin("https://www.googletagmanager.com");
+BrowserPolicy.content.allowImageOrigin("https://www.googletagmanager.com");
+
 
 //** main configuration set up
 import {writeLog} from '/imports/server/Functions/writeLog'
