@@ -24,6 +24,7 @@ export const configs = {
     //** general editor settings for all plugins
     svgPath: '/icons.svg',
     tagsToRemove: ['script', 'link'],
+    removeformatPasted: true,
     imageWidthModalEdit: true,
     linkTargets: ['_blank', '_self'],
     semantic: {
