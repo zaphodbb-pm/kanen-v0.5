@@ -7,10 +7,11 @@
      * @locus Client
      *
      * @param {Object} config - see example
+     * @param {Object} listText - see example
+     * @param {Object} gridText - text sent down to grid layout (optional)
      * @param {Array} fields - list of fields to fetch and show in a table
      * @param {Object} sort - main field to sort returned docs
      * @param {Boolean} submitted - indicator for document submission by a form
-     * @param {String} coll - valid collection name
      *
      * @fires modal-doc
      * @fires modal-doc-user
@@ -53,6 +54,7 @@
     //* props
     export let config = {};
     export let listText = {};
+    export let gridText = {};
     export let fields = [];
     export let sort = {};
     export let submitted = false;
@@ -417,6 +419,7 @@
         <svelte:component
                 this={ListGrid}
                 {config}
+                {gridText}
                 labels="{fields}"
                 {documents}
                 collection="{coll}"
