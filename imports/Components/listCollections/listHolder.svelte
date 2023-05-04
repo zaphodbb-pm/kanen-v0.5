@@ -381,7 +381,7 @@
 
     <form class="form">
         {#if config.hasRows}
-            <div class="level">
+            <div class="level is-mobile">
                 <Row_Size on:row-changed="{newRow}" />
                 <Doc_Count {docCountLabel }/>
             </div>
