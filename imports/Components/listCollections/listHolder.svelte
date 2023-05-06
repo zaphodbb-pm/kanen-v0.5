@@ -388,7 +388,7 @@
         {/if}
 
         {#if  !!config.hasSearch || !!config.hasFilters}
-            <div class="level">
+            <div class="level is-mobile">
                 {#if config.hasSearch}
                     <Search {fields} on:search-changed="{newSearch}" />
                 {:else}
