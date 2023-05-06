@@ -1,7 +1,7 @@
 <script>
 
     /**
-     * @summary Modal display for user schema information information from a list item.
+     * @summary Modal display for user schema information from a list item.
      *
      * @module modalUser
      * @memberOf Components:blocks:
