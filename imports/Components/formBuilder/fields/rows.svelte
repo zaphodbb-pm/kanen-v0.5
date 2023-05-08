@@ -69,7 +69,8 @@
     //* Functions that mutate local variables
     function setValue(val){
         if(val && Array.isArray(val) && val.length > 0){
-            list = val.map( (v) =>  initialRow(v.row, fieldsArray, v.fields)[0] );
+            list = val.map( (v, idx) =>  initialRow(idx + 1, fieldsArray, v)[0] );
+            updateList(list);
         }else{
             list = initialRow(1, fieldsArray, null);
         }
@@ -91,16 +92,14 @@
                 }
             }
 
-            return {
-                row: nl.row,
-                fields: values
-            }
-        } )
+            return values;
+        });
 
         /**
          * @event on-inputentry
          * @type {object} - {value: value, error: errorVal} - value {Object} of field values
          */
+
         dispatch('on-inputentry', {value: out, error: false});
     }
 
