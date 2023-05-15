@@ -290,7 +290,7 @@ Meteor.methods({
          */
         const mine = Meteor.users.findOne({_id: this.userId});
 
-        //*** modify query to include include documents from my group members
+        //*** modify query to include documents from my group members
         if (mine.groups && (typeof mine.groups === "string") && mine.groups !== "") {
 
             let groups = (mine.groups).replace(/\s/g, '').split(",");       // remove all whites spaces and then create item array

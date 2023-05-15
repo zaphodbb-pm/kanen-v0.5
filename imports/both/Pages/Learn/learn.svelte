@@ -257,7 +257,7 @@
 
     </div>
 
-    {#if showModal}
+
         <Modal_User
                {docId}
                {showModal}
@@ -266,6 +266,6 @@
                on:modal-removeEvent={removeEvent}
                on:modalState={checkStateUser}
         />
-    {/if}
+
 
 </main>

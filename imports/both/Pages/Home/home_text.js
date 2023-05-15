@@ -97,7 +97,7 @@ export const page = {
                 title: "Main Packages",
 
                 body: [
-                    "Meteor 2.11.0",
+                    "Meteor 2.12.0",
                     "MongoDB 6.0.3",
                     "<a href='https://zaphodbb-pm.github.io/goldilocks-css/pages/home.html' target='_blank'>Goldilocks-CSS 0.4.0</a>",
                     "Svelte 3.56.0",

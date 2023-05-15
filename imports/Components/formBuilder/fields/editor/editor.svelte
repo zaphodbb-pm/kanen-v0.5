@@ -114,7 +114,7 @@
 
 
 <label class="field--editor {className} {field.css || ''}">
-    <span>{label} two</span>
+    <span>{label}</span>
 </label>
 
 <div id="{editorTag}"></div>
