@@ -32,13 +32,15 @@ const testId = buildComponentTestArea(compName, document);
 
 
 /** import Component Under Test (CUT) **/
+import {components} from "../fields/func-registerAllFields";
 import CUT from '../fieldWrapper.svelte';
 
 
 /** render component with appropriate props **/
 const instance = new CUT({
   target: document.getElementById(testId),
-  props: props
+  props: props,
+  components: components
 });
 
 

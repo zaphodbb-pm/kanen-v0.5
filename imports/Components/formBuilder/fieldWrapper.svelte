@@ -88,7 +88,7 @@
         }
     }
 
-    $: componentDef = components[field.fieldType] ?? {};
+    $: componentDef = components[field.fieldType] ?? undefined;
 
 
 
@@ -212,7 +212,7 @@
 
 
 
-{#if !fieldHide && componentDef}
+{#if !fieldHide && !!componentDef}
     {#if helpText}
 
         <div class="has-help-text">
