@@ -63,7 +63,7 @@
 </script>
 
 
-<label class="{className}">
+<label class="{className} {field.css || ''}">
     <span>{label}</span>
 
     <textarea class="textarea"

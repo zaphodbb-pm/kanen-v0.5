@@ -24,6 +24,8 @@ import Switch from './switch.svelte';
 import CheckBoxes from './checkboxes.svelte';
 import Radios from './radios.svelte';
 import Selects from './selects.svelte';
+import TextArea from "./textarea.svelte";
+
 
 
 export const components = {
@@ -32,4 +34,5 @@ export const components = {
     checkboxes: CheckBoxes,
     radios: Radios,
     select: Selects,
+    textarea: TextArea,
 };

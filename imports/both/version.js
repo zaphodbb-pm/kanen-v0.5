@@ -17,8 +17,8 @@
 
 export default{
     APP_NAME: "Svelte-Meteor Starter",                  // application name
-    VERSION: "0.5.5",                                   // current version number
-    LAST_UPDATE:  "May 15, 2023",                       // the most recent update date
+    VERSION: "0.5.6",                                   // current version number
+    LAST_UPDATE:  "May 24, 2023",                       // the most recent update date
     COPYRIGHT: `2021 - ${(new Date()).getFullYear()}`,  // adjustable copyright notice
 }
 

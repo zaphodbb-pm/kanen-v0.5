@@ -54,7 +54,7 @@ export async function submitForm(doc, coll, clone, test, emit, extras = {}) {
             break;
 
         case coll === "myProfile":
-            Meteor.call('userMgmtUpdateItem', "profile", doc, function (err, res) {
+            Meteor.call('userProfileUpdateItem', "profile", doc, function (err, res) {
                 methodReturn(err, res, "submit myProfile", null);
 
                 if (res) {

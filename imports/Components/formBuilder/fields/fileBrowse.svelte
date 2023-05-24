@@ -135,7 +135,7 @@
             if (field.params && field.params.format) {
                 (field.params.format === "image") ? reader.readAsDataURL(file) : reader.readAsText(file);
             } else {
-                console.warn("Cannot read parms", field.params);
+                console.warn("Cannot read params", field.params);
             }
         }
     }

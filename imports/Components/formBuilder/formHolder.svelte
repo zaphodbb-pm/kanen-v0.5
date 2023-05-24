@@ -176,14 +176,15 @@
         delete newValues._id;
 
         //** send completed doc to server insert / update Methods
-        submitForm(newValues, coll, true, false, dispatch);
+        submitForm(newValues, coll, true, false, dispatch, userExtraFields);
+
         tabFields.fields = tabFields.defaults;
 
         /**
          * @event current-editted-doc
          * @type {Object}
          */
-        dispatch("current-editted-doc", newValues);
+        //dispatch("current-editted-doc", newValues);
     }
 
 
@@ -310,7 +311,7 @@
             {formText.labels.hdr}
 
             {#if showClone}
-                <button class="is-warning"
+                <button type="button" class="is-warning"
                         on:click="{cloneItem}">
                     {formText.labels.cloneBtn}
                 </button>

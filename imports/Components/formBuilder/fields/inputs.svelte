@@ -16,6 +16,7 @@
      *
      */
 
+
     //* common props from parent
     export let field = {};
     export let error = "";
@@ -26,6 +27,7 @@
     export { className as class };
 
     //* support Functions
+    import {capitalizeString} from "../../../Functions/formatters/capitalizeString";
     import {validateEmail} from '/imports/Functions/formatters/validateEmail'
     import {validatePhone} from '/imports/Functions/formatters/validatePhone'
     import {createEventDispatcher} from 'svelte';
@@ -59,11 +61,11 @@
         timer = setTimeout(() => {
             inValue = v;
             checkInput();
-        }, 750);
+        }, 500);
     }
 
     function checkInput(){
-        let test = formatField(inValue, field.attributes);
+        let test = formatField(inValue, field.attributes, field.params);
 
         if(test){
             inValue = test.value;
@@ -88,13 +90,18 @@
 
 
     //* pure Functions
-    function formatField(val, attr){
+    function formatField(val, attr, params){
         let value = val;
         let errorVal = false;
 
         switch (true) {
             case attr && attr.type && (attr.type === "text"):
                 errorVal = !(value.length > 0);
+
+                if(params?.actions === "capitalize"){
+                    value = capitalizeString(value);
+                }
+
                 break;
 
             case (attr && attr.type === "email"):
@@ -160,7 +167,7 @@
 
 {:else}
 
-    <label class="field--inputs {className} {field.css || ''}">
+    <label class="field--inputs {className.trim()} {field.css || ''}">
         <span>{label}</span>
 
         <input class="input {checkValue}"

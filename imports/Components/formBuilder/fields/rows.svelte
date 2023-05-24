@@ -32,7 +32,7 @@
      */
 
 
-    //* common props from parent
+        //* common props from parent
     export let field = {};
     export let error = "";
     export let fieldText;

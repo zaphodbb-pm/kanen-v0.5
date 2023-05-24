@@ -112,7 +112,7 @@
 
 
     //* build out static Components
-    import WidgetBar from '../Navbar/WidgetBar.svelte'
+    import WidgetBar from '../Navbar/WidgetBar.svelte';
     import Navbar from '../Navbar/Navbar.svelte';
     import SideNav from '../Navbar/NavSideMenu.svelte';
     import Footer from './Footer.svelte';
