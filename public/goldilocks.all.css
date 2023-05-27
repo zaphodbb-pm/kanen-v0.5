@@ -2956,7 +2956,7 @@ h2 + .sub-title,
 {
     font-size: var(--size-4);
 
-    margin-top: -1.2em;
+    margin-top: -1em;
     margin-bottom: var(--size-2);
 }
 
@@ -2965,7 +2965,7 @@ h3 + .sub-title,
 {
     font-size: var(--size-5);
 
-    margin-top: -1.2em;
+    margin-top: -1em;
     margin-bottom: var(--size-3);
 }
 
@@ -2974,7 +2974,7 @@ h4 + .sub-title,
 {
     font-size: var(--size-6);
 
-    margin-top: -1.4em;
+    margin-top: -1em;
     margin-bottom: var(--size-4);
 }
 
