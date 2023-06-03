@@ -1788,8 +1788,8 @@ button.delete.is-small
 
 
 /** optional form header **/
-.form.has-form-shadow header,
-.form.is-form-tabbed header
+.form.has-form-shadow > header,
+.form.is-form-tabbed > header
 {
     font-size: var(--size-5);
     font-weight: var(--weight-semibold);
@@ -1807,17 +1807,17 @@ button.delete.is-small
 }
 
 
-.form.has-form-shadow header
+.form.has-form-shadow > header
 {
     margin: calc(-1 * var(--padding-medium)) calc(-1 * var(--padding-medium)) var(--padding-large);
 }
 
-.form.is-form-tabbed header
+.form.is-form-tabbed > header
 {
     margin: 0 0 var(--padding-large) 0;
 }
 
-.form.has-form-shadow header:not([class*='is-'])
+.form.has-form-shadow > header:not([class*='is-'])
 {
     background-color: var(--bg-element);
 }

@@ -25,7 +25,7 @@
 
 
     import {generateId} from '/imports/Functions/utilities/generateId'
-    import {messages} from '/imports/client/systemStores'
+    import {messages, userExtras} from '/imports/client/systemStores'
 
     import Form_Holder from '/imports/Components/formBuilder/formHolder.svelte'
     import List_Holder from '/imports/Components/listCollections/listHolder.svelte'
@@ -47,6 +47,7 @@
     $: showList = !!confList?.hasOverlay || !confForm?.hasOverlay;
     $: showForm = !confForm?.hasOverlay;
     $: gridMode(confList);
+    $: role = $userExtras?.role?._id;
 
     //* Functions that mutate reactive variables
     function checkOverlay() {
