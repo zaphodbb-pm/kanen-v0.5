@@ -34,8 +34,11 @@
 
     //* local reactive variable
     let radValue = "";
+    let width = "auto";
 
     $: setValue(field.value);
+
+    $: setWidth(field.params);
 
 
     //* event handlers
@@ -55,6 +58,12 @@
         radValue = val._id;
     }
 
+    function setWidth(params){
+        if(params && params.cols && typeof params.cols === "number"){
+            width = `${ Math.floor(95 / params.cols)}%`;
+        }
+    }
+
 </script>
 
 
@@ -64,7 +73,7 @@
     <legend>{label}</legend>
 
     {#each source as rad, idx}
-        <label>
+        <label style="width: {width}">
             <input type="radio"
                    id="{field.field + '_radio_' + idx}"
                    name="{field.field + '_radio-group'}"

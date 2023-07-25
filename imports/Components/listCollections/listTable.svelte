@@ -1,5 +1,6 @@
 <script>
 
+
     /**
      * Table to list documents and fields for docs.
      *
@@ -50,6 +51,7 @@
 
     // get the user language preference from store
     import commonText from "../../client/text_common";
+    import {calendar} from "../../client/text_calendar";
     import {lang} from '/imports/client/systemStores';
     import {i18n} from '/imports/Functions/utilities/i18n';
 
@@ -61,14 +63,16 @@
 
 
 //* local reactive variables
-    let calendar = i18n( commonText, "calendar", $lang);
+    let calendarText = i18n( calendar, "", $lang);
     let deleteText = i18n( commonText, "confirmDelete", $lang);
     let inEdit = false;
     let currRow = "";
     let actRow = "";
     let submit = submitted;
-    let confirmDelete = !!$sysConfig.confirmDelete;
+    let confirmDelete = true;
     let confirm = null;
+
+    //console.log("table", $sysConfig, confirmDelete );
 
     let TAGS = {
         // sets background label colour for "tag" cell
@@ -80,6 +84,8 @@
     };
 
     $: releaseItem(submitted);
+
+    $: confirmDelete = !!$sysConfig.confirmDelete;
 
 
     //* event handlers
@@ -304,7 +310,7 @@
 
                         {:else if cell.type === 'date' }
                             <td data-fieldname="{cell.field}">
-                                {formatDate(cell.value, calendar)}
+                                {formatDate(cell.value, calendarText)}
                             </td>
 
                         {:else if cell.type === 'phone' }
@@ -432,6 +438,9 @@
 
     .confirm-delete {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
+
         min-height: 3rem;
         width: 90%;
 
@@ -447,7 +456,7 @@
     }
 
     .confirm-delete > p {
-        margin: 0;
+        margin: 0 0.5rem;
     }
 
     .table-delete-td {

@@ -6,10 +6,8 @@
  * @locus Server
  *
  * @property {Object} accessControl
- * @property {Object} accessControl.starter
  * @property {Object} accessControl.buildContent
  * @property {Object} accessControl.learn
- * @property {Object} accessControl.pubSub
  * @property {Object} accessControl.myProfile
  * @property {Object} accessControl.users
  * @property {Object} accessControl.logsSystem
@@ -22,13 +20,11 @@
 let acl = {};
 
 //* load client accessible collections
-import starter from '../both/Pages/Starter/starter_access_control'
 import content from '../both/Pages/BuildContent/buildContent_access_control'
 import learn from '../both/Pages/Learn/learn_access_control'
-import pubSub from '../both/Pages/PubSub/pubSub_access_control'
 import myProfile from '../both/Pages/MyProfile/myProfile_access_control'
 
-acl = Object.assign(acl, starter, content, learn, pubSub, myProfile);
+acl = Object.assign(acl, content, learn, myProfile);
 
 //* load sys admin accessible collections
 import users from '../both/Pages/Users/users_access_control'

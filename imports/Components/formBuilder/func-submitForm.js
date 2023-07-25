@@ -33,6 +33,7 @@ export async function submitForm(doc, coll, clone, test, emit, extras = {}) {
 
     doc.author = doc.author ? doc.author : (Meteor.userId() ? Meteor.userId() : "unknown");
     doc.authorName = doc.authorName ? doc.authorName : (me && me.username ? me.username : "username");
+    doc.username = doc.username ? doc.username : (me?.username ?? "username");
 
     // @ts-ignore
     doc.authorFullName = doc.authorFullName ? doc.authorFullName : (me && me.profile && me.profile.name ? me.profile.name : "");
@@ -54,7 +55,7 @@ export async function submitForm(doc, coll, clone, test, emit, extras = {}) {
             break;
 
         case coll === "myProfile":
-            Meteor.call('userMgmtUpdateItem', "profile", doc, function (err, res) {
+            Meteor.call('userProfileUpdateItem', "profile", doc, function (err, res) {
                 methodReturn(err, res, "submit myProfile", null);
 
                 if (res) {

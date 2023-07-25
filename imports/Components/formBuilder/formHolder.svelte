@@ -176,14 +176,15 @@
         delete newValues._id;
 
         //** send completed doc to server insert / update Methods
-        submitForm(newValues, coll, true, false, dispatch);
+        submitForm(newValues, coll, true, false, dispatch, userExtraFields);
+
         tabFields.fields = tabFields.defaults;
 
         /**
          * @event current-editted-doc
          * @type {Object}
          */
-        dispatch("current-editted-doc", newValues);
+        //dispatch("current-editted-doc", newValues);
     }
 
 
@@ -202,6 +203,7 @@
 
             case editdoc.type && editdoc.type === "edit":
                 currDoc = await getDocs(coll, "schemaForm_one", {_id: editdoc.id}, {}, null);
+
                 showClone = config.clone;
                 submit.btnBackShow = !!config.hasOverlay;
                 break;
@@ -310,7 +312,7 @@
             {formText.labels.hdr}
 
             {#if showClone}
-                <button class="is-warning"
+                <button type="button" class="is-warning"
                         on:click="{cloneItem}">
                     {formText.labels.cloneBtn}
                 </button>

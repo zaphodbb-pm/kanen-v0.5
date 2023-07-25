@@ -27,12 +27,14 @@ import Radios from './radios.svelte';
 import Selects from './selects.svelte';
 import ApiKey from './apikey.svelte';
 import FileBrowse from './fileBrowse.svelte';
+import FileGridFS from './fileGridFS.svelte';
 
 
 
 
 export const components = {
     fileInput: FileBrowse,
+    fileGridFS: FileGridFS,
 
     input: Inputs,
     switch: Switch,

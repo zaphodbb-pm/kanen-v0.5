@@ -8,6 +8,7 @@
      * @locus Client
      *
      * @param  {Object} config - decoration for table
+     * @param  {Object} gridText
      * @param  {Array}  labels
      * @param  {Array}  documents
      * @param  {String} collection
@@ -20,6 +21,7 @@
 
     //* props
     export let config = {};
+    export let gridText = {};
     export let labels = [];
     export let documents = {};
     export let collection = "";
@@ -87,7 +89,7 @@
         window.open(page);
     }
 
-    //* build array of array of display objects
+    //* build array of arrays of display objects
     function tableItems(coll, fields, docs) {
         let out = [];
 

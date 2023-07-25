@@ -28,10 +28,14 @@ schema.forEach(function (f) {
 
 
 /* step 2: construct test data */
+import {components} from "../fields/func-registerAllFields";
+
 const props = {
   config: config,
   fields: orgFields(config, schema, defaults, "all"),
-  formText: form
+  formText: form,
+
+  components: components
 }
 
 

@@ -1,7 +1,67 @@
+/* custom componnet styling */
+
+.card-horz {
+    display: flex;
+    position: relative;
+    width: 100%;
+    color: var(--text-comp);
+    border-radius: var(--radius-comp);
+    background-color: var(--bg-component);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    max-width: 64rem;
+}
+
+.card-horz > figure > img {
+    width: 8rem;
+}
+
+
+.card-horz .card-body {
+    flex-grow: 2;
+}
+
+
+
+/* for page print control only */
+@media print {
+    html {
+        font-size: 13px !important;
+    }
+
+    .page-main-nav,
+    .widgetbar,
+    footer.page-footer,
+    .page-header,
+    .page-actions-block,
+    .main-right-panel,
+    .right-panel,
+    #modal_pwa {
+        display: none !important;
+    }
+
+    .recipe-main-image {
+        max-width: 20rem;
+    }
+
+    .row {
+        display: grid;
+        --min-grid-width: var(--grid-min-width);
+        grid-template-columns: repeat(auto-fit,minmax(var(--grid-min-width),1fr)) !important;
+    }
+
+    .column.is-span-2 {
+        grid-column: auto/span 2 !important;
+    }
+}
+
+
+
+
+/* third party adjustments */
 .croppie-container img {
     height: auto;
 }
-
 
 .field--editor + .trumbowyg {
     padding-top: 1.5rem;
@@ -19,7 +79,26 @@
     display: none;
 }
 
+/* extra formatting for items created by the editor */
+.article-body h3 {
+    margin-top: 2rem;
+}
 
+.article-body img {
+    max-height: 20rem;
+    max-width: max-content;
+    margin: 2rem 2rem 2rem 0;
+    float: left;
+}
+
+.recipe-ingredients ul li {
+    list-style: none;
+    margin-left: 0;
+}
+
+
+
+/* for test runner output only **/
 div#mocha {
     position: fixed;
     width: 25vh;

@@ -1,4 +1,6 @@
 <script>
+
+
     /**
      * Component insert combination for list and form Components.
      *
@@ -13,7 +15,10 @@
      * @param {Object} formText
      * @param {Object} listText
      *
+     * @fires list-form-updated
+     *
      */
+
 
     export let confList = {};
     export let confForm = {};
@@ -21,14 +26,18 @@
     export let listArray = [];
     export let formText = {};
     export let listText = {};
+    export let gridText = {};
     export let components = {};
 
 
-    import {generateId} from '/imports/Functions/utilities/generateId'
-    import {messages} from '/imports/client/systemStores'
+    import {generateId} from '/imports/Functions/utilities/generateId';
+    import {createEventDispatcher} from 'svelte';
+    import {messages, userExtras} from '/imports/client/systemStores';
 
-    import Form_Holder from '/imports/Components/formBuilder/formHolder.svelte'
-    import List_Holder from '/imports/Components/listCollections/listHolder.svelte'
+    import Form_Holder from '/imports/Components/formBuilder/formHolder.svelte';
+    import List_Holder from '/imports/Components/listCollections/listHolder.svelte';
+
+    const dispatch = createEventDispatcher();
 
     let mode = "list";
     let role = "";
@@ -47,6 +56,7 @@
     $: showList = !!confList?.hasOverlay || !confForm?.hasOverlay;
     $: showForm = !confForm?.hasOverlay;
     $: gridMode(confList);
+    $: role = $userExtras?.role?._id;
 
     //* Functions that mutate reactive variables
     function checkOverlay() {
@@ -56,21 +66,35 @@
     }
 
     function docToEdit(msg) {
-        currentDoc = msg.detail;
-        editdoc = msg.detail;
 
         if(!releaseEdit){
             showList = !confList?.hasOverlay;
             showForm = !confList?.hasOverlay || !!confForm?.hasOverlay;
         }
 
+        currentDoc = msg.detail;
+        editdoc = msg.detail;
         releaseEdit = false;
     }
 
-    function docSent(){
+    function docSent(msg){
         showList = !!confList?.hasOverlay || !confForm?.hasOverlay;
         showForm = !confForm?.hasOverlay;
         releaseEdit = true;
+
+        /**
+         * @event list-form-updated
+         * @type {Object}
+         */
+        dispatch("list-form-updated", msg.detail);
+    }
+
+    function docDeleted(msg){
+        /**
+         * @event list-form-updated
+         * @type {Object}
+         */
+        dispatch("list-form-updated", msg.detail);
     }
 
     //** for demonstration only; can be removed ***
@@ -103,7 +127,7 @@
             showList = true;
             showForm = false;
 
-            releaseEdit = true;
+            releaseEdit = false;
         }else{
             checkOverlay();
 
@@ -121,10 +145,12 @@
         <List_Holder
                 config="{confList}"
                 {listText}
+                {gridText}
                 {fields}
                 {sort}
                 submitted="{releaseEdit}"
-                on:send-doc="{docToEdit}"/>
+                on:send-doc="{docToEdit}"
+                on:delete-doc="{docDeleted}"/>
     </div>
 
     <div class="column {confForm?.css ?? '' }" class:is-hidden={!showForm}>

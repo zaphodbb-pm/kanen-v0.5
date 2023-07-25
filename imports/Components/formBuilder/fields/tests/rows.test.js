@@ -46,7 +46,7 @@ const props = {
 
 
 /* expected event object */
-const checkClick = {"row":2,"fields":{"field1":""}} ;
+const checkClick = {"field1":""};
 
 
 /* step 3: run boilerplate activities */

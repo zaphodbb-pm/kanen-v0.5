@@ -58,11 +58,15 @@
     //* event handlers
     function addRow(){
         let newList = list;
+
         let addItem = {
             id: list.length + 1,
-            check: "",
             text: "",
         };
+
+        if(field?.params?.showCheck){
+            addItem["check"] = ""
+        }
 
         newList.push(addItem);
         updateList(newList)
@@ -151,6 +155,7 @@
         flex: auto;
         /*flex-grow: 2;*/
         padding: var(--padding);
+        font-size: 1rem;
     }
 
     .add-rows {

@@ -65,7 +65,7 @@
 
 
 
-<div class="field-group has-nowrap">
+<div class="field-group has-nowrap list-filter-component">
     {#each filters as field (field.field)}
         <div class="filter-items">
 
@@ -78,3 +78,14 @@
         </div>
     {/each}
 </div>
+
+<style>
+    .list-filter-component {
+        justify-content: flex-end;
+    }
+
+    .filter-items {
+        max-width: 50%;
+    }
+
+</style>

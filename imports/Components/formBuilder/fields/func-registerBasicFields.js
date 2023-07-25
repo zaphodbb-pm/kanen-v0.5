@@ -24,6 +24,11 @@ import Switch from './switch.svelte';
 import CheckBoxes from './checkboxes.svelte';
 import Radios from './radios.svelte';
 import Selects from './selects.svelte';
+import TextArea from "./textarea.svelte";
+import FileGridFS from "./fileGridFS.svelte";
+import FileBrowse from "./fileBrowse.svelte";
+import ItemList from "./itemList.svelte";
+
 
 
 export const components = {
@@ -32,4 +37,8 @@ export const components = {
     checkboxes: CheckBoxes,
     radios: Radios,
     select: Selects,
+    textarea: TextArea,
+    fileGridFS: FileGridFS,
+    fileInput: FileBrowse,
+    itemList: ItemList
 };

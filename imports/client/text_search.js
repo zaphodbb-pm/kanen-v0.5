@@ -16,13 +16,15 @@ export default{
     },
 
     helpText: {
-        en: "You can use simple text search across all fields. " +
-            "Compound 'and' searches are supported by separating terms with '+'. " +
-            "Compound 'or' searches can be done by separating terms with ';'." +
+        en: "You can use simple text search across all fields.  " +
+            "Note that a minimum of 3 letters or numbers are required for each search part. <br/><br/>" +
+            "Compound 'and' searches are supported by separating terms with '+' or a space.  " +
+            "Compound 'or' searches can be done by separating terms with ';'.  " +
             "You can also use '!' as a not operator to find items that do not contain a term.  " +
             "The operator precedence is NOT '!' then AND '+' then OR ';'. <br/><br/>" +
-            "Example: age+!male;sport+run will find all records with the string 'age' and not 'male' " +
-            "or all records with the string 'sport' and 'run'.  " +
-            "This returns two sets of records with the defined term searches.",
+            "Example: <code>fc174+make;175+!make</code> will find all records with the string 'fc174' AND 'make' (as in 'Make It Tonight') " +
+            "OR all records with the string '175' and NOT 'make'.  " +
+            "This returns two sets of records with the defined term searches.  These are joined together to " +
+            "create one list of items found.",
     }
 }

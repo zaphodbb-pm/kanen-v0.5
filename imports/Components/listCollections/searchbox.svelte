@@ -30,6 +30,7 @@
     let searchchars = "";
     let showIcon = !!helpText;
     let showHelp = false;
+    let timer;
 
     onMount( () => {
         changesearch();
@@ -37,15 +38,21 @@
 
 
     function changesearch() {
-        searchchars = searchchars.replace(/ /g, '');            // remove all white spaces
-        let query = searchchars.length > 2 ? buildQuery(searchchars, fields) : {};
+        clearTimeout(timer);
+
+        timer = setTimeout(() => {
+            searchchars = searchchars.trim().replace(/\s+/g, ' ');            // remove redundant white spaces
+
+            let query = searchchars.length > 2 ? buildQuery(searchchars, fields) : {};
 
             /**
              * @event search-changed
              * @type {Object} - {search: string, query: object}
              */
 
-        dispatch('search-changed', {search: searchchars, query: query});
+            dispatch('search-changed', {search: searchchars, query: query});
+
+        }, 500);
     }
 
 </script>

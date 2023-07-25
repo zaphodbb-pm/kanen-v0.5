@@ -40,6 +40,7 @@ import Switch from './switch.svelte';
 import TextArea from './textarea.svelte';
 import TimePicker from './timePicker.svelte';
 import TypeAhead from './typeahead.svelte';
+import FileGridFS from "./fileGridFS.svelte";
 
 
 
@@ -50,6 +51,7 @@ export const components = {
     datePicker: DatePicker,
     editor: Editor,
     fileInput: FileBrowse,
+    fileGridFS: FileGridFS,
 
     hr: HR,
     input: Inputs,

@@ -12,9 +12,11 @@
  */
 
 
-const all = ["/home", "/template", "/icons", "/colours", "/footerExtras", "/learn", "/cards", "/content-widgets", "/admin-panel", "/testing", "/login"];
-const subscriber = ["/pubSub","/my-profile","/changePassword", "/starter"];
-const siteAdmin = ["/buildContent", "/documentation", "/logsSystem"];
+const all = ["/articlesSearch", "/articlesShow", "/cookingNowSearch", "/home",  "/login", "/magazinesSearch",
+    "/newsSearch", "/recipesSearch", "/recipesShow", "/testKitchenSearch", "/testKitchenShow"]
+
+const subscriber = ["/changePassword", "/my-profile", "/recipeBox"];
+const siteAdmin = ["/articles-edit", "/cookingNow-edit", "/favourites-edit", "/magazines-edit", "/news-edit", "/recipes-edit", "/testKitchen-edit"];
 const admin =  [ "/users","/sysConfig","/exportImport"];
 
 export const allUsers = [...all].sort();

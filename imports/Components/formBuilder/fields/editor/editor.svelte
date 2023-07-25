@@ -80,6 +80,14 @@
         jQuery(editorTagId).trumbowyg().on('tbwchange', function(){
             checkInput();
         });
+
+        jQuery(editorTagId).trumbowyg().on('tbwpaste', function(){
+            let value = jQuery(editorTagId).trumbowyg('html');
+            let out = value.replaceAll("<p><br></p>", "");
+
+            jQuery(editorTagId).trumbowyg('html', out);
+        });
+
     })
 
     onDestroy(() => {
@@ -114,7 +122,7 @@
 
 
 <label class="field--editor {className} {field.css || ''}">
-    <span>{label} two</span>
+    <span>{label}</span>
 </label>
 
 <div id="{editorTag}"></div>

@@ -49,7 +49,7 @@
 
             <div class="dropdown-trigger" tabindex="0">
                 <div class="dropdown-trigger" tabindex="0">
-                    <div class="button is-primary no-chevron" aria-haspopup="true" aria-controls="navbar-dropdown-menu2">
+                    <div class="button no-chevron" aria-haspopup="true" aria-controls="navbar-dropdown-profile">
                         {#if user?.profile?.image?.src}
                             <figure class="avatar avatar-nm">
                                 <img src="{user?.profile?.image?.src}" alt="Avatar">
@@ -65,7 +65,7 @@
                 <nav aria-label="Dropdown Menu">
                     <ul>
                         <li><a href="/my-profile">{userName} {text.toProfile}</a></li>
-                        <li><a href="/changePassword">{text.changePassword}</a></li>
+                        <li><a href='/changePassword?type=change'>{text.changePassword}</a></li>
                         <li><hr></li>
                         <li><a href="#home" on:click="{logout}">{text.logOut}</a></li>
                     </ul>

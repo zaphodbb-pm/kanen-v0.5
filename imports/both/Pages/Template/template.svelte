@@ -45,7 +45,6 @@
     //* page-body support **************************
 
     //** page-body Functions *************************
-    import TemplateInfo from "./template_info.svelte"
     import {injectText} from "./functions/injectText";
 
 
@@ -92,12 +91,5 @@
                 {@html i18n(page.components, "box", $lang).msg}
             </div>
         </div>
-    </div>
-
-
-
-    <!-- Instructional information only - can be deleted -->
-    <div data-tp_info>
-        <TemplateInfo  {currentRoute} {params} {query} {text} />
     </div>
 </main>

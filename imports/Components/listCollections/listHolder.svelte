@@ -7,10 +7,11 @@
      * @locus Client
      *
      * @param {Object} config - see example
+     * @param {Object} listText - see example
+     * @param {Object} gridText - text sent down to grid layout (optional)
      * @param {Array} fields - list of fields to fetch and show in a table
      * @param {Object} sort - main field to sort returned docs
      * @param {Boolean} submitted - indicator for document submission by a form
-     * @param {String} coll - valid collection name
      *
      * @fires modal-doc
      * @fires modal-doc-user
@@ -53,6 +54,7 @@
     //* props
     export let config = {};
     export let listText = {};
+    export let gridText = {};
     export let fields = [];
     export let sort = {};
     export let submitted = false;
@@ -106,6 +108,7 @@
 
     //* check for imported grid layouts by page
     let ListGrid;
+    let showLoader;
 
     $: {
         if (config && (config.display === "grid") && config.displayGrid ) {
@@ -206,6 +209,10 @@
         }
     }
 
+    function docRefresh(){
+        getCurrentDocs();
+    }
+
 
     //* Functions that mutate local variables
     function addGridLayout() {
@@ -247,7 +254,7 @@
         //* respond to a user entering text into the search bar by constructing search fragment object
         let query = msg.detail.query;
         let target = msg.detail.search;
-        target = target.replace(/ /g, '');          // remove all white spaces
+        target = target.trim().replace(/\s+/g, ' ');          // remove redundant white spaces
 
         //* reset table if all text is removed
         if (target.length < 1) {
@@ -264,6 +271,8 @@
 
 
     async function getCurrentDocs() {
+        showLoader = true;
+
         let setQ = collQuery ? collQuery : {};
         let combineSearch = Object.assign({}, setQ, addFilters);
         docCounts = await getDocCounts(coll, combineSearch);
@@ -279,6 +288,7 @@
 
 
         documents = await getDocs(coll, "listList", combineSearch, f.filterSearch);
+        showLoader = false;
 
         methodReturn(null, documents, "submit insertDoc", debugOptions ?? '' );
         docCountLabel = `${f.start} - ${f.end} / ${docCounts} (${totalDocs})`;
@@ -366,27 +376,16 @@
         </header>
     {/if}
 
-    {#if config.hasOverlay && listText.labels?.addNew}
-        <div class="level">
-            <div></div>
-
-            <button type="button"  class="is-primary-outlined"
-                    on:click="{ () => docEdit({}) }">
-                {listText.labels?.addNew}
-            </button>
-        </div>
-    {/if}
-
     <form class="form">
         {#if config.hasRows}
-            <div class="level">
+            <div class="level is-mobile">
                 <Row_Size on:row-changed="{newRow}" />
                 <Doc_Count {docCountLabel }/>
             </div>
         {/if}
 
         {#if  !!config.hasSearch || !!config.hasFilters}
-            <div class="level">
+            <div class="level is-mobile">
                 {#if config.hasSearch}
                     <Search {fields} on:search-changed="{newSearch}" />
                 {:else}
@@ -412,16 +411,30 @@
         </div>
     {/if}
 
+    {#if config.hasOverlay && listText.labels?.addNew}
+        <div class="level space-element-vert">
+            <div></div>
+
+            <button type="button" class="is-primary-outlined has-hover"
+                    on:click="{ () => docEdit({}) }">
+                {listText.labels?.addNew}
+            </button>
+        </div>
+    {/if}
+
     {#if config.display === 'grid'}
 
         <svelte:component
                 this={ListGrid}
                 {config}
+                {gridText}
                 labels="{fields}"
                 {documents}
                 collection="{coll}"
                 {submitted}
+                {showLoader}
 
+                on:item-refresh="{docRefresh}"
                 on:item-delete="{docDelete}"
                 on:item-edit="{docEdit}"/>
 

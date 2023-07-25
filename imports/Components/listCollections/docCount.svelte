@@ -16,7 +16,7 @@
 </script>
 
 
-<div class="level">
+<div class="level is-mobile">
     <span class="icon-bg-file"></span>
     <span>{docCountLabel}</span>
 </div>

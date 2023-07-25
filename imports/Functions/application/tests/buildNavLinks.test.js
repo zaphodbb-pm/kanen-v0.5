@@ -33,7 +33,7 @@ describe("function buildNavLinks", function () {
     const linkNames = links.map( link => link.name).sort();
 
     assert.strictEqual(linkNames.length, allSubscriber.length);
-    assert.deepStrictEqual(linkNames, allSubscriber);
+    assert.deepStrictEqual(linkNames, allSubscriber.sort());
   });
 
   it(`siteAdmin nav links: ${allSiteAdmin.length}`, function () {
@@ -42,7 +42,7 @@ describe("function buildNavLinks", function () {
     const linkNames = links.map( link => link.name).sort();
 
     assert.strictEqual(linkNames.length, allSiteAdmin.length);
-    assert.deepStrictEqual(linkNames, allSiteAdmin);
+    assert.deepStrictEqual(linkNames, allSiteAdmin.sort());
   });
 
   it(`administrator nav links: ${allAdmin.length}`, function () {

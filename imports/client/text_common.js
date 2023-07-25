@@ -44,55 +44,14 @@ export default{
         }
     },
 
-    //** calendar labels
-    calendar:    {
+    notesText: {
         en: {
-            duration:  [
-                {_id: "m30", name: "30 Min"},
-                {_id: "m45", name: "45 Min"},
-                {_id: "m60", name: "60 Min"},
-                {_id: "m75", name: "75 Min"},
-                {_id: "m90", name: "90 Min"},
-                {_id: "m120", name: "2 Hrs"},
-                {_id: "m240", name: "4 Hrs"},
-                {_id: "m480", name: "8 Hrs"},
-            ],
-
-            days: [
-                {_id: "sun", name: "Sun", pos: 0},
-                {_id: "mon", name: "Mon", pos: 1},
-                {_id: "tue", name: "Tue", pos: 2},
-                {_id: "wed", name: "Wed", pos: 3},
-                {_id: "thu", name: "Thu", pos: 4},
-                {_id: "fri", name: "Fri", pos: 5},
-                {_id: "sat", name: "Sat", pos: 6},
-            ],
-
-            daysLong: [
-                {_id: "sun", name: "Sunday", pos: 0},
-                {_id: "mon", name: "Monday", pos: 1},
-                {_id: "tue", name: "Tuesday", pos: 2},
-                {_id: "wed", name: "Wednesday", pos: 3},
-                {_id: "thu", name: "Thursday", pos: 4},
-                {_id: "fri", name: "Friday", pos: 5},
-                {_id: "sat", name: "Saturday", pos: 6},
-            ],
-
-            months: [
-                {_id: "jan", name: "Jan"},
-                {_id: "feb", name: "Feb"},
-                {_id: "mar", name: "Mar"},
-                {_id: "apr", name: "Apr"},
-                {_id: "may", name: "May"},
-                {_id: "jun", name: "Jun"},
-                {_id: "jul", name: "Jul"},
-                {_id: "aug", name: "Aug"},
-                {_id: "sep", name: "Sep"},
-                {_id: "oct", name: "Oct"},
-                {_id: "nov", name: "Nov"},
-                {_id: "dec", name: "Dec"},
-            ]
-        },
-    }
+            title: "Add or Edit Your Notes",
+            save: "Save Changes",
+            remove: "Remove Note",
+            fieldName: {label: "Note"},
+            noUser: "Your notes can not be accessed.  <br><br>You are not signed in or do not have an account."
+        }
+    },
 }
 

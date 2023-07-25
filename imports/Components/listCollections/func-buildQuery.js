@@ -17,22 +17,23 @@
 export function buildQuery(str, fields) {
     let list = fields.filter( (fld) => fld.search );
     let compound = {};
+    let string = str.replace(/\s+/g, '+');
 
     switch(true){
-        case str.trim().length < 1:
+        case string.trim().length < 1:
             compound = {};
             break;
 
-        case !str.includes(";") && !str.includes("+"):
+        case !string.includes(";") && !string.includes("+"):
             compound = simpleSearch(str, list);
             break;
 
-        case str.includes(";"):
-            compound = orSplit(str, list);
+        case string.includes(";"):
+            compound = orSplit(string, list);
             break;
 
-        case !str.includes(";") && str.includes("+"):
-            compound = andSplit(str, list);
+        case !string.includes(";") && string.includes("+"):
+            compound = andSplit(string, list);
             break;
     }
 

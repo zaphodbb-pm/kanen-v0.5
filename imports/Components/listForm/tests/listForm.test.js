@@ -35,6 +35,8 @@ const confForm = {
 
 
 /* step 2: construct test data */
+import {components} from "../../formBuilder/fields/func-registerAllFields";
+
 const props = {
   confList: confList,
   confForm: confForm,
@@ -46,7 +48,9 @@ const props = {
       hdr: "Document List",
       addNew: "Add New"
     }
-  }
+  },
+
+  components: components
 }
 
 
@@ -75,7 +79,7 @@ const fieldHR = [1, 0, 0, 0];
 describe(`component ${compName}.svelte`, function () {
 
   before(function(){
-    //stub = sinon.stub(Meteor, "callAsync").returns([]);
+
 
     /** render component with appropriate props **/
     instance = new CUT({

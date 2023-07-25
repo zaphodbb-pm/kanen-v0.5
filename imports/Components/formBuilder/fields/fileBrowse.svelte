@@ -115,7 +115,26 @@
             reader.onload = () => {
                 if (field.params.format === "image") {
                     showTxtImg = false;
-                    icon_img = reader.result;
+
+                    if(field.params?.resizeWidth){
+                        let image = new Image();
+
+                        image.onload = async () => {
+                            icon_img = resizeImage(image, field.params.resizeWidth);
+                            inValue = {name: file.name, src: icon_img};
+
+                            /**
+                             * @event on-inputentry
+                             * @type {object} - {value: keyValue, error: false}
+                             */
+                            dispatch('on-inputentry', {value: inValue, error: false} );
+                        }
+
+                        image.src = reader.result;
+
+                    }else{
+                        icon_img = reader.result;
+                    }
 
                 } else {
                     showTxtImg = true;
@@ -123,7 +142,7 @@
                 }
 
                 messages = file.name;
-                inValue = {name: file.name, src: reader.result};
+                inValue = {name: file.name, src: icon_img};
 
                 /**
                  * @event on-inputentry
@@ -135,7 +154,7 @@
             if (field.params && field.params.format) {
                 (field.params.format === "image") ? reader.readAsDataURL(file) : reader.readAsText(file);
             } else {
-                console.warn("Cannot read parms", field.params);
+                console.warn("Cannot read params", field.params);
             }
         }
     }
@@ -159,6 +178,10 @@
          * @type {object} - {value: keyValue, error: false}
          */
         dispatch('on-inputentry', {value: inValue, error: false} );
+
+        //** clear input value initial state
+        const input = document.getElementById(className);
+        input.value = "";
     }
 
     function cropImage() {
@@ -188,6 +211,29 @@
         showModal = "hide-modal";
     }
 
+    function resizeImage(image, resizeWidth) {
+        //*** use canvas element to resize the image
+        const canvas = document.createElement('canvas');
+        const width = image.width;
+        const height = image.height;
+        const ratio = height / width;
+        const max_width = Math.min(width, resizeWidth ?? 400);
+
+        canvas.width = max_width;
+        canvas.height = max_width * ratio;
+
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillRect(0, 0, max_width, max_width * ratio);
+        ctx.drawImage(image, 0, 0, max_width, max_width * ratio);
+
+        let resizedImage = canvas.toDataURL("image/jpeg");
+
+        canvas.remove();
+
+        return resizedImage;
+    }
+
 
 </script>
 
@@ -198,7 +244,7 @@
     <button type="button"  class="is-primary is-height-browse" title="{field.field}">
         <span class="icon-bg-folder is-medium"></span>
 
-        <input type="file" class="input file-input" on:input="{setfile}" aria-label="load file">
+        <input id="{className}" type="file" class="input file-input" on:input="{setfile}" aria-label="load file">
     </button>
 
     <label class="is-height-browse is-file-name">

@@ -1,11 +1,11 @@
 {
-  "short_name": "Kanen",
-  "name": "Kanen",
+  "short_name": "BeneVictu",
+  "name": "Bene Victu Nutrition",
   "start_url": "/home",
   "display": "standalone",
   "icons": [
     {
-      "src": "/logo-seedling-dark.svg",
+      "src": "/logo-svg.svg",
       "sizes": "48x48 72x72 96x96 128x128 150x150 256x256",
       "type": "image/svg+xml",
       "purpose": "any"
