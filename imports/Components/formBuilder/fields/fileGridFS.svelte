@@ -240,7 +240,7 @@
                 const imagePath = Meteor.settings.public.imagesRoute;
 
                 if(imagePath){
-                    link = `${imagePath}/${coll}/${fileId}`
+                    link = `${imagePath}/${fileId}`;
                 }else{
                     link = Images.link(fileData);
 
@@ -267,7 +267,7 @@
                 const thumbnailPath = Meteor.settings.public.thumbnailsRoute;
 
                 if(thumbnailPath){
-                    link = `${thumbnailPath}/${coll}/${fileId}`
+                    link = `${thumbnailPath}/${fileId}`;
                 }else{
                     link = Thumbnails.link(fileData);
 

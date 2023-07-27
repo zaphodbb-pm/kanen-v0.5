@@ -39,8 +39,8 @@ import {BrowserPolicy} from "meteor/browser-policy-common";
 BrowserPolicy.content.allowInlineScripts();
 BrowserPolicy.content.allowScriptOrigin("https://www.googletagmanager.com");
 BrowserPolicy.content.allowImageOrigin("https://www.googletagmanager.com");
-BrowserPolicy.content.allowImageOrigin("https://finecookingimages.oss.nodechef.com");
-BrowserPolicy.content.allowImageOrigin("https://finecookingthumbnails.oss.nodechef.com");
+BrowserPolicy.content.allowImageOrigin("https://bv-images.oss.nodechef.com");
+BrowserPolicy.content.allowImageOrigin("https://bv-thumbnails.oss.nodechef.com");
 BrowserPolicy.content.allowOriginForAll('blob:');
 
 
