@@ -68,7 +68,7 @@ export const Images = new FilesCollection({
         return allowAccess;
     },
 
-    onAfterUpload: createAfterUpload(bound, s3, s3Conf.images_bucket, "images"),
+    onAfterUpload: createAfterUpload(bound, s3, s3Conf.images_bucket, ""),
     interceptDownload: createInterceptDownload(s3, s3Conf.images_bucket),
     onAfterRemove: createOnAfterRemove(bound, s3, s3Conf.images_bucket)
 });
@@ -103,7 +103,7 @@ export const Thumbnails = new FilesCollection({
         return allowAccess;
     },
 
-    onAfterUpload: createAfterUpload(bound, s3, s3Conf.thumbnails_bucket, "thumbnails"),
+    onAfterUpload: createAfterUpload(bound, s3, s3Conf.thumbnails_bucket, ""),
     interceptDownload: createInterceptDownload(s3, s3Conf.thumbnails_bucket),
     onAfterRemove: createOnAfterRemove(bound, s3, s3Conf.thumbnails_bucket)
 });

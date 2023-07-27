@@ -50,29 +50,8 @@ describe("run page tests", function () {
         if(user) {
             await import("../both/PageStructure/tests/appStructure.test");
 
+            //** common pages
             await import("../both/Pages/Home/tests/homePage.test");
-
-            await import("../both/Pages/Template/tests/templatePage.test");
-
-            await import("../both/Pages/Icons/tests/iconsPage.test");
-
-            await import("../both/Pages/Colours/tests/coloursPage.test");
-
-            await import("../both/Pages/FooterExtras/tests/footerExtrasPage.test");
-
-            await import("../both/Pages/Learn/tests/learnPage.test");
-
-            await import("../both/Pages/Testing/tests/testingPage.test");
-
-            await import("../both/Pages/Cards/tests/cardsPage.test");
-
-            await import("../both/Pages/WidgetsContent/tests/widgetsContent.test");
-
-            await import("../both/Pages/AdminPanel/tests/adminPanelPage.test");
-
-            await import("../both/Pages/Starter/tests/starterPage.test");
-
-            await import("../both/Pages/PubSub/tests/pubSubPage.test");
 
             await import("../both/Pages/Login/tests/loginPage.test");
 
@@ -80,17 +59,37 @@ describe("run page tests", function () {
 
             await import("../both/Pages/ChangePassword/tests/changePasswordPage.test");
 
-            await import("../both/Pages/BuildContent/tests/buildContentPage.test");
-
-            await import("../both/Pages/Documentation/tests/documentationPage.test");
-
+            //** admin pages
             await import("../both/Pages/Users/tests/usersPage.test");
 
             await import("../both/Pages/SysConfig/tests/sysConfigPage.test");
 
             await import("../both/Pages/ExportImport/tests/exportImportPage.test");
 
-            await import("../both/Pages/LogsSystem/tests/logsSystemPage.test");
+            //** application pages
+            await import("../both/Pages/Articles/tests/articlesPage.test");
+            await import("../both/Pages/ArticlesSearch/tests/articlesSearchPage.test");
+            await import("../both/Pages/ArticlesShow/tests/articlesShowPage.test");
+
+            await import("../both/Pages/CookingNow/tests/cookingNowPage.test");
+            await import("../both/Pages/CookingNowSearch/tests/cookingNowSearchPage.test");
+
+            await import("../both/Pages/Magazines/tests/magazinesPage.test");
+            await import("../both/Pages/MagazinesSearch/tests/magazinesSearchPage.test");
+
+            await import("../both/Pages/News/tests/newsPage.test");
+            await import("../both/Pages/NewsSearch/tests/newsSearchPage.test");
+
+            await import("../both/Pages/Recipes/tests/recipesPage.test");
+            await import("../both/Pages/RecipesSearch/tests/recipesSearchPage.test");
+            await import("../both/Pages/RecipesShow/tests/recipesShowPage.test");
+
+            await import("../both/Pages/TestKitchen/tests/testKitchenPage.test");
+            await import("../both/Pages/TestKitchenSearch/tests/testKitchenSearchPage.test");
+            await import("../both/Pages/TestKitchenShow/tests/testKitchenShowPage.test");
+
+            await import("../both/Pages/Favourites/tests/favouritesPage.test");
+            await import("../both/Pages/RecipeBox/tests/recipeBoxPage.test");
         }
 
     });

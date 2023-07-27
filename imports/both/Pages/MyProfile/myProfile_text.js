@@ -33,6 +33,12 @@ export const page = {
                 cloneBtn: "Clone Item",
                 createBtn: "Create New Entry",
                 editBtn: "Save Edit",
+
+                invalidInput: {
+                    prefix: "Found",
+                    suffix1: "missing input for field:",
+                    suffixn: "missing input for fields:"
+                }
             },
 
             formTabs: ["Main", "My Address"],
@@ -78,7 +84,7 @@ export const page = {
             },
 
             province: {
-                label: "Province",
+                label: "Province / State",
                 helpText: "",
             },
 
@@ -88,7 +94,7 @@ export const page = {
             },
 
             postCode: {
-                label: "Post",
+                label: "Postal / Zip Code",
                 helpText: "",
             },
         }

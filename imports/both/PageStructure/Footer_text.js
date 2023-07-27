@@ -10,31 +10,15 @@
 
 export const footer = {
         en: {
-                title:  "Footer Title",
-                notice: "notice text",
-                copyright: " by ",
-                company: "Your Company Here Inc."
+                title:  "Eat well to Live Better.",
+
+                link1: "Item Read",
+                link2: "Item Edits",
+                link5: "System",
+                linkGeneral: "Resources"
         }
 };
 
-export const gdpr = {
-        en: {
-                elementId: "gdprAsk",
-
-                title: "Cookies & Privacy Policy",
-
-                msg: "This website stores cookies on your computer. These cookies are used to collect information about " +
-                    "how you interact with our website and allow us to remember you. We use this information in order to improve and " +
-                    "customize your browsing experience.  " +
-                    'Learn more about how to <a href="https://cookiesandyou.com/" target="_blank" rel="noopener">manage</a> your cookies.',
-
-                btnAccept: "Accept",
-
-                btnDecline: "Decline",
-
-                debug: false
-        }
-}
 
 export const pwa = {
         en: {

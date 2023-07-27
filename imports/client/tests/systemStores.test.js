@@ -4,8 +4,8 @@ import * as stores from '../systemStores';
 describe("Systems Stores check", function () {
     let count = Object.keys(stores);
 
-    it("check for 9 fields", function() {
-        assert.strictEqual(count.length, 9);
+    it("check for 10 fields", function() {
+        assert.strictEqual(count.length, 10);
     });
 
     count.forEach( item => {

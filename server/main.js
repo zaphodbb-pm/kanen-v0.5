@@ -21,31 +21,30 @@ import '/imports/server/indexCollections';
 
 
 //** isomorphic routines
-import {LogsUsers} from "/imports/both/collectionDefs";
-import Version from '/imports/both/version';
+//import Version from '/imports/both/version';
 
 
 //** load method modules
 import '/imports/server/Methods/system';
 import '/imports/server/Methods/storeDoc';
+import '/imports/server/Methods/storeImages';
 import '/imports/server/Methods/readDocs';
 import '/imports/server/Methods/exportImport';
 import '/imports/server/Methods/userMgmt';
-import '/imports/server/Methods/documentation'
-import '/imports/server/Methods/pubSubFixtures'
+import '/imports/server/Methods/recipeBox';
 
-//** special Publish collections
-import '/imports/server/Publish/realTime'
 
 //** control browser security policy
 import {BrowserPolicy} from "meteor/browser-policy-common";
 BrowserPolicy.content.allowInlineScripts();
 BrowserPolicy.content.allowScriptOrigin("https://www.googletagmanager.com");
 BrowserPolicy.content.allowImageOrigin("https://www.googletagmanager.com");
+BrowserPolicy.content.allowImageOrigin("https://finecookingimages.oss.nodechef.com");
+BrowserPolicy.content.allowImageOrigin("https://finecookingthumbnails.oss.nodechef.com");
+BrowserPolicy.content.allowOriginForAll('blob:');
 
 
 //** main configuration set up
-import {writeLog} from '/imports/server/Functions/writeLog'
 
 //** debug routines
 import '/imports/Functions/utilities/showServerConsole';
@@ -58,10 +57,6 @@ Meteor.startup(() => {
     //* check to make sure we can access the system
     //* if no accounts are found, then create a default administrator / administrator account
     initializeAdmin();
-
-    //* set up user accounts and login capability
-    configAccountsPackage();
-    registerExternalLogin();
 
     //* use rate limiting for key methods
     const THROTTLE_METHODS = Object.keys(Meteor.server.method_handlers)
@@ -77,58 +72,8 @@ Meteor.startup(() => {
 });
 
 
-//** track system restarts
-if (Meteor.isServer) {
-    let startData = {
-        event: "startup",
-        description: "Meteor startup sequence",
-        version: Version.VERSION,
-        app: Version.APP_NAME,
-        update: Version.LAST_UPDATE
-    };
 
 
-
-    //***** example of sending server logs to client browser
-    //***** args = label; single variable: object, array, string, number, etc; enable sending
-    Meteor.setTimeout(function(){
-        let msg = {
-            object: startData,
-            array: [1, 2, 3, 4],
-            text: "this is some text",
-            number: 42
-        };
-
-        showServerLogs("LogsSystem", msg, true);
-    }, 5000);
-    //****** end of example
-
-
-    writeLog("LogsSystem", startData);
-}
-
-//** track user login / out activity
-if (Meteor.isServer) {
-    Accounts.onLogin( (data) => {
-        let user = Meteor.user();
-
-        if(user){
-            let doc = buildUserDoc("login", data, user);
-            LogsUsers.insert(doc);
-        }
-    });
-
-    Accounts.onLogout( (data) => {
-        if(data && data.user && data.user._id){
-            let user = Meteor.users.findOne({_id: data.user._id});
-
-            if(user){
-                let doc = buildUserDoc("logout", data, user);
-                LogsUsers.insert(doc);
-            }
-        }
-    });
-}
 
 //** When checking external services for account validation / login,
 //** the external services tries to CREATE a new user if no match exists
@@ -164,51 +109,148 @@ if (Meteor.isServer) {
 }
 
 
+//** email sending setup
+process.env.MAIL_URL = Meteor.settings.MAIL_URL;
+
+console.log("MAIL_URL", process.env.MAIL_URL);
+
+//** set up user accounts and login capability
+configAccountsPackage();
+registerExternalLogin();
 
 
-
+//** configure Accounts package and email templates
 function configAccountsPackage(){
-    //* configure Accounts package
-    //** remove ability for user to create new accounts
+    //*** remove ability for user to create new accounts
     Accounts.config({forbidClientAccountCreation: true});
 
-    //** customize Accounts email template
-    Accounts.emailTemplates.siteName = "Kanen";
-    Accounts.emailTemplates.from = "no-reply@kanen.com";
-    Accounts.emailTemplates.enrollAccount.text = (user, url) => {
-        const adjUrl = url.replace("#/", "");
+    //*** configure const text strings
 
-        return  "Hello, " +  user.username + "\n\n" +
-            "To start using the Kanen service, simply click the link below. \n"  +
-            adjUrl + "\n\n" +
-            "Thank you from Kanen Support"
-    };
-}
+    const styles = `
+    <style>
+            .main-text {
+                width: 400px; 
+                font-size: 15px; 
+                line-height: 1.5;
+            }
+        
+            .button {
+                display: block;
+                box-shadow: none;
+                border-radius: 6px;
+                margin-left: auto;
+                margin-right: auto;
+                
+                padding: 10px 30px;
+                cursor: pointer;
+                
+                background-color: #18863D;
+                border-color: transparent;
+                color: #fff;
+                vertical-align: center;
+            }
+            
+            .button a {
+                display:inline-block;
+                text-align: center;                
+                text-decoration: none;
+                white-space: nowrap;
+                
+                font-size: 18px;
+                color: #fff;
+                font-weight: 600;
+            }
+        </style>
+    `;
 
+    //*** general site configuration
+    Accounts.emailTemplates.siteName = 'Fine_Cooking';
+    Accounts.emailTemplates.from = "requiem.finecooking@gmail.com";
 
+    //*** customize email templates
+    Accounts.emailTemplates.resetPassword = {
+        subject() {
+            return 'Reset your Fine Cooking password.';
+        },
+        text(user, url) {
+            const parseUrl = url.split("#/reset-password/");
+            const adjUrl = `${parseUrl[0]}changePassword?type=reset&token=${parseUrl[1]}`;
 
-function buildUserDoc(type, fields, user){
-    let now = new Date();
-    let connect = fields.connection;
-
-    return {
-        tag: type,
-        author: fields.user._id,
-        username: user.username,
-        tenantId: user.tenantId,
-        role: user.role && user.role._id ? user.role._id : null,
-        email: user.emails && user.emails[0].address ? user.emails[0].address : "n/a",
-
-
-        connection: {
-            connectionId: connect.id,
-            ipAddr: fields.connection.clientAddress,
-            userAgent: connect.httpHeaders["user-agent"], //fields["connection"]["user-agent"],
-            logTime: now.toISOString(),
+            return `
+        Hello ${user.username}\n\n,
+        
+        To reset your password on the Fine Cooking site, simply click the link below:\n
+        
+        ${adjUrl}\n
+        
+        From Requiem FC Support.
+        `
         },
 
-        updatedAt: now.getTime()
+        html(user, url){
+            const parseUrl = url.split("#/reset-password/");
+            const adjUrl = `${parseUrl[0]}changePassword?type=reset&token=${parseUrl[1]}`;
+
+            let name = user?.username ?? "subscriber";
+
+
+            return `
+                <div class="main-text">
+                    <p>Hello ${name},</p>
+                  
+                    <p>To reset your password on the Fine Cooking site, simply click the link below 
+                    and enter your new password in the form panel.</p>                       
+                    
+                    <p style="width: 100%; margin: 32px 0;">
+                        <button type="button" class="button">
+                            <a href="${adjUrl}">Reset Password</a>
+                        </button>
+                    </p>
+                </div>
+                
+                ${styles}
+            `
+        }
     };
+
+
+    Accounts.emailTemplates.enrollAccount.text = (user, url) => {
+        const parseUrl = url.split("#/enroll-account/");
+        const adjUrl = `${parseUrl[0]}changePassword?type=reset&token=${parseUrl[1]}`;
+
+        return  "Hello, " +  user.username + "\n\n" +
+            "To start using the Fine Cooking service, simply click the link below. \n"  +
+            adjUrl + "\n\n" +
+            "Thank you for joining this archive site."
+    };
+
+    Accounts.emailTemplates.enrollAccount.html = (user, url) => {
+        const parseUrl = url.split("#/enroll-account/");
+        const adjUrl = `${parseUrl[0]}changePassword?type=reset&token=${parseUrl[1]}`;
+
+        let name = user?.username ?? "subscriber";
+
+
+        return `
+            <div class="main-text">
+                <p>Hello ${name},</p>
+              
+                <p>Thank you for joining this <b>Requiem for Fine Cooking</b> archive site.  
+                Before you can enjoy the benefits of using the Recipe Box, 
+                you will need to complete the enrollment process to this service.</p>
+                           
+                
+                <p style="width: 100%; margin: 32px 0;">
+                    <button type="button" class="button">
+                        <a href="${adjUrl}">Enroll Now</a>
+                    </button>
+                </p>
+            </div>
+            
+            ${styles}
+        `
+    };
+
 }
 
 
@@ -243,12 +285,12 @@ function initializeAdmin(){
         let test = Accounts.createUser(item);
 
         let addins = {
-            emailMain: "admin@example.com",
+            emailMain: "superadmin@example.com",
             pwdMain: "",
             admin: true,
             active: true,
             apiKey: "",
-            role: "",
+            role: "administrator",
             tenantId: "general",
             sortName: "administrator",
             groups: "administrator",

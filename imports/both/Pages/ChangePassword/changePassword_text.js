@@ -13,8 +13,8 @@
 //** page header; set to null to not display header or a specific item
 export const header = {
     en: {
-        title:  "Change Password Form",
-        lead:   "Start with your old password and then enter a new one.",
+        title:  "Manage Password Form",
+        subtitle:   "Either change your password or reset it.",
         body:   "",
     }
 };
@@ -25,10 +25,21 @@ export const page = {
     page: {
         en: {
             //* card general labels
-            btnSend: "Change Password",
+            formPassword: {
+                change: "Change Password",
+                reset: "Reset Password",
+            },
+
+            //btnSend: "Change Password",
 
             //* card field specific labels
-            labelTitle: "Change Password",
+            formTitle: {
+                change: "Change Password",
+                reset: "Reset Password",
+            }
+
+            //labelTitle: "Change Password",
+
         }
     },
 

@@ -4,8 +4,8 @@ import fields from '../text_common';
 describe("Text_Common check", function () {
     let count = Object.keys(fields);
 
-    it("check for 5 fields", function() {
-        assert.strictEqual(count.length, 5);
+    it("check for 4 fields", function() {
+        assert.strictEqual(count.length, 4);
     });
 
     count.forEach( item => {

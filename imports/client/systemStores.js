@@ -39,6 +39,8 @@ export let userPosition = writable( {} );
 export let userExtras = writable( {} );
 export let userLoggedIn = writable( null);
 
+export let myMenus = writable( []);
+
 //* set extra route information
 export let showRoutes = writable( [] );
 

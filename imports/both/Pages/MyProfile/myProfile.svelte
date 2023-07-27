@@ -1,16 +1,19 @@
-<script>/**
- * MyProfile page is a form to populate the profile field in the user object.
- *
- * @name myProfile
- * @module
- * @memberOf Pages:myProfile
- * @locus Client
- *
- * @param {String} currentRoute - page path name
- * @param {Object} params - any parameters from path url
- * @param {Object} query - any query fragment from path url
- *
- */
+<!--suppress UnnecessaryLabelJS -->
+<script>
+
+    /**
+     * MyProfile page is a form to populate the profile field in the user object.
+     *
+     * @name myProfile
+     * @module
+     * @memberOf Pages:myProfile
+     * @locus Client
+     *
+     * @param {String} currentRoute - page path name
+     * @param {Object} params - any parameters from path url
+     * @param {Object} query - any query fragment from path url
+     *
+     */
 
 
     //* page set-up boilerplate *************************************
@@ -51,9 +54,7 @@
 
     let submitted = false;
     let currentDoc = {};
-    let showList = false;
-    let showForm = false;
-    let releaseEdit = false;
+    let user;
 
     let  baseProfile = {
         id: "",
@@ -62,24 +63,27 @@
         data: {email: " "},
     };
 
+    $m: user = Meteor.user();
 
-    onMount( () => {
+
+    onMount( async () => {
         currentDoc = baseProfile;
-        getMyDoc();
+
+        Meteor.setTimeout(function(){
+            getMyDoc(user);
+        }, 100);
     });
 
     function docSent(msg) {
         if (msg) {
-            getMyDoc();
+            getMyDoc(user);
         }
     }
 
-    function getMyDoc() {
+    function getMyDoc(me) {
         currentDoc = baseProfile;
 
         //** get current logged in user
-        let me = Meteor.user();
-
         if(me){
             currentDoc = {
                 id: me._id,
@@ -97,6 +101,7 @@
 <PageHeader header="{pageHeader}" />
 
 <main class="main-content">
+
     <div id="my-profile-display" class="column">
 
         <Form_Holder

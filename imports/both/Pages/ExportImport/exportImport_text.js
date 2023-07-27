@@ -53,13 +53,18 @@ export const page = {
                 tag: {_id: "none", name: "Select Collection"},
                 selects: [
                     {_id: 'none', name: "Select One ..."},
-                    {_id: 'learn', name: "Learn"},
-                    {_id: 'starter', name: "Starter"},
-                    {_id: 'notifications', name: "Notifications"},
+                    {_id: 'articles', name: "Articles"},
+                    {_id: 'recipes', name: "Recipes"},
+                    {_id: 'CookingNow', name: "CookingNow"},
+                    {_id: 'testKitchen', name: "TestKitchen"},
+                    {_id: 'magazines', name: "Magazines"},
+                    {_id: 'editions', name: "Editions"},
+                    {_id: 'books', name: "Books"},
+                    {_id: 'favourites', name: "Favourites"},
+                    {_id: 'news', name: "News"},
 
                     {_id: 'sysConfig', name: "System Config"},
                     {_id: 'logsSystem', name: "System Logs"},
-                    {_id: 'LogsUsers', name: "User Logs"},
                     {_id: 'users', name: "Users"},
                 ]
             },

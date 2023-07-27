@@ -69,6 +69,11 @@ export const page = {
                 helpText: "",
             },
 
+            storePrefix: {
+                label: "Object Store URL prefix",
+                helpText: "Large files such as pdf are stored in the object store service.  These will have a common prefix URL.",
+            },
+
             logInterval: {
                 label: "Log Interval",
                 helpText: "Set time (in milliseconds) to sample sensor and then report log.  Default is 2000",

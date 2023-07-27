@@ -71,7 +71,7 @@ export default [
         css: "is-fullwidth",
         params: {type: "staticSelect"},
         optional: true,
-        defaultValue: {_id: "basic", name: "Basic"},
+        defaultValue: {_id: "standard", name: "Standard"},
     },
 
     {
@@ -100,7 +100,7 @@ export default [
         attributes: {type: "text", maxlength: 128},
         params: {},
         optional: true,
-        defaultValue: "",
+        defaultValue: "general",
     },
 
     {

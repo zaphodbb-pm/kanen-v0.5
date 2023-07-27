@@ -4,8 +4,8 @@ import {allRoutes} from '../routes';
 describe("Routes check", function () {
 
 
-    it("check for 22 routes", function() {
-        assert.strictEqual(allRoutes.length, 22);
+    it("check for 25 routes", function() {
+        assert.strictEqual(allRoutes.length, 25);
     });
 
     allRoutes.forEach( item => {

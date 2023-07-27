@@ -12,9 +12,8 @@
 
 export const pageConfig =  {
 
-    form: [
-
-        {
+    form: {
+        oldPassword: {
             field: "oldPassword",
             fieldType: "input",
             optional: true,
@@ -26,7 +25,8 @@ export const pageConfig =  {
             value: "",              // force value; usual set by formHolder
         },
 
-        {
+
+        newPassword: {
             field: "newPassword",
             fieldType: "input",
             optional: true,
@@ -37,5 +37,5 @@ export const pageConfig =  {
             defaultValue: "",
             value: "",              // force value; usual set by formHolder
         }
-    ]
-};
+    }
+}

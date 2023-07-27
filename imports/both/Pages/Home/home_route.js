@@ -34,6 +34,6 @@ export default {
 
     icon: icon,                             // Navbar icon to show
     label: i18n(nav, "", lang),        // Navbar text to show
-    group: 0,                               // for side navigation; group routes into a block
+    group: 4,                               // for side navigation; group routes into a block
     isNavMobile: false,                     // (optional) show link in mobile nav block at bottom or top
 };

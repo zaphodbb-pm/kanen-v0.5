@@ -20,6 +20,7 @@
     }
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.378.0",
     "@babel/runtime": "^7.22.6",
     "aws-sdk": "^2.1421.0",
     "bcrypt": "^5.1.0",

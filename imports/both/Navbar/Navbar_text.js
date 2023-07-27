@@ -28,6 +28,10 @@ export const navbar = {
 
         notifications: {
             read: "Dismiss"
+        },
+
+        contentLinks: {
+            label: "Edits"
         }
     }
 };

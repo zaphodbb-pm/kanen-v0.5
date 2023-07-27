@@ -18,17 +18,12 @@
     import {onMount} from "svelte";
 
     const widgetText = i18n(widgetbar, "", $lang);
-    const textSizesValues = ["100%", "125%", "175%"];
 
     //** wait until component is available before checking the DOM
     onMount( () => {
         //*** check local storage for any light / dark theme mode setting
         let theme = localStorage.getItem("site-theme-mode") || "Light";
         setTheme(theme);
-
-        //*** fix text size across page refreshes
-        let size = localStorage.getItem("site-size-setting") || "100%";
-        setTextSize(size)
     });
 
 
@@ -44,14 +39,6 @@
             let radiobtn = document.getElementById("theme-mode-light");
             radiobtn.checked = true;
         }
-    }
-
-    function setTextSize(size){
-        document.querySelector(':root').style.setProperty("--base-html-factor", size);
-        localStorage.setItem("site-size-setting", size);
-
-        let idx = textSizesValues.findIndex( elem => elem ===  size);
-        document.siteTextSizes.textSizes[idx].checked = true;
     }
 
 </script>
@@ -79,24 +66,29 @@
         </fieldset>
     </form>
 
-    <form class="widgetbar-radios" name="siteTextSizes">
-        <fieldset>
-            <legend>{widgetText['legendSize']}</legend>
-            <label>
-                <input type="radio" name="textSizes" checked on:change="{() => setTextSize(textSizesValues[0]) }"  title="{widgetText['radioS1']}">
-                <span>T1</span>
-            </label>
+    <div class="widgetbar-radios">
+        <a href="https://bmc.link/requiemFC" class="buy-coffee" target="_blank">
+            <img class="has-width-2rem"
+                 src="/images/buy-me-a-coffee.png"
+                 alt="coffee">
 
-            <label>
-                <input type="radio" name="textSizes" on:change="{() => setTextSize(textSizesValues[1]) }" title="{widgetText['radioS2']}">
-                <span>T2</span>
-            </label>
-
-            <label>
-                <input type="radio" name="textSizes" on:change="{() => setTextSize(textSizesValues[2]) }" title="{widgetText['radioS3']}">
-                <span>T3</span>
-            </label>
-        </fieldset>
-    </form>
+            <span>Buy Me <br> a Coffee</span>
+        </a>
+    </div>
 
 </div>
+
+
+<style>
+    .buy-coffee {
+        display: flex;
+        column-gap: 0.25rem;
+    }
+
+    .buy-coffee span {
+        margin-left: 0.25rem;
+        padding-right: 1rem;
+        font-size: 0.7rem;
+        line-height: 1;
+    }
+</style>

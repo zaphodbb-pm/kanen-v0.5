@@ -9,7 +9,7 @@
      *
      * @param {Object} header
      * @param {String} header.title
-     * @param {String} header.lead
+     * @param {String} header.subtitle
      * @param {String} header.body
      */
 

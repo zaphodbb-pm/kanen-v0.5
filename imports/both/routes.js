@@ -40,21 +40,44 @@
 
 //* get page configuration information
 import Home from './Pages/Home/home_route';
-import Template from './Pages/Template/template_route';
-import MiniWiki from './Pages/Learn/learn_route';
+import ArticlesSearch from "./Pages/ArticlesSearch/articlesSearch_route";
+import ArticlesShow from "./Pages/ArticlesShow/articlesShow_route";
 
-import AdminPanel from './Pages/AdminPanel/adminPanel_route';
+import RecipesSearch from "./Pages/RecipesSearch/recipesSearch_route";
+import RecipesShow from "./Pages/RecipesShow/recipesShow_route";
+
+import TestKitchenSearch from "./Pages/TestKitchenSearch/testKitchenSearch_route";
+import TestKitchenShow from "./Pages/TestKitchenShow/testKitchenShow_route";
+
+import CookingNowSearch from "./Pages/CookingNowSearch/cookingNowSearch_route";
+import RecipeBox from "./Pages/RecipeBox/recipeBox_route";
+
+import MagazinesSearch from "./Pages/MagazinesSearch/magazinesSearch_route";
+import EditionsSearch from "./Pages/EditionsSearch/editionsSearch_route";
+import EditionsShow from "./Pages/EditionsShow/editionsShow_route";
+import NewsSearch from "./Pages/NewsSearch/newsSearch_route";
+
+import Articles from './Pages/Articles/articles_route';
+import Recipes from './Pages/Recipes/recipes_route';
+import CookingNow from "./Pages/CookingNow/cookingNow_route";
+import TestKitchen from './Pages/TestKitchen/testKitchen_route';
+import Magazines from "./Pages/Magazines/magazines_route";
+import Editions from "./Pages/Editions/editions_route";
+import Books from "./Pages/Books/books_route";
+import Favourites from "./Pages/Favourites/favourites_route";
+import Notes from "./Pages/Notes/notes_route";
+import Images from "./Pages/Images/images_route";
+import Thumbnails from "./Pages/Thumbnails/thumbnails_route";
+import News from "./Pages/News/news_route";
 
 import Login from './Pages/Login/login_route';
 import MyProfile from './Pages/MyProfile/myProfile_route';
 import ChangePassword from './Pages/ChangePassword/changePassword_route';
 
-import BuildContent from './Pages/BuildContent/buildContent_route';
-
 import Users from "./Pages/Users/users_route";
 import SysConfig from './Pages/SysConfig/sysConfig_route';
 import ExportImport from './Pages/ExportImport/exportImport_route';
-import LogsSystem from './Pages/LogsSystem/logsSystem_route';
+
 
 
 
@@ -63,21 +86,40 @@ import LogsSystem from './Pages/LogsSystem/logsSystem_route';
 const allRoutes = [
 
     Home,
-    Template,
-    MiniWiki,
+    ArticlesSearch,
+    RecipesSearch,
+    TestKitchenSearch,
+    CookingNowSearch,
+    RecipeBox,
 
-    AdminPanel,
+    ArticlesShow,
+    RecipesShow,
+    TestKitchenShow,
+    MagazinesSearch,
+    EditionsSearch,
+    EditionsShow,
+    NewsSearch,
 
-    Login,
+    Articles,
+    Recipes,
+    CookingNow,
+    TestKitchen,
+    Magazines,
+    Editions,
+    Books,
+    Favourites,
+    Notes,
+    Images,
+    Thumbnails,
+    News,
+
     MyProfile,
+    Login,
     ChangePassword,
-
-    BuildContent,
 
     Users,
     SysConfig,
     ExportImport,
-    LogsSystem,
 
     //* not found or 404 page is redirected to home page
     {

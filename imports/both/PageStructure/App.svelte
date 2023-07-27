@@ -29,29 +29,13 @@
     import commonText from '/imports/client/text_common';
     setContext("commonText", commonText);       // setup system-wide text strings (all languages)
 
-    import {sysConfig, sysDebug, showWidget, showRoutes} from '/imports/client/systemStores';
+    import {sysConfig, sysDebug, showWidget, showRoutes, myMenus} from '/imports/client/systemStores';
     import {allRoutes} from '../routes';
 
 
     //* set up user extra items
     import {buildNavLinks} from '/imports/Functions/application/buildNavLinks';
-    import {userLoggedIn, userExtras, userPosition} from '/imports/client/systemStores';
-
-
-    //* get user current position
-    navigator.geolocation.getCurrentPosition(function (position) {
-        $userPosition = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-
-            accuracy: position.coords.accuracy,
-            altitude: position.coords.altitude,
-            altitudeAccuracy: position.coords.altitudeAccuracy,
-            heading: position.coords.heading,
-            speed: position.coords.speed,
-        };
-
-    }, function(error){ console.log("nav geo error", error)});
+    import {userLoggedIn, userExtras} from '/imports/client/systemStores';
 
 
     //* load client-side system parameters
@@ -63,7 +47,9 @@
             $showWidget = !!(res.showWidgets);
             $sysDebug = res.showWidgets ? res.showWidgets : "";
         }
-    })
+    });
+
+
 
 
     //* respond to user login / logout / page refresh actions from parent Meteor instance
@@ -82,10 +68,24 @@
                     $showRoutes = navs;
                 }
             });
+
+            Meteor.call("getMenuList", function(err, res){
+                if(err){ console.log("getMenuList error", err); }
+
+                if(res){
+                    let result = res ? res : [];
+
+
+
+                    $myMenus = result ?? [];
+                }
+            });
+
         }else{
             let navs = buildNavLinks(null, allRoutes);
             $userExtras = null;
             $showRoutes = navs;
+            $myMenus = [];
         }
     }
 
@@ -114,7 +114,8 @@
     //* build out static Components
     import WidgetBar from '../Navbar/WidgetBar.svelte'
     import Navbar from '../Navbar/Navbar.svelte';
-    import SideNav from '../Navbar/NavSideMenu.svelte';
+    //import SideNav from '../Navbar/NavSideMenu.svelte';
+    //import RightPanel from "./RightPanel.svelte";
     import Footer from './Footer.svelte';
 
 </script>
@@ -125,20 +126,41 @@
 <svelte:window on:click={click} />
 
 <!-- full page scaffolding with insertable content area -->
-<div class="page-wrapper-widgets has-slidebar" id="page-layout-top">
 
+
+<div class="page-wrapper-widgets" id="page-layout-top">
     <WidgetBar />
 
     <Navbar currentRoute="{currentPath}" />
 
-    <SideNav currentRoute="{currentPath}" />
+    <!-- <SideNav currentRoute="{currentPath}" /> -->
 
     <!-- load <header> and <main> page content here -->
     {#if $pattern(currentPath) && currentPage}
-        <svelte:component this="{currentPage}" currentRoute="{currentPath}" {params} query="{$query.params}"/>
+        <svelte:component this="{currentPage}" currentRoute="{currentPath}" {params} query="{$query}"/>
     {/if}
 
     <Footer />
 
 </div>
 
+
+
+
+<!-- alternate right panel layout with no left side nav -->
+
+<!--
+<div class="page-wrapper-widgets-right-panel" id="page-layout-top">
+    <WidgetBar />
+
+    <Navbar currentRoute="{currentPath}" />
+
+    {#if $pattern(currentPath) && currentPage}
+        <svelte:component this="{currentPage}" currentRoute="{currentPath}" {params} query="{$query}"/>
+    {/if}
+
+    <RightPanel />
+
+    <Footer />
+</div>
+-->

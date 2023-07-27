@@ -26,6 +26,7 @@ import '../Functions/application/tests/getLang.test';
 import '../Functions/fileHandlers/tests/fileName.test';
 
 /* test client side formatter functions */
+import '../Functions/formatters/tests/capitalizeString.test';
 import '../Functions/formatters/tests/formatNumber.test';
 import '../Functions/formatters/tests/formatPhoneNumber.test';
 import '../Functions/formatters/tests/fractionalNumber.test';

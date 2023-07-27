@@ -1,4 +1,5 @@
 <script>
+
     /**
      * Side Navbar menu.
      *
@@ -14,24 +15,15 @@
     export let currentRoute = "";
 
     //* get route information and config
-    import {showRoutes} from '/imports/client/systemStores'
+    import {showRoutes} from '/imports/client/systemStores';
+    import {buildNavGroups} from "../../Functions/application/buildNavGroups";
+
 
     //* local reactive variables
     let groups = [];
 
-    $: {
-        let inRoutes = $showRoutes;
-        let buildGroups = [];
+    $: groups = buildNavGroups($showRoutes);
 
-        inRoutes.forEach( (route) => {
-            if( typeof route.group === "number"){
-                buildGroups[route.group] = buildGroups[route.group] ? buildGroups[route.group] : [];
-                buildGroups[route.group].push(route);
-            }
-        });
-
-        groups = buildGroups;
-    }
 </script>
 
 

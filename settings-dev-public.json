@@ -8,7 +8,7 @@
   "service_google_secret": "",
 
   "public": {
-    "demo_mode": true,
+    "demo_mode": false,
     "allow_documentation_build": false,
     "google_maps_api_key": "",
     "google_maps_base_uri": ""

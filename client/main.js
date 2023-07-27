@@ -17,7 +17,7 @@
 
 
 //* load Meteor specific files
-import '../imports/both/collectionDefs';
+//import '../imports/both/Collections/collectionDefs';      // everything is controlled through methods
 
 //* prepare to add PWA through service worker
 import { Meteor } from 'meteor/meteor';

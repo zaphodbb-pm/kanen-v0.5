@@ -1,5 +1,4 @@
-<script>
-    /**
+<script>/**
      * ChangePassword page accepts new password and requires old password before change is enabled.
      *
      * @name changePassword
@@ -12,6 +11,7 @@
      * @param {Object} query - any query fragment from path url
      *
      */
+
 
 
     //* page set-up boilerplate *************************************
@@ -32,10 +32,11 @@
 
 
     //* page-body support **************************
-    import {i18n} from '/imports/Functions/utilities/i18n'
-    import {lang, userExtras} from '/imports/client/systemStores'
-    import {roles} from './changePassword_nav'
+    import {i18n} from '/imports/Functions/utilities/i18n';
+    import {lang, userExtras} from '/imports/client/systemStores';
+    import {roles} from './changePassword_nav';
 
+    import {goto} from "svelte-pathfinder";
     import {components} from "../../../Components/formBuilder/fields/func-registerBasicFields";
     import Field_Wrapper from '/imports/Components/formBuilder/fieldWrapper.svelte'
 
@@ -51,6 +52,15 @@
     let formNewPassword = "";
     let messages = [];
     let watchFields = {};
+    let formType = "reset";
+
+
+    //** check type of password change needed
+    $: getType(query);
+
+    async function getType(query) {
+        formType = query.type ?? "reset";
+    }
 
 
     //** event handlers
@@ -75,21 +85,35 @@
         let userRole = $userExtras?.role?._id ?? "n/a";
         let verify = roles.write.includes(userRole);
 
-        if(verify){
-            Accounts.changePassword(formOldPassword, formNewPassword, function (err) {
-                if (err) {
-                    let msg = errMsg[err.error];
-                    if(typeof err === "object" && !msg){
-                        messages = [...messages, errMsg[401]];
-                    }else{
-                        messages = [...messages, msg];
+        switch(true) {
+            case verify && formType === "change":
+                Accounts.changePassword(formOldPassword, formNewPassword, function (err) {
+                    if (err) {
+                        let msg = errMsg[err.error];
+                        if(typeof err === "object" && !msg){
+                            messages = [...messages, errMsg[401]];
+                        }else{
+                            messages = [...messages, msg];
+                        }
+                    } else {
+                        messages = [...messages, errMsg[200]];
                     }
-                } else {
-                    messages = [...messages, errMsg[200]];
-                }
-            })
-        }else{
-            messages = [...messages, errMsg[404]];
+                });
+                break;
+
+            case formType === "reset" && !!query.token:
+                Accounts.resetPassword(query.token, formNewPassword, function(err){
+                    if(err){
+                        messages = [...messages, err];
+                    }else{
+                        goto("/recipesSearch");
+                    }
+                })
+
+                break;
+
+            default:
+                messages = [...messages, errMsg[404]];
         }
     }
 
@@ -102,29 +126,38 @@
 
     <div class="level-centered">
         <form class="form has-form-shadow has-width-20rem">
-            <header class="is-secondary">{text.labelTitle}</header>
+            <header class="is-secondary">{text?.formTitle[formType]}</header>
 
-            {#each formFields as field}
+            {#if formType === "change" }
                 <Field_Wrapper
                         class=""
-                        {field}
+                        field="{formFields.oldPassword}"
                         {components}
                         {watchFields}
-                        fieldText={formText[field.field]}
+                        fieldText={formText.oldPassword}
                         on:field-changed="{fieldChanged}"/>
-            {/each}
+            {/if}
+
+            <Field_Wrapper
+                    class=""
+                    field="{formFields.newPassword}"
+                    {components}
+                    {watchFields}
+                    fieldText={formText.newPassword}
+                    on:field-changed="{fieldChanged}"/>
 
             <button type="button" class="is-primary" on:click="{changePassword}">
-                {text.btnSend}
+                {text?.formPassword[formType]}
             </button>
 
             {#if messages.length > 0}
-                <div class="space-component"></div>
-                <div class="message is-warning-light" class:is-hidden="{messages.length < 1}">
-                    <div class="message-body">
-                        {#each messages as message}
-                            <p>{message}</p>
-                        {/each}
+                <div class="space-block-vert">
+                    <div class="message is-warning-light" class:is-hidden="{messages.length < 1}">
+                        <div class="message-body">
+                            {#each messages as message}
+                                <p>{message}</p>
+                            {/each}
+                        </div>
                     </div>
                 </div>
             {/if}

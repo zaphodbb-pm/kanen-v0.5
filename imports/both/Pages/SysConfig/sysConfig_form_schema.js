@@ -14,6 +14,7 @@
  *          postMaster =    String: "from" part of system sent email
  *          escalate =      Array: strings of email addresses
  *          confirmDelete = Boolean: forces a confirmation step before deleting a record
+ *          storePrefix =   String: pdf file download root url
  *
  *          logInterval =   Number: for real-time sensors, sets the polling rate
  *          maxLogRecords = Number: set maximum log records to retrieve for export to file
@@ -76,6 +77,18 @@ export default [
         optional: true,
         defaultValue: false,
     },
+
+    {
+        field: "storePrefix",
+        fieldType: "input",
+        optional: true,
+
+        tab: 0,
+        attributes: {type: "text", maxlength: 128},
+        params: {},
+        defaultValue: "",
+    },
+
 
     {
         field: "logInterval",

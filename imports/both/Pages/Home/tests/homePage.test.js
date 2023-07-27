@@ -6,8 +6,7 @@ const hasHdrSubTitle = false;
 const hasHdrBody = false;
 
 const tp_main_columns = 2;
-const tp_notes_columns = 3;
-const tp_tabs = 5;
+const tp_notes_columns = 2;
 
 let main;
 let heading;
@@ -112,7 +111,7 @@ describe(`page: ${pageName}`, function () {
             const content = mainColumns[0].innerHTML;
             assert.ok(content.length > 100, `Expected more content.`);
 
-            const figure = mainColumns[1].querySelector("figure");
+            const figure = mainColumns[0].querySelector("figure");
             const isFigure = !!figure;
             const hasSrc = figure.innerHTML.includes('img src="/');
             const hasAlt = figure.innerHTML.includes('alt="');
@@ -123,39 +122,11 @@ describe(`page: ${pageName}`, function () {
 
 
         it("has notes sections", function () {
-            const notes = main.querySelector("[data-tp_notes]");
+            const notes = main.querySelector("[data-tp_main_notes]");
             assert.ok(notes, `Missing "notes" region.`);
 
             const notesColumns = notes.querySelectorAll("section");
             assert.strictEqual(notesColumns.length, tp_notes_columns, `Expected ${tp_notes_columns} columns but found ${notesColumns.length}.`);
-        });
-
-
-        it("has tabbed region", function () {
-            const tabs = main.querySelector("[data-tp_tabs]");
-
-            const h3 = tabs.querySelector("h3");
-            assert.ok(h3 && h3.innerHTML.length > 3, `Missing "h3" or heading text.`);
-
-            const labels = tabs.querySelectorAll(".tabs input");
-            assert.ok(labels && labels.length === tp_tabs, `Expected ${tp_tabs} tabs but found ${labels.length}.`);
-
-            const labelsLi = tabs.querySelectorAll(".tabs > ul > li");
-            assert.ok(labelsLi && labelsLi.length === tp_tabs, `Expected ${tp_tabs} tabs ul li but found ${labelsLi.length}.`);
-
-            const sections = tabs.querySelectorAll(".tabs .tab-content section");
-            assert.ok(sections && sections.length === tp_tabs, `Expected ${tp_tabs} tab-content sections but found ${sections.length}.`);
-
-            sections.forEach((item, idx) => {
-                const h3 = item.querySelector("h3");
-                assert.ok( h3 && h3.innerHTML.length > 3, `Tab-content ${idx} missing heading.`);
-
-                const p = item.querySelector("p");
-                assert.ok( p && p.innerHTML.length > 3, `Tab-content ${idx} missing paragraph text.`);
-
-                const ul = item.querySelector("ul");
-                assert.ok( ul && ul.innerHTML.length > 3, `Tab-content ${idx} missing list text.`);
-            })
         });
     });
 

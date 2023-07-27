@@ -1,0 +1,102 @@
+<script>
+
+
+    /**
+     * recipeBox page is a collection of Fine Cooking recipeBox.
+     *
+     * @name recipeBox
+     * @module
+     * @memberOf Pages:recipeBox
+     * @locus Client
+     *
+     * @param {String} currentRoute - page path name
+     * @param {Object} params - any parameters from path url
+     * @param {Object} query - any query fragment from path url
+     *
+     */
+
+
+    //* page set-up boilerplate *************************************
+
+        //** setup props to receive route data (optional)
+        export let currentRoute;
+        export let params = {};
+        export let query = {};
+
+        //** page specific text and configuration
+        import {header, page} from './recipeBox_text';
+        import {pageConfig} from './recipeBox_config';
+
+        //** app support files
+        import PageHeader from "../../PageStructure/PageHeader.svelte";
+
+    //* end of page boilerplate *************************************
+
+
+    //* page-body support **************************
+    import {i18n} from '/imports/Functions/utilities/i18n';
+    import {lang, myMenus, userLoggedIn} from '/imports/client/systemStores';
+    import {deepClone} from '/imports/Functions/utilities/deepClone';
+    import schema from './recipeBox_form_schema';
+    import listArray from './recipeBox_list';
+
+    import {onMount} from "svelte";
+    import {goto} from  'svelte-pathfinder';
+    import {components} from "../../../Components/formBuilder/fields/func-registerAllFields";
+
+    import List_Form from '/imports/Components/listForm/listForm.svelte';
+
+    const pageHeader = i18n(header, "", $lang);
+    let formText = i18n(page, "form", $lang);
+    let listText = i18n(page, "list", $lang);
+    let conf = deepClone(pageConfig);
+    let user;
+
+    onMount(async () => {
+
+        /** wait for subscriber to be logged in before testing and redirecting **/
+        Meteor.setTimeout(function(){
+            if (!$userLoggedIn) {
+                goto("/login");
+            }
+        }, 100);
+
+    });
+
+    function docUpdates(msg){
+        if(msg.detail){
+            Meteor.call("getMenuList", function(err, res){
+                if(err){ console.log("getMenuList error", err); }
+
+                if(res){
+                    $myMenus = res ? res : [];
+                }
+            });
+        }
+    }
+
+</script>
+
+
+
+<PageHeader header="{pageHeader}" />
+
+<main class="main-content">
+
+    {#if !!$userLoggedIn}
+
+        <List_Form
+                confList="{conf.list}"
+                listArray="{listArray}"
+                listText="{listText}"
+                gridText="{listText.gridText}"
+                confForm="{conf.form}"
+                schema="{schema}"
+                {components}
+                formText="{formText}"
+                on:list-form-updated="{docUpdates}"
+        />
+
+    {/if}
+
+</main>

@@ -1,5 +1,5 @@
 /* test data */
-const coll = "starter";
+const coll = "favourites";
 const doc = {
   name: "Test Doc"
 };

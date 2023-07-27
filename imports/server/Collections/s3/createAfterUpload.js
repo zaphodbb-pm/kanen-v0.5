@@ -18,7 +18,7 @@ export const createAfterUpload = (bound, s3, bucket, prefix) =>
     // Run through each of the uploaded file
     Object.keys(fileRef.versions).forEach((versionName, version) => {
         const vRef = fileRef.versions[ versionName ];
-        const filePath = `${prefix}/${fileRef.name}`;
+        const filePath = `${prefix}${fileRef.name}`;
 
         // Create the AWS:S3 object.
         // Feel free to change the storage class from, see the documentation,

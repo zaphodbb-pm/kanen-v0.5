@@ -1,5 +1,5 @@
 /* file constants */
-const pageName = "changePassword";
+const pageName = "changePassword?type=change";
 
 const navLinks = 7;
 const hasHdrSubTitle = false;
@@ -115,10 +115,11 @@ describe(`page: ${pageName}`, function () {
         it("has all required form fields", function () {
             const fields = main.querySelector("form.has-form-shadow");
 
-            pageConfig.form.forEach( item => {
-                const hasField = fields.querySelector(`.fieldname--${item.field}`);
-                assert.ok(hasField, `Missing field ${item.field}.`);
-            });
+            const hasOldPassword = fields.querySelector(`.fieldname--${pageConfig.form.oldPassword.field}`);
+            assert.ok(hasOldPassword, `Missing field ${pageConfig.form.oldPassword.field}.`);
+
+            const hasNewPassword = fields.querySelector(`.fieldname--${pageConfig.form.newPassword.field}`);
+            assert.ok(hasNewPassword, `Missing field ${pageConfig.form.newPassword.field}.`);
         });
 
         it("has form submit button", function () {

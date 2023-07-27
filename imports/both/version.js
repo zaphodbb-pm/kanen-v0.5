@@ -16,9 +16,9 @@
  */
 
 export default{
-    APP_NAME: "Requiem for Fine Cooking",               // application name
-    VERSION: "1.0.0",                                   // current version number
-    LAST_UPDATE:  "July 11, 2023",                      // the most recent update date
+    APP_NAME: "Bene Victu",                             // application name
+    VERSION: "0.1.0",                                   // current version number
+    LAST_UPDATE:  "July 27, 2023",                      // the most recent update date
     COPYRIGHT: `2023 - ${(new Date()).getFullYear()}`,  // adjustable copyright notice
 }
 

@@ -1,0 +1,39 @@
+{
+  "galaxy.meteor.com":  {
+    "env":  {
+      "MONGO_URL": "mongodb+srv://eigentum:Lakeview1990DowsLake@cluster0.ymbjgxz.mongodb.net/?retryWrites=true&w=majority"
+    }
+  },
+
+
+
+  "MAIL_URL": "smtp://apikey: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@smtp.sendgrid.net:587",
+
+  "require_documentation": false,
+
+  "multi_tenancy": true,
+  "mongodb": "6.0.3",
+
+  "service_google_clientId": "",
+  "service_google_secret": "",
+
+  "s3": {
+    "key": "D8X1QAX8BVDHL6QGDGD1",
+    "secret": "2MJgTNNo85Ft91GTU4BzHm1HkhgIyLbEzBo0y16E",
+    "images_bucket": "bv-images",
+    "thumbnails_bucket": "bv-thumbnails",
+    "region": "us-east-1",
+    "endpoint": "https://oss.nodechef.com"
+  },
+
+  "public": {
+    "demo_mode": false,
+    "allow_documentation_build": false,
+    "google_maps_api_key": "",
+    "google_maps_base_uri": "",
+    "imagesRoute": "https://bv-images.oss.nodechef.com",
+    "thumbnailsRoute": "https://bv-thumbnails.oss.nodechef.com"
+  }
+}
+
+
