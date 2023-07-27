@@ -61,6 +61,7 @@ export const page = {
                     {_id: "glossary",       name: "Glossary"},
                     {_id: "history",        name: "History"},
                     {_id: "ingredient",     name: "Ingredient"},
+                    {_id: "product",        name: "Product"},
                     {_id: "recipe",         name: "Recipe"},
                     {_id: "technique",      name: "Technique"},
                     {_id: "tip",            name: "Tip"},
