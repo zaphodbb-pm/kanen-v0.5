@@ -17,7 +17,7 @@
 
 export default{
     APP_NAME: "Bene Victu",                             // application name
-    VERSION: "0.1.0",                                   // current version number
+    VERSION: "0.5.0",                                   // current version number
     LAST_UPDATE:  "July 27, 2023",                      // the most recent update date
     COPYRIGHT: `2023 - ${(new Date()).getFullYear()}`,  // adjustable copyright notice
 }
